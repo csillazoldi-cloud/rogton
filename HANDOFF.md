@@ -1,5 +1,19 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G3 — Hungarian-only interface
+
+- `@rogton/design-system` nyelvek.ts: `FELULETI_NYELVEK = ['hu']`, `ALAP_NYELV = 'hu'` (was `en`), `feluletiNyelv()`,
+  `VAN_NYELVVALASZTAS`. `NYELVEK` stays `['hu','ro','en']`: label storage, the label editor and the content languages still use it.
+- `nyelvDontes` / `hatasosNyelv` always give `hu` while there is one UI language (a `ro` account language or a Romanian-first
+  workspace still gets a Hungarian UI; its content languages are untouched). `/api/nyelv` accepts only `hu` (ro/en → 400).
+- `Nyelvvalaszto`, `NyelvValasztoSav` render nothing, the Saját fiók language field is hidden, while `VAN_NYELVVALASZTAS` is false.
+- New `probak/g3-csak-magyar.proba.ts` (9): every key has hu (DB + JSON), /api/nyelv, Romanian browser → hu page, no selector in
+  the DOM on 9 pages. Mutation (three UI languages) → 7 of 9 red.
+- 15 tests of the multi-language UI are now `skipIf(!VAN_NYELVVALASZTAS)` and 3 RO/EN-UI assertions sit under
+  `if (VAN_NYELVVALASZTAS)`, each with the reason in place (r17-nyelv, nyelv-ai 1/3/4/5/fordított, nyelv-munkater en,
+  hirfigyelo-felulet ro/en, c30-f4 RO/EN UI, feliratok 5 RO page).
+- apps/web 1086/1039/16/31: failure list identical to abfbf73; +15 skips listed above; +9 new tests.
+
 ## 2026-10-18 G2 — single-host operations files (no machine touched)
 
 - New `uzem/`: `docker-compose.yml` (project `gma`: gma-db Postgres 18, gma-app, gma-kepgyar internal-only, gma-web nginx on

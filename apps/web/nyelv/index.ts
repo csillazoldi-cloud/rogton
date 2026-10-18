@@ -1,7 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { lapFeliratai } from "../szovegek";
-import { ALAP_NYELV, NYELVEK, type Nyelv } from "@rogton/design-system";
+import { ALAP_NYELV, FELULETI_NYELVEK, type Nyelv } from "@rogton/design-system";
 import { sablonKitolt } from "./sablon";
 
 
@@ -15,14 +15,16 @@ export function nyelvKeresbol(cookieErtek: string | undefined, acceptLanguage: s
  * a nyilvános nyitólap ilyenkor mutatja a háromnyelvű választót (a választás a sütibe kerül, utána nem jön elő).
  */
 export function nyelvDontes(cookieErtek: string | undefined, acceptLanguage: string | null): { nyelv: Nyelv; eldontve: boolean } {
-  if (cookieErtek && (NYELVEK as readonly string[]).includes(cookieErtek)) {
+  // G3 (Rögtön): csak a FELÜLETI nyelvek számítanak; egyetlen felületi nyelvnél nincs mit eldönteni (nincs választó sáv)
+  if (FELULETI_NYELVEK.length === 1) return { nyelv: FELULETI_NYELVEK[0]!, eldontve: true };
+  if (cookieErtek && (FELULETI_NYELVEK as readonly string[]).includes(cookieErtek)) {
     return { nyelv: cookieErtek as Nyelv, eldontve: true };
   }
   if (acceptLanguage) {
     const nyelvek = acceptLanguage.split(",").map((resz) => resz.split(";")[0]?.trim().toLowerCase() ?? "");
     for (const nyelv of nyelvek) {
       const elso = nyelv.split("-")[0];
-      if (elso && (NYELVEK as readonly string[]).includes(elso)) {
+      if (elso && (FELULETI_NYELVEK as readonly string[]).includes(elso)) {
         return { nyelv: elso as Nyelv, eldontve: true };
       }
     }

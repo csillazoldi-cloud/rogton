@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from "react";
 import type { SajatFiokNezet, MunkaterSor, KilepValasz } from "../../sajatfiok/tipusok";
+import { VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { useFeliratok } from "../../nyelv/kliens";
 import { hivas } from "../_kozos/kliens";
 import "./sajat-fiok.css";
@@ -224,6 +225,8 @@ export function SajatFiok({ nezet }: { nezet: SajatFiokNezet }) {
             <span className="km-sf-mezo-megj">{t("sajat.email_megj")}</span>
           </div>
 
+          {/* G3 (Rögtön): csak magyar felület — a nyelv mező csak akkor látszik, ha van mit választani */}
+          {VAN_NYELVVALASZTAS ? (
           <div className="km-sf-mezo-csoport">
             <label htmlFor="sf-nyelv" className="km-sf-mezo-cimke">{t("sajatfiok.felulet_nyelve")}</label>
             <select
@@ -237,6 +240,7 @@ export function SajatFiok({ nezet }: { nezet: SajatFiokNezet }) {
               ))}
             </select>
           </div>
+          ) : null}
 
           <div className="km-sf-gomb-sor">
             <button

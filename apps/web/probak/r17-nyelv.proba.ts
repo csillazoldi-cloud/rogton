@@ -1,10 +1,12 @@
 // R-17 D (Kati 10-02; 17-ny1/ny2): a nyitólap nyelve az első látogatáskor. A böngésző nyelve dönt, ha magyar, román vagy angol; a választott
 // nyelv (km_nyelv süti) mindig nyer; ha egyik sem dönt, a háromnyelvű választó jön. Tiszta rész + élő rész (PROBA_CIM).
 import { describe, expect, it } from "vitest";
+import { VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { nyelvDontes, nyelvKeresbol } from "../nyelv";
 import { PROBA_CIM } from "./segedek";
 
-describe("a nyelv eldöntése", () => {
+// G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+describe.skipIf(!VAN_NYELVVALASZTAS)("a nyelv eldöntése", () => {
   it("a választott nyelv (süti) mindig nyer", () => {
     expect(nyelvDontes("ro", "hu-HU,hu;q=0.9")).toEqual({ nyelv: "ro", eldontve: true });
   });
@@ -24,7 +26,8 @@ describe("a nyelv eldöntése", () => {
   });
 });
 
-describe("a nyitólap (élő)", () => {
+// G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+describe.skipIf(!VAN_NYELVVALASZTAS)("a nyitólap (élő)", () => {
   const lap = async (fejlecek: Record<string, string>) => (await fetch(`${PROBA_CIM}/`, { headers: fejlecek })).text();
   it("német böngésző, süti nélkül: a háromnyelvű választó a fejléc alatt, mindhárom gomb a saját nyelvén", async () => {
     const h = await lap({ "accept-language": "de-DE,de;q=0.9" });

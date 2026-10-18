@@ -6,6 +6,7 @@
 // The browser part (egyben: the toggle starts ON, „Mindkettő” → two files -ro.png and -de.png) runs in the screenshot harness (needs the
 // képgyártó), see the decision doc.
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { PosztForras, TARTALOMNYELVEK, type PosztMunka } from "@rogton/contracts";
 import { kepCel } from "../vizual/melle";
 import { PROBA_CIM, keres, lezar, sql, sutiKinyer, takaritas, veletlenEmail } from "./segedek";
@@ -74,9 +75,12 @@ describe("F4 live: the image page and the second language", () => {
     const hu = await html("/kepek/uj/esemeny", sovata, "hu");
     expect(hu).toContain(kapcsolo("Német változat is"));
     expect(hu).not.toContain(kapcsolo("Román változat is"));
-    const ro = await html("/kepek/uj/esemeny", sovata, "ro");
-    expect(ro).toContain(kapcsolo("Și varianta în germană"));
-    expect(ro).not.toContain(kapcsolo("Și varianta în română"));
+    // RO felület: csak több felületi nyelvnél — G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+    if (VAN_NYELVVALASZTAS) {
+      const ro = await html("/kepek/uj/esemeny", sovata, "ro");
+      expect(ro).toContain(kapcsolo("Și varianta în germană"));
+      expect(ro).not.toContain(kapcsolo("Și varianta în română"));
+    }
     // the image text is translated to German through the same call the page makes
     const f = await keres<{ mezok: Record<string, string> }>("/api/vizual/fordit", { modszer: "POST", sutik: sovata, torzs: { mezok: { cim: "Saună nouă lângă Lacul Ursu", hol: "Sovata, str. Trandafirilor 12" }, cel: "de" } });
     expect(f.statusz).toBe(200);
@@ -120,7 +124,10 @@ describe("F4 live: the image page and the second language", () => {
     const h = await html("/kepek/uj/esemeny", huro);
     expect(h).toContain(kapcsolo("Román változat is"));
     expect(h).toContain(SOR);
-    expect(await html("/kepek/uj/esemeny", huro, "ro")).toContain(kapcsolo("Și varianta în română"));
-    expect(await html("/kepek/uj/esemeny", huro, "en")).toContain(kapcsolo("Romanian version too"));
+    // RO / EN felület: csak több felületi nyelvnél — G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+    if (VAN_NYELVVALASZTAS) {
+      expect(await html("/kepek/uj/esemeny", huro, "ro")).toContain(kapcsolo("Și varianta în română"));
+      expect(await html("/kepek/uj/esemeny", huro, "en")).toContain(kapcsolo("Romanian version too"));
+    }
   });
 });

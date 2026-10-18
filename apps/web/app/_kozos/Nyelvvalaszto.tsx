@@ -1,7 +1,7 @@
 "use client";
 import { useState, type ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
-import { NYELVEK } from "@rogton/design-system";
+import { FELULETI_NYELVEK, VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { useFeliratok } from "../../nyelv/kliens";
 import { apiHivas } from "./hibaszoveg";
 
@@ -10,6 +10,8 @@ export function Nyelvvalaszto({ className = "km-nyelv", rovid = false }: { class
   const { t, nyelv } = useFeliratok();
   const router = useRouter();
   const [fut, setFut] = useState(false);
+  // G3 (Rögtön): egyetlen felületi nyelvnél nincs választó (a DOM-ban sem)
+  if (!VAN_NYELVVALASZTAS) return null;
   async function valt(e: ChangeEvent<HTMLSelectElement>) {
     setFut(true);
     await apiHivas("/api/nyelv", { nyelv: e.target.value });
@@ -18,7 +20,7 @@ export function Nyelvvalaszto({ className = "km-nyelv", rovid = false }: { class
   }
   return (
     <select className={className} aria-label={t("kozos.nyelv")} value={nyelv} onChange={valt} disabled={fut}>
-      {NYELVEK.map((ny) => (
+      {FELULETI_NYELVEK.map((ny) => (
         <option key={ny} value={ny}>{rovid ? ny.toUpperCase() : t(`nyelv.${ny}`)}</option>
       ))}
     </select>

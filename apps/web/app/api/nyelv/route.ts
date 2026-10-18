@@ -1,10 +1,11 @@
-import { Nyelv, NYELV_SUTI } from "@rogton/design-system";
+import { FELULETI_NYELVEK, Nyelv, NYELV_SUTI } from "@rogton/design-system";
 import { fiokNyelvMent } from "../../../hitelesites";
 import { kapu } from "../_kapu";
 
 export const dynamic = "force-dynamic";
 
-// POST { nyelv: "hu" | "ro" | "en" } → a nyelv-süti (1 év, a kliens is olvashatja). Hibás érték: 400.
+// POST { nyelv } → a nyelv-süti (1 év, a kliens is olvashatja). Csak FELÜLETI nyelv fogadható el (G3, Rögtön: csak "hu");
+// ro / en / bármi más: 400 ERVENYTELEN_ADAT.
 // E-29c: ha van belépett fiók, a választást a FIÓKRA is elmentjük — a háttérben futó hírfigyelés
 // (ahol nincs süti) ebből tudja, milyen nyelven írja az AI az összefoglalót és az indoklást.
 export async function POST(keres: Request): Promise<Response> {
@@ -12,6 +13,7 @@ export async function POST(keres: Request): Promise<Response> {
   try {
     const test: unknown = await keres.json();
     nyelv = Nyelv.parse(typeof test === "object" && test !== null && "nyelv" in test ? test.nyelv : undefined);
+    if (!FELULETI_NYELVEK.includes(nyelv)) throw new Error("nem felületi nyelv");
   } catch {
     return Response.json({ hiba: "ERVENYTELEN_ADAT" }, { status: 400, headers: { "cache-control": "no-store" } });
   }

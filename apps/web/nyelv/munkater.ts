@@ -1,5 +1,5 @@
 import "server-only";
-import { NYELV_SUTI, type Nyelv } from "@rogton/design-system";
+import { NYELV_SUTI, FELULETI_NYELVEK, type Nyelv } from "@rogton/design-system";
 import { profilBetolt } from "../profil";
 
 /**
@@ -10,6 +10,9 @@ import { profilBetolt } from "../profil";
  * tartalomnyelvének első eleme (a fő nyelv) az irányadó — a profil `nyelvek` mezőjéből.
  */
 export async function hatasosNyelv(fiok: { nyelv: string | null }, szervezetId: string | null): Promise<Nyelv | null> {
+  // G3 (Rögtön): a felület nyelve csak felületi nyelv lehet — egy ro/en fióknyelv vagy egy román tartalomnyelvű munkatér is magyar
+  // felületet kap (a tartalom nyelve ettől nem változik, az a profil `nyelvek` mezőjében marad)
+  if (FELULETI_NYELVEK.length === 1) return FELULETI_NYELVEK[0]!;
   if (fiok.nyelv === "hu" || fiok.nyelv === "ro" || fiok.nyelv === "en") {
     return fiok.nyelv;
   }

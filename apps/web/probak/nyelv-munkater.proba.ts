@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { keres, veletlenEmail, takaritas, lezar, sutiKinyer } from "./segedek";
 import { NYELV_SUTI } from "@rogton/design-system";
 
@@ -87,7 +88,8 @@ describe("V1: a munkater nyelve visz mindent", () => {
     expect(kezdolap.torzs).toContain('lang="hu"');
   });
 
-  it("a fiok a Sajat fiokon en-t valaszt → belepes utan a suti en (a fiok valasztasa nyer)", async () => {
+  // G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+  it.skipIf(!VAN_NYELVVALASZTAS)("a fiok a Sajat fiokon en-t valaszt → belepes utan a suti en (a fiok valasztasa nyer)", async () => {
     const valtas = await keres("/api/nyelv", {
       modszer: "POST",
       torzs: { nyelv: "en" },

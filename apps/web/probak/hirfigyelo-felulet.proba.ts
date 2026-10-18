@@ -1,4 +1,5 @@
 import { describe, expect, it, beforeAll, afterAll } from "vitest";
+import { VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { keres, veletlenEmail, PROBA_CIM, lezar } from "./segedek";
 
 let sutik = "";
@@ -134,14 +135,16 @@ describe("Hírfigyelő felület élő próbái", () => {
     expect(torzs).toContain("Még nincs aktív figyelés.");
   });
 
-  it("km_nyelv=ro sütivel román cím", async () => {
+  // G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+  it.skipIf(!VAN_NYELVVALASZTAS)("km_nyelv=ro sütivel román cím", async () => {
     const valasz = await keres<unknown>("/hirfigyelo", { sutik: `${sutik}; km_nyelv=ro` });
     expect(valasz.statusz).toBe(200);
     const torzs = valasz.torzs as string;
     expect(torzs).toContain("Monitorizare știri");
   });
 
-  it("km_nyelv=en sütivel angol cím", async () => {
+  // G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+  it.skipIf(!VAN_NYELVVALASZTAS)("km_nyelv=en sütivel angol cím", async () => {
     const valasz = await keres<unknown>("/hirfigyelo", { sutik: `${sutik}; km_nyelv=en` });
     expect(valasz.statusz).toBe(200);
     const torzs = valasz.torzs as string;

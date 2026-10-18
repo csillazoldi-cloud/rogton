@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { keres, veletlenEmail, sql, takaritas, lezar } from "./segedek";
 
 describe("nyelv AI (E-29c)", () => {
@@ -84,7 +85,8 @@ describe("nyelv AI (E-29c)", () => {
   });
 
   // 1. POST /api/nyelv ro -> 204, süti beáll, fiok.nyelv ro
-  it("1. nyelvvaltas ro: 204, suti es fiok.nyelv is ro", async () => {
+  // G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+  it.skipIf(!VAN_NYELVVALASZTAS)("1. nyelvvaltas ro: 204, suti es fiok.nyelv is ro", async () => {
     const valtas = await keres("/api/nyelv", {
       modszer: "POST",
       torzs: { nyelv: "ro" },
@@ -115,7 +117,8 @@ describe("nyelv AI (E-29c)", () => {
   });
 
   // 3. Belépés nélkül is 204, de nem ment a fiókra
-  it("3. belepes nelkul is 204, de nem ment fiokra", async () => {
+  // G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+  it.skipIf(!VAN_NYELVVALASZTAS)("3. belepes nelkul is 204, de nem ment fiokra", async () => {
     const valtas = await keres("/api/nyelv", {
       modszer: "POST",
       torzs: { nyelv: "ro" },
@@ -129,7 +132,8 @@ describe("nyelv AI (E-29c)", () => {
   });
 
   // 4. A sorba tett futás viszi a nyelvet (ro)
-  it("4. futas sor tetel adat.nyelv = ro", async () => {
+  // G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+  it.skipIf(!VAN_NYELVVALASZTAS)("4. futas sor tetel adat.nyelv = ro", async () => {
     // aFiok nyelve most ro (az 1. próba óta)
     const futas = await keres<{ hirfigyelo: { sor: { id: string; adat: { nyelv: string } } } }>("/api/hirfigyelo/futas", {
       modszer: "POST",
@@ -150,7 +154,8 @@ describe("nyelv AI (E-29c)", () => {
   });
 
   // 5. ertekeles-ujra is viszi a nyelvet — SAJÁT szervezetben, mert a 4. próba tétele még a sorban áll (FUT_MAR)
-  it("5. ertekeles-ujra sor tetel adat.nyelv = ro", async () => {
+  // G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+  it.skipIf(!VAN_NYELVVALASZTAS)("5. ertekeles-ujra sor tetel adat.nyelv = ro", async () => {
     const c = await fiokLetrehozas();
     const sutik = c.sutik;
     await keres("/api/nyelv", { modszer: "POST", torzs: { nyelv: "ro" }, sutik });
@@ -187,7 +192,8 @@ describe("nyelv AI (E-29c)", () => {
 
 // A prompt nyelvi keretezésének próbái E-31 óta a @rogton/news-monitor-promptok csomagban élnek (oda költöztek a promptok).
 describe("nyelvet még nem váltott fiók (fordított ellenőrzésből)", () => {
-  it("a nyelv-süti dönt, ha a fiókon nincs mentett nyelv", async () => {
+  // G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+  it.skipIf(!VAN_NYELVVALASZTAS)("a nyelv-süti dönt, ha a fiókon nincs mentett nyelv", async () => {
     const email = veletlenEmail();
     const jelszo = "ProbaJelszo123!";
     await keres("/api/fiok/regisztracio", { modszer: "POST", torzs: { nev: "Nyelvvaltas nelkul", email, jelszo } });

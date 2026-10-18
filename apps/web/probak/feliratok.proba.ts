@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { keres, veletlenEmail, sql, takaritas, lezar } from "./segedek";
 import {
   FeliratSzintAllapot,
@@ -328,11 +329,13 @@ describe("feliratok ket szintje — kozos alap + szervezeti feluliras (E-16)", (
     expect(cHtmlValasz.torzs).toContain("Kilépés");
     expect(cHtmlValasz.torzs).not.toContain("Kilépés innen");
 
-    // Lap: A román nyelven
-    const aRoSutik = aSutik + "; km_nyelv=ro";
-    const aRoHtmlValasz = await keres<string>("/onboarding/1", { sutik: aRoSutik });
-    expect(aRoHtmlValasz.statusz).toBe(200);
-    expect(aRoHtmlValasz.torzs).toContain("Ieșire de aici");
+    // Lap: A román nyelven — csak több felületi nyelvnél. G3 (Rögtön, 2026-10-18): a felület csak magyar (FELULETI_NYELVEK = ['hu']); ez a többnyelvű FELÜLET viselkedése, amely csak több felületi nyelvnél él. A magyar-only viselkedést a g3-csak-magyar.proba.ts őrzi.
+    if (VAN_NYELVVALASZTAS) {
+      const aRoSutik = aSutik + "; km_nyelv=ro";
+      const aRoHtmlValasz = await keres<string>("/onboarding/1", { sutik: aRoSutik });
+      expect(aRoHtmlValasz.statusz).toBe(200);
+      expect(aRoHtmlValasz.torzs).toContain("Ieșire de aici");
+    }
 
     // Fejléc kilépés gombja: keressük a szöveget a HTML-ben
     // A-nál "Kilépés innen" a fejlécben is

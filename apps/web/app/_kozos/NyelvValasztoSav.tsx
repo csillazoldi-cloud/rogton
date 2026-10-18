@@ -4,11 +4,13 @@
 // nyelvén. Egy koppintás → POST /api/nyelv (a km_nyelv süti egy évre) → a lap az új nyelven frissül; a sáv ezután nem jön elő.
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { VAN_NYELVVALASZTAS } from "@rogton/design-system";
 import { apiHivas } from "./hibaszoveg";
 
 export function NyelvValasztoSav({ cimek, gombok }: { cimek: string[]; gombok: { nyelv: string; nev: string }[] }) {
   const router = useRouter();
   const [fut, setFut] = useState(false);
+  if (!VAN_NYELVVALASZTAS) return null; // G3 (Rögtön): csak magyar felület — nincs mit választani
   async function valaszt(nyelv: string) {
     setFut(true);
     await apiHivas("/api/nyelv", { nyelv });
