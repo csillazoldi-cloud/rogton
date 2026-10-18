@@ -102,6 +102,8 @@ services:
       ALBUM_MAPPA: /adatok/album
       KEPGYAR_URL: http://kepgyar:8601
       NYILVANOS_CIM: ${NYILVANOS_CIM:?a .env fájlból}
+      # G8: the floating „Visszajelzés” button — off unless the .env says exactly `be` (Csilla, 2026-10-18)
+      VISSZAJELZES_GOMB: ${VISSZAJELZES_GOMB:-ki}
     volumes:
       - ${GMA_GYOKER}/adatok/fajlok:/adatok/fajlok
       - ${GMA_GYOKER}/adatok/album:/adatok/album

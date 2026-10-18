@@ -9,6 +9,8 @@ import { aktualisFiok, aktualisSzervezet } from "../hitelesites";
 import { hatasosTema } from "../tema";
 import { semaFelismer } from "@rogton/design-system";
 import { MOD_FEJ_SZKRIPT } from "./_kozos/mod";
+import { VisszajelzesKapcsolo } from "./_kozos/VisszajelzesKapcsolo";
+import { visszajelzesGombBe } from "./_kozos/visszajelzes-gomb";
 import "./alap.css";
 import "./r18.css";
 
@@ -88,7 +90,10 @@ export default async function Keret({ children }: { children: ReactNode }) {
       <body>
         {/* R-18: a lélegző fényudvar — három elmosott folt, csak transform/opacity mozog; csökkentett mozgásnál áll */}
         <div className="km-aurora" aria-hidden="true"><span /><span /><span /></div>
-        <FeliratokSzolgaltato f={f} nyelv={nyelv}>{children}</FeliratokSzolgaltato>
+        {/* G8: a lebegő Visszajelzés gomb kérésenként a VISSZAJELZES_GOMB szerint (alapértelmezés: ki) — _kozos/VisszajelzesKapcsolo.tsx */}
+        <FeliratokSzolgaltato f={f} nyelv={nyelv}>
+          <VisszajelzesKapcsolo be={visszajelzesGombBe()}>{children}</VisszajelzesKapcsolo>
+        </FeliratokSzolgaltato>
         {/* R-18 7. kör utókör (Csilla 10-12, élőben 1512 px): a lap VÉGE — a Visszajelzés gomb és a halvány aitmetica felirat ide kerül
             (portál). A body végére tett portált a kliensoldali lapváltás a fejléc és a tartalom ELÉ tette (a React az új lap elemeit a
             body ismert utolsó gyereke elé szúrja): ez a stabil, utolsó elem garantálja, hogy mindkettő a tartalom után álljon. */}

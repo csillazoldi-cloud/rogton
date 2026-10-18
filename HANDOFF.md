@@ -1,5 +1,58 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G8 — operations: nightly backup, Mac pull, restore drill, heartbeat, Runbook (branch g8-uzem, files only)
+
+- `uzem/mentes.sh` (gyorsadmin, host): `pg_dump -Fc` in gma-db (read back with `pg_restore -l` before encryption) + `fajlok`/`album`
+  through a throwaway `gma-app:aktiv` container (root, network none, ro — gyorsadmin cannot read the uid-1000 folders) + MANIFEST
+  (commit, sha256, fiok/szervezet counts, file count) → one `age -R ~/gma/mentes-kulcs.pub` file `~/gma/mentes/napi/<date>.age`;
+  14 kept, older → `~/gma/_torolni/mentes-napi/`. Takes the deploy lock (waits ≤ 1 h). Refuses a non-`age1` key and a secret key.
+- age, not openssl: the box holds only the public key, the private one only `~/saas/vault/rogton-mentes-kulcs` on the Mac. `apt
+  install age` is the one sudo batch (Batch 18). Consequence: the drill cannot decrypt on the box — the Mac pipes the plain tar in.
+- `uzem/mentes-lehuz.sh` (Mac, bash 3.2/BSD-safe): pulls to `~/saas/mentes/rogton/`, keeps 30, test-decrypts the newest with the
+  vault key. Pull, not push to the NAS: the NAS is inside the fence's blocked range and gyorsadmin holds no credentials.
+- `uzem/mentes-visszatolt.sh`: sha256 check → throwaway `gma-proba-db` (gma-db's image + ICU locale, network none, tmpfs) →
+  `pg_restore --exit-on-error` → fiok/szervezet + file counts vs the manifest → container removed (trap). Exit 5 when counts differ.
+- `uzem/szivdobbanas.sh` every 10 min: `/api/egeszseg` 200 + `warp=on|plus` via gma-app; skips while kirak.sh holds the lock;
+  failure → one line in `~/gma/allapot/riasztas`, `helyreállt` on healing; Telegram only with BOTH `RIASZTAS_TELEGRAM_TOKEN` and
+  `RIASZTAS_TELEGRAM_CHAT` (new names — the template lists the app's old `TELEGRAM_*` as removed), only on transitions, token via
+  curl stdin; `--proba-uzenet`. Moves `~/gma/naplo` files older than 90 days to `~/gma/_torolni/naplo/`.
+- Units `gma-mentes.{service,timer}` (`OnCalendar=*-*-* 03:40:00 Europe/Budapest`, Persistent, idle IO),
+  `gma-szivdobbanas.{service,timer}` (10 min). README: Runbook on top (status, logs, redeploy, roll back to `:elozo`, tunnel token
+  rotation, Access e-mail, restore — DB renamed to `km_regi_<date>`, never dropped; power loss; reboot) + Batches 17–21.
+- Local drill (`plan-out/g8-proba.log`): PG 16 cluster on :5433 (this sandbox has no PG 18 pg_dump) with all 185 migrations +
+  accented rows/files; backup → drill ZÖLD; corrupt dump → exit 3; wrong manifest count → exit 5; secret key → refused;
+  retention 14 / 30; wrong Mac key → exit 4; heartbeat transitions and Telegram gating. The Runbook's restore commands were
+  executed against the same cluster with fake ssh/docker (rename, restore, files swapped, plaintext removed).
+- Addendum (Csilla 16:02, explicit yes): `VISSZAJELZES_GOMB` (`be`/`ki`, default `ki` in `.env.pelda` and in the compose
+  default; anything but exactly `be` = off). `layout.tsx` (force-dynamic) reads it per request (`_kozos/visszajelzes-gomb.ts`) and
+  passes it down on a context (`_kozos/VisszajelzesKapcsolo.tsx`). Off: `Visszajelzes.tsx` renders nothing and never loads
+  `VisszajelzesModulHely.tsx` (next/dynamic) — so the module and its screenshot library (html-to-image) are not even downloaded;
+  the two menu rows that fire `km-vj-indit` are hidden too (otherwise dead buttons). Kept: `/visszajelzes` admin pages, the
+  POST endpoint, the Kezdőlap "fixed yesterday" list. Tests: `g8-uzem.proba.ts` 10–14 (switch, wiring, menu rows) and the browser
+  test `g8-visszajelzes-gomb.proba.ts` (390 px, `/belepes` + `/kezdolap` with ☰ menu; needs `PROBA_VJ_GOMB` + a server started
+  with that value — skipped otherwise, reason in its header); run here with `ki` and with `be`.
+- `/api/belso/cim` now answers `application/json; charset=utf-8` on both branches (test 15).
+- Small fixes on review: `mentes.sh` creates `~/gma/allapot` itself (the lock file would fail on a box where no deploy ran yet);
+  the heartbeat's skip line says „kirakás vagy mentés fut” (the backup holds the same lock).
+- NOT VERIFIED: real Docker (busybox tar in gma-app, the postgres:18-alpine drill container, pg_dump 18 → pg_restore 18), `age` on
+  Ubuntu 26.04, systemd user timers on the box (only `systemd-analyze verify`), the real Telegram API, the Cloudflare token
+  rotation button's exact name.
+
+## 2026-10-18 Summary G0–G8 — the Rögtön clone (admin.gyorsmedia.hu) on the Gigabyte
+
+- **G0** (coordinator, measured on the Gigabyte): free port 8410, ~70 GB reclaimable Docker build cache, other users' projects
+  left alone. **G1** fork cleanup (`@rogton/*`, NAS/robot/status-page tooling removed). **G2** single-host `uzem/` (compose `gma`,
+  kirak.sh timer deploy, gyorsadmin user with linger). **G3** Hungarian-only UI. **G4** identity scrub + banned-string guard
+  (`pnpm tiltott`, image/DB/crawl modes in kirak.sh). **G5/G5b** re-skin (gyorsmedia palette, Saira, » logo, dark default).
+  **G6/G7** WARP egress with kill-switch, host fence, Cloudflare Tunnel + Access. **G6b** kirak.sh hand-over, egress-restart
+  self-heal, seed accounts retired (0184). **G8** backup / drill / heartbeat / Runbook (above).
+- Measured live (coordinator): G2 deploy on the box; G6 egress on WARP with a Cloudflare exit address; G6b hand-over, self-heal
+  after `docker restart gma-egress`, seed accounts suspended. Cloudflare zone active, static site served from a Worker, tunnel
+  `gm-admin` routes `admin` → `gma-web:80`, Access being configured.
+- Open: comment scrub of old team/product names in code comments (they are tolerated by the guard only as comments; they never
+  reach the image); self-host the brand-font picker samples (`layout.tsx` TODO); README G7 step 3 describes Pages (a note says it
+  was done as a Worker; the Worker's own steps are not written down); schedule the Mac pull (launchd) on Csilla's word; clear `~/gma/_torolni/` from time to time (Csilla's click).
+
 ## 2026-10-18 G6b — kirak.sh hand-over, egress-restart self-heal, seed accounts retired (branch g6b-javitasok, files only)
 
 - Live defect 1 (deploy ran the OLD kirak.sh): after step 2 the script `cmp -s`-es itself with `$SRC/uzem/kirak.sh` and, if

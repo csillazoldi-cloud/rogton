@@ -1,0 +1,10 @@
+# Rögtön heartbeat — user unit of gyorsadmin. Site health + WARP through gma-app; one line per run in
+# ~/gma/naplo/szivdobbanas-<YYYYMM>.log, failures also in ~/gma/allapot/riasztas.
+[Unit]
+Description=Rögtön szívdobbanás (életjel + WARP)
+
+[Service]
+Type=oneshot
+Environment=GMA_GYOKER=%h/gma
+ExecStart=/bin/bash %h/admin/uzem/szivdobbanas.sh
+TimeoutStartSec=2min

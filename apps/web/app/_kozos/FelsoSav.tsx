@@ -22,6 +22,7 @@ import { R15Ikon } from "./R15Ikon";
 import { ModValto } from "./ModValto";
 import { Marka } from "./Marka";
 import { Visszajelzes, VISSZAJELZES_INDIT } from "./Visszajelzes"; // R-9: a Visszajelzés modul minden belépett lapon
+import { useVisszajelzesGomb } from "./VisszajelzesKapcsolo"; // G8: VISSZAJELZES_GOMB be/ki
 
 type AktivLap = "kezdolap" | "ugyfelprofil" | "poszt" | "kepek" | "naptar" | "iranytu" | "gephaz" | "modul" | "sajat" | "hirek" | "visszajelzes" | "beallitasok" | "nincs";
 type Nyitott = "profil" | "cegeim" | "modulok" | "fiok" | "lap" | null;
@@ -55,6 +56,7 @@ const Harang = () => (
 
 export function FelsoSav({ adat, aktiv, javitott = [] }: { adat: FelsoSavAdat; aktiv: AktivLap; /** c7 (R-15 c5 2. kör): csak a Kezdőlap adja — a saját, tegnap óta javított jelzések */ javitott?: JavitottTetel[] }) {
   const { t } = useFeliratok();
+  const vjGomb = useVisszajelzesGomb();
   const router = useRouter();
   const [nyitott, setNyitott] = useState<Nyitott>(null);
   const lapRef = useRef<HTMLDivElement>(null);
@@ -273,17 +275,20 @@ export function FelsoSav({ adat, aktiv, javitott = [] }: { adat: FelsoSavAdat; a
                   </Link>
                 ) : null}
                 <div className="r18-menu-nyelv"><Nyelvvalaszto /></div>
-                <button
-                  type="button"
-                  role="menuitem"
-                  className="r18-menu-sor"
-                  onClick={() => {
-                    bezar();
-                    window.dispatchEvent(new Event(VISSZAJELZES_INDIT));
-                  }}
-                >
-                  {t("vj.gomb")}
-                </button>
+                {/* G8: a sor csak bekapcsolt Visszajelzés gombbal (VISSZAJELZES_GOMB=be) — különben az eseményét senki sem hallgatná */}
+                {vjGomb ? (
+                  <button
+                    type="button"
+                    role="menuitem"
+                    className="r18-menu-sor"
+                    onClick={() => {
+                      bezar();
+                      window.dispatchEvent(new Event(VISSZAJELZES_INDIT));
+                    }}
+                  >
+                    {t("vj.gomb")}
+                  </button>
+                ) : null}
                 <div className="r18-menu-kilep"><KilepesGomb /></div>
               </div>
             ) : null}
@@ -370,16 +375,19 @@ export function FelsoSav({ adat, aktiv, javitott = [] }: { adat: FelsoSavAdat; a
                 {t("nav.visszajelzesek")}
               </Link>
             )}
-            <button
-              type="button"
-              className="r18-menu-sor"
-              onClick={() => {
-                bezar();
-                window.dispatchEvent(new Event(VISSZAJELZES_INDIT));
-              }}
-            >
-              {t("vj.gomb")}
-            </button>
+            {/* G8: csak bekapcsolt Visszajelzés gombbal (lásd fent) */}
+            {vjGomb ? (
+              <button
+                type="button"
+                className="r18-menu-sor"
+                onClick={() => {
+                  bezar();
+                  window.dispatchEvent(new Event(VISSZAJELZES_INDIT));
+                }}
+              >
+                {t("vj.gomb")}
+              </button>
+            ) : null}
 
             <div className="r18-menu-elval" aria-hidden="true" />
             <ModValto valtozat="sor" />

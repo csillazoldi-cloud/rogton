@@ -1,0 +1,12 @@
+# Rögtön heartbeat — every 10 minutes, first 5 minutes after boot (linger keeps user timers running without a session).
+[Unit]
+Description=Rögtön szívdobbanás 10 percenként
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=10min
+AccuracySec=30s
+Unit=gma-szivdobbanas.service
+
+[Install]
+WantedBy=timers.target

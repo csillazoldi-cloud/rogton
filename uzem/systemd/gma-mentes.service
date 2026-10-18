@@ -1,0 +1,14 @@
+# Rögtön nightly backup — user unit of gyorsadmin (~/.config/systemd/user/). Started by gma-mentes.timer at 03:40 Budapest time.
+# The script logs to ~/gma/naplo/mentes-<YYYYMM>.log; a successful run ends with „mentés kész: <file> <size>”.
+[Unit]
+Description=Rögtön éjszakai mentés (adatbázis + fájlok, age-titkosítva)
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=GMA_GYOKER=%h/gma
+ExecStart=/bin/bash %h/admin/uzem/mentes.sh
+# waits up to an hour for a running deploy (shared lock), then the dump and the tar
+TimeoutStartSec=2h
+Nice=15
+IOSchedulingClass=idle

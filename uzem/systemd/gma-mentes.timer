@@ -1,0 +1,12 @@
+# Rögtön nightly backup — 03:40 Europe/Budapest every day. Persistent: a run missed while the box was off happens after boot.
+[Unit]
+Description=Rögtön éjszakai mentés 03:40-kor
+
+[Timer]
+OnCalendar=*-*-* 03:40:00 Europe/Budapest
+Persistent=true
+RandomizedDelaySec=2min
+Unit=gma-mentes.service
+
+[Install]
+WantedBy=timers.target

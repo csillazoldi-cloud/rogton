@@ -12,11 +12,15 @@ import { munkamenetTokenKeresbol } from "../../../../hitelesites/suti";
 
 export const dynamic = "force-dynamic";
 
+// G8 (Csilla, 2026-10-18): a Response.json „application/json”-t ad charset nélkül — a telefon böngészője így latin-1-nek
+// olvasta, és az ékezetek összetörtek. A válasz minden ágon kimondja az UTF-8-at.
+const FEJLECEK = { "cache-control": "no-store", "content-type": "application/json; charset=utf-8" } as const;
+
 export async function GET(keres: Request): Promise<Response> {
   // Biztonsági felülvizsgálat 2026-09-10 (K-07): mérő végpont, de NEM nyilvános. Csak rendszergazda.
   const fiok = await aktualisFiok(munkamenetTokenKeresbol(keres));
   if (!fiok?.rendszergazda) {
-    return Response.json({ hiba: "NINCS_JOG" }, { status: 403, headers: { "cache-control": "no-store" } });
+    return Response.json({ hiba: "NINCS_JOG" }, { status: 403, headers: FEJLECEK });
   }
   const nyers = keres.headers.get("x-forwarded-for");
   return Response.json(
@@ -30,6 +34,6 @@ export async function GET(keres: Request): Promise<Response> {
       megjegyzes:
         "Ha az 'ahogy_latjuk' NEM a te valódi címed, a MEGBIZHATO_PROXY_DB környezeti változót kell igazítani (docs/UZEMELTETES.md).",
     },
-    { headers: { "cache-control": "no-store" } },
+    { headers: FEJLECEK },
   );
 }

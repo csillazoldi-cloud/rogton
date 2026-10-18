@@ -15,13 +15,83 @@ One compose project `gma` under its own Linux user `gyorsadmin`. Nothing here to
 | the only host port | `127.0.0.1:8410` → `gma-web` (nginx) |
 | images | `gma-app:<sha12>`, `gma-kepgyar:<sha12>`, plus `:aktiv` / `:elozo` |
 | deploy | `uzem/kirak.sh` from the user timer `gma-kirak.timer` (every 2 min; no-op when origin/main is already live) |
-| log | `~/gma/naplo/kirak-<YYYYMM>.log`, build and migration logs next to it |
+| log | `~/gma/naplo/kirak-<YYYYMM>.log`, build and migration logs next to it; `mentes-…`, `szivdobbanas-…` (G8) |
+| backups (G8) | `~/gma/mentes/napi/<YYYYMMDD-HHMM>.age` nightly at 03:40 (`gma-mentes.timer`), keep 14; Mac copy `~/saas/mentes/rogton/` (keep 30); private key only in `~/saas/vault/rogton-mentes-kulcs` |
+| heartbeat (G8) | `gma-szivdobbanas.timer` every 10 min → `~/gma/allapot/riasztas` on failure; optional Telegram |
 
 Deploy steps, rollback rules and exit codes: the header of `kirak.sh`.
 
 **Order:** the timer deploys `origin/main`. Run Batch 5 only after the branch with the banned-string guard (G4) is merged
 into `main` — `kirak.sh` refuses to deploy a commit without `tools/tiltott`. Before Batch 5, a Docker prune on the box is worth
 doing (`docker builder prune` reclaims ~70 GB, measured at G0) — that is Csilla's click, not part of these batches.
+
+## Runbook
+
+Everything below runs from the Mac. `ssh -n gma` = as gyorsadmin on the Gigabyte. Reasons for the backup design:
+`docs/decisions/2026-10-18-g8-mentes.md`.
+
+**Status** — is it up, what failed lately, are the timers alive:
+```bash
+ssh -n gma 'curl -s 127.0.0.1:8410/api/egeszseg; echo; docker ps --filter name=gma- --format "{{.Names}} {{.Status}}"'
+ssh -n gma 'tail -3 ~/gma/allapot/riasztas 2>/dev/null; ls ~/gma/allapot/szivdobbanas-hiba 2>/dev/null && echo "MOST IS HIBA VAN"'
+ssh -n gma 'systemctl --user list-timers --no-pager | grep gma-; ls -1 ~/gma/mentes/napi | tail -2'
+```
+Healthy: `{"allapot":"ok",…}`, all gma containers Up (egress `healthy`), no `MOST IS HIBA VAN`, three gma timers, last night's backup.
+
+**Logs:** `ssh -n gma 'tail -40 ~/gma/naplo/kirak-$(date +%Y%m).log'` — same for `mentes-…` and `szivdobbanas-…`;
+a container: `ssh -n gma 'docker logs --tail 50 gma-app'` (or gma-egress, gma-tunnel, gma-web, gma-db).
+
+**Redeploy by hand** (the commit on `main` again, e.g. after a failed run): `ssh -n gma 'bash ~/admin/uzem/kirak.sh --kenyszer; echo KOD=$?'`
+— it hands over to the kirak.sh of the commit it deploys. Exit codes: the header of `kirak.sh`.
+
+**Roll back to `:elozo`.** First choice: revert the bad commit on GitHub — the timer deploys the revert like any commit.
+Emergency only, and only if the bad deploy ran NO migration (its log has no `lefutott:` line — if it did, restore a backup instead):
+```bash
+ssh -n gma 'grep -E "kirakás:|lefutott:" ~/gma/naplo/kirak-$(date +%Y%m).log | tail -4'
+ssh -n gma 'cd ~/gma && for k in gma-app gma-kepgyar; do docker tag $k:elozo $k:aktiv; done && docker compose -p gma --env-file .env -f forras/$(cut -c1-12 allapot/kint)/uzem/docker-compose.yml up -d --no-build app kepgyar'
+ssh -n gma 'sleep 20; curl -s 127.0.0.1:8410/api/egeszseg'
+```
+The timer leaves it there until the next commit on `main` (it sees nothing new), so push the revert soon.
+
+**Rotate the tunnel credential:** Cloudflare → Zero Trust → Networks → Tunnels → `gm-admin` → Configure → the button that issues a
+new token (it invalidates the old one) → copy the token into `~/saas/vault/rogton-cf-tunnel-token.txt`. Then run the first line of
+Batch 13, and `ssh -n gma 'cd ~/gma && docker compose -p gma --env-file .env -f forras/$(cut -c1-12 allapot/kint)/uzem/docker-compose.yml up -d --no-build --force-recreate tunnel'`.
+Check: `ssh -n gma 'sleep 15; docker logs --tail 20 gma-tunnel 2>&1 | grep -c "Registered tunnel connection"'` ≥ 1.
+
+**Add an Access e-mail:** Cloudflare → Zero Trust → Access → Applications → `Rögtön admin` → Policies → `Engedélyezett` → Include →
+Emails → add the address → Save. Nothing on the box changes. Then add the same person in the app (Fiókok) — Access only opens the door.
+
+**Restore a backup** (a decision, not routine — first run the drill on the chosen file, Batch 20 line 3, and see ZÖLD). The live
+database is renamed, never dropped; the old file folders are renamed, never deleted.
+1. Stop and keep what is there now (the third line takes the NEWEST Mac copy — put the chosen file's path there if it is another one):
+```bash
+ssh -n gma 'systemctl --user stop gma-kirak.timer gma-szivdobbanas.timer && docker stop gma-app gma-kepgyar'
+ssh -n gma 'docker exec gma-db pg_dump -Fc -U km_tulaj -d km > ~/gma/mentes/kezi-$(date +%Y%m%d-%H%M)-visszaallitas-elott.dump && ls -l ~/gma/mentes/kezi-*'
+age -d -i ~/saas/vault/rogton-mentes-kulcs "$(ls -1 ~/saas/mentes/rogton/*.age | tail -1)" | ssh gma 'mkdir -m 700 -p ~/gma/mentes/.vissza && tar -xf - -C ~/gma/mentes/.vissza && ls ~/gma/mentes/.vissza'
+```
+2. Swap the database and the files (the old ones get today's date in their name):
+```bash
+ssh -n gma "docker exec gma-db psql -U km_tulaj -d postgres -c \"SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='km'\" -c 'ALTER DATABASE km RENAME TO km_regi_'\$(date +%Y%m%d) -c \"CREATE DATABASE km OWNER km_tulaj TEMPLATE template0 LOCALE_PROVIDER icu ICU_LOCALE 'hu-HU' ENCODING UTF8\""
+ssh -n gma 'docker exec -i gma-db pg_restore -U km_tulaj -d km --exit-on-error < ~/gma/mentes/.vissza/km.dump && echo VISSZATOLTVE'
+ssh -n gma 'docker run --rm -i --network none --user 0 -v ~/gma/adatok:/a --entrypoint sh gma-app:aktiv -c "mv /a/fajlok /a/fajlok.regi-$(date +%Y%m%d) && mv /a/album /a/album.regi-$(date +%Y%m%d) && tar -xf - -C /a && chown -R 1000:1000 /a/fajlok /a/album" < ~/gma/mentes/.vissza/fajlok-album.tar'
+```
+3. Start again and clean the plaintext copy:
+```bash
+ssh -n gma 'docker start gma-kepgyar gma-app && systemctl --user start gma-kirak.timer gma-szivdobbanas.timer && rm -rf ~/gma/mentes/.vissza'
+ssh -n gma 'sleep 20; curl -s 127.0.0.1:8410/api/egeszseg; docker exec gma-db psql -U km_tulaj -d km -tAc "SELECT count(*) FROM fiok"'
+```
+`km_regi_<date>`, `fajlok.regi-<date>`, `album.regi-<date>` stay until Csilla decides; the database is checked in the app before anything else.
+
+**Feedback button on/off** (`VISSZAJELZES_GOMB`, default `ki` — Csilla, 2026-10-18): set the line in `~/gma/.env` to `be` or `ki`
+(Batch 22 shows the edit), then `ssh -n gma 'cd ~/gma && docker compose -p gma --env-file .env -f forras/$(cut -c1-12 allapot/kint)/uzem/docker-compose.yml up -d --no-build app'`.
+No rebuild: the app reads it per request. `ki` hides the floating button, its screenshot script and the menu's „Visszajelzés”
+row on every page; the `/visszajelzes` admin pages stay.
+
+**Power loss:** nothing to do. Docker restarts the containers (`restart: unless-stopped`), the tunnel dials out again by itself, the
+timers resume (a missed 03:40 backup runs after boot — `Persistent=true`). Check with **Status** once the box is back.
+
+**Gigabyte reboot:** the same — gyorsadmin has linger, so its user timers run without anyone logged in. `ssh -n gma 'systemctl --user list-timers --no-pager'`
+must list `gma-kirak`, `gma-mentes`, `gma-szivdobbanas`. The fence comes back with `gma-kerites.service` (root unit).
 
 ## G2 batches
 
@@ -149,7 +219,7 @@ Output must show: four `TILTVA` lines (NAS, Tailscale, the host's own port, anot
 
 1. **Account:** dash.cloudflare.com, sign up with your Gmail, turn on 2FA.
 2. **Zone:** Add a domain → `gyorsmedia.hu` → Free plan. Keep the imported records; there is no MX/TXT today (probe P1).
-3. **Pages (the static site):** Workers & Pages → Create → Pages → Upload assets (the site folder) → project name `gyorsmedia` → Deploy. Then Custom domains → add `gyorsmedia.hu` and `www.gyorsmedia.hu` (they activate after step 12).
+3. **Pages (the static site):** Workers & Pages → Create → Pages → Upload assets (the site folder) → project name `gyorsmedia` → Deploy. (Done as a Worker in the end — measured by the coordinator 2026-10-18; the custom domains attach the same way.) Then Custom domains → add `gyorsmedia.hu` and `www.gyorsmedia.hu` (they activate after step 12).
 4. **Tunnel:** Zero Trust → Networks → Tunnels → Create a tunnel → Cloudflared → name `gm-admin` → on the install screen copy ONLY the long token after `--token` into `~/saas/vault/rogton-cf-tunnel-token.txt` on the Mac (do not run the install command — the tunnel runs as a container) → Next.
 5. **Public hostname** (same wizard): Subdomain `admin`, Domain `gyorsmedia.hu`, Path empty → Service Type `HTTP`, URL `gma-web:80` → Save.
 6. **Access application:** Zero Trust → Access → Applications → Add → Self-hosted → name `Rögtön admin`, domain `admin.gyorsmedia.hu`, session 24 hours → Login method One-time PIN → policy `Engedélyezett`: Action Allow, Include → Emails → `csillazoldi@gmail.com` → Save.
@@ -196,3 +266,67 @@ ssh -n gma 'docker restart gma-egress >/dev/null; sleep 5; curl -s -o /dev/null 
 ssh -n gma 'sleep 170; curl -s -o /dev/null -w "3 perc mulva %{http_code}\n" 127.0.0.1:8410/belepes; grep -E "újraindult a gma-app után|nem válaszol" ~/gma/naplo/kirak-$(date +%Y%m).log | tail -1'
 ```
 Output must show: `kozvetlenul utana 502` (accepted — the app's namespace died with the restart), then `3 perc mulva 200` and the log line `gma-egress újraindult a gma-app után … — gma-app újraindítása`.
+
+## G8 batches — nightly backup, off-box copy, restore drill, heartbeat
+
+Merge `g8-uzem` into `main` first; the timer deploys it within minutes and moves `~/admin` to it (the scripts and units come from
+there). The private backup key is made on the Mac and never leaves it — **put `~/saas/vault/rogton-mentes-kulcs` in your own
+backup of the vault: without it no backup can ever be opened.**
+
+**Batch 17 — MAC** (the backup key pair; only the public half goes to the box):
+```bash
+command -v age >/dev/null || brew install age
+[ -f ~/saas/vault/rogton-mentes-kulcs ] || age-keygen -o ~/saas/vault/rogton-mentes-kulcs 2>/dev/null; chmod 600 ~/saas/vault/rogton-mentes-kulcs
+age-keygen -y ~/saas/vault/rogton-mentes-kulcs | ssh gma 'cat > ~/gma/mentes-kulcs.pub && cat ~/gma/mentes-kulcs.pub'
+ssh -n gma 'git -C ~/admin log --oneline -1; ls ~/admin/uzem/mentes.sh ~/admin/uzem/systemd/gma-mentes.timer'
+```
+Output must show: one line starting `age1`, the merged G8 commit, and both files listed.
+
+**Batch 18 — GIGABYTE (the ONE sudo batch of G8 — run it in an interactive `ssh gigabyte` session, it asks for your password once):**
+```bash
+sudo apt-get install -y age
+age --version
+```
+Output must show: a version line (e.g. `v1.2.1`) — Ubuntu's `age` package from the universe repository.
+
+**Batch 19 — MAC** (timers in, first backup and first heartbeat by hand):
+```bash
+ssh -n gma 'cp ~/admin/uzem/systemd/gma-mentes.* ~/admin/uzem/systemd/gma-szivdobbanas.* ~/.config/systemd/user/ && systemctl --user daemon-reload && systemctl --user enable --now gma-mentes.timer gma-szivdobbanas.timer'
+ssh -n gma 'systemctl --user start gma-mentes.service; tail -4 ~/gma/naplo/mentes-$(date +%Y%m).log'
+ssh -n gma 'systemctl --user start gma-szivdobbanas.service; tail -1 ~/gma/naplo/szivdobbanas-$(date +%Y%m).log'
+ssh -n gma 'systemctl --user list-timers --no-pager | grep gma-'
+```
+Output must show: `adatbázis: … fiok/szervezet: …`, `fájlok: …`, `mentés kész: /home/gyorsadmin/gma/mentes/napi/<date>.age <size>`;
+`rendben: életjel 200, warp=on`; three timers (`gma-kirak`, `gma-mentes` next at 03:4x, `gma-szivdobbanas`).
+
+**Batch 20 — MAC** (the copy to the Mac, then the restore drill on it):
+```bash
+mkdir -p ~/saas/rogton-uzem && scp -q gma:admin/uzem/mentes-lehuz.sh ~/saas/rogton-uzem/
+bash ~/saas/rogton-uzem/mentes-lehuz.sh
+age -d -i ~/saas/vault/rogton-mentes-kulcs "$(ls -1 ~/saas/mentes/rogton/*.age | tail -1)" | ssh gma 'bash ~/admin/uzem/mentes-visszatolt.sh -'
+ssh -n gma 'docker ps -a --filter name=gma-proba-db --format "{{.Names}}" | wc -l'
+```
+Output must show: `lehúzva: <date>.age …`, `próba-visszafejtés: rendben`, the drill's `fiok: N szervezet: M` equal to the counts at
+backup time, `visszatöltési próba: ZÖLD`, and `0` (the throwaway database is gone). Run lines 2–3 again whenever you want a fresh
+copy on the Mac; scheduling it on the Mac is an open item.
+
+**Batch 21 — MAC** (OPTIONAL: Telegram alert. Make a bot with @BotFather, save its token as `~/saas/vault/rogton-riasztas-telegram-token.txt`
+and your chat id — send the bot one message, then open `https://api.telegram.org/bot<token>/getUpdates`, `"chat":{"id":…}` — as
+`~/saas/vault/rogton-riasztas-telegram-chat.txt`):
+```bash
+ssh gma 'T=$(cat); sed -i "/^RIASZTAS_TELEGRAM_TOKEN=/d" ~/gma/.env; echo "RIASZTAS_TELEGRAM_TOKEN=$T" >> ~/gma/.env' < ~/saas/vault/rogton-riasztas-telegram-token.txt
+ssh gma 'C=$(cat); sed -i "/^RIASZTAS_TELEGRAM_CHAT=/d" ~/gma/.env; echo "RIASZTAS_TELEGRAM_CHAT=$C" >> ~/gma/.env' < ~/saas/vault/rogton-riasztas-telegram-chat.txt
+ssh -n gma 'stat -c %a ~/gma/.env; bash ~/admin/uzem/szivdobbanas.sh --proba-uzenet'
+```
+Output must show: `600`, `telegram: elküldve`, and the test message on your phone. To switch it off again: empty both lines.
+
+**Batch 22 — MAC** (the floating „Visszajelzés” button off, and the `/api/belso/cim` charset — both come with the G8 deploy itself;
+the `.env` line only makes the default explicit, so no `up -d` is needed when you run this AFTER the G8 deploy is live):
+```bash
+ssh -n gma 'sed -i "/^VISSZAJELZES_GOMB=/d" ~/gma/.env && echo "VISSZAJELZES_GOMB=ki" >> ~/gma/.env && grep -c "^VISSZAJELZES_GOMB=ki$" ~/gma/.env'
+ssh -n gma 'git -C ~/admin log --oneline -1; docker exec gma-app printenv VISSZAJELZES_GOMB'
+ssh -n gma 'curl -s -D - -o /dev/null 127.0.0.1:8410/api/belso/cim | grep -i "^content-type"'
+```
+Output must show: `1`, the merged G8 commit and `ki`, and `content-type: application/json; charset=utf-8`. Then open the site on the
+phone: no floating button bottom right, no „Visszajelzés” row in the ☰ menu. (If `printenv` prints nothing, the G8 deploy is not
+live yet — wait for it; the compose default is `ki` anyway.)
