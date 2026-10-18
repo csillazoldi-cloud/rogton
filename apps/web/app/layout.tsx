@@ -76,14 +76,10 @@ export default async function Keret({ children }: { children: ReactNode }) {
         {/* G5: a Saira, a Saira Condensed és a JetBrains Mono saját kiszolgálásról (public/betuk) — a leggyakoribb három előre töltve */}
         <link rel="preload" href="/betuk/saira-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/betuk/saira-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/betuk/jetbrains-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        {/* A Google Fonts sor az arculat (cég) betűválasztójának mintáihoz marad (Sora, Archivo, Public Sans, …) — a felület betűi már nem innen jönnek. */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
-        />
+        <link rel="preload" href="/betuk/saira-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* G5b (Rögtön, 2026-10-18): a márkabetű-választó mintái NEM töltődnek a Google Fonts-ról a látogató böngészőjébe (adatvédelem).
+            TODO (későbbi feladat): a minta-betűk (Sora, Manrope, Archivo, Public Sans, Space Grotesk, IBM Plex Sans/Mono, Cairo, Tajawal)
+            saját kiszolgálása a public/betuk alól — addig a választó mintái a tartalék betűvel látszanak. */}
         <style id="km-betuk">{betuCss("/betuk")}</style>
         <style id="km-tokenek">{cssValtozok(tokenek)}</style>
         {/* R-18: a két mód (sötét / világos) — a hatásos készlet után, erősebb választóval (design-system modCss) */}

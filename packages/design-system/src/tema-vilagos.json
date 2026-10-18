@@ -1,7 +1,7 @@
 {
   "$schema": "km-theme/2",
   "name": "Rögtön — világos mód",
-  "_megjegyzes": "G5 (Rögtön, 2026-10-18): a világos mód — fehér háttér, tinta szöveg; a fő szín itt TINTA (#0A0A0A) neonzöld szöveggel a gombokon (17:1), mert a neon fehéren olvashatatlan (1,2:1). Narancs csak kitöltés tintás szöveggel; narancs SZÖVEG fehéren a sötétebb #B83200 (6,0:1). A modok.ts ebből számolja a [data-mod] blokkot.",
+  "_megjegyzes": "G5 (Rögtön, 2026-10-18): a világos mód — fehér háttér, tinta szöveg; a fő szín itt TINTA (#0A0A0A) neonzöld szöveggel a gombokon (17:1), mert a neon fehéren olvashatatlan (1,2:1). Narancs csak kitöltés tintás szöveggel; narancs SZÖVEG fehéren a sötétebb #B83200 (6,0:1). A modok.ts ebből számolja a [data-mod] blokkot. G5b: a gombok, a menü és a címkék betűje (--font-code) is Saira Condensed; a valódi kód/azonosító helyek a --font-mono (JetBrains Mono) tokent használják.",
   "tokens": {
     "--bg": "#ffffff",
     "--bg-elev": "#f2f2f0",
@@ -22,7 +22,7 @@
     "--shadow-strength": "14",
     "--font-display": "'Saira Condensed','Saira',sans-serif",
     "--font-body": "'Saira',sans-serif",
-    "--font-code": "'JetBrains Mono',monospace",
+    "--font-code": "'Saira Condensed','Saira',sans-serif",
     "--font-display-arab": "'Cairo','Archivo',sans-serif",
     "--font-body-arab": "'Tajawal','Public Sans',sans-serif",
     "--fw-head": "700",

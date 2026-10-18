@@ -1,5 +1,16 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G5b — no „teszt” mark, Saira Condensed UI font, no Google Fonts
+
+- „teszt” chip removed from the public headers (`Keretek.tsx`); `0183_g5b_teszt_jelzes_nelkul.sql` drops „· teszt” from
+  `kezdolap.sor` (dry run INSERT 0 3).
+- `--font-code` (buttons, nav/menu items, chips, labels) → Saira Condensed in both modes; `--fs-ui` 15px, `--fs-gomb` 16px,
+  `--fw-ui` 600. New `--font-mono` (JetBrains Mono) only on code/ID places: theme keys / colour codes / JSON import field / spacing
+  field, label keys, URL input, account code cell, language codes.
+- The Google Fonts stylesheet for the brand-font picker samples is gone (TODO in `layout.tsx`: self-host the samples later).
+- Tests: new `g5b-arculat.proba.ts` (4); `modok.proba` `--fs-ui` 13 → 15 px with the reason. Failure list identical to abfbf73;
+  Tibor 36/46, nothing worse than abfbf73, Kezdőlap/Posztszöveg/Képek at 390 green.
+
 ## 2026-10-18 G5 — re-skin (gyorsmedia palette, Saira, » logo, dark by default)
 
 - Tokens: `tema-sotet.json` (neon primary with ink text, orange accent, white text on ink), `tema-vilagos.json` (ink primary with

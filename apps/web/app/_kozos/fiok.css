@@ -55,7 +55,7 @@
 .km-valto { display: inline-flex; align-self: flex-start; padding: var(--ter-2); border-radius: var(--r-block); border: var(--bw) solid var(--field-border); background: var(--panel-soft); gap: var(--ter-2); }
 .km-valto button { min-height: var(--control-min-s); padding: var(--ter-5) var(--ter-9); border-radius: var(--r-btn); border: 0; background: transparent; color: var(--btn-ghost-text); font-family: var(--font-body-active); font-size: var(--fs-md); cursor: pointer; }
 .km-valto button[aria-pressed="true"] { background: var(--grad-primary); color: var(--on-primary); font-weight: var(--fw-strong); }
-.km-bemenet-mono { font-family: var(--font-code-active); }
+.km-bemenet-mono { font-family: var(--font-mono, var(--font-code-active)); }
 .km-terulet { min-height: 120px; resize: vertical; }
 .km-csatolas { display: flex; align-items: center; gap: var(--ter-5); min-height: var(--control-min); padding: var(--pad-field-y) var(--pad-field-x); border-radius: var(--r-field); border: var(--bw) dashed var(--line-dash); color: var(--text-mut); font-size: var(--fs-md); cursor: pointer; }
 .km-csatolas input { display: none; }

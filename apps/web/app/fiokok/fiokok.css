@@ -165,7 +165,7 @@
 .km-fk-sor:last-child { border-bottom: none; }
 .km-fk-cella { font-size: var(--fs-sm); color: var(--text-mut); min-width: 0; overflow-wrap: anywhere; }
 .km-fk-cella-fo { display: block; font-size: var(--fs-md); color: var(--text); overflow-wrap: anywhere; }
-.km-fk-cella-fo[data-kod="1"] { font-family: var(--font-code-active); }
+.km-fk-cella-fo[data-kod="1"] { font-family: var(--font-mono, var(--font-code-active)); }
 .km-fk-cella-alsor { display: block; font-size: var(--fs-xs); color: var(--text-dim); margin-top: var(--ter-1); overflow-wrap: anywhere; }
 .km-fk-halvany { color: var(--text-faint); }
 .km-fk-ures { padding: var(--ter-10); text-align: center; font-size: var(--fs-sm); color: var(--text-dim); }

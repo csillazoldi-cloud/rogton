@@ -59,7 +59,7 @@ describe("R-18 módok", () => {
     expect(css).toContain(':root[data-mod="vilagos"]{');
     expect(css).toContain("--bg:#0a0a0a");
     expect(css).toContain("--bg:#ffffff");
-    expect(css).toContain("--fs-ui:13px");
+    expect(css).toContain("--fs-ui:15px"); // G5b: a UI-betű Saira Condensed, a sűrített betűhöz 15 px (volt JetBrains Mono 13 px)
     expect(css).not.toMatch(/[<]/);
   });
 

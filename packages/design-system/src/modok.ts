@@ -96,11 +96,13 @@ export const MOD_SAJAT: Record<Mod, Record<string, string>> = {
 
 /** Mindkét módban azonos R-18 tokenek: az a referencia-oldal betűrendje (IRANYOK-round4.md), a fejléc méretei, a mozgás. */
 export const R18_KOZOS: Readonly<Record<string, string>> = {
-  "--fs-ui": "13px", // JetBrains Mono 500: felső menü, menüsorok, gombok, cselekvő linkek
-  "--fw-ui": "500",
-  "--fs-gomb": "14px", // fő gomb
-  "--fs-ui-kicsi": "11.5px", // telefonos csempék, számjelvény
-  "--fs-cimke": "12px", // csoportcímek, „Készül a kép”
+  "--fs-ui": "15px", // G5b: Saira Condensed 500 (volt JetBrains Mono 13px): felső menü, menüsorok, gombok, cselekvő linkek
+  "--fw-ui": "600", // G5b: Saira Condensed 600 (500 nincs kiszolgálva)
+  "--fs-gomb": "16px", // fő gomb (G5b: a sűrített betűhöz nagyobb)
+  "--fs-ui-kicsi": "13px", // telefonos csempék, számjelvény
+  "--fs-cimke": "13px", // csoportcímek, „Készül a kép”
+  // G5b: a valódi kód / azonosító helyek betűje (téma-kulcsok, színkódok, feliratkulcsok, nyelvkódok, URL-mező) — a többi UI-szöveg Saira Condensed
+  "--font-mono": "'JetBrains Mono',monospace",
   "--ls-h1": "0em", // G5: Saira Condensed — a sűrített betű nem kér szorosabb betűközt
   "--ls-h2": "0.005em",
   "--jel-h": "20px", // G5: a » jel (= a név nagybetűinek) magassága a felső sávban (asztal)

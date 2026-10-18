@@ -1,7 +1,7 @@
 {
   "$schema": "km-theme/2",
   "name": "Rögtön — sötét mód (alap)",
-  "_megjegyzes": "G5 (Rögtön, 2026-10-18): a sötét mód — tinta háttér #0A0A0A, fehér szöveg, neonzöld #D0FF2C a fő szín (tintás szöveggel: 17:1), narancs #FF4501 csak másodlagos kiemelés / hover (tintás szöveggel 5,8:1; fehér szöveg narancson SOHA). Betűk: Saira Condensed (címek), Saira (szöveg), saját kiszolgálásról. Ez az alap mód. A modok.ts ebből számolja a [data-mod] blokkot.",
+  "_megjegyzes": "G5 (Rögtön, 2026-10-18): a sötét mód — tinta háttér #0A0A0A, fehér szöveg, neonzöld #D0FF2C a fő szín (tintás szöveggel: 17:1), narancs #FF4501 csak másodlagos kiemelés / hover (tintás szöveggel 5,8:1; fehér szöveg narancson SOHA). Betűk: Saira Condensed (címek), Saira (szöveg), saját kiszolgálásról. Ez az alap mód. A modok.ts ebből számolja a [data-mod] blokkot. G5b: a gombok, a menü és a címkék betűje (--font-code) is Saira Condensed; a valódi kód/azonosító helyek a --font-mono (JetBrains Mono) tokent használják.",
   "tokens": {
     "--bg": "#0a0a0a",
     "--bg-elev": "#141414",
@@ -22,7 +22,7 @@
     "--shadow-strength": "45",
     "--font-display": "'Saira Condensed','Saira',sans-serif",
     "--font-body": "'Saira',sans-serif",
-    "--font-code": "'JetBrains Mono',monospace",
+    "--font-code": "'Saira Condensed','Saira',sans-serif",
     "--font-display-arab": "'Cairo','Archivo',sans-serif",
     "--font-body-arab": "'Tajawal','Public Sans',sans-serif",
     "--fw-head": "700",

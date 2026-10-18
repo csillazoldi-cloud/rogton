@@ -17,9 +17,8 @@ export function FiokOldal({ fejlecJobb, children, r15 = false }: { fejlecJobb: R
       <div className="km-tartalom">
         <header className={r15 ? "km-fejlec r15b-fejlec" : "km-fejlec"} data-r15={r15 ? "sotet-sav" : undefined}>
           <div className="km-fejlec-bal">
-            {/* R-18 2. kör: a/t jel + termék neve (mint a belépett lapok sávjában) */}
+            {/* a » jel + a termék neve (mint a belépett lapok sávjában); G5b: a „teszt” jelvény kikerült */}
             <Marka nev={t("fejlec.termeknev")} />
-            <div className="km-jelveny">{t("kozos.teszt_jelveny")}</div>
           </div>
           <div className="km-fejlec-jobb">
             {r15 ? (

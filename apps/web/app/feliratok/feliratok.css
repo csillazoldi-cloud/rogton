@@ -70,5 +70,5 @@
 .km-feliratok-nyelvfulek { display: flex; gap: var(--ter-2); background: var(--field-bg); border: var(--bw) solid var(--line-soft); border-radius: var(--r-btn); padding: var(--ter-2); width: fit-content; margin-bottom: var(--ter-7); }
 .km-feliratok-nyelvfulek [role="tab"] { min-height: var(--control-min-s); border: none; background: none; color: var(--text-mut); border-radius: var(--r-btn); padding: var(--ter-3) var(--ter-7); font-family: var(--font-body-active); font-size: var(--fs-sm); cursor: pointer; }
 .km-feliratok-nyelvfulek [role="tab"][aria-selected="true"] { background: var(--btn-ghost-bg); border: var(--bw) solid var(--btn-ghost-border); color: var(--text); font-weight: var(--fw-strong); }
-.km-feliratok-kulcs-halk { font-family: var(--font-code-active); font-size: var(--fs-xs); color: var(--text-faint); }
+.km-feliratok-kulcs-halk { font-family: var(--font-mono, var(--font-code-active)); font-size: var(--fs-xs); color: var(--text-faint); }
 .km-feliratok-referencia { color: var(--text-dim); font-size: var(--fs-sm); margin-top: var(--ter-3); }

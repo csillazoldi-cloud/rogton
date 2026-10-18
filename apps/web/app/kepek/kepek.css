@@ -60,7 +60,7 @@
 .km-vz-mezo-kot { font-size: var(--fs-xs); color: var(--text-dim); }
 .km-vz-nyelvek { display: flex; flex-direction: column; gap: var(--ter-4); }
 .km-vz-nyelv-sor { display: grid; grid-template-columns: var(--ter-13) minmax(0, 1fr); gap: var(--ter-5); align-items: center; }
-.km-vz-nyelv-kod { font-family: var(--font-code-active); font-size: var(--fs-xs); color: var(--text-dim); }
+.km-vz-nyelv-kod { font-family: var(--font-mono, var(--font-code-active)); font-size: var(--fs-xs); color: var(--text-dim); }
 .km-vz-mezo-be {
   box-sizing: border-box; width: 100%; min-height: var(--control-min); padding: var(--ter-5) var(--pad-field-x);
   border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--field-bg); color: var(--text);
