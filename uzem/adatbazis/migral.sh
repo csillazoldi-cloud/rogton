@@ -2,14 +2,14 @@
 # Migrációk futtatása — a db dobozban fut (docker compose exec -T db bash /migral/migral.sh).
 # Sorban, név szerint; ami már lefutott, kihagyja (_migracio tábla). Minden fájl egy tranzakció.
 #
-# R-16 TERV 1.7 R1 + NAS-szabályok (2026-09-30): MENTÉS MINDEN ADATOT ÉRINTŐ KIRAKÁS ELŐTT. Ha van új (még nem futott)
+# MENTÉS MINDEN ADATOT ÉRINTŐ KIRAKÁS ELŐTT. Ha van új (még nem futott)
 # migráció, előbb a teljes adatbázis kimentődik (pg_dump, sima SQL, gzip); ha a mentés nem sikerül vagy üres, a migráció
 # NEM fut (1-es kilépés) — a sikertelen mentés megállítja a migrációt, soha nem ugorja át. Új migráció nélkül nincs mentés.
-# Hova kerül: a dobozban /var/lib/postgresql/mentes/ — ez a db adatmappájának csatolása (./adatok/postgres), tehát a NAS-on:
-#   /volume2/docker/aitmetica-saas/adatok/postgres/mentes/<ÉÉÉÉHHNN-ÓÓPP>-elotte-<az első új migráció>.sql.gz
-# Megőrzés: az utolsó 10; a régebbiek a mentes/_torolni/ mappába kerülnek (nem törlünk — a törlés Csilla kattintása).
-# Visszaállítás egy sorban (a NAS-on, a projekt mappájában; ÜRES/újra létrehozott km adatbázisba):
-#   gunzip -c adatok/postgres/mentes/<fájl>.sql.gz | sudo docker exec -i aitmetica-saas-db psql -v ON_ERROR_STOP=1 -U km_tulaj -d km
+# Hova kerül: $MENTES_GYOKER/mentes/ a dobozban. A uzem/kirak.sh MENTES_GYOKER=/ értékkel hívja, a /mentes a gépen
+#   $GMA_GYOKER/mentes — tehát: ~/gma/mentes/<ÉÉÉÉHHNN-ÓÓPP>-elotte-<az első új migráció>.sql.gz
+# Megőrzés: az utolsó 10; a régebbiek a mentes/_torolni/ mappába kerülnek (nem törlünk — a törlés kézi döntés).
+# Visszaállítás egy sorban (ÜRES/újra létrehozott km adatbázisba):
+#   gunzip -c ~/gma/mentes/<fájl>.sql.gz | docker exec -i gma-db psql -v ON_ERROR_STOP=1 -U km_tulaj -d km
 # Próbához kívülről is futtatható: MENTES_GYOKER (alap /var/lib/postgresql) és MIGRACIOK (alap /migraciok) átírható.
 set -euo pipefail
 # T-21 (2026-09-12): egy KÜLÖN, eldobható dobozból is futhat (docker compose run --rm db …), hogy a futó db dobozt ne kelljen újraalkotni

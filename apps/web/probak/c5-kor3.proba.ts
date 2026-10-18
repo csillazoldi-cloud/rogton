@@ -74,10 +74,12 @@ describe("c5 3. kör + 100 MB", () => {
     expect(olvas("apps/web/app/fiok/arculat/betuk/Betuk.tsx")).toContain("hibaMitKulcs(hiba, true)");
   });
 
-  it("nginx: csak az /api/arculat/fajl kap 105m-et, az alap 12m marad", () => {
-    const n = olvas("nas/nginx.conf");
+  // G2 (2026-10-18): a fork nginx-e az uzem/nginx.conf (a nas/ megszűnt), és az arculati fájl korlátja 95 MB a kódban (a Cloudflare
+  // peremének ~100 MB-os korlátja alatt) — ezért az nginx 100m-et enged ezen az úton a régi 105m helyett. Az alap 12m változatlan.
+  it("nginx: csak az /api/arculat/fajl kap 100m-et, az alap 12m marad", () => {
+    const n = olvas("uzem/nginx.conf");
     expect((n.match(/client_max_body_size/g) ?? []).length).toBe(2);
     expect(n).toMatch(/\n {4}client_max_body_size 12m;/);
-    expect(n).toMatch(/location = \/api\/arculat\/fajl \{\s*client_max_body_size 105m;/);
+    expect(n).toMatch(/location = \/api\/arculat\/fajl \{\s*client_max_body_size 100m;/);
   });
 });

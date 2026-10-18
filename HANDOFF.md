@@ -1,5 +1,24 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G2 — single-host operations files (no machine touched)
+
+- New `uzem/`: `docker-compose.yml` (project `gma`: gma-db Postgres 18, gma-app, gma-kepgyar internal-only, gma-web nginx on
+  `127.0.0.1:8410`; networks `gma-belso` internal + `gma-kimeno`; G6 egress as a commented placeholder, exit country Hungary),
+  `nginx.conf` (no /allapot, no /referencia, `server_tokens off`, `access_log off`, 300 s proxy timeouts, 12m default / 100m on
+  `/api/arculat/fajl`), `.env.pelda` (every env var, NEW/COPY/REMOVED), `kirak.sh` (lock → fetch → git archive → build
+  `gma-app:<sha12>` + `gma-kepgyar:<sha12>` → tiltott guard → migral.sh backup + migrations → DB label guard → `:aktiv`/`:elozo`
+  switch → health on 127.0.0.1:8410 → crawl guard; rollback only when no migration ran), `systemd/gma-kirak.{service,timer}`,
+  `README.md` with the Gigabyte batches (Batch 2 is the one sudo batch).
+- `nas/` is gone. Tests: `nas-kotet-mappak.proba.ts` → `uzem-kotet-mappak.proba.ts` (same purpose, now on uzem/; +1 check: only
+  127.0.0.1:8410 published, db/kepgyar internal); `c5-kor3` nginx expectation 105m → 100m on `uzem/nginx.conf` (reason in place).
+- Bind mounts use absolute `$GMA_GYOKER/...` paths; kirak.sh copies config INTO the same folders so containers keep seeing them.
+- Gotcha: a bind mount of a symlinked folder keeps the old target until the container is re-created — that is why config is
+  copied into `~/gma/uzem-aktiv/`, not symlinked.
+- Gotcha: `kirak.sh` runs from `~/admin`; the checkout moves to the live commit after a successful deploy, so a kirak.sh change
+  takes effect from the next deploy.
+- NOT VERIFIED here: the Docker images were not built (this sandbox cannot pull base images); the units were only
+  `systemd-analyze verify`-ed; `kirak.sh` never ran against Docker.
+
 ## 2026-10-18 G1 — fork cleanup
 
 - Scope renamed `@km/*` → `@rogton/*`, root package `rogton`; lockfile regenerated only to drop the removed workspace (no version moved).

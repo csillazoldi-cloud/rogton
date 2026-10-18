@@ -1,0 +1,12 @@
+# Rögtön deploy timer — every 2 minutes, from 1 minute after login/boot (linger keeps it running without a session).
+[Unit]
+Description=Rögtön kirakás 2 percenként
+
+[Timer]
+OnBootSec=1min
+OnUnitInactiveSec=2min
+AccuracySec=10s
+Unit=gma-kirak.service
+
+[Install]
+WantedBy=timers.target

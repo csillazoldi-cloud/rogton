@@ -1,0 +1,14 @@
+# Rögtön deploy — user unit of gyorsadmin (~/.config/systemd/user/). Started by gma-kirak.timer every 2 minutes.
+# Does nothing when origin/main is already live; the log is in ~/gma/naplo/kirak-<YYYYMM>.log.
+[Unit]
+Description=Rögtön kirakás (origin/main → gma)
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=REPO=%h/admin
+Environment=GMA_GYOKER=%h/gma
+ExecStart=/bin/bash %h/admin/uzem/kirak.sh
+# a full build can take a while; never two at once (kirak.sh holds a lock as well)
+TimeoutStartSec=40min
+Nice=10

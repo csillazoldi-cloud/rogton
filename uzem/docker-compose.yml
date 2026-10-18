@@ -1,0 +1,121 @@
+# Rögtön — compose project `gma` on a single host. Started only by uzem/kirak.sh (or by hand with the same flags):
+#   docker compose -p gma --env-file "$GMA_GYOKER/.env" -f uzem/docker-compose.yml up -d --no-build
+#
+# Four services:
+#   db       — PostgreSQL 18, internal network only; data in $GMA_GYOKER/adatok/postgres, pre-migration dumps in $GMA_GYOKER/mentes
+#   app      — the Next.js app (image gma-app:aktiv, built by kirak.sh); internal + outbound network (OpenAI, news feeds)
+#   kepgyar  — the image maker (gma-kepgyar:aktiv), internal network ONLY: no host port, no outbound traffic
+#   web      — nginx, the only published port: 127.0.0.1:8410 (never 0.0.0.0)
+#
+# Every bind-mount source is an ABSOLUTE path under $GMA_GYOKER (kirak.sh copies the config files there on each deploy), so a
+# deploy never re-creates the db container just because the source checkout moved, and data never lives in a named volume.
+# No Docker HEALTHCHECKs on purpose: kirak.sh checks health from outside after each deploy.
+name: gma
+
+x-naplo: &naplo
+  driver: json-file
+  options: { max-size: "5m", max-file: "3" }
+
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: gma-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: km
+      POSTGRES_USER: km_tulaj
+      POSTGRES_PASSWORD: ${KM_TULAJ_JELSZO:?a .env fájlból}
+      KM_APP_JELSZO: ${KM_APP_JELSZO:?a .env fájlból}
+      POSTGRES_INITDB_ARGS: "--locale-provider=icu --icu-locale=hu-HU --encoding=UTF8"
+      TZ: Europe/Budapest
+    command: ["postgres", "-c", "shared_buffers=128MB", "-c", "max_connections=40"]
+    volumes:
+      - ${GMA_GYOKER:?a .env fájlból}/adatok/postgres:/var/lib/postgresql
+      - ${GMA_GYOKER}/mentes:/mentes
+      - ${GMA_GYOKER}/uzem-aktiv/adatbazis/init:/docker-entrypoint-initdb.d:ro
+      - ${GMA_GYOKER}/uzem-aktiv/adatbazis/migral.sh:/migral/migral.sh:ro
+      - ${GMA_GYOKER}/uzem-aktiv/migraciok:/migraciok:ro
+    networks: [belso]
+    mem_limit: 768m
+    logging: *naplo
+
+  app:
+    image: gma-app:aktiv
+    container_name: gma-app
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      TZ: Europe/Budapest
+      DATABASE_URL: postgres://km_app:${KM_APP_JELSZO}@db:5432/km
+      # AI: openai for both the main features and the news monitor; the key is in the .env only
+      AI_SZOLGALTATO: ${AI_SZOLGALTATO:-openai}
+      HF_AI_SZOLGALTATO: ${HF_AI_SZOLGALTATO:-openai}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?a .env fájlból}
+      OPENAI_MODELL: ${OPENAI_MODELL:-gpt-5-mini}
+      AI_HAVI_KERET_USD: ${AI_HAVI_KERET_USD:?a .env fájlból}
+      AI_RENDSZER_KERET_USD: ${AI_RENDSZER_KERET_USD:?a .env fájlból}
+      # the first system admin: the account with this e-mail gets the admin mark at login
+      RENDSZERGAZDA_EMAIL: ${RENDSZERGAZDA_EMAIL:?a .env fájlból}
+      HF_FUTTATO: ${HF_FUTTATO:-1}
+      # trusted reverse proxies in front of the app (cloudflared + nginx = 2) — MEASURE on /api/belso/cim after go-live
+      MEGBIZHATO_PROXY_DB: ${MEGBIZHATO_PROXY_DB:-2}
+      FAJL_MAPPA: /adatok/fajlok
+      ALBUM_MAPPA: /adatok/album
+      KEPGYAR_URL: http://kepgyar:8601
+      NYILVANOS_CIM: ${NYILVANOS_CIM:?a .env fájlból}
+    volumes:
+      - ${GMA_GYOKER}/adatok/fajlok:/adatok/fajlok
+      - ${GMA_GYOKER}/adatok/album:/adatok/album
+    depends_on: [db, kepgyar]
+    networks: [belso, kimeno]
+    mem_limit: 1g
+    logging: *naplo
+
+  kepgyar:
+    image: gma-kepgyar:aktiv
+    container_name: gma-kepgyar
+    restart: unless-stopped
+    init: true
+    environment:
+      TZ: Europe/Budapest
+    networks: [belso]
+    mem_limit: 1g
+    logging: *naplo
+
+  web:
+    image: nginx:alpine
+    container_name: gma-web
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8410:80"
+    volumes:
+      - ${GMA_GYOKER}/uzem-aktiv/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on: [app]
+    networks: [belso, kimeno]
+    mem_limit: 64m
+    logging: *naplo
+
+  # G6 (TODO): the VPN egress with a kill-switch, exit country Hungary. When it lands, `app` leaves the `kimeno` network and uses
+  # `network_mode: service:egress`-style routing (or a dedicated network whose only gateway is this container), so no outbound
+  # fetch (news, websites, OpenAI) ever leaves from the office IP. Until then outbound traffic shows the host's own address.
+  # egress:
+  #   image: <VPN client image, pinned by digest>
+  #   container_name: gma-egress
+  #   restart: unless-stopped
+  #   cap_add: [NET_ADMIN]
+  #   devices: ["/dev/net/tun:/dev/net/tun"]
+  #   environment:
+  #     VPN_ORSZAG: Hungary
+  #   volumes:
+  #     - ${GMA_GYOKER}/titkok/vpn:/titkok:ro
+  #   networks: [belso, kimeno]
+  #   logging: *naplo
+
+networks:
+  # no gateway: db and kepgyar can reach nothing outside this network
+  belso:
+    name: gma-belso
+    internal: true
+  # the only network with a route out; web publishes 127.0.0.1:8410 from here
+  kimeno:
+    name: gma-kimeno

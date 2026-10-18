@@ -13,7 +13,7 @@ This repository is a frozen, self-contained fork. Hungarian-only interface; cont
 | `apps/kepgyar` | the image maker (Node + headless Chromium), internal service |
 | `apps/proba-host` | a minimal second host used by the module-portability tests |
 | `packages/*` | the modules (contracts, design system, cores, adapters) |
-| `uzem/` | operations: DB init + migration runner (compose, nginx, deploy script follow) |
+| `uzem/` | operations: compose project `gma`, nginx, deploy script, systemd units, DB init + migration runner |
 | `tools/hatar` | the boundary, token, frame and Dockerfile guards (`pnpm hatar / tokenor / keretor`) |
 | `tools/tibor-proba`, `tools/tibor-biro` | screen-simplicity checks |
 | `docs/` | module rules and decisions |
@@ -31,4 +31,4 @@ applied and the app running.
 
 ## Deploy
 
-Being rebuilt for a single host behind `127.0.0.1:8410`; see `uzem/` once it lands.
+See `uzem/README.md`. Everything runs on one host behind `127.0.0.1:8410`; nothing listens on a public interface.
