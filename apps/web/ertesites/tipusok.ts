@@ -1,6 +1,6 @@
 // F-5b (R-4): az Értesítések és adatpolitika lap szerződése — a kiszolgáló ezt adja, a lap ezt rajzolja.
 // Az értesítés FIÓK-szintű (kit hogyan érjenek el), az adatpolitika MUNKATÉR-szintű (mi történik az adatával) — a rajz adatkotes.md-je szerint.
-import type { EsemenyFajta } from "@km/esemeny-core";
+import type { EsemenyFajta } from "@rogton/esemeny-core";
 
 /** A rajz öt eseménye, ami minden tagnak szólhat — sorrendben, ahogy a „Miről szóljon" blokk mutatja. */
 export const ERTESITES_FAJTAK = ["futas_kesz", "forras_hibas", "keret_kimerult", "ai_nem_valaszol", "futas_beragadt"] as const satisfies readonly EsemenyFajta[];

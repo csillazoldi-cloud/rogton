@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { SEMAK, semaKeres, type SemaKod } from "@km/design-system";
+import { SEMAK, semaKeres, type SemaKod } from "@rogton/design-system";
 import { useFeliratok } from "../../nyelv/kliens";
 import { hivas } from "../_kozos/kliens";
 

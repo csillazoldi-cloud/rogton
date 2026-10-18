@@ -1,7 +1,7 @@
 // A8 (Kami, 2026-09-25: 2–3 szó a „Mivel foglalkoztok?” mezőben → „A megadott forrásból nem derül ki…”).
 // Tiszta próba: a túl rövid leírás az AI hívása előtt felismerhető, és a gép „nem derül ki” válasza sosem összefoglaló.
 import { describe, expect, it } from "vitest";
-import { leirasTulRovid, nemDerulKi } from "@km/onboarding-core";
+import { leirasTulRovid, nemDerulKi } from "@rogton/onboarding-core";
 
 describe("A8 — túl rövid leírás", () => {
   it("2–3 szó túl rövid", () => {

@@ -1,4 +1,4 @@
-# @km/visszajelzes-react
+# @rogton/visszajelzes-react
 
 Újrafelhasználható Visszajelzés modul (R-9): lebegő gomb → jelölő mód → buborék → küldés.
 Nem tud a befogadó adatbázisáról, végpontjairól, feliratairól — mindent a befogadó ad át.
@@ -6,8 +6,8 @@ Nem tud a befogadó adatbázisáról, végpontjairól, feliratairól — mindent
 ## Használat
 
 ```tsx
-import { VisszajelzesModul, type VisszajelzesAdat } from "@km/visszajelzes-react";
-import "@km/visszajelzes-react/stilus.css";
+import { VisszajelzesModul, type VisszajelzesAdat } from "@rogton/visszajelzes-react";
+import "@rogton/visszajelzes-react/stilus.css";
 
 <VisszajelzesModul
   kuldes={async (adat: VisszajelzesAdat) => { /* POST, 201 → true */ return true; }}

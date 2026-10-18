@@ -1,5 +1,5 @@
 import { cookies, headers } from "next/headers";
-import { NYELV_SUTI } from "@km/design-system";
+import { NYELV_SUTI } from "@rogton/design-system";
 import { feliratok, nyelvKeresbol } from "../../nyelv";
 import { oldalcim } from "../../nyelv/oldalcim";
 import { Adatkezeles } from "./Adatkezeles";

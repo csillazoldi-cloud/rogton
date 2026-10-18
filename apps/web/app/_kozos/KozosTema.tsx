@@ -1,4 +1,4 @@
-import { cssValtozok } from "@km/design-system";
+import { cssValtozok } from "@rogton/design-system";
 import { hatasosTema } from "../../tema";
 
 // 2026-09-21 (Vilmos, D3): a nyilvános lapok (nyitólap, belépés, regisztráció, jelszó, adatkezelés,

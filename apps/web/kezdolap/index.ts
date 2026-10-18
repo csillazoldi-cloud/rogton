@@ -1,24 +1,24 @@
 import "server-only";
 import { eq } from "drizzle-orm";
-import { aktivVerzio, attekintes, nezoSzerint } from "@km/news-monitor-core";
+import { aktivVerzio, attekintes, nezoSzerint } from "@rogton/news-monitor-core";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { honapVagyMost, sajatNezet } from "../koltseg";
 import { gazdaNezet } from "../koltseg";
 import { nezet as fiokokNezet } from "../fiokok";
 import { kornyezet, hostKontextus } from "../hirfigyelo";
 import { hozzaferesKornyezet, szerepFordit } from "../hozzaferes";
-import { meghivoLista, tagokLista } from "@km/hozzaferes-core";
+import { meghivoLista, tagokLista } from "@rogton/hozzaferes-core";
 import { profilBetolt } from "../profil";
 import { olvasatlanSzam } from "../ertesites";
 import { szervezetCsomag } from "../csomag";
-import { ALAP_CSOMAG_KOD, MODULOK } from "@km/contracts";
+import { ALAP_CSOMAG_KOD, MODULOK } from "@rogton/contracts";
 import { esemenyKornyezet, ertesitesLekerdez } from "../esemeny";
 import { fiokNeve } from "../szervezet/reszletek";
 import { kozosAllapot as temaKozosAllapot, szervezetTemaAllapot } from "../tema";
 import { kozosAllapot as feliratKozosAllapot, szervezetAllapot as feliratSzervezetAllapot } from "../szovegek";
 import { PENZNEMEK, type ArculatAllapot, type FelsoSavAdat, type ForrasokCsempe, type GephazNezet, type HianyzoResz, type HirfigyeloCsempe, type KezdolapNezet, type KoltsegCsempe, type Osszeg, type Penznem, type ProfilCsempe, type Szerep } from "./tipusok";
-import type { FiokNezet, SzervezetProfil } from "@km/contracts";
-import type { FeliratFelulirasok } from "@km/design-system";
+import type { FiokNezet, SzervezetProfil } from "@rogton/contracts";
+import type { FeliratFelulirasok } from "@rogton/design-system";
 
 export * from "./tipusok";
 

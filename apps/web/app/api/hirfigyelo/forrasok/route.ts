@@ -1,4 +1,4 @@
-import { forrasHozzaad } from "@km/news-monitor-core";
+import { forrasHozzaad } from "@rogton/news-monitor-core";
 import { z } from "zod";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu, valasz } from "../_kozos";
 import { hostKontextus, kornyezet } from "../../../../hirfigyelo";

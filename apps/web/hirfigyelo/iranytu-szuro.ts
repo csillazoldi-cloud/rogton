@@ -1,4 +1,4 @@
-import type { IranytuSema } from "@km/contracts";
+import type { IranytuSema } from "@rogton/contracts";
 
 // 2026-09-22 (Vilmos: „sokkal szigorúbb és személyre szabottabb szűrés”): a hírszűrő az Iránytűt is látja —
 // a célokat, amit tolni kell, és amiről a szervezet nem beszél. Csak a JÓVÁHAGYOTT iránytű számít (a tervezet nem).

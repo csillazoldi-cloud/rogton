@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import type { OnboardingPiszkozat } from "@km/contracts";
+import type { OnboardingPiszkozat } from "@rogton/contracts";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { hibaKod, hibasMezok } from "../../_kozos/hibaszoveg";
 import { OnboardingKeret, hivas, usePiszkozat } from "../_kozos/keret";

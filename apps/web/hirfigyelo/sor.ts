@@ -1,6 +1,6 @@
 import "server-only";
 import { and, eq, inArray, sql } from "drizzle-orm";
-import type { FutasHaladas } from "@km/news-monitor-core";
+import type { FutasHaladas } from "@rogton/news-monitor-core";
 import { db, sema } from "../adatbazis/kapcsolat";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";
 

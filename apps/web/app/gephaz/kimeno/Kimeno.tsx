@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { KimenoNezet } from "../../../kimeno/tipusok";
-import type { EsemenyFajta } from "@km/esemeny-core";
+import type { EsemenyFajta } from "@rogton/esemeny-core";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { hivas } from "../../_kozos/kliens";
 import { Kapcsolo } from "../../_kozos/Kapcsolo";

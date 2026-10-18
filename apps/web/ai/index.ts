@@ -3,7 +3,7 @@ import { FESZTIVAL_PROMPTOK, fesztivalPrompt } from "./fesztival-szo";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { eq, sql } from "drizzle-orm";
-import { AiHiba, anthropicSzolgaltato, tesztSzolgaltato, type Szolgaltato, type HivasMeres, claudeElofizetesSzolgaltato, codexElofizetesSzolgaltato, ollamaSzolgaltato, openaiSzolgaltato } from "@km/ai-adapters";
+import { AiHiba, anthropicSzolgaltato, tesztSzolgaltato, type Szolgaltato, type HivasMeres, claudeElofizetesSzolgaltato, codexElofizetesSzolgaltato, ollamaSzolgaltato, openaiSzolgaltato } from "@rogton/ai-adapters";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { kreditTerhel, kreditVan } from "../kredit";
 export { szovegRobusztusan } from "./szoveg";
@@ -103,7 +103,7 @@ export async function meresRogzit(szervezetId: string, m: HivasMeres, fiokId?: s
 const promptGyorsitotarak = new Map<string, string>();
 /**
  * A NEM hírfigyelő promptok (arculat, összefoglaló, javaslatok, hangnemfinomítás) az alkalmazás sajátjai.
- * A HÍRFIGYELŐ promptjai E-31 óta a `@km/news-monitor-promptok` csomagban élnek — a modul része, mindkét host onnan olvassa.
+ * A HÍRFIGYELŐ promptjai E-31 óta a `@rogton/news-monitor-promptok` csomagban élnek — a modul része, mindkét host onnan olvassa.
  */
 export async function prompt(fajl: string, nyelv: string, tartalomnyelv?: string, tipus?: string): Promise<string> {
   // ALAPTERV 3.: az AI-promptok fájlban, verziózva a tárhelyen (apps/web/prompts/, a futó alkalmazás mappájából olvasva)

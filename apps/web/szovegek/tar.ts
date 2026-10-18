@@ -7,7 +7,7 @@ import {
   type FeliratSzintAllapot,
   type FeliratVerzioFej,
   type Nyelv,
-} from "@km/design-system";
+} from "@rogton/design-system";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 // A FELIRATOK TÁROLÁSA a befogadó alkalmazásban (ALAPTERV 3.: felületi szövegek — apps/web, stabil kulcsokkal; a szabályok a

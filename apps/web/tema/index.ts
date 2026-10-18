@@ -1,6 +1,6 @@
 import "server-only";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";
-import type { HibaKod } from "@km/contracts";
+import type { HibaKod } from "@rogton/contracts";
 import { z } from "zod";
 import {
   AlapTokenek,
@@ -15,7 +15,7 @@ import {
   type KozosTemaAllapot,
   type SzervezetTemaAllapot,
   type TemaHiba,
-} from "@km/design-system";
+} from "@rogton/design-system";
 import * as tar from "./tar";
 
 export { hatasosTema, temaGyorsitotarUrit } from "./tar";

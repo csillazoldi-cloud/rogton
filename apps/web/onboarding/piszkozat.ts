@@ -1,6 +1,6 @@
 import "server-only";
 import { eq } from "drizzle-orm";
-import { OnboardingPiszkozat, type PiszkozatValasz, URES_PISZKOZAT, type HibaKod } from "@km/contracts";
+import { OnboardingPiszkozat, type PiszkozatValasz, URES_PISZKOZAT, type HibaKod } from "@rogton/contracts";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 export type Eredmeny<T> = { ok: true; ertek: T } | { ok: false; hiba: HibaKod; mezok?: Record<string, string> };

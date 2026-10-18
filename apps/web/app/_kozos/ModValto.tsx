@@ -5,7 +5,7 @@
 // Mindkettő ugyanazt a modBeallit()-ot hívja, és egymásnak eseménnyel szól. Első betöltéskor a fej szkriptje már kitette a jelölést;
 // amíg a komponens nem olvasta ki, a sötét módot feltételezi (a két ikont a CSS a jelölésből választja, így nincs villanás).
 import { useEffect, useState } from "react";
-import type { Mod } from "@km/design-system";
+import type { Mod } from "@rogton/design-system";
 import { useFeliratok } from "../../nyelv/kliens";
 import { MOD_ESEMENY, aktualisMod, modBeallit, taroltMod } from "./mod";
 

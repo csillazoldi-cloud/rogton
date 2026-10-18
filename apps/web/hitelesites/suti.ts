@@ -1,4 +1,4 @@
-import { MUNKAMENET_SUTI } from "@km/contracts";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
 
 export function munkamenetSutiBeallit(valasz: Response, token: string, lejar: Date): void {
   const secure = process.env.NODE_ENV === "production" ? "; Secure" : "";

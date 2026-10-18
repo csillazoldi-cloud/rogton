@@ -1,5 +1,5 @@
 import "server-only";
-import { NYELV_SUTI } from "@km/design-system";
+import { NYELV_SUTI } from "@rogton/design-system";
 import { nyelvKeresbol } from "./index";
 
 /**

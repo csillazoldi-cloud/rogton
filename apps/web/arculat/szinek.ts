@@ -5,9 +5,9 @@ import "server-only";
 // (`arculat_fajl.elemzes.szinek`, K1). A K1 ELŐTT feltöltött logónak nincs elemzése — ezeknek az azonosítóját a lap megkapja
 // (`elemzesNelkul`), és a böngésző ugyanazzal a tiszta függvénnyel (canvas → `logoElemzes`) megnézi; a kiszolgálón nincs canvas,
 // és a régi sort nem írjuk át (TERV 1.7 R5: csak beszúrás). A profilt a `profil/tar`-ból olvassuk, nem a `profil` bejáratából (TERV §3).
-import type { SzervezetProfil } from "@km/contracts";
-import { kepreAlkalmasLogo, LOGO_VALTOZATOK, type FajlMeta } from "@km/fajl-core";
-import { GYURU, LogoElemzes, logoSzinSor, szinJavaslatok, type JavaslatBemenet, type SzinHarmas, type SzinJavaslat } from "@km/arculat-core";
+import type { SzervezetProfil } from "@rogton/contracts";
+import { kepreAlkalmasLogo, LOGO_VALTOZATOK, type FajlMeta } from "@rogton/fajl-core";
+import { GYURU, LogoElemzes, logoSzinSor, szinJavaslatok, type JavaslatBemenet, type SzinHarmas, type SzinJavaslat } from "@rogton/arculat-core";
 import { profilTar } from "../profil/tar";
 import { fajlTar } from "../fajl/tar";
 import { arculatNezet, jovahagyottKep, type Szerep } from "./allapot";

@@ -2,7 +2,7 @@ import { kapu } from "../../../_kapu";
 import { hiba } from "../../../tema/_kozos";
 import { fajlKornyezet } from "../../../../../fajl";
 import { szerepFordit } from "../../../../../hozzaferes";
-import { MIME, fajlFolyam } from "@km/fajl-core";
+import { MIME, fajlFolyam } from "@rogton/fajl-core";
 
 export const dynamic = "force-dynamic";
 

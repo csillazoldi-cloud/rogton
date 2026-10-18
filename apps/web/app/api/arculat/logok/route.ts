@@ -2,7 +2,7 @@ import { kapu } from "../../_kapu";
 import { hiba, valasz } from "../../tema/_kozos";
 import { fajlKornyezet } from "../../../../fajl";
 import { szerepFordit } from "../../../../hozzaferes";
-import { fajlLista, hasznaltLogok, LOGO_VALTOZATOK, type FajlMeta, type LogoValtozat } from "@km/fajl-core";
+import { fajlLista, hasznaltLogok, LOGO_VALTOZATOK, type FajlMeta, type LogoValtozat } from "@rogton/fajl-core";
 
 export const dynamic = "force-dynamic";
 

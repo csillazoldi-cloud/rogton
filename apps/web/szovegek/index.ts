@@ -1,6 +1,6 @@
 import "server-only";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";
-import type { HibaKod } from "@km/contracts";
+import type { HibaKod } from "@rogton/contracts";
 import {
   FeliratTervezetKeres,
   NYELVEK,
@@ -14,7 +14,7 @@ import {
   type FeliratSzintAllapot,
   type FeliratSzotar,
   type Nyelv,
-} from "@km/design-system";
+} from "@rogton/design-system";
 import * as tar from "./tar";
 import { profilTar } from "../profil/tar";
 import { tipusOf } from "../profil/tipus-szabaly";

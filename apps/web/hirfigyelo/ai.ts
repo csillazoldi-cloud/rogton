@@ -1,8 +1,8 @@
 import "server-only";
-import { AiHiba, type HivasMeres } from "@km/ai-adapters";
-import type { AiHivo } from "@km/news-monitor-core";
-import { promptAdatBlokk, type HfFeladat } from "@km/news-monitor-core";
-import { prompt } from "@km/news-monitor-promptok";
+import { AiHiba, type HivasMeres } from "@rogton/ai-adapters";
+import type { AiHivo } from "@rogton/news-monitor-core";
+import { promptAdatBlokk, type HfFeladat } from "@rogton/news-monitor-core";
+import { prompt } from "@rogton/news-monitor-promptok";
 import { hirfigyeloSzolgaltato, keretEllenoriz, meresRogzit, jsonRobusztusan, AiKozosHiba } from "../ai";
 
 // A hírfigyelő AI-hívója (E-20): a mag AiHivo típusát valósítja meg a közös AI-csatlakozón át.

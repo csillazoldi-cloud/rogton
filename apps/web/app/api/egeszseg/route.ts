@@ -1,4 +1,4 @@
-import { EgeszsegValasz, RENDSZER_VERZIO } from "@km/contracts";
+import { EgeszsegValasz, RENDSZER_VERZIO } from "@rogton/contracts";
 
 // „Élsz még?" — a dobozkezelő és a feltöltés ellenőrzése ezt kérdezi.
 export function GET() {

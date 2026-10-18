@@ -1,9 +1,9 @@
 {
-  "name": "@km/onboarding-core",
+  "name": "@rogton/onboarding-core",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "exports": { ".": "./src/index.ts" },
   "scripts": { "tipus": "tsc --noEmit -p tsconfig.json" },
-  "dependencies": { "@km/contracts": "workspace:*", "@km/profile-core": "workspace:*" }
+  "dependencies": { "@rogton/contracts": "workspace:*", "@rogton/profile-core": "workspace:*" }
 }

@@ -4,9 +4,9 @@ import "server-only";
 // „Fájlok” számai, a honlap címe („Honnan?”), a jóváhagyás ideje és a Részletek mezői. A döntés tiszta (`arculatNezet`, próba:
 // probak/r16-arculat-allapot.proba.ts); a betöltő (`arculatAllapot`) a profilt a `profil/tar`-ból olvassa — NEM a `profil`
 // bejáratából (TERV §3: az a vizual-körbe húzna) —, a fájlokat a `fajl/tar`-ból.
-import type { ArculatLepes, ArculatPillanatkep, ArculatTervezet, LogoValtozat, SzervezetProfil } from "@km/contracts";
-import { hasznaltLogok, LOGO_VALTOZATOK, type FajlMeta } from "@km/fajl-core";
-import { BetuElemzes, betuKulcs, betuSzo, sajatBetuId, type BetuKulcs } from "@km/arculat-core";
+import type { ArculatLepes, ArculatPillanatkep, ArculatTervezet, LogoValtozat, SzervezetProfil } from "@rogton/contracts";
+import { hasznaltLogok, LOGO_VALTOZATOK, type FajlMeta } from "@rogton/fajl-core";
+import { BetuElemzes, betuKulcs, betuSzo, sajatBetuId, type BetuKulcs } from "@rogton/arculat-core";
 import { profilTar } from "../profil/tar";
 import { fajlTar } from "../fajl/tar";
 import { fiokNeve } from "../szervezet/reszletek";

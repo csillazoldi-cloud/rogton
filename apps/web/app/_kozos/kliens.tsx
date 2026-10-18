@@ -1,5 +1,5 @@
 "use client";
-import type { ArculatAllapot, MezoForras } from "@km/contracts";
+import type { ArculatAllapot, MezoForras } from "@rogton/contracts";
 import { useRef, type ChangeEvent } from "react";
 import { useFeliratok } from "../../nyelv/kliens";
 

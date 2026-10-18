@@ -3,7 +3,7 @@
 // hely (szerver és kliens, `t("iranytu.cim")`) egyetlen kódváltozás nélkül a fesztivál szövegét kapja. A szervezet saját felülírása
 // (Feliratok lap) erősebb: amit a szervezet maga írt át, azt a változat nem írja felül. A `@fesztival` kulcsok magukban soha nem
 // kerülnek a lapra (mindenkinél lekerülnek) — egy cég szótára így bájtra ugyanaz, mint eddig. Tiszta: probak/c30-f12-fesztival.proba.ts.
-import type { FeliratSzotar } from "@km/design-system";
+import type { FeliratSzotar } from "@rogton/design-system";
 
 export const FESZTIVAL_UTOTAG = "@fesztival";
 

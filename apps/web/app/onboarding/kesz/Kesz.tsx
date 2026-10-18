@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import type { SzervezetProfil } from "@km/contracts";
+import type { SzervezetProfil } from "@rogton/contracts";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { FiokOldal } from "../../_kozos/Keretek";
 import { KilepesGomb } from "../../szervezet/uj/KilepesGomb";

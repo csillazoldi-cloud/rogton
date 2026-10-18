@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { HANGNEM_LEIRAS_MAX, ProfilModositas, SzervezetProfil } from "@km/contracts";
-import { profilModositasAlkalmaz } from "@km/profile-core";
+import { HANGNEM_LEIRAS_MAX, ProfilModositas, SzervezetProfil } from "@rogton/contracts";
+import { profilModositasAlkalmaz } from "@rogton/profile-core";
 
 // Hiba 2026-09-21 (Vilmos): a Szervezet adatai lapon a „Milyen nyelven írjunk?" és a „Hogyan
 // fogalmazzunk?" szerkesztése nem mentett. Mérve: a szabad szöveges nyelvmező üres listát mentett

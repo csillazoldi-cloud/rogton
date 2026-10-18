@@ -1,6 +1,6 @@
 import "server-only";
-import { POSZT_NYELV_MODOK, ProfilModositas, Rendezveny, SzervezetProfil, type HibaKod, type PosztNyelvMod } from "@km/contracts";
-import { arculatOsszefesul, nyelvMod, profilModositasAlkalmaz } from "@km/profile-core";
+import { POSZT_NYELV_MODOK, ProfilModositas, Rendezveny, SzervezetProfil, type HibaKod, type PosztNyelvMod } from "@rogton/contracts";
+import { arculatOsszefesul, nyelvMod, profilModositasAlkalmaz } from "@rogton/profile-core";
 import { profilTar } from "./tar";
 import { peldakatFrissit } from "../vizual/peldak";
 import { nevekTisztit } from "../poszt/nevek";

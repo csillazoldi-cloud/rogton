@@ -1,4 +1,4 @@
-import { szervezetTipus, type ProgramTetel, type Rendezveny, type SzervezetProfil } from "@km/contracts";
+import { szervezetTipus, type ProgramTetel, type Rendezveny, type SzervezetProfil } from "@rogton/contracts";
 import { programNevek, szeletTetelei, programSzelet, programHorgony } from "../program/blokk";
 import { nevekSorok } from "./nevek";
 import { kinalatSorok, temaTervSorok } from "./tipus";

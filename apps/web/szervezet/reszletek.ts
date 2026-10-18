@@ -1,6 +1,6 @@
 import "server-only";
 import { eq } from "drizzle-orm";
-import type { SzervezetReszletek } from "@km/contracts";
+import type { SzervezetReszletek } from "@rogton/contracts";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 /** A szervezet és tagjai a fiókoldalhoz (E-10). `szervezetKent` alatt: csak a saját szervezet látszik. */

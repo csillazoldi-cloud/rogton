@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { ArculatLepes } from "@km/contracts";
-import { hasznaltLogoId, type FajlCel, type FajlMeta } from "@km/fajl-core";
-import { arculatModosit } from "@km/profile-core";
+import type { ArculatLepes } from "@rogton/contracts";
+import { hasznaltLogoId, type FajlCel, type FajlMeta } from "@rogton/fajl-core";
+import { arculatModosit } from "@rogton/profile-core";
 import { useFeliratok } from "../../nyelv/kliens";
 
 type FeltoltesAllapot = { tipus: "kozben"; nev: string } | { tipus: "hiba"; nev: string; kod: string };
@@ -175,7 +175,7 @@ export function ArculatAnyagok({ arculat, szerkesztheto, valtozik, celok = CELOK
         const t = await v.json() as { fajl: FajlMeta };
         if (cel === "logo" && arculat.tervezet && arculat.allapot !== "kesobb") {
           // D-F31: a logó a jelenlegi tervezetbe kerül; jóváhagyott állapotban ez ÚJ tervezetet nyit (verzió+1), a pillanatkép a régi fájlra mutat.
-          // A5 (2026-09-30): a képek már NEM ebből veszik a logót, hanem a legfrissebb logó-fájlból (`hasznaltLogoId`, @km/fajl-core) —
+          // A5 (2026-09-30): a képek már NEM ebből veszik a logót, hanem a legfrissebb logó-fájlból (`hasznaltLogoId`, @rogton/fajl-core) —
           // ezért „kesobb” és tervezet nélküli állapotban sem vész el a feltöltés. Ez az ág így ártalmatlan (a tervezet a verziótörténetnek
           // mondja, melyik logó volt), és nem töröljük: az R-16 gepezet 2. pontja (logóváltozatok, `logok` térkép) írja át.
           valtozik((r) => (r.tervezet ? arculatModosit(r, { logo_fajl_id: t.fajl.id }) : r));

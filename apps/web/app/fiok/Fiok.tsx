@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { HANGNEM_LEIRAS_MAX, SzervezetProfil, TARTALOMNYELVEK, type MezoForras, type SzervezetReszletek, type Tartalomnyelv } from "@km/contracts";
+import { HANGNEM_LEIRAS_MAX, SzervezetProfil, TARTALOMNYELVEK, type MezoForras, type SzervezetReszletek, type Tartalomnyelv } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
 import { FelsoSav } from "../_kozos/FelsoSav";
 import type { FelsoSavAdat } from "../../kezdolap/tipusok";

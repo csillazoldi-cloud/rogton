@@ -6,7 +6,7 @@ import {
   ProfilValasz,
   SzervezetProfil,
   ArculatLepes,
-} from "@km/contracts";
+} from "@rogton/contracts";
 
 describe("profil modositas a fiokoldalon (E-10)", () => {
   let sutik: string;

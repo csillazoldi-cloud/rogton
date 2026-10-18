@@ -3,10 +3,10 @@
 // listából — új hívás, új költség nincs. A kategória a tárolt példák JSON-jában él (`kep_pelda.adat.kategoria`), nincs új oszlop.
 // Tiszta modul: nem olvas adatbázist, nem hív képgyártót (a próbája: probak/c15-minta-kategoria.proba.ts).
 
-import { KATEGORIAK, kategoria, szervezetTipus, type Kategoria } from "@km/contracts";
+import { KATEGORIAK, kategoria, szervezetTipus, type Kategoria } from "@rogton/contracts";
 
 /** A zárt lista — UGYANAZ, mint apps/kepgyar/src/minta-foto.ts MINTA_KATEGORIAK (a web nem függ a képgyártó csomagjától;
- *  eltérésnél a képgyártó a semlegest adja, hiba nincs). c30 F1 (plan §1.2): the single source is now @km/contracts
+ *  eltérésnél a képgyártó a semlegest adja, hiba nincs). c30 F1 (plan §1.2): the single source is now @rogton/contracts
  *  `KATEGORIAK`; these names stay as re-exports with the same behaviour. */
 export const MINTA_KATEGORIAK = KATEGORIAK;
 export type MintaKategoria = Kategoria;

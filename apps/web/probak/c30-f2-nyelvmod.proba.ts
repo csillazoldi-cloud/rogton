@@ -4,8 +4,8 @@
 // the tolerant read of a bad stored mode. Live part (PROBA_CIM + DATABASE_URL; test AI): a [ro, de] org gets a German cell
 // through the same „Más nyelven” call the page makes.
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { POSZT_NYELV_MODOK, PosztMunka, SzervezetProfil } from "@km/contracts";
-import { masNyelvenLista, masodikNyelv, nyelvMod, profilMezokEllenoriz, profilTureloOlvas } from "@km/profile-core";
+import { POSZT_NYELV_MODOK, PosztMunka, SzervezetProfil } from "@rogton/contracts";
+import { masNyelvenLista, masodikNyelv, nyelvMod, profilMezokEllenoriz, profilTureloOlvas } from "@rogton/profile-core";
 import { keres, lezar, sql, sutiKinyer, takaritas, veletlenEmail } from "./segedek";
 
 const ALAP = {

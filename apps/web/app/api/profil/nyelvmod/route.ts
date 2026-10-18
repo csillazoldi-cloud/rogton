@@ -1,6 +1,6 @@
 import { kapu } from "../../_kapu";
 import { nyelvModMent, profilBetolt } from "../../../../profil";
-import { nyelvMod } from "@km/profile-core";
+import { nyelvMod } from "@rogton/profile-core";
 
 export const dynamic = "force-dynamic";
 

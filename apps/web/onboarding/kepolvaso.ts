@@ -1,9 +1,9 @@
 import "server-only";
-import type { FeladatTipus, HivasMeres } from "@km/ai-adapters";
+import type { FeladatTipus, HivasMeres } from "@rogton/ai-adapters";
 import { keretEllenoriz, meresRogzit, prompt } from "../ai";
 
 // R-18 7. kör (IRANYOK-round7.md 2. és 4.): képet és PDF-et olvasó gép — az étlap / árlista fotója vagy PDF-je, és a legutóbbi posztokról
-// küldött képernyőképek. A szöveges AI-csatlakozók (@km/ai-adapters) képet nem fogadnak, ezért — mint a netes kutatás (kutatas.ts) —
+// küldött képernyőképek. A szöveges AI-csatlakozók (@rogton/ai-adapters) képet nem fogadnak, ezért — mint a netes kutatás (kutatas.ts) —
 // közvetlenül az OpenAI Responses API-ját hívjuk (gpt-5-mini, képpel és PDF-fel). Kulcs nélkül, vagy a teszt-csatlakozóval
 // (AI_SZOLGALTATO=teszt) a gép minta-választ ad, hogy a lépés AI nélkül is végigpróbálható legyen. A hívást mérjük és a keretből megy.
 

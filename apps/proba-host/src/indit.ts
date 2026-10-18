@@ -11,7 +11,7 @@ import {
   javaslatDont,
   memoriaTar,
   type Visszajelzes,
-} from "@km/news-monitor-core";
+} from "@rogton/news-monitor-core";
 import { kontextus, rogzitettLetolto, tesztAi, idAdo, most, rogzitettProfil } from "./host.js";
 
 async function main(): Promise<void> {

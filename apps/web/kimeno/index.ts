@@ -1,5 +1,5 @@
 import "server-only";
-import type { FiokNezet } from "@km/contracts";
+import type { FiokNezet } from "@rogton/contracts";
 import { esemenyKornyezet, ertesitesLekerdez } from "../esemeny";
 import { KIMENO_CSOPORTOK, RENDSZERSZINTU_FAJTAK } from "./tipusok";
 import type { KimenoNezet } from "./tipusok";

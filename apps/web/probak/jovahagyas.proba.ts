@@ -8,7 +8,7 @@ import {
   ProfilValasz,
   OnboardingPiszkozat,
   ArculatLepes,
-} from "@km/contracts";
+} from "@rogton/contracts";
 
 describe("arculat javaslat es profil jovahagyas (E-9)", () => {
   let sutik: string;

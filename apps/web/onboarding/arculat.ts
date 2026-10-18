@@ -1,6 +1,6 @@
 import "server-only";
-import { AiHiba, type HivasMeres } from "@km/ai-adapters";
-import { ArculatTervezet, type ArculatJavaslatValasz, type OnboardingPiszkozat } from "@km/contracts";
+import { AiHiba, type HivasMeres } from "@rogton/ai-adapters";
+import { ArculatTervezet, type ArculatJavaslatValasz, type OnboardingPiszkozat } from "@rogton/contracts";
 import { meresRogzit, prompt, szolgaltato } from "./osszefoglalo";
 import { JavaslatHiba, jsonRobusztusan, keretVagyJavaslatHiba, tartalomnyelv } from "./javaslatok";
 import { cegKutatas, honlapSzineiLetolt } from "./kutatas";

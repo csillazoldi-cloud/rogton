@@ -1,10 +1,10 @@
 // A HOST csatlakozói: rögzített profil, kontextus, letöltő, teszt-AI, idő- és azonosító-adó.
-import { SzervezetProfil } from "@km/contracts";
-import type { AiHivo, HostKontextus } from "@km/news-monitor-core";
-import type { Forras } from "@km/news-monitor-core";
-import type { Letolto } from "@km/news-monitor-core";
+import { SzervezetProfil } from "@rogton/contracts";
+import type { AiHivo, HostKontextus } from "@rogton/news-monitor-core";
+import type { Forras } from "@rogton/news-monitor-core";
+import type { Letolto } from "@rogton/news-monitor-core";
 
-/** Rögzített profil a @km/contracts sémája szerint: „Minta Műhely” bútorműhely, hu+ro nyelvek, jóváhagyott arculat.
+/** Rögzített profil a @rogton/contracts sémája szerint: „Minta Műhely” bútorműhely, hu+ro nyelvek, jóváhagyott arculat.
  *  A hostnak ez a KÖZÖS profilja — a modul csak olvassa (a Kornyezet.profil-ban kapja). */
 export const rogzitettProfil: SzervezetProfil = SzervezetProfil.parse({
   nev: "Minta Műhely",

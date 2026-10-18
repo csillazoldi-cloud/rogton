@@ -6,8 +6,8 @@
 //  · élő (adatbázis): egy jóváhagyott fesztivál peldakFrissen-je fotoKategoria = rendezveny, a `kategoria` (a példáké) nem változik;
 //    egy jóváhagyott cégé = a kategóriája. A példák ujjlenyomata nem változik (nincs újraírás, nincs AI-költség).
 import { readFileSync } from "node:fs";
-import { kepMeret } from "@km/fajl-core";
-import { OnboardingPiszkozat } from "@km/contracts";
+import { kepMeret } from "@rogton/fajl-core";
+import { OnboardingPiszkozat } from "@rogton/contracts";
 import { afterAll, describe, expect, it } from "vitest";
 import { MINTA_FOTO_KATEGORIAK, fotoKategoria } from "../vizual/minta-kategoria";
 import { peldakFrissen } from "../vizual/peldak";

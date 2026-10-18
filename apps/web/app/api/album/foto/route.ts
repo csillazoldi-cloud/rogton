@@ -1,7 +1,7 @@
 import { kapu } from "../../_kapu";
 import { hiba, valasz } from "../../tema/_kozos";
 import { szerepFordit } from "../../../../hozzaferes";
-import { ALBUM_MAX_MERET_BAJT } from "@km/fajl-core";
+import { ALBUM_MAX_MERET_BAJT } from "@rogton/fajl-core";
 import { eldob, korlatosBeolvas } from "../../../../fajl/beolvas";
 import { AlbumKulcs, albumFotoFeltolt, albumFotok } from "../../../../album";
 import { posztTar } from "../../../../poszt/tar";

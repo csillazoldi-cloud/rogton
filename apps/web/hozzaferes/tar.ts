@@ -1,9 +1,9 @@
 import "server-only";
 import { and, eq, sql } from "drizzle-orm";
-import type { Meghivo, MeghivoTar, Tag, TagsagTar } from "@km/hozzaferes-core";
+import type { Meghivo, MeghivoTar, Tag, TagsagTar } from "@rogton/hozzaferes-core";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 
-// A `@km/hozzaferes-core` portjainak Postgres-megvalósítása (F-3).
+// A `@rogton/hozzaferes-core` portjainak Postgres-megvalósítása (F-3).
 // A `tagsag` és a `meghivo` táblát a `szervezetKent` alatt érjük el (sorszintű védelem).
 // KIVÉTEL: a `lenyomatSzerint` a SECURITY DEFINER függvényt hívja — ott még nincs szervezet.
 

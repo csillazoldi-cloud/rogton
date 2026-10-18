@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { MUNKAMENET_SUTI } from "@km/contracts";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
 import { aktualisFiok } from "../../../hitelesites";
 import { oldalcim } from "../../../nyelv/oldalcim";
 import { bevaltoNezet } from "../../../tagok";

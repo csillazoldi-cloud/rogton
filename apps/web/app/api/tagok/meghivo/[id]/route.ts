@@ -1,7 +1,7 @@
 import { kapu } from "../../../_kapu";
 import { hiba, valasz } from "../../../tema/_kozos";
 import { hozzaferesKornyezet, szerepFordit } from "../../../../../hozzaferes";
-import { meghivoVisszavon } from "@km/hozzaferes-core";
+import { meghivoVisszavon } from "@rogton/hozzaferes-core";
 
 export const dynamic = "force-dynamic";
 

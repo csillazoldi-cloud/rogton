@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import type { KinalatSor, PosztTipus, TemaTerv } from "@km/contracts";
+import type { KinalatSor, PosztTipus, TemaTerv } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
 
 // R-18 7. kör (rajz: „Beállítás · Ezt kínáljátok?”, „Ezekről érdemes posztolnod”, „Szervezet adatai · Kínálat és árak”): a pipás

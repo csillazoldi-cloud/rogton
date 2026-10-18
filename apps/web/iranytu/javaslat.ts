@@ -1,9 +1,9 @@
 import "server-only";
-import { AiHiba, type HivasMeres } from "@km/ai-adapters";
+import { AiHiba, type HivasMeres } from "@rogton/ai-adapters";
 import { szolgaltato, keretEllenoriz, meresRogzit, prompt, jsonRobusztusan, AiKozosHiba } from "../ai";
 import { profilBetolt } from "../profil";
 import { tipusOf } from "../profil/tipus-szabaly";
-import { IRANYTU_HATAR, type IranytuSema } from "@km/contracts";
+import { IRANYTU_HATAR, type IranytuSema } from "@rogton/contracts";
 import { vag } from "./vag";
 
 export class IranytuJavaslatHiba extends Error {

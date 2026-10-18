@@ -4,11 +4,11 @@ import { access, copyFile, mkdir, readFile, rename, unlink, writeFile } from "no
 import { Readable } from "node:stream";
 import { dirname, join } from "node:path";
 import { and, eq } from "drizzle-orm";
-import type { FajlCel, FajlEredet, FajlMeta, FajlTar, FajlTipus, LogoValtozat } from "@km/fajl-core";
-import { KITERJESZTES } from "@km/fajl-core";
+import type { FajlCel, FajlEredet, FajlMeta, FajlTar, FajlTipus, LogoValtozat } from "@rogton/fajl-core";
+import { KITERJESZTES } from "@rogton/fajl-core";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 
-// A `@km/fajl-core` `FajlTar` portjának megvalósítása (F-6).
+// A `@rogton/fajl-core` `FajlTar` portjának megvalósítása (F-6).
 // A meta a Postgresben (`arculat_fajl`, `szervezetKent` alatt), a bájtok a lemezen:
 //   <FAJL_MAPPA>/<szervezet_id>/<id>.<KITERJESZTES[tipus]>
 //   c30 F9 (D7): az albumfotók (`cel = "album"`) KÜLÖN mappában: <ALBUM_MAPPA>/<szervezet_id>/<id>.<kit> — 30 nap, mentés nélkül

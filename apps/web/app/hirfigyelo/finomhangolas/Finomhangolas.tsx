@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { HirfigyeloKeret } from "../_kozos/HirfigyeloKeret";
 import { hfKeres, idoRovid, forrasNev, varjSor, type SorTetel } from "../_kozos/kliens";
-import type { Beallitas, BeallitasVerzio, SzabalyJavaslat, Visszajelzes, Minta, FinomhangolasTetel } from "@km/news-monitor-core";
+import type { Beallitas, BeallitasVerzio, SzabalyJavaslat, Visszajelzes, Minta, FinomhangolasTetel } from "@rogton/news-monitor-core";
 
 type FinomhangolasAdat = {
   minta: Minta | null;

@@ -2,7 +2,7 @@ import type {
   PosztFelulet as PosztFeluletTipus,
   PosztNyelv as PosztNyelvTipus,
   PosztSzoveg,
-} from "@km/contracts";
+} from "@rogton/contracts";
 
 // A Posztszöveg AI-hívásainak BEMENETE — tiszta függvények (adatbázis és AI nélkül próbálhatók:
 // probak/poszt-bemenet.proba.ts). A gépezet (index.ts) ezekből rakja össze, amit a gép elé tesz.

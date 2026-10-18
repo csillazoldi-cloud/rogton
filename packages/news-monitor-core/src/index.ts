@@ -1,4 +1,4 @@
-// @km/news-monitor-core — a Hírfigyelő magja: tiszta szabályok, nincs tárolás, nincs hálózat.
+// @rogton/news-monitor-core — a Hírfigyelő magja: tiszta szabályok, nincs tárolás, nincs hálózat.
 export * from "./beallitas";
 export * from "./tema-nev-szuro";
 export * from "./forras";

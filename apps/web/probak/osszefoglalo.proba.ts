@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import { keres, veletlenEmail, sql, takaritas, lezar } from "./segedek";
-import { OsszefoglaloValasz, HibaValasz, MUNKAMENET_SUTI } from "@km/contracts";
+import { OsszefoglaloValasz, HibaValasz, MUNKAMENET_SUTI } from "@rogton/contracts";
 
 describe("osszefoglalo API", () => {
   let sutik: string;

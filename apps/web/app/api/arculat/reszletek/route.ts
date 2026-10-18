@@ -6,7 +6,7 @@ import { belsoHiba, szakaszValasz } from "../_szakasz";
 
 export const dynamic = "force-dynamic";
 
-/** Ugyanazok a korlátok, mint az ArculatTervezet mezőié (@km/contracts). Ismeretlen kulcs → 400 (a kliens nem küld teljes arculatot). */
+/** Ugyanazok a korlátok, mint az ArculatTervezet mezőié (@rogton/contracts). Ismeretlen kulcs → 400 (a kliens nem küld teljes arculatot). */
 const ReszletekKeres = z.object({
   kepvilag: z.string().trim().max(500).optional(),
   kovetendo: z.string().trim().max(300).optional(),

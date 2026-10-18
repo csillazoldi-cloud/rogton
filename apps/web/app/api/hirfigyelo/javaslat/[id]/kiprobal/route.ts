@@ -1,4 +1,4 @@
-import { jogosult } from "@km/news-monitor-core";
+import { jogosult } from "@rogton/news-monitor-core";
 import { belepettSzervezet, hiba, kapu, valasz } from "../../../_kozos";
 import { hostKontextus, kornyezet } from "../../../../../../hirfigyelo";
 import { sorbaTesz } from "../../../../../../hirfigyelo/sor";

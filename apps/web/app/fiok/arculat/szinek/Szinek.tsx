@@ -7,7 +7,7 @@
 // Az alcím („Ezeket a logódból és a szakmádból raktuk össze.”) csak, ha van logó — logó nélkül nem állítjuk (TERV §4 15. elve).
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { SzinJavaslat } from "@km/arculat-core";
+import type { SzinJavaslat } from "@rogton/arculat-core";
 import type { SzinekAdat } from "../../../../arculat/szinek";
 import { useFeliratok } from "../../../../nyelv/kliens";
 import { Baj, FoGomb, HalkGomb, HalkLink } from "../../../_kozos/R15";

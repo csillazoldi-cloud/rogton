@@ -1,6 +1,6 @@
 import "server-only";
 import { and, desc, eq, gt, sql } from "drizzle-orm";
-import type { FiokNezet } from "@km/contracts";
+import type { FiokNezet } from "@rogton/contracts";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { NAPLO_MEGORZES_NAP } from "../hitelesites/korlat";
 import { olvasatlanSzam } from "../ertesites";

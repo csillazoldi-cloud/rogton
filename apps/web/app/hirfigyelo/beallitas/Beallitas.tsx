@@ -17,7 +17,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { HirfigyeloKeret } from "../_kozos/HirfigyeloKeret";
 import { hfKeres, varjSor } from "../_kozos/kliens";
-import { beallitasEllenoriz, beallitasNormalizal, HF_NAPI_CIKK, HF_CIKK_MAX_KOR_ORA, type Beallitas as BeallitasTipus, type BeallitasVerzio, type Futas } from "@km/news-monitor-core";
+import { beallitasEllenoriz, beallitasNormalizal, HF_NAPI_CIKK, HF_CIKK_MAX_KOR_ORA, type Beallitas as BeallitasTipus, type BeallitasVerzio, type Futas } from "@rogton/news-monitor-core";
 import { Baj, FoGomb, HalkGomb, HalkLink, Info, KerdesCim, Reszletek, Teendo } from "../../_kozos/R15";
 import { Forrasok, type OldalakAllapot } from "./Forrasok";
 import { mitFigyeljunkNezet, voltKeszKereses } from "./mitFigyeljunk";

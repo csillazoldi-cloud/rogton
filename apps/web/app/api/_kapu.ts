@@ -1,5 +1,5 @@
 import "server-only";
-import type { FiokNezet, HibaValasz } from "@km/contracts";
+import type { FiokNezet, HibaValasz } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet } from "../../hitelesites";
 import { munkamenetTokenKeresbol } from "../../hitelesites/suti";
 

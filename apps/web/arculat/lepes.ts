@@ -1,10 +1,10 @@
 // R-16 K3 (TERV §2-K3 API, kerdesek 4) — a szakasz három lépése az arculati állapotgépen (tiszta; a mentés az `arculatMent`-é).
-// Mind „ment ÉS jóváhagy” egy lépésben (TERV §4 10.), a @km/profile-core függvényeivel. Egy szabály itt kerül hozzá:
+// Mind „ment ÉS jóváhagy” egy lépésben (TERV §4 10.), a @rogton/profile-core függvényeivel. Egy szabály itt kerül hozzá:
 // PILLANATKÉPET NEM ÍRUNK FELÜL (TERV 1.7 R2/R6: a verziótörténet csak nő). A profile-core `arculatJovahagy` a `verzio` kulcsra ír;
 // ha ahhoz már van pillanatkép (pl. „Visszavonás” után: az állapot tervezet, de a verzió ugyanaz), az új jóváhagyás a következő verzió lesz.
-import type { ArculatLepes, ArculatLogok, ArculatTervezet } from "@km/contracts";
-import { arculatJovahagy, arculatModosit, arculatVisszavon } from "@km/profile-core";
-import type { JavaslatForras } from "@km/arculat-core";
+import type { ArculatLepes, ArculatLogok, ArculatTervezet } from "@rogton/contracts";
+import { arculatJovahagy, arculatModosit, arculatVisszavon } from "@rogton/profile-core";
+import type { JavaslatForras } from "@rogton/arculat-core";
 
 export type Reszletek = Partial<Pick<ArculatTervezet, "kepvilag" | "kovetendo" | "kerulendo" | "lekerekites">>;
 

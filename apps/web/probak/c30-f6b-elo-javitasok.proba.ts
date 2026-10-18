@@ -9,7 +9,7 @@
 // Live part (PROBA_CIM + DATABASE_URL; test AI).
 import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { ProgramTetel } from "@km/contracts";
+import type { ProgramTetel } from "@rogton/contracts";
 import { olvasasAllapot } from "../program/allapot";
 import { programTisztit } from "../program/szabaly";
 import { nyelvekSzovegbol } from "../profil/tipus-szabaly";

@@ -3,7 +3,7 @@ import { kapu } from "../../_kapu";
 import { hiba, valasz } from "../../tema/_kozos";
 import { hozzaferesKornyezet, szerepFordit } from "../../../../hozzaferes";
 import { nyilvanosCim } from "../../../../hitelesites/nyilvanos-cim";
-import { meghiv, meghivoLista, Szerep } from "@km/hozzaferes-core";
+import { meghiv, meghivoLista, Szerep } from "@rogton/hozzaferes-core";
 
 export const dynamic = "force-dynamic";
 

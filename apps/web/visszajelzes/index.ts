@@ -9,8 +9,8 @@ import {
   type JavitoTetelAllapot,
   type Visszajelzes,
   type VisszajelzesAllapot,
-} from "@km/visszajelzes-core";
-import { AiHiba } from "@km/ai-adapters";
+} from "@rogton/visszajelzes-core";
+import { AiHiba } from "@rogton/ai-adapters";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { keretEllenoriz, meresRogzit, jsonRobusztusan, prompt, AiKozosHiba, hirfigyeloSzolgaltato } from "../ai";
 import { listaFajlbaIr, csomagFajlbaIr } from "./export";

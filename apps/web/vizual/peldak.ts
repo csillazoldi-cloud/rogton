@@ -1,7 +1,7 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { eq } from "drizzle-orm";
-import { AiHiba, type HivasMeres } from "@km/ai-adapters";
+import { AiHiba, type HivasMeres } from "@rogton/ai-adapters";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { jsonRobusztusan, keretEllenoriz, meresRogzit, prompt, szolgaltato } from "../ai";
 import { profilBetolt } from "../profil";

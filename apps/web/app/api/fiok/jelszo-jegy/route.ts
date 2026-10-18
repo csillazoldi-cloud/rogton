@@ -1,7 +1,7 @@
 // E-34: a rendszergazda jelszó-visszaállító jegyet ad ki egy e-mail-címhez.
 // D-17: e-mail-küldés nincs, ezért a linket a rendszergazda juttatja el a felhasználónak.
 import { NextResponse } from "next/server";
-import { Email, type HibaValasz } from "@km/contracts";
+import { Email, type HibaValasz } from "@rogton/contracts";
 import { kapu } from "../../_kapu";
 import { jegyKiad } from "../../../../hitelesites/visszaallitas";
 

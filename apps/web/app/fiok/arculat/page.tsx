@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { MUNKAMENET_SUTI } from "@km/contracts";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet } from "../../../hitelesites";
 import { arculatAllapot } from "../../../arculat/allapot";
 import { oldalcim } from "../../../nyelv/oldalcim";

@@ -13,7 +13,7 @@ import {
   Talalat,
   Visszajelzes,
   type HirfigyeloTar,
-} from "@km/news-monitor-core";
+} from "@rogton/news-monitor-core";
 import { db, sema, szervezetKent, type SzervezetDb } from "../adatbazis/kapcsolat";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";
 

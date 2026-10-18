@@ -2,9 +2,9 @@
 export { type Szint } from "../_kapu";
 import { kapu as alapKapu } from "../_kapu";
 import { modulEngedelyezve } from "../../../csomag";
-import type { HibaValasz } from "@km/contracts";
-import type { FiokNezet } from "@km/contracts";
-import type { Hiba } from "@km/news-monitor-core";
+import type { HibaValasz } from "@rogton/contracts";
+import type { FiokNezet } from "@rogton/contracts";
+import type { Hiba } from "@rogton/news-monitor-core";
 import { aktualisFiok, aktualisSzervezet } from "../../../hitelesites";
 import { munkamenetTokenKeresbol } from "../../../hitelesites/suti";
 

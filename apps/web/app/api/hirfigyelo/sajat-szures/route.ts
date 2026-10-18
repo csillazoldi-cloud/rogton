@@ -1,6 +1,6 @@
 // R-13 (2026-09-22, Vilmos): a saját hírszűrésem — fokozat és előszűrés. Minden tag a SAJÁT fiókjára állítja.
 import { z } from "zod";
-import { SzuresFokozat } from "@km/news-monitor-core";
+import { SzuresFokozat } from "@rogton/news-monitor-core";
 import { hiba, kapu, valasz } from "../_kozos";
 import { tagSzures, tagSzuresMent } from "../../../../hirfigyelo/tag-szures";
 

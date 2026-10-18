@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import { createServer, type Server } from "node:http";
-import { claudeElofizetesSzolgaltato, codexElofizetesSzolgaltato, AiHiba } from "@km/ai-adapters";
+import { claudeElofizetesSzolgaltato, codexElofizetesSzolgaltato, AiHiba } from "@rogton/ai-adapters";
 
 let valasz: { statusz: number; torzs: unknown } = { statusz: 200, torzs: {} };
 let utolsoKeresTorzs: unknown = null;

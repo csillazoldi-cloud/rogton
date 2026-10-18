@@ -7,7 +7,7 @@
 // written and translated with the programme's names applied; Tibor's company gets its topics as before.
 import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { PosztMunka, ProgramTetel } from "@km/contracts";
+import type { PosztMunka, ProgramTetel } from "@rogton/contracts";
 import type { TisztaTetel } from "../program/szabaly";
 import { BLOKK_MAX_SOR, programBlokk, programHorgony, programNevek, programOsszegzes, programSzelet, szeletTetelei } from "../program/blokk";
 import { programSorok } from "../poszt/profil-blokk";

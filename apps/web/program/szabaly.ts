@@ -1,4 +1,4 @@
-import { PROGRAM_FAJTAK, PROGRAM_MAX_TETEL, TARTALOMNYELVEK, type ProgramFajta, type ProgramNyelvi, type ProgramTetel } from "@km/contracts";
+import { PROGRAM_FAJTAK, PROGRAM_MAX_TETEL, TARTALOMNYELVEK, type ProgramFajta, type ProgramNyelvi, type ProgramTetel } from "@rogton/contracts";
 
 // c30 F5 (terv §1.4, §3 program_kiolvasas): a program tiszta szabályai — a gép válaszának takarítása, az újraolvasás terve, a kulcs.
 // Semmit nem talál ki: ami a válaszban nincs, az üres marad; ami bizonytalan („10:00???????”), az `bizonytalan` jelet kap; a belső

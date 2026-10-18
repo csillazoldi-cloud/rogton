@@ -1,5 +1,5 @@
 {
-  "name": "aitmetica-saas",
+  "name": "rogton",
   "private": true,
   "version": "0.1.0",
   "packageManager": "pnpm@10.28.0",
@@ -10,12 +10,10 @@
     "hatar": "node tools/hatar/node_modules/dependency-cruiser/bin/dependency-cruise.mjs --config .dependency-cruiser.cjs packages apps",
     "tipus": "pnpm -r --if-present run tipus",
     "epit": "pnpm -r --if-present run epit",
-    "ellenoriz": "pnpm hatar && pnpm tokenor && pnpm keretor && node tools/hatar/terkoz-szamlalo.mjs --ellenoriz && node tools/hatar/dockerfile-or.mjs && pnpm allapotor && pnpm tipus && pnpm epit",
+    "ellenoriz": "pnpm hatar && pnpm tokenor && pnpm keretor && node tools/hatar/terkoz-szamlalo.mjs --ellenoriz && node tools/hatar/dockerfile-or.mjs && pnpm tipus && pnpm epit",
     "tokenor": "node tools/hatar/tokenor.mjs",
     "keretor": "node tools/hatar/keretor.mjs",
-    "terkoz": "node tools/hatar/terkoz-szamlalo.mjs",
-    "allapot": "node tools/allapot/allapot.mjs",
-    "allapotor": "node tools/allapot/allapotor.mjs"
+    "terkoz": "node tools/hatar/terkoz-szamlalo.mjs"
   },
   "devDependencies": {
     "typescript": "7.0.2"

@@ -4,7 +4,7 @@
 // overwritten), the budget input line, the pre-selected mode (D6). Live part (PROBA_CIM + DATABASE_URL; test AI): the mode endpoint, the
 // byte-identical round trip of `szovegek[]` through every mode switch, the one-time shorten retry (machine text only, a person's never).
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { PosztMunka, PosztSzoveg } from "@km/contracts";
+import type { PosztMunka, PosztSzoveg } from "@rogton/contracts";
 import { KARAKTERHATAR, keretSorok, szovegBemenet } from "../poszt/bemenet";
 import {
   HASHTAG_KERET, KETNYELVU_ELVALASZTO, alapCta, hashtagVeg, ketnyelvuFelulet, ketnyelvuKeret, ketnyelvuOsszefuz, kozosHashtagek,

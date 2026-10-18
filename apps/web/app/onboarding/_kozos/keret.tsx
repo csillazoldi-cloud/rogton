@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
-import type { OnboardingPiszkozat } from "@km/contracts";
+import type { OnboardingPiszkozat } from "@rogton/contracts";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { Nyelvvalaszto } from "../../_kozos/Nyelvvalaszto";
 import { Marka } from "../../_kozos/Marka";

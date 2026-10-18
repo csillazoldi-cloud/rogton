@@ -1,4 +1,4 @@
-import type { ProgramTetel } from "@km/contracts";
+import type { ProgramTetel } from "@rogton/contracts";
 
 // c30 F5 (terv §3): a program SZELETE a poszt-promptokhoz — soha nem az egész program. A horgony egy tétel (`id`): csak az a tétel;
 // vagy egy nap (`nap`): az aznapi aktív tételek, legfeljebb 25 sor. Tiszta függvény; az F7 köti be (poszt/profil-blokk.ts).

@@ -1,8 +1,8 @@
-// @km/onboarding-core — a három lépés SZABÁLYAI (ALAPTERV 2.: a folyamat, a piszkozat, az AI-javaslat kezelése).
+// @rogton/onboarding-core — a három lépés SZABÁLYAI (ALAPTERV 2.: a folyamat, a piszkozat, az AI-javaslat kezelése).
 // Tiszta függvények: nincs adatbázis, nincs képernyő, nincs hálózat. A profil szabályait a profile-core adja
 // (ez a modul azt HASZNÁLJA); a tárolást és az AI-hívást a befogadó alkalmazás.
-import { TARTALOMNYELVEK, type JavaslatokValasz, type OnboardingPiszkozat, type Tartalomnyelv } from "@km/contracts";
-import { sajatVagyModositott } from "@km/profile-core";
+import { TARTALOMNYELVEK, type JavaslatokValasz, type OnboardingPiszkozat, type Tartalomnyelv } from "@rogton/contracts";
+import { sajatVagyModositott } from "@rogton/profile-core";
 
 export type Kommunikacio = OnboardingPiszkozat["kommunikacio"];
 export type ProfilMezo = "nev" | "tevekenyseg" | "celkozonseg" | "cel" | "nyelvek" | "hangnem";

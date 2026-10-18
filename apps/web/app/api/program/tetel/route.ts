@@ -1,4 +1,4 @@
-import { ProgramTetelMezok } from "@km/contracts";
+import { ProgramTetelMezok } from "@rogton/contracts";
 import { kapu } from "../../_kapu";
 import { programTetelModosit, programTetelTorol, programTetelUj } from "../../../../program";
 import { hibaValasz, valasz } from "../_kozos";

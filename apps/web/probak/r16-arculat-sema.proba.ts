@@ -8,8 +8,8 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
-import { OnboardingPiszkozat, SzervezetProfil } from "@km/contracts";
-import { arculatJovahagy, arculatModosit, arculatOsszefesul, arculatTervezetElvet, arculatValasztJovahagy } from "@km/profile-core";
+import { OnboardingPiszkozat, SzervezetProfil } from "@rogton/contracts";
+import { arculatJovahagy, arculatModosit, arculatOsszefesul, arculatTervezetElvet, arculatValasztJovahagy } from "@rogton/profile-core";
 
 const mappa = new URL("./r16/", import.meta.url).pathname;
 const olvas = (n: string): unknown => JSON.parse(readFileSync(join(mappa, n), "utf8"));

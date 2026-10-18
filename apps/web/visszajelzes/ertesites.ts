@@ -12,7 +12,7 @@ import {
   type ErtesitesEredmeny,
   type Jelzo,
   type Visszajelzes,
-} from "@km/visszajelzes-core";
+} from "@rogton/visszajelzes-core";
 import { db, sema } from "../adatbazis/kapcsolat";
 import { felirat, feliratok } from "../nyelv";
 

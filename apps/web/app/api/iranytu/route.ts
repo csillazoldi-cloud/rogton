@@ -1,5 +1,5 @@
 import { kapu } from "../_kapu";
-import type { HibaValasz } from "@km/contracts";
+import type { HibaValasz } from "@rogton/contracts";
 import { iranytuAllapot, iranytuTervezetMent, iranytuVerziok } from "../../../iranytu";
 
 export const dynamic = "force-dynamic";

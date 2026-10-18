@@ -1,4 +1,4 @@
-# @km/vizual-core
+# @rogton/vizual-core
 
 ## 1. Mit csinál
 
@@ -9,7 +9,7 @@ kinéző, de egyformán szabályos képet ad.
 
 Részei:
 - `marka.ts` — a márkaréteg adatformája (betűk, színek, méretlépcsők, stílusok, elrendezés-változatok receptenként).
-- `recept.ts` — a recept adatformája (a `@km/vizual-receptek` csomag JSON-jai).
+- `recept.ts` — a recept adatformája (a `@rogton/vizual-receptek` csomag JSON-jai).
 - `tartalom.ts` — a szerkesztő által kitöltött tartalom alakja.
 - `html.ts` — `osszeallit()`: recept + márka + tartalom + választás → önálló HTML-lap (tiszta függvény).
 - `meres.ts` — a kész lap mérésének alakja és a böngészőben futtatandó mérőszkript (`MERO_SZKRIPT`, adatként).
@@ -42,6 +42,6 @@ R-16 K6: `nevlogoSvg({ nev, stilus: "nev"|"kor"|"negyzet", szinek, valtozat: "vi
 
 ## 5. Beillesztés
 
-1. A csomag és a `@km/vizual-receptek` felvétele a workspace-be.
+1. A csomag és a `@rogton/vizual-receptek` felvétele a workspace-be.
 2. Egy kirajzoló a befogadóban (a próba-eszköz: `tools/vizual/kepgyar.ts`, Playwright + Chromium).
-3. `pnpm --filter @km/vizual-core proba` — böngésző nélkül fut.
+3. `pnpm --filter @rogton/vizual-core proba` — böngésző nélkül fut.

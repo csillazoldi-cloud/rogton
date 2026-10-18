@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { kapu } from "../../_kapu";
-import { HibaValasz } from "@km/contracts";
+import { HibaValasz } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet, belep } from "../../../../hitelesites";
 import { hatasosNyelv, nyelvSutiFejlec } from "../../../../nyelv/munkater";
 import { munkamenetSutiBeallit } from "../../../../hitelesites/suti";

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import type { PosztTipus, TipusAdat } from "@km/contracts";
+import type { PosztTipus, TipusAdat } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
 import { FoGomb, HalkGomb, HalkLink, Info } from "../_kozos/R15";
 import { TIPUSOK } from "../_kozos/R18Kinalat";

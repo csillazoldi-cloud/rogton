@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { TARTALOMNYELVEK, type MezoForras, type OnboardingPiszkozat, type Tartalomnyelv } from "@km/contracts";
+import { TARTALOMNYELVEK, type MezoForras, type OnboardingPiszkozat, type Tartalomnyelv } from "@rogton/contracts";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { OnboardingKeret, hivas, nyelvNev, usePiszkozat } from "../_kozos/keret";
-import { arculatKesobbre } from "@km/profile-core";
-import { jovahagyhato as jovahagyhatoE, piszkozatMezoSzerkeszt } from "@km/onboarding-core";
+import { arculatKesobbre } from "@rogton/profile-core";
+import { jovahagyhato as jovahagyhatoE, piszkozatMezoSzerkeszt } from "@rogton/onboarding-core";
 
 type Mezo = "nev" | "tevekenyseg" | "celkozonseg" | "cel" | "nyelvek" | "hangnem";
 const BEMUTATKOZAS_MEZOK: Mezo[] = ["nev", "tevekenyseg"];

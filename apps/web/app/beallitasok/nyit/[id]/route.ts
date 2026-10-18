@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { MUNKAMENET_SUTI } from "@km/contracts";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezetValaszt } from "../../../../hitelesites";
 import { esemenyMunkatere, olvasottJelol } from "../../../../ertesites";
 import { CEL_UT, FAJTA_CEL } from "../../../../ertesites/tipusok";

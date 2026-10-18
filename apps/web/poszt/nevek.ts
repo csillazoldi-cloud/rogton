@@ -1,7 +1,7 @@
 // R-18 6. kör (Kati D, Csilla 10-11): a cég „Hivatalos nevek” listája — intézmények, események, előadások pontos neve három nyelven.
 // Tiszta függvények (probak/r18-kor6.proba.ts): a gép elé kerülő kötelező névpárok, és az utóellenőrzés, ami a kért nyelven a többi
 // nyelv alakját a hivatalos alakra cseréli. A lista a szervezet profiljában él (szervezet_profil.adatok.hivatalos_nevek).
-import type { HivatalosNev } from "@km/contracts";
+import type { HivatalosNev } from "@rogton/contracts";
 
 export type NevNyelv = "hu" | "ro" | "en";
 const NYELVNEV: Record<NevNyelv, string> = { hu: "magyarul", ro: "románul", en: "angolul" };

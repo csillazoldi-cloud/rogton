@@ -1,7 +1,7 @@
 import "server-only";
 // F9-A2: az összkép TÁROLVA — futásonként egyszer készül, nem lapnyitásonként.
 import { and, eq } from "drizzle-orm";
-import { ALAP_SZURES, osszkep, OsszkepValasz, szuroKulcs, type Hiba, type Kornyezet, type HostKontextus } from "@km/news-monitor-core";
+import { ALAP_SZURES, osszkep, OsszkepValasz, szuroKulcs, type Hiba, type Kornyezet, type HostKontextus } from "@rogton/news-monitor-core";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 type Eredmeny<T> = { ok: true } & T | Hiba;

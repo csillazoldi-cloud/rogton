@@ -1,7 +1,7 @@
 // R-18 (2026-10-11): sötét / világos mód — a böngészőben tárolt választás és a lap fejének szkriptje.
 // A választás CSAK a böngészőben él (localStorage `km-mod`), szerverre nem kerül. Ha nincs választás, a készülék beállítása dönt.
 // A szkript a <head>-ben fut, festés ELŐTT teszi ki a <html data-mod> jelölést — így nincs rossz színű villanás betöltéskor.
-import { MOD_TAROLO, MOD_VALTAS_MS, type Mod } from "@km/design-system";
+import { MOD_TAROLO, MOD_VALTAS_MS, type Mod } from "@rogton/design-system";
 
 /** A fej szkriptje (sorban, festés előtt). A tároló hibája (privát ablak, tiltott süti) nem baj: akkor a készülék dönt. */
 export const MOD_FEJ_SZKRIPT = `(function(){var d=document.documentElement,m=null;try{m=window.localStorage.getItem(${JSON.stringify(MOD_TAROLO)})}catch(e){}if(m!=="sotet"&&m!=="vilagos"){try{m=window.matchMedia("(prefers-color-scheme: light)").matches?"vilagos":"sotet"}catch(e){m="sotet"}}d.setAttribute("data-mod",m)})();`;

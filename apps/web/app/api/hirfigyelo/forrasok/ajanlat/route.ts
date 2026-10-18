@@ -1,4 +1,4 @@
-import { forrasAjanlo } from "@km/news-monitor-core";
+import { forrasAjanlo } from "@rogton/news-monitor-core";
 import { z } from "zod";
 import { hiba, kapu, valasz } from "../../_kozos";
 

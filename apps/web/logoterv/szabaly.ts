@@ -1,7 +1,7 @@
 // R-17 B · fizetős logótervezés — a TISZTA szabályok (adatbázis, hálózat nélkül; próba: probak/r17-logoterv-szabaly.proba.ts).
 // A kérdőív törzse, az ár és a címzett beállításának ellenőrzése, a színnév-javaslat a kérdőív előtöltéséhez, és az e-mail szövege.
 import { z } from "zod";
-import { hexbol, telitettsegVilagossag } from "@km/arculat-core";
+import { hexbol, telitettsegVilagossag } from "@rogton/arculat-core";
 
 /** „Hol fogod használni?” — a rajz öt lehetősége (r17.logoterv.hol_*). Alapból kijelölve: Facebook, Honlap, Autó, ruha (kerdesek 8). */
 export const HOL = ["facebook", "honlap", "auto", "nyomtatott", "tabla"] as const;

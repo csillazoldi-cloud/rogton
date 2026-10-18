@@ -1,7 +1,7 @@
 import "server-only";
 import { and, eq } from "drizzle-orm";
-import { aktivVerzio, attekintes, beallitasMent, type Kartya } from "@km/news-monitor-core";
-import type { PosztMunka } from "@km/contracts";
+import { aktivVerzio, attekintes, beallitasMent, type Kartya } from "@rogton/news-monitor-core";
+import type { PosztMunka } from "@rogton/contracts";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { kornyezet } from "../hirfigyelo";
 import { profilBetolt } from "../profil";

@@ -2,7 +2,7 @@ import "server-only";
 // R-13 (2026-09-22, Vilmos): a hírszűrés fiókonként — fokozat (nagyon szigorú · közepes · laza) és előszűrés (be/ki).
 // Ha egy tagnak nincs sora, az alap (nagyon szigorú + be) — a mai viselkedés.
 import { eq } from "drizzle-orm";
-import { ALAP_SZURES, TagSzures, type SzuresFokozat } from "@km/news-monitor-core";
+import { ALAP_SZURES, TagSzures, type SzuresFokozat } from "@rogton/news-monitor-core";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 /** A munkatér MINDEN tagjának szűrő-beállítása (a gép ezek uniója szerint olvas). */

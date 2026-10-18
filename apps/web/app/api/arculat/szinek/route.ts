@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { HexSzin } from "@km/contracts";
-import { SZETT_IDK } from "@km/arculat-core";
+import { HexSzin } from "@rogton/contracts";
+import { SZETT_IDK } from "@rogton/arculat-core";
 import { kapu } from "../../_kapu";
 import { alapA, arculatMent, hasznaltLogokMost } from "../../../../arculat/ment";
 import { szinekJovahagy } from "../../../../arculat/lepes";

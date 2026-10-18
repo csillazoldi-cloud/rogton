@@ -8,7 +8,7 @@
 import { readFileSync } from "node:fs";
 import { deflateRawSync } from "node:zlib";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { ProgramTetel } from "@km/contracts";
+import type { ProgramTetel } from "@rogton/contracts";
 import { DOCX_KORLAT, docxSzoveg } from "../program/docx";
 import { idoOlvas, napOlvas, programKulcs, programTisztit, ujraOlvasTerv, type RegiSor, type TisztaTetel } from "../program/szabaly";
 import { programBlokk } from "../program/blokk";

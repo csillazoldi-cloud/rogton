@@ -1,4 +1,4 @@
-// @km/design-system — az alaptokenek sémája (km-theme/2). ALAPTERV 7. pont:
+// @rogton/design-system — az alaptokenek sémája (km-theme/2). ALAPTERV 7. pont:
 // EGYETLEN tokenkészlet (a v6 tema-alap.json szerkezete, km-theme/2), komponensben nincs szín/betű/méret.
 // A km-theme.js ellenőrző és származtató logikája itt él szerződésként (átemelve, nem másolva: TypeScript, zod).
 import { z } from "zod";

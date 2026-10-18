@@ -1,8 +1,8 @@
 "use client";
 // R-9: a Visszajelzés modul befogadója — a vj.* feliratok és a POST /api/visszajelzes hívás.
 
-import { VisszajelzesModul, type VisszajelzesAdat, type VisszajelzesFeliratok } from "@km/visszajelzes-react";
-import "@km/visszajelzes-react/stilus.css";
+import { VisszajelzesModul, type VisszajelzesAdat, type VisszajelzesFeliratok } from "@rogton/visszajelzes-react";
+import "@rogton/visszajelzes-react/stilus.css";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useFeliratok } from "../../nyelv/kliens";

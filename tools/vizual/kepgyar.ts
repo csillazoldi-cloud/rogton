@@ -5,7 +5,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright-core";
 import { PNG } from "pngjs";
-import { Marka, Recept, Tartalom, osszeallit, uresValasztas, illeszt, MERO_SZKRIPT, meresOsszeallit, ellenoriz, szabalyCsalad, ELLENORZOK, NEM_DONTHETO, type Szabaly, type LapMeres } from "@km/vizual-core";
+import { Marka, Recept, Tartalom, osszeallit, uresValasztas, illeszt, MERO_SZKRIPT, meresOsszeallit, ellenoriz, szabalyCsalad, ELLENORZOK, NEM_DONTHETO, type Szabaly, type LapMeres } from "@rogton/vizual-core";
 
 const itt = dirname(fileURLToPath(import.meta.url));
 const ref = join(itt, "referencia");

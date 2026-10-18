@@ -1,6 +1,6 @@
 // c30 F12 (Csilla 10-17 19:26): egy fesztivál soha nem lát „cég / company / firmă” szót — a feliratok fesztivál-változata (0180, szovegek/
 // fesztival.ts), a promptok és a gép bemeneti mondatai (ai/fesztival-szo.ts, poszt/profil-blokk.ts), a Képek mintái (vizual/helyzet.ts
-// MINTA_FESZTIVAL, @km/vizual-core „ILYEN VOLT”). A cég mindenhol bájtra ugyanazt kapja, mint eddig.
+// MINTA_FESZTIVAL, @rogton/vizual-core „ILYEN VOLT”). A cég mindenhol bájtra ugyanazt kapja, mint eddig.
 import { readFileSync, readdirSync } from "node:fs";
 import { afterAll, describe, expect, it } from "vitest";
 import { FESZTIVAL_PROMPTOK, fesztivalBemenet, fesztivalPrompt } from "../ai/fesztival-szo";

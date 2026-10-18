@@ -1,6 +1,6 @@
 // A bekötés próbája (E-19b, H-3): a hírfigyelő magja a proba-host csatlakozóival fut — a modul kódjának módosítása nélkül.
 import { describe, expect, it } from "vitest";
-import { beallitasMent, figyelesFuttat, forrasEllenoriz, forrasHozzaad, memoriaTar, attekintes, type Kornyezet } from "@km/news-monitor-core";
+import { beallitasMent, figyelesFuttat, forrasEllenoriz, forrasHozzaad, memoriaTar, attekintes, type Kornyezet } from "@rogton/news-monitor-core";
 import { kontextus, rogzitettLetolto, tesztAi, idAdo, most, rogzitettProfil } from "../src/host";
 
 function kornyezet(): Kornyezet {
@@ -9,7 +9,7 @@ function kornyezet(): Kornyezet {
 const BEALLITAS = { celok: ["sajat_marka"], temak: [{ nev: "Minta Műhely", nevvaltozatok: [], megkulonboztetes: "" }], foldrajzi_fokusz: "", nyelvek: [], kizarasok: [], idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Bucharest" }, szabad_szoveg: "" };
 
 describe("proba-host bekötés (E-19b)", () => {
-  it("1. a rögzített profil a @km/contracts sémája szerint érvényes", () => {
+  it("1. a rögzített profil a @rogton/contracts sémája szerint érvényes", () => {
     expect(rogzitettProfil.nev).toBe("Minta Műhely");
     expect(rogzitettProfil.arculat.allapot).toBe("jovahagyott");
   });

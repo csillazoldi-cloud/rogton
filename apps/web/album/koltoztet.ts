@@ -13,7 +13,7 @@ import "server-only";
 // `hasznalat` bemenetet tölti ki a posztokból (utolsó módosítás, „Kitettem”); a szabály (album/szabaly.ts `albumLejart`) már ezt várja.
 import { mkdir, readdir, rename, access } from "node:fs/promises";
 import { join } from "node:path";
-import { KITERJESZTES, type FajlTipus } from "@km/fajl-core";
+import { KITERJESZTES, type FajlTipus } from "@rogton/fajl-core";
 import { sql } from "drizzle-orm";
 import { szervezetKent } from "../adatbazis/kapcsolat";
 import { albumMappa } from "../fajl/tar";

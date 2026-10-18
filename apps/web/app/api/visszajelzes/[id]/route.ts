@@ -2,7 +2,7 @@ import "server-only";
 import { kapu } from "../../_kapu";
 import { hiba, valasz } from "../../hirfigyelo/_kozos";
 import { allapotValt } from "../../../../visszajelzes";
-import { VisszajelzesAllapot } from "@km/visszajelzes-core";
+import { VisszajelzesAllapot } from "@rogton/visszajelzes-core";
 
 export const dynamic = "force-dynamic";
 

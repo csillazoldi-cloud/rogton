@@ -1,4 +1,4 @@
-# @km/arculat-core
+# @rogton/arculat-core
 
 R-16 · Arculat (TERV: `design/R16-arculat/TERV.md`). Verzió 0.2.0 (K1 + K3).
 
@@ -44,12 +44,12 @@ A K1-ben nincs: minden függvény teljes (bármilyen bemenetre ad választ), az 
 
 ## 5. Beillesztés
 
-1. A `packages/arculat-core` mappa a workspace-ben; a befogadó `package.json`-jában `"@km/arculat-core": "workspace:*"`, és a gyökér `Dockerfile` függőség-rétegében a `package.json` COPY-sora (`node tools/hatar/dockerfile-or.mjs` ellenőrzi).
+1. A `packages/arculat-core` mappa a workspace-ben; a befogadó `package.json`-jában `"@rogton/arculat-core": "workspace:*"`, és a gyökér `Dockerfile` függőség-rétegében a `package.json` COPY-sora (`node tools/hatar/dockerfile-or.mjs` ellenőrzi).
 2. A böngésző a feltöltés előtt egy ≤ 64 × 64-es canvasra rajzolja a képet, és a `getImageData().data`-t adja a `logoElemzes`-nek.
 3. Több fájlnál a `besorol` adja a helyeket; a feltöltés fájlonként `x-logo-valtozat: <hely>` és `x-logo-elemzes: elemzesFejlecbe(e)` fejléccel megy.
 4. A kiszolgáló az `elemzesFejlecbol`-lal ellenőrzi az elemzést, és a fájl-modul `feltolt`-jának adja (`elemzes`), a hely a `logo_valtozat`.
 5. Három határőr-szabály a `.dependency-cruiser.cjs`-ben (megvan: `arculat-core-csak-contracts-es-zod`, `alkalmazas-az-arculat-core-t-csak-a-bejaratan-at`, `az-arculat-core-nem-ismeri-a-befogadokat`).
-6. Próbák: `pnpm --filter @km/arculat-core proba` — adatbázis, hálózat és canvas nélkül zöldek (K3: `probak/szettek.proba.ts`; K5: `probak/betuk.proba.ts`, hamis `van` porttal).
+6. Próbák: `pnpm --filter @rogton/arculat-core proba` — adatbázis, hálózat és canvas nélkül zöldek (K3: `probak/szettek.proba.ts`; K5: `probak/betuk.proba.ts`, hamis `van` porttal).
 
 ## Eltérések a TERV 1.4-től (K1, indokkal)
 

@@ -1,11 +1,11 @@
 // A Figyelés beállítása lap tiszta segédei (A2, 2026-09-30 — Csilla 09-25 és Kamilla 09-16 visszajelzése:
 // „a Hozzáadás gombnál vacakol, gondolkodik, nem enged”). Nincs React, nincs hálózat: a probak/ közvetlenül futtatja.
-import type { Beallitas } from "@km/news-monitor-core";
+import type { Beallitas } from "@rogton/news-monitor-core";
 import { temakBont } from "../../_kozos/temak";
 
 type Tema = Beallitas["temak"][number];
 
-/** A séma korlátai (`@km/news-monitor-core` Tema.nev max 120, Beallitas.temak max 30) — a próba őrzi, hogy egyezzenek. */
+/** A séma korlátai (`@rogton/news-monitor-core` Tema.nev max 120, Beallitas.temak max 30) — a próba őrzi, hogy egyezzenek. */
 export const TEMA_NEV_MAX = 120;
 export const TEMAK_MAX = 30;
 

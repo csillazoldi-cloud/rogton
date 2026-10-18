@@ -1,18 +1,18 @@
 // Képernyőkép a futó rendszerről — bejelentkezve, asztali (1440) és telefon (390) méretben.
 // A gép saját Edge/Chrome böngészőjét használja (playwright-core, nem tölt le böngészőt).
 //
-//   node tools/kepernyokep/kep.mjs --cim http://127.0.0.1:8400 --ki <mappa> [--nyelv hu] [--belep] fiok tema hirfigyelo/attekintes ...
+//   node tools/kepernyokep/kep.mjs --cim http://127.0.0.1:8410 --ki <mappa> [--nyelv hu] [--belep] fiok tema hirfigyelo/attekintes ...
 //     a lapok NEVE perjel nélkül (a Git Bash a /fiok alakot Windows-útvonallá alakítaná)
 //     --belep   előbb regisztrál egy próbafiókot + szervezetet (proba-...@proba.example), és azzal nézi a lapokat
 //     --profil  a --belep után jóváhagyott profilt is készít (a hírfigyelő és a fiókoldal csak így nyílik meg)
-//     --resolve saas.mediapartizan.ro:443:192.168.1.144   a tesztoldal a NAS-on át (a Gigabyte/Dell LAN-járól)
+//     --resolve <gépnév>:443:<cím>   a gépnevet egy adott címre irányítja
 //   A fájlnév: <lap>-asztali.png és <lap>-telefon.png. Titok nincs benne.
 import { chromium } from "playwright-core";
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
-const CIM = arg("--cim", "http://127.0.0.1:8400"), KI = arg("--ki", "kepek"), NYELV = arg("--nyelv", "hu");
+const CIM = arg("--cim", "http://127.0.0.1:8410"), KI = arg("--ki", "kepek"), NYELV = arg("--nyelv", "hu");
 const RESOLVE = arg("--resolve", ""), BELEP = process.argv.includes("--belep"), PROFIL = process.argv.includes("--profil");
 const OPCIOK = new Set(["--cim", "--ki", "--nyelv", "--resolve"]);
 const lapok = process.argv.slice(2).filter((a, i, t) => !a.startsWith("--") && !OPCIOK.has(t[i - 1] ?? "")).map((a) => "/" + a.replace(/^\/+/, ""));

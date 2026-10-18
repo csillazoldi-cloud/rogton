@@ -3,7 +3,7 @@
 // Fájlolvasás, adatbázis nélkül (a r16-arculat-feliratok.proba.ts mintájára).
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { SZETT_IDK } from "@km/arculat-core";
+import { SZETT_IDK } from "@rogton/arculat-core";
 
 const gy = (ut: string) => new URL(`../../../${ut}`, import.meta.url).pathname;
 const KOD = [

@@ -5,7 +5,7 @@
 // és Caladea-Italic.ttf (a román ș ț Ș hiányzik — mérve fontkittel, 2026-09-30). Licenc: probak/betuk/OFL-Caladea.txt.
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { hianyzoNyelvre } from "@km/arculat-core";
+import { hianyzoNyelvre } from "@rogton/arculat-core";
 import { betuVizsgal } from "../arculat/betu";
 
 const olvas = (ut: string) => new Uint8Array(readFileSync(new URL(ut, import.meta.url)));

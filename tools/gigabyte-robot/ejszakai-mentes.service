@@ -1,7 +1,0 @@
-[Unit]
-Description=A SaaS kod ejszakai mentese egyetlen fajlba
-
-[Service]
-Type=oneshot
-ExecStart=/bin/bash %h/projektek/saas/tools/gigabyte-robot/ejszakai-mentes.sh
-TimeoutStartSec=1800

@@ -1,7 +1,7 @@
 "use client";
 import { useState, type ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
-import { NYELVEK } from "@km/design-system";
+import { NYELVEK } from "@rogton/design-system";
 import { useFeliratok } from "../../nyelv/kliens";
 import { apiHivas } from "./hibaszoveg";
 

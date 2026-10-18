@@ -1,5 +1,5 @@
 import "server-only";
-import { NYELV_SUTI, type Nyelv } from "@km/design-system";
+import { NYELV_SUTI, type Nyelv } from "@rogton/design-system";
 import { profilBetolt } from "../profil";
 
 /**

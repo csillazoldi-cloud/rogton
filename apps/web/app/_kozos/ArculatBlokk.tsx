@@ -3,9 +3,9 @@
 // szerkesztője. Semmi nem hivatkozik rá; a funkciója a „Logó, színek, betűk” szakaszban él (/fiok/arculat: színek 12d/12d2, betűk 12e,
 // képvilág / követendő / kerülendő / lekerekítés a 12c „Részletek” mögött, jóváhagyás és visszavonás a 12b/12c-n). A fában marad, mint a
 // régi Kezdolap.tsx / Poszt.tsx — a törlés Csilla kattintása. Új kód ne importálja.
-import type { ArculatLepes } from "@km/contracts";
+import type { ArculatLepes } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
-import { ARCULAT_ALAP, arculatJovahagy, arculatKesobbre, arculatMegis, arculatModosit, arculatTervezetElvet, arculatVisszavon } from "@km/profile-core";
+import { ARCULAT_ALAP, arculatJovahagy, arculatKesobbre, arculatMegis, arculatModosit, arculatTervezetElvet, arculatVisszavon } from "@rogton/profile-core";
 import { arculatAllapotSzoveg } from "./kliens";
 
 // A v6 prototípus betűkészlet-választéka a mintakártyához (az ügyfélkreatív tartománya, nem a felület betűje)

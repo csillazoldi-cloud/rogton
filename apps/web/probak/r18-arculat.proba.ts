@@ -2,7 +2,7 @@
 // összevetés: design/R18-arculatfrissites/epitett/.
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { r18BetuFajlok } from "@km/design-system";
+import { r18BetuFajlok } from "@rogton/design-system";
 
 const gy = (ut: string) => new URL(`../../../${ut}`, import.meta.url).pathname;
 const olvas = (ut: string) => readFileSync(gy(ut), "utf8");

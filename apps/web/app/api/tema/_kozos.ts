@@ -1,7 +1,7 @@
 // B-01: a közös kapu innen is elérhető, hogy az útvonalak EGY helyről kérjék a jogellenőrzést.
 export { kapu, type Szint } from "../_kapu";
-import type { HibaValasz } from "@km/contracts";
-import type { FiokNezet } from "@km/contracts";
+import type { HibaValasz } from "@rogton/contracts";
+import type { FiokNezet } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet } from "../../../hitelesites";
 import { munkamenetTokenKeresbol } from "../../../hitelesites/suti";
 import type { TemaEredmeny } from "../../../tema";

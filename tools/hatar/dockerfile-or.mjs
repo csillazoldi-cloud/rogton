@@ -6,7 +6,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 const GYOKER = process.cwd();
-const csomagok = new Map(); // "@km/x" → "packages/x"
+const csomagok = new Map(); // "@rogton/x" → "packages/x"
 for (const mappa of ["packages"]) {
   const { readdirSync } = await import("node:fs");
   for (const d of readdirSync(join(GYOKER, mappa))) {
@@ -28,7 +28,6 @@ function fuggosegek(pj) {
 }
 const ALKALMAZASOK = [
   { nev: "web", pj: "apps/web/package.json", dockerfile: "Dockerfile" },
-  { nev: "referencia-host", pj: "apps/referencia-host/package.json", dockerfile: "apps/referencia-host/Dockerfile" },
 ];
 const hibak = [];
 for (const a of ALKALMAZASOK) {

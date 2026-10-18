@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { AlapTokenek, TOKEN_SZABALYOK } from "@km/design-system";
+import { AlapTokenek, TOKEN_SZABALYOK } from "@rogton/design-system";
 import terHasznalat from "./ter-hasznalat.json";
 
 const TER_KULCSOK = Object.keys(TOKEN_SZABALYOK).filter((k) => k.startsWith("--ter-")) as (keyof AlapTokenek)[];

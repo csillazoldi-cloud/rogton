@@ -1,4 +1,4 @@
-import { finomhangolas } from "@km/news-monitor-core";
+import { finomhangolas } from "@rogton/news-monitor-core";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu } from "../_kozos";
 import { hostKontextus, kornyezet } from "../../../../hirfigyelo";
 

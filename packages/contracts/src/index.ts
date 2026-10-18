@@ -1,4 +1,4 @@
-// @km/contracts — sémák, azonosítók, hibakódok, események.
+// @rogton/contracts — sémák, azonosítók, hibakódok, események.
 // Ez a csomag NEM használhat React-et, Next-et, adatbázist. A határőr ellenőrzi.
 import { z } from "zod";
 
@@ -51,11 +51,11 @@ export const HibaKod = z.enum([
   // E-13: téma
   "NINCS_TERVEZET", // nincs mit alkalmazni / elvetni
   "NINCS_ILYEN_VERZIO", // a visszaállítandó verzió nem létezik
-  // F-3: tagság és meghívó — a `@km/hozzaferes-core` hibakódjai az API nyelvén (a befogadó fordítása: ugyanazok a szavak)
+  // F-3: tagság és meghívó — a `@rogton/hozzaferes-core` hibakódjai az API nyelvén (a befogadó fordítása: ugyanazok a szavak)
   "NAGYOBB_SZEREP", "UTOLSO_TULAJDONOS", "MAGAT_NEM", "MAR_TAG", "NINCS_ILYEN_TAG", "NINCS_ILYEN_MEGHIVO",
   "MEGHIVO_LEJART", "MEGHIVO_FELHASZNALVA", "MEGHIVO_VISSZAVONVA",
   "ROSSZ_JELENLEGI_JELSZO", // F-4: jelszóváltásnál a jelenlegi jelszó nem stimmel
-  // F-6: fájlfeltöltés — a `@km/fajl-core` kódjai az API nyelvén
+  // F-6: fájlfeltöltés — a `@rogton/fajl-core` kódjai az API nyelvén
   "SVG_NEM_ENGEDETT", "TIPUS_NEM_ENGEDETT", "TUL_NAGY", "URES", "NINCS_ILYEN_FAJL",
   "TUL_SOK_KISERLET", // E-34: sebességkorlát — túl sok sikertelen próbálkozás, várni kell
   "ERVENYTELEN_JEGY", // E-34: a jelszó-visszaállító jegy hibás, lejárt vagy már felhasználták

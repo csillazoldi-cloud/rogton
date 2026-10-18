@@ -2,7 +2,7 @@
 // post" (`egyben`). Pure rules — no database, no network; the server (poszt/index.ts) and the Posztszöveg page (app/poszt) both use them.
 // The two halves stay two ordinary cells (felulet × nyelv) in `szovegek[]`: the joined post is a VIEW and a COPY, never stored, so
 // switching the mode can never lose or merge text (D1, plan §5).
-import type { PosztFelulet, PosztSzoveg } from "@km/contracts";
+import type { PosztFelulet, PosztSzoveg } from "@rogton/contracts";
 import { KARAKTERHATAR } from "./bemenet";
 
 /** The separator line between the two halves (D1: no flags — politically loaded in Transylvania). */

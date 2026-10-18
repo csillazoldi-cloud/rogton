@@ -185,7 +185,7 @@ describe("nyelv AI (E-29c)", () => {
   });
 });
 
-// A prompt nyelvi keretezésének próbái E-31 óta a @km/news-monitor-promptok csomagban élnek (oda költöztek a promptok).
+// A prompt nyelvi keretezésének próbái E-31 óta a @rogton/news-monitor-promptok csomagban élnek (oda költöztek a promptok).
 describe("nyelvet még nem váltott fiók (fordított ellenőrzésből)", () => {
   it("a nyelv-süti dönt, ha a fiókon nincs mentett nyelv", async () => {
     const email = veletlenEmail();

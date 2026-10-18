@@ -1,4 +1,4 @@
-import { MODULOK } from "@km/contracts";
+import { MODULOK } from "@rogton/contracts";
 import { kapu } from "../_kapu";
 import { hiba, valasz } from "../tema/_kozos";
 import { szervezetCsomag } from "../../../csomag";

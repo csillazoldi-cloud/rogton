@@ -2,7 +2,7 @@ import { z } from "zod";
 import { kapu } from "../../_kapu";
 import { hiba, valasz } from "../../tema/_kozos";
 import { hozzaferesKornyezet, szerepFordit } from "../../../../hozzaferes";
-import { szerepAllit, tagEltavolit, Szerep } from "@km/hozzaferes-core";
+import { szerepAllit, tagEltavolit, Szerep } from "@rogton/hozzaferes-core";
 
 export const dynamic = "force-dynamic";
 

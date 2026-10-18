@@ -1,10 +1,10 @@
 import "server-only";
 import { createHash, randomBytes, randomUUID } from "node:crypto";
-import type { HozzaferesEsemeny, Kornyezet, Szerep } from "@km/hozzaferes-core";
+import type { HozzaferesEsemeny, Kornyezet, Szerep } from "@rogton/hozzaferes-core";
 import { meghivoTar, tagsagTar } from "./tar";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";
 
-// A `@km/hozzaferes-core` befogadója (F-3): a portok Postgres-megvalósítása + a környezet összeállítása.
+// A `@rogton/hozzaferes-core` befogadója (F-3): a portok Postgres-megvalósítása + a környezet összeállítása.
 // A `HostKontextus` a `kapu()` eredményéből épül (lásd a végpontokat): { fiok_id, szervezet_id, szerep }.
 
 export function hozzaferesKornyezet(): Kornyezet {

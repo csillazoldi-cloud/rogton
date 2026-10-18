@@ -3,7 +3,7 @@
 // MINDEN mezőjét adja vissza; a „Kész, másolom” végpontja után a poszt Kész, de nincs „kitéve” (a Naptár „Kitettem”-je külön).
 import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { PosztMunka } from "@km/contracts";
+import type { PosztMunka } from "@rogton/contracts";
 import { kozolhetoSzoveg } from "../poszt/bemenet";
 import { forditandoMezok, mezokVissza } from "../vizual/fordit-mezok";
 import { KEPARANY, elonezetArany } from "../r15/platform-aranyok";

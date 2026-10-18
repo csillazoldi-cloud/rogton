@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, it, expect } from "vitest";
-import type { PosztSzoveg } from "@km/contracts";
+import type { PosztSzoveg } from "@rogton/contracts";
 import { profilSorok } from "../poszt/profil-blokk";
 import {
   ATIRAS_MUVELETEK,

@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
-import { MUNKAMENET_SUTI } from "@km/contracts";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet } from "../../../../hitelesites";
 import { oldalcim } from "../../../../nyelv/oldalcim";
 import { felsoSav } from "../../../../kezdolap";
@@ -10,7 +10,7 @@ import { peldakFrissen } from "../../../../vizual/peldak";
 import { posztTar } from "../../../../poszt/tar";
 import { foSzoveg, rovidNev, sorok } from "../../../../r15/szamol";
 import { profilTar } from "../../../../profil/tar";
-import { masodikNyelv, nyelvMod } from "@km/profile-core";
+import { masodikNyelv, nyelvMod } from "@rogton/profile-core";
 import { programTar } from "../../../../program/tar";
 import { programHorgony, szeletTetelei } from "../../../../program/blokk";
 import { idoszakCimke } from "../../../_kozos/c30-program-szabaly";

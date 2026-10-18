@@ -1,5 +1,5 @@
-import { PosztForras } from "@km/contracts";
-import { KEP_MAX_MERET_BAJT } from "@km/fajl-core";
+import { PosztForras } from "@rogton/contracts";
+import { KEP_MAX_MERET_BAJT } from "@rogton/fajl-core";
 import { eldob, korlatosBeolvas } from "../../../../fajl/beolvas";
 import { kapu } from "../../_kapu";
 import { szerepFordit } from "../../../../hozzaferes";

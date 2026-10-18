@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { TARTALOMNYELVEK, type OnboardingPiszkozat, type Tartalomnyelv, type MezoForras } from "@km/contracts";
+import { TARTALOMNYELVEK, type OnboardingPiszkozat, type Tartalomnyelv, type MezoForras } from "@rogton/contracts";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { Jelveny, OnboardingKeret, hivas, nyelvNev, usePiszkozat } from "../_kozos/keret";
 import { arculatotKer } from "../_kozos/arculat";
-import { JavaslatokValasz } from "@km/contracts";
-import { javaslatokBeolvaszt } from "@km/onboarding-core";
-import { arculatTervezetBefogad } from "@km/profile-core";
+import { JavaslatokValasz } from "@rogton/contracts";
+import { javaslatokBeolvaszt } from "@rogton/onboarding-core";
+import { arculatTervezetBefogad } from "@rogton/profile-core";
 
 type Kommunikacio = OnboardingPiszkozat["kommunikacio"];
 type Fuggo = { leiras: string; minta: string; irany: string } | null;

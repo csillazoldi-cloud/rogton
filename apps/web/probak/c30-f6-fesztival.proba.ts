@@ -4,8 +4,8 @@
 // the copy at approval (a person's own type answer, the machine's dates), the day labels. Live part (PROBA_CIM + DATABASE_URL; test AI):
 // the review proposal gives a festival its type and dates; PUT /api/profil/rendezveny saves the event (editor; viewer 403; bad range 400).
 import { describe, expect, it } from "vitest";
-import { OnboardingPiszkozat } from "@km/contracts";
-import { profilPiszkozatbol } from "@km/profile-core";
+import { OnboardingPiszkozat } from "@rogton/contracts";
+import { profilPiszkozatbol } from "@rogton/profile-core";
 import { datumTartomany, fesztivalSzoveg, helyTerv, lepesekFor, rendezvenyJavaslat, tipusJavaslat } from "../profil/tipus-szabaly";
 import { idoBe, idoszakCimke, napCimke, napCsoportok } from "../app/_kozos/c30-program-szabaly";
 import { keres, lezar, sql, sutiKinyer, takaritas, veletlenEmail } from "./segedek";

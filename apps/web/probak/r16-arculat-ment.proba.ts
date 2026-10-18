@@ -5,7 +5,7 @@
 //  - a profil minden mentés után beolvasható (soha nem lesz belőle null);
 //  - a három végpont: szerkesztő 200, néző 403 NINCS_JOG, rossz törzs 400.
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { JovahagyasValasz } from "@km/contracts";
+import { JovahagyasValasz } from "@rogton/contracts";
 import { arculatMent } from "../arculat/ment";
 import { alapA } from "../arculat/ment";
 import { jovahagyTenyleges, reszletekJovahagy } from "../arculat/lepes";

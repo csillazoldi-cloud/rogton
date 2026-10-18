@@ -1,4 +1,4 @@
-# @km/hozzaferes-core
+# @rogton/hozzaferes-core
 
 ## 1. Mit csinál
 
@@ -64,7 +64,7 @@ Események: `meghivo_kiadva`, `meghivo_visszavonva`, `meghivo_elfogadva`, `tag_f
    a `tagsag` és a `meghivo` táblával; a referencia-hostban SQLite).
 3. `Ora`: `() => new Date().toISOString()`; `Azonosito`: `crypto.randomUUID()`, 32 bájt
    véletlen base64url jegy, SHA-256 hex lenyomat.
-4. A modul próbáinak futtatása (`pnpm --filter @km/hozzaferes-core proba`) — adatbázis nélkül
+4. A modul próbáinak futtatása (`pnpm --filter @rogton/hozzaferes-core proba`) — adatbázis nélkül
    zöldek.
 5. Három határőr-szabály felvétele a `.dependency-cruiser.cjs`-be.
 6. A hibakódok fordítása feliratokra (`hozzaferes.hiba_*`), a HTTP-státusz a szerződés 6.

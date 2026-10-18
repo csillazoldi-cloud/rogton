@@ -1,8 +1,8 @@
 import "server-only";
 import { and, eq, sql } from "drizzle-orm";
-import { Idozites, ertekelesUjra, figyelesFuttat, javaslatKiprobal } from "@km/news-monitor-core";
+import { Idozites, ertekelesUjra, figyelesFuttat, javaslatKiprobal } from "@rogton/news-monitor-core";
 
-import { esedekes } from "@km/news-monitor-core";
+import { esedekes } from "@rogton/news-monitor-core";
 import { db, sema } from "../adatbazis/kapcsolat";
 import { kornyezet } from "./index";
 import { profilBetolt } from "../profil";

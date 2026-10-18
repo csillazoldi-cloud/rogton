@@ -1,5 +1,5 @@
 {
-  "name": "@km/proba-host",
+  "name": "@rogton/proba-host",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -9,8 +9,8 @@
     "indit": "tsx src/indit.ts"
   },
   "dependencies": {
-    "@km/news-monitor-core": "workspace:*",
-    "@km/contracts": "workspace:*",
+    "@rogton/news-monitor-core": "workspace:*",
+    "@rogton/contracts": "workspace:*",
     "zod": "4.5.4"
   },
   "devDependencies": {

@@ -9,7 +9,7 @@ import {
   rovidNev,
   varoPoszt,
 } from "../r15/szamol";
-import type { PosztMunka } from "@km/contracts";
+import type { PosztMunka } from "@rogton/contracts";
 
 const minta = {
   id: "00000000-0000-4000-8000-000000000001",

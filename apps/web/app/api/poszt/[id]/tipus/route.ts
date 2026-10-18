@@ -1,4 +1,4 @@
-import { PosztTipus } from "@km/contracts";
+import { PosztTipus } from "@rogton/contracts";
 import { kapu } from "../../../_kapu";
 import { tipustKeszit, tipustTorol } from "../../../../../poszt";
 import { cellaCim, posztHibaValasz, torzset, valasz } from "../../_kozos";

@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { MUNKAMENET_SUTI } from "@km/contracts";
-import { ARCULAT_ALAP } from "@km/profile-core";
-import { sotetitve } from "@km/arculat-core";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
+import { ARCULAT_ALAP } from "@rogton/profile-core";
+import { sotetitve } from "@rogton/arculat-core";
 import { aktualisFiok, aktualisSzervezet } from "../../../../hitelesites";
 import { profilTar } from "../../../../profil/tar";
 import { arculatAllapot } from "../../../../arculat/allapot";

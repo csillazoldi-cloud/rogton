@@ -8,7 +8,7 @@ import {
   sutiTulajdonsagEllenoriz,
   lezar,
 } from "./segedek";
-import { MUNKAMENET_SUTI } from "@km/contracts";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
 
 type IdValasz = { id: string };
 type HibaValaszTipus = { hiba: string; mezok?: Record<string, string> };

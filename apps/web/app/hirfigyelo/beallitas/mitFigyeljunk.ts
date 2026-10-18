@@ -1,6 +1,6 @@
 // R-15 · 06 Mit figyeljünk — a lap tiszta döntései (gepezet-3 3.2, 3.3, 3.5). Külön fájl, hogy a próba JSX nélkül olvashassa
 // (probak/r15-mit-figyeljunk.proba.ts). A Beallitas.tsx és a Forrasok.tsx innen veszi őket.
-import type { Beallitas, Forras, Futas } from "@km/news-monitor-core";
+import type { Beallitas, Forras, Futas } from "@rogton/news-monitor-core";
 
 /** gepezet-3 3.2 — melyik képernyő: 06a (a reggeli figyelés ki) vagy 06b (be). */
 export function mitFigyeljunkNezet(b: Pick<Beallitas, "idozites">): "06a" | "06b" {

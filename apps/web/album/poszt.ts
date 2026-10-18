@@ -8,7 +8,7 @@ import "server-only";
 // A gép: `mellekletOlvas` (onboarding/kepolvaso.ts) „album_valogatas” feladattal, a `kicsi` (≤ 512 px) változatokkal, „low” felbontással,
 // legfeljebb 40 képpel (csak ennél a feladatnál). Ha nem elérhető, vagy a válasza nem használható (teszt-gép is): a készítés ideje
 // szerinti sor, egyenletesen 10 fotó (`gep: "sorrend"`). A lépés soha nem áll meg a gép miatt.
-import type { PosztAlbum, PosztMunka } from "@km/contracts";
+import type { PosztAlbum, PosztMunka } from "@rogton/contracts";
 import { fajlTar } from "../fajl/tar";
 import { mellekletOlvas } from "../onboarding/kepolvaso";
 import { albumFeliratKeszit, munkatBetolt, type PosztKeres } from "../poszt";

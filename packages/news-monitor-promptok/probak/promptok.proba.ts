@@ -1,5 +1,5 @@
 // E-31: a Hírfigyelő AI-utasításai KÖZÖSEK — mindkét host ugyanazt küldi a modellnek.
-import type { HfFeladat } from "@km/news-monitor-core";
+import type { HfFeladat } from "@rogton/news-monitor-core";
 import { describe, expect, it } from "vitest";
 import { NYELVEK, nyelvfuggo, nyersPrompt, prompt } from "../src/index.js";
 

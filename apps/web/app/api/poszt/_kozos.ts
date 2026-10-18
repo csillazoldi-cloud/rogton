@@ -1,5 +1,5 @@
 import "server-only";
-import { PosztFelulet, PosztNyelv, type HibaValasz } from "@km/contracts";
+import { PosztFelulet, PosztNyelv, type HibaValasz } from "@rogton/contracts";
 import { PosztHiba, type PosztKeres } from "../../../poszt";
 
 // R-11/A2c: a Posztszöveg végpontjainak közös darabjai — hibafordítás, cellacím, kérés-törzs.

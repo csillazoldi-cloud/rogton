@@ -14,8 +14,8 @@ import {
   temaEllenoriz,
   type TemaHiba,
   type TemaVerzioFej,
-} from "@km/design-system";
-import temaAlap from "@km/design-system/tema-alap.json";
+} from "@rogton/design-system";
+import temaAlap from "@rogton/design-system/tema-alap.json";
 import { useFeliratok } from "../../nyelv/kliens";
 import { FajlValaszto, fajlnevSzelet, fajltLetolt, hivas } from "../_kozos/kliens";
 import { ElonezetPanel, type ElonezetAllapot } from "./ElonezetPanel";

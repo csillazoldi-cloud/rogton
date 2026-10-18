@@ -1,7 +1,7 @@
 import { kapu } from "../../_kapu";
 import { cookies, headers } from "next/headers";
-import { HangnemFinomitasKeres, type HibaValasz } from "@km/contracts";
-import { NYELV_SUTI } from "@km/design-system";
+import { HangnemFinomitasKeres, type HibaValasz } from "@rogton/contracts";
+import { NYELV_SUTI } from "@rogton/design-system";
 import { aktualisFiok, aktualisSzervezet } from "../../../../hitelesites";
 import { munkamenetTokenKeresbol } from "../../../../hitelesites/suti";
 import { JavaslatHiba, hangnemetFinomit } from "../../../../onboarding/javaslatok";

@@ -1,6 +1,6 @@
 import { belepettSzervezet, hiba, kapu, valasz } from "../_kozos";
 import { hostKontextus } from "../../../../hirfigyelo";
-import { jogosult } from "@km/news-monitor-core";
+import { jogosult } from "@rogton/news-monitor-core";
 import { sorbaTesz } from "../../../../hirfigyelo/sor";
 import { keresNyelve } from "../../../../nyelv/keresbol";
 

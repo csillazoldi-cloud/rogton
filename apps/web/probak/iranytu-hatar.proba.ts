@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { IRANYTU_HATAR, IranytuCelSema } from "@km/contracts";
+import { IRANYTU_HATAR, IranytuCelSema } from "@rogton/contracts";
 import { vag } from "../iranytu/vag";
 
 // 2026-09-21 (Vilmos): az AI egy 60 karakternél hosszabb „Mikorra” szöveget javasolt, és az iránytű mentése

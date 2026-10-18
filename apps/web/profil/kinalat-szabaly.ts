@@ -2,7 +2,7 @@
 // Szervezet adatai is használja; az első beállítás innen veszi) —
 // vendéglátós-e a cég (étlap vagy szolgáltatás-lista kérdés), a gép kínálat-válaszának tisztítása, a honlap közösségi linkje és a
 // kínálatot mutató aloldalai, a tématerv tisztítása és a gép nélküli tartalék-terv. Adatbázis és hálózat nélkül (probak/r18-kor7.proba.ts).
-import { FESZTIVAL_TEMA_FAJTAK, KINALAT_MAX, PosztTipus, TEMA_MAX, type Kategoria, type KinalatSor, type SzervezetTipus, type TemaTerv } from "@km/contracts";
+import { FESZTIVAL_TEMA_FAJTAK, KINALAT_MAX, PosztTipus, TEMA_MAX, type Kategoria, type KinalatSor, type SzervezetTipus, type TemaTerv } from "@rogton/contracts";
 
 /** Vendéglátás (étterem, kávézó, cukrászda, pékség, catering, panzió…) — a cég leírásából, három nyelven. */
 const VENDEGLATO = /(étterm|étkezd|vendéglő|kávéz|kávéház|cukrászd|pékség|pizzéri|bisztró|büfé|catering|panzió|szálló|kifőzde|söröz|borozó|restaurant|restaurante|cafenea|cafe\b|café|patiser|brutări|brutari|pensiune|bistro|pizzeri|bakery|catering|guesthouse|food truck)/iu;

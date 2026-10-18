@@ -6,7 +6,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright-core";
 import { PNG } from "pngjs";
-import { Marka, Recept, Tartalom, illeszt, MERO_SZKRIPT, meresOsszeallit, type IllesztesEredmeny } from "@km/vizual-core";
+import { Marka, Recept, Tartalom, illeszt, MERO_SZKRIPT, meresOsszeallit, type IllesztesEredmeny } from "@rogton/vizual-core";
 
 const itt = dirname(fileURLToPath(import.meta.url));
 const ref = join(itt, "referencia");

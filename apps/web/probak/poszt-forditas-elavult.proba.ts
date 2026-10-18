@@ -7,7 +7,7 @@
 // tényleges fordítását NEM ez méri — azt csak egy valódi modell mutatja meg (MEASURED.md).
 import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { PosztMunka } from "@km/contracts";
+import type { PosztMunka } from "@rogton/contracts";
 import { forditasKell } from "../app/poszt/forditando";
 import { keres, lezar, sutiKinyer, takaritas, veletlenEmail } from "./segedek";
 

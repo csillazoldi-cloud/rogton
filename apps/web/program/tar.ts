@@ -1,6 +1,6 @@
 import "server-only";
 import { and, asc, count, eq, inArray, isNull, sql } from "drizzle-orm";
-import { PROGRAM_MAX_TETEL, type ProgramTetel, type ProgramTetelMezok } from "@km/contracts";
+import { PROGRAM_MAX_TETEL, type ProgramTetel, type ProgramTetelMezok } from "@rogton/contracts";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { programKulcs, ujraOlvasTerv, type TisztaTetel } from "./szabaly";
 

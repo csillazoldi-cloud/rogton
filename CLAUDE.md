@@ -1,60 +1,53 @@
-# SaaS projekt — belépési pont
+# Rögtön — entry point for Claude
 
-Ha ezt olvasod, ez az első dolgod. Ne derítsd fel a projektet, olvasd el ezeket:
+Read in this order, do not re-explore what they say:
 
-1. `EGYUTTMUKODES.md` — hogyan dolgozunk együtt. Ez Vilmos szava, nem ajánlás.
-2. `PROJEKT-BEALLITAS-TEENDOK.md` — a beállítás állása és a döntési napló (D-01, D-02, …).
-3. `docs/ATADO-1.0.md` — a termék hiteles leírása: R-01…R-20 követelmények,
-   A-01…A-16 elfogadási feltételek, 7 megvalósítási szakasz.
-4. `HANDOFF.md` — hol tart a munka most (a legfrissebb legfelül).
-5. `NAS-szabalyok.md` — a NAS üzemeltetési szabályai. **Kötelező**, mielőtt bármit telepítesz vagy nehezet futtatsz rajta.
-6. `docs/MODULSZABALY.md` — hogyan épül minden újrahasznosítható elem. **Kötelező** új modul indítása előtt.
-7. `docs/ALLAPOT-SZABALY.md` — az állapotlap törvénye. **Kötelező**, minden munkamenetben.
+1. this file — how we work;
+2. `HANDOFF.md` — where the work is (newest entry on top);
+3. `docs/MODULSZABALY.md` — how every reusable module is built (mandatory before a new module);
+4. `uzem/README.md` — how the app runs and deploys.
 
-## Mi ez a projekt
+## What this is
 
-Több ügyfélnek eladható, iparágfüggetlen, AI-központú **kommunikációs munkakörnyezet**.
-Munkanév: „Kommunikációs munkatér". Terméktulajdonos: Portik Vilmos / Aitmetica SRL.
-Nem posztgenerátor és nem ügynökségi gyártásgyorsító: a kommunikációs vezető teljes munkáját
-támogatja, a cég saját profiljára támaszkodva.
+A multi-tenant AI communications workspace: a company is set up once, the machine then watches the news, drafts posts
+(FB/IG/LI) and makes branded images in the company's voice. Display name **Rögtön**, slug `rogton`.
+This repo is a frozen fork: it does not track any upstream, and nothing from the upstream's infrastructure applies here.
 
-Építési sorrend: **előbb a közös profil + onboarding** menjen végig, **utána** az első önálló
-modul (hír-/sajtófigyelő), ami két különböző rendszerben ugyanazzal a maggal működik.
+Requirement and acceptance IDs in old code comments (R-xx, A-xx, F-x, c-x) refer to the upstream specification, which is
+not part of this repo. New work references a decision in `docs/decisions/` or carries its own reason.
 
-## Alapkövetelmények, amiket nem lehet kiszervezni
+## Non-negotiables
 
-- hordozható, verziózott modulok — a korábbi worklog bukásának tanulsága ez a projekt vezérelve;
-- a hiteles ügyfélprofil a fő alkalmazás adatbázisában él, az onboarding csak előkészíti;
-- teljes témázhatóság: nincs komponensbe égetett szín, betű, lekerekítés;
-- HU / RO / EN felület az első naptól;
-- cserélhető felhős és helyi AI-szolgáltató;
-- több ügyfél adata az első adatmodelltől kezdve elválasztva.
+- Hungarian-only interface (`FELULETI_NYELVEK = ['hu']`); the organisation's content/AI output language stays its choice.
+- Full theming: no colour, font, size, weight or radius hard-coded in a component — tokens only, `pnpm tokenor` = 0.
+- Module boundaries are law: `pnpm hatar` must stay green (the 2 known cycles in `apps/web/profil` ↔ `apps/web/vizual` are the only tolerated violations until fixed).
+- Tenant data is always separated: organisation context everywhere, row-level security.
+- All UI text comes from label keys (`felirat`), added through a NEW migration. An applied migration file is never edited.
+- Banned strings (old product, company, place and team names, private hosts and IPs) never reach the image, the DB labels or a served page.
+- Secrets live only in the host's `.env` / secret files, never in the repo, never printed.
 
-## Hol mi van
+## How we work
 
-| Mi | Hol |
-|---|---|
-| Munkamappa (ez) | `E:\AI\SynologyDrive\SaaS` a gépén, a Cowork hídon át elérhető |
-| Belépések | `vault/` — soha nem kerül chatbe, kódba, GitHubra, felhőbe |
-| Forráskód | privát GitHub tárhely (D-01) |
-| Munkamásolat és teszt | a `transzmozaik` NAS-on, Tailscale mögött (D-01) |
-| Feltöltés a tesztre | Claude végzi magától, kulccsal a vaultból (D-02) |
-| Helyi AI | Dell, Ollama, `http://100.89.253.13:11434` |
+1. **Discuss first, then code.** Repeat back how you understood the request and wait for the word. Once something is discussed, drawn and decided: code it immediately.
+2. **Silence is not permission.** Don't build your own suggestion that got no answer.
+3. **Every screen starts from a drawing.** Nothing on screen that isn't on the drawing; anything missing from it is a question, not improvisation.
+4. **No dead controls.** A button, toggle or field ships only with the machinery behind it.
+5. **Never remove an existing feature without an explicit yes.**
+6. **"Done" = deployed + checked on the live screen + a screenshot was sent.** Otherwise say "not done" or "I couldn't test it".
+7. **A document is not a fact.** Measure the live system first and say where you measured from.
+8. **Small steps, each deployed right away.**
+9. **Tests are never silently changed.** If an expectation moves, the reason goes in its place.
+10. **Realistic test data:** Hungarian accents, spaces, commas, long names.
+11. **Never delete data:** retire or move to `_torolni/`.
+12. **When something breaks:** get the exact error line before guessing.
 
-## Az állapotlap — kötelező
+## The Tibor filter
 
-**Ami nincs az állapotlapon, az nem történik meg.**
-Minden munka a KEZDÉSEKOR kerül fel, nem a végén — kód, rajzkör, ellenőrzés, döntés,
-elakadás egyaránt. A lap: https://saas.mediapartizan.ro/allapot/, az adat:
-`nas/public/allapot/allapot.json`, a felvezetés: `pnpm allapot …`.
-A részletek: `docs/ALLAPOT-SZABALY.md`. Az `ellenoriz` lánc nem enged kiadni
-elavult állapotlappal.
+Every screen is judged by a tired small-business owner on his phone in the evening. If he doesn't understand something at
+first sight, he doesn't press it. One page, one question; one primary button; show results, not machinery; everything
+pre-filled; little text; phone first (390 px). Tools: `tools/tibor-proba`, `tools/tibor-biro`.
 
-## Amit ne csinálj
+## Checks before every push
 
-- Ne dolgozz úgy, hogy az állapotlapon nem látszik. Ha nincs fent, nem történik meg.
-
-- Ne kezdj kódolni megbeszélés nélkül; és ne halogasd, ha már meg van beszélve.
-- Ne rakj a képernyőre olyat, ami nincs a rajzon.
-- Ne mondd, hogy kész, amíg nincs kint a teszten és nincs róla képernyőkép.
-- Ne állítsd tényként, amit csak dokumentumban olvastál — mérd meg.
+`pnpm tipus`, `pnpm hatar`, `pnpm tokenor`, `pnpm keretor`, the unit tests (`pnpm -r --if-present run proba`).
+`pnpm ellenoriz` runs the chain.

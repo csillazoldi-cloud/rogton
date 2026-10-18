@@ -8,7 +8,7 @@
 // Kirakás-zár javítás (10-01, Csilla: jóváhagyva): a cím alatt fülenként egy halk sor — hol látszik a szín a képeken (r16.arculat.szin.hol_*).
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import type { SzinHarmas } from "@km/arculat-core";
+import type { SzinHarmas } from "@rogton/arculat-core";
 import type { SzinekAdat } from "../../../../../arculat/szinek";
 import { useFeliratok } from "../../../../../nyelv/kliens";
 import { Baj, FoGomb, HalkGomb, HalkLink, Info, Teendo } from "../../../../_kozos/R15";

@@ -5,7 +5,7 @@ import {
   KozosTemaAllapot,
   TemaHiba,
   TOKEN_KULCSOK,
-} from "@km/design-system";
+} from "@rogton/design-system";
 
 
 /** A válasz `{ tema }` burka. */

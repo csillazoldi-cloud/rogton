@@ -3,7 +3,7 @@
 // Szabály: a törzs csak a színeket (és K5/K6-tól a betűket, a névlogó stílusát) írhatja felül; a logó a munkatér saját fájlja, vagy (K6)
 // a GÉP által a kért stílusból most készített névlogó — bájtot vagy fájl-azonosítót a törzsből soha nem veszünk át (az ismeretlen kulcsot a zod eldobja).
 import { z } from "zod";
-import { HexSzin } from "@km/contracts";
+import { HexSzin } from "@rogton/contracts";
 import type { KepArculat, KepSajatBetu } from "./helyzet";
 
 export const MintaKeres = z.object({

@@ -1,12 +1,12 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { MUNKAMENET_SUTI } from "@km/contracts";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet } from "../../hitelesites";
 import { oldalcim } from "../../nyelv/oldalcim";
 import { beallitasokNezet } from "../../ertesites";
 import { felsoSav } from "../../kezdolap";
 import { profilBetolt } from "../../profil";
-import { nyelvMod } from "@km/profile-core";
+import { nyelvMod } from "@rogton/profile-core";
 import { FelsoSav } from "../_kozos/FelsoSav";
 import { Beallitasok } from "./Beallitasok";
 import "../_kozos/felsosav.css";

@@ -1,4 +1,4 @@
-import { PROGRAM_OLVASAS_ELAKAD_MS, type SzervezetProfil } from "@km/contracts";
+import { PROGRAM_OLVASAS_ELAKAD_MS, type SzervezetProfil } from "@rogton/contracts";
 
 // c30 F6b: a háttér-olvasás állapota — tiszta függvény (probak/c30-f6b-elo-javitasok.proba.ts).
 export type ProgramOlvasas = NonNullable<SzervezetProfil["program_olvasas"]>;

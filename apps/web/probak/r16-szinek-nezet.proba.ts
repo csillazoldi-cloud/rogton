@@ -3,8 +3,8 @@
 //  - `szinekJovahagy`: ment ÉS jóváhagy (új verzió, pillanatképet nem ír felül); változatlan, már jóváhagyott választás → ugyanaz az objektum;
 //  - `hatterTervezetBefogad`: az onboarding háttérmunkája csak az érintetlen arculatba ír.
 import { describe, expect, it } from "vitest";
-import { ArculatLepes, type ArculatTervezet } from "@km/contracts";
-import type { FajlMeta } from "@km/fajl-core";
+import { ArculatLepes, type ArculatTervezet } from "@rogton/contracts";
+import type { FajlMeta } from "@rogton/fajl-core";
 import { szinNezet, type SzinBemenet } from "../arculat/szinek";
 import { hatterTervezetBefogad, szinekJovahagy } from "../arculat/lepes";
 import { alapTervezet } from "../arculat/alap";

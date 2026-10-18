@@ -1,7 +1,7 @@
 import "server-only";
 import { mkdir, rename, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import type { JavitoCsomag, Visszajelzes } from "@km/visszajelzes-core";
+import type { JavitoCsomag, Visszajelzes } from "@rogton/visszajelzes-core";
 
 // R-9 (V5): a Visszajelzés modul fájl-kimenete Claude-nak.
 // Minden beküldött visszajelzés után és a napi csomag után kiírjuk a teljes listát (kép NÉLKÜL)

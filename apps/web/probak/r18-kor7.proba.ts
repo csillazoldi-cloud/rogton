@@ -5,7 +5,7 @@
 // km_app sorszintű védelem, a lista feltöltött fotóból, az oldal + képernyőkép, a témák, a poszt fajtái, és „árak: Nem” → a kimenetben nincs ár.
 import { Client } from "pg";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { KinalatSor, PosztMunka, TemaTerv } from "@km/contracts";
+import type { KinalatSor, PosztMunka, TemaTerv } from "@rogton/contracts";
 import { domainNev, kinalatAloldalak, kinalatTisztit, kozossegiLink, temaTartalek, temakTisztit, vendeglato } from "../profil/kinalat-szabaly";
 import { readFileSync } from "node:fs";
 import { arakNelkul, javasoltTipus, kinalatSorok, kitalaltReszek, szavazasSzoveg, temaTervSorok, tipusKimenet, tipusSzovegek, videoSzamlalo, videoSzoveg } from "../poszt/tipus";

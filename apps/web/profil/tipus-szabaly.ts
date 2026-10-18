@@ -5,7 +5,7 @@
 //  - `tipusOf(profil)`: the stored type, else "ceg" (D13: unsure and unanswered = company).
 //  - `tipusJavaslat(ai, nev, osszefoglalo)`: the review-proposal call's guess, normalised; without a usable AI answer, the regex
 //    fallbacks (hospitality → vendeglatas, festival words → fesztival) — always with biztos: false, so nothing is copied.
-import { KATEGORIAK, POSZT_NYELV_MODOK, SZERVEZET_TIPUSOK, TARTALOMNYELVEK, kategoria, szervezetTipus, type Kategoria, type PosztNyelvMod, type SzervezetTipus } from "@km/contracts";
+import { KATEGORIAK, POSZT_NYELV_MODOK, SZERVEZET_TIPUSOK, TARTALOMNYELVEK, kategoria, szervezetTipus, type Kategoria, type PosztNyelvMod, type SzervezetTipus } from "@rogton/contracts";
 import { vendeglato } from "./kinalat-szabaly";
 import { honapSzam } from "../program/szabaly";
 

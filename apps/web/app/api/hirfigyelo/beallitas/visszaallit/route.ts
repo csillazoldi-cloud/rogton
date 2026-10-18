@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { verzioVisszaallit } from "@km/news-monitor-core";
+import { verzioVisszaallit } from "@rogton/news-monitor-core";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu, valasz } from "../../_kozos";
 import { hostKontextus, kornyezet } from "../../../../../hirfigyelo";
 

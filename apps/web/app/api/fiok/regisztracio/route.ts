@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { kapu } from "../../_kapu";
-import { HibaValasz } from "@km/contracts";
+import { HibaValasz } from "@rogton/contracts";
 import { regisztral } from "../../../../hitelesites";
 import { keresCime, kiserletNaplo, korlatEllenoriz } from "../../../../hitelesites/korlat";
 

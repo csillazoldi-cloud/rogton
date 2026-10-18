@@ -7,7 +7,7 @@
 // rendben lévő oldalnál NINCS állapotsor (T3: forrás-állapot tiltott), csak bajnál egy halk mondat a neve alatt; a műveletek csak az
 // „Átírom” után látszanak: a sor „···” menüjében (fejléce az utolsó sikeres nézés ideje), és a lista fölött „+ Új oldal”.
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Forras } from "@km/news-monitor-core";
+import type { Forras } from "@rogton/news-monitor-core";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { hfKeres, idoRovid, forrasNev } from "../_kozos/kliens";
 import { allapotKulcs, forrasSorrend } from "./mitFigyeljunk";

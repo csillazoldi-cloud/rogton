@@ -3,7 +3,7 @@ import { keres, veletlenEmail, sql, takaritas, lezar } from "./segedek";
 import {
   FeliratSzintAllapot,
   FeliratHiba,
-} from "@km/design-system";
+} from "@rogton/design-system";
 
 /** A válasz `{ feliratok }` burka. */
 function feliratokBol(torzs: unknown): unknown {

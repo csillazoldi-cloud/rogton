@@ -1,5 +1,5 @@
 {
-  "name": "@km/vizual-receptek",
+  "name": "@rogton/vizual-receptek",
   "version": "0.1.0",
   "private": true,
   "description": "A vizuálgyártó modul receptjei (adatfájlok). Márka-, betű- és színkódmentesek.",

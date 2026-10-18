@@ -10,7 +10,7 @@ import {
   MUNKAMENET_ELETTARTAM_NAP,
   RegisztracioKeres,
   SzervezetLetrehozasKeres,
-} from "@km/contracts";
+} from "@rogton/contracts";
 import { db, fiokKent, sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 export type Eredmeny<T> = { ok: true; ertek: T } | { ok: false; hiba: HibaKod; mezok?: Record<string, string> };

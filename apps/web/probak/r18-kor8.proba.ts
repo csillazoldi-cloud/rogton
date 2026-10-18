@@ -5,7 +5,7 @@
 // szerkeszthető; a Kezdőlap „Saját ötletből” linkje; a Naptár: levétel · törlés (puha) · visszavonás · húzás tartománya; tenant-szűrés.
 import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { PosztMunka, TipusAdat } from "@km/contracts";
+import type { PosztMunka, TipusAdat } from "@rogton/contracts";
 import { atirasBemenet, ctaSorok, kozolhetoSzoveg } from "../poszt/bemenet";
 import { szabalyVisszhang, visszhangNelkul } from "../poszt/tipus";
 import { PROBA_CIM, keres, lezar, sql, sutiKinyer, takaritas, veletlenEmail } from "./segedek";

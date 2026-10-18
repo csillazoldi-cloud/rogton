@@ -16,7 +16,7 @@ import { FoGomb, HalkLink, Info, KerdesCim } from "../_kozos/R15";
 import type { FelsoSavAdat } from "../../kezdolap/tipusok";
 import { BeallitasokMenu } from "./BeallitasokMenu";
 import { NyelvModValaszto, useNyelvMn } from "../_kozos/C30NyelvMod";
-import type { PosztNyelvMod } from "@km/contracts";
+import type { PosztNyelvMod } from "@rogton/contracts";
 import "../_kozos/r15-lapok.css";
 import "./beallitasok.css";
 

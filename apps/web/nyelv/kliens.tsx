@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, type ReactNode } from "react";
-import type { Nyelv } from "@km/design-system";
+import type { Nyelv } from "@rogton/design-system";
 import { sablonKitolt } from "./sablon";
 
 interface FeliratokKontextus {

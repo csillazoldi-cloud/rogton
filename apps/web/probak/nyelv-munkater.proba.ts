@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import { keres, veletlenEmail, takaritas, lezar, sutiKinyer } from "./segedek";
-import { NYELV_SUTI } from "@km/design-system";
+import { NYELV_SUTI } from "@rogton/design-system";
 
 describe("V1: a munkater nyelve visz mindent", () => {
   const jelszo = "ProbaJelszo123!";

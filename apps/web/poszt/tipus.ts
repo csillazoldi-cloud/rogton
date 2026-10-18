@@ -1,7 +1,7 @@
 // R-18 7. kör (Csilla 10-12, IRANYOK-round7.md „Post types in Posztszöveg”): a poszt fajtái — tiszta függvények, adatbázis nélkül
 // (probak/r18-kor7.proba.ts). A gép bemenetének kínálat- és tématerv-blokkja (az árak csak „Igen”-nél), az árak utóellenőrzése
 // („Nem”-nél a lista árai nem maradhatnak a kimenetben), a fajta-kimenet ellenőrzése, a videó szószáma és a másolható szövegek.
-import { PosztTipus, TipusAdat, type KinalatSor, type TemaTerv } from "@km/contracts";
+import { PosztTipus, TipusAdat, type KinalatSor, type TemaTerv } from "@rogton/contracts";
 
 /** A kínálat a gép elé (mint a profil): a bekapcsolt sorok; ár csak ha a cég kérte („Igen”) és van. Üres listánál nincs blokk. */
 export function kinalatSorok(kinalat: readonly KinalatSor[] | null | undefined, arakPosztban: boolean | undefined): string[] {

@@ -7,10 +7,10 @@ import "server-only";
 //  - `betukJovahagy`: „Ez legyen” = a két betű mentése ÉS jóváhagyása egy lépésben (kerdesek 4), a lepes.ts szabályával (meglévő
 //    pillanatkép soha nem íródik felül: a `jovahagyTenyleges` a módosított tervezetet a következő szabad verzióra hagyja jóvá).
 // A profilt a `profil/tar`-ból, a fájlokat a `fajl/tar`-ból olvassuk (TERV §3: `vizual/*`-ot és a `profil` bejáratát nem importáljuk).
-import type { ArculatLepes, ArculatLogok, ArculatTervezet } from "@km/contracts";
-import type { FajlMeta } from "@km/fajl-core";
-import { arculatModosit } from "@km/profile-core";
-import { BEEPITETT, BetuElemzes, beepitettKulcs, betuKulcs, hianyzoNyelvre, sajatBetuId, sajatKulcs } from "@km/arculat-core";
+import type { ArculatLepes, ArculatLogok, ArculatTervezet } from "@rogton/contracts";
+import type { FajlMeta } from "@rogton/fajl-core";
+import { arculatModosit } from "@rogton/profile-core";
+import { BEEPITETT, BetuElemzes, beepitettKulcs, betuKulcs, hianyzoNyelvre, sajatBetuId, sajatKulcs } from "@rogton/arculat-core";
 import { profilTar } from "../profil/tar";
 import { fajlTar } from "../fajl/tar";
 import { arculatNezet, jovahagyottKep, type SzakaszAdat, type Szerep } from "./allapot";

@@ -1,6 +1,6 @@
 import "server-only";
 import { eq } from "drizzle-orm";
-import { ALAP_CSOMAG_KOD, Csomag, type Modul } from "@km/contracts";
+import { ALAP_CSOMAG_KOD, Csomag, type Modul } from "@rogton/contracts";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 // F-7a (D-F35): a csomag-gépezet váza — melyik munkatér melyik modult használhatja. A pilotban egy csomag van („pilot", benne a Hírfigyelő),

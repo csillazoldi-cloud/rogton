@@ -1,4 +1,4 @@
-import { FESZTIVAL_TEMA_FAJTAK, type FesztivalTemaFajta, type ProgramTetel, type Rendezveny, type TemaTerv } from "@km/contracts";
+import { FESZTIVAL_TEMA_FAJTAK, type FesztivalTemaFajta, type ProgramTetel, type Rendezveny, type TemaTerv } from "@rogton/contracts";
 import { ervenyesNap, napHozzaad, napokKozott, type Nap } from "../poszt/naptar";
 import { kiemeltTetelek } from "./blokk";
 

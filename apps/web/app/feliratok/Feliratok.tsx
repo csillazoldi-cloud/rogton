@@ -13,7 +13,7 @@ import {
   type FeliratHiba,
   type FeliratSzotar,
   type Nyelv,
-} from "@km/design-system";
+} from "@rogton/design-system";
 import { useFeliratok } from "../../nyelv/kliens";
 import { FajlValaszto, fajlnevSzelet, fajltLetolt, hivas } from "../_kozos/kliens";
 

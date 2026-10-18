@@ -1,7 +1,7 @@
 // E-34: a jelszó átállítása a jeggyel. Belépés NEM kell hozzá — a jegy maga a bizonyíték.
 import { NextResponse } from "next/server";
 import { kapu } from "../../_kapu";
-import type { HibaValasz } from "@km/contracts";
+import type { HibaValasz } from "@rogton/contracts";
 import { keresCime, kiserletNaplo, korlatEllenoriz } from "../../../../hitelesites/korlat";
 import { jelszoAtallit } from "../../../../hitelesites/visszaallitas";
 

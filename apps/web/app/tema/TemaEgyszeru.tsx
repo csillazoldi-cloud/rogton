@@ -7,7 +7,7 @@ import {
   egyesit,
   szinRgb,
   teljesTokenek,
-} from "@km/design-system";
+} from "@rogton/design-system";
 import { useFeliratok } from "../../nyelv/kliens";
 import { hivas } from "../_kozos/kliens";
 import { ElonezetPanel, type ElonezetAllapot } from "./ElonezetPanel";

@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { HexSzin, MUNKAMENET_SUTI } from "@km/contracts";
+import { HexSzin, MUNKAMENET_SUTI } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet } from "../../../../../hitelesites";
 import { szinAdat } from "../../../../../arculat/szinek";
 import { oldalcim } from "../../../../../nyelv/oldalcim";

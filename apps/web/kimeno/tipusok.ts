@@ -1,6 +1,6 @@
 // F-7b (R-5): a Kimenő értesítések lap szerződése — a kiszolgáló ezt adja, a lap ezt rajzolja.
 // A kimenő értesítés a munkatér KÜLSŐ csatornája (webes horog): fajtánként „kimenő" vagy „nincs"; két szint: közös alap (rendszergazda) és a munkatér felülírása (tulajdonos).
-import type { Csatorna, EsemenyFajta, ErtesitesBeallitas } from "@km/esemeny-core";
+import type { Csatorna, EsemenyFajta, ErtesitesBeallitas } from "@rogton/esemeny-core";
 
 /** A rajz öt csoportja, a rajz sorrendjében. A `belepesi_kiserletek` rendszerszintű: csak a rendszergazda lapján van ott. */
 export const KIMENO_CSOPORTOK: readonly { kod: "fiok" | "tagok" | "futas" | "beallitas" | "rendszer"; fajtak: readonly EsemenyFajta[] }[] = [

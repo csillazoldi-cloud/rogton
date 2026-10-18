@@ -112,7 +112,7 @@ export const tagsag = pgTable(
 
 /** Munkamenet = egy belépés. A sütiben véletlen token megy, itt csak a lenyomata (sha256) van. */
 /**
- * F-3 (R-2): meghívó — egyszer használatos, hét napig érvényes jegy egy munkatérbe, a `@km/hozzaferes-core` szótára szerint.
+ * F-3 (R-2): meghívó — egyszer használatos, hét napig érvényes jegy egy munkatérbe, a `@rogton/hozzaferes-core` szótára szerint.
  * A jegy MAGA sehol nem tárolódik, csak a lenyomata (a `jelszo_visszaallitas` mintájára). Az `allapot` kiadott | elfogadott |
  * visszavont — a „lejárt" SZÁMOLT (kiadott és most > lejar). Sorszintű védelem: a munkatér tagjai a saját munkaterük meghívóit
  * látják; a lenyomat szerinti keresés (elfogadásnál még nincs munkatér) a `meghivo_lenyomat_szerint()` SECURITY DEFINER függvényen át fut.
@@ -158,7 +158,7 @@ export const arculatFajl = pgTable(
     feltoltotte: uuid("feltoltotte").references(() => fiok.id, { onDelete: "set null" }),
     feltoltve: timestamp("feltoltve", { withTimezone: true }).notNull().defaultNow(),
     // R-16 K1 (0135, TERV 1.1): a logó helye (NULL egy logó-soron = vilagos; más célnál mindig NULL), ki tette a fájlt
-    // („gep” = a gép készítette, K6), és a böngészőben számolt logó-elemzés (@km/arculat-core LogoElemzes).
+    // („gep” = a gép készítette, K6), és a böngészőben számolt logó-elemzés (@rogton/arculat-core LogoElemzes).
     logoValtozat: text("logo_valtozat", { enum: ["vilagos", "sotet", "egyszinu", "negyzetes"] }),
     eredet: text("eredet", { enum: ["feltoltes", "honlap", "gep"] }).notNull().default("feltoltes"),
     elemzes: jsonb("elemzes"),
@@ -174,7 +174,7 @@ export const arculatFajl = pgTable(
 ).enableRLS();
 
 /**
- * F-5 (R-4): az eseménynapló — a `@km/esemeny-core` szótára szerint. `szervezet_id` NULL = fiók- vagy rendszerszintű esemény
+ * F-5 (R-4): az eseménynapló — a `@rogton/esemeny-core` szótára szerint. `szervezet_id` NULL = fiók- vagy rendszerszintű esemény
  * (belépés, jelszóváltás, mentés kimaradt). A km_app a saját szervezete sorait ÉS a szervezet nélküli sorokat éri el (a naplót
  * a `lista()` szervezetre szűri; a szervezet nélkülieket csak a rendszergazda végpontja adja ki).
  */
@@ -251,7 +251,7 @@ export const tema = pgTable(
     id: uuid("id").primaryKey().defaultRandom(),
     nev: text("nev").notNull(),
     verzio: integer("verzio").notNull(),
-    definicio: jsonb("definicio").notNull(), // TemaDefinicio (@km/design-system) — a séma ellenőrzi betöltéskor
+    definicio: jsonb("definicio").notNull(), // TemaDefinicio (@rogton/design-system) — a séma ellenőrzi betöltéskor
     semaKod: text("sema_kod"), // R-10: a mentett séma kódja (ejkek | vilagos | sotet), nullable
     allapot: temaAllapot("allapot").notNull().default("tervezet"),
     letrehozva: timestamp("letrehozva", { withTimezone: true }).notNull().defaultNow(),
@@ -274,7 +274,7 @@ export const szervezetTema = pgTable(
   {
     szervezetId: uuid("szervezet_id").notNull().references(() => szervezet.id, { onDelete: "cascade" }),
     verzio: integer("verzio").notNull(),
-    felulirasok: jsonb("felulirasok").notNull(), // TemaFelulirasok (@km/design-system)
+    felulirasok: jsonb("felulirasok").notNull(), // TemaFelulirasok (@rogton/design-system)
     semaKod: text("sema_kod"), // R-10: a mentett séma kódja (ejkek | vilagos | sotet), nullable
     allapot: temaAllapot("allapot").notNull().default("tervezet"),
     letrehozva: timestamp("letrehozva", { withTimezone: true }).notNull().defaultNow(),
@@ -313,7 +313,7 @@ export const kozosFeliratVerzio = pgTable(
   "kozos_felirat_verzio",
   {
     verzio: integer("verzio").primaryKey(),
-    felulirasok: jsonb("felulirasok").notNull(), // FeliratFelulirasok (@km/design-system)
+    felulirasok: jsonb("felulirasok").notNull(), // FeliratFelulirasok (@rogton/design-system)
     allapot: temaAllapot("allapot").notNull().default("tervezet"),
     letrehozva: timestamp("letrehozva", { withTimezone: true }).notNull().defaultNow(),
     alkalmazva: timestamp("alkalmazva", { withTimezone: true }),
@@ -355,7 +355,7 @@ export const onboardingPiszkozat = pgTable(
   "onboarding_piszkozat",
   {
     szervezetId: uuid("szervezet_id").primaryKey().references(() => szervezet.id, { onDelete: "cascade" }),
-    adatok: jsonb("adatok").notNull(), // OnboardingPiszkozat (@km/contracts) — betöltéskor a séma ellenőrzi
+    adatok: jsonb("adatok").notNull(), // OnboardingPiszkozat (@rogton/contracts) — betöltéskor a séma ellenőrzi
     frissitve: timestamp("frissitve", { withTimezone: true }).notNull().defaultNow(),
   },
   () => [
@@ -378,7 +378,7 @@ export const szervezetProfil = pgTable(
   "szervezet_profil",
   {
     szervezetId: uuid("szervezet_id").primaryKey().references(() => szervezet.id, { onDelete: "cascade" }),
-    adatok: jsonb("adatok").notNull(), // SzervezetProfil (@km/contracts) — betöltéskor a séma ellenőrzi
+    adatok: jsonb("adatok").notNull(), // SzervezetProfil (@rogton/contracts) — betöltéskor a séma ellenőrzi
     jovahagyva: timestamp("jovahagyva", { withTimezone: true }).notNull().defaultNow(),
     jovahagyta: uuid("jovahagyta").references(() => fiok.id, { onDelete: "set null" }),
     frissitve: timestamp("frissitve", { withTimezone: true }).notNull().defaultNow(),
@@ -404,8 +404,8 @@ export const szervezetIranytu = pgTable(
   "szervezet_iranytu",
   {
     szervezetId: uuid("szervezet_id").primaryKey().references(() => szervezet.id, { onDelete: "cascade" }),
-    tervezet: jsonb("tervezet"), // IranytuSema (@km/contracts) — betöltéskor a séma ellenőrzi
-    jovahagyott: jsonb("jovahagyott"), // IranytuSema (@km/contracts) — a jóváhagyott pillanatkép
+    tervezet: jsonb("tervezet"), // IranytuSema (@rogton/contracts) — betöltéskor a séma ellenőrzi
+    jovahagyott: jsonb("jovahagyott"), // IranytuSema (@rogton/contracts) — a jóváhagyott pillanatkép
     verziok: jsonb("verziok").notNull().default(sql`'[]'::jsonb`), // IranytuVerzioSema[] — a jóváhagyott verziók előzménye
     verzio: integer("verzio").notNull().default(0),
     jovahagyva: timestamp("jovahagyva", { withTimezone: true }),

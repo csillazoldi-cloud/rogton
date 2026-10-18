@@ -1,4 +1,4 @@
-import { KEP_MAX_MERET_BAJT, feltolt } from "@km/fajl-core";
+import { KEP_MAX_MERET_BAJT, feltolt } from "@rogton/fajl-core";
 import { kapu } from "../../../_kapu";
 import { eldob, korlatosBeolvas } from "../../../../../fajl/beolvas";
 import { fajlKornyezet } from "../../../../../fajl";

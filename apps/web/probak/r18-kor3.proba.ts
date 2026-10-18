@@ -5,7 +5,7 @@
 import { readFileSync } from "node:fs";
 import { Client } from "pg";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { PosztMunka } from "@km/contracts";
+import type { PosztMunka } from "@rogton/contracts";
 import { sablonKitolt } from "../nyelv/sablon";
 import { kivaltoSorok, szovegBemenet } from "../poszt/bemenet";
 import {

@@ -9,10 +9,10 @@ import "server-only";
 // A profilt a `profil/tar`-ból, a fájlokat a `fajl/tar`-ból olvassuk (TERV §3); `vizual/*`-ot nem importálunk (a képgyártó hívása ezért itt
 // külön áll — ugyanaz a KEPGYAR_URL, mint a vizual/helyzet.ts-é).
 import { randomUUID } from "node:crypto";
-import type { ArculatLepes, ArculatLogok, ArculatTervezet, SzervezetProfil } from "@km/contracts";
-import { LOGO_VALTOZATOK, logoHelye, type FajlMeta, type LogoValtozat } from "@km/fajl-core";
-import { ARCULAT_ALAP, arculatModosit } from "@km/profile-core";
-import { hexbol, nemMarkaszin, relativVilagossag, sajatBetuId, type LogoElemzes } from "@km/arculat-core";
+import type { ArculatLepes, ArculatLogok, ArculatTervezet, SzervezetProfil } from "@rogton/contracts";
+import { LOGO_VALTOZATOK, logoHelye, type FajlMeta, type LogoValtozat } from "@rogton/fajl-core";
+import { ARCULAT_ALAP, arculatModosit } from "@rogton/profile-core";
+import { hexbol, nemMarkaszin, relativVilagossag, sajatBetuId, type LogoElemzes } from "@rogton/arculat-core";
 import { profilTar } from "../profil/tar";
 import { fajlTar } from "../fajl/tar";
 import { alapTervezet } from "./alap";

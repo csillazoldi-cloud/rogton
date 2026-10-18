@@ -16,7 +16,7 @@ importers:
 
   apps/kepgyar:
     dependencies:
-      '@km/vizual-core':
+      '@rogton/vizual-core':
         specifier: workspace:*
         version: link:../../packages/vizual-core
       fontkit:
@@ -35,58 +35,12 @@ importers:
 
   apps/proba-host:
     dependencies:
-      '@km/contracts':
+      '@rogton/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
-      '@km/news-monitor-core':
+      '@rogton/news-monitor-core':
         specifier: workspace:*
         version: link:../../packages/news-monitor-core
-      zod:
-        specifier: 4.5.4
-        version: 4.5.4
-    devDependencies:
-      '@types/node':
-        specifier: 24.13.3
-        version: 24.13.3
-      tsx:
-        specifier: 4.23.13
-        version: 4.23.13
-      vitest:
-        specifier: 5.0.0
-        version: 5.0.0(@types/node@24.13.3)(vite@8.2.2(@types/node@24.13.3)(esbuild@0.28.2)(tsx@4.23.13))
-
-  apps/referencia-host:
-    dependencies:
-      '@km/ai-adapters':
-        specifier: workspace:*
-        version: link:../../packages/ai-adapters
-      '@km/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@km/design-system':
-        specifier: workspace:*
-        version: link:../../packages/design-system
-      '@km/esemeny-core':
-        specifier: workspace:*
-        version: link:../../packages/esemeny-core
-      '@km/fajl-core':
-        specifier: workspace:*
-        version: link:../../packages/fajl-core
-      '@km/hozzaferes-core':
-        specifier: workspace:*
-        version: link:../../packages/hozzaferes-core
-      '@km/letolto':
-        specifier: workspace:*
-        version: link:../../packages/letolto
-      '@km/news-monitor-core':
-        specifier: workspace:*
-        version: link:../../packages/news-monitor-core
-      '@km/news-monitor-feliratok':
-        specifier: workspace:*
-        version: link:../../packages/news-monitor-feliratok
-      '@km/news-monitor-promptok':
-        specifier: workspace:*
-        version: link:../../packages/news-monitor-promptok
       zod:
         specifier: 4.5.4
         version: 4.5.4
@@ -103,57 +57,57 @@ importers:
 
   apps/web:
     dependencies:
-      '@km/ai-adapters':
-        specifier: workspace:*
-        version: link:../../packages/ai-adapters
-      '@km/arculat-core':
-        specifier: workspace:*
-        version: link:../../packages/arculat-core
-      '@km/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@km/design-system':
-        specifier: workspace:*
-        version: link:../../packages/design-system
-      '@km/esemeny-core':
-        specifier: workspace:*
-        version: link:../../packages/esemeny-core
-      '@km/fajl-core':
-        specifier: workspace:*
-        version: link:../../packages/fajl-core
-      '@km/hozzaferes-core':
-        specifier: workspace:*
-        version: link:../../packages/hozzaferes-core
-      '@km/letolto':
-        specifier: workspace:*
-        version: link:../../packages/letolto
-      '@km/news-monitor-core':
-        specifier: workspace:*
-        version: link:../../packages/news-monitor-core
-      '@km/news-monitor-feliratok':
-        specifier: workspace:*
-        version: link:../../packages/news-monitor-feliratok
-      '@km/news-monitor-promptok':
-        specifier: workspace:*
-        version: link:../../packages/news-monitor-promptok
-      '@km/onboarding-core':
-        specifier: workspace:*
-        version: link:../../packages/onboarding-core
-      '@km/profile-core':
-        specifier: workspace:*
-        version: link:../../packages/profile-core
-      '@km/visszajelzes-core':
-        specifier: workspace:*
-        version: link:../../packages/visszajelzes-core
-      '@km/visszajelzes-react':
-        specifier: workspace:*
-        version: link:../../packages/visszajelzes-react
-      '@km/vizual-receptek':
-        specifier: workspace:*
-        version: link:../../packages/vizual-receptek
       '@node-rs/argon2':
         specifier: 2.2.0
         version: 2.2.0
+      '@rogton/ai-adapters':
+        specifier: workspace:*
+        version: link:../../packages/ai-adapters
+      '@rogton/arculat-core':
+        specifier: workspace:*
+        version: link:../../packages/arculat-core
+      '@rogton/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
+      '@rogton/design-system':
+        specifier: workspace:*
+        version: link:../../packages/design-system
+      '@rogton/esemeny-core':
+        specifier: workspace:*
+        version: link:../../packages/esemeny-core
+      '@rogton/fajl-core':
+        specifier: workspace:*
+        version: link:../../packages/fajl-core
+      '@rogton/hozzaferes-core':
+        specifier: workspace:*
+        version: link:../../packages/hozzaferes-core
+      '@rogton/letolto':
+        specifier: workspace:*
+        version: link:../../packages/letolto
+      '@rogton/news-monitor-core':
+        specifier: workspace:*
+        version: link:../../packages/news-monitor-core
+      '@rogton/news-monitor-feliratok':
+        specifier: workspace:*
+        version: link:../../packages/news-monitor-feliratok
+      '@rogton/news-monitor-promptok':
+        specifier: workspace:*
+        version: link:../../packages/news-monitor-promptok
+      '@rogton/onboarding-core':
+        specifier: workspace:*
+        version: link:../../packages/onboarding-core
+      '@rogton/profile-core':
+        specifier: workspace:*
+        version: link:../../packages/profile-core
+      '@rogton/visszajelzes-core':
+        specifier: workspace:*
+        version: link:../../packages/visszajelzes-core
+      '@rogton/visszajelzes-react':
+        specifier: workspace:*
+        version: link:../../packages/visszajelzes-react
+      '@rogton/vizual-receptek':
+        specifier: workspace:*
+        version: link:../../packages/vizual-receptek
       drizzle-orm:
         specifier: 0.45.2
         version: 0.45.2(@types/pg@8.23.1)(pg@8.23.0)
@@ -213,7 +167,7 @@ importers:
 
   packages/arculat-core:
     dependencies:
-      '@km/contracts':
+      '@rogton/contracts':
         specifier: workspace:*
         version: link:../contracts
       zod:
@@ -242,7 +196,7 @@ importers:
 
   packages/esemeny-core:
     dependencies:
-      '@km/contracts':
+      '@rogton/contracts':
         specifier: workspace:*
         version: link:../contracts
       zod:
@@ -255,7 +209,7 @@ importers:
 
   packages/fajl-core:
     dependencies:
-      '@km/contracts':
+      '@rogton/contracts':
         specifier: workspace:*
         version: link:../contracts
       zod:
@@ -268,7 +222,7 @@ importers:
 
   packages/hozzaferes-core:
     dependencies:
-      '@km/contracts':
+      '@rogton/contracts':
         specifier: workspace:*
         version: link:../contracts
       zod:
@@ -290,7 +244,7 @@ importers:
 
   packages/news-monitor-core:
     dependencies:
-      '@km/contracts':
+      '@rogton/contracts':
         specifier: workspace:*
         version: link:../contracts
       zod:
@@ -312,7 +266,7 @@ importers:
 
   packages/news-monitor-promptok:
     dependencies:
-      '@km/news-monitor-core':
+      '@rogton/news-monitor-core':
         specifier: workspace:*
         version: link:../news-monitor-core
     devDependencies:
@@ -325,16 +279,16 @@ importers:
 
   packages/onboarding-core:
     dependencies:
-      '@km/contracts':
+      '@rogton/contracts':
         specifier: workspace:*
         version: link:../contracts
-      '@km/profile-core':
+      '@rogton/profile-core':
         specifier: workspace:*
         version: link:../profile-core
 
   packages/profile-core:
     dependencies:
-      '@km/contracts':
+      '@rogton/contracts':
         specifier: workspace:*
         version: link:../contracts
 
@@ -393,7 +347,7 @@ importers:
 
   tools/vizual:
     dependencies:
-      '@km/vizual-core':
+      '@rogton/vizual-core':
         specifier: workspace:*
         version: link:../../packages/vizual-core
       playwright-core:

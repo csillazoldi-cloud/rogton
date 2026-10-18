@@ -1,6 +1,6 @@
 // F-8.1 k (T-33, audit 12.) — a forrássor „Cím módosítása" és „Eltávolítás" gombjának gépezete.
 // A gomb az R-7b rajz után épül.
-import { forrasCimModosit, forrasTorol } from "@km/news-monitor-core";
+import { forrasCimModosit, forrasTorol } from "@rogton/news-monitor-core";
 import { z } from "zod";
 import { eredmenyValasz, hiba, kapu } from "../../_kozos";
 import { hostKontextus, kornyezet } from "../../../../../hirfigyelo";

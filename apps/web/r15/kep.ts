@@ -1,6 +1,6 @@
 import "server-only";
-import type { PosztForras } from "@km/contracts";
-import { fajlLista, fajlMeta, feltolt, hasznaltLogok, type FajlMeta, type HostKontextus } from "@km/fajl-core";
+import type { PosztForras } from "@rogton/contracts";
+import { fajlLista, fajlMeta, feltolt, hasznaltLogok, type FajlMeta, type HostKontextus } from "@rogton/fajl-core";
 import { fajlKornyezet } from "../fajl";
 import { posztTar } from "../poszt/tar";
 import { elsoNyelv } from "./index";

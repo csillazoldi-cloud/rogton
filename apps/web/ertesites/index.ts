@@ -1,10 +1,10 @@
 import "server-only";
 import { and, desc, eq, inArray, isNull, lte } from "drizzle-orm";
 import { z } from "zod";
-import type { FiokNezet } from "@km/contracts";
+import type { FiokNezet } from "@rogton/contracts";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { hirfigyeloSzolgaltato } from "../ai";
-import { szolgaltatoHol } from "@km/ai-adapters";
+import { szolgaltatoHol } from "@rogton/ai-adapters";
 import { fiokNeve } from "../szervezet/reszletek";
 import {
   ALAP_SAJAT_BEALLITAS,

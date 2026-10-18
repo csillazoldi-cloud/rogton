@@ -1,6 +1,6 @@
 import "server-only";
-import { AiHiba, type HivasMeres } from "@km/ai-adapters";
-import { Tartalomnyelv } from "@km/contracts";
+import { AiHiba, type HivasMeres } from "@rogton/ai-adapters";
+import { Tartalomnyelv } from "@rogton/contracts";
 import { AiKozosHiba, jsonRobusztusan, keretEllenoriz, meresRogzit, prompt, szolgaltato, szovegRobusztusan } from "../ai";
 import { profilBetolt } from "../profil";
 import { tipusOf } from "../profil/tipus-szabaly";

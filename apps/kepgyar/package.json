@@ -1,5 +1,5 @@
 {
-  "name": "@km/kepgyar",
+  "name": "@rogton/kepgyar",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,7 @@
     "fust-minta": "node probak/minta-foto-fust.ts"
   },
   "dependencies": {
-    "@km/vizual-core": "workspace:*",
+    "@rogton/vizual-core": "workspace:*",
     "fontkit": "2.0.4",
     "playwright-core": "1.56.0",
     "zod": "4.5.4"

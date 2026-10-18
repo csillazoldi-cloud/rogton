@@ -1,10 +1,10 @@
 import "server-only";
-import zavar from "@km/vizual-receptek/receptek/recept-zavar.json";
-import allitas from "@km/vizual-receptek/receptek/recept-allitas.json";
-import adatsavok from "@km/vizual-receptek/receptek/recept-adatsavok.json";
-import zavarMinta from "@km/vizual-receptek/minta/zavar.json";
-import allitasMinta from "@km/vizual-receptek/minta/allitas.json";
-import adatsavokMinta from "@km/vizual-receptek/minta/adatsavok.json";
+import zavar from "@rogton/vizual-receptek/receptek/recept-zavar.json";
+import allitas from "@rogton/vizual-receptek/receptek/recept-allitas.json";
+import adatsavok from "@rogton/vizual-receptek/receptek/recept-adatsavok.json";
+import zavarMinta from "@rogton/vizual-receptek/minta/zavar.json";
+import allitasMinta from "@rogton/vizual-receptek/minta/allitas.json";
+import adatsavokMinta from "@rogton/vizual-receptek/minta/adatsavok.json";
 
 // VZ-1: a sablonok a munkatér saját adataiból — a szerkesztő mezői akkor is megjelennek, ha a képgyártó nem válaszol
 // (a rajz 07-es állapota: a mezők maradnak, csak a kép helyén van hiba).

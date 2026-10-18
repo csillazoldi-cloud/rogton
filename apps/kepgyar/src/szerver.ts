@@ -34,7 +34,7 @@ import {
   valtozatok,
   type Valtozat,
   NevlogoKeres,
-} from "@km/vizual-core";
+} from "@rogton/vizual-core";
 import { nevlogoValtozatok, pngLap, type NevlogoKimenet } from "./nevlogo.ts";
 import { svgPngKeres, svgPngLap } from "./svg-png.ts";
 import { mintaFotoAdat, mintaFotoval, mintaKategoria } from "./minta-foto.ts";

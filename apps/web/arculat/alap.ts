@@ -1,10 +1,10 @@
 // R-16 K3 (TERV §2-K3 alap.ts, §4 14.) — az ALAPSZETT: ha a munkatérnek még nincs arculati tervezete, a gép a szakmájából
-// (a cég neve + összefoglalója → @km/arculat-core `alapSzett`) egy bevált összeállítással kezd. Ezt látja a 12a („A színeket és a
+// (a cég neve + összefoglalója → @rogton/arculat-core `alapSzett`) egy bevált összeállítással kezd. Ezt látja a 12a („A színeket és a
 // betűket addig mi választottuk.”), és EZZEL készül minden kép a Képek lapon is — „a kép sosem szürke” (gepezet 12a, Vilmos 09-28).
 // Tiszta (nincs adatbázis, nincs hálózat): a `vizual/helyzet.ts` is ezt hívja, ezért ez a fájl `vizual/*`-ot NEM importálhat (TERV §3).
-import type { ArculatTervezet } from "@km/contracts";
-import { uresTervezet } from "@km/profile-core";
-import { alapSzett, type Szett } from "@km/arculat-core";
+import type { ArculatTervezet } from "@rogton/contracts";
+import { uresTervezet } from "@rogton/profile-core";
+import { alapSzett, type Szett } from "@rogton/arculat-core";
 
 /** A szakma szövege: név + összefoglaló (a profilnak nincs szakma-mezője — TERV §5). */
 export function szakmaSzoveg(nev: string | null | undefined, osszefoglalo: string | null | undefined): string {

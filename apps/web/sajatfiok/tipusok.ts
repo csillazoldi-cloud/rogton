@@ -1,6 +1,6 @@
 // F-4b (R-3 v2): a Saját fiók lap szerződése — a kiszolgáló ezt adja, a lap ezt rajzolja.
 // A lap a FIÓKRÓL szól (nem a munkatérről): adataim, jelszó, belépések, a felület nyelve, munkatereim, a rendszergazdai blokk.
-import type { Szerep } from "@km/contracts";
+import type { Szerep } from "@rogton/contracts";
 
 /** Egy sor az „Utolsó belépéseim" listában — a belépési naplóból (30 nap), legújabb elöl. A cím az, ahogy a kiszolgáló látta. */
 export type BelepesSor = {

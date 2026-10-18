@@ -1,4 +1,4 @@
-// @km/news-monitor-feliratok — a Hírfigyelő modul feliratai három nyelven (E-29).
+// @rogton/news-monitor-feliratok — a Hírfigyelő modul feliratai három nyelven (E-29).
 // A FORRÁS a `feliratok/hf.<nyelv>.json`: ebből készül a webalkalmazás adatbázis-migrációja
 // (`tools/feliratok/general.mjs`), és ugyanebből olvas a referencia-host, amelynek nincs adatbázisa.
 // Így egy szöveg EGY helyen él — a második host nem másol (A-12).

@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { hash, verify } from "@node-rs/argon2";
 import { and, eq, ne } from "drizzle-orm";
 import { z } from "zod";
-import { HibaKod, JelszoValtasKeres, NevModositasKeres } from "@km/contracts";
+import { HibaKod, JelszoValtasKeres, NevModositasKeres } from "@rogton/contracts";
 import { db, fiokKent, sema } from "../adatbazis/kapcsolat";
 import { hibaEredmeny, type Eredmeny } from "./index";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";

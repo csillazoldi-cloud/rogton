@@ -1,7 +1,7 @@
 import "server-only";
 import { desc, eq, inArray, and } from "drizzle-orm";
-import type { FiokNezet } from "@km/contracts";
-import { meghivoAllapot, meghivoLista, tagokLista } from "@km/hozzaferes-core";
+import type { FiokNezet } from "@rogton/contracts";
+import { meghivoAllapot, meghivoLista, tagokLista } from "@rogton/hozzaferes-core";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { hozzaferesKornyezet, szerepFordit } from "../hozzaferes";
 import type { BevaltoNezet, MeghivoSor, Szerep, TagEsemenySor, TagokNezet } from "./tipusok";

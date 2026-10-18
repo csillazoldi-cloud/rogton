@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import type { KinalatSor, PosztNyelvMod, ProgramTetel, Rendezveny, SzervezetTipus, TemaTerv } from "@km/contracts";
+import type { KinalatSor, PosztNyelvMod, ProgramTetel, Rendezveny, SzervezetTipus, TemaTerv } from "@rogton/contracts";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { Marka } from "../../_kozos/Marka";
 import { Visszajelzes } from "../../_kozos/Visszajelzes";

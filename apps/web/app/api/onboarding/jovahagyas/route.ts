@@ -1,5 +1,5 @@
 import { kapu } from "../../_kapu";
-import type { HibaValasz } from "@km/contracts";
+import type { HibaValasz } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet } from "../../../../hitelesites";
 import { munkamenetTokenKeresbol } from "../../../../hitelesites/suti";
 import { profiltJovahagy } from "../../../../onboarding/jovahagyas";

@@ -1,8 +1,8 @@
 import "server-only";
-import { AiHiba, type FeladatTipus } from "@km/ai-adapters";
-import { fajlOlvas } from "@km/fajl-core";
-import { nyersBajtok, nyersSzoveg, weboldalSzoveg } from "@km/letolto";
-import type { KinalatSor, SzervezetProfil, TemaTerv } from "@km/contracts";
+import { AiHiba, type FeladatTipus } from "@rogton/ai-adapters";
+import { fajlOlvas } from "@rogton/fajl-core";
+import { nyersBajtok, nyersSzoveg, weboldalSzoveg } from "@rogton/letolto";
+import type { KinalatSor, SzervezetProfil, TemaTerv } from "@rogton/contracts";
 import { jsonRobusztusan, keretEllenoriz, meresRogzit, prompt, szolgaltato } from "../ai";
 import { fajlKornyezet } from "../fajl";
 import { profilSorok } from "../poszt/profil-blokk";

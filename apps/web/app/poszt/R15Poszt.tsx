@@ -10,10 +10,10 @@
 // Ha egy AI-művelet a keret-hibával tér vissza, a lap újraolvassa a kreditet, és elfogyottnál a hibaszöveg helyett ez az állapot jön.
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import type { PosztMunka, PosztNyelvMod, PosztTipus } from "@km/contracts";
+import type { PosztMunka, PosztNyelvMod, PosztTipus } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
 import { hivas, nyelvNev } from "../_kozos/kliens";
-import { masNyelvenLista } from "@km/profile-core";
+import { masNyelvenLista } from "@rogton/profile-core";
 import { KARAKTERHATAR } from "../../poszt/bemenet";
 import { KETNYELVU_ELVALASZTO, ketnyelvuFelulet, ketnyelvuOsszefuz, kozosHashtagek, masodikTeendo, mezoOsszerak, mezoTorzs, tulHosszu } from "../../poszt/ketnyelvu";
 import { useNyelvMn } from "../_kozos/C30NyelvMod";

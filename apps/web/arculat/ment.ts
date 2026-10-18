@@ -8,8 +8,8 @@ import "server-only";
 //  - NINCS `peldakatFrissit`: az arculat változása nem kér új példaszöveget (és koppintásonként nem hív AI-t).
 // A kliens soha nem küldi a teljes arculatot — ezért itt 409 ELAVULT_ADAT nem keletkezhet (TERV §2-K3).
 import { eq } from "drizzle-orm";
-import { ArculatLogok, SzervezetProfil, type ArculatLepes } from "@km/contracts";
-import { hasznaltLogok } from "@km/fajl-core";
+import { ArculatLogok, SzervezetProfil, type ArculatLepes } from "@rogton/contracts";
+import { hasznaltLogok } from "@rogton/fajl-core";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { fajlTar } from "../fajl/tar";
 import { alapTervezet } from "./alap";

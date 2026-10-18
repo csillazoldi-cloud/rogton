@@ -1,8 +1,8 @@
-// E-29: a Hírfigyelő feliratai EGY helyen élnek — a `@km/news-monitor-feliratok` adatfájljaiban.
+// E-29: a Hírfigyelő feliratai EGY helyen élnek — a `@rogton/news-monitor-feliratok` adatfájljaiban.
 // Ez a próba a GÉPEZET, ami őrzi, hogy az adatbázis és az adatfájl ne csússzon szét (az adatfájl belső épségét
 // a csomag saját próbája őrzi):
 // ha valaki kézzel ír át egy feliratot a migrációban (vagy fordítva), ez a próba elbukik.
-import { feliratok, NYELVEK } from "@km/news-monitor-feliratok";
+import { feliratok, NYELVEK } from "@rogton/news-monitor-feliratok";
 import { afterAll, describe, expect, it } from "vitest";
 import { lezar, sql } from "./segedek";
 

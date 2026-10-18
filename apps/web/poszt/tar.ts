@@ -6,7 +6,7 @@ import {
   type PosztForras,
   type PosztMunka as PosztMunkaTipus,
   type PosztMunkaLista as PosztMunkaListaTipus,
-} from "@km/contracts";
+} from "@rogton/contracts";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 // A Posztszöveg TÁROLÁSA a befogadó alkalmazásban (ALAPTERV 3.: adatgazda a host).

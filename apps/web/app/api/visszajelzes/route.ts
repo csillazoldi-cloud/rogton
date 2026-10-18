@@ -4,7 +4,7 @@ import { hiba, valasz } from "../hirfigyelo/_kozos";
 import { bekuld, lista, NEVTELEN_HATAR } from "../../../visszajelzes";
 import { aktualisSzervezet } from "../../../hitelesites";
 import { keresCime, kiserletNaplo, korlatEllenoriz } from "../../../hitelesites/korlat";
-import { VisszajelzesAllapot } from "@km/visszajelzes-core";
+import { VisszajelzesAllapot } from "@rogton/visszajelzes-core";
 
 export const dynamic = "force-dynamic";
 

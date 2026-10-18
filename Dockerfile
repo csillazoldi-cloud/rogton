@@ -1,7 +1,7 @@
-# Kommunikációs munkatér — a befogadó alkalmazás doboza (apps/web).
+# Rögtön — a befogadó alkalmazás doboza (apps/web).
 # Több lépcsős: a végső dobozban csak a futáshoz kellő fájlok vannak, forrás és eszközök nem.
 
-# A NODE_KEP csak a felhős próbaépítéshez cserélhető (tanúsítványos proxy); a NAS-on az alapérték fut.
+# A NODE_KEP csak a felhős próbaépítéshez cserélhető (tanúsítványos proxy); élesben az alapérték fut.
 ARG NODE_KEP=node:24-alpine
 FROM ${NODE_KEP} AS alap
 ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH NEXT_TELEMETRY_DISABLED=1 CI=1
@@ -20,7 +20,7 @@ COPY packages/news-monitor-core/package.json packages/news-monitor-core/
 COPY packages/news-monitor-feliratok/package.json packages/news-monitor-feliratok/
 COPY packages/news-monitor-promptok/package.json packages/news-monitor-promptok/
 COPY packages/letolto/package.json packages/letolto/
-# F-3/F-5/F-6 moduljai (a Gigabyte kirakása 2026-09-12 19:31-kor ezen bukott: a csomag forrása bekerült, a függősége — zod — nem, mert a
+# F-3/F-5/F-6 moduljai (egy korábbi kirakás ezen bukott: a csomag forrása bekerült, a függősége — zod — nem, mert a
 # függőség-réteg nem ismerte a csomagot; a tünet: „Module not found: Can't resolve 'zod'" a packages/esemeny-core/src/host.ts-ben)
 COPY packages/hozzaferes-core/package.json packages/hozzaferes-core/
 COPY packages/esemeny-core/package.json packages/esemeny-core/
@@ -33,14 +33,14 @@ COPY packages/visszajelzes-core/package.json packages/visszajelzes-core/
 COPY packages/visszajelzes-react/package.json packages/visszajelzes-react/
 COPY apps/web/package.json apps/web/
 COPY tools/hatar/package.json tools/hatar/
-RUN pnpm install --frozen-lockfile --filter @km/web...
+RUN pnpm install --frozen-lockfile --filter @rogton/web...
 
 # 2. forrás + összerakás
 FROM fuggosegek AS epites
 COPY tsconfig.base.json ./
 COPY packages ./packages
 COPY apps/web ./apps/web
-RUN pnpm --filter @km/web run epit
+RUN pnpm --filter @rogton/web run epit
 
 # 3. futtató doboz — nem root, csak az önálló csomag
 FROM ${NODE_KEP} AS futo

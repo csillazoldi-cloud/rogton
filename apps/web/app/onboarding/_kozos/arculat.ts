@@ -1,5 +1,5 @@
 "use client";
-import { ArculatTervezet } from "@km/contracts";
+import { ArculatTervezet } from "@rogton/contracts";
 import { hivas } from "../../_kozos/kliens";
 
 /** Arculati tervezet kérése az 1. lépés forrásaiból (v6 seedStep2 → brand draft). Hibánál null: az arculat marad „nincs”. */

@@ -1,6 +1,6 @@
 import "server-only";
 import { eq, sql } from "drizzle-orm";
-import { profilMentesre, profilMezokEllenoriz, profilTureloOlvas, type ProfilTar } from "@km/profile-core";
+import { profilMentesre, profilMezokEllenoriz, profilTureloOlvas, type ProfilTar } from "@rogton/profile-core";
 import { sema, szervezetKent, type SzervezetDb } from "../adatbazis/kapcsolat";
 
 // A profil TÁROLÁSA a befogadó alkalmazásban (ALAPTERV 3.: adatgazda a host; a szabályok a profile-core-ban).

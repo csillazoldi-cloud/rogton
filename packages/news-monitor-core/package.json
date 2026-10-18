@@ -1,5 +1,5 @@
 {
-  "name": "@km/news-monitor-core",
+  "name": "@rogton/news-monitor-core",
   "version": "0.3.0",
   "private": true,
   "type": "module",
@@ -11,7 +11,7 @@
     "proba": "vitest run"
   },
   "dependencies": {
-    "@km/contracts": "workspace:*",
+    "@rogton/contracts": "workspace:*",
     "zod": "4.5.4"
   },
   "devDependencies": {

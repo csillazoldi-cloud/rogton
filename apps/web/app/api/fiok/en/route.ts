@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { HibaValasz } from "@km/contracts";
+import { HibaValasz } from "@rogton/contracts";
 import { aktualisFiok } from "../../../../hitelesites";
 import { munkamenetTokenKeresbol } from "../../../../hitelesites/suti";
 

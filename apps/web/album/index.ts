@@ -1,8 +1,8 @@
 import "server-only";
 // c30 F9 — a fotóalbum tárolója (FESZTIVAL-ES-NYELVI-MOD-TERV §1.5, §6; döntés: docs/decisions/2026-10-17-c30-f9-album-tar.md).
-// A fájl-modul (`@km/fajl-core`, 0.4.0) ellenőrzi a típust, a méretet és a képméretet; itt a munkatér korlátai (kvóta, sebesség,
+// A fájl-modul (`@rogton/fajl-core`, 0.4.0) ellenőrzi a típust, a méretet és a képméretet; itt a munkatér korlátai (kvóta, sebesség,
 // albumonkénti darab), a pár (`kicsi` → `nagy`) és a ZIP. A bájtok a `fajl/tar.ts`-en át az ALBUM_MAPPA alá kerülnek (D7: mentés nélkül).
-import { ALBUM_KICSI_MAX_EL, KITERJESZTES, feltolt, type FajlHibaKod, type FajlMeta } from "@km/fajl-core";
+import { ALBUM_KICSI_MAX_EL, KITERJESZTES, feltolt, type FajlHibaKod, type FajlMeta } from "@rogton/fajl-core";
 import { sql } from "drizzle-orm";
 import { szervezetKent } from "../adatbazis/kapcsolat";
 import { fajlKornyezet } from "../fajl";

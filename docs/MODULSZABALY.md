@@ -1,10 +1,10 @@
 # MODULSZABÁLY — hogyan épül minden újrahasznosítható elem
 
-Kommunikációs munkatér · Aitmetica SRL · 2026-09-12
+Rögtön · 2026-09-12 (a forkban átvéve 2026-10-18)
 **Ez előírás, nem ajánlás.** Ami ezt megsérti, az nem kerül be a főágba.
 Érvényes minden új fejlesztésre; a meglévő kód akkor igazodik, amikor amúgy is hozzányúlunk.
 
-Alapvetés (Vilmos, 2026-09-11): *minden modulárisan épüljön, és bármilyen más, ezzel a
+Alapvetés (terméktulajdonos, 2026-09-11): *minden modulárisan épüljön, és bármilyen más, ezzel a
 technológiával készült projektbe integrálható legyen.* Ez a lap ezt fordítja le mérnöki
 szabályokra.
 
@@ -15,7 +15,7 @@ szabályokra.
 Mielőtt egy sor kód megszületik, három kérdés. **Csak akkor modul, ha mind a háromra igen.**
 
 1. **Kellhet-e egy másik projektben is?** Jogosultság, fájlfeltöltés, értesítés, ütemezés,
-   naplózás, hírfigyelés — igen. „Az Aitmetica ügyfélprofiljának mezősorrendje" — nem.
+   naplózás, hírfigyelés — igen. „Egy adott ügyfél profiljának mezősorrendje" — nem.
 2. **Le tudod-e írni úgy, hogy nem mondod ki a szót, hogy Next, Postgres vagy React?**
    Ha nem, akkor még nem modul, hanem egy képernyő, aminek nincs kimondva a szabálya.
 3. **Tesztelhető-e adatbázis és hálózat nélkül?** Ha nem, akkor a szabály és a tárolás
@@ -46,7 +46,7 @@ Minden mag-csomag pontosan így áll. Ettől eltérni nem lehet.
 
 ```
 packages/<modul>-core/
-├── package.json          @km/<modul>-core · "exports": csak "./src/index.ts"
+├── package.json          @rogton/<modul>-core · "exports": csak "./src/index.ts"
 ├── tsconfig.json
 ├── vitest.config.ts
 ├── README.md             KÖTELEZŐ — lásd 7. pont
@@ -73,7 +73,7 @@ Tiltott, kivétel nélkül:
 - `node:fs`, `node:http`, `node:crypto`, `fetch` — nincs lemez, nincs hálózat
 - másik modul magja — a modulok nem ismerik egymást
 
-Engedélyezett: **`@km/contracts` és `zod`. Más semmi.**
+Engedélyezett: **`@rogton/contracts` és `zod`. Más semmi.**
 
 És három dolog, ami nem import, mégis tilos, mert ugyanúgy a külvilág:
 
@@ -192,7 +192,7 @@ ezért tudjuk róla biztosan, hogy hordozható.
 - **Nem kér külön adattár-absztrakciót** minden modulhoz. A port elég; ORM fölé épített réteg
   nem kell.
 - **Nem kér publikálást npm-re.** A monorepo `workspace:*` hivatkozása elég, a másolás működik.
-- **Nem tiltja a modulok közti közös nyelvet**: a `@km/contracts` pont erre való — de abban
+- **Nem tiltja a modulok közti közös nyelvet**: a `@rogton/contracts` pont erre való — de abban
   csak típus és séma lehet, szabály nem.
 - **Nem követeli meg, hogy minden legyen modul.** A 1. pont három kérdése a kapu.
 

@@ -1,5 +1,5 @@
 // R-15 · 2. szállítmány — a lapok tiszta számításai (adatbázis és hálózat nélkül; próba: probak/r15-szamol.proba.ts).
-import type { PosztMunka } from "@km/contracts";
+import type { PosztMunka } from "@rogton/contracts";
 import type { R15VaroPoszt, R15KeszPoszt, R15Halad, R15KezdolapAllapot } from "./tipusok";
 
 /**

@@ -6,7 +6,7 @@
 // The browser part (egyben: the toggle starts ON, „Mindkettő” → two files -ro.png and -de.png) runs in the screenshot harness (needs the
 // képgyártó), see the decision doc.
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { PosztForras, TARTALOMNYELVEK, type PosztMunka } from "@km/contracts";
+import { PosztForras, TARTALOMNYELVEK, type PosztMunka } from "@rogton/contracts";
 import { kepCel } from "../vizual/melle";
 import { PROBA_CIM, keres, lezar, sql, sutiKinyer, takaritas, veletlenEmail } from "./segedek";
 

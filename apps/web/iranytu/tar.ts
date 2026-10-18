@@ -1,6 +1,6 @@
 import "server-only";
 import { eq } from "drizzle-orm";
-import { IranytuSema, IranytuVerzioSema } from "@km/contracts";
+import { IranytuSema, IranytuVerzioSema } from "@rogton/contracts";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 
 // Az iránytű TÁROLÁSA a befogadó alkalmazásban (ALAPTERV 3.: adatgazda a host).

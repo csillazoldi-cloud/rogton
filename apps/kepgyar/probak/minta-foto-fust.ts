@@ -1,6 +1,6 @@
 // c14 + c15 füstpróba: a „Kész munka” minta példafotója — melyik fotó (szakmánként, semleges tartalék), mikor kerül a tartalomba,
 // és mikor NEM (saját fotó, előtte–utána, más helyzet).
-// Futtatás: pnpm --filter @km/kepgyar fust-minta   (docker és böngésző nélkül)
+// Futtatás: pnpm --filter @rogton/kepgyar fust-minta   (docker és böngésző nélkül)
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";

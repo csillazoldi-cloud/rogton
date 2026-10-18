@@ -7,7 +7,7 @@
 // „Átírom” / „Módosítás” / „Inkább magam töltöm ki” / „Az egész iránytű”: a MAI szerkesztő (Iranytu.tsx), változatlan gépezettel.
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { IranytuAllapotSema, IranytuSema, IranytuVerzioSema } from "@km/contracts";
+import type { IranytuAllapotSema, IranytuSema, IranytuVerzioSema } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
 import { FelsoSav } from "../_kozos/FelsoSav";
 import type { FelsoSavAdat } from "../../kezdolap/tipusok";

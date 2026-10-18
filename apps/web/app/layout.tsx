@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { cookies, headers } from "next/headers";
-import { MUNKAMENET_SUTI } from "@km/contracts";
-import { betuCss, cssValtozok, modCss, NYELV_SUTI } from "@km/design-system";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
+import { betuCss, cssValtozok, modCss, NYELV_SUTI } from "@rogton/design-system";
 import { feliratok, nyelvKeresbol } from "../nyelv";
 import { FeliratokSzolgaltato } from "../nyelv/kliens";
 import { hatasosNyelv } from "../nyelv/munkater";
 import { aktualisFiok, aktualisSzervezet } from "../hitelesites";
 import { hatasosTema } from "../tema";
-import { semaFelismer } from "@km/design-system";
+import { semaFelismer } from "@rogton/design-system";
 import { MOD_FEJ_SZKRIPT } from "./_kozos/mod";
 import "./alap.css";
 import "./r18.css";

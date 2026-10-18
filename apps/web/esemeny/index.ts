@@ -1,15 +1,15 @@
 import "server-only";
 import { randomUUID } from "node:crypto";
-import { ALAP_NYELV } from "@km/design-system";
-import { feljegyez as magFeljegyez, type Esemeny, type EsemenyFajta, type KimenoCsatorna, type Kornyezet, type Sulyossag } from "@km/esemeny-core";
+import { ALAP_NYELV } from "@rogton/design-system";
+import { feljegyez as magFeljegyez, type Esemeny, type EsemenyFajta, type KimenoCsatorna, type Kornyezet, type Sulyossag } from "@rogton/esemeny-core";
 import { alapFeliratok, esemenyTar, ertesitesTar } from "./tar";
 import { sablonKitolt } from "../nyelv/sablon"; // tiszta, import nélküli fájl — nem a nyelv modul bejárata, így nincs kör
 
-// A `@km/esemeny-core` befogadója (F-5, R-4): a portok + a környezet. A kimenő csatorna egy webes horog, a címe a
+// A `@rogton/esemeny-core` befogadója (F-5, R-4): a portok + a környezet. A kimenő csatorna egy webes horog, a címe a
 // környezetből (`ERTESITES_WEBHOOK_URL` — a vaultból a NAS .env fájlján át); nincs cím → semmi nem megy ki, és ez nem hiba.
 // Titok az esemény `adat`-ába NEM kerülhet — a hívó felel (jelszó, jegy, süti, kulcs soha).
 
-export { naplo, ertesitesLekerdez, ertesitesSzervezetiMent, ertesitesKozosMent } from "@km/esemeny-core";
+export { naplo, ertesitesLekerdez, ertesitesSzervezetiMent, ertesitesKozosMent } from "@rogton/esemeny-core";
 
 function csatorna(): KimenoCsatorna {
   const cim = process.env["ERTESITES_WEBHOOK_URL"]?.trim();

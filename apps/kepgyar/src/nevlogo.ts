@@ -2,7 +2,7 @@
 // a négy változat SVG-je (vizual-core `nevlogoSvg`, a fontkit-portunkkal) és PNG-je. A PNG a Chromiumban készül az SVG-ből `<img>`-ként
 // (nincs szkript, nincs hálózat), átlátszó háttérrel (`omitBackground`), 1200 px szélesen; a négyzetes 1024 × 1024.
 // A képgyártó semmit nem tárol: a web menti el a fájlokat (apps/web/arculat/nevlogo.ts).
-import { NEVLOGO_VALTOZATOK, nevlogoSvg, type NevlogoKeres, type NevlogoValtozat } from "@km/vizual-core";
+import { NEVLOGO_VALTOZATOK, nevlogoSvg, type NevlogoKeres, type NevlogoValtozat } from "@rogton/vizual-core";
 import { betuLanc, betuUtvonal } from "./betu-utvonal.ts";
 
 export const NEVLOGO_PNG_SZELES = 1200;

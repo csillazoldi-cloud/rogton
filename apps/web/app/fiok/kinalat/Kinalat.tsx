@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import type { KinalatSor, TemaTerv } from "@km/contracts";
+import type { KinalatSor, TemaTerv } from "@rogton/contracts";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { hivas } from "../../_kozos/kliens";
 import { Kapcsolo } from "../../_kozos/Kapcsolo";

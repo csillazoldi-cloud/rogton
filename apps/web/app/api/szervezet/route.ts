@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { HibaValasz } from "@km/contracts";
+import { HibaValasz } from "@rogton/contracts";
 import { szervezetLetrehoz } from "../../../hitelesites";
 import { kapu } from "../_kapu";
 

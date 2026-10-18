@@ -5,7 +5,7 @@ import { useFeliratok } from "../../nyelv/kliens";
 import { FelsoSav } from "../_kozos/FelsoSav";
 import type { FelsoSavAdat } from "../../kezdolap/tipusok";
 import { hivas } from "../_kozos/kliens";
-import { IRANYTU_HATAR } from "@km/contracts";
+import { IRANYTU_HATAR } from "@rogton/contracts";
 import { BlokkValaszto, type IranytuBlokkKod } from "./BlokkValaszto";
 
 type Forras = "" | "sajat" | "weboldal" | "ai";

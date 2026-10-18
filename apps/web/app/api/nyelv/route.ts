@@ -1,4 +1,4 @@
-import { Nyelv, NYELV_SUTI } from "@km/design-system";
+import { Nyelv, NYELV_SUTI } from "@rogton/design-system";
 import { fiokNyelvMent } from "../../../hitelesites";
 import { kapu } from "../_kapu";
 

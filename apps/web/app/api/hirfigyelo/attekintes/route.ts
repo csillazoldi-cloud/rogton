@@ -1,4 +1,4 @@
-import { attekintes } from "@km/news-monitor-core";
+import { attekintes } from "@rogton/news-monitor-core";
 import { eq } from "drizzle-orm";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu, valasz } from "../_kozos";
 import { hostKontextus, kornyezet } from "../../../../hirfigyelo";

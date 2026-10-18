@@ -4,7 +4,7 @@
 // a fordítás a román hivatalos nevet adja, a „Beleírom” a felhívást teszi utolsó bekezdésnek, és az Új változat után is az marad;
 // a posztból nyitott Képek lap a sablon-lépés („Ezzel folytatom”).
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { HivatalosNev, PosztMunka } from "@km/contracts";
+import type { HivatalosNev, PosztMunka } from "@rogton/contracts";
 import { nevCsere, nevekSorok, nevekTisztit } from "../poszt/nevek";
 import { profilSorok } from "../poszt/profil-blokk";
 import { ctaBeszur, ctaSorok } from "../poszt/bemenet";

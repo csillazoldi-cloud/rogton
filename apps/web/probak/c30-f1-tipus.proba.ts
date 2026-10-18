@@ -6,8 +6,8 @@
 // answer carries the guess; a sure draft is copied at approval, an unsure one is not; re-approval keeps an earlier category.
 import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { JavaslatokValasz, KATEGORIAK, OnboardingPiszkozat, SZERVEZET_TIPUSOK, kategoria, szervezetTipus, type KinalatSor } from "@km/contracts";
-import { profilPiszkozatbol, profilTureloOlvas } from "@km/profile-core";
+import { JavaslatokValasz, KATEGORIAK, OnboardingPiszkozat, SZERVEZET_TIPUSOK, kategoria, szervezetTipus, type KinalatSor } from "@rogton/contracts";
+import { profilPiszkozatbol, profilTureloOlvas } from "@rogton/profile-core";
 import { temaTartalek, vendeglato } from "../profil/kinalat-szabaly";
 import { fesztivalSzoveg, kategoriaOf, tipusJavaslat, tipusOf } from "../profil/tipus-szabaly";
 import { MINTA_KATEGORIAK, kepKategoria, mintaKategoria } from "../vizual/minta-kategoria";

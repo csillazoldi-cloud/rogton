@@ -1,7 +1,7 @@
 import "server-only";
-import { AiHiba, type HivasMeres } from "@km/ai-adapters";
-import { JavaslatokValasz, HangnemFinomitasValasz, type HangnemFinomitasKeres, type OnboardingPiszkozat } from "@km/contracts";
-import { tartalomnyelv } from "@km/onboarding-core";
+import { AiHiba, type HivasMeres } from "@rogton/ai-adapters";
+import { JavaslatokValasz, HangnemFinomitasValasz, type HangnemFinomitasKeres, type OnboardingPiszkozat } from "@rogton/contracts";
+import { tartalomnyelv } from "@rogton/onboarding-core";
 import { szolgaltato, keretEllenoriz, meresRogzit, prompt, jsonRobusztusan, AiKozosHiba } from "../ai";
 import { nyelvekSzovegbol, rendezvenyJavaslat, tipusJavaslat } from "../profil/tipus-szabaly";
 

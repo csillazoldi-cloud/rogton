@@ -1,7 +1,7 @@
 import "server-only";
 import { cookies, headers } from "next/headers";
-import { MUNKAMENET_SUTI } from "@km/contracts";
-import { NYELV_SUTI } from "@km/design-system";
+import { MUNKAMENET_SUTI } from "@rogton/contracts";
+import { NYELV_SUTI } from "@rogton/design-system";
 import { aktualisFiok, aktualisSzervezet } from "../hitelesites";
 import { felirat, feliratok, nyelvKeresbol } from "./index";
 import { hatasosNyelv } from "./munkater";

@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { belepettSzervezet, hiba, kapu, valasz } from "../_kozos";
 import { hostKontextus, kornyezet } from "../../../../hirfigyelo";
-import { aktivVerzio, jogosult } from "@km/news-monitor-core";
+import { aktivVerzio, jogosult } from "@rogton/news-monitor-core";
 import { sorbaTesz, szervezetSora } from "../../../../hirfigyelo/sor";
 import { keresNyelve } from "../../../../nyelv/keresbol";
 

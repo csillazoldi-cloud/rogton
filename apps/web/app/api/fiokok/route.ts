@@ -4,7 +4,7 @@
 // puszta HTTP-kéréssel is meg lehet hívni. A műveleteket a modul is védi (az utolsó rendszergazda
 // nem veheti el a saját jelölését) — két zár, nem egy.
 import { z } from "zod";
-import type { HibaValasz } from "@km/contracts";
+import type { HibaValasz } from "@rogton/contracts";
 import { kapu } from "../_kapu";
 import {
   felfuggeszt,

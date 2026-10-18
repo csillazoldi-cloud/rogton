@@ -1,4 +1,4 @@
-// @km/ai-adapters — szolgáltatók, hívások, hibák, költségmérés (ALAPTERV 5. pont).
+// @rogton/ai-adapters — szolgáltatók, hívások, hibák, költségmérés (ALAPTERV 5. pont).
 // A hívó FELADATOT kér, nem konkrét modellt. Minden szolgáltató egy leírólapot ad magáról.
 // A modell válasza JAVASLAT, nem jogosultság: a hívó program ellenőrzi, mielőtt bármit tenne vele.
 // Helyi modell kiesésekor NINCS csendes átváltás felhőre.

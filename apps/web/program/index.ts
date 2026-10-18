@@ -1,8 +1,8 @@
 import "server-only";
-import { AiHiba, type HivasMeres } from "@km/ai-adapters";
-import { fajlOlvas } from "@km/fajl-core";
-import { nyersBajtok, weboldalSzoveg } from "@km/letolto";
-import type { ProgramTetel, ProgramTetelMezok } from "@km/contracts";
+import { AiHiba, type HivasMeres } from "@rogton/ai-adapters";
+import { fajlOlvas } from "@rogton/fajl-core";
+import { nyersBajtok, weboldalSzoveg } from "@rogton/letolto";
+import type { ProgramTetel, ProgramTetelMezok } from "@rogton/contracts";
 import { randomUUID } from "node:crypto";
 import { AiKozosHiba, jsonRobusztusan, keretEllenoriz, meresRogzit, prompt, szolgaltato } from "../ai";
 import { fajlKornyezet } from "../fajl";

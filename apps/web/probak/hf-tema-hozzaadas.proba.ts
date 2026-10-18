@@ -8,7 +8,7 @@
 //  4. a hívás időkorlátos: egy be nem fejeződő kérés sem hagyja a gombot örökké foglaltan.
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { Beallitas, Tema } from "@km/news-monitor-core";
+import { Beallitas, Tema } from "@rogton/news-monitor-core";
 import { mentoSor, temaHozzaadas, TEMA_NEV_MAX, TEMAK_MAX } from "../app/hirfigyelo/beallitas/temaMuvelet";
 import { hfKeres } from "../app/hirfigyelo/_kozos/kliens";
 

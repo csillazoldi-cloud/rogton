@@ -1,4 +1,4 @@
-import type { ProgramTetel } from "@km/contracts";
+import type { ProgramTetel } from "@rogton/contracts";
 
 // c30 F6: a program-felület tiszta segédei (napcímkék, csoportosítás, idő) — a próbák is ezt hívják (probak/c30-f6-fesztival.proba.ts).
 

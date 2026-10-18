@@ -4,7 +4,7 @@
 //  - POST /api/arculat/szinek: ment ÉS jóváhagy (új verzió), ugyanaz még egyszer = nincs új verzió; rossz törzs 400; néző 403;
 //  - a háttérmunka (hatterTervezetBefogad az arculatMent-ben) jóváhagyás után NEM ír — és ha a jóváhagyással egy időben fut, sem.
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { ArculatLepes, type ArculatTervezet } from "@km/contracts";
+import { ArculatLepes, type ArculatTervezet } from "@rogton/contracts";
 import { alapA, arculatMent } from "../arculat/ment";
 import { hatterTervezetBefogad, szinekJovahagy } from "../arculat/lepes";
 import { alapTervezet } from "../arculat/alap";

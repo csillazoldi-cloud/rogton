@@ -1,4 +1,4 @@
-# @km/fajl-core
+# @rogton/fajl-core
 
 ## 1. Mit csinál
 
@@ -70,7 +70,7 @@ Szótár (0.2.0): `LogoValtozat`, `FajlEredet`; a `FajlMeta` új, opcionális me
    az `arculat_fajl` táblával és a `FAJL_MAPPA` alatti fájlrendszerrel; a referencia-hostban
    memória- vagy fájl-tár egy mappában).
 3. `Ora`: `() => new Date().toISOString()`; `Azonosito`: `crypto.randomUUID()`.
-4. A modul próbáinak futtatása (`pnpm --filter @km/fajl-core proba`) — adatbázis és
+4. A modul próbáinak futtatása (`pnpm --filter @rogton/fajl-core proba`) — adatbázis és
    fájlrendszer nélkül zöldek.
 5. Három határőr-szabály felvétele a `.dependency-cruiser.cjs`-be.
 6. A hibakódok fordítása feliratokra (`fajl.hiba_*`), a HTTP-státusz a szerződés 6. pontja

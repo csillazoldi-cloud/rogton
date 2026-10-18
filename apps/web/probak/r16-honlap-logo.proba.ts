@@ -9,8 +9,8 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
-import { ArculatTervezet } from "@km/contracts";
-import type { FajlMeta } from "@km/fajl-core";
+import { ArculatTervezet } from "@rogton/contracts";
+import type { FajlMeta } from "@rogton/fajl-core";
 import { honlapLogoMent, logoFajlNev, type HonlapLogoEszkozok } from "../onboarding/honlap-logo";
 import { honlapLogoCsendben, honlapTervezetbe, type SajatHonlap } from "../onboarding/arculat";
 import { fajlTar } from "../fajl/tar";

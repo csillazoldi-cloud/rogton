@@ -2,7 +2,7 @@
 // posztötletei — sorrend (futó kampány → „Amit tolni kell” → célok), legfeljebb 3, és a posztmunka kiváltója (tipus "terv").
 // Tiszta függvény, adatbázis nélkül.
 import { describe, expect, it } from "vitest";
-import { PosztForras } from "@km/contracts";
+import { PosztForras } from "@rogton/contracts";
 import { OTLET_MAX, iranytuOtletek, otletForras } from "../iranytu/otletek";
 
 const ir = {

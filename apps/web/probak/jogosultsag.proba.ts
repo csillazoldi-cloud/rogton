@@ -123,7 +123,7 @@ const VEGPONTOK: Vegpont[] = [
   { fajl: "koltseg/keret", modszer: "PUT", ut: "/api/koltseg/keret", szint: "rendszergazda", torzs: { keretek: [] } },
   { fajl: "fiokok", modszer: "POST", ut: "/api/fiokok", szint: "rendszergazda", torzs: {} },
   { fajl: "fiok/jelszo-jegy", modszer: "POST", ut: "/api/fiok/jelszo-jegy", szint: "rendszergazda", torzs: { email: "" } },
-  // --- F-3: tagság és meghívó (a `@km/hozzaferes-core` befogadása) ---
+  // --- F-3: tagság és meghívó (a `@rogton/hozzaferes-core` befogadása) ---
   { fajl: "tagok/meghivo", modszer: "POST", ut: "/api/tagok/meghivo", szint: "szerkeszto", torzs: { szerep: "nezo" } },
   { fajl: "tagok/meghivo/[id]", modszer: "DELETE", ut: "/api/tagok/meghivo/00000000-0000-4000-8000-000000000000", szint: "szerkeszto" },
   { fajl: "meghivo/elfogad", modszer: "POST", ut: "/api/meghivo/elfogad", szint: "belepett", torzs: { jegy: "nincsilyen" } },

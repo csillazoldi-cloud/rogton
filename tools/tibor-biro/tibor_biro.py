@@ -4,7 +4,7 @@
 A Tibor-próba SZÁMOKAT mér (szószám, fő gombok, dobozmélység). A bíráló azt kérdezi, amit a számok nem tudnak:
 mit lát meg először, érti-e a dolgát, HOVA NYOMNA — és az egyezik-e a lap fő gombjával.
 
-Gép: a helyi Ollama képes modellje (alap: gemma4:31b a 100.89.253.13-on, díjmentes). Csak szabványos könyvtár kell.
+Gép: a helyi Ollama képes modellje (OLLAMA_URL kötelező; alap modell gemma4:31b). Csak szabványos könyvtár kell.
 Gép választása: ANTHROPIC_API_KEY beállítva → Claude API (alap: claude-sonnet-5-5), különben helyi Ollama.
 Claude-dal:  ANTHROPIC_API_KEY="$(cat ~/saas/vault/anthropic-kulcs)" python3 tibor_biro.py --ki <mappa> [--modell claude-sonnet-5-5]
 Használat:  python3 tibor_biro.py --ki <a tibor-próba kimeneti mappája> [--modell gemma4:31b] [--csak hirek,kepek]
@@ -18,7 +18,7 @@ Kilépési kód: 0 = nincs piros; 1 = van piros; 2 = még van hátra (--max-szal
 """
 import argparse, base64, json, os, re, sys, time, unicodedata, urllib.error, urllib.request
 
-OLLAMA = os.environ.get("OLLAMA_URL", "http://100.89.253.13:11434")
+OLLAMA = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434")
 # Claude API: csak akkor, ha a kulcs nem üres (a csupa szóköz is üresnek számít → Ollama). A kulcsot SOHA nem írjuk ki.
 KULCS = (os.environ.get("ANTHROPIC_API_KEY") or "").strip()
 ANTHROPIC = os.environ.get("ANTHROPIC_URL", "https://api.anthropic.com/v1/messages")  # felülírható (próbához)

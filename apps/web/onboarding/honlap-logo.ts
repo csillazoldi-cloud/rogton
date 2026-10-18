@@ -12,7 +12,7 @@ import "server-only";
 // A fájlokat a `fajl/tar`-ból írjuk (TERV §3); `vizual/*`-ot nem importálunk — a képgyártó hívása ezért itt külön áll (ugyanaz a
 // KEPGYAR_URL, mint a vizual/helyzet.ts-é és az arculat/nevlogo.ts-é).
 import { randomUUID } from "node:crypto";
-import { fajlEllenoriz, kepreAlkalmasLogo, KEP_LOGO_MAX_BAJT, tipusFelismer, type FajlTar } from "@km/fajl-core";
+import { fajlEllenoriz, kepreAlkalmasLogo, KEP_LOGO_MAX_BAJT, tipusFelismer, type FajlTar } from "@rogton/fajl-core";
 import { fajlTar } from "../fajl/tar";
 import { nyersBajtok } from "./letolto";
 

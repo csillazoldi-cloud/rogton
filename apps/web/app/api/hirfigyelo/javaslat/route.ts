@@ -1,4 +1,4 @@
-import { javaslatKer } from "@km/news-monitor-core";
+import { javaslatKer } from "@rogton/news-monitor-core";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu } from "../_kozos";
 import { hostKontextus, kornyezet } from "../../../../hirfigyelo";
 

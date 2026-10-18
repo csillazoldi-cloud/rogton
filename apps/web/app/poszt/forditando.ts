@@ -3,7 +3,7 @@
 // vagy a magyar szöveg azóta változott), a régi szöveg jött vissza változatlanul — a kiszolgáló elavultnak jelölte (elavult_forditas), de a
 // R-15 lap ezt se nem mutatta, se nem használta. Mostantól: az elavult, kézzel NEM írt cellát a váltás újrafordítja (a v3 fordító-prompt
 // helynév-szabályával). A kézzel írt (vagy véglegesített) cellához nem nyúlunk: ami az emberé, azt a gép nem írja felül (A-9).
-import type { PosztSzoveg } from "@km/contracts";
+import type { PosztSzoveg } from "@rogton/contracts";
 
 type Cella = Pick<PosztSzoveg, "felulet" | "nyelv" | "szoveg" | "javaslat" | "allapot" | "elavult_forditas">;
 

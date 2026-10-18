@@ -6,7 +6,7 @@
 // whose event starts tomorrow shows the idea card; a company's Kezdőlap shows none.
 import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { PosztMunka, ProgramTetel, TemaTerv } from "@km/contracts";
+import type { PosztMunka, ProgramTetel, TemaTerv } from "@rogton/contracts";
 import type { TisztaTetel } from "../program/szabaly";
 import { HORGONY_MAX_ALATT, HORGONY_MAX_ELOTTE, esedekesOtletek, horgonyFajtak, horgonyJavaslatok, horgonyKulcs, szellemSorok, type HorgonyOtlet } from "../program/horgony";
 import { programHorgony } from "../program/blokk";

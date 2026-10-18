@@ -1,6 +1,6 @@
 import "server-only";
 import { and, count, eq, ne, sql } from "drizzle-orm";
-import type { HibaKod } from "@km/contracts";
+import type { HibaKod } from "@rogton/contracts";
 import { db, sema } from "../adatbazis/kapcsolat";
 import { ALAP_KERET_USD, HONAP } from "../ai";
 import type { Eredet, FiokSor, FiokokNezet, MunkaterSor, Szerep, Tagsag } from "./tipusok";

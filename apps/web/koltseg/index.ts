@@ -1,6 +1,6 @@
 import "server-only";
 import { sql } from "drizzle-orm";
-import { szolgaltatoHol } from "@km/ai-adapters";
+import { szolgaltatoHol } from "@rogton/ai-adapters";
 import { db, szervezetKent } from "../adatbazis/kapcsolat";
 import { ALAP_KERET_USD, HONAP } from "../ai";
 import { PENZNEMEK, type Penznem } from "../kezdolap/tipusok";

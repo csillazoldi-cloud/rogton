@@ -1,6 +1,6 @@
 import "server-only";
-import type { HivasMeres } from "@km/ai-adapters";
-import { nyersSzoveg } from "@km/letolto";
+import type { HivasMeres } from "@rogton/ai-adapters";
+import { nyersSzoveg } from "@rogton/letolto";
 import { meresRogzit } from "./osszefoglalo";
 import { cssCimek, honlapSzinek, type HonlapSzinek } from "./szinek";
 

@@ -2,7 +2,7 @@
 // adja a képpontokat, ez a tiszta függvény megmondja: átlátszó-e, mennyire világos, hány színű, milyen arányú, és mik a fő színei.
 // Az eredmény az `arculat_fajl.elemzes` oszlopba kerül (a kiszolgáló zod-dal ellenőrzi), és ebből dől el, melyik helyre kerül.
 import { z } from "zod";
-import { HexSzin } from "@km/contracts";
+import { HexSzin } from "@rogton/contracts";
 import type { Kepadat, LogoHely } from "./host";
 import { hexbe, nemMarkaszin, relativVilagossag, tavolsag, type Rgb } from "./szin";
 

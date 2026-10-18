@@ -1,9 +1,9 @@
 import "server-only";
 import { and, desc, eq, isNull, like } from "drizzle-orm";
-import type { Esemeny, EsemenyTar, ErtesitesBeallitas, ErtesitesTar } from "@km/esemeny-core";
+import type { Esemeny, EsemenyTar, ErtesitesBeallitas, ErtesitesTar } from "@rogton/esemeny-core";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 
-// A `@km/esemeny-core` portjainak Postgres-megvalósítása (F-5, R-4).
+// A `@rogton/esemeny-core` portjainak Postgres-megvalósítása (F-5, R-4).
 // Az `esemeny` tábla km_app-szabálya a saját szervezet sorait ÉS a szervezet nélküli (fiók-/rendszer-) sorokat engedi;
 // a `lista()` szervezetre szűr, a `rendszerLista()` a szervezet nélkülieket adja — azt csak a rendszergazda végpontja hívja (kapu).
 

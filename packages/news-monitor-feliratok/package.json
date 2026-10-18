@@ -1,5 +1,5 @@
 {
-  "name": "@km/news-monitor-feliratok",
+  "name": "@rogton/news-monitor-feliratok",
   "version": "0.2.0",
   "private": true,
   "type": "module",

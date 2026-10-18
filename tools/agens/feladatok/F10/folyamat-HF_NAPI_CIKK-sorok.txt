@@ -1,2 +1,0 @@
-25:export const HF_NAPI_CIKK = 60;
-330:  const ertekelesSzam = Math.min(ujTalalatok.length, HF_NAPI_CIKK);

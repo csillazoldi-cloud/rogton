@@ -1,8 +1,8 @@
-// @km/profile-core — az ügyfélprofil SZABÁLYAI (ALAPTERV 2.: profil, arculati verziók, jóváhagyás szabályai).
+// @rogton/profile-core — az ügyfélprofil SZABÁLYAI (ALAPTERV 2.: profil, arculati verziók, jóváhagyás szabályai).
 // Tiszta függvények: nincs adatbázis, nincs képernyő, nincs hálózat. A tárolást a befogadó alkalmazás adja
 // (ProfilTar), a képernyők csak hívják. Az onboarding EZT használja az átadáskor; ez az onboardingot nem ismeri.
-import type { ArculatLepes, ArculatLogok, ArculatTervezet, MezoForras, OnboardingPiszkozat, ProfilModositas } from "@km/contracts";
-import { POSZT_NYELV_MODOK, Rendezveny, SzervezetProfil, TARTALOMNYELVEK, kategoria, szervezetTipus, type PosztNyelvMod, type Tartalomnyelv } from "@km/contracts";
+import type { ArculatLepes, ArculatLogok, ArculatTervezet, MezoForras, OnboardingPiszkozat, ProfilModositas } from "@rogton/contracts";
+import { POSZT_NYELV_MODOK, Rendezveny, SzervezetProfil, TARTALOMNYELVEK, kategoria, szervezetTipus, type PosztNyelvMod, type Tartalomnyelv } from "@rogton/contracts";
 
 // ---------------------------------------------------------------------------
 // Eredet-szabály (v6 userEdit): kézi szerkesztés → saját érték, vagy módosított javaslat

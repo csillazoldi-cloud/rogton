@@ -8,7 +8,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright-core";
-import { BETUK, NEVLOGO_STILUSOK, nevlogoSzoveg, type NevlogoKeres } from "@km/vizual-core";
+import { BETUK, NEVLOGO_STILUSOK, nevlogoSzoveg, type NevlogoKeres } from "@rogton/vizual-core";
 import { betuLanc, karakterek } from "../src/betu-utvonal.ts";
 import { nevlogoValtozatok, pngLap } from "../src/nevlogo.ts";
 

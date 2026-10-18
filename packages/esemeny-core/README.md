@@ -1,4 +1,4 @@
-# @km/esemeny-core
+# @rogton/esemeny-core
 
 ## 1. Mit csinál
 
@@ -54,7 +54,7 @@ HTTP: `NINCS_JOG` 403 · `ERVENYTELEN_ADAT` 400 · `ISMERETLEN_FAJTA` 400.
    az `esemeny` és az `ertesites_beallitas` táblával; a referencia-hostban SQLite).
 3. `Ora`: `() => new Date().toISOString()`; `Azonosito`: `crypto.randomUUID()`;
    `KimenoCsatorna`: a vaultból vett `ERTESITES_WEBHOOK_URL`-re küldő hívó.
-4. A modul próbáinak futtatása (`pnpm --filter @km/esemeny-core proba`) — adatbázis nélkül
+4. A modul próbáinak futtatása (`pnpm --filter @rogton/esemeny-core proba`) — adatbázis nélkül
    zöldek.
 5. Három határőr-szabály felvétele a `.dependency-cruiser.cjs`-be.
 6. A hibakódok fordítása feliratokra (`esemeny.hiba_*`), a HTTP-státusz a szerződés 6.

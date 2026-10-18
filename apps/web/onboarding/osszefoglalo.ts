@@ -1,9 +1,9 @@
 import "server-only";
-import { AiHiba } from "@km/ai-adapters";
-import type { ForrasTipus, OsszefoglaloKeres, OsszefoglaloValasz } from "@km/contracts";
+import { AiHiba } from "@rogton/ai-adapters";
+import type { ForrasTipus, OsszefoglaloKeres, OsszefoglaloValasz } from "@rogton/contracts";
 import { szolgaltato, keretEllenoriz as kozosKeretEllenoriz, meresRogzit, prompt, AiKozosHiba, szovegRobusztusan } from "../ai";
-import { LetoltesHiba, weboldalSzoveg } from "@km/letolto";
-import { nemDerulKi } from "@km/onboarding-core";
+import { LetoltesHiba, weboldalSzoveg } from "@rogton/letolto";
+import { nemDerulKi } from "@rogton/onboarding-core";
 
 // A tevékenység-összefoglaló (E-7). A hívó FELADATOT kér; a szolgáltatót a beállítás választja:
 //   AI_SZOLGALTATO = teszt | anthropic | claude-elofizetes | codex-elofizetes   (alap: teszt — kulcs nélkül is végigpróbálható)

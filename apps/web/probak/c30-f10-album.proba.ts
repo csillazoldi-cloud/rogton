@@ -9,7 +9,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { PosztAlbum, PosztMunka } from "@km/contracts";
+import type { PosztAlbum, PosztMunka } from "@rogton/contracts";
 import { albumHasznalat, albumHasznalatPosztokbol, albumKoltoztet } from "../album";
 import { valogat } from "../album/poszt";
 import type { AlbumFoto } from "../album/szabaly";

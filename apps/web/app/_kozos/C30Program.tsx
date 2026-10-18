@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { PROGRAM_FAJTAK, type ProgramFajta, type ProgramTetel } from "@km/contracts";
+import { PROGRAM_FAJTAK, type ProgramFajta, type ProgramTetel } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
 import { hivas } from "./kliens";
 import { Kapcsolo } from "./Kapcsolo";

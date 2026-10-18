@@ -8,7 +8,7 @@
 //  - a végpontok: a néző 403, rossz stílus 400; a gép-írta SVG kiszolgálása szigorú fejlécekkel; SVG feltöltése továbbra is 415;
 //  - a fájlnév ékezetes (Latin-1-en kívüli) betűvel is kiszolgálható (a K6 közben javított fejléc).
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { hasznaltLogok } from "@km/fajl-core";
+import { hasznaltLogok } from "@rogton/fajl-core";
 import { profilTar } from "../profil/tar";
 import { fajlTar } from "../fajl/tar";
 import { nevlogoMent, regeneral, ujraKeszitendoHelyek, type NevlogoBemenet, type NevlogoKeszito } from "../arculat/nevlogo";

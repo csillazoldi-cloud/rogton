@@ -1,8 +1,8 @@
 import "server-only";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";
 import { randomUUID } from "node:crypto";
-import type { FiokNezet, Szerep } from "@km/contracts";
-import { ALAP_SZURES, type HostKontextus, type Kornyezet } from "@km/news-monitor-core";
+import type { FiokNezet, Szerep } from "@rogton/contracts";
+import { ALAP_SZURES, type HostKontextus, type Kornyezet } from "@rogton/news-monitor-core";
 import { profilBetolt } from "../profil";
 import { iranytuTar } from "../iranytu/tar";
 import { iranytuSzuronek } from "./iranytu-szuro";

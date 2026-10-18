@@ -3,7 +3,7 @@
 // Három pipás sor, egy választható (rádió): „Egy posztban mindkét nyelv” · „Külön posztok” · „Csak {első nyelven}”. A sorok alsó sora a
 // szervezet nyelveiből épül (pl. „magyarul, alatta románul”), így egy román-első vagy egy román–német szervezetnek is a saját nyelveit mutatja.
 // A pipa egy valódi gomb (rádió); a sor szövegére koppintva is választ (Tibor ujja a szövegre megy).
-import type { PosztNyelvMod } from "@km/contracts";
+import type { PosztNyelvMod } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
 import { nyelvNev } from "./kliens";
 

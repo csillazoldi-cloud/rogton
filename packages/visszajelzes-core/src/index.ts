@@ -1,4 +1,4 @@
-// @km/visszajelzes-core — a Visszajelzés modul TISZTA magja (V1).
+// @rogton/visszajelzes-core — a Visszajelzés modul TISZTA magja (V1).
 // Nincs React, Next, adatbázis, hálózat: csak a szerződés (zod-sémák) és a tiszta segédek.
 // A képernyő-modul (V2) és a rendszergazda-lapok (V3) erre építenek.
 import { z } from "zod";

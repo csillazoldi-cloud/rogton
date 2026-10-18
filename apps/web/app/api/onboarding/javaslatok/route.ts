@@ -1,7 +1,7 @@
 import { kapu } from "../../_kapu";
 import { cookies, headers } from "next/headers";
-import type { HibaValasz } from "@km/contracts";
-import { NYELV_SUTI } from "@km/design-system";
+import type { HibaValasz } from "@rogton/contracts";
+import { NYELV_SUTI } from "@rogton/design-system";
 import { aktualisFiok, aktualisSzervezet } from "../../../../hitelesites";
 import { munkamenetTokenKeresbol } from "../../../../hitelesites/suti";
 import { piszkozatBetolt } from "../../../../onboarding/piszkozat";

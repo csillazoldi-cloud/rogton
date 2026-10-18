@@ -1,4 +1,4 @@
-import { EsemenyFajta } from "@km/esemeny-core";
+import { EsemenyFajta } from "@rogton/esemeny-core";
 import { kapu } from "../_kapu";
 import { hiba, valasz } from "../tema/_kozos";
 import { esemenyKornyezet, naplo } from "../../../esemeny";

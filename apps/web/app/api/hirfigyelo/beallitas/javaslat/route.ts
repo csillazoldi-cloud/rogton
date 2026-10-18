@@ -1,8 +1,8 @@
-import { beallitasJavaslatKer } from "@km/news-monitor-core";
+import { beallitasJavaslatKer } from "@rogton/news-monitor-core";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu } from "../../_kozos";
 import { hostKontextus, kornyezet } from "../../../../../hirfigyelo";
 import { z } from "zod";
-import { HANGNEM_LEIRAS_MAX } from "@km/contracts";
+import { HANGNEM_LEIRAS_MAX } from "@rogton/contracts";
 
 export const dynamic = "force-dynamic";
 

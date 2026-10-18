@@ -1,5 +1,5 @@
 {
-  "name": "@km/news-monitor-promptok",
+  "name": "@rogton/news-monitor-promptok",
   "version": "0.2.0",
   "private": true,
   "type": "module",
@@ -11,7 +11,7 @@
     "proba": "vitest run"
   },
   "dependencies": {
-    "@km/news-monitor-core": "workspace:*"
+    "@rogton/news-monitor-core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "24.13.3",

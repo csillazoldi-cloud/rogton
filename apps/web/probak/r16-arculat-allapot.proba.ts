@@ -2,8 +2,8 @@
 // a néző, az alapszett a szakmából, és a három lépés (jóváhagyás, Részletek, visszavonás) tiszta szabálya. Adatbázis nélkül fut.
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { SzervezetProfil, type ArculatLepes } from "@km/contracts";
-import type { FajlMeta } from "@km/fajl-core";
+import { SzervezetProfil, type ArculatLepes } from "@rogton/contracts";
+import type { FajlMeta } from "@rogton/fajl-core";
 import { arculatNezet, type NezetBemenet } from "../arculat/allapot";
 import { alapTervezet } from "../arculat/alap";
 import { jovahagyTenyleges, reszletekJovahagy, visszavon } from "../arculat/lepes";

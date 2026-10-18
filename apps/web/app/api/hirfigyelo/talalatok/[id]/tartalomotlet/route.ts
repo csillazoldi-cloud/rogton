@@ -1,4 +1,4 @@
-import { tartalomotletKer } from "@km/news-monitor-core";
+import { tartalomotletKer } from "@rogton/news-monitor-core";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu, valasz } from "../../../_kozos";
 import { hostKontextus, kornyezet } from "../../../../../../hirfigyelo";
 

@@ -1,4 +1,4 @@
-import { visszajelzesRogzit } from "@km/news-monitor-core";
+import { visszajelzesRogzit } from "@rogton/news-monitor-core";
 import { z } from "zod";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu } from "../_kozos";
 import { hostKontextus, kornyezet } from "../../../../hirfigyelo";

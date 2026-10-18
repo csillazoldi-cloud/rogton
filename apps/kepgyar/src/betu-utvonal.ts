@@ -10,7 +10,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { create, type Font, type Path } from "fontkit";
-import { BETUK, betuKulcs, type BetuUtvonal } from "@km/vizual-core";
+import { BETUK, betuKulcs, type BetuUtvonal } from "@rogton/vizual-core";
 
 const SULY = 700;
 

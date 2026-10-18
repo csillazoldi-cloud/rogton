@@ -85,7 +85,7 @@ export type R15HirKartya = {
 
 /** c5 · 05 Hír részletei (design/R15/rajz/R15-lapok-4.dc.html 05; gepezet-4 · 3): egy hír kártyája (a néző szemével) + a hozzá írt poszt. */
 export type R15HirReszlet = {
-  kartya: import("@km/news-monitor-core").Kartya;
+  kartya: import("@rogton/news-monitor-core").Kartya;
   /** a hírhez már írt poszt munkája; null → a gomb megnyomásakor készül (POST /api/r15/hirek/{talalat_id}/poszt) */
   munka_id: string | null;
   /** a felület nyelve, amire a kártya címe fordítva van (a forrás nyelvének jelzéséhez) */

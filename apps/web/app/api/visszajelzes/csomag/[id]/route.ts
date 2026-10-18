@@ -1,5 +1,5 @@
 import "server-only";
-import { JavitoTetelAllapot } from "@km/visszajelzes-core";
+import { JavitoTetelAllapot } from "@rogton/visszajelzes-core";
 import { kapu } from "../../../_kapu";
 import { hiba, valasz } from "../../../hirfigyelo/_kozos";
 import { csomagTetelAllapot } from "../../../../../visszajelzes";

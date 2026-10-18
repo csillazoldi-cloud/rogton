@@ -5,7 +5,7 @@ import "server-only";
 //    VZ-2 „Mit írj mellé?”, vizual/melle.ts); a válasz a tiszta szabály (kozlemeny-szabaly.ts) ellenőrzésén megy át;
 //  - a letöltött kép szabály-jelzései a rendszergazdáé (`kep_jelzes`); a lista SECURITY DEFINER függvényen át (0152).
 import { and, eq, sql } from "drizzle-orm";
-import { AiHiba, type HivasMeres } from "@km/ai-adapters";
+import { AiHiba, type HivasMeres } from "@rogton/ai-adapters";
 import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 import { AiKozosHiba, jsonRobusztusan, keretEllenoriz, meresRogzit, prompt, szolgaltato } from "../ai";
 import { posztTar } from "../poszt/tar";

@@ -6,7 +6,7 @@ import {
   HangnemFinomitasValasz,
   PiszkozatValasz,
   MUNKAMENET_SUTI,
-} from "@km/contracts";
+} from "@rogton/contracts";
 
 describe("javaslatok API (2. lepes)", () => {
   let sutik: string;

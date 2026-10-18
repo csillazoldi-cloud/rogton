@@ -1,6 +1,6 @@
 import { cookies, headers } from "next/headers";
-import { RENDSZER_VERZIO } from "@km/contracts";
-import { NYELV_SUTI } from "@km/design-system";
+import { RENDSZER_VERZIO } from "@rogton/contracts";
+import { NYELV_SUTI } from "@rogton/design-system";
 import { felirat, feliratok, nyelvDontes } from "../nyelv";
 import { oldalcim } from "../nyelv/oldalcim";
 import { Nyelvvalaszto } from "./_kozos/Nyelvvalaszto";

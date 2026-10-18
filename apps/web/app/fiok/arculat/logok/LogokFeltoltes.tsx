@@ -2,7 +2,7 @@
 // R-16 K1 · 12f „Töltsd fel a logóidat” (design/R16-arculat/R16-arculat.dc.html 12f, TERV 2-K1, gepezet 2–3).
 // Négy hely, mindegyik a saját próbahátterén (világos · sötét · egy színnel · négyzetes); állapotok: üres (+) · feltöltés (sáv) · kész (✓).
 // Fő gomb: „Logók kiválasztása” (több fájl egyszerre); asztalon „vagy húzd ide őket”. A böngésző minden képet megnéz (canvas →
-// @km/arculat-core `logoElemzes`), a csomagot besorolja (`besorol`), és egymás után tölti fel (A-7 `feltoltSorban` minta) a hellyel
+// @rogton/arculat-core `logoElemzes`), a csomagot besorolja (`besorol`), és egymás után tölti fel (A-7 `feltoltSorban` minta) a hellyel
 // és az elemzéssel (x-logo-valtozat, x-logo-elemzes). Egy helyre koppintva csak az az egy hely cserélhető; jóváhagyott arculatnál a
 // kitöltött hely cseréje előbb a meglévő R-6 05/A megerősítőt mutatja. R-16 K6: „Nincs logóm” (halk link a „Melyik hova?” és a „Vissza” között,
 // a rajz 12f) → 12g /fiok/arculat/nevlogo, ahol a gép a névből készít egyet.
@@ -13,8 +13,8 @@
 // Asztal: változatlan 12f.
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { besorol, elemzesFejlecbe, logoElemzes, type LogoElemzes } from "@km/arculat-core";
-import { KEP_LOGO_MAX_BAJT, type FajlMeta, type LogoValtozat } from "@km/fajl-core";
+import { besorol, elemzesFejlecbe, logoElemzes, type LogoElemzes } from "@rogton/arculat-core";
+import { KEP_LOGO_MAX_BAJT, type FajlMeta, type LogoValtozat } from "@rogton/fajl-core";
 import { useFeliratok } from "../../../../nyelv/kliens";
 import { Baj, FoGomb, HalkGomb, HalkLink, Info, KerdesCim, Reszletek, Teendo } from "../../../_kozos/R15";
 import { hibaBekuld, hibaMitKulcs } from "../../../_kozos/ArculatAnyagok";

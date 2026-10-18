@@ -7,7 +7,7 @@ import { HirfigyeloKeret } from "./_kozos/HirfigyeloKeret";
 import { HirKartya } from "./HirKartya"; // R-9: a kártya két hasábhoz
 import { HirFelugro } from "./HirFelugro"; // R-9: a hír részletei felugróban
 import { hfKeres, varjSor, idoRovid, nyelvNev, forrasNev, type SorTetel } from "./_kozos/kliens";
-import type { Kartya } from "@km/news-monitor-core";
+import type { Kartya } from "@rogton/news-monitor-core";
 
 type BeallitasValasz = {
   verziok: { verzio: number; beallitas: { idozites: { mod: "kezi" | "napi"; ora: number; perc: number; idozona: string } }; letrehozva: string; eredet: string; allapot: string }[];

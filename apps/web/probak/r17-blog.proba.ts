@@ -3,7 +3,7 @@
 // Élő rész (PROBA_CIM + DATABASE_URL; teszt AI-szolgáltató): a blog cellán a gép címet ír, hashtag nincs; a kézi cím ment; a fordítás a címet is hozza.
 import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { PosztFelulet, type PosztMunka } from "@km/contracts";
+import { PosztFelulet, type PosztMunka } from "@rogton/contracts";
 import { BLOG_CIM_MAX, BLOG_HATAR, KARAKTERHATAR, atirasBemenet, forditasBemenet } from "../poszt/bemenet";
 import { elonezetVag } from "../r15/szamol";
 import { keres, lezar, sutiKinyer, takaritas, veletlenEmail } from "./segedek";

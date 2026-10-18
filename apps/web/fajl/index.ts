@@ -1,10 +1,10 @@
 import "server-only";
 import { randomUUID } from "node:crypto";
-import type { FajlEsemeny, Kornyezet } from "@km/fajl-core";
+import type { FajlEsemeny, Kornyezet } from "@rogton/fajl-core";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";
 import { fajlTar } from "./tar";
 
-// A `@km/fajl-core` befogadója (F-6): a portok megvalósítása + a környezet összeállítása.
+// A `@rogton/fajl-core` befogadója (F-6): a portok megvalósítása + a környezet összeállítása.
 
 export function fajlKornyezet(): Kornyezet {
   return {

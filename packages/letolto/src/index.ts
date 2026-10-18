@@ -1,7 +1,7 @@
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 
-// @km/letolto — a KÖZÖS letöltő (E-20, csomagba emelve E-29-ben): SSRF-védelem, robots.txt-ellenőrzés,
+// @rogton/letolto — a KÖZÖS letöltő (E-20, csomagba emelve E-29-ben): SSRF-védelem, robots.txt-ellenőrzés,
 // weboldal- és RSS/Atom-letöltés. HOST-SEMLEGES: nincs benne Next, React, adatbázis vagy `server-only`,
 // hogy a webalkalmazás ÉS a referencia-host is ugyanezt használhassa (A-12: másolás nélkül).
 

@@ -1,7 +1,0 @@
-# Feladat — ÉPÍTŐ (V1b): a V1 feladat HIÁNYZÓ darabjai (az előző menet a csomag/[id] végpont közepén megszakadt)
-
-Ugyanazok a szabályok, mint a mellékelt `V1-epito.md`-ben. A mag, a migráció, a sema, a prompt, a `visszajelzes/index.ts` (mellékelve — a függvényei: `bekuld, lista, allapotValt, napiCsomagKeszit, csomagok, csomagTetelAllapot`) és a `route.ts`-ek (POST/GET `/api/visszajelzes`, `[id]`, `[id]/kep`, `csomag`) MÁR KÉSZEK — azokat NE add vissza. CSAK ezt a hármat írd meg:
-
-1. TELJES: `apps/web/app/api/visszajelzes/csomag/[id]/route.ts` — PATCH, `kapu(keres, "rendszergazda")`, törzs `{ tetel_id, allapot }` (`JavitoTetelAllapot.safeParse`), `csomagTetelAllapot(id, tetel_id, allapot)` → 200 `{ visszajelzes: { ok: true } }` / 404 `NINCS_ILYEN` ha false; a mellékelt `csomag/route.ts` importjai és hibakezelése a minta (a `params` a Next 16-ban `Promise<{ id: string }>` — `const { id } = await ctx.params;`).
-2. RÉSZLET: `_RESZLET-futtato.md` (a mellékelt futtato-részlethez; CSERE-blokk, a RÉGI szó szerint): a takarítás `try/catch` blokkja UTÁN a napi javítócsomag 05:00-kor Europe/Bucharest szerint (a V1 feladatlap „RÉSZLET: _RESZLET-futtato.md" pontja szerint), + az import sora (`import { napiCsomagKeszit } from "../visszajelzes";` — külön CSERE az importok közé, a RÉGI: az `import { oraiTakaritas } from "../hitelesites/takaritas";` sor).
-3. RÉSZLET: `_RESZLET-web-package.md`: `apps/web/package.json` (mellékelt részlet) — `"@km/visszajelzes-core": "workspace:*",` a `"@km/profile-core": "workspace:*",` sora UTÁN.

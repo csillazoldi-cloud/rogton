@@ -18,8 +18,8 @@
 // „logó nélkül” út egy lett. A szakasz többi része telefonon ilyenkor rejtve, a „Fájlok” és a „Részletek” sora marad. Asztal: változatlan.
 import { useState, useTransition, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
-import type { LogoValtozat } from "@km/contracts";
-import { BEEPITETT } from "@km/arculat-core";
+import type { LogoValtozat } from "@rogton/contracts";
+import { BEEPITETT } from "@rogton/arculat-core";
 import type { SzakaszAdat } from "../../../arculat/allapot";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { Baj, FoGomb, HalkGomb, HalkLink, Info, KeszPillanat, KerdesCim, Reszletek, Teendo } from "../../_kozos/R15";

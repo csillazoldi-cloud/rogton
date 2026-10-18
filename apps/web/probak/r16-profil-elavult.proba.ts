@@ -2,8 +2,8 @@
 // Egy elavult lap nem tüntethet el egy közben született jóváhagyást: 409 ELAVULT_ADAT, és pillanatkép soha nem vész el.
 // A profil.proba.ts stílusában: valódi kiszolgáló + adatbázis (PROBA_CIM, DATABASE_URL).
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { ArculatLepes, HibaValasz, JovahagyasValasz, ProfilValasz } from "@km/contracts";
-import { arculatJovahagy, arculatModosit, arculatTervezetElvet } from "@km/profile-core";
+import { ArculatLepes, HibaValasz, JovahagyasValasz, ProfilValasz } from "@rogton/contracts";
+import { arculatJovahagy, arculatModosit, arculatTervezetElvet } from "@rogton/profile-core";
 import { keres, lezar, sql, takaritas, veletlenEmail } from "./segedek";
 
 describe("R2: elavult arculat-írás a PUT /api/profil-on (R-16 K1)", () => {

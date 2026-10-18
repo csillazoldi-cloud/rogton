@@ -2,9 +2,9 @@ import { kapu } from "../../_kapu";
 import { hiba, valasz } from "../../tema/_kozos";
 import { fajlKornyezet } from "../../../../fajl";
 import { szerepFordit } from "../../../../hozzaferes";
-import { FajlCel, LogoValtozat, celMaxMeret, fajlEllenoriz, feltolt, feltoltFajlbol, fajlLista } from "@km/fajl-core";
+import { FajlCel, LogoValtozat, celMaxMeret, fajlEllenoriz, feltolt, feltoltFajlbol, fajlLista } from "@rogton/fajl-core";
 import { eldob, ideiglenesTorol, korlatosBeolvas, torzsFajlba } from "../../../../fajl/beolvas";
-import { elemzesFejlecbol, hianyzoNyelvre, type BetuElemzes } from "@km/arculat-core";
+import { elemzesFejlecbol, hianyzoNyelvre, type BetuElemzes } from "@rogton/arculat-core";
 import { betuVizsgal } from "../../../../arculat/betu";
 import { profilTar } from "../../../../profil/tar";
 

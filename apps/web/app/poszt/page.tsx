@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { MUNKAMENET_SUTI, type PosztMunka } from "@km/contracts";
+import { MUNKAMENET_SUTI, type PosztMunka } from "@rogton/contracts";
 import { aktualisFiok, aktualisSzervezet } from "../../hitelesites";
 import { oldalcim } from "../../nyelv/oldalcim";
 import { felsoSav } from "../../kezdolap";
@@ -14,7 +14,7 @@ import { szerepFordit } from "../../hozzaferes";
 import { FelsoSav } from "../_kozos/FelsoSav";
 import { R15Poszt } from "./R15Poszt";
 import { javasoltTipus } from "../../poszt/tipus";
-import { nyelvMod } from "@km/profile-core";
+import { nyelvMod } from "@rogton/profile-core";
 import "../_kozos/felsosav.css";
 
 export const dynamic = "force-dynamic";

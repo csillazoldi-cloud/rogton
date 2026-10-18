@@ -1,8 +1,8 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { KATEGORIAK, TARTALOMNYELVEK, kategoria, szervezetTipus, type OnboardingPiszkozat, type Tartalomnyelv } from "@km/contracts";
-import { javaslatokBeolvaszt, leirasTulRovid } from "@km/onboarding-core";
+import { KATEGORIAK, TARTALOMNYELVEK, kategoria, szervezetTipus, type OnboardingPiszkozat, type Tartalomnyelv } from "@rogton/contracts";
+import { javaslatokBeolvaszt, leirasTulRovid } from "@rogton/onboarding-core";
 import { useFeliratok } from "../../nyelv/kliens";
 import { Nyelvvalaszto } from "../_kozos/Nyelvvalaszto";
 import { Marka } from "../_kozos/Marka";
@@ -194,7 +194,7 @@ export function ElsoBeallitas({ szervezetNev, kezdo, kezdoFrissitve, fiokNev }: 
     if (r2.statusz === 401) { router.push("/belepes"); return; }
     if (r2.statusz === 200) {
       const v = r2.torzs as unknown;
-      const parsed = (await import("@km/contracts")).JavaslatokValasz.safeParse(v);
+      const parsed = (await import("@rogton/contracts")).JavaslatokValasz.safeParse(v);
       if (parsed.success) {
         // J-1: a „Mit szeretnétek elérni” ezen a lapon választókockákból áll — az AI szabad célmondata nem látszana,
         // mégis elmentődne a profilba (mérve 2026-09-25: 0 jelölt cél mellett AI-célmondat a Szervezet adatainál). Ezért a cél

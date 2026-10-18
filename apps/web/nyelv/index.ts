@@ -1,7 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { lapFeliratai } from "../szovegek";
-import { ALAP_NYELV, NYELVEK, type Nyelv } from "@km/design-system";
+import { ALAP_NYELV, NYELVEK, type Nyelv } from "@rogton/design-system";
 import { sablonKitolt } from "./sablon";
 
 

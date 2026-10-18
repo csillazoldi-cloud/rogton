@@ -1,10 +1,10 @@
 "use client";
 // R-16 K4 (TERV §2-K4, §1.4) — a K1 ELŐTT feltöltött logók színei. Ezeknek nincs tárolt elemzése (`arculat_fajl.elemzes` NULL),
 // a kiszolgálón pedig nincs canvas. A böngésző ugyanazzal a tiszta függvénnyel nézi meg őket, mint a 12f a feltöltéskor
-// (kicsinyítés ≤ 64 × 64 → @km/arculat-core `logoElemzes`), és a javaslatokat ugyanazzal a `szinJavaslatok`-kal számolja újra.
+// (kicsinyítés ≤ 64 × 64 → @rogton/arculat-core `logoElemzes`), és a javaslatokat ugyanazzal a `szinJavaslatok`-kal számolja újra.
 // Nem ír semmit (TERV 1.7 R5: meglévő sort nem módosítunk) — minden megnyitáskor újra megnézi (néhány ezredmásodperc).
 import { useEffect, useMemo, useState } from "react";
-import { logoElemzes, logoSzinSor, szinJavaslatok, type SzinJavaslat } from "@km/arculat-core";
+import { logoElemzes, logoSzinSor, szinJavaslatok, type SzinJavaslat } from "@rogton/arculat-core";
 import type { SzinekAdat } from "../../../../arculat/szinek";
 
 const ELEMZES_MERET = 64;

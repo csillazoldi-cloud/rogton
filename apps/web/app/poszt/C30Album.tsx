@@ -12,7 +12,7 @@
 // Az újrakódolás az EXIF-et (a GPS-t is) eldobja; a készítés idejét előtte olvassuk ki (album/exif.ts). A feltöltés egyesével megy,
 // fotónként 3 újrapróbával; ami megérkezett, megvan (frissítés után is látszik — a lista a kiszolgálóról jön).
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { PosztAlbum, PosztMunka } from "@km/contracts";
+import type { PosztAlbum, PosztMunka } from "@rogton/contracts";
 import { useFeliratok } from "../../nyelv/kliens";
 import { hivas } from "../_kozos/kliens";
 import { FoGomb, Halad, HalkGomb, Info, KerdesCim } from "../_kozos/R15";

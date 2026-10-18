@@ -10,8 +10,8 @@ import {
   type OsszhangAllapot,
   type IranytuSema,
   type PosztTipus,
-} from "@km/contracts";
-import { AiHiba, type FeladatTipus, type HivasMeres } from "@km/ai-adapters";
+} from "@rogton/contracts";
+import { AiHiba, type FeladatTipus, type HivasMeres } from "@rogton/ai-adapters";
 import {
   szolgaltato,
   keretEllenoriz,
@@ -45,7 +45,7 @@ import { nevCsere } from "./nevek";
 import { arakNelkul, kitalaltReszek, szabalyVisszhang, tenyorrelKer, tipusKimenet, tipusSor, tipusSzovegek, visszhangNelkul } from "./tipus";
 import { posztTar } from "./tar";
 import { alapCta, ketnyelvuFelulet, ketnyelvuKeret, tulHosszu } from "./ketnyelvu";
-import { masodikNyelv, nyelvMod } from "@km/profile-core";
+import { masodikNyelv, nyelvMod } from "@rogton/profile-core";
 import { tiltottSzavakEllenorzes } from "./szuro";
 import { VALASZTO_NAPOK, ervenyesNap, javaslatokatAd, napKulcs, napokKozott, type Nap, type NaptarPoszt } from "./naptar";
 

@@ -1,11 +1,11 @@
-// @km/news-monitor-promptok — a Hírfigyelő AI-utasításai (E-31).
+// @rogton/news-monitor-promptok — a Hírfigyelő AI-utasításai (E-31).
 // A promptok a MODUL részei, nem a befogadó alkalmazásé: mindkét host UGYANAZT az utasítást küldi a modellnek,
 // így az értékelés is ugyanaz. Egy fájl nyelvenként nincs: a promptok magyarul íródnak, és a NYELVET
 // a `{{nyelv}}` hely + a célnyelvi keretmondat adja (lásd `nyelviKeret`).
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { HfFeladat } from "@km/news-monitor-core";
+import type { HfFeladat } from "@rogton/news-monitor-core";
 
 export const NYELVEK = ["hu", "ro", "en"] as const;
 export type Nyelv = (typeof NYELVEK)[number];

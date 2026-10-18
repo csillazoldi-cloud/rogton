@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import type { ProgramTetel } from "@km/contracts";
+import type { ProgramTetel } from "@rogton/contracts";
 import { useFeliratok } from "../../../nyelv/kliens";
 import { HalkGomb, HalkLink, Info, KerdesCim } from "../../_kozos/R15";
 import { ProgramForras, ProgramNapok, ProgramOlvasas, ProgramTetelLap, idoszakCimke, programOlvas, programOlvasasVar, useFajlValaszto } from "../../_kozos/C30Program";

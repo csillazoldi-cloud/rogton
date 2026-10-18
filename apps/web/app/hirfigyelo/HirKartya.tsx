@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { Kartya } from "@km/news-monitor-core";
+import type { Kartya } from "@rogton/news-monitor-core";
 import { idoRovid, forrasNev } from "./_kozos/kliens";
 
 /** Az első mondat a `.`-ig (a régiből átemelve). */

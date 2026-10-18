@@ -1,4 +1,4 @@
-import { Beallitas, tervezetMent } from "@km/news-monitor-core";
+import { Beallitas, tervezetMent } from "@rogton/news-monitor-core";
 import { belepettSzervezet, eredmenyValasz, hiba, kapu, valasz } from "../../_kozos";
 import { hostKontextus, kornyezet } from "../../../../../hirfigyelo";
 

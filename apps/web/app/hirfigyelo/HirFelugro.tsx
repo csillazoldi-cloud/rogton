@@ -2,7 +2,7 @@
 // R-9: a hír részletei FELUGRÓ ablakban (nem oldalsó panel) — két hasáb: balra a hír, jobbra „Mit adhat ez neked".
 
 import { useEffect } from "react";
-import type { Kartya } from "@km/news-monitor-core";
+import type { Kartya } from "@rogton/news-monitor-core";
 import { idoRovid, nyelvNev, forrasNev } from "./_kozos/kliens";
 import { TartalomgyarGomb, elsoMondat } from "./HirKartya";
 

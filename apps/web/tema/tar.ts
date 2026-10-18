@@ -10,8 +10,8 @@ import {
   type KozosTemaAllapot,
   type SzervezetTemaAllapot,
   type TemaVerzioFej,
-} from "@km/design-system";
-import temaAlap from "@km/design-system/tema-alap.json";
+} from "@rogton/design-system";
+import temaAlap from "@rogton/design-system/tema-alap.json";
 import { db, sema, szervezetKent, type SzervezetDb } from "../adatbazis/kapcsolat";
 
 // A téma TÁROLÁSA a befogadó alkalmazásban (ALAPTERV 3.: a téma gazdája az apps/web, verziózva; a szabályok a

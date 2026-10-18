@@ -2,7 +2,7 @@
 """Tibor-próba (R-15, 2026-09-26): a teszt minden lapját egy friss fiókkal végigjárja asztali (1440) és telefonos (390)
 nézetben, és lapnként megméri a Tibor-szabálylap számait. A mérés a képernyőről megy (a böngésző látja, amit Tibor), nem a kódból.
 
-Használat:  python3 tibor_proba.py [--cim https://saas.mediapartizan.ro] [--ki kimenet_mappa] [--allapot fiok.json]
+Használat:  python3 tibor_proba.py [--cim http://127.0.0.1:8410] [--ki kimenet_mappa] [--allapot fiok.json]
 Kimenet:    <ki>/jelentes.md, <ki>/jelentes.json, <ki>/kep/<lap>-<nezet>.png (+ <lap>-<nezet>-elso.png: az első képernyő)
 Kilépési kód: 0 = minden lap zöld; 1 = van piros lap (ezt a kirakás-őr használja).
 
@@ -157,7 +157,7 @@ async def regisztral(b, cim):
     allapot = await ctx.storage_state(); await ctx.close(); return allapot
 
 async def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--cim", default="https://saas.mediapartizan.ro"); ap.add_argument("--ki", default="tibor-proba-ki")
+    ap = argparse.ArgumentParser(); ap.add_argument("--cim", default="http://127.0.0.1:8410"); ap.add_argument("--ki", default="tibor-proba-ki")
     ap.add_argument("--allapot", default=None); ap.add_argument("--varakozas", type=int, default=150, help="másodperc a regisztráció után (az első gyűjtés)")
     a = ap.parse_args(); os.makedirs(os.path.join(a.ki, "kep"), exist_ok=True)
     async with async_playwright() as p:

@@ -1,7 +1,7 @@
 // A konnektor (MODULSZABÁLY 6.): amit az arculat-modul a befogadótól kér, és a saját szótára.
 // R-16 K1. A modul a márkakészlet SZABÁLYAIT tartja (logó-elemzés és -besorolás; K3–K5-től a bevált színszettek, a szakma →
 // hangulat tábla, a színkör, a betűlista). Nem ismer fájlt, képet, adatbázist, betűfájl-olvasót: a befogadó sima adatot ad át.
-import type { LogoValtozat } from "@km/contracts";
+import type { LogoValtozat } from "@rogton/contracts";
 
 /** A négy logóhely (a contracts szótára; a fájl-modulnak saját, betűre egyező szótára van — a befogadó köti össze). */
 export type LogoHely = LogoValtozat;

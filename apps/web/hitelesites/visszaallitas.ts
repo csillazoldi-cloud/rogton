@@ -9,7 +9,7 @@
 import { createHash, randomBytes } from "node:crypto";
 import { hash } from "@node-rs/argon2";
 import { and, eq, gt, isNull } from "drizzle-orm";
-import type { HibaKod } from "@km/contracts";
+import type { HibaKod } from "@rogton/contracts";
 import { db, sema } from "../adatbazis/kapcsolat";
 import type { Eredmeny } from "./index";
 

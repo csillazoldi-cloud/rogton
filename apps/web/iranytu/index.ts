@@ -1,5 +1,5 @@
 import "server-only";
-import { IranytuSema, type IranytuAllapotSema, type IranytuVerzioSema, type HibaKod } from "@km/contracts";
+import { IranytuSema, type IranytuAllapotSema, type IranytuVerzioSema, type HibaKod } from "@rogton/contracts";
 import { iranytuTar } from "./tar";
 
 export type Eredmeny<T> = { ok: true; ertek: T } | { ok: false; hiba: HibaKod; mezok?: Record<string, string> };
