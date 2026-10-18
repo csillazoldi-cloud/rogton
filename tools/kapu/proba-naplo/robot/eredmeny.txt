@@ -1,0 +1,33 @@
+fatal: expected 'acknowledgments', received 'packfile'
+warning: push negotiation failed; proceeding anyway with push
+== A. két push 1 mp-en belül: csak a második megy ki, a 4 mp-es csend után ==
+  ZÖLD  a csend alatt nincs kapu (2 kör)
+  ZÖLD  az első push (b892576) soha nem kerül kapuba, kirakásra
+  ZÖLD  a második (e51ef81) pontosan egyszer: kapu, majd kirakás
+  ZÖLD  kint = a második változat
+  ZÖLD  a robot másolata CSAK a kirakás után állt rá
+  ZÖLD  a következő kör nem rak ki újra
+  ZÖLD  üzenet: Kint van
+== B. piros változat: egyszer próbálja, nem rakja ki, egyszer szól ==
+  ZÖLD  piros: egy kapu, nulla kirakás, több kör után is
+  ZÖLD  kint marad az előző (e51ef81)
+  ZÖLD  pontosan egy üzenet: Nem raktam ki
+== C. gépezet-hiba: várakozás, újrapróba, a 2. után üzenet, a 3. után piros ==
+  ZÖLD  infra után nem próbálja újra azonnal (5 perc várakozás)
+  ZÖLD  5 perc után újra; a 2. hiba után üzenet
+  ZÖLD  a 3. hiba után piros, nem próbálja tovább
+  ZÖLD  piros után nincs több kapu
+== D. kézi út: robot.sh --sha (csend és állapot nélkül, ugyanaz a kapu) ==
+  ZÖLD  --sha e51ef81: kapu + kirakás azonnal
+== E. zár: ha egy kör fut, a második nem indul ==
+  ZÖLD  a második kör kilép: „már fut egy kör”
+== F. a kirakás eredményei: 7 (migráció futott, oldal piros) és 4 (visszaállt) ==
+  ZÖLD  7: hangos üzenet, kint nem változik
+  ZÖLD  4: „Nem maradt kint” (visszaállt)
+== G. KAPU=0 → a régi út (robot-regi.sh), a csonkokhoz nem nyúl ==
+  ZÖLD  KAPU=0: a régi út fut (naprakész másolat → csendben kilép), kapu/kirakás nincs
+== H. a kirakás útjában nincs git pull ==
+  ZÖLD  kirak-sha.sh és kapu.sh: egyetlen git pull sincs (a megjegyzéseken kívül)
+
+ROBOT-ÖNPRÓBA: 20/20 zöld
+(próbamappa: /tmp/tmp.HFmfJm4mNn)

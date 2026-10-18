@@ -1,0 +1,26 @@
+# A Telegram-csoportba menő üzenetek szövege — EGY helyen (Csilla, 2026-10-09 07:58).
+# A csoportot emberek olvassák (Csilla, Kati, Vilmos), nem fejlesztők: magyarul, technikai szavak nélkül.
+# Formátum: kulcs|szöveg. Üres szöveg = NEM megy Telegram-üzenet (a részletek akkor is a helyi uzenetek.txt fájlba kerülnek).
+# A kulcsot a hívó adja (uzenet.sh 3. paramétere). Ismeretlen vagy hiányzó kulcs = nincs Telegram-üzenet.
+# Szerkesztés: csak a | utáni részt írd át; a kulcsot ne.
+
+# sikeres frissítés: csend = rendben
+kint|
+# az ellenőrzések elbuktak, nem került ki semmi
+nem_kerult_ki|⚠️ Egy új javítás nem került ki a tesztoldalra, mert néhány ellenőrzés elbukott. A tesztoldal a régi, működő változattal fut tovább — semmi nem romlott el. Claude a következő munkamenetben megnézi.
+# többszöri próba után sem sikerült kitenni (a gépek nem érik el egymást)
+elakadt|⚠️ Egy új javítás most nem tudott kikerülni a tesztoldalra. A tesztoldal a régi, működő változattal fut tovább — semmi nem romlott el. Claude a következő munkamenetben megnézi.
+# a frissítés után az oldal nem válaszolt, visszaálltunk
+visszaallt|⚠️ A tesztoldal frissítése félresiklott; visszaálltunk az előző változatra. Az adatok megvannak.
+# a frissítés félúton elakadt, a régi változat fut
+felresiklott|⚠️ A tesztoldal frissítése félresiklott; a régi változat fut tovább. Az adatok megvannak.
+# a frissítés után az oldal nem válaszol, és magától nem állhat vissza
+nem_mukodik|🔴 A tesztoldal most lehet, hogy nem működik. Az adatokról mentés készült. Szólj Claude-nak.
+# a frissítés kint van, de nem az fut, aminek kellene
+nem_stimmel|⚠️ A tesztoldal frissítése után valami nem stimmel. Az adatok megvannak. Claude a következő munkamenetben megnézi.
+# belső ügy, a tesztoldalt nem érinti
+piszkos|
+# napi ellenőrzés (csak ha baj van)
+napi_baj|⚠️ Az új javítások egy ideje nem jutnak ki a tesztoldalra. A tesztoldal a régi változattal fut tovább. Claude a következő munkamenetben megnézi.
+# a beállítás próbája (tools/titok/telegram-telepit.sh)
+proba|✅ Ebbe a csoportba jönnek a tesztoldal fontos hírei. Ez csak egy próbaüzenet.

@@ -1,0 +1,173 @@
+{
+  "id": "d12afbe4-f2d2-4c6a-99a9-5b9556d48791",
+  "prevId": "e813e4e4-6ab5-4284-8163-79721bf1da40",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.felhasznalo": {
+      "name": "felhasznalo",
+      "schema": "",
+      "columns": {
+        "szervezet_id": {
+          "name": "szervezet_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nev": {
+          "name": "nev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "szerep": {
+          "name": "szerep",
+          "type": "szerep",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'nezo'"
+        },
+        "letrehozva": {
+          "name": "letrehozva",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "felhasznalo_szervezet_email": {
+          "name": "felhasznalo_szervezet_email",
+          "columns": [
+            {
+              "expression": "szervezet_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "email",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "felhasznalo_szervezet_id_szervezet_id_fk": {
+          "name": "felhasznalo_szervezet_id_szervezet_id_fk",
+          "tableFrom": "felhasznalo",
+          "columnsFrom": [
+            "szervezet_id"
+          ],
+          "tableTo": "szervezet",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {
+        "felhasznalo_sajat_szervezet": {
+          "name": "felhasznalo_sajat_szervezet",
+          "as": "PERMISSIVE",
+          "for": "ALL",
+          "to": [
+            "km_app"
+          ],
+          "using": "szervezet_id = nullif(current_setting('app.szervezet_id', true), '')::uuid",
+          "withCheck": "szervezet_id = nullif(current_setting('app.szervezet_id', true), '')::uuid"
+        }
+      },
+      "checkConstraints": {},
+      "isRLSEnabled": true
+    },
+    "public.szervezet": {
+      "name": "szervezet",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "nev": {
+          "name": "nev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "letrehozva": {
+          "name": "letrehozva",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {
+        "szervezet_sajat": {
+          "name": "szervezet_sajat",
+          "as": "PERMISSIVE",
+          "for": "ALL",
+          "to": [
+            "km_app"
+          ],
+          "using": "id = nullif(current_setting('app.szervezet_id', true), '')::uuid",
+          "withCheck": "id = nullif(current_setting('app.szervezet_id', true), '')::uuid"
+        }
+      },
+      "checkConstraints": {},
+      "isRLSEnabled": true
+    }
+  },
+  "enums": {
+    "public.szerep": {
+      "name": "szerep",
+      "schema": "public",
+      "values": [
+        "tulajdonos",
+        "szerkeszto",
+        "nezo"
+      ]
+    }
+  },
+  "schemas": {},
+  "views": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

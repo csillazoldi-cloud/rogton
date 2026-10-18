@@ -1,0 +1,236 @@
+/* R-15 · Tibor-szabálylap alapelemei (design/R15/tokenek.md). Minden érték tokenből; az új tokenek alaptokenekre mutatnak.
+   A séma szerinti eltérés a <html data-sema="…"> jelölésen át (a layout teszi ki a hatásos tokenekből felismert sémát). */
+
+:root {
+  /* Kérdés-cím (T1) */
+  --kerdes-fs: 28px; /* tokenőr: ok — R15 tokenek.md 1. pont */
+  --kerdes-fs-tel: 24px; /* tokenőr: ok — R15 tokenek.md 1. pont */
+  --kerdes-fw: var(--fw-head);
+  --kerdes-alcim: var(--text-mut);
+  /* Fő gomb (T2, T10) */
+  --fo-gomb-bg: var(--primary);
+  --fo-gomb-text: var(--on-primary);
+  --fo-gomb-min: 52px; /* tokenőr: ok — R15 T10 hüvelykujj */
+  --fo-gomb-fs: var(--fs-base);
+  --fo-gomb-fw: var(--fw-strong);
+  --fo-gomb-r: var(--r-btn);
+  /* Halk gomb és link (T2) */
+  --halk-gomb-bg: var(--btn-ghost-bg, transparent);
+  --halk-gomb-border: var(--btn-ghost-border, var(--line));
+  --halk-gomb-text: var(--text);
+  --halk-gomb-min: var(--control-min);
+  --halk-link: var(--text-mut);
+  /* Teendő és tájékoztatás (T6) */
+  --teendo-bg: var(--bg-elev);
+  --teendo-border: var(--field-border, var(--line));
+  --teendo-text: var(--text);
+  --teendo-mut: var(--text-mut);
+  --teendo-r: var(--r-card);
+  --teendo-pad: var(--ter-9);
+  --info-text: var(--text-mut);
+  --info-fs: var(--fs-sm);
+  /* Haladás és kész-pillanat (T8) */
+  --halad-text: var(--text);
+  --halad-szam: var(--text);
+  --halad-sav: var(--panel-soft-2, var(--line));
+  --halad-telt: var(--ok);
+  --kesz-bg: var(--ok-bg, var(--panel-soft));
+  --kesz-jel: var(--ok);
+  --kesz-text: var(--text);
+  /* Valódi baj (T7) */
+  --baj-bg: var(--warn-bg, var(--panel-soft));
+  --baj-border: var(--warn-border, var(--err));
+  --baj-jel: var(--warn, var(--err));
+  --baj-text: var(--text);
+  /* Lap */
+  --lap-bg: var(--bg);
+  /* R-13 (design/R13/tokenek.md): négy új token — az R-15 rajzok beégetett értékeinek neve, 1:1 */
+  --r-kerek: 999px; /* tokenőr: ok — R13 tokenek.md: pirula/kör (kapcsoló sávja, számjelvény, pont) */
+  --kartya-cim-fs: 22px; /* tokenőr: ok — R13 tokenek.md: teendő-kártya címe asztalon */
+  --kartya-cim-fs-tel: 20px; /* tokenőr: ok — R13 tokenek.md: teendő-kártya címe telefonon */
+  --ikon-fs: 20px; /* tokenőr: ok — R13 tokenek.md: ☰ és ··· jelgombok */
+  /* Csilla 10-06: a háttérbe tett, de használható szakasz (Saját fiók, elfogyott kredit alatt a hírek beállítása) — áttetszőség.
+     A meglévő halvány-gomb értékénél (0.45) erősebb: a szöveg olvasható marad, csak hátrébb lép. */
+  --szakasz-halvany: 0.55;
+}
+
+/* Éjkék és Vegyes: átmenetes fő gomb (tokenek.md 1. pont) */
+[data-sema="ejkek"],
+[data-sema="vegyes"] {
+  --fo-gomb-bg: var(--grad-primary);
+}
+
+/* Vegyes: világos lap, SÖTÉT teendő-blokk — „a sötét jelentése: itt a dolgod” (tokenek.md 2. pont) */
+[data-sema="vegyes"] {
+  --lap-bg: linear-gradient(180deg, #eef0f6, #f6f6f8); /* tokenőr: ok — R15 Vegyes lap-háttér (tokenek.md) */
+}
+[data-sema="vegyes"] [data-r15="teendo"],
+[data-sema="vegyes"] [data-r15="sotet-sav"] {
+  --teendo-bg: linear-gradient(150deg, #1d2344, #12162a); /* tokenőr: ok — R15 Vegyes sötét blokk */
+  --teendo-border: transparent;
+  --teendo-text: #eef0f6; /* tokenőr: ok — R15 Vegyes sötét blokk */
+  --teendo-mut: #aab3c5; /* tokenőr: ok — R15 Vegyes sötét blokk */
+  --halk-link: #c3cad8; /* tokenőr: ok — R15 Vegyes sötét blokk */
+  --halk-gomb-text: #eef0f6; /* tokenőr: ok — R15 Vegyes sötét blokk */
+  --text: #eef0f6; /* tokenőr: ok — R15 Vegyes sötét blokk */
+  --text-mut: #aab3c5; /* tokenőr: ok — R15 Vegyes sötét blokk */
+  --bg-elev: #171c33; /* tokenőr: ok — R15 Vegyes sötét blokk */
+}
+
+/* ---------- Az alapelemek ---------- */
+
+.r15-kerdes {
+  font-family: var(--font-display-active, var(--font-display));
+  font-size: var(--kerdes-fs);
+  font-weight: var(--kerdes-fw);
+  color: var(--text);
+  margin: var(--ter-0);
+  line-height: 1.2;
+}
+.r15-kerdes-alcim {
+  color: var(--kerdes-alcim);
+  font-size: var(--fs-base);
+  margin: var(--ter-3) var(--ter-0) var(--ter-0);
+}
+@media (max-width: 640px) {
+  .r15-kerdes { font-size: var(--kerdes-fs-tel); }
+}
+
+.r15-fo-gomb {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--fo-gomb-min);
+  padding: var(--ter-0) var(--ter-9);
+  border: 0;
+  border-radius: var(--fo-gomb-r);
+  background: var(--fo-gomb-bg);
+  color: var(--fo-gomb-text);
+  font: inherit;
+  font-size: var(--fo-gomb-fs);
+  font-weight: var(--fo-gomb-fw);
+  cursor: pointer;
+  text-decoration: none;
+}
+.r15-fo-gomb:disabled { opacity: 0.45; cursor: default; }
+/* c5 (Csilla 10-10): dolgozó fő gomb — pörgő + szöveg, letiltva, de NEM halványul el (látszik, hogy dolgozunk) */
+.r15-fo-gomb.r15-fo-gomb-dolgozik { gap: var(--ter-5); opacity: 0.9; cursor: progress; }
+.r15-porgo {
+  flex: none;
+  width: 18px; /* tokenőr: ok — pörgő jel (rajz c5: 18 px) */
+  height: 18px; /* tokenőr: ok — pörgő jel */
+  box-sizing: border-box;
+  border-radius: 50%; /* tokenőr: ok — kör alak */
+  border: 2px solid color-mix(in srgb, var(--fo-gomb-text) 35%, transparent); /* tokenőr: ok — pörgő jel vonala */
+  border-top-color: var(--fo-gomb-text);
+  animation: r15-forog 0.9s linear infinite;
+}
+@keyframes r15-forog { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .r15-porgo { animation-duration: 2.4s; } }
+@media (max-width: 640px) {
+  .r15-fo-gomb { width: 100%; }
+}
+
+.r15-halk-gomb {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--halk-gomb-min);
+  padding: var(--ter-0) var(--ter-7);
+  border: var(--bw) solid var(--halk-gomb-border);
+  border-radius: var(--r-btn);
+  background: var(--halk-gomb-bg);
+  color: var(--halk-gomb-text);
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  text-decoration: none;
+}
+.r15-halk-gomb:disabled { opacity: 0.45; cursor: default; }
+
+.r15-halk-link {
+  background: none;
+  border: 0;
+  padding: var(--ter-0);
+  color: var(--halk-link);
+  text-decoration: underline;
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.r15-teendo {
+  background: var(--teendo-bg);
+  border: var(--bw) solid var(--teendo-border);
+  border-radius: var(--teendo-r);
+  padding: var(--teendo-pad);
+  color: var(--teendo-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-5);
+}
+.r15-teendo-cim { font-weight: var(--fw-strong); font-size: var(--fs-title); margin: var(--ter-0); color: var(--teendo-text); }
+.r15-teendo-szoveg { color: var(--teendo-mut); font-size: var(--fs-sm); margin: var(--ter-0); }
+.r15-teendo-linkek { display: flex; gap: var(--ter-6); justify-content: center; flex-wrap: wrap; }
+
+.r15-info {
+  color: var(--info-text);
+  font-size: var(--info-fs);
+  margin: var(--ter-0);
+}
+
+.r15-halad {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  color: var(--halad-text);
+  font-size: var(--fs-sm);
+}
+.r15-halad-sav {
+  width: 72px; /* tokenőr: ok — R15 tokenek.md: 72×6 px sáv */
+  height: 6px; /* tokenőr: ok — R15 tokenek.md: 72×6 px sáv */
+  border-radius: var(--r-badge);
+  background: var(--halad-sav);
+  overflow: hidden;
+  flex: none;
+}
+.r15-halad-telt { display: block; height: 100%; background: var(--halad-telt); }
+.r15-halad-szam { font-weight: var(--fw-strong); color: var(--halad-szam); }
+
+.r15-kesz {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  background: var(--kesz-bg);
+  color: var(--kesz-text);
+  border-radius: var(--r-block);
+  padding: var(--ter-5) var(--ter-7);
+  font-size: var(--fs-base);
+}
+.r15-kesz-jel {
+  width: 24px; /* tokenőr: ok — R15 kész-pillanat jel */
+  height: 24px; /* tokenőr: ok — R15 kész-pillanat jel */
+  border-radius: 50%; /* tokenőr: ok — kör alak */
+  background: var(--kesz-jel);
+  color: var(--bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  font-weight: var(--fw-strong);
+}
+
+.r15-baj {
+  background: var(--baj-bg);
+  border: var(--bw) solid var(--baj-border);
+  border-radius: var(--r-block);
+  padding: var(--ter-6) var(--ter-7);
+  color: var(--baj-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-5);
+  align-items: flex-start;
+}
+.r15-baj-szoveg { margin: var(--ter-0); font-size: var(--fs-sm); }

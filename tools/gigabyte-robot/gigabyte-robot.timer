@@ -1,0 +1,11 @@
+[Unit]
+Description=A Gigabyte robotja percenkent megnezi a fo agat
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=1min
+AccuracySec=15s
+Unit=gigabyte-robot.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Munkaállapot — Posztgyár</title>
+<style>
+:root{
+  --bg:#f6f6f5; --lap:#ffffff; --vonal:#e5e3e0; --szoveg:#1c1917; --halvany:#78716c;
+  --kesz:#15803d; --kesz-h:#dcfce7; --folyo:#1d4ed8; --folyo-h:#dbeafe;
+  --rajtad:#b45309; --rajtad-h:#fef3c7; --hatra:#a8a29e; --hatra-h:#f0efed;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+ :root{ --bg:#14161a; --lap:#1b1e24; --vonal:#2c313a; --szoveg:#e9edf3; --halvany:#98a2b3;
+   --kesz:#4ade80; --kesz-h:#123524; --folyo:#7aa2ff; --folyo-h:#12203f;
+   --rajtad:#fbbf24; --rajtad-h:#3a2a06; --hatra:#6b7280; --hatra-h:#22262d; color-scheme:dark; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--szoveg);
+ font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;padding:20px 16px 56px}
+.keret{max-width:900px;margin:0 auto}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:4px}
+h1{font-size:20px;margin:0;letter-spacing:-.01em}
+.frissitve{color:var(--halvany);font-size:13px}
+.osszes{margin:18px 0 26px;background:var(--lap);border:1px solid var(--vonal);border-radius:12px;padding:18px}
+.osszes .szam{font-size:34px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.osszes .cimke{color:var(--halvany);font-size:13px;margin-bottom:10px}
+.savkeret{height:9px;background:var(--hatra-h);border-radius:99px;overflow:hidden;margin-top:12px}
+.sav{height:100%;background:var(--kesz);border-radius:99px;transition:width .4s}
+h2{font-size:15px;margin:28px 0 12px;text-transform:uppercase;letter-spacing:.06em;color:var(--halvany)}
+/* idovonal */
+.idovonal{background:var(--lap);border:1px solid var(--vonal);border-radius:12px;padding:22px 18px 14px;overflow-x:auto}
+.sinek{display:flex;min-width:640px;position:relative}
+.allomas{flex:1;position:relative;text-align:center;padding-top:26px}
+.allomas::before{content:"";position:absolute;top:9px;left:0;right:0;height:2px;background:var(--vonal)}
+.allomas:first-child::before{left:50%}
+.allomas:last-child::before{right:50%}
+.allomas.kesz::before{background:var(--kesz)}
+.pont{position:absolute;top:2px;left:50%;transform:translateX(-50%);width:16px;height:16px;
+ border-radius:50%;background:var(--bg);border:2px solid var(--hatra)}
+.kesz .pont{background:var(--kesz);border-color:var(--kesz)}
+.folyamatban .pont{background:var(--folyo);border-color:var(--folyo);
+ box-shadow:0 0 0 5px color-mix(in srgb,var(--folyo) 22%,transparent)}
+.allnev{font-size:12px;font-weight:600;display:block}
+.allleiras{font-size:11px;color:var(--halvany);display:block;margin-top:2px;padding:0 4px}
+.kesz .allnev{color:var(--kesz)}
+.folyamatban .allnev{color:var(--folyo)}
+.hatra .allnev{color:var(--halvany)}
+/* listak */
+.lista{background:var(--lap);border:1px solid var(--vonal);border-radius:12px;overflow:hidden}
+.sor{display:flex;gap:12px;align-items:flex-start;padding:11px 16px;border-top:1px solid var(--vonal)}
+.sor:first-child{border-top:0}
+.jel{flex:0 0 auto;margin-top:2px;width:16px;height:16px;border-radius:50%;
+ display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff}
+.jel.kesz{background:var(--kesz)} .jel.folyamatban{background:var(--folyo)}
+.jel.hatra{background:transparent;border:2px solid var(--hatra)}
+.sorszoveg{flex:1;min-width:0}
+.kod{font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--halvany);margin-right:8px}
+.meta{color:var(--halvany);font-size:12px;margin-top:2px}
+.cimke{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.cimke.rajtad{background:var(--rajtad-h);color:var(--rajtad)}
+.rajtadlista .sor{background:var(--rajtad-h)}
+.naplo .sor{font-size:14px}
+.ido{font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--halvany);flex:0 0 46px}
+footer{margin-top:34px;padding-top:14px;border-top:1px solid var(--vonal);color:var(--halvany);font-size:12px}
+.hiba{background:var(--rajtad-h);color:var(--rajtad);padding:14px 16px;border-radius:12px;font-size:14px}
+@media (max-width:560px){ .osszes .szam{font-size:28px} }
+</style>
+</head>
+<body>
+<div class="keret">
+  <header>
+    <h1>Munkaállapot</h1>
+    <span class="frissitve" id="frissitve"></span>
+  </header>
+
+  <div id="tartalom">
+    <p class="frissitve">Betöltés…</p>
+  </div>
+
+  <footer>
+    Teszt környezet, nem éles rendszer. A lap percenként magától frissül.
+    <span id="labjegyzet"></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var ALLAPOTNEV = { kesz:"kész", folyamatban:"folyamatban", hatra:"hátra" };
+  var JEL = { kesz:"✓", folyamatban:"•", hatra:"" };
+
+  function el(t,o){ var e=document.createElement(t); if(o) for(var k in o){ if(k==="text") e.textContent=o[k]; else if(k==="html") e.innerHTML=o[k]; else e.setAttribute(k,o[k]); } return e; }
+
+  function sor(allapot, fo, alsor, cimke){
+    var s = el("div",{class:"sor"});
+    s.appendChild(el("span",{class:"jel "+allapot, text:JEL[allapot]||""}));
+    var t = el("div",{class:"sorszoveg"});
+    t.appendChild(el("div",{html:fo}));
+    if(alsor) t.appendChild(el("div",{class:"meta", text:alsor}));
+    s.appendChild(t);
+    if(cimke) s.appendChild(el("span",{class:"cimke rajtad", text:cimke}));
+    return s;
+  }
+
+  function rajzol(d){
+    var c = document.getElementById("tartalom");
+    c.textContent = "";
+
+    // osszesitett szazalek: a szakaszok atlaga
+    var ossz = Math.round(d.szakaszok.reduce(function(a,s){return a+s.szazalek;},0) / d.szakaszok.length);
+
+    var o = el("div",{class:"osszes"});
+    o.appendChild(el("div",{class:"cimke", text:"A teljes munka állása"}));
+    o.appendChild(el("div",{class:"szam", text:ossz + "%"}));
+    var kn = el("div",{class:"savkeret"}); var sv = el("div",{class:"sav"});
+    sv.style.width = ossz + "%"; kn.appendChild(sv); o.appendChild(kn);
+    var keszDb = d.szakaszok.filter(function(s){return s.allapot==="kesz";}).length;
+    o.appendChild(el("div",{class:"meta", text: keszDb + " / " + d.szakaszok.length + " szakasz kész · " + d.megjegyzes}));
+    c.appendChild(o);
+
+    // idovonal
+    c.appendChild(el("h2",{text:"Szakaszok"}));
+    var iv = el("div",{class:"idovonal"}), sinek = el("div",{class:"sinek"});
+    d.szakaszok.forEach(function(s){
+      var a = el("div",{class:"allomas "+s.allapot});
+      a.appendChild(el("span",{class:"pont"}));
+      a.appendChild(el("span",{class:"allnev", text:s.nev}));
+      a.appendChild(el("span",{class:"allleiras", text:s.leiras}));
+      sinek.appendChild(a);
+    });
+    iv.appendChild(sinek); c.appendChild(iv);
+
+    // rajtad all
+    if(d.rajtad && d.rajtad.length){
+      c.appendChild(el("h2",{text:"Most rajtad áll"}));
+      var r = el("div",{class:"lista rajtadlista"});
+      d.rajtad.forEach(function(x){ r.appendChild(sor("hatra", x.mit, x.miert)); });
+      c.appendChild(r);
+    }
+
+    // beallitas
+    c.appendChild(el("h2",{text:"Beállítás"}));
+    var b = el("div",{class:"lista"});
+    d.beallitas.forEach(function(x){ b.appendChild(sor(x.allapot, x.nev, ALLAPOTNEV[x.allapot])); });
+    c.appendChild(b);
+
+    // elso epitesi egyseg
+    c.appendChild(el("h2",{text:"Lépések"}));
+    var l = el("div",{class:"lista"});
+    var oraOssz = 0, keszOra = 0;
+    d.lepesek.forEach(function(x){
+      oraOssz += x.ora; if(x.allapot==="kesz") keszOra += x.ora;
+      var fo = '<span class="kod">'+x.kod+'</span>'+x.nev;
+      // 7.3: a "ki" mező mondja meg, MELYIK ágens dolgozott rajta; a régi soroknál marad a darabszám
+      var NEV = {kimi:"Kimi", deepseek:"DeepSeek", qwen:"Qwen", claude:"Claude"};
+      var meta = x.ora + " óra · " + (x.ki && x.ki.length ? x.ki.map(function(k){return NEV[k]||k;}).join(" + ") : x.agens + " ágens");
+      l.appendChild(sor(x.allapot, fo, meta, x.rajtad ? "kell a szavad" : null));
+    });
+    c.appendChild(l);
+    c.appendChild(el("div",{class:"meta", text:"Összesen " + oraOssz + " óra munka, ebből kész " + keszOra + " óra."}));
+
+    // naplo
+    c.appendChild(el("h2",{text:"Ami eddig történt"}));
+    var n = el("div",{class:"lista naplo"});
+    d.naplo.forEach(function(x){
+      var s = el("div",{class:"sor"});
+      s.appendChild(el("span",{class:"ido", text:x.ido}));
+      s.appendChild(el("div",{class:"sorszoveg", text:x.mi}));
+      n.appendChild(s);
+    });
+    c.appendChild(n);
+
+    var dt = new Date(d.frissitve);
+    document.getElementById("frissitve").textContent =
+      "Frissítve: " + dt.toLocaleString("hu-HU",{month:"long",day:"numeric",hour:"2-digit",minute:"2-digit"});
+  }
+
+  function betolt(){
+    fetch("allapot.json?t=" + Date.now(), {cache:"no-store"})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(rajzol)
+      .catch(function(e){
+        document.getElementById("tartalom").innerHTML =
+          '<div class="hiba">Az állapot nem tölthető be (' + e.message + '). A lap egy perc múlva újra próbálja.</div>';
+      });
+  }
+
+  betolt();
+  setInterval(betolt, 60000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/* R-16 K5 · 12e „Betűk” (/fiok/arculat/betuk) — design/R16-arculat/R16-arculat.dc.html 12e. A váz a szakaszé (arculat.css .r16a-szakasz:
+   fej · kép · teendő · alja; telefonon a görgethető tartalom és a lap alján a fő gomb); itt csak a 12e saját elemei. Minden érték tokenből;
+   a betűk mintaszavainak mérete a rajzé (ügyfélkreatív minta, nem a felület szövege — megjelölve). */
+
+.r16b-teendo { grid-area: teendo; padding: var(--ter-10); gap: var(--ter-9); min-width: 0; }
+
+/* Fülek: Cím · Szöveg (a rajz: a kiválasztott a panel-soft-2 hátteren, vastagon; a másik halk) */
+.r16b-fulek { display: flex; gap: var(--ter-2); }
+.r16b-ful {
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-8);
+  border: 0;
+  border-radius: var(--r-btn);
+  background: transparent;
+  color: var(--text-mut);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+.r16b-ful-aktiv { background: var(--panel-soft-2); color: var(--text); font-weight: var(--fw-strong); }
+.r16b-ful:focus-visible, .r16b-sor:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; } /* tokenőr: ok — fókuszjel */
+
+/* A betűk sorai: 54 magas (telefonon 48), a kiválasztott a panel-soft-2 hátteren, jobbra ✓ */
+.r16b-sorok { display: flex; flex-direction: column; gap: var(--ter-2); }
+.r16b-sor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ter-6);
+  min-height: 54px; /* tokenőr: ok — R16 rajz 12e: a betű-sor magassága */
+  padding: var(--ter-0) var(--ter-8);
+  border: 0;
+  border-radius: var(--r-btn);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+.r16b-sor-jelolt { background: var(--panel-soft-2); }
+.r16b-sor-bal { display: flex; align-items: baseline; gap: var(--ter-8); min-width: 0; }
+.r16b-szo { font-weight: 600; font-size: 24px; line-height: 1.2; overflow-wrap: anywhere; } /* tokenőr: ok — R16 rajz 12e: a betű mintaszava (ügyfélkreatív) */
+.r16b-szo-eros { font-weight: 700; } /* tokenőr: ok — R16 rajz 12e: az Archivo és a Gelasio mintaszava 700 */
+.r16b-pipa { flex: none; font-size: 18px; color: var(--ok); } /* tokenőr: ok — R16 rajz 12e: a ✓ mérete */
+
+.r16b-halk { font-size: var(--info-fs); }
+.r16b-gombsor { flex-wrap: wrap; }
+.r16b-tel-linkek { gap: var(--ter-9); }
+
+/* A FoGomb linkként / a halk linkek: a globális a:hover ne színezze át (ugyanaz, mint a szakaszon) */
+.r16b-lap a.r15-halk-link:hover { color: var(--halk-link); }
+
+@media (max-width: 640px) {
+  /* telefonon a rajzon nincs doboz: a fülek és a sorok közvetlenül a lapon */
+  .r16b-teendo { padding: var(--ter-0); background: transparent; border: 0; gap: var(--ter-8); }
+  .r16b-sorok { gap: var(--ter-1); }
+  .r16b-sor { min-height: 48px; } /* tokenőr: ok — R16 rajz 12e telefon: a betű-sor magassága */
+  .r16b-szo { font-size: 22px; } /* tokenőr: ok — R16 rajz 12e telefon: a mintaszó mérete */
+  .r16b-tel-linkek.r15-csak-tel { display: flex; }
+  /* VJ-1011 (Kati #8): a betű neve telefonon is, a szó mellett; szűk helyen a név rövidül, nem tör */
+  .r16b-sor-bal .r15-info { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+}

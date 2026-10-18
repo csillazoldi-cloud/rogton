@@ -1,0 +1,276 @@
+/* Gépház (Beállítások) lap — R-7c 01–02. Sorlista csoportokban, kártya nélkül. Csak tokenek. */
+
+.km-gh-fo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-tile);
+}
+
+.km-gh-tartalom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-10);
+}
+
+.km-gh-fejlec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-2);
+}
+
+.km-gh-cimsor {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  flex-wrap: wrap;
+}
+
+.km-gh-h1 {
+  margin: var(--ter-0);
+  font-family: var(--font-display-active);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-h2);
+  color: var(--text);
+}
+
+.km-gh-jelveny {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-strong);
+  border-radius: var(--r-badge);
+  padding: var(--ter-1) var(--ter-4);
+}
+
+.km-gh-jelveny-rg {
+  color: var(--src-web);
+  background: var(--src-web-bg);
+}
+
+.km-gh-jelveny-tulaj {
+  color: var(--text-dim);
+  border: var(--bw) solid var(--line);
+}
+
+.km-gh-bevezeto {
+  margin: var(--ter-0);
+  font-size: var(--fs-base);
+  color: var(--text-mut);
+}
+
+/* Csoport: cím + sorlista, kártya nélkül */
+.km-gh-csoport {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-3);
+}
+
+.km-gh-csoport-cim {
+  margin: var(--ter-0);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-strong);
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.km-gh-sorlista {
+  list-style: none;
+  margin: var(--ter-0);
+  padding: var(--ter-0);
+  display: flex;
+  flex-direction: column;
+}
+
+.km-gh-sor {
+  border-bottom: var(--bw) solid var(--line);
+}
+
+.km-gh-sor:last-child {
+  border-bottom: none;
+}
+
+.km-gh-sor-link {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  min-height: var(--control-min);
+  padding: var(--ter-4) var(--ter-0);
+  text-decoration: none;
+  color: inherit;
+}
+
+.km-gh-sor-link:hover .km-gh-sor-nev {
+  text-decoration: underline;
+}
+
+.km-gh-sor-tartalom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-2);
+  min-height: var(--control-min);
+  padding: var(--ter-4) var(--ter-0);
+}
+
+.km-gh-sor-nev {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-strong);
+  color: var(--text);
+  flex: none;
+}
+
+.km-gh-sor-kov {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+  flex: 1 1 auto;
+}
+
+.km-gh-sor-nyil {
+  font-size: var(--fs-base);
+  color: var(--text-dim);
+  flex: none;
+}
+
+/* Pénznem-sor a Használat csoportban */
+.km-gh-penznem-sor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ter-5);
+}
+
+.km-gh-penznem-valaszto {
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-10) var(--ter-0) var(--ter-6);
+  border-radius: var(--r-btn);
+  border: var(--bw) solid var(--btn-ghost-border);
+  background: var(--btn-ghost-bg);
+  color: var(--text);
+  font-family: var(--font-body-active);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.km-gh-penznem-valaszto:focus-visible {
+  outline: none;
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.km-gh-csempe-szoveg {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+/* A „még nem működik” jelölt sor (R-5 ATADO 3.) — a soron, vezérlő nélkül */
+.km-gh-keszul-sor {
+  border: var(--bw) dashed var(--keszul-border);
+  background: var(--keszul-bg);
+  border-radius: var(--r-block);
+  padding: var(--ter-5) var(--ter-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-3);
+}
+
+.km-gh-keszul-fej {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-4);
+  flex-wrap: wrap;
+}
+
+.km-gh-keszul-cim {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-strong);
+  color: var(--text);
+}
+
+.km-gh-keszul-jelveny {
+  font-size: var(--fs-xs);
+  color: var(--keszul);
+  border: var(--bw) solid var(--keszul-border);
+  border-radius: var(--r-badge);
+  padding: var(--ter-1) var(--ter-3);
+}
+
+/* Telefonon (11) egy oszlop */
+@media (max-width: 640px) {
+  .km-gh-fo {
+    gap: var(--ter-7);
+  }
+
+  .km-gh-sor-link,
+  .km-gh-sor-tartalom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--ter-2);
+  }
+
+  .km-gh-sor-nyil {
+    align-self: flex-end;
+  }
+}
+
+/* R-17 B4: a logótervezés ára és címzettje (rendszergazda, Rendszer csoport) — a sor szövege balra, a mező + Mentés jobbra */
+.km-gh-lt-sor { display: flex; align-items: center; gap: var(--ter-8); flex-wrap: wrap; }
+.km-gh-lt-szoveg { flex: 1 1 280px; } /* tokenőr: ok — a sor szövegének legkisebb szélessége, alatta a mező alá törik */
+.km-gh-lt-vezerlo { display: flex; align-items: center; gap: var(--ter-4); flex: none; }
+.km-gh-lt-mezo {
+  min-height: var(--control-min-s);
+  padding: var(--ter-0) var(--ter-6);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-btn);
+  background: var(--field-bg, var(--panel-soft));
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-sm);
+  box-sizing: border-box;
+  width: 240px; /* tokenőr: ok — e-mail-mező */
+}
+.km-gh-lt-szam { width: 84px; text-align: right; } /* tokenőr: ok — R17 rajz admin: a szám-mező */
+.km-gh-lt-egyseg { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-gh-lt-gomb {
+  min-height: var(--control-min-s);
+  padding: var(--ter-0) var(--ter-7);
+  border: var(--bw) solid var(--btn-ghost-border);
+  border-radius: var(--r-btn);
+  background: var(--btn-ghost-bg);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+.km-gh-lt-jel { font-size: var(--fs-sm); color: var(--text-mut); }
+@media (max-width: 640px) {
+  .km-gh-lt-vezerlo { flex: 1 1 100%; }
+  .km-gh-lt-mezo { flex: 1 1 auto; width: auto; min-width: 0; }
+  .km-gh-lt-szam { flex: none; width: 84px; } /* tokenőr: ok — R17 admin: a szám-mező telefonon is */
+}
+
+/* R-17 B · Logókérések lista (rendszergazda) */
+.km-gh-lk-gorgeto { overflow-x: auto; }
+.km-gh-lk-tabla { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.km-gh-lk-tabla th { text-align: left; font-size: var(--fs-xs); color: var(--text-dim); font-weight: var(--fw-strong); padding: var(--ter-4) var(--ter-5); border-bottom: var(--bw) solid var(--line); }
+.km-gh-lk-tabla td { vertical-align: top; padding: var(--ter-5); border-bottom: var(--bw) solid var(--line); color: var(--text); }
+.km-gh-lk-ido { display: block; }
+.km-gh-lk-halk { display: block; color: var(--text-mut); }
+.km-gh-lk-valaszok { display: flex; flex-direction: column; gap: var(--ter-2); min-width: 260px; } /* tokenőr: ok — a válaszok oszlopa ne szűküljön olvashatatlanra */
+.km-gh-lk-allapot { min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-5); border: var(--bw) solid var(--field-border); border-radius: var(--r-btn); background: var(--field-bg, var(--panel-soft)); color: var(--text); font: inherit; }
+
+/* R-15 c5 2. kör · 13 Beállítások, tulajdonosi nézet (design/R15/rajz/R15-lapok-5.dc.html 13a · 13b). Csak tokenek. */
+.r15be-belso { max-width: 760px; }
+.r15be-csoport { display: flex; flex-direction: column; }
+.r15be-csoport-cim {
+  margin: var(--ter-0) var(--ter-0) var(--ter-2); font-size: var(--fs-xs); font-weight: var(--fw-strong); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text-dim);
+}
+.r15be-lista { list-style: none; margin: var(--ter-0); padding: var(--ter-0); display: flex; flex-direction: column; }
+.r15be-sor { border-bottom: var(--bw) solid var(--line-soft); }
+.r15be-sor-link { display: flex; align-items: center; justify-content: space-between; gap: var(--ter-6); padding: var(--ter-7) var(--ter-0); font-size: var(--fs-md); color: var(--text); text-decoration: none; }
+.r15be-sor-link:hover { text-decoration: underline; }
+.r15be-nyil { color: var(--text-dim); }
+.r15be-sor-gombbal { display: flex; align-items: center; gap: var(--ter-8); }
+.r15be-sor-gombbal .r15be-sor-link { flex: 1; min-width: 0; }
+.r15be-sor-sima { display: flex; align-items: center; justify-content: space-between; gap: var(--ter-6); padding: var(--ter-7) var(--ter-0); font-size: var(--fs-md); }
+.r15be-info { padding: var(--ter-6) var(--ter-0); }
+.r15be-halado { display: flex; flex-direction: column; gap: var(--ter-2); }
+.r15be-halado .r15-halk-link { align-self: flex-start; }

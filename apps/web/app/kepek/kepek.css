@@ -1,0 +1,409 @@
+/* VZ-1 — Képek (vizuálgyártó). A rajz: design/vz1/rajz/VZ1a-sablonvalasztas.dc.html, VZ1b-szerkeszto.dc.html.
+   Csak tokenek. A kép (4:5) mindig a gép képe — itt csak a helye és a kerete van. */
+
+.km-vz { display: flex; flex-direction: column; gap: var(--ter-10); }
+.km-vz-fej { display: flex; flex-direction: column; gap: var(--ter-3); }
+.km-vz-cim { margin: var(--ter-0); font-family: var(--font-display-active); font-weight: var(--fw-head); font-size: var(--fs-h2); }
+.km-vz-bevezeto { margin: var(--ter-0); font-size: var(--fs-base); color: var(--text-mut); }
+
+.km-vz-hibasor {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--ter-8);
+  padding: var(--ter-7) var(--ter-9); border: var(--bw) solid var(--err-border); border-radius: var(--r-block); background: var(--err-bg);
+}
+.km-vz-gomb-szellem {
+  flex: none; box-sizing: border-box; min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-9);
+  border: var(--bw) solid var(--btn-ghost-border); border-radius: var(--r-btn); background: var(--btn-ghost-bg);
+  color: var(--btn-ghost-text); font-family: var(--font-body-active); font-size: var(--fs-sm); cursor: pointer;
+}
+.km-vz-gomb-kicsi { padding: var(--ter-0) var(--ter-7); }
+
+/* VZ-1a · a három sablon */
+.km-vz-sablonok { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ter-9); }
+.km-vz-sablon {
+  box-sizing: border-box; display: flex; flex-direction: column; gap: var(--ter-7); padding: var(--ter-8);
+  border: var(--bw) solid var(--line); border-radius: var(--r-card); background: var(--bg-elev); color: var(--text);
+  text-decoration: none; text-align: left;
+}
+.km-vz-sablon:hover { border-color: var(--line-dash); }
+.km-vz-minta { box-sizing: border-box; width: 100%; aspect-ratio: 4 / 5; border-radius: var(--r-btn); display: block; object-fit: cover; }
+.km-vz-minta-vaz { display: flex; flex-direction: column; justify-content: flex-end; gap: var(--ter-5); padding: var(--ter-9); background: var(--field-bg); }
+.km-vz-vaz-csik { display: block; height: var(--ter-7); border-radius: var(--r-badge); background: var(--vaz-bg); }
+.km-vz-vaz-80 { width: 80%; }
+.km-vz-vaz-55 { width: 55%; }
+.km-vz-minta-nincs { display: flex; align-items: center; justify-content: center; padding: var(--ter-9); border: var(--bw) dashed var(--line-dash); text-align: center; }
+.km-vz-minta-szoveg { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz-sablon-szoveg { display: flex; flex-direction: column; gap: var(--ter-2); }
+.km-vz-sablon-nev { font-family: var(--font-display-active); font-weight: var(--fw-strong); font-size: var(--fs-title); }
+.km-vz-sablon-leiras { font-size: var(--fs-sm); color: var(--text-mut); }
+
+/* VZ-1b · szerkesztő */
+.km-vz-szerk-fej { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--ter-9); }
+.km-vz-szerk-cim { display: flex; flex-direction: column; gap: var(--ter-2); }
+.km-vz-vissza { font-size: var(--fs-sm); color: var(--accent-link); }
+.km-vz-letoltes { display: flex; flex-direction: column; align-items: flex-end; gap: var(--ter-3); }
+.km-vz-letolt, .km-vz-letolt-tiltva {
+  box-sizing: border-box; min-height: var(--control-min); padding: var(--ter-0) var(--ter-11); border-radius: var(--r-btn);
+  font-family: var(--font-body-active); font-size: var(--fs-base); font-weight: var(--fw-strong); cursor: pointer;
+}
+.km-vz-letolt { border: none; background: var(--grad-primary); color: var(--on-primary); }
+.km-vz-letolt-tiltva { border: var(--bw) solid var(--line); background: var(--panel-soft-2); color: var(--text-dim); cursor: not-allowed; }
+.km-vz-tiltas-oka {
+  max-width: var(--kartya-min, 320px); padding: var(--ter-4) var(--ter-6); border: var(--bw) solid var(--line); border-radius: var(--r-btn);
+  background: var(--bg-elev); font-size: var(--fs-sm); color: var(--text); text-align: right;
+}
+
+.km-vz-racs { display: grid; grid-template-columns: minmax(0, 1fr) var(--vz-kep-w, 440px); gap: var(--ter-12); align-items: start; }
+.km-vz-urlap { display: flex; flex-direction: column; gap: var(--ter-10); min-width: 0; }
+.km-vz-mezo { display: flex; flex-direction: column; gap: var(--ter-4); }
+.km-vz-mezo-fej { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ter-6); }
+.km-vz-mezo-cimke { font-size: var(--fs-base); font-weight: var(--fw-strong); }
+.km-vz-mezo-kot { font-size: var(--fs-xs); color: var(--text-dim); }
+.km-vz-nyelvek { display: flex; flex-direction: column; gap: var(--ter-4); }
+.km-vz-nyelv-sor { display: grid; grid-template-columns: var(--ter-13) minmax(0, 1fr); gap: var(--ter-5); align-items: center; }
+.km-vz-nyelv-kod { font-family: var(--font-code-active); font-size: var(--fs-xs); color: var(--text-dim); }
+.km-vz-mezo-be {
+  box-sizing: border-box; width: 100%; min-height: var(--control-min); padding: var(--ter-5) var(--pad-field-x);
+  border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--field-bg); color: var(--text);
+  font-family: var(--font-body-active); font-size: var(--fs-base); line-height: var(--lh); resize: vertical; field-sizing: content;
+}
+.km-vz-mezo-be::placeholder { color: var(--text-faint); }
+.km-vz-sugo { margin: var(--ter-0); font-size: var(--fs-sm); color: var(--text-dim); }
+
+.km-vz-sav {
+  box-sizing: border-box; display: flex; align-items: center; gap: var(--ter-5); width: 100%; min-height: var(--control-min-s);
+  padding: var(--ter-0) var(--ter-7); border-radius: var(--r-btn); font-size: var(--fs-sm); color: var(--text);
+}
+.km-vz-sav-zold { background: var(--ok-bg); }
+.km-vz-sav-zold .km-vz-pont { background: var(--ok-strong); }
+.km-vz-sav-sarga {
+  justify-content: space-between; border: var(--bw) solid var(--illesztve-border); background: var(--illesztve-bg);
+  font-family: var(--font-body-active); cursor: pointer; text-align: left;
+}
+.km-vz-sav-sarga .km-vz-pont { background: var(--illesztve); }
+.km-vz-sav-bal { display: flex; align-items: center; gap: var(--ter-5); color: var(--text); }
+.km-vz-sav-jobb { flex: none; color: var(--text-mut); }
+.km-vz-sav-piros {
+  display: flex; flex-direction: column; gap: var(--ter-2); padding: var(--ter-5) var(--ter-7);
+  border: var(--bw) solid var(--err-border); border-radius: var(--r-btn); background: var(--err-bg); font-size: var(--fs-sm);
+}
+.km-vz-sav-piros .km-vz-pont { background: var(--err-strong); }
+.km-vz-teendo { color: var(--text-mut); }
+.km-vz-pont { width: var(--ter-4); height: var(--ter-4); border-radius: 50%; /* tokenőr: ok — kör alak */ flex: none; }
+.km-vz-panel {
+  display: flex; flex-direction: column; gap: var(--ter-5); padding: var(--ter-8) var(--ter-9);
+  border: var(--bw) solid var(--line); border-radius: var(--r-block); background: var(--panel-soft);
+}
+.km-vz-panel-cim { font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text-mut); }
+.km-vz-lepesek { margin: var(--ter-0); padding-left: var(--ter-9); display: flex; flex-direction: column; gap: var(--ter-3); font-size: var(--fs-base); }
+.km-vz-link {
+  align-self: flex-start; padding: var(--ter-0); border: none; background: none; color: var(--accent-link);
+  font-family: var(--font-body-active); font-size: var(--fs-sm); text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+}
+
+.km-vz-jobb { display: flex; flex-direction: column; gap: var(--ter-8); }
+.km-vz-allapot { display: flex; align-items: center; gap: var(--ter-5); min-height: var(--ter-9); font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz-halad { display: block; width: var(--ter-13); height: var(--ter-1); border-radius: var(--r-badge); background: var(--field-bg); overflow: hidden; }
+.km-vz-halad span { display: block; width: 45%; height: 100%; background: var(--primary-2); }
+.km-vz-kep, .km-vz-kep-ures, .km-vz-kep-hiba { box-sizing: border-box; width: 100%; aspect-ratio: 4 / 5; border-radius: var(--r-block); }
+.km-vz-kep { position: relative; overflow: hidden; }
+.km-vz-kep img { display: block; width: 100%; height: 100%; }
+.km-vz-kep-regi { opacity: 0.4; }
+.km-vz-kep-felirat {
+  position: absolute; left: var(--ter-8); right: var(--ter-8); bottom: var(--ter-8); padding: var(--ter-5) var(--ter-7);
+  border: var(--bw) solid var(--line); border-radius: var(--r-btn); background: var(--bg-elev); font-size: var(--fs-sm); color: var(--text);
+}
+.km-vz-kep-ures {
+  display: flex; align-items: center; justify-content: center; padding: var(--ter-11); border: var(--bw) dashed var(--line-dash);
+  text-align: center; font-size: var(--fs-base); color: var(--text-mut);
+}
+.km-vz-kep-hiba {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ter-7); padding: var(--ter-11);
+  border: var(--bw) solid var(--err-border); background: var(--err-bg); text-align: center; font-size: var(--fs-base);
+}
+
+.km-vz-blokk { display: flex; flex-direction: column; gap: var(--ter-5); }
+.km-vz-blokk-cim { font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text-mut); letter-spacing: 0.04em; text-transform: uppercase; }
+.km-vz-lista { display: flex; flex-direction: column; border: var(--bw) solid var(--line); border-radius: var(--r-block); overflow: hidden; }
+.km-vz-jelzes { display: flex; flex-direction: column; gap: var(--ter-2); padding: var(--ter-7) var(--ter-8); border-bottom: var(--bw) solid var(--line-soft); }
+.km-vz-jelzes-fej { display: flex; align-items: center; gap: var(--ter-5); }
+.km-vz-jelzes-nev { font-size: var(--fs-base); }
+.km-vz-jelzes-reszlet { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz-cimke-tiltas, .km-vz-cimke-figy { padding: var(--ter-1) var(--ter-5); border-radius: var(--r-badge); font-size: var(--fs-xs); border: var(--bw) solid; }
+.km-vz-cimke-tiltas { background: var(--err-bg); border-color: var(--err-border); color: var(--err-strong); }
+.km-vz-cimke-figy { background: var(--warn-bg); border-color: var(--warn-border); color: var(--warn); }
+.km-vz-poszt-sor {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--ter-6); padding: var(--ter-6) var(--ter-8);
+  border-bottom: var(--bw) solid var(--line-soft); font-size: var(--fs-base);
+}
+
+/* telefonon látszó részek — asztalon rejtve */
+.km-vz-telefon-kep, .km-vz-telefon-lab, .km-vz-csak-telefon { display: none; }
+.km-vz-nagyitas {
+  position: fixed; inset: var(--ter-0); z-index: 60; display: flex; align-items: center; justify-content: center;
+  padding: var(--ter-8); background: var(--header-bg);
+}
+.km-vz-nagyitas img { max-width: 100%; max-height: 100%; }
+
+@media (max-width: 900px) {
+  .km-vz-sablonok { grid-template-columns: minmax(0, 1fr); }
+  .km-vz-sablon { flex-direction: row; align-items: center; gap: var(--ter-7); padding: var(--ter-6); border-radius: var(--r-block); }
+  .km-vz-sablon .km-vz-minta { width: var(--vz-telefon-minta-w, 72px); flex: none; }
+  .km-vz-racs { grid-template-columns: minmax(0, 1fr); }
+  .km-vz-kep-asztali, .km-vz-allapot, .km-vz-letoltes { display: none; }
+  .km-vz-telefon-kep { display: flex; flex-direction: column; gap: var(--ter-4); }
+  .km-vz-telefon-sor { display: flex; align-items: flex-end; gap: var(--ter-7); }
+  .km-vz-kicsi { width: var(--vz-telefon-kep-w, 96px); flex: none; padding: var(--ter-4); font-size: var(--fs-xs); }
+  .km-vz-allapot-kicsi { font-size: var(--fs-xs); color: var(--text-mut); }
+  .km-vz-csak-telefon { display: inline-flex; align-self: flex-start; align-items: center; }
+  .km-vz-telefon-lab {
+    position: sticky; bottom: var(--ter-0); display: flex; flex-direction: column; gap: var(--ter-4);
+    padding: var(--ter-6) var(--ter-0); background: var(--bg);
+  }
+  .km-vz-telefon-lab .km-vz-tiltas-oka { text-align: left; }
+  .km-vz-telefon-lab button { width: 100%; }
+}
+
+/* ——— VZ-2 · Képek a kisvállalkozónak (design/vz2/rajz). Csak tokenek. A kép mindig a gép képe. ——— */
+.km-vz2 { gap: var(--ter-10); }
+.km-vz2-arculat-sor { margin: var(--ter-0); padding: var(--ter-7) var(--ter-9); border-radius: var(--r-block); background: var(--panel-soft-2); font-size: var(--fs-base); }
+.km-vz2-arculat-sor a { color: var(--accent-link); }
+
+/* VZ-2a · a hét helyzet */
+.km-vz2-helyzetek { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ter-9); }
+.km-vz2-helyzet {
+  box-sizing: border-box; display: flex; flex-direction: column; gap: var(--ter-6); padding: var(--ter-6);
+  border: var(--bw) solid var(--line); border-radius: var(--r-card); background: var(--bg-elev); color: var(--text);
+  text-decoration: none; text-align: left;
+}
+.km-vz2-helyzet:hover { border-color: var(--line-dash); }
+.km-vz2-minta { box-sizing: border-box; display: block; width: 100%; aspect-ratio: 4 / 5; border-radius: var(--r-btn); object-fit: cover; }
+.km-vz2-minta-vaz { background: var(--vaz-bg); }
+.km-vz2-helyzet-szoveg { display: flex; flex-direction: column; gap: var(--ter-1); padding: var(--ter-0) var(--ter-2) var(--ter-2); }
+.km-vz2-helyzet-nev { font-family: var(--font-display-active); font-weight: var(--fw-strong); font-size: var(--fs-title); }
+.km-vz2-helyzet-leiras { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz2-csomag { align-self: flex-start; font-size: var(--fs-sm); color: var(--text-mut); }
+
+/* VZ-2b · kitöltő */
+.km-vz2-fej { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--ter-9); }
+.km-vz2-fej-bal { display: flex; flex-direction: column; gap: var(--ter-2); }
+.km-vz2-fej-jobb { display: flex; align-items: center; gap: var(--ter-7); }
+.km-vz2-vissza { font-size: var(--fs-sm); color: var(--accent-link); }
+.km-vz2-tiltas-oka { max-width: 360px; font-size: var(--fs-sm); color: var(--text-mut); text-align: right; }
+.km-vz2-letolt {
+  box-sizing: border-box; min-height: var(--control-min); padding: var(--ter-0) var(--ter-11); border: none; border-radius: var(--r-btn);
+  background: var(--grad-primary); color: var(--on-primary); font-family: var(--font-body-active); font-size: var(--fs-base); font-weight: var(--fw-strong); cursor: pointer;
+}
+.km-vz2-letolt-tiltva { border: var(--bw) solid var(--line); background: var(--panel-soft-2); color: var(--text-dim); cursor: not-allowed; }
+.km-vz2-racs { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: var(--ter-12); align-items: start; }
+.km-vz2-urlap { display: flex; flex-direction: column; gap: var(--ter-9); min-width: 0; max-width: 640px; }
+.km-vz2-megirtuk { margin: var(--ter-0); font-size: var(--fs-base); }
+.km-vz2-kerdes { display: flex; flex-direction: column; gap: var(--ter-3); }
+.km-vz2-kerdes-cimke { font-size: var(--fs-base); font-weight: var(--fw-strong); }
+.km-vz2-mezo {
+  box-sizing: border-box; min-height: var(--control-min); padding: var(--ter-4) var(--pad-field-x); border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field); background: var(--field-bg); color: var(--text); font-family: var(--font-body-active); font-size: var(--fs-base);
+}
+.km-vz2-mezo-baj { border-color: var(--warn-border); }
+.km-vz2-pelda { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz2-baj {
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-4); padding: var(--ter-6) var(--ter-7);
+  border: var(--bw) solid var(--warn-border); border-radius: var(--r-block); background: var(--warn-bg); font-size: var(--fs-sm);
+}
+.km-vz2-baj strong { font-weight: var(--fw-strong); }
+.km-vz2-lepett { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz2-kepblokk {
+  display: flex; flex-direction: column; gap: var(--ter-6); padding: var(--ter-9); border: var(--bw) solid var(--line);
+  border-radius: var(--r-card); background: var(--bg-elev); position: sticky; top: var(--ter-9);
+}
+.km-vz2-hova { font-size: var(--fs-sm); font-weight: var(--fw-strong); }
+.km-vz2-meretek { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ter-3); }
+/* R-18 6. kör (audit, koordinátor 10-11): az egyforma oszlopokban a kijelölt „Facebook, Instagram” alcím két sorba tört (asztalon a
+   keskeny jobb hasábban) — az oszlopok a feliratukhoz igazodnak, a maradék hely egyenlően oszlik el */
+.km-vz2-meretek { grid-template-columns: repeat(3, auto); }
+.km-vz2-meret {
+  box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ter-0);
+  min-height: var(--control-min); padding: var(--ter-3) var(--ter-2); border: var(--bw) solid var(--line); border-radius: var(--r-btn);
+  background: var(--bg-elev); color: var(--text); font-family: var(--font-body-active); text-align: center; cursor: pointer;
+}
+.km-vz2-meret-aktiv { border-color: var(--valaszto-aktiv-border); background: var(--valaszto-aktiv-bg); }
+.km-vz2-meret-nev { font-size: var(--fs-sm); font-weight: var(--fw-strong); }
+.km-vz2-meret-al { font-size: var(--fs-xs); color: var(--text-mut); line-height: 1.2; }
+.km-vz2-kep-hely { position: relative; display: flex; justify-content: center; }
+.km-vz2-kep { display: block; width: 100%; border-radius: var(--r-btn); }
+.km-vz2-kep-story .km-vz2-kep { width: 62%; }
+.km-vz2-kep-halvany { opacity: 0.4; }
+.km-vz2-kep-vaz { aspect-ratio: 4 / 5; background: var(--vaz-bg); }
+.km-vz2-kep-felirat {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: var(--ter-3) var(--ter-6); border-radius: var(--r-btn);
+  border: var(--bw) solid var(--line); background: var(--bg-elev); font-size: var(--fs-sm); white-space: nowrap;
+}
+.km-vz2-kep-hiba {
+  position: absolute; left: var(--ter-4); right: var(--ter-4); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column;
+  gap: var(--ter-5); padding: var(--ter-7); border: var(--bw) solid var(--line); border-radius: var(--r-block); background: var(--bg-elev); font-size: var(--fs-sm);
+}
+.km-vz2-valtas { font-size: var(--fs-sm); color: var(--text-mut); text-align: center; }
+.km-vz2-elrejt { display: none; align-self: center; border: none; background: none; color: var(--accent-link); font-family: var(--font-body-active); font-size: var(--fs-sm); text-decoration: underline; cursor: pointer; }
+.km-vz2-kep-telefon { display: none; }
+.km-vz2-also-sav { display: none; }
+.km-vz2-also-hely { display: none; }
+
+@media (max-width: 900px) {
+  .km-vz2-helyzetek { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ter-6); }
+  .km-vz2-helyzet { padding: var(--ter-4); gap: var(--ter-5); }
+  .km-vz2-helyzet-nev { font-family: var(--font-body-active); font-size: var(--fs-base); }
+  .km-vz2-helyzet-leiras { font-size: var(--fs-xs); }
+  .km-vz2-racs { grid-template-columns: minmax(0, 1fr); }
+  .km-vz2-kep-asztal { display: none; }
+  .km-vz2-kep-telefon { display: block; }
+  .km-vz2-kepblokk { position: static; padding: var(--ter-7); }
+  .km-vz2-elrejt { display: inline; }
+  .km-vz2-fej-jobb { display: none; }
+  .km-vz2-also-hely { display: block; min-height: calc(var(--control-min) * 3); }
+  .km-vz2-also-sav {
+    display: flex; flex-direction: column; gap: var(--ter-3); position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+    padding: var(--ter-6) var(--ter-8); border-top: var(--bw) solid var(--line); background: var(--bg-elev);
+  }
+  .km-vz2-also-sav .km-vz2-tiltas-oka { max-width: none; text-align: left; }
+  .km-vz2-letolt { width: 100%; }
+}
+
+/* VZ-2b · fotó */
+.km-vz2-foto { display: flex; flex-direction: column; gap: var(--ter-4); }
+.km-vz2-foto-doboz { box-sizing: border-box; display: flex; gap: var(--ter-8); padding: var(--ter-9); border: var(--bw) solid var(--line); border-radius: var(--r-block); background: var(--bg-elev); }
+.km-vz2-foto-ures { align-items: center; flex-wrap: wrap; border-style: dashed; border-color: var(--line-dash); }
+.km-vz2-foto-tolt { align-items: center; }
+.km-vz2-foto-tolt-sor { flex: 1; display: flex; flex-direction: column; gap: var(--ter-4); font-size: var(--fs-sm); }
+.km-vz2-csik { display: block; height: var(--ter-3); border-radius: var(--r-badge); background: var(--panel-soft-2); overflow: hidden; }
+.km-vz2-csik > span { display: block; height: 100%; background: var(--primary); }
+.km-vz2-foto-igazit { flex-direction: column; gap: var(--ter-6); font-size: var(--fs-sm); }
+.km-vz2-foto-gomb {
+  box-sizing: border-box; min-height: var(--control-min); padding: var(--ter-0) var(--ter-10); border: var(--bw) solid var(--btn-ghost-border);
+  border-radius: var(--r-btn); background: var(--btn-ghost-bg); color: var(--btn-ghost-text); font-family: var(--font-body-active);
+  font-size: var(--fs-base); font-weight: var(--fw-strong); cursor: pointer;
+}
+.km-vz2-foto-szoveg { display: flex; flex-direction: column; gap: var(--ter-1); font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz2-link { align-self: flex-start; padding: var(--ter-0); border: none; background: none; color: var(--accent-link); font-family: var(--font-body-active); font-size: var(--fs-sm); text-decoration: underline; cursor: pointer; }
+.km-vz2-foto-gombok { display: flex; gap: var(--ter-5); }
+.km-vz2-nagyitas { display: flex; align-items: center; gap: var(--ter-6); color: var(--text-mut); }
+.km-vz2-nagyitas-cimke { min-width: var(--ter-13); }
+.km-vz2-nagyitas input { flex: 1; accent-color: var(--primary); }
+.km-vz2-tel-csak { display: none; }
+.km-vz2-kep-igazit { cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+.km-vz2-kep-igazit .km-vz2-kep { -webkit-user-drag: none; }
+.km-vz2-huzd {
+  position: absolute; inset: var(--ter-4); display: flex; align-items: flex-start; justify-content: center; padding-top: var(--ter-13);
+  border: var(--bw) dashed var(--on-primary); border-radius: var(--r-btn); pointer-events: none;
+}
+.km-vz2-huzd > span { padding: var(--ter-1) var(--ter-4); border-radius: var(--r-badge); background: var(--bg-elev); color: var(--text); font-size: var(--fs-sm); }
+@media (max-width: 900px) {
+  .km-vz2-tel-csak { display: inline; }
+  .km-vz2-asztal-csak { display: none; }
+  .km-vz2-foto-ures { flex-direction: column; align-items: stretch; text-align: center; }
+  .km-vz2-foto-ures .km-vz2-link { align-self: center; }
+  .km-vz2-foto-szoveg { align-items: center; }
+  .km-vz2-foto-tolt { flex-direction: column; align-items: stretch; }
+  .km-vz2-foto-gombok > * { flex: 1; }
+}
+
+/* VZ-2c · Kész */
+.km-vz2-kesz-racs { display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: var(--ter-12); align-items: start; }
+.km-vz2-kesz-kep { display: flex; flex-direction: column; gap: var(--ter-6); }
+.km-vz2-kesz-kep .km-vz2-kesz-story { width: 62%; align-self: center; }
+.km-vz2-kesz-gombok { display: flex; gap: var(--ter-5); }
+.km-vz2-kesz-jobb { display: flex; flex-direction: column; gap: var(--ter-9); max-width: 560px; }
+.km-vz2-kesz-fej { display: flex; flex-direction: column; gap: var(--ter-3); }
+.km-vz2-melle { display: flex; flex-direction: column; gap: var(--ter-6); padding: var(--ter-9); border: var(--bw) solid var(--line); border-radius: var(--r-card); background: var(--bg-elev); }
+.km-vz2-melle-fej { display: flex; align-items: center; gap: var(--ter-5); }
+.km-vz2-jelveny { padding: var(--ter-1) var(--ter-5); border-radius: var(--r-badge); background: var(--src-ai-bg); color: var(--src-ai); font-size: var(--fs-xs); }
+.km-vz2-melle-szoveg { margin: var(--ter-0); font-size: var(--fs-base); white-space: pre-line; }
+.km-vz2-melle-hiba { display: flex; align-items: center; gap: var(--ter-6); font-size: var(--fs-sm); }
+.km-vz2-melle-vaz { display: flex; flex-direction: column; gap: var(--ter-4); }
+.km-vz2-melle-vaz > span { display: block; height: var(--ter-7); border-radius: var(--r-badge); background: var(--vaz-bg); }
+.km-vz2-melle-vaz > span:last-child { width: 60%; }
+.km-vz2-masol { align-self: flex-start; }
+.km-vz2-masol:disabled { opacity: 0.5; cursor: default; }
+.km-vz2-igy { margin: var(--ter-0); font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz2-kesz-linkek { display: flex; gap: var(--ter-9); font-size: var(--fs-base); }
+.km-vz2-kesz-linkek a { color: var(--accent-link); }
+.km-vz2-kesz-linkek .km-vz2-link { font-size: var(--fs-base); }
+.km-vz2-kesz-sav { margin: var(--ter-0); padding: var(--ter-6) var(--ter-7); border-radius: var(--r-block); background: var(--ok-bg); font-size: var(--fs-sm); }
+@media (max-width: 900px) {
+  .km-vz2-kesz-racs { grid-template-columns: minmax(0, 1fr); gap: var(--ter-9); }
+  .km-vz2-kesz-fej.km-vz2-asztal-csak { display: none; }
+  .km-vz2-kesz-gombok > * { flex: 1; }
+  .km-vz2-masol { align-self: stretch; }
+  .km-vz2-kesz-linkek { flex-direction: column; gap: var(--ter-5); }
+}
+
+/* VZ-2b · román változat */
+.km-vz2-ro { display: flex; flex-direction: column; gap: var(--ter-5); padding-top: var(--ter-5); border-top: var(--bw) solid var(--line-soft); }
+.km-vz2-ro-sor { display: flex; flex-direction: row-reverse; align-items: center; justify-content: flex-end; gap: var(--ter-6); min-height: var(--control-min); font-size: var(--fs-base); }
+@media (max-width: 900px) { .km-vz2-ro-sor { flex-direction: row; justify-content: space-between; } }
+.km-vz2-ro-fej { display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; }
+
+/* VZ-3 · színváltozatok (design/vz3/rajz/VZ3-szinek.dc.html) */
+.km-vz3-valtozatok { display: flex; gap: var(--ter-3); }
+.km-vz3-valtozat {
+  flex: 1 1 0; min-width: 0; max-width: 92px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: var(--ter-2);
+  padding: var(--ter-2); border: 2px solid transparent; border-radius: var(--r-btn); background: none; color: var(--text);
+  font-family: var(--font-body-active); cursor: pointer;
+}
+.km-vz3-valtozat-aktiv { border-color: var(--valaszto-aktiv-border); background: var(--valaszto-aktiv-bg); }
+.km-vz3-minta { display: block; width: 100%; max-width: 76px; border-radius: var(--ter-2); box-shadow: 0 0 0 var(--bw) var(--line); }
+.km-vz3-nev { font-size: var(--fs-xs); line-height: 1.2; text-align: center; }
+.km-vz3-valtozat-aktiv .km-vz3-nev { font-weight: var(--fw-strong); }
+@media (max-width: 900px) {
+  .km-vz3-valtozat { max-width: 80px; }
+  .km-vz3-minta { max-width: 58px; }
+}
+
+/* R-15 08c 4–5: a fő gomb mellett a halk gomb (Csak letöltöm / Poszthoz teszem) */
+.km-vz2-r15-gombok { display: inline-flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; }
+@media (max-width: 640px) {
+  .km-vz2-also-sav .km-vz2-r15-gombok { display: flex; flex-direction: column-reverse; align-items: stretch; width: 100%; gap: var(--ter-3); }
+}
+
+/* R-15 c5 2. kör (design/R15/rajz/R15-lapok-5.dc.html 09 · 10a · 10w · 10b). Csak tokenek. */
+/* 09: a „Kész munka” kártya kiemelve, benne a lap egyetlen fő gombja (asztal); telefonon a fő gomb az alsó sávban, a leírás nem látszik */
+.km-vz2-helyzet-kiemelt { border-color: var(--primary); }
+.km-vz2-helyzet-link { display: flex; flex-direction: column; gap: var(--ter-6); color: inherit; text-decoration: none; }
+.km-vz2-helyzet-kiemelt .r15-fo-gomb { width: 100%; padding: var(--ter-0) var(--ter-6); }
+@media (max-width: 640px) {
+  .km-vz2-helyzet-leiras { display: none; }
+  .km-vz2-helyzet-link { gap: var(--ter-5); }
+}
+/* 10: a kiválasztott méret egyértelmű (2 px kiemelő keret, színezett mező, ✓) — DESIGN-KERES: „a kiválasztott méret alig különbözik” */
+.km-vz2-meret-aktiv { border: 2px solid var(--primary); background: var(--valaszto-aktiv-bg); } /* tokenőr: ok — rajz 10a: 2 px kiemelő keret */
+.km-vz2-meret:not(.km-vz2-meret-aktiv) { color: var(--text-mut); }
+.km-vz2-fej-bal .km-vz2-megirtuk { color: var(--kerdes-alcim); }
+/* 10b: a telefonos cím csak telefonon; a fő gombok a rajz szerinti magasak (T10: ≥ 52 px) */
+.km-vz2-kesz-fej.km-vz2-kesz-fej-tel { display: none; }
+.km-vz2-letolt[data-r15="fo-gomb"] { min-height: var(--fo-gomb-min); }
+/* 10w: a kép fölött pörgő (szöveg nélkül — a mondat a fő gomb mellett van) */
+.km-vz2-kep-porgo { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.km-vz2-kep-porgo .r15-porgo { width: 36px; height: 36px; border-width: 3px; border-color: var(--line); border-top-color: var(--primary); } /* tokenőr: ok — pörgő jel (rajz 10w: 36 px) */
+/* 10a: „Így jó” után a fotó kicsiben + Másik fotó + előtte–utána */
+.km-vz2-foto-kesz { display: flex; align-items: center; gap: var(--ter-7); }
+.km-vz2-foto-kicsi { flex: none; width: 72px; height: 72px; border-radius: var(--r-btn); object-fit: cover; } /* tokenőr: ok — rajz 10a: 72 px bélyegkép */
+.km-vz2-foto-kesz-gombok { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-3); }
+/* 10: 641–900 px között a fejléc gombjai maradnak (az alsó sáv csak ≤ 640) */
+@media (min-width: 641px) and (max-width: 900px) { .km-vz2-fej-jobb { display: flex; } }
+/* 10a/10w telefon: az alsó sávban a halk „Poszthoz teszem” a Letöltés mellett, egy sorban */
+@media (max-width: 640px) {
+  .km-vz2-also .km-vz2-r15-gombok { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; width: 100%; gap: var(--ter-4); }
+  .km-vz2-also .km-vz2-r15-gombok > .km-vz2-letolt { width: auto; }
+  .km-vz2-also .km-vz2-r15-gombok > .km-vz2-letolt { flex: 1 1 auto; min-height: var(--fo-gomb-min); }
+  .km-vz2-also .km-vz2-r15-gombok > .km-vz-gomb-szellem { flex: none; }
+  /* R-18 6. kör (koordinátor 10-11, kor6-ketnyelv-sotet-390): posztból nyitva „A poszthoz teszem” két sorba tört a sávban — mindkét gomb
+     egy sorban marad (nowrap), a halk gomb keskenyebb belső margóval, a fő gomb kapja a maradék helyet (HU/RO/EN 390 px-en mérve) */
+  .km-vz2-also .km-vz2-r15-gombok > * { white-space: nowrap; min-width: 0; }
+  .km-vz2-also .km-vz2-r15-gombok > .km-vz-gomb-szellem { padding-left: var(--ter-5); padding-right: var(--ter-5); }
+  .km-vz2-also .km-vz2-r15-gombok > .km-vz2-letolt { padding-left: var(--ter-5); padding-right: var(--ter-5); }
+  .km-vz2-also .km-vz2-tiltas-oka { max-width: none; text-align: left; }
+  .km-vz2-kesz-fej.km-vz2-kesz-fej-tel { display: flex; margin-bottom: var(--ter-6); }
+  .km-vz2-kesz-kep .km-vz2-kep { width: 180px; } /* tokenőr: ok — rajz 10b telefon: 180 px széles kép */
+  .km-vz2-kesz-kep { flex-direction: row; align-items: flex-end; gap: var(--ter-6); }
+  .km-vz2-kesz-gombok { flex-direction: column; }
+}
+/* Kati 10-10 #7: a román szöveg mezője többsoros (2–4 sor, a magasságot a NovoMezo állítja), a betű és a térköz a többi mezőé */
+.km-vz2-ro-mezo { display: block; width: 100%; resize: none; line-height: var(--lh); overflow-y: auto; }

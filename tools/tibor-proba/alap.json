@@ -1,0 +1,173 @@
+{
+ "frissitve": "2026-10-04 16:34",
+ "lapok": {
+  "arculat-betuk/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-betuk/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-logok/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-logok/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-mas-szin/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-mas-szin/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-nevlogo/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-nevlogo/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-szinek/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat-szinek/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "arculat/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "beallitasok/asztali": {
+   "biro": "piros",
+   "proba": false
+  },
+  "beallitasok/telefon": {
+   "biro": "piros",
+   "proba": false
+  },
+  "belepes/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "belepes/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "ertesitesek/asztali": {
+   "biro": "piros",
+   "proba": false
+  },
+  "ertesitesek/telefon": {
+   "biro": "piros",
+   "proba": false
+  },
+  "hirek/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "hirek/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "iranytu/asztali": {
+   "biro": "piros",
+   "proba": true
+  },
+  "iranytu/telefon": {
+   "biro": "piros",
+   "proba": true
+  },
+  "kepek-kitolto/asztali": {
+   "biro": "sarga",
+   "proba": false
+  },
+  "kepek-kitolto/telefon": {
+   "biro": "sarga",
+   "proba": false
+  },
+  "kepek/asztali": {
+   "biro": "sarga",
+   "proba": false
+  },
+  "kepek/telefon": {
+   "biro": "sarga",
+   "proba": false
+  },
+  "kezdolap/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "kezdolap/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "mit-figyeljunk/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "mit-figyeljunk/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "nyitolap/asztali": {
+   "biro": "piros",
+   "proba": false
+  },
+  "nyitolap/telefon": {
+   "biro": "piros",
+   "proba": false
+  },
+  "pontositas/asztali": {
+   "biro": "piros",
+   "proba": false
+  },
+  "pontositas/telefon": {
+   "biro": "piros",
+   "proba": false
+  },
+  "posztszoveg/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "posztszoveg/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "regisztracio/asztali": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "regisztracio/telefon": {
+   "biro": "sarga",
+   "proba": true
+  },
+  "szervezet-adatai/asztali": {
+   "biro": "piros",
+   "proba": false
+  },
+  "szervezet-adatai/telefon": {
+   "biro": "piros",
+   "proba": false
+  },
+  "tagok/asztali": {
+   "biro": "piros",
+   "proba": true
+  },
+  "tagok/telefon": {
+   "biro": "piros",
+   "proba": true
+  }
+ }
+}

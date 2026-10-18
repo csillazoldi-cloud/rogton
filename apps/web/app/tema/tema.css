@@ -1,0 +1,223 @@
+/* A Theme-beállítások lap saját stílusai (E-14) — csak tokenek, a v6 prototípus szerint. */
+.km-tema-fejlec {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+  padding: var(--ter-7) var(--ter-10);
+  border-bottom: var(--bw) solid var(--line-soft);
+  background: var(--bg-elev);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.km-tema-fejlec-bal { display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; }
+.km-tema-fejlec-jobb { display: flex; align-items: center; gap: var(--ter-4); flex-wrap: wrap; }
+.km-tema-cim { font-family: var(--font-display-active); font-weight: var(--fw-head); font-size: var(--fs-title); color: var(--text); }
+.km-tema-szint { font-size: var(--fs-xs); color: var(--text-dim); border: var(--bw) solid var(--line); border-radius: var(--r-badge); padding: var(--ter-1) var(--ter-4); }
+.km-tema-piszkos { font-size: var(--fs-xs); color: var(--text-dim); border: var(--bw) solid var(--line); border-radius: var(--r-badge); padding: var(--ter-1) var(--ter-4); }
+.km-tema-piszkos[data-piszkos="true"] { color: var(--warn); border-color: var(--warn-border); }
+
+.km-tema-gomb {
+  border: var(--bw) solid var(--btn-ghost-border);
+  background: var(--btn-ghost-bg);
+  color: var(--btn-ghost-text);
+  border-radius: var(--r-btn);
+  padding: var(--ter-4) var(--ter-7);
+  font-size: var(--fs-sm);
+  font-family: var(--font-body-active);
+  cursor: pointer;
+}
+.km-tema-gomb:hover { background: var(--btn-ghost-hover); }
+.km-tema-gomb:disabled { opacity: 0.6; cursor: wait; }
+.km-tema-gomb-kiemelt { font-weight: var(--fw-strong); }
+.km-tema-gomb-alkalmaz {
+  border: none;
+  background: var(--grad-primary);
+  color: var(--on-primary);
+  border-radius: var(--r-btn);
+  padding: var(--ter-4) var(--ter-8);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-strong);
+  font-family: var(--font-body-active);
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--glow-primary);
+}
+
+.km-tema-uzenet { margin: var(--ter-7) var(--ter-10) var(--ter-0); padding: var(--ter-5) var(--ter-8); border: var(--bw) solid var(--line); background: var(--panel-soft-2); border-radius: var(--r-block); font-size: var(--fs-sm); color: var(--text-mut); }
+.km-tema-uzenet[data-fajta="ok"] { border-color: var(--ok-bg); background: var(--ok-bg); color: var(--ok); }
+.km-tema-uzenet[data-fajta="hiba"] { border-color: var(--err-border); background: var(--err-bg); color: var(--err); }
+.km-tema-uzenet[data-fajta="figyelem"] { border-color: var(--warn-border); background: var(--warn-bg); color: var(--warn); }
+.km-tema-uzenet[data-fajta="info"] { border-color: var(--line); background: var(--panel-soft-2); color: var(--text-mut); }
+.km-tema-uzenet-cim { font-weight: var(--fw-strong); margin-bottom: var(--ter-3); }
+.km-tema-uzenet code { font-family: var(--font-code-active); direction: ltr; unicode-bidi: isolate; }
+.km-tema-uzenet-gomb {
+  border: var(--bw) solid var(--err-border);
+  background: var(--err-bg);
+  color: var(--err);
+  border-radius: var(--r-btn);
+  padding: var(--ter-2) var(--ter-7);
+  font-size: var(--fs-xs);
+  font-family: var(--font-body-active);
+  cursor: pointer;
+}
+
+.km-tema-fo { display: flex; gap: var(--ter-9); flex-wrap: wrap; align-items: flex-start; }
+.km-tema-oszlop { flex: 1 1 320px; max-width: 430px; min-width: 280px; display: flex; flex-direction: column; gap: var(--ter-7); }
+.km-tema-elonezet-oszlop { flex: 1.6 1 460px; min-width: 300px; position: sticky; top: 76px; }
+
+.km-tema-szekcio { border: var(--bw) solid var(--line); border-radius: var(--r-block); padding: var(--ter-8); background: var(--panel-soft); }
+.km-tema-szekcio-cim { font-family: var(--font-display-active); font-weight: var(--fw-head); font-size: var(--fs-title); margin: var(--ter-0) var(--ter-0) var(--ter-6); color: var(--text); }
+.km-tema-jegyzet { font-size: var(--fs-xs); color: var(--text-dim); }
+/* a jegyzetek térköze a v6 inline értékei szerint (E-18 záró ellenőrzés) */
+.km-tema-jegyzet-szinek { margin-top: var(--ter-5); }
+.km-tema-jegyzet-formak { margin-bottom: var(--ter-6); }
+.km-tema-jegyzet-mozgas { margin-top: var(--ter-4); }
+.km-tema-jegyzet-io { margin-top: var(--ter-3); }
+.km-tema-cimke { font-size: var(--fs-xs); color: var(--text-mut); display: block; }
+.km-tema-cimke strong { color: var(--text); }
+.km-tema-kod { color: var(--text-faint); font-family: var(--font-code-active); direction: ltr; unicode-bidi: isolate; }
+
+.km-tema-szinek { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--ter-5); }
+.km-tema-szin { display: flex; flex-direction: column; gap: var(--ter-2); font-size: var(--fs-xs); color: var(--text-mut); }
+.km-tema-szin-sor { display: flex; align-items: center; gap: var(--ter-3); }
+.km-tema-szin-bemenet { width: 38px; height: 30px; border: var(--bw) solid var(--field-border); border-radius: var(--r-badge); background: none; padding: var(--ter-1); cursor: pointer; }
+.km-tema-szin-ertek { font-size: var(--fs-xs); color: var(--text-dim); font-family: var(--font-code-active); direction: ltr; unicode-bidi: isolate; }
+
+.km-tema-valaszto { width: 100%; box-sizing: border-box; padding: var(--ter-4) var(--ter-5); border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--bg-elev); color: var(--text); font-size: var(--fs-sm); margin-bottom: var(--ter-6); font-family: var(--font-body-active); }
+.km-tema-csuszka { width: 100%; margin-bottom: var(--ter-5); accent-color: var(--primary); }
+.km-tema-csuszka-fej { display: flex; align-items: center; gap: var(--ter-5); margin-bottom: var(--ter-1); }
+.km-tema-csuszka-fej .km-tema-cimke { flex: 1; }
+.km-tema-kapszula {
+  border: var(--bw) solid var(--btn-ghost-border);
+  background: none;
+  color: var(--text-dim);
+  border-radius: 999px; /* tokenőr: ok — a kapszula alakja definíció szerint teljes lekerekítés */
+  padding: var(--ter-1) var(--ter-5);
+  font-size: var(--fs-xs);
+  font-family: var(--font-body-active);
+  cursor: pointer;
+}
+.km-tema-kapszula[data-be="true"] { border-color: var(--focus); background: var(--focus-ring); color: var(--focus); }
+
+.km-tema-adv-gomb { border: none; background: none; color: var(--text); font-size: var(--fs-title); font-family: var(--font-display-active); font-weight: var(--fw-head); cursor: pointer; padding: var(--ter-0); display: flex; align-items: center; gap: var(--ter-4); }
+.km-tema-adv { margin-top: var(--ter-7); }
+.km-tema-adv-racs { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--ter-5); margin-bottom: var(--ter-6); }
+
+.km-tema-io-gombok { display: flex; gap: var(--ter-4); flex-wrap: wrap; margin-bottom: var(--ter-5); }
+.km-tema-io-mezo { width: 100%; box-sizing: border-box; padding: var(--ter-5); border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--bg-elev); color: var(--text); font-size: var(--fs-xs); font-family: var(--font-code-active); resize: vertical; text-align: left; direction: ltr; min-height: 120px; }
+
+.km-tema-elonezet-fej { display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; margin-bottom: var(--ter-6); }
+.km-tema-elonezet-cim { font-family: var(--font-display-active); font-weight: var(--fw-strong); font-size: var(--fs-title); color: var(--text); }
+.km-tema-elonezet-megj { font-size: var(--fs-xs); color: var(--text-dim); }
+.km-tema-mod { margin-inline-start: auto; display: flex; gap: var(--ter-3); background: var(--field-bg); border: var(--bw) solid var(--line-soft); border-radius: var(--r-btn); padding: var(--ter-1); }
+.km-tema-mod-gomb { border: none; background: none; color: var(--text-mut); border-radius: var(--r-btn); padding: var(--ter-3) var(--ter-6); font-size: var(--fs-xs); font-weight: var(--fw-strong); font-family: var(--font-body-active); cursor: pointer; }
+.km-tema-mod-gomb[data-be="true"] { background: var(--grad-primary); color: var(--on-primary); }
+.km-tema-allapot-valaszto { padding: var(--ter-3) var(--ter-4); border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--bg-elev); color: var(--text); font-size: var(--fs-xs); font-family: var(--font-body-active); }
+
+.km-tema-elonezet-keret { display: flex; justify-content: center; background: var(--panel-soft); border: var(--bw) dashed var(--line-dash); border-radius: var(--r-block); padding: var(--ter-8); overflow: auto; }
+.km-tema-elonezet { width: 100%; transition: max-width 0.25s; }
+.km-tema-elonezet[data-mobil="true"] { max-width: 375px; }
+
+/* Előnézet belső elemei — a tokenek a gyökér elemen vannak beállítva, ezért itt minden var(--…) */
+.km-pv-lap { background: var(--bg); color: var(--text); font-family: var(--font-body-active); font-size: var(--fs-base); line-height: var(--lh); border: var(--bw) solid var(--line); border-radius: var(--r-card); padding: var(--ter-9); display: flex; flex-direction: column; gap: var(--ter-8); }
+.km-pv-fejezet { font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); font-weight: var(--fw-strong); margin-bottom: var(--ter-4); }
+.km-pv-sor { display: flex; gap: var(--ter-5); flex-wrap: wrap; align-items: center; }
+.km-pv-gomb-elsodleges {
+  background: var(--grad-primary);
+  color: var(--on-primary);
+  border: none;
+  border-radius: var(--r-btn);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  min-height: var(--control-min);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-strong);
+  font-family: var(--font-body-active);
+  cursor: pointer;
+  box-shadow: 0 8px 28px var(--glow-primary);
+}
+.km-pv-gomb-elsodleges[data-allapot="hover"] { transform: translateY(-2px); }
+.km-pv-gomb-elsodleges[data-allapot="focus"] { outline: 2px solid var(--focus); outline-offset: 2px; }
+.km-pv-gomb-elsodleges[data-allapot="disabled"] { background: var(--btn-disabled-bg); color: var(--text-faint); box-shadow: none; cursor: not-allowed; }
+.km-pv-gomb-szellem {
+  background: var(--btn-ghost-bg);
+  border: var(--bw) solid var(--btn-ghost-border);
+  color: var(--btn-ghost-text);
+  border-radius: var(--r-btn);
+  padding: var(--btn-pad-y) var(--ter-9);
+  min-height: var(--control-min);
+  font-size: var(--fs-md);
+  font-family: var(--font-body-active);
+  cursor: pointer;
+}
+.km-pv-gomb-szellem[data-allapot="hover"] { background: var(--btn-ghost-hover); }
+.km-pv-gomb-szellem[data-allapot="focus"] { outline: 2px solid var(--focus); outline-offset: 2px; }
+.km-pv-jelveny { font-size: var(--fs-xs); font-weight: var(--fw-strong); border-radius: var(--r-badge); padding: var(--ter-1) var(--ter-4); font-family: var(--font-body-active); }
+.km-pv-jelveny-sajat { background: var(--src-user-bg); color: var(--src-user); }
+.km-pv-jelveny-ai { background: var(--src-ai-bg); color: var(--src-ai); }
+.km-pv-mezo-cimke { display: block; font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--btn-ghost-text); margin-bottom: var(--ter-3); }
+.km-pv-mezo {
+  width: 100%; box-sizing: border-box;
+  padding: var(--pad-field-y) var(--pad-field-x);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  font-size: var(--fs-base);
+  background: var(--field-bg);
+  color: var(--text);
+  font-family: var(--font-body-active);
+}
+.km-pv-mezo[data-allapot="focus"] { border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring); }
+.km-pv-mezo[data-allapot="error"] { border-color: var(--err-border); }
+.km-pv-kod-sor { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-pv-kod { font-family: var(--font-code-active); color: var(--src-web); background: var(--panel-soft-2); padding: var(--ter-1) var(--ter-3); border-radius: var(--r-badge); direction: ltr; unicode-bidi: isolate; }
+.km-pv-hiba { border: var(--bw) solid var(--err-border); background: var(--err-bg); border-radius: var(--r-block); padding: var(--ter-6) var(--ter-7); font-size: var(--fs-sm); color: var(--err); }
+.km-pv-siker { border: var(--bw) solid var(--ok-bg); background: var(--ok-bg); border-radius: var(--r-block); padding: var(--ter-6) var(--ter-7); font-size: var(--fs-sm); color: var(--ok); }
+/* 2026-09-21: a régi első-lépés részlet (.km-pv-ob*) és a lépésszámláló (.km-pv-lepes) kikerült az előnézetből. */
+
+@media (max-width: 900px) {
+  .km-tema-fejlec-jobb { flex-wrap: wrap; }
+  .km-tema-elonezet-oszlop { position: static; }
+  /* F9-K1: a .km-tema-fo mobil paddingjét a km-lap-keret adja — a szabály törölve. */
+}
+
+/* Korábbi verziók (Vilmos kérése az E-14 után; a v6-ban nincs) */
+.km-tema-verziok { list-style: none; margin: var(--ter-0); padding: var(--ter-0); display: flex; flex-direction: column; gap: var(--ter-3); }
+.km-tema-verzio { display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; padding: var(--ter-4) var(--ter-5); border: var(--bw) solid var(--line-soft); border-radius: var(--r-badge); background: var(--panel-soft-2); font-size: var(--fs-sm); }
+.km-tema-verzio[data-allapot="alkalmazott"] { border-color: var(--accent-border-soft); }
+.km-tema-verzio-nev { font-weight: var(--fw-strong); color: var(--text); }
+.km-tema-verzio-allapot { font-size: var(--fs-xs); color: var(--text-mut); border: var(--bw) solid var(--line); border-radius: var(--r-badge); padding: var(--ter-1) var(--ter-4); }
+.km-tema-verzio[data-allapot="alkalmazott"] .km-tema-verzio-allapot { color: var(--ok); border-color: var(--ok-bg); background: var(--ok-bg); }
+.km-tema-verzio[data-allapot="tervezet"] .km-tema-verzio-allapot { color: var(--warn); border-color: var(--warn-border); background: var(--warn-bg); }
+.km-tema-verzio-datum { font-size: var(--fs-xs); color: var(--text-dim); margin-inline-start: auto; }
+.km-tema-verzio-gomb { padding: var(--ter-2) var(--ter-5); font-size: var(--fs-xs); }
+.km-tema-verzio-ures { font-size: var(--fs-sm); color: var(--text-dim); }
+
+/* F-1 (R-0): csoportfülek, a Térköz-csoport és az alsó megerősítő sáv — a rajz 4. és 5. artboardja szerint. Csak tokenek, a térköz is. */
+.km-tema-jelveny { font-size: var(--fs-xs); color: var(--src-web); background: var(--src-web-bg); border-radius: var(--r-badge); padding: var(--ter-1) var(--ter-4); font-family: var(--font-code-active); }
+.km-tema-fulek { display: flex; gap: var(--ter-2); flex-wrap: wrap; align-items: center; margin: var(--ter-9) auto var(--ter-0); padding: var(--ter-1); max-width: 1400px; box-sizing: border-box; width: calc(100% - 2 * var(--ter-10)); }
+.km-tema-fulek .km-tema-mod-gomb { padding: var(--ter-4) var(--ter-7); font-size: var(--fs-sm); background: var(--field-bg); border: var(--bw) solid var(--line-soft); }
+.km-tema-fulek .km-tema-mod-gomb[data-be="true"] { background: var(--grad-primary); color: var(--on-primary); border-color: transparent; }
+
+.km-terkoz-lista { display: flex; flex-direction: column; border: var(--bw) solid var(--line); border-radius: var(--r-block); background: var(--bg-elev); margin-top: var(--ter-6); }
+.km-terkoz-sor { display: grid; grid-template-columns: 6.5em 5.5em minmax(0, 1fr) auto; align-items: center; gap: var(--ter-6); padding: var(--ter-5) var(--ter-7); border-top: var(--bw) solid var(--line-soft); }
+.km-terkoz-sor:first-child { border-top: 0; }
+.km-terkoz-nev { font-size: var(--fs-sm); color: var(--src-web); }
+.km-terkoz-mezo { box-sizing: border-box; width: 100%; min-height: var(--control-min-s); padding: var(--ter-2) var(--ter-4); border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--field-bg); color: var(--text); font-size: var(--fs-sm); font-family: var(--font-code-active); text-align: left; direction: ltr; }
+.km-terkoz-mezo:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring); }
+.km-terkoz-mezo:disabled { color: var(--text-faint); cursor: not-allowed; }
+.km-terkoz-sav-tarto { min-width: 0; display: flex; align-items: center; }
+.km-terkoz-sav { border-radius: var(--r-badge); background: var(--src-web); max-width: 100%; }
+.km-terkoz-sav-nulla { width: var(--bw); background: var(--line); }
+.km-terkoz-hasznalat { font-size: var(--fs-sm); color: var(--text-mut); white-space: nowrap; }
+
+.km-tema-sav { position: sticky; bottom: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: var(--ter-6); flex-wrap: wrap; padding: var(--ter-7) var(--ter-10); border-top: var(--bw) solid var(--line-soft); background: var(--header-bg); backdrop-filter: blur(var(--blur-glass)); }
+.km-tema-sav-szoveg { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-tema-sav-gombok { display: flex; gap: var(--ter-4); }
+
+@media (max-width: 900px) {
+  .km-tema-fulek { width: calc(100% - 2 * var(--ter-6)); margin-top: var(--ter-6); }
+  .km-tema-sav { padding: var(--ter-6) var(--ter-6); }
+  .km-terkoz-sor { grid-template-columns: 6.5em 5.5em minmax(0, 1fr); gap: var(--ter-4); padding: var(--ter-4) var(--ter-6); }
+  .km-terkoz-hasznalat { grid-column: 1 / -1; white-space: normal; }
+}

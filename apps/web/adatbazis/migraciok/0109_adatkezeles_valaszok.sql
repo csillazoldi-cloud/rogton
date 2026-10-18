@@ -1,0 +1,14 @@
+-- 0109: az Adatkezelés lap három válasza (hu/ro/en). Eddig „Ezt a részt még írjuk" állt ott.
+-- A szöveg MÉRÉSBŐL készült (claude/ADATUT.md, 2026-09-09), a 2026-09-19-i változással:
+-- a teszt AI-szolgáltatója OpenAI. Három rövid, érthető válasz — a részletes tájékoztató külön lap lesz.
+INSERT INTO "felirat" ("kulcs", "nyelv", "szoveg") VALUES
+  ('beallitasok.mit_kuldunk_valasz', 'hu', 'Két dolgot: a hírforrás oldalára egy letöltési kérést, és az AI-nak a feldolgozandó szöveget — a cikket, a munkatered leírását és a hangnemedet. A jelszavad, a belépéseid és a feltöltött fájljaid sosem hagyják el a rendszert.'),
+  ('beallitasok.mit_kuldunk_valasz', 'ro', 'Două lucruri: o cerere de descărcare către site-ul sursei de știri, și textul de prelucrat către AI — articolul, descrierea spațiului tău de lucru și tonul. Parola, conectările și fișierele încărcate nu părăsesc niciodată sistemul.'),
+  ('beallitasok.mit_kuldunk_valasz', 'en', 'Two things: a download request to the news source, and the text to be processed to the AI — the article, your workspace description and your tone. Your password, logins and uploaded files never leave the system.'),
+  ('beallitasok.kinek_valasz', 'hu', 'A hírportálnak, amit te adtál meg, és az AI-szolgáltatónak, amit a rendszergazda beállít. A teszten ez ma az OpenAI (Egyesült Államok). Házon belüli gépen futó AI-val is tud dolgozni a rendszer — akkor az adat nem hagyja el a hálózatot.'),
+  ('beallitasok.kinek_valasz', 'ro', 'Portalului de știri pe care l-ai dat tu, și furnizorului de AI setat de administrator. Pe mediul de test acesta este OpenAI (Statele Unite). Sistemul poate lucra și cu un AI care rulează pe un calculator propriu — atunci datele nu părăsesc rețeaua.'),
+  ('beallitasok.kinek_valasz', 'en', 'To the news site you added, and to the AI provider the administrator sets. On the test system this is OpenAI (United States) today. The system can also work with an AI running on a local machine — then the data never leaves the network.'),
+  ('beallitasok.mire_hasznalja_valasz', 'hu', 'Arra, amit kérsz tőle: hírt értékel, szöveget ír, fordít, és megméri, összhangban van-e a cég iránytűjével. A kiküldött szöveget nem tároljuk — az AI-kérésekről csak számok maradnak: melyik feladat, mennyi ideig tartott, mennyibe került.'),
+  ('beallitasok.mire_hasznalja_valasz', 'ro', 'La ceea ce îi ceri: evaluează știri, scrie text, traduce și verifică potrivirea cu busola firmei. Textul trimis nu este stocat — despre cererile AI rămân doar cifre: ce sarcină, cât a durat, cât a costat.'),
+  ('beallitasok.mire_hasznalja_valasz', 'en', 'For what you ask of it: it rates news, writes text, translates, and checks the fit with the company compass. The text sent out is not stored — only numbers remain about AI requests: which task, how long it took, what it cost.')
+ON CONFLICT ("kulcs", "nyelv") DO UPDATE SET "szoveg" = EXCLUDED."szoveg", "frissitve" = now();

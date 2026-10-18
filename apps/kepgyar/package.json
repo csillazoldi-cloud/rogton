@@ -1,0 +1,23 @@
+{
+  "name": "@km/kepgyar",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A vizuálgyártó képgyártója: a Gigabyte-on futó kis szolgáltatás, amely a receptből, az arculatból és a tartalomból képet készít (láthatatlan Chromium).",
+  "scripts": {
+    "tipus": "tsc --noEmit -p tsconfig.json",
+    "indit": "node src/szerver.ts",
+    "fust": "node probak/nevlogo-fust.ts",
+    "fust-svg": "node probak/svg-png-fust.ts",
+    "fust-minta": "node probak/minta-foto-fust.ts"
+  },
+  "dependencies": {
+    "@km/vizual-core": "workspace:*",
+    "fontkit": "2.0.4",
+    "playwright-core": "1.56.0",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3"
+  }
+}

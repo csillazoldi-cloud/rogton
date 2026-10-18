@@ -1,0 +1,3434 @@
+{
+ "forras": "Program_ZILELE_TARGUMURESENE_2026_bilingv_RO-HU_update_22_06_2026_cu enescu.docx",
+ "ev": 2026,
+ "megjegyzes": "88 rows: 77 timed bilingual pairs + 2 Thursday all-day + Friday wine stalls and Brâncoveanu Tasting Night + the uncertain flag-day item + the internal note (both in Friday's block, 26 June) + the RO-only conference + 4 whole-event items. Built by a one-off script from the DOCX text, checked by hand; `nyers` puts the source's mess back on purpose (`mocskos`).",
+ "napok": {
+  "2026-06-25": 8,
+  "2026-06-26": 25,
+  "2026-06-27": 25,
+  "2026-06-28": 26,
+  "egesz": 4
+ },
+ "mocskos": [
+  "10:00??????? → bizonytalan, 26 iunie → ISO",
+  "internal note → aktiv false, bizonytalan",
+  "RO-only, 27.06.2026, 11:00 -14:00",
+  "18:00–20:30 in kezdes",
+  "&amp;",
+  "whitespace",
+  "június 27. (the typo „tag ozat” stays as in the source)",
+  "fajta outside the list → egyeb… unless a synonym",
+  "emoji before the name",
+  "concert → koncert",
+  "ALL-CAPS venue → the casing used elsewhere in the same programme"
+ ],
+ "nyers": {
+  "tetelek": [
+   {
+    "nap": "2026-06-25",
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "ro": "Enescu Chill Zone",
+     "hu": "Enescu Chill Zone"
+    },
+    "leiras": {
+     "ro": "Zonă de relaxare urbană, socializare și activități recreative",
+     "hu": "Városi pihenő-, közösségi és szabadidős tevékenységek övezete"
+    },
+    "helyszin": {
+     "ro": "Strada George Enescu",
+     "hu": "George Enescu utca"
+    },
+    "fellepo": "",
+    "fajta": "egyeb",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-25",
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "ro": "Târgul Meșteșugarilor",
+     "hu": "Kézművesvásár"
+    },
+    "leiras": {
+     "ro": "Peste 80 de meșteri populari și artizani din județul Mureș și județele învecinate",
+     "hu": "Több mint 80 népi mesterember és kézműves Maros megyéből és a szomszédos megyékből"
+    },
+    "helyszin": {
+     "ro": "Piața Trandafirilor",
+     "hu": "Rózsák tere"
+    },
+    "fellepo": "",
+    "fajta": "vasar",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-25",
+    "kezdes": "16:00",
+    "vege": null,
+    "nev": {
+     "ro": "Teatru-lectură: „Lecția” de Eugen Ionescu",
+     "hu": "Felolvasószínház: Eugène Ionesco „A lecke” című műve"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Teatrul Scena – Bastionul Croitorilor",
+     "hu": "Scena Színház – Szabók Bástyája"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-25",
+    "kezdes": "19:00",
+    "vege": null,
+    "nev": {
+     "ro": "Concert extraordinar susținut de Orchestra UMFST",
+     "hu": "Rendkívüli koncert az UMFST Zenekar előadásában"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Cetatea Medievală",
+     "hu": "Középkori Vár"
+    },
+    "fellepo": "",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-25",
+    "kezdes": "19:00",
+    "vege": null,
+    "nev": {
+     "ro": "Operetă, șlagăre de odinioară și secvențe umoristice",
+     "hu": "Operett, régi slágerek és humoros jelenetek"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Teatrul De Vară",
+     "hu": "Nyári Színház"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-25",
+    "kezdes": "20:15",
+    "vege": null,
+    "nev": {
+     "ro": "Alina Manole & Band",
+     "hu": "Alina Manole & Band"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Cetatea Medievală",
+     "hu": "Középkori Vár"
+    },
+    "fellepo": "Alina Manole & Band",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-25",
+    "kezdes": "21:00",
+    "vege": null,
+    "nev": {
+     "ro": "Concert din Turnul cu Ceas",
+     "hu": "Koncert az Óratoronyból"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Turnul cu Ceas – Palatul Administrativ",
+     "hu": "Óratorony – Közigazgatási Palota"
+    },
+    "fellepo": "",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-25",
+    "kezdes": "21:00",
+    "vege": null,
+    "nev": {
+     "ro": "Trupa de dans Re-born",
+     "hu": "Re-born tánccsoport"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Cetatea Medievală",
+     "hu": "Középkori Vár"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "ro": "8 crame, 1 producător de pălincă, 1 producător de brânzeturi artizanale",
+     "hu": "8 borászat, 1 pálinkakészítő, 1 kézműves sajtkészítő"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "",
+    "fajta": "gasztro",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "hu": "A ZÁSZLÓ NAPJÁT IS MEG KELL CSINÁLNI"
+    },
+    "leiras": {},
+    "helyszin": {},
+    "fellepo": "",
+    "fajta": "egyeb",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "ro": "Brâncoveanu Tasting Night",
+     "hu": "Brâncoveanu Tasting Night"
+    },
+    "leiras": {
+     "ro": "Începem weekendul vineri seara cu o degustare Brâncoveanu, băuturi de vară, comfort food și DJ set-uri pe strada Enescu.",
+     "hu": "A hétvégét péntek este Brâncoveanu-kóstolóval, nyári italokkal, comfort fooddal és DJ-szettekkel indítjuk az Enescu utcában."
+    },
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "",
+    "fajta": "gasztro",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "09:30",
+    "vege": null,
+    "nev": {
+     "ro": "Nunta de Aur",
+     "hu": "Aranylakodalom"
+    },
+    "leiras": {
+     "ro": "Ceremonia dedicată cuplurilor care sărbătoresc 50 de ani de căsătorie.",
+     "hu": "A házasságuk 50. évfordulóját ünneplő pároknak szentelt ceremónia."
+    },
+    "helyszin": {
+     "ro": "Casa Căsătoriilor",
+     "hu": "Házasságkötő Terem"
+    },
+    "fellepo": "",
+    "fajta": "unnepseg",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "26 iunie",
+    "kezdes": "10:00???????",
+    "vege": null,
+    "nev": {
+     "ro": "Sărbătorirea Zilei Drapelului Naţional (în faţa statuii lui Avram Iancu)",
+     "hu": "A nemzeti zászló napjának megünneplése (Avram Iancu szobra előtt)"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Centru",
+     "hu": "Főtér"
+    },
+    "fellepo": "",
+    "fajta": "unnepseg",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "15:00",
+    "vege": null,
+    "nev": {
+     "ro": "Întâlnirea oficială cu delegațiile orașelor înfrățite",
+     "hu": "Hivatalos találkozó a testvérvárosok küldöttségeivel"
+    },
+    "leiras": {
+     "ro": "Participă delegații din Bulgaria, Franța, Republica Moldova, Serbia, Ucraina și Ungaria.",
+     "hu": "Bulgáriából, Franciaországból, a Moldovai Köztársaságból, Szerbiából, Ukrajnából és Magyarországról érkeznek küldöttségek."
+    },
+    "helyszin": {
+     "ro": "Palatul Culturii",
+     "hu": "Kultúrpalota"
+    },
+    "fellepo": "",
+    "fajta": "unnepseg",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "16:30",
+    "vege": null,
+    "nev": {
+     "ro": "Ansamblul Datina Cristești",
+     "hu": "Datina Cristești Együttes"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "17:00",
+    "vege": null,
+    "nev": {
+     "ro": "Abram Tibor",
+     "hu": "Abrám Tibor"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Abram Tibor",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "17:00",
+    "vege": null,
+    "nev": {
+     "ro": "Orchestra Laci Csárda",
+     "hu": "Laci Csárda Zenekar"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Orchestra Laci Csárda",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "17:00",
+    "vege": null,
+    "nev": {
+     "ro": "Seară de poezie: „Poetry Stage”",
+     "hu": "Versest: „Poetry Stage”"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Teatrul Scena – Bastionul Croitorilor",
+     "hu": "Scena Színház – Szabók Bástyája"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "17:30",
+    "vege": null,
+    "nev": {
+     "ro": "Dobos Carmen",
+     "hu": "Dobos Carmen"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Dobos Carmen",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "18:00",
+    "vege": null,
+    "nev": {
+     "ro": "Corax",
+     "hu": "Corax"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Corax",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "18:00–20:30",
+    "vege": null,
+    "nev": {
+     "ro": "Edo",
+     "hu": "Edo"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "Edo",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "18:00",
+    "vege": null,
+    "nev": {
+     "ro": "Mircea Rusu Band",
+     "hu": "Mircea Rusu Band"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Mircea Rusu Band",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "18:00",
+    "vege": null,
+    "nev": {
+     "ro": "Proiecția filmului „Jocul Luminii”",
+     "hu": "A „Jocul Luminii” (A fény játéka) című film vetítése"
+    },
+    "leiras": {
+     "ro": "Regia: Ovidiu Georgescu. În rol principal: Nicu Mihoc.",
+     "hu": "Rendezte: Ovidiu Georgescu. Főszereplő: Nicu Mihoc."
+    },
+    "helyszin": {
+     "ro": "Centrul Cultural Mihai Eminescu",
+     "hu": "Mihai Eminescu Művelődési Központ"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "19:00",
+    "vege": null,
+    "nev": {
+     "ro": "Fără Zahăr",
+     "hu": "Fără Zahăr"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Fără Zahăr",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "19:00",
+    "vege": null,
+    "nev": {
+     "ro": "Trupă maghiară",
+     "hu": "Magyar zenekar"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "19:30",
+    "vege": null,
+    "nev": {
+     "ro": "„The Culture Node – Dana Pancu – Actoria în era AI”",
+     "hu": "„The Culture Node – Dana Pancu – A színészet az MI korában”"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Teatrul Scena – Bastionul Croitorilor",
+     "hu": "Scena Színház – Szabók Bástyája"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "19:50",
+    "vege": null,
+    "nev": {
+     "ro": "Aura Șova &amp; Band",
+     "hu": "Aura Șova &amp; Band"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Aura Șova &amp; Band",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "20:00",
+    "vege": null,
+    "nev": {
+     "ro": "Blahalouisiana",
+     "hu": "Blahalouisiana"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Victoriei – Scena Principală",
+     "hu": "Győzelem Tér – Nagyszínpad"
+    },
+    "fellepo": "Blahalouisiana",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "20:30",
+    "vege": "23:00",
+    "nev": {
+     "ro": "Karak",
+     "hu": "Karak"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "Karak",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "20:35",
+    "vege": null,
+    "nev": {
+     "ro": "Ioana Ignat",
+     "hu": "Ioana Ignat"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Ioana Ignat",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "21:20",
+    "vege": null,
+    "nev": {
+     "ro": "Alina Eremia",
+     "hu": "Alina Eremia"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Victoriei – Scena Principală",
+     "hu": "Győzelem Tér – Nagyszínpad"
+    },
+    "fellepo": "Alina Eremia",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "21:20",
+    "vege": null,
+    "nev": {
+     "ro": "Red Parlament",
+     "hu": "Red Parlament"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Red Parlament",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-26",
+    "kezdes": "22:05",
+    "vege": null,
+    "nev": {
+     "ro": "Jakab Csaba și Keresztes Ildikó",
+     "hu": "Jakab Csaba és Keresztes Ildikó"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Jakab Csaba și Keresztes Ildikó",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "09:00",
+    "vege": "16:00",
+    "nev": {
+     "ro": "Colț pentru copii cu jucării și activități creative",
+     "hu": "Gyereksarok játékokkal és kreatív tevékenységekkel"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "",
+    "fajta": "gyerek",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "09:00",
+    "vege": "16:00",
+    "nev": {
+     "ro": "Transylvanian Brunch Street",
+     "hu": "Transylvanian Brunch Street"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "",
+    "fajta": "gasztro",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "27.06.2026",
+    "kezdes": "11:00 -14:00",
+    "vege": null,
+    "nev": {
+     "ro": "Conferință și lansare de carte - Cartea de oaspeți a Sanatoriului Czakó ",
+     "hu": ""
+    },
+    "leiras": {
+     "ro": "Participă primarul"
+    },
+    "helyszin": {
+     "ro": "Palatul Culturii din Târgu Mureș - Sala Oglinzilor"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "15:00",
+    "vege": null,
+    "nev": {
+     "ro": "Ansamblul Luminițe Mureșene",
+     "hu": "Luminițe Mureșene Együttes"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "15:10",
+    "vege": null,
+    "nev": {
+     "ro": "Sopterean",
+     "hu": "Sopterean"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Sopterean",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "15:30",
+    "vege": null,
+    "nev": {
+     "ro": "Ansamblul Mureșul (secția maghiară)",
+     "hu": "Maros Együttes (magyar tagozat)"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "15:30",
+    "vege": null,
+    "nev": {
+     "ro": "Marian Suciu",
+     "hu": "Marian Suciu"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Marian Suciu",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "16:00",
+    "vege": null,
+    "nev": {
+     "ro": "Branea Anca",
+     "hu": "Branea Anca"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Branea Anca",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "16:30",
+    "vege": null,
+    "nev": {
+     "ro": "Ansamblul Luminițe Mureșene",
+     "hu": "Luminițe Mureșene Együttes"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "16:30",
+    "vege": null,
+    "nev": {
+     "ro": "Puka Károly și orchestra",
+     "hu": "Puka Károly és zenekara"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Puka Károly și orchestra",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "június 27.",
+    "kezdes": "16:40",
+    "vege": null,
+    "nev": {
+     "ro": "Ansamblul Mureșul (secția română)",
+     "hu": "Maros Együttes (román tag ozat)"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Cetatea Medievală",
+     "hu": "Középkori Vár"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "17:30",
+    "vege": null,
+    "nev": {
+     "ro": "Costi Dumitrașcu & Andreas Aron",
+     "hu": "Costi Dumitrașcu & Andreas Aron"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Costi Dumitrașcu & Andreas Aron",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "17:40",
+    "vege": null,
+    "nev": {
+     "ro": "Mihaela și Ciprian Istrate",
+     "hu": "Mihaela és Ciprian Istrate"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Mihaela și Ciprian Istrate",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "18:10",
+    "vege": null,
+    "nev": {
+     "ro": "Mel Amour",
+     "hu": "Mel Amour"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Mel Amour",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "18:30",
+    "vege": null,
+    "nev": {
+     "ro": "Ducu Bertzi",
+     "hu": "Ducu Bertzi"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Ducu Bertzi",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "19:00",
+    "vege": "23:00",
+    "nev": {
+     "ro": "Detour",
+     "hu": "Detour"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "Detour",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "19:00",
+    "vege": null,
+    "nev": {
+     "ro": "Lady & The Tramps",
+     "hu": "Lady & The Tramps"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Lady & The Tramps",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "19:30",
+    "vege": null,
+    "nev": {
+     "ro": "Trupa Bronx",
+     "hu": "Bronx zenekar"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Trupa Bronx",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "20:00",
+    "vege": null,
+    "nev": {
+     "ro": "Odyssey",
+     "hu": "Odyssey"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Odyssey",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "20:00",
+    "vege": null,
+    "nev": {
+     "ro": "Șuie Paparude",
+     "hu": "Șuie Paparude"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Victoriei – Scena Principală",
+     "hu": "Győzelem Tér – Nagyszínpad"
+    },
+    "fellepo": "Șuie Paparude",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "20:45",
+    "vege": null,
+    "nev": {
+     "ro": "Iarmarock DP",
+     "hu": "Iarmarock DP"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Iarmarock DP",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "21:00",
+    "vege": null,
+    "nev": {
+     "ro": "Follow The Flow",
+     "hu": "Follow The Flow"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Victoriei – Scena Principală",
+     "hu": "Győzelem Tér – Nagyszínpad"
+    },
+    "fellepo": "Follow The Flow",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "21:30",
+    "vege": null,
+    "nev": {
+     "ro": "Taxi",
+     "hu": "Taxi"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Taxi",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "22:20",
+    "vege": null,
+    "nev": {
+     "ro": "Prometeu – spectacol de foc",
+     "hu": "Prometeu – tűzshow"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-27",
+    "kezdes": "23:00",
+    "vege": null,
+    "nev": {
+     "ro": "„Aniversare Scena 25 de ani & MedievArtFest”",
+     "hu": "„Scena 25 éves jubileum & MedievArtFest”"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Teatrul Scena – Bastionul Croitorilor",
+     "hu": "Scena Színház – Szabók Bástyája"
+    },
+    "fellepo": "",
+    "fajta": "unnepseg",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "09:00",
+    "vege": "16:00",
+    "nev": {
+     "ro": "Colț pentru copii cu jucării și activități creative",
+     "hu": "Gyereksarok játékokkal és kreatív tevékenységekkel"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "",
+    "fajta": "gyerek",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "09:00",
+    "vege": "16:00",
+    "nev": {
+     "ro": "Transylvanian Brunch Street",
+     "hu": "Transylvanian Brunch Street"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "",
+    "fajta": "gasztro",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "11:00",
+    "vege": null,
+    "nev": {
+     "ro": "Ceremonia de acordare a titlurilor de Cetățean de Onoare și Pro Urbe",
+     "hu": "A Díszpolgári és Pro Urbe címek átadási ünnepsége"
+    },
+    "leiras": {
+     "ro": "Moment dedicat personalităților care au contribuit la dezvoltarea și prestigiul municipiului.",
+     "hu": "A város fejlődéséhez és tekintélyéhez hozzájáruló személyiségeknek szentelt esemény."
+    },
+    "helyszin": {
+     "ro": "Palatul Culturii",
+     "hu": "Kultúrpalota"
+    },
+    "fellepo": "",
+    "fajta": "unnepseg",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "12:00",
+    "vege": null,
+    "nev": {
+     "ro": "Degustare de cafea specialty 112 Coffee",
+     "hu": "112 Coffee specialty kávékóstoló"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "",
+    "fajta": "gasztro",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "15:30",
+    "vege": null,
+    "nev": {
+     "ro": "Aven Amentza",
+     "hu": "Aven Amentza"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Aven Amentza",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "15:30",
+    "vege": null,
+    "nev": {
+     "ro": "Răzvan Pop",
+     "hu": "Răzvan Pop"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Răzvan Pop",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "15:50",
+    "vege": null,
+    "nev": {
+     "ro": "Costi Dumitru",
+     "hu": "Costi Dumitru"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Costi Dumitru",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "16:00",
+    "vege": null,
+    "nev": {
+     "ro": "Ana Maria Galea – program pentru copii",
+     "hu": "Ana Maria Galea – gyermekműsor"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "",
+    "fajta": "gyerek",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "16:20",
+    "vege": null,
+    "nev": {
+     "ro": "Ansamblul Boróka (dans și interpreți în lb. maghiară)",
+     "hu": "Boróka Együttes (tánc és magyar nyelvű előadók)"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "16:40",
+    "vege": null,
+    "nev": {
+     "ro": "Ana Maria Galea",
+     "hu": "Ana Maria Galea"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Ana Maria Galea",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "16:50",
+    "vege": null,
+    "nev": {
+     "ro": "Cristi Țăran",
+     "hu": "Cristi Țăran"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Cristi Țăran",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "17:10",
+    "vege": null,
+    "nev": {
+     "ro": "Leontina Pop",
+     "hu": "Leontina Pop"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Leontina Pop",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "17:20",
+    "vege": null,
+    "nev": {
+     "ro": "Gențiana & Band",
+     "hu": "Gențiana & Band"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Gențiana & Band",
+    "fajta": "concert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "17:30",
+    "vege": null,
+    "nev": {
+     "ro": "  Kilyén Ilka  și Rițiu Krisztina – folclor ",
+     "hu": "Kilyén Ilka és Rițiu Krisztina – népzene"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Kilyén Ilka și Rițiu Krisztina – folclor",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "18:00",
+    "vege": null,
+    "nev": {
+     "ro": "Favorite Cover Band (Jakab Csaba)",
+     "hu": "Favorite Cover Band (Jakab Csaba)"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Teatrului – Aleea Vinului",
+     "hu": "Színház Tér – Borsétány"
+    },
+    "fellepo": "Favorite Cover Band (Jakab Csaba)",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "18:00",
+    "vege": null,
+    "nev": {
+     "ro": "Ina Todoran și Ovidiu Furnea",
+     "hu": "Ina Todoran és Ovidiu Furnea"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Ina Todoran și Ovidiu Furnea",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "18:00",
+    "vege": null,
+    "nev": {
+     "ro": "Spectacol de teatru: „Viața e un poem”",
+     "hu": "Színházi előadás: „Az élet egy költemény”"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Palatul Culturii – Sala Mare",
+     "hu": "Kultúrpalota – Nagyterem"
+    },
+    "fellepo": "",
+    "fajta": "eloadas",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "18:20",
+    "vege": null,
+    "nev": {
+     "ro": "Joco Molnar & The Vagabonds",
+     "hu": "Joco Molnar & The Vagabonds"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Joco Molnar & The Vagabonds",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "19:00",
+    "vege": "23:00",
+    "nev": {
+     "ro": "Dr. Panda",
+     "hu": "Dr. Panda"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+     "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+    },
+    "fellepo": "Dr. Panda",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "19:10",
+    "vege": null,
+    "nev": {
+     "ro": "Koszika & Band",
+     "hu": "Koszika & Band"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Koszika & Band",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "20:00",
+    "vege": null,
+    "nev": {
+     "ro": "Kökény Attila",
+     "hu": "Kökény Attila"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Victoriei – Scena Principală",
+     "hu": "Győzelem Tér – Nagyszínpad"
+    },
+    "fellepo": "Kökény Attila",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "20:00",
+    "vege": null,
+    "nev": {
+     "ro": "Om la Lună",
+     "hu": "Om la Lună"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Om la Lună",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "20:50",
+    "vege": null,
+    "nev": {
+     "ro": "Lidia Buble",
+     "hu": "Lidia Buble"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Lidia Buble",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "21:30",
+    "vege": null,
+    "nev": {
+     "ro": "Voltaj",
+     "hu": "Voltaj"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Victoriei – Scena Principală",
+     "hu": "Győzelem Tér – Nagyszínpad"
+    },
+    "fellepo": "Voltaj",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "2026-06-28",
+    "kezdes": "21:40",
+    "vege": null,
+    "nev": {
+     "ro": "Bosquito",
+     "hu": "Bosquito"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "CETATEA MEDIEVALĂ",
+     "hu": "KÖZÉPKORI VÁR"
+    },
+    "fellepo": "Bosquito",
+    "fajta": "koncert",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": "28 iunie 2026",
+    "kezdes": "23:00",
+    "vege": null,
+    "nev": {
+     "ro": "Spectacol de artificii și închiderea oficială a Zilelor Târgumureșene 2026",
+     "hu": "Tűzijáték és a Marosvásárhelyi Napok 2026 hivatalos zárása"
+    },
+    "leiras": {},
+    "helyszin": {
+     "ro": "Piața Victoriei – Scena Principală",
+     "hu": "Győzelem Tér – Nagyszínpad"
+    },
+    "fellepo": "",
+    "fajta": "fireworks",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": null,
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "ro": "Aleea Vinului",
+     "hu": "Borsétány"
+    },
+    "leiras": {
+     "ro": "Degustări de vinuri · Produse tradiționale · Concerte acustice și folk",
+     "hu": "Borkóstolók · Hagyományos termékek · Akusztikus és folk koncertek"
+    },
+    "helyszin": {
+     "ro": "Aleea Vinului – Piața Teatrului",
+     "hu": "Borsétány – Színház tér"
+    },
+    "fellepo": "",
+    "fajta": "gasztro",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": null,
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "ro": "🏰 Cetatea Medievală",
+     "hu": "🏰 Középkori Vár"
+    },
+    "leiras": {
+     "ro": "Concerte · Activități pentru familii · Zone recreative · Gastronomie și relaxare",
+     "hu": "Koncertek · Családi programok · Pihenőzónák · Gasztronómia és kikapcsolódás"
+    },
+    "helyszin": {
+     "ro": "Cetatea Medievală",
+     "hu": "Középkori Vár"
+    },
+    "fellepo": "",
+    "fajta": "egyeb",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": null,
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "ro": "Enescu Chill Zone",
+     "hu": "Enescu Chill Zone"
+    },
+    "leiras": {
+     "ro": "Relaxare · Socializare · Atmosferă urbană și activități recreative",
+     "hu": "Kikapcsolódás · Közösségi élet · Városi hangulat és szabadidős tevékenységek"
+    },
+    "helyszin": {
+     "ro": "Strada George Enescu",
+     "hu": "George Enescu utca"
+    },
+    "fellepo": "",
+    "fajta": "egyeb",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   },
+   {
+    "nap": null,
+    "kezdes": null,
+    "vege": null,
+    "nev": {
+     "ro": "Târgul Meșteșugarilor",
+     "hu": "Kézművesvásár"
+    },
+    "leiras": {
+     "ro": "Peste 80 de expozanți · Produse artizanale și tradiționale",
+     "hu": "Több mint 80 kiállító · Kézműves és hagyományos termékek"
+    },
+    "helyszin": {
+     "ro": "Piața Trandafirilor",
+     "hu": "Rózsák tere"
+    },
+    "fellepo": "",
+    "fajta": "vasar",
+    "jegy": "",
+    "bizonytalan": false,
+    "aktiv": true
+   }
+  ]
+ },
+ "vart": [
+  {
+   "nap": "2026-06-25",
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "ro": "Enescu Chill Zone",
+    "hu": "Enescu Chill Zone"
+   },
+   "leiras": {
+    "ro": "Zonă de relaxare urbană, socializare și activități recreative",
+    "hu": "Városi pihenő-, közösségi és szabadidős tevékenységek övezete"
+   },
+   "helyszin": {
+    "ro": "Strada George Enescu",
+    "hu": "George Enescu utca"
+   },
+   "fellepo": "",
+   "fajta": "egyeb",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-25",
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "ro": "Târgul Meșteșugarilor",
+    "hu": "Kézművesvásár"
+   },
+   "leiras": {
+    "ro": "Peste 80 de meșteri populari și artizani din județul Mureș și județele învecinate",
+    "hu": "Több mint 80 népi mesterember és kézműves Maros megyéből és a szomszédos megyékből"
+   },
+   "helyszin": {
+    "ro": "Piața Trandafirilor",
+    "hu": "Rózsák tere"
+   },
+   "fellepo": "",
+   "fajta": "vasar",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-25",
+   "kezdes": "16:00",
+   "vege": null,
+   "nev": {
+    "ro": "Teatru-lectură: „Lecția” de Eugen Ionescu",
+    "hu": "Felolvasószínház: Eugène Ionesco „A lecke” című műve"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Teatrul Scena – Bastionul Croitorilor",
+    "hu": "Scena Színház – Szabók Bástyája"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-25",
+   "kezdes": "19:00",
+   "vege": null,
+   "nev": {
+    "ro": "Concert extraordinar susținut de Orchestra UMFST",
+    "hu": "Rendkívüli koncert az UMFST Zenekar előadásában"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-25",
+   "kezdes": "19:00",
+   "vege": null,
+   "nev": {
+    "ro": "Operetă, șlagăre de odinioară și secvențe umoristice",
+    "hu": "Operett, régi slágerek és humoros jelenetek"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Teatrul De Vară",
+    "hu": "Nyári Színház"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-25",
+   "kezdes": "20:15",
+   "vege": null,
+   "nev": {
+    "ro": "Alina Manole & Band",
+    "hu": "Alina Manole & Band"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Alina Manole & Band",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-25",
+   "kezdes": "21:00",
+   "vege": null,
+   "nev": {
+    "ro": "Concert din Turnul cu Ceas",
+    "hu": "Koncert az Óratoronyból"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Turnul cu Ceas – Palatul Administrativ",
+    "hu": "Óratorony – Közigazgatási Palota"
+   },
+   "fellepo": "",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-25",
+   "kezdes": "21:00",
+   "vege": null,
+   "nev": {
+    "ro": "Trupa de dans Re-born",
+    "hu": "Re-born tánccsoport"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "ro": "8 crame, 1 producător de pălincă, 1 producător de brânzeturi artizanale",
+    "hu": "8 borászat, 1 pálinkakészítő, 1 kézműves sajtkészítő"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "",
+   "fajta": "gasztro",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "hu": "A ZÁSZLÓ NAPJÁT IS MEG KELL CSINÁLNI"
+   },
+   "leiras": {},
+   "helyszin": {},
+   "fellepo": "",
+   "fajta": "egyeb",
+   "jegy": "",
+   "bizonytalan": true,
+   "aktiv": false
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "ro": "Brâncoveanu Tasting Night",
+    "hu": "Brâncoveanu Tasting Night"
+   },
+   "leiras": {
+    "ro": "Începem weekendul vineri seara cu o degustare Brâncoveanu, băuturi de vară, comfort food și DJ set-uri pe strada Enescu.",
+    "hu": "A hétvégét péntek este Brâncoveanu-kóstolóval, nyári italokkal, comfort fooddal és DJ-szettekkel indítjuk az Enescu utcában."
+   },
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "",
+   "fajta": "gasztro",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "09:30",
+   "vege": null,
+   "nev": {
+    "ro": "Nunta de Aur",
+    "hu": "Aranylakodalom"
+   },
+   "leiras": {
+    "ro": "Ceremonia dedicată cuplurilor care sărbătoresc 50 de ani de căsătorie.",
+    "hu": "A házasságuk 50. évfordulóját ünneplő pároknak szentelt ceremónia."
+   },
+   "helyszin": {
+    "ro": "Casa Căsătoriilor",
+    "hu": "Házasságkötő Terem"
+   },
+   "fellepo": "",
+   "fajta": "unnepseg",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "10:00",
+   "vege": null,
+   "nev": {
+    "ro": "Sărbătorirea Zilei Drapelului Naţional (în faţa statuii lui Avram Iancu)",
+    "hu": "A nemzeti zászló napjának megünneplése (Avram Iancu szobra előtt)"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Centru",
+    "hu": "Főtér"
+   },
+   "fellepo": "",
+   "fajta": "unnepseg",
+   "jegy": "",
+   "bizonytalan": true,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "15:00",
+   "vege": null,
+   "nev": {
+    "ro": "Întâlnirea oficială cu delegațiile orașelor înfrățite",
+    "hu": "Hivatalos találkozó a testvérvárosok küldöttségeivel"
+   },
+   "leiras": {
+    "ro": "Participă delegații din Bulgaria, Franța, Republica Moldova, Serbia, Ucraina și Ungaria.",
+    "hu": "Bulgáriából, Franciaországból, a Moldovai Köztársaságból, Szerbiából, Ukrajnából és Magyarországról érkeznek küldöttségek."
+   },
+   "helyszin": {
+    "ro": "Palatul Culturii",
+    "hu": "Kultúrpalota"
+   },
+   "fellepo": "",
+   "fajta": "unnepseg",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "16:30",
+   "vege": null,
+   "nev": {
+    "ro": "Ansamblul Datina Cristești",
+    "hu": "Datina Cristești Együttes"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "17:00",
+   "vege": null,
+   "nev": {
+    "ro": "Abram Tibor",
+    "hu": "Abrám Tibor"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Abram Tibor",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "17:00",
+   "vege": null,
+   "nev": {
+    "ro": "Orchestra Laci Csárda",
+    "hu": "Laci Csárda Zenekar"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Orchestra Laci Csárda",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "17:00",
+   "vege": null,
+   "nev": {
+    "ro": "Seară de poezie: „Poetry Stage”",
+    "hu": "Versest: „Poetry Stage”"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Teatrul Scena – Bastionul Croitorilor",
+    "hu": "Scena Színház – Szabók Bástyája"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "17:30",
+   "vege": null,
+   "nev": {
+    "ro": "Dobos Carmen",
+    "hu": "Dobos Carmen"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Dobos Carmen",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "18:00",
+   "vege": null,
+   "nev": {
+    "ro": "Corax",
+    "hu": "Corax"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Corax",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "18:00",
+   "vege": "20:30",
+   "nev": {
+    "ro": "Edo",
+    "hu": "Edo"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "Edo",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "18:00",
+   "vege": null,
+   "nev": {
+    "ro": "Mircea Rusu Band",
+    "hu": "Mircea Rusu Band"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Mircea Rusu Band",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "18:00",
+   "vege": null,
+   "nev": {
+    "ro": "Proiecția filmului „Jocul Luminii”",
+    "hu": "A „Jocul Luminii” (A fény játéka) című film vetítése"
+   },
+   "leiras": {
+    "ro": "Regia: Ovidiu Georgescu. În rol principal: Nicu Mihoc.",
+    "hu": "Rendezte: Ovidiu Georgescu. Főszereplő: Nicu Mihoc."
+   },
+   "helyszin": {
+    "ro": "Centrul Cultural Mihai Eminescu",
+    "hu": "Mihai Eminescu Művelődési Központ"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "19:00",
+   "vege": null,
+   "nev": {
+    "ro": "Fără Zahăr",
+    "hu": "Fără Zahăr"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Fără Zahăr",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "19:00",
+   "vege": null,
+   "nev": {
+    "ro": "Trupă maghiară",
+    "hu": "Magyar zenekar"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "19:30",
+   "vege": null,
+   "nev": {
+    "ro": "„The Culture Node – Dana Pancu – Actoria în era AI”",
+    "hu": "„The Culture Node – Dana Pancu – A színészet az MI korában”"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Teatrul Scena – Bastionul Croitorilor",
+    "hu": "Scena Színház – Szabók Bástyája"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "19:50",
+   "vege": null,
+   "nev": {
+    "ro": "Aura Șova & Band",
+    "hu": "Aura Șova & Band"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Aura Șova & Band",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "20:00",
+   "vege": null,
+   "nev": {
+    "ro": "Blahalouisiana",
+    "hu": "Blahalouisiana"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Victoriei – Scena Principală",
+    "hu": "Győzelem Tér – Nagyszínpad"
+   },
+   "fellepo": "Blahalouisiana",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "20:30",
+   "vege": "23:00",
+   "nev": {
+    "ro": "Karak",
+    "hu": "Karak"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "Karak",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "20:35",
+   "vege": null,
+   "nev": {
+    "ro": "Ioana Ignat",
+    "hu": "Ioana Ignat"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Ioana Ignat",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "21:20",
+   "vege": null,
+   "nev": {
+    "ro": "Alina Eremia",
+    "hu": "Alina Eremia"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Victoriei – Scena Principală",
+    "hu": "Győzelem Tér – Nagyszínpad"
+   },
+   "fellepo": "Alina Eremia",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "21:20",
+   "vege": null,
+   "nev": {
+    "ro": "Red Parlament",
+    "hu": "Red Parlament"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Red Parlament",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-26",
+   "kezdes": "22:05",
+   "vege": null,
+   "nev": {
+    "ro": "Jakab Csaba și Keresztes Ildikó",
+    "hu": "Jakab Csaba és Keresztes Ildikó"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Jakab Csaba și Keresztes Ildikó",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "09:00",
+   "vege": "16:00",
+   "nev": {
+    "ro": "Colț pentru copii cu jucării și activități creative",
+    "hu": "Gyereksarok játékokkal és kreatív tevékenységekkel"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "",
+   "fajta": "gyerek",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "09:00",
+   "vege": "16:00",
+   "nev": {
+    "ro": "Transylvanian Brunch Street",
+    "hu": "Transylvanian Brunch Street"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "",
+   "fajta": "gasztro",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "11:00",
+   "vege": "14:00",
+   "nev": {
+    "ro": "Conferință și lansare de carte - Cartea de oaspeți a Sanatoriului Czakó"
+   },
+   "leiras": {
+    "ro": "Participă primarul"
+   },
+   "helyszin": {
+    "ro": "Palatul Culturii din Târgu Mureș - Sala Oglinzilor"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "15:00",
+   "vege": null,
+   "nev": {
+    "ro": "Ansamblul Luminițe Mureșene",
+    "hu": "Luminițe Mureșene Együttes"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "15:10",
+   "vege": null,
+   "nev": {
+    "ro": "Sopterean",
+    "hu": "Sopterean"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Sopterean",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "15:30",
+   "vege": null,
+   "nev": {
+    "ro": "Ansamblul Mureșul (secția maghiară)",
+    "hu": "Maros Együttes (magyar tagozat)"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "15:30",
+   "vege": null,
+   "nev": {
+    "ro": "Marian Suciu",
+    "hu": "Marian Suciu"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Marian Suciu",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "16:00",
+   "vege": null,
+   "nev": {
+    "ro": "Branea Anca",
+    "hu": "Branea Anca"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Branea Anca",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "16:30",
+   "vege": null,
+   "nev": {
+    "ro": "Ansamblul Luminițe Mureșene",
+    "hu": "Luminițe Mureșene Együttes"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "16:30",
+   "vege": null,
+   "nev": {
+    "ro": "Puka Károly și orchestra",
+    "hu": "Puka Károly és zenekara"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Puka Károly și orchestra",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "16:40",
+   "vege": null,
+   "nev": {
+    "ro": "Ansamblul Mureșul (secția română)",
+    "hu": "Maros Együttes (román tag ozat)"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "17:30",
+   "vege": null,
+   "nev": {
+    "ro": "Costi Dumitrașcu & Andreas Aron",
+    "hu": "Costi Dumitrașcu & Andreas Aron"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Costi Dumitrașcu & Andreas Aron",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "17:40",
+   "vege": null,
+   "nev": {
+    "ro": "Mihaela și Ciprian Istrate",
+    "hu": "Mihaela és Ciprian Istrate"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Mihaela și Ciprian Istrate",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "18:10",
+   "vege": null,
+   "nev": {
+    "ro": "Mel Amour",
+    "hu": "Mel Amour"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Mel Amour",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "18:30",
+   "vege": null,
+   "nev": {
+    "ro": "Ducu Bertzi",
+    "hu": "Ducu Bertzi"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Ducu Bertzi",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "19:00",
+   "vege": "23:00",
+   "nev": {
+    "ro": "Detour",
+    "hu": "Detour"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "Detour",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "19:00",
+   "vege": null,
+   "nev": {
+    "ro": "Lady & The Tramps",
+    "hu": "Lady & The Tramps"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Lady & The Tramps",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "19:30",
+   "vege": null,
+   "nev": {
+    "ro": "Trupa Bronx",
+    "hu": "Bronx zenekar"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Trupa Bronx",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "20:00",
+   "vege": null,
+   "nev": {
+    "ro": "Odyssey",
+    "hu": "Odyssey"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Odyssey",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "20:00",
+   "vege": null,
+   "nev": {
+    "ro": "Șuie Paparude",
+    "hu": "Șuie Paparude"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Victoriei – Scena Principală",
+    "hu": "Győzelem Tér – Nagyszínpad"
+   },
+   "fellepo": "Șuie Paparude",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "20:45",
+   "vege": null,
+   "nev": {
+    "ro": "Iarmarock DP",
+    "hu": "Iarmarock DP"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Iarmarock DP",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "21:00",
+   "vege": null,
+   "nev": {
+    "ro": "Follow The Flow",
+    "hu": "Follow The Flow"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Victoriei – Scena Principală",
+    "hu": "Győzelem Tér – Nagyszínpad"
+   },
+   "fellepo": "Follow The Flow",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "21:30",
+   "vege": null,
+   "nev": {
+    "ro": "Taxi",
+    "hu": "Taxi"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Taxi",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "22:20",
+   "vege": null,
+   "nev": {
+    "ro": "Prometeu – spectacol de foc",
+    "hu": "Prometeu – tűzshow"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-27",
+   "kezdes": "23:00",
+   "vege": null,
+   "nev": {
+    "ro": "„Aniversare Scena 25 de ani & MedievArtFest”",
+    "hu": "„Scena 25 éves jubileum & MedievArtFest”"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Teatrul Scena – Bastionul Croitorilor",
+    "hu": "Scena Színház – Szabók Bástyája"
+   },
+   "fellepo": "",
+   "fajta": "unnepseg",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "09:00",
+   "vege": "16:00",
+   "nev": {
+    "ro": "Colț pentru copii cu jucării și activități creative",
+    "hu": "Gyereksarok játékokkal és kreatív tevékenységekkel"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "",
+   "fajta": "gyerek",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "09:00",
+   "vege": "16:00",
+   "nev": {
+    "ro": "Transylvanian Brunch Street",
+    "hu": "Transylvanian Brunch Street"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "",
+   "fajta": "gasztro",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "11:00",
+   "vege": null,
+   "nev": {
+    "ro": "Ceremonia de acordare a titlurilor de Cetățean de Onoare și Pro Urbe",
+    "hu": "A Díszpolgári és Pro Urbe címek átadási ünnepsége"
+   },
+   "leiras": {
+    "ro": "Moment dedicat personalităților care au contribuit la dezvoltarea și prestigiul municipiului.",
+    "hu": "A város fejlődéséhez és tekintélyéhez hozzájáruló személyiségeknek szentelt esemény."
+   },
+   "helyszin": {
+    "ro": "Palatul Culturii",
+    "hu": "Kultúrpalota"
+   },
+   "fellepo": "",
+   "fajta": "unnepseg",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "12:00",
+   "vege": null,
+   "nev": {
+    "ro": "Degustare de cafea specialty 112 Coffee",
+    "hu": "112 Coffee specialty kávékóstoló"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "",
+   "fajta": "gasztro",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "15:30",
+   "vege": null,
+   "nev": {
+    "ro": "Aven Amentza",
+    "hu": "Aven Amentza"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Aven Amentza",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "15:30",
+   "vege": null,
+   "nev": {
+    "ro": "Răzvan Pop",
+    "hu": "Răzvan Pop"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Răzvan Pop",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "15:50",
+   "vege": null,
+   "nev": {
+    "ro": "Costi Dumitru",
+    "hu": "Costi Dumitru"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Costi Dumitru",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "16:00",
+   "vege": null,
+   "nev": {
+    "ro": "Ana Maria Galea – program pentru copii",
+    "hu": "Ana Maria Galea – gyermekműsor"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "",
+   "fajta": "gyerek",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "16:20",
+   "vege": null,
+   "nev": {
+    "ro": "Ansamblul Boróka (dans și interpreți în lb. maghiară)",
+    "hu": "Boróka Együttes (tánc és magyar nyelvű előadók)"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "16:40",
+   "vege": null,
+   "nev": {
+    "ro": "Ana Maria Galea",
+    "hu": "Ana Maria Galea"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Ana Maria Galea",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "16:50",
+   "vege": null,
+   "nev": {
+    "ro": "Cristi Țăran",
+    "hu": "Cristi Țăran"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Cristi Țăran",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "17:10",
+   "vege": null,
+   "nev": {
+    "ro": "Leontina Pop",
+    "hu": "Leontina Pop"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Leontina Pop",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "17:20",
+   "vege": null,
+   "nev": {
+    "ro": "Gențiana & Band",
+    "hu": "Gențiana & Band"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Gențiana & Band",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "17:30",
+   "vege": null,
+   "nev": {
+    "ro": "Kilyén Ilka și Rițiu Krisztina – folclor",
+    "hu": "Kilyén Ilka és Rițiu Krisztina – népzene"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Kilyén Ilka și Rițiu Krisztina – folclor",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "18:00",
+   "vege": null,
+   "nev": {
+    "ro": "Favorite Cover Band (Jakab Csaba)",
+    "hu": "Favorite Cover Band (Jakab Csaba)"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Teatrului – Aleea Vinului",
+    "hu": "Színház Tér – Borsétány"
+   },
+   "fellepo": "Favorite Cover Band (Jakab Csaba)",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "18:00",
+   "vege": null,
+   "nev": {
+    "ro": "Ina Todoran și Ovidiu Furnea",
+    "hu": "Ina Todoran és Ovidiu Furnea"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Ina Todoran și Ovidiu Furnea",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "18:00",
+   "vege": null,
+   "nev": {
+    "ro": "Spectacol de teatru: „Viața e un poem”",
+    "hu": "Színházi előadás: „Az élet egy költemény”"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Palatul Culturii – Sala Mare",
+    "hu": "Kultúrpalota – Nagyterem"
+   },
+   "fellepo": "",
+   "fajta": "eloadas",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "18:20",
+   "vege": null,
+   "nev": {
+    "ro": "Joco Molnar & The Vagabonds",
+    "hu": "Joco Molnar & The Vagabonds"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Joco Molnar & The Vagabonds",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "19:00",
+   "vege": "23:00",
+   "nev": {
+    "ro": "Dr. Panda",
+    "hu": "Dr. Panda"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "STRADA GEORGE ENESCU – ENESCU CHILL ZONE",
+    "hu": "GEORGE ENESCU UTCA – ENESCU CHILL ZONE"
+   },
+   "fellepo": "Dr. Panda",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "19:10",
+   "vege": null,
+   "nev": {
+    "ro": "Koszika & Band",
+    "hu": "Koszika & Band"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Koszika & Band",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "20:00",
+   "vege": null,
+   "nev": {
+    "ro": "Kökény Attila",
+    "hu": "Kökény Attila"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Victoriei – Scena Principală",
+    "hu": "Győzelem Tér – Nagyszínpad"
+   },
+   "fellepo": "Kökény Attila",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "20:00",
+   "vege": null,
+   "nev": {
+    "ro": "Om la Lună",
+    "hu": "Om la Lună"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Om la Lună",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "20:50",
+   "vege": null,
+   "nev": {
+    "ro": "Lidia Buble",
+    "hu": "Lidia Buble"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Lidia Buble",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "21:30",
+   "vege": null,
+   "nev": {
+    "ro": "Voltaj",
+    "hu": "Voltaj"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Victoriei – Scena Principală",
+    "hu": "Győzelem Tér – Nagyszínpad"
+   },
+   "fellepo": "Voltaj",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "21:40",
+   "vege": null,
+   "nev": {
+    "ro": "Bosquito",
+    "hu": "Bosquito"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "Bosquito",
+   "fajta": "koncert",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": "2026-06-28",
+   "kezdes": "23:00",
+   "vege": null,
+   "nev": {
+    "ro": "Spectacol de artificii și închiderea oficială a Zilelor Târgumureșene 2026",
+    "hu": "Tűzijáték és a Marosvásárhelyi Napok 2026 hivatalos zárása"
+   },
+   "leiras": {},
+   "helyszin": {
+    "ro": "Piața Victoriei – Scena Principală",
+    "hu": "Győzelem Tér – Nagyszínpad"
+   },
+   "fellepo": "",
+   "fajta": "egyeb",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": null,
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "ro": "Aleea Vinului",
+    "hu": "Borsétány"
+   },
+   "leiras": {
+    "ro": "Degustări de vinuri · Produse tradiționale · Concerte acustice și folk",
+    "hu": "Borkóstolók · Hagyományos termékek · Akusztikus és folk koncertek"
+   },
+   "helyszin": {
+    "ro": "Aleea Vinului – Piața Teatrului",
+    "hu": "Borsétány – Színház tér"
+   },
+   "fellepo": "",
+   "fajta": "gasztro",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": null,
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "leiras": {
+    "ro": "Concerte · Activități pentru familii · Zone recreative · Gastronomie și relaxare",
+    "hu": "Koncertek · Családi programok · Pihenőzónák · Gasztronómia és kikapcsolódás"
+   },
+   "helyszin": {
+    "ro": "Cetatea Medievală",
+    "hu": "Középkori Vár"
+   },
+   "fellepo": "",
+   "fajta": "egyeb",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": null,
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "ro": "Enescu Chill Zone",
+    "hu": "Enescu Chill Zone"
+   },
+   "leiras": {
+    "ro": "Relaxare · Socializare · Atmosferă urbană și activități recreative",
+    "hu": "Kikapcsolódás · Közösségi élet · Városi hangulat és szabadidős tevékenységek"
+   },
+   "helyszin": {
+    "ro": "Strada George Enescu",
+    "hu": "George Enescu utca"
+   },
+   "fellepo": "",
+   "fajta": "egyeb",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  },
+  {
+   "nap": null,
+   "kezdes": null,
+   "vege": null,
+   "nev": {
+    "ro": "Târgul Meșteșugarilor",
+    "hu": "Kézművesvásár"
+   },
+   "leiras": {
+    "ro": "Peste 80 de expozanți · Produse artizanale și tradiționale",
+    "hu": "Több mint 80 kiállító · Kézműves és hagyományos termékek"
+   },
+   "helyszin": {
+    "ro": "Piața Trandafirilor",
+    "hu": "Rózsák tere"
+   },
+   "fellepo": "",
+   "fajta": "vasar",
+   "jegy": "",
+   "bizonytalan": false,
+   "aktiv": true
+  }
+ ]
+}

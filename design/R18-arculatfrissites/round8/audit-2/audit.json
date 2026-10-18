@@ -1,0 +1,169 @@
+{
+ "datum": "2026-10-11",
+ "mit": "R-18 3. kör · elrendezés-audit",
+ "matrix": "54 útvonal-változat × HU/RO/EN × 390/768/1024/1280/1440 × sötét/világos = 1620 lapnézet",
+ "ellenorzes": [
+  "vízszintes görgetés (a lap szélesebb a képernyőnél)",
+  "szöveg-túlcsordulás gombban, csempén, jelvényen, menüben (scrollWidth > clientWidth; a szándékos „…” nem hiba)",
+  "két sorba tört gombfelirat",
+  "átfedés két tartalmi elem között (gomb, mező, cím, bekezdés, kép)",
+  "flex-sor elemei nem egy vonalban (> 2 px)"
+ ],
+ "megjegyzes": "Helyi mérés a VM-ben (Postgres 18.4, éles build, teszt AI, a betűk rendszerbetűként). Előtte = ennek a körnek a kódja az elrendezés-javítások ELŐTT (benne az új Naptár menüponttal).",
+ "elotte": {
+  "kombinacio": 378,
+  "hibas_betoltes": 0,
+  "talalat": 40,
+  "tipus": {
+   "vizszintes-gorgetes": 0,
+   "ket-soros-gomb": 0,
+   "tulcsordulas": 0,
+   "atfedes": 0,
+   "elcsuszott-sor": 0,
+   "lebego-takar": 0,
+   "disz-takar": 0,
+   "nem-a-lap-vegen": 0,
+   "vj-fo-gombot-takar": 0,
+   "kilog": 40,
+   "halvany-takar": 0
+  },
+  "utvonal": {
+   "/poszt?munka=…": 16,
+   "/meghivo/ervenytelen-jegy": 24
+  },
+  "kulonbozo": [
+   {
+    "tipus": "kilog",
+    "ut": "/poszt?munka=…",
+    "elem": "button.r15-halk-gomb",
+    "szoveg": "More factual",
+    "adat": "eleje: 76 px ki a(z) div.r18p-chipek dobozból",
+    "db": 8,
+    "hol": [
+     "en/390/sötét",
+     "en/390/sötét",
+     "en/390/világos",
+     "en/390/világos"
+    ]
+   },
+   {
+    "tipus": "kilog",
+    "ut": "/poszt?munka=…",
+    "elem": "button.r15-halk-gomb",
+    "szoveg": "Közvetlenebbül",
+    "adat": "eleje: 11 px ki a(z) div.r18p-chipek dobozból",
+    "db": 8,
+    "hol": [
+     "hu/390/sötét",
+     "hu/390/sötét",
+     "hu/390/világos",
+     "hu/390/világos"
+    ]
+   },
+   {
+    "tipus": "kilog",
+    "ut": "/meghivo/ervenytelen-jegy",
+    "elem": "a.km-gomb",
+    "szoveg": "Sign in",
+    "adat": "eleje: 27 px ki a(z) div.km-hatter dobozból",
+    "db": 4,
+    "hol": [
+     "en/390/sötét",
+     "en/390/sötét",
+     "en/390/világos",
+     "en/390/világos"
+    ]
+   },
+   {
+    "tipus": "kilog",
+    "ut": "/meghivo/ervenytelen-jegy",
+    "elem": "a.km-gomb-szellem",
+    "szoveg": "Create account",
+    "adat": "eleje: 13 px ki a(z) div.km-hatter dobozból",
+    "db": 4,
+    "hol": [
+     "en/390/sötét",
+     "en/390/sötét",
+     "en/390/világos",
+     "en/390/világos"
+    ]
+   },
+   {
+    "tipus": "kilog",
+    "ut": "/meghivo/ervenytelen-jegy",
+    "elem": "a.km-gomb",
+    "szoveg": "Belépés",
+    "adat": "eleje: 27 px ki a(z) div.km-hatter dobozból",
+    "db": 4,
+    "hol": [
+     "hu/390/sötét",
+     "hu/390/sötét",
+     "hu/390/világos",
+     "hu/390/világos"
+    ]
+   },
+   {
+    "tipus": "kilog",
+    "ut": "/meghivo/ervenytelen-jegy",
+    "elem": "a.km-gomb-szellem",
+    "szoveg": "Fiók létrehozása",
+    "adat": "eleje: 13 px ki a(z) div.km-hatter dobozból",
+    "db": 4,
+    "hol": [
+     "hu/390/sötét",
+     "hu/390/sötét",
+     "hu/390/világos",
+     "hu/390/világos"
+    ]
+   },
+   {
+    "tipus": "kilog",
+    "ut": "/meghivo/ervenytelen-jegy",
+    "elem": "a.km-gomb",
+    "szoveg": "Conectare",
+    "adat": "eleje: 27 px ki a(z) div.km-hatter dobozból",
+    "db": 4,
+    "hol": [
+     "ro/390/sötét",
+     "ro/390/sötét",
+     "ro/390/világos",
+     "ro/390/világos"
+    ]
+   },
+   {
+    "tipus": "kilog",
+    "ut": "/meghivo/ervenytelen-jegy",
+    "elem": "a.km-gomb-szellem",
+    "szoveg": "Creează cont",
+    "adat": "eleje: 13 px ki a(z) div.km-hatter dobozból",
+    "db": 4,
+    "hol": [
+     "ro/390/sötét",
+     "ro/390/sötét",
+     "ro/390/világos",
+     "ro/390/világos"
+    ]
+   }
+  ]
+ },
+ "utana": {
+  "kombinacio": 1890,
+  "hibas_betoltes": 0,
+  "talalat": 0,
+  "tipus": {
+   "vizszintes-gorgetes": 0,
+   "ket-soros-gomb": 0,
+   "tulcsordulas": 0,
+   "atfedes": 0,
+   "elcsuszott-sor": 0,
+   "lebego-takar": 0,
+   "disz-takar": 0,
+   "nem-a-lap-vegen": 0,
+   "vj-fo-gombot-takar": 0,
+   "kilog": 0,
+   "halvany-takar": 0
+  },
+  "utvonal": {},
+  "kulonbozo": []
+ }
+}

@@ -1,0 +1,92 @@
+[
+ {
+  "lap": "arculat",
+  "nezet": "asztali",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "szavak": 45,
+  "fo": [
+   "Logó feltöltése"
+  ],
+  "cim": "Kezdjük a logóddal",
+  "melyseg": 1,
+  "takar": [],
+  "vizszintes": false
+ },
+ {
+  "lap": "arculat-nevlogo",
+  "nezet": "asztali",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "szavak": 20,
+  "fo": [
+   "Ez legyen"
+  ],
+  "cim": "Készítsünk egyet?",
+  "melyseg": 0,
+  "takar": [],
+  "vizszintes": false
+ },
+ {
+  "lap": "arculat-12c-nevlogo",
+  "nezet": "asztali",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "szavak": 37,
+  "fo": [
+   "Kép készítése"
+  ],
+  "cim": "Így készülnek a képeid",
+  "melyseg": 1,
+  "takar": [],
+  "vizszintes": false
+ },
+ {
+  "lap": "arculat",
+  "nezet": "telefon",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "szavak": 29,
+  "fo": [
+   "Logó feltöltése"
+  ],
+  "cim": "Kezdjük a logóddal",
+  "melyseg": 1,
+  "takar": [],
+  "vizszintes": false
+ },
+ {
+  "lap": "arculat-nevlogo",
+  "nezet": "telefon",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "szavak": 20,
+  "fo": [
+   "Ez legyen"
+  ],
+  "cim": "Készítsünk egyet?",
+  "melyseg": 0,
+  "takar": [],
+  "vizszintes": false
+ },
+ {
+  "lap": "arculat-nevlogo-stiinta",
+  "nezet": "asztali",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "szavak": 20,
+  "fo": [
+   "Ez legyen"
+  ],
+  "cim": "Készítsünk egyet?",
+  "melyseg": 0,
+  "takar": [],
+  "vizszintes": false
+ }
+]

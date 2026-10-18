@@ -1,0 +1,26 @@
+/* R-15 · 01 Belépés (design/R15/rajz/R15-lapok-4.dc.html): középre tett, 520 széles oszlop — kérdés-cím, (hiba-sor), teendő-lap. */
+.r15b-hatter::before, .r15b-hatter::after { display: none; } /* a rajzon nincs háttérfolt: a lap a sima --lap-bg */
+.r15b-hatter { background: var(--lap-bg); }
+.r15b-belso {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 520px; /* tokenőr: ok — R15 rajz 01: 520 széles oszlop */
+  margin: var(--ter-0) auto;
+  padding: var(--ter-14) var(--ter-0) var(--ter-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-10);
+}
+.r15b-kartya { padding: var(--ter-9) var(--ter-10); gap: var(--ter-8); }
+.r15b-kartya .km-cimke { color: var(--text-mut); }
+.r15b-gomb { width: 100%; }
+.r15b-baj-link { font-size: var(--fs-sm); color: var(--accent-link); }
+.r15b-reg { margin: var(--ter-0); font-size: var(--fs-sm); color: var(--text-mut); }
+.r15b-reg a { color: var(--accent-link); }
+@media (max-width: 640px) {
+  .r15b-belso { padding: var(--ter-9) var(--ter-4) var(--ter-6); gap: var(--ter-8); }
+  .r15b-kartya { padding: var(--ter-9); }
+  .r15b-fejlec { flex-wrap: nowrap; }
+  .r15b-fejlec .km-fejlec-bal { flex-wrap: nowrap; min-width: 0; }
+  .r15b-fejlec .km-cim { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}

@@ -1,0 +1,203 @@
+[
+ {
+  "lap": "03-kezdlap",
+  "cimke": "03 Kezdőlap",
+  "nezet": "asztali",
+  "ut": "/tmp/claude-0/-home-claude/f3d0dc73-fc09-596a-bfc4-759630ad8409/scratchpad/uj2/R15-tibor/rajz/R15-lapok-1.dc.html",
+  "zold": false,
+  "hibak": [
+   "T5 71 szó görgetés nélkül (≤ 60)"
+  ],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 71,
+   "cim": "Ma 2 poszt vár rád",
+   "fo": [
+    "Átnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "A díszburkolatos hírből\nNem is térkő, hanem díszbu",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03-kezdlap-asztali.png"
+ },
+ {
+  "lap": "03-kezdlap",
+  "cimke": "03 Kezdőlap",
+  "nezet": "telefon",
+  "ut": "/tmp/claude-0/-home-claude/f3d0dc73-fc09-596a-bfc4-759630ad8409/scratchpad/uj2/R15-tibor/rajz/R15-lapok-1.dc.html",
+  "zold": false,
+  "hibak": [
+   "T5 45 szó görgetés nélkül (≤ 40)"
+  ],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 45,
+   "cim": "Ma 2 poszt vár rád",
+   "fo": [
+    "Átnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "A díszburkolatos hírből\nNem is térkő, hanem díszbu",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03-kezdlap-telefon.png"
+ },
+ {
+  "lap": "04-hrek",
+  "cimke": "04 Hírek",
+  "nezet": "asztali",
+  "ut": "/tmp/claude-0/-home-claude/f3d0dc73-fc09-596a-bfc4-759630ad8409/scratchpad/uj2/R15-tibor/rajz/R15-lapok-1.dc.html",
+  "zold": false,
+  "hibak": [
+   "T5 68 szó görgetés nélkül (≤ 60)"
+  ],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 68,
+   "cim": "Nézd át a 2 kész posztot",
+   "fo": [
+    "Átnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "magyarepitok.hu\nNem is térkő, hanem díszburkolat!\n",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/04-hrek-asztali.png"
+ },
+ {
+  "lap": "04-hrek",
+  "cimke": "04 Hírek",
+  "nezet": "telefon",
+  "ut": "/tmp/claude-0/-home-claude/f3d0dc73-fc09-596a-bfc4-759630ad8409/scratchpad/uj2/R15-tibor/rajz/R15-lapok-1.dc.html",
+  "zold": false,
+  "hibak": [
+   "T5 44 szó görgetés nélkül (≤ 40)"
+  ],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 44,
+   "cim": "Nézd át a 2 kész posztot",
+   "fo": [
+    "Átnézem az elsőt"
+   ],
+   "melyseg": 1,
+   "melyPelda": "magyarepitok.hu\nNem is térkő, hanem díszburkolat!\n",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/04-hrek-telefon.png"
+ },
+ {
+  "lap": "08-posztszveg",
+  "cimke": "08 Posztszöveg",
+  "nezet": "asztali",
+  "ut": "/tmp/claude-0/-home-claude/f3d0dc73-fc09-596a-bfc4-759630ad8409/scratchpad/uj2/R15-tibor/rajz/R15-lapok-1.dc.html",
+  "zold": false,
+  "hibak": [
+   "T5 109 szó görgetés nélkül (≤ 60)"
+  ],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 109,
+   "cim": "Kész a posztod, nézd át",
+   "fo": [
+    "Kész, másolom"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Nem is térkő, hanem díszburkolat!\n\nSokan kérdezik,",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/08-posztszveg-asztali.png"
+ },
+ {
+  "lap": "08-posztszveg",
+  "cimke": "08 Posztszöveg",
+  "nezet": "telefon",
+  "ut": "/tmp/claude-0/-home-claude/f3d0dc73-fc09-596a-bfc4-759630ad8409/scratchpad/uj2/R15-tibor/rajz/R15-lapok-1.dc.html",
+  "zold": false,
+  "hibak": [
+   "T5 83 szó görgetés nélkül (≤ 40)"
+  ],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 83,
+   "cim": "Kész a posztod, nézd át",
+   "fo": [
+    "Kész, másolom"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Nem is térkő, hanem díszburkolat!\n\nSokan kérdezik,",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/08-posztszveg-telefon.png"
+ },
+ {
+  "lap": "08-posztszveg-2",
+  "cimke": "08 Posztszöveg",
+  "nezet": "telefon",
+  "ut": "/tmp/claude-0/-home-claude/f3d0dc73-fc09-596a-bfc4-759630ad8409/scratchpad/uj2/R15-tibor/rajz/R15-lapok-1.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 28,
+   "cim": "Kész a poszt!",
+   "fo": [
+    "Jöhet a következő (1 vár)"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/08-posztszveg-2-telefon.png"
+ }
+]

@@ -1,0 +1,19 @@
+{
+  "name": "@km/visszajelzes-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "tipus": "tsc --noEmit -p tsconfig.json",
+    "proba": "vitest run"
+  },
+  "dependencies": {
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "vitest": "5.0.0"
+  }
+}

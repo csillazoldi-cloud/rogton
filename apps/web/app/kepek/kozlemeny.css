@@ -1,0 +1,190 @@
+/* VZ-1 · Közlemények (design/VZ1-szerkeszto/rajz/VZ1-szerkeszto.dc.html; tokenek.md: nincs új token — az R-16/R-15 blokk, plusz
+   --kapcsolo-w/-h, --r-kerek, --valaszto-aktiv-bg/-border, --btn-disabled-bg). A <main> osztálya (km-vz1r) keret-tulajdonságot nem ad
+   (keretőr): a keretet a km-lap-keret adja; a belső elrendezés a gyerekeken. Telefonon a közös keret (r15-lapok.css): a tartalom a
+   Visszajelzés sávja fölött véget ér, alul a fő gomb sávja. */
+
+.km-vz1r { display: block; }
+.km-vz1r-fej { display: flex; flex-direction: column; gap: var(--ter-3); }
+.km-vz1r-vissza {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ter-3);
+  min-height: var(--control-min-s);
+  margin: calc(var(--ter-6) * -1) var(--ter-0) calc(var(--ter-4) * -1);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-strong);
+  color: var(--text-mut);
+  text-decoration: none;
+}
+.km-vz1r-vissza span { font-size: var(--fs-title); }
+.km-vz1r-vissza:hover { color: var(--text); text-decoration: none; }
+
+/* V1 — a választó */
+.km-vz1r-v1 { display: flex; flex-direction: column; gap: var(--ter-10); align-items: flex-start; }
+.km-vz1r-kartyak { display: grid; grid-template-columns: repeat(3, 248px); gap: var(--ter-8); } /* tokenőr: ok — VZ1 rajz V1 asztal: 248 px-es kártyák */
+.km-vz1r-kartya {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-6);
+  padding: var(--ter-8);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--bg-elev);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.km-vz1r-kartya-ki { border-color: var(--valaszto-aktiv-border); background: var(--valaszto-aktiv-bg); }
+.km-vz1r-minta { display: block; width: 100%; aspect-ratio: 1080 / 1350; object-fit: cover; border-radius: var(--r-field); }
+.km-vz1r-minta-vaz { background: var(--panel-soft); }
+.km-vz1r-kartya-szoveg { display: flex; flex-direction: column; gap: var(--ter-3); }
+.km-vz1r-kartya-nev { font-size: var(--fs-title); font-weight: var(--fw-strong); }
+.km-vz1r-kartya-mi { font-size: var(--fs-sm); color: var(--text-mut); }
+
+/* V2–V6 — a szerkesztő: balra a kérdések, jobbra a kép */
+.km-vz1r-racs { display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 440px); gap: var(--ter-13); align-items: start; } /* tokenőr: ok — VZ1 rajz V2 asztal: 600 px-es űrlap, 440 px-es kép */
+.km-vz1r-bal { display: flex; flex-direction: column; gap: var(--ter-10); min-width: 0; }
+.km-vz1r-jobb { display: flex; flex-direction: column; gap: var(--ter-4); min-width: 0; }
+.km-vz1r-kepblokk { display: flex; flex-direction: column; gap: var(--ter-4); }
+.km-vz1r-igy { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz1r-kep-hely { position: relative; }
+.km-vz1r-kep { display: block; width: 100%; aspect-ratio: 1080 / 1350; object-fit: contain; border-radius: var(--r-card); }
+.km-vz1r-kep-halvany { opacity: 0.4; }
+.km-vz1r-kep-vaz { background: var(--panel-soft); }
+.km-vz1r-kep-felirat {
+  position: absolute;
+  inset: auto var(--ter-0) var(--ter-8) var(--ter-0);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text);
+}
+.km-vz1r-kep-hiba {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ter-6);
+  aspect-ratio: 1080 / 1350;
+  padding: var(--ter-10);
+  border: var(--bw) solid var(--baj-border);
+  border-radius: var(--r-card);
+  background: var(--baj-bg);
+  color: var(--baj-text);
+  text-align: center;
+}
+.km-vz1r-kep-hiba p { margin: var(--ter-0); font-size: var(--fs-base); }
+
+.km-vz1r-urlap { gap: var(--ter-8); padding: var(--ter-10); }
+.km-vz1r-mezo { display: flex; flex-direction: column; gap: var(--ter-3); min-width: 0; }
+.km-vz1r-cimke { font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text); }
+.km-vz1r-cimke-sor { display: flex; align-items: baseline; gap: var(--ter-4); }
+.km-vz1r-gep { font-size: var(--fs-xs); color: var(--text-mut); }
+.km-vz1r-be {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-7);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--field-bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+}
+.km-vz1r-be-hosszu { padding: var(--ter-6) var(--ter-7); line-height: 1.45; resize: vertical; }
+.km-vz1r-be-baj { border-color: var(--baj-border); }
+.km-vz1r-be:disabled { opacity: 0.6; }
+.km-vz1r-hiba { font-size: var(--fs-sm); color: var(--baj-text); }
+
+.km-vz1r-valaszto { display: flex; gap: var(--ter-3); flex-wrap: wrap; }
+.km-vz1r-valasz {
+  min-height: var(--control-min-s);
+  padding: var(--ter-0) var(--ter-7);
+  border: var(--bw) solid var(--halk-gomb-border);
+  border-radius: var(--r-btn);
+  background: var(--halk-gomb-bg);
+  color: var(--text-mut);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+.km-vz1r-valasz-ki { border-color: var(--valaszto-aktiv-border); background: var(--valaszto-aktiv-bg); color: var(--text); font-weight: var(--fw-strong); }
+
+.km-vz1r-mikor { display: flex; align-items: center; gap: var(--ter-4); flex-wrap: wrap; }
+.km-vz1r-nap { position: relative; display: block; width: 170px; } /* tokenőr: ok — VZ1 rajz V2: a nap mezője 170 px */
+.km-vz1r-nap-szoveg { pointer-events: none; text-overflow: ellipsis; }
+.km-vz1r-nap-be { position: absolute; inset: var(--ter-0); width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.km-vz1r-ido { width: 84px; padding: var(--ter-0) var(--ter-5); font-variant-numeric: tabular-nums; } /* tokenőr: ok — VZ1 rajz V2: az időmezők 84 px-esek */
+.km-vz1r-kotojel { color: var(--text-mut); }
+.km-vz1r-pipa-be { display: flex; align-items: center; gap: var(--ter-3); font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz1r-pipa-be input { width: 18px; height: 18px; accent-color: var(--primary); } /* tokenőr: ok — VZ1 rajz V2/V3: 18 px-es jelölőnégyzet */
+
+.km-vz1r-sor { display: flex; align-items: center; gap: var(--ter-10); flex-wrap: wrap; }
+.km-vz1r-ro-kapcsolo { display: flex; align-items: center; gap: var(--ter-5); font-size: var(--fs-sm); }
+.km-vz1r-reszletek { display: flex; flex-wrap: wrap; gap: var(--ter-8); }
+.km-vz1r-mezo-kicsi { width: 200px; } /* tokenőr: ok — VZ1: a Részletek két kis mezője */
+.km-vz1r-szam { width: 120px; font-variant-numeric: tabular-nums; } /* tokenőr: ok — VZ1: a közlemény száma */
+
+.km-vz1r-savok { display: flex; flex-direction: column; gap: var(--ter-3); }
+.km-vz1r-sav-sor { display: grid; grid-template-columns: minmax(0, 1fr) 58px auto 24px; gap: var(--ter-4); align-items: center; } /* tokenőr: ok — VZ1 rajz V3: 58 px-es számmező, 24 px-es × */
+.km-vz1r-sav-szam { padding: var(--ter-0) var(--ter-5); text-align: right; font-variant-numeric: tabular-nums; }
+.km-vz1r-szazalek { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz1r-torles { width: 24px; height: 24px; padding: var(--ter-0); border: none; background: transparent; color: var(--text-mut); font-size: var(--fs-base); cursor: pointer; } /* tokenőr: ok — VZ1 rajz V3: a halk × */
+.km-vz1r-torles-hely { width: 24px; } /* tokenőr: ok — VZ1 rajz V3: a × helye */
+.km-vz1r-sav-baj { grid-column: 1 / -1; }
+
+/* a „Nem fér ki” mondat a kérdések kártyáján belül: csak a bal oldali jelzőcsík (nem doboz a dobozban — T6; VZ1 rajz V4) */
+.r15-baj.km-vz1r-baj { gap: var(--ter-5); border: none; border-left: 3px solid var(--baj-jel); border-radius: var(--r-field); } /* tokenőr: ok — VZ1 rajz V4: 3 px-es bal csík */
+.km-vz1r-baj strong { font-weight: var(--fw-strong); }
+
+.km-vz1r-letolt { display: flex; align-items: center; gap: var(--ter-8); }
+.r15-fo-gomb.km-vz1r-letolt-szurke:disabled { opacity: 1; background: var(--btn-disabled-bg); color: var(--text-faint); }
+.km-vz1r-tiltas { font-size: var(--fs-sm); color: var(--text-mut); }
+
+/* V5 — kész */
+.km-vz1r-kesz .km-vz1r-bal { gap: var(--ter-9); }
+.km-vz1r-pipa-sor { display: flex; align-items: center; gap: var(--ter-5); margin: var(--ter-0); font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz1r-pipa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-kerek);
+  background: var(--kesz-jel);
+  color: var(--bg);
+  font-weight: var(--fw-strong);
+} /* tokenőr: ok — VZ1 rajz V5: 28 px-es zöld pipa */
+.km-vz1r-kiesett { display: flex; flex-direction: column; gap: var(--ter-5); }
+.km-vz1r-kiesett-cim { font-size: var(--fs-sm); color: var(--text-mut); }
+.km-vz1r-kiesett-sorok { display: flex; flex-direction: column; gap: var(--ter-3); padding-left: var(--ter-6); border-left: var(--bw) solid var(--line); }
+.km-vz1r-kiesett-sorok p { display: flex; flex-direction: column; gap: var(--ter-2); margin: var(--ter-0); font-size: var(--fs-base); }
+.km-vz1r-halk { color: var(--text-mut); }
+.km-vz1r-linkek { display: flex; gap: var(--ter-9); flex-wrap: wrap; }
+.km-vz1r-kesz .km-vz1r-jobb { padding-top: var(--ter-0); }
+
+@media (max-width: 640px) {
+  .km-vz1r-kartyak { grid-template-columns: minmax(0, 1fr); gap: var(--ter-5); width: 100%; }
+  .km-vz1r-v1 { gap: var(--ter-8); align-items: stretch; }
+  .km-vz1r-kartya { flex-direction: row; align-items: center; gap: var(--ter-8); padding: var(--ter-6); }
+  .km-vz1r-kartya .km-vz1r-minta { width: 78px; flex: none; } /* tokenőr: ok — VZ1 rajz V1 telefon: 78 px-es mintakép */
+  .km-vz1r-racs { grid-template-columns: minmax(0, 1fr); gap: var(--ter-8); }
+  .km-vz1r-bal { gap: var(--ter-8); }
+  /* a baj idején a kérdések vannak elöl, a kép alattuk (VZ1 rajz V4 telefon) */
+  .km-vz1r-racs-baj .km-vz1r-tel-kep { order: 3; }
+  .km-vz1r-racs-baj .km-vz1r-urlap { order: 2; }
+  .km-vz1r-urlap { padding: var(--ter-8); gap: var(--ter-7); }
+  .km-vz1r-kep-hiba { aspect-ratio: auto; min-height: 480px; } /* tokenőr: ok — VZ1 rajz V6 telefon: a hiba-doboz magassága */
+  .km-vz1r-kesz-kep { width: 170px; } /* tokenőr: ok — VZ1 rajz V5 telefon: 170 px-es kép */
+  .km-vz1r-kesz-kep .km-vz1r-kep { border-radius: var(--r-field); }
+  /* a tiltás mondata a fő gomb ALATT, a sávban (VZ1 rajz V6 telefon): a sáv egy sorral magasabb, ezért a Visszajelzés gomb és a keret alja
+     is ennyivel feljebb kerül (a közös keret szabálya, r15-lapok.css, kiegészítve) — a lebegő gomb így semmit nem takar (T10) */
+  .km-vz1r-tiltas-tel { text-align: left; line-height: 1.4; }
+  html body:has(.km-vz1r-tiltas-tel) .km-vj-gomb { bottom: calc(var(--fo-gomb-min) + var(--ter-6) + var(--ter-9) + var(--ter-4) + var(--fs-sm) * 1.4 + var(--ter-3)); }
+  html body:has(> .km-lap-keret .r15-also-sav):not(:has(> .km-lap-keret ~ .km-lap-keret)):has(.km-vz1r-tiltas-tel) > .km-lap-keret {
+    margin-bottom: calc(var(--fo-gomb-min) + var(--ter-6) + var(--ter-9) + var(--lebego-hely-tel) + var(--fs-sm) * 1.4 + var(--ter-3));
+  }
+  .km-vz1r-nap { width: 150px; } /* tokenőr: ok — VZ1 rajz V2 telefon: a nap mezője */
+}

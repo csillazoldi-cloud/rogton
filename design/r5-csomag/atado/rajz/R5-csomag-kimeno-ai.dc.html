@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0d13; --bg-elev:#12141c; --text:#e8ebf1; --text-mut:#9aa3b2; --text-dim:#7a8496; --text-faint:#6b7484;
+  --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff;
+  --accent:#ff4520; --accent-text:#ff7a55; --accent-link:#ff6a40;
+  --ok:#7fe0a0; --err:#ffb3a3; --focus:#8a98ff; --shadow-color:#000000; --shadow-strength:45;
+  --font-display:'Archivo',sans-serif; --font-body:'Public Sans',sans-serif; --font-code:'IBM Plex Mono',monospace;
+  --fw-head:700; --fw-strong:600;
+  --fs-h1:34px; --fs-base:15px; --fs-title:16px;
+  --r-card:10px; --r-block:10px; --r-btn:6px; --r-field:6px; --r-badge:4px; --bw:1px;
+  --control-min:44px; --blur-glass:28px; --glass-alpha:10; --motion:normal;
+  --lh:1.55; --sat-glass:150%;
+
+  --ter-0:0px; --ter-1:2px; --ter-2:4px; --ter-3:6px; --ter-4:8px; --ter-5:10px;
+  --ter-6:12px; --ter-7:14px; --ter-8:16px; --ter-9:20px; --ter-10:24px;
+  --ter-11:32px; --ter-12:40px; --ter-13:56px; --ter-14:80px;
+
+  --gap:var(--ter-6); --pad-card:var(--ter-11); --pad-block:var(--ter-9);
+  --pad-field-y:var(--ter-6); --pad-field-x:var(--ter-7);
+  --btn-pad-y:var(--ter-6); --btn-pad-x:var(--ter-10);
+
+  --font-display-active:var(--font-display); --font-body-active:var(--font-body); --font-code-active:var(--font-code);
+  --grad-primary:linear-gradient(120deg,var(--primary),var(--primary-2));
+  --accent-tint-weak:color-mix(in srgb, var(--accent) 9%, transparent);
+  --accent-border-soft:color-mix(in srgb, var(--accent) 45%, transparent);
+  --focus-ring:color-mix(in srgb, var(--focus) 30%, transparent);
+  --ok-strong:var(--ok); --ok-bg:color-mix(in srgb, var(--ok) 13%, transparent);
+  --err-strong:var(--err); --err-bg:color-mix(in srgb, var(--err) 10%, transparent); --err-border:color-mix(in srgb, var(--err) 30%, transparent);
+  --warn:var(--accent-text); --warn-border:color-mix(in srgb, var(--accent-text) 30%, transparent); --warn-bg:color-mix(in srgb, var(--accent) 8%, transparent);
+  --src-user:var(--ok); --src-user-bg:color-mix(in srgb, var(--ok) 13%, transparent);
+  --src-web:var(--primary-2); --src-web-bg:color-mix(in srgb, var(--primary-2) 15%, transparent);
+  --src-ai:var(--accent-text); --src-ai-bg:color-mix(in srgb, var(--accent) 20%, transparent);
+  --src-empty:var(--text-faint); --src-empty-bg:color-mix(in srgb, var(--text) 7%, transparent);
+  --line:color-mix(in srgb, var(--text) 10%, transparent); --line-soft:color-mix(in srgb, var(--text) 7%, transparent); --line-dash:color-mix(in srgb, var(--text) 15%, transparent);
+  --field-bg:color-mix(in srgb, var(--text) 5%, transparent); --field-border:color-mix(in srgb, var(--text) 14%, transparent);
+  --panel-soft:color-mix(in srgb, var(--text) 2%, transparent); --panel-soft-2:color-mix(in srgb, var(--text) 4%, transparent);
+  --btn-ghost-bg:color-mix(in srgb, var(--text) 5%, transparent); --btn-ghost-border:color-mix(in srgb, var(--text) 14%, transparent);
+  --btn-ghost-text:color-mix(in srgb, var(--text) 85%, var(--bg)); --btn-ghost-hover:color-mix(in srgb, var(--text) 10%, transparent);
+  --fs-h2:24px; --fs-md:14px; --fs-sm:13px; --fs-xs:12px; --control-min-s:36px;
+  --dur-fast:0.2s;
+  --gap-tile:var(--ter-7); --pad-tile:var(--ter-8); --tile-min:300px; --fs-metric:30px;
+
+  --keszul:#9fb0d8;
+  --keszul-bg:color-mix(in srgb, var(--keszul) 11%, transparent);
+  --keszul-border:color-mix(in srgb, var(--keszul) 34%, transparent);
+  --olvasatlan:var(--primary-2);
+  --kapcsolo-w:38px; --kapcsolo-h:22px;
+}
+body{margin:0;background:#06070b;color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-base);line-height:var(--lh);}
+a{color:var(--accent-link);text-decoration:none;}
+a:hover{color:var(--accent-text);text-decoration:underline;}
+</style>
+</helmet>
+
+<div style="padding:var(--ter-13) var(--ter-13) var(--ter-14);display:flex;flex-direction:column;gap:var(--ter-13);">
+
+  <div style="display:flex;flex-direction:column;gap:var(--ter-3);max-width:900px;">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.06em;">R-5 · CSOMAG · KIMENŐ ÉRTESÍTÉSEK · AI-KAPCSOLÓ — v1 · 2026-09-13</div>
+    <div style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h1);color:var(--text);">Hét artboard</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);">Három dolog, egy körben: a <span style="color:var(--text);">Csomag</span> csempe és a <span style="color:var(--text);">Kimenő értesítések</span> csempe a Gépház rácsába, a Kimenő értesítések saját lapja két szerepben, és az <span style="color:var(--text);">AI-kapcsoló</span> az Adatpolitika fülön, a felhő-kapcsoló doboza mellett. Tokenkészlet az R-1 v4 <span style="font-family:var(--font-code-active);font-size:var(--fs-sm);">:root</span>-ja és az R-4 hat tokenje — <strong>új token nem kell</strong>. A felirat-kulcsok a <span style="font-family:var(--font-code-active);font-size:var(--fs-sm);">data-fkulcs</span> attribútumban állnak. Ár, fizetés, számla, csomagváltás nincs a rajzon (D-F35).</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-6);"><strong>Amit a rajz eldöntött</strong> (a kérdések 1–3): a kimenő lista sorain <strong>háromállású választó</strong> áll (örökli · kimenő · nincs), nem két kapcsoló — 25 sorral egyetlen szem-oszlop olvashatóbb, és az „örökli" így a lista saját nyelvén látszik, nem egy külön jelölőnégyzet mögött. A <strong>Csomag csempe a rács első helyén</strong> áll a tulajdonosnál: nincs benne tennivaló, de erre a kérdésre („mi az enyém?") jön be az ember a Gépházba. A Kezdőképernyő <strong>nem kap új jelzést</strong> a kikapcsolt AI-ról — a 06. artboard sávja ott áll, ahol a hiány számít.</div>
+  </div>
+
+  <section data-screen-label="01">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">1 · GÉPHÁZ, TULAJDONOS · asztali 1440 · a mai két csempe mellé kettő új</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--gap);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div style="display:flex;align-items:center;gap:var(--ter-5);flex:none;white-space:nowrap;">
+          <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+          <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+          <span aria-hidden="true" style="color:var(--text-faint);font-size:var(--fs-sm);">·</span>
+          <button type="button" aria-expanded="false" style="display:flex;align-items:center;gap:var(--ter-4);min-height:var(--control-min-s);box-sizing:border-box;padding:var(--ter-0) var(--ter-6);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;">
+            <span data-fkulcs="nav.munkater_nev">Aitmetica SRL</span>
+            <span aria-hidden="true" style="color:var(--text-mut);font-size:var(--fs-xs);">▾</span>
+          </button>
+        </div>
+        <nav aria-label="Fő navigáció" style="display:flex;gap:var(--ter-1);background:var(--field-bg);border:var(--bw) solid var(--line-soft);border-radius:var(--r-btn);padding:var(--ter-2);">
+          <a href="#" data-fkulcs="nav.kezdolap" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;text-decoration:none;color:var(--text-mut);">Kezdőképernyő</a>
+          <span data-fkulcs="nav.modulok" style="display:flex;align-items:center;gap:var(--ter-3);border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;color:var(--text-mut);">Modulok <span aria-hidden="true" style="font-size:var(--fs-xs);">▾</span></span>
+          <a href="#" data-fkulcs="nav.ugyfelprofil" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;text-decoration:none;color:var(--text-mut);">Ügyfélprofil</a>
+          <span data-fkulcs="nav.gephaz" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;background:var(--grad-primary);color:var(--on-primary);font-weight:var(--fw-strong);">Gépház</span>
+        </nav>
+        <div style="display:flex;align-items:center;gap:var(--ter-5);flex:none;white-space:nowrap;">
+          <span data-fkulcs="nav.szerep_tulajdonos" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-ai);background:var(--src-ai-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">tulajdonos</span>
+          <a href="#" data-fkulcs="nav.sajat_fiok" style="color:var(--btn-ghost-text);text-decoration:none;font-size:var(--fs-sm);">Portik Vilmos</a>
+          <button type="button" data-fkulcs="nav.kilepes" style="min-height:var(--control-min-s);box-sizing:border-box;padding:var(--ter-3) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;">Kilépés</button>
+        </div>
+      </div>
+
+      <div style="padding:var(--ter-9) var(--ter-10) var(--ter-13);display:flex;flex-direction:column;gap:var(--ter-9);">
+        <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+          <h1 data-fkulcs="gephaz.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);">Gépház</h1>
+          <span data-fkulcs="gephaz.bevezeto" style="font-size:var(--fs-md);color:var(--text-mut);">A munkatér közös beállításai.</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--tile-min),1fr));gap:var(--gap-tile);align-items:stretch;">
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="csomag.cim" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Csomag</span>
+            <span data-fkulcs="csomag.pilot_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">Pilot</span>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+              <span data-fkulcs="csomag.modulok_cimke" style="font-size:var(--fs-sm);color:var(--text-dim);">Modulok</span>
+              <span data-fkulcs="hf.modTitle" style="font-size:var(--fs-md);color:var(--text);">Hírfigyelő</span>
+              <span data-fkulcs="csomag.benne" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--ok-strong);background:var(--ok-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">benne</span>
+            </div>
+            <span data-fkulcs="csomag.pilot_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A pilot csomag: a Hírfigyelő modul, ár és fizetés nélkül. Az árazás a pilot után dől el.</span>
+            <div style="margin-top:auto;display:flex;flex-direction:column;gap:var(--ter-3);border:var(--bw) dashed var(--keszul-border);border-radius:var(--r-field);background:var(--keszul-bg);padding:var(--ter-6);">
+              <span style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+                <span data-fkulcs="csomag.arazas_cim" style="font-size:var(--fs-md);color:var(--text);">Árazás és fizetés</span>
+                <span data-fkulcs="jelzes.meg_nem_mukodik" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--keszul);border:var(--bw) solid var(--keszul-border);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">még nem működik</span>
+              </span>
+              <span data-fkulcs="csomag.arazas_miert" style="font-size:var(--fs-sm);color:var(--text-mut);">A pilot után dől el. Amíg nincs ár, a csomag nem jár le, és nem kér fizetést.</span>
+            </div>
+            <span data-fkulcs="rajz.csomag_nincs_link" style="font-size:var(--fs-xs);color:var(--text-dim);">A rajz jegyzete: ez az egyetlen csempe „→" nélkül. Nincs hova vinnie — a csomag ma nem állítható, a csempe a teljes mondanivalóját itt mondja el. Hivatkozás csak akkor kerül rá, ha lesz mögötte lap.</span>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="kimeno.cim" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Kimenő értesítések</span>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <span aria-hidden="true" style="width:var(--ter-4);height:var(--ter-4);border-radius:50%;background:var(--ok-strong);flex:none;"></span>
+              <span data-fkulcs="kimeno.bekotve" style="font-size:var(--fs-md);color:var(--text);">A kimenő csatorna be van kötve</span>
+            </div>
+            <span data-fkulcs="kimeno.kimeno_szam" style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">2 eseményről megy ki üzenet</span>
+            <span data-fkulcs="kimeno.megj" style="font-size:var(--fs-sm);color:var(--text-mut);">Egy rövid üzenet megy ki egy webes horogra, ha a kiválasztott események megtörténnek. A tartalom soha nem megy ki, csak a fajta és egy mondat.</span>
+            <a href="#" data-fkulcs="kimeno.megnyitas" style="margin-top:auto;font-size:var(--fs-md);font-weight:var(--fw-strong);">Beállítás →</a>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="gephaz.koltseg_cim" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Költség</span>
+            <span style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">[ÖSSZEG]</span>
+            <span data-fkulcs="gephaz.koltseg_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A havi AI-keret és ami eddig elfogyott belőle.</span>
+            <a href="#" data-fkulcs="gephaz.koltseg_link" style="margin-top:auto;font-size:var(--fs-md);font-weight:var(--fw-strong);">Megnyitás →</a>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="gephaz.munkater_cim" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Munkatér</span>
+            <span style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">Aitmetica SRL</span>
+            <span data-fkulcs="gephaz.munkater_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A munkatér neve és a pénznem.</span>
+            <a href="#" data-fkulcs="gephaz.munkater_link" style="margin-top:auto;font-size:var(--fs-md);font-weight:var(--fw-strong);">Megnyitás →</a>
+          </div>
+        </div>
+
+        <span data-fkulcs="rajz.racs_megj" style="font-size:var(--fs-xs);color:var(--text-dim);border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-6);max-width:80ch;">A rajz jegyzete: a rács a meglévő <span style="font-family:var(--font-code-active);">--tile-min</span> szerint tördel, a csempék felépítése a meglévőké (cím · mérőszám · egy mondat · „→"). A <strong>Csomag az első helyen</strong> áll: erre a kérdésre jön be az ember a Gépházba. A néző a Gépházt nem látja.</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="02">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">2 · GÉPHÁZ, RENDSZERGAZDA · asztali 1440 · hat csempe, a két új a közös alapról szól</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+        <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+        <span data-fkulcs="sajat.gazda_jelveny" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-ai);background:var(--src-ai-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">rendszergazda</span>
+        <span data-fkulcs="rajz.sav_rovidites" style="margin-inline-start:auto;font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">a sáv a 1. artboard szerint</span>
+      </div>
+
+      <div style="padding:var(--ter-9) var(--ter-10) var(--ter-13);display:flex;flex-direction:column;gap:var(--ter-9);">
+        <h1 data-fkulcs="gephaz.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);">Gépház</h1>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--tile-min),1fr));gap:var(--gap-tile);align-items:stretch;">
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="csomag.cim" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Csomag</span>
+            <span data-fkulcs="csomag.pilot_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">Pilot</span>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+              <span data-fkulcs="csomag.modulok_cimke" style="font-size:var(--fs-sm);color:var(--text-dim);">Modulok</span>
+              <span data-fkulcs="hf.modTitle" style="font-size:var(--fs-md);color:var(--text);">Hírfigyelő</span>
+              <span data-fkulcs="csomag.benne" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--ok-strong);background:var(--ok-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">benne</span>
+            </div>
+            <span data-fkulcs="csomag.pilot_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A pilot csomag: a Hírfigyelő modul, ár és fizetés nélkül. Az árazás a pilot után dől el.</span>
+            <span data-fkulcs="csomag.rendszergazda_megj" style="font-size:var(--fs-sm);color:var(--text-dim);border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-6);">Ma minden munkatér a Pilot csomagban van. Csomagváltás nincs — a pilot után.</span>
+            <div style="margin-top:auto;display:flex;flex-direction:column;gap:var(--ter-3);border:var(--bw) dashed var(--keszul-border);border-radius:var(--r-field);background:var(--keszul-bg);padding:var(--ter-6);">
+              <span style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+                <span data-fkulcs="csomag.arazas_cim" style="font-size:var(--fs-md);color:var(--text);">Árazás és fizetés</span>
+                <span data-fkulcs="jelzes.meg_nem_mukodik" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--keszul);border:var(--bw) solid var(--keszul-border);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">még nem működik</span>
+              </span>
+              <span data-fkulcs="csomag.arazas_miert" style="font-size:var(--fs-sm);color:var(--text-mut);">A pilot után dől el. Amíg nincs ár, a csomag nem jár le, és nem kér fizetést.</span>
+            </div>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="kimeno.cim" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Kimenő értesítések</span>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <span aria-hidden="true" style="width:var(--ter-4);height:var(--ter-4);border-radius:50%;background:var(--ok-strong);flex:none;"></span>
+              <span data-fkulcs="kimeno.bekotve" style="font-size:var(--fs-md);color:var(--text);">A kimenő csatorna be van kötve</span>
+            </div>
+            <span data-fkulcs="kimeno.kozos_szam" style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">a közös alap: 0 eseményről megy ki üzenet</span>
+            <span data-fkulcs="kimeno.megj" style="font-size:var(--fs-sm);color:var(--text-mut);">Egy rövid üzenet megy ki egy webes horogra, ha a kiválasztott események megtörténnek. A tartalom soha nem megy ki, csak a fajta és egy mondat.</span>
+            <a href="#" data-fkulcs="kimeno.megnyitas" style="margin-top:auto;font-size:var(--fs-md);font-weight:var(--fw-strong);">Beállítás →</a>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="gazda.fiokok" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Fiókok</span>
+            <span style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">[N]</span>
+            <span data-fkulcs="gephaz.fiokok_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A rendszer fiókjai és a munkatereik.</span>
+            <a href="#" data-fkulcs="gephaz.fiokok_link" style="margin-top:auto;font-size:var(--fs-md);font-weight:var(--fw-strong);">Megnyitás →</a>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="gazda.theme" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Theme</span>
+            <span style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">[TÉMA]</span>
+            <span data-fkulcs="gephaz.theme_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A közös szín-, betű- és méretkészlet.</span>
+            <a href="#" data-fkulcs="gephaz.theme_link" style="margin-top:auto;font-size:var(--fs-md);font-weight:var(--fw-strong);">Megnyitás →</a>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="gazda.feliratok" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Feliratok</span>
+            <span style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">hu · ro · en</span>
+            <span data-fkulcs="gephaz.feliratok_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A felület szövegei három nyelven.</span>
+            <a href="#" data-fkulcs="gephaz.feliratok_link" style="margin-top:auto;font-size:var(--fs-md);font-weight:var(--fw-strong);">Megnyitás →</a>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-6);">
+            <span data-fkulcs="gephaz.koltseg_cim" style="font-size:var(--fs-sm);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Költség</span>
+            <span style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-metric);color:var(--text);line-height:1.1;">[ÖSSZEG]</span>
+            <span data-fkulcs="gephaz.koltseg_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A havi AI-keret és ami eddig elfogyott belőle.</span>
+            <a href="#" data-fkulcs="gephaz.koltseg_link" style="margin-top:auto;font-size:var(--fs-md);font-weight:var(--fw-strong);">Megnyitás →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="03">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">3 · KIMENŐ ÉRTESÍTÉSEK LAPJA — TULAJDONOS · asztali 1440 · /gephaz/kimeno · a 25 fajta, öt csoportban</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+        <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+        <span data-fkulcs="nav.szerep_tulajdonos" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-ai);background:var(--src-ai-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">tulajdonos</span>
+        <span data-fkulcs="rajz.sav_rovidites" style="margin-inline-start:auto;font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">a sáv a 1. artboard szerint</span>
+      </div>
+
+      <div style="padding:var(--ter-8) var(--ter-10) var(--ter-13);display:flex;flex-direction:column;gap:var(--ter-8);">
+        <a href="#" data-fkulcs="kimeno.vissza" style="align-self:flex-start;font-size:var(--fs-sm);">← Gépház</a>
+
+        <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+          <h1 data-fkulcs="kimeno.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);">Kimenő értesítések</h1>
+          <span data-fkulcs="kimeno.megj" style="font-size:var(--fs-md);color:var(--text-mut);max-width:80ch;">Egy rövid üzenet megy ki egy webes horogra, ha a kiválasztott események megtörténnek. A tartalom soha nem megy ki, csak a fajta és egy mondat.</span>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-4);max-width:80ch;">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);">
+            <span aria-hidden="true" style="width:var(--ter-4);height:var(--ter-4);border-radius:50%;background:var(--ok-strong);flex:none;"></span>
+            <span data-fkulcs="kimeno.bekotve" style="font-size:var(--fs-md);font-weight:var(--fw-strong);color:var(--text);">A kimenő csatorna be van kötve</span>
+          </div>
+          <span data-fkulcs="kimeno.csatorna_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A horog címét a rendszergazda állítja be a kiszolgálón; a felületen nem látszik. Ha nincs bekötve, a beállítás megmarad, és él, amint a csatorna bekötődik.</span>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);overflow:hidden;">
+          <div style="display:grid;grid-template-columns:2fr 140px 300px 160px;gap:var(--ter-8);align-items:center;padding:var(--ter-5) var(--pad-tile);background:var(--panel-soft-2);border-bottom:var(--bw) solid var(--line-soft);">
+            <span data-fkulcs="kimeno.fejlec_esemeny" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Esemény</span>
+            <span data-fkulcs="kimeno.fejlec_alap" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Közös alap</span>
+            <span data-fkulcs="kimeno.fejlec_munkater" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Ebben a munkatérben</span>
+            <span data-fkulcs="kimeno.fejlec_hatasos" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Ami érvényes</span>
+          </div>
+
+          <sc-for list="{{ csoportok }}" as="cs" hint-placeholder-count="5">
+            <div>
+              <div style="padding:var(--ter-7) var(--pad-tile) var(--ter-4);border-bottom:var(--bw) solid var(--line-soft);background:var(--panel-soft-2);">
+                <span style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--text);">{{ cs.cim }}</span>
+              </div>
+              <sc-for list="{{ cs.sorok }}" as="s" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:2fr 140px 300px 160px;gap:var(--ter-8);align-items:center;padding:var(--ter-5) var(--pad-tile);border-bottom:var(--bw) solid var(--line-soft);">
+                  <span style="min-width:0;display:flex;flex-direction:column;gap:var(--ter-1);">
+                    <span style="font-size:var(--fs-md);color:var(--text);">{{ s.cim }}</span>
+                    <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">{{ s.kod }}</span>
+                  </span>
+                  <span style="font-size:var(--fs-sm);color:var(--text-dim);">{{ s.alap }}</span>
+                  <span style="display:flex;gap:var(--ter-1);background:var(--field-bg);border:var(--bw) solid var(--line-soft);border-radius:var(--r-btn);padding:var(--ter-2);">
+                    <span style="flex:1 1 0;text-align:center;border-radius:var(--r-btn);padding:var(--ter-3) var(--ter-4);font-size:var(--fs-sm);white-space:nowrap;cursor:pointer;background:{{ s.o_bg }};color:{{ s.o_fg }};">örökli</span>
+                    <span style="flex:1 1 0;text-align:center;border-radius:var(--r-btn);padding:var(--ter-3) var(--ter-4);font-size:var(--fs-sm);white-space:nowrap;cursor:pointer;background:{{ s.k_bg }};color:{{ s.k_fg }};">kimenő</span>
+                    <span style="flex:1 1 0;text-align:center;border-radius:var(--r-btn);padding:var(--ter-3) var(--ter-4);font-size:var(--fs-sm);white-space:nowrap;cursor:pointer;background:{{ s.n_bg }};color:{{ s.n_fg }};">nincs</span>
+                  </span>
+                  <span style="display:flex;align-items:center;gap:var(--ter-4);">
+                    <span aria-hidden="true" style="width:var(--ter-4);height:var(--ter-4);border-radius:50%;flex:none;background:{{ s.h_pont }};"></span>
+                    <span style="font-size:var(--fs-sm);color:{{ s.h_fg }};">{{ s.hatasos }}</span>
+                  </span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--ter-7);flex-wrap:wrap;">
+          <button type="button" data-fkulcs="kimeno.mentes" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:pointer;">Beállítás mentése</button>
+          <span data-fkulcs="kimeno.mentve" style="font-size:var(--fs-sm);color:var(--text-dim);">Mentve 10:12</span>
+          <span data-fkulcs="rajz.mentes_megj" style="font-size:var(--fs-xs);color:var(--text-dim);">A rajz jegyzete: a mentés csak a <strong>felülírt</strong> fajtákat küldi; az „örökli" állású sorok kimaradnak a törzsből. A mintaadat két felülírt sort mutat (<span style="font-family:var(--font-code-active);">futas_hiba</span>, <span style="font-family:var(--font-code-active);">keret_kimerult</span>) — ezért áll a Gépház csempéjén „2 eseményről megy ki üzenet". A pilot alapállapota: minden sor „örökli", a csempén 0.</span>
+        </div>
+
+        <div style="border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-8);display:flex;align-items:center;gap:var(--ter-6);flex-wrap:wrap;max-width:90ch;">
+          <span data-fkulcs="kimeno.nem_ugyanaz" style="font-size:var(--fs-sm);color:var(--text-mut);">Ez a munkatér külső csatornája. Hogy neked a felületen miről szóljunk, azt a Beállítások → Értesítések fülön állítod.</span>
+          <a href="#" data-fkulcs="nav.beallitasok" style="font-size:var(--fs-md);font-weight:var(--fw-strong);">Beállítások →</a>
+        </div>
+
+        <span data-fkulcs="rajz.belepesi_kiserletek_megj" style="font-size:var(--fs-xs);color:var(--text-dim);">A rajz jegyzete: a <span style="font-family:var(--font-code-active);">belepesi_kiserletek</span> sor a tulajdonos lapján <strong>nincs ott</strong> — rendszerszintű esemény, csak a rendszergazda lapján (04. artboard) szerepel. A választó háromállású: az „örökli" azt jelenti, hogy a sor a közös alapot követi, és ha a rendszergazda átállítja, ez a sor vele mozdul.</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="04">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">4 · KIMENŐ ÉRTESÍTÉSEK LAPJA — RENDSZERGAZDA · asztali 1440 · a közös alap, kapcsolóval</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+        <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+        <span data-fkulcs="sajat.gazda_jelveny" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-ai);background:var(--src-ai-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">rendszergazda</span>
+        <span data-fkulcs="rajz.sav_rovidites" style="margin-inline-start:auto;font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">a sáv a 1. artboard szerint</span>
+      </div>
+
+      <div style="padding:var(--ter-8) var(--ter-10) var(--ter-13);display:flex;flex-direction:column;gap:var(--ter-8);">
+        <a href="#" data-fkulcs="kimeno.vissza" style="align-self:flex-start;font-size:var(--fs-sm);">← Gépház</a>
+        <h1 data-fkulcs="kimeno.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);">Kimenő értesítések</h1>
+        <span data-fkulcs="kimeno.kozos_megj" style="font-size:var(--fs-md);color:var(--text-mut);max-width:80ch;">A közös alap minden munkatérre érvényes, ahol a tulajdonos nem ír felül. Alapból semmiről nem megy ki üzenet.</span>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);overflow:hidden;max-width:900px;">
+          <div style="display:grid;grid-template-columns:1fr 200px;gap:var(--ter-8);align-items:center;padding:var(--ter-5) var(--pad-tile);background:var(--panel-soft-2);border-bottom:var(--bw) solid var(--line-soft);">
+            <span data-fkulcs="kimeno.fejlec_esemeny" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Esemény</span>
+            <span data-fkulcs="kimeno.fejlec_alap" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Közös alap</span>
+          </div>
+          <sc-for list="{{ gazda_csoportok }}" as="cs" hint-placeholder-count="5">
+            <div>
+              <div style="padding:var(--ter-7) var(--pad-tile) var(--ter-4);border-bottom:var(--bw) solid var(--line-soft);background:var(--panel-soft-2);">
+                <span style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--text);">{{ cs.cim }}</span>
+              </div>
+              <sc-for list="{{ cs.sorok }}" as="s" hint-placeholder-count="5">
+                <label style="display:grid;grid-template-columns:1fr 200px;gap:var(--ter-8);align-items:center;padding:var(--ter-5) var(--pad-tile);border-bottom:var(--bw) solid var(--line-soft);cursor:pointer;min-height:var(--control-min);box-sizing:border-box;">
+                  <span style="min-width:0;display:flex;flex-direction:column;gap:var(--ter-1);">
+                    <span style="font-size:var(--fs-md);color:var(--text);">{{ s.cim }}</span>
+                    <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">{{ s.kod }}</span>
+                  </span>
+                  <span style="display:flex;align-items:center;gap:var(--ter-6);">
+                    <span aria-hidden="true" style="flex:none;width:var(--kapcsolo-w);height:var(--kapcsolo-h);border-radius:var(--kapcsolo-h);box-sizing:border-box;padding:var(--ter-1);display:flex;align-items:center;border:var(--bw) solid var(--field-border);background:{{ s.g_bg }};justify-content:{{ s.g_all }};">
+                      <span style="width:calc(var(--kapcsolo-h) - var(--ter-4));height:calc(var(--kapcsolo-h) - var(--ter-4));border-radius:50%;background:{{ s.g_gomb }};"></span>
+                    </span>
+                    <span style="font-size:var(--fs-sm);color:{{ s.g_fg }};">{{ s.alap }}</span>
+                  </span>
+                </label>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--ter-7);flex-wrap:wrap;">
+          <button type="button" data-fkulcs="kimeno.mentes" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:pointer;">Beállítás mentése</button>
+          <span data-fkulcs="kimeno.mentve" style="font-size:var(--fs-sm);color:var(--text-dim);">Mentve 10:12</span>
+        </div>
+
+        <span data-fkulcs="rajz.gazda_lap_megj" style="font-size:var(--fs-xs);color:var(--text-dim);border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-6);max-width:90ch;">A rajz jegyzete: itt <strong>nincs</strong> „ebben a munkatérben" oszlop és nincs „ami érvényes" oszlop — a közös alap maga az érvényes mindenütt, ahol a tulajdonos nem ír felül. A <span style="font-family:var(--font-code-active);">belepesi_kiserletek</span> sor <strong>csak itt</strong> van, a Fiók és belépés csoport végén.</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="05">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">5 · ADATPOLITIKA FÜL — AZ AI-KAPCSOLÓ · asztali 1440 · A: bekapcsolva · B: kikapcsolva · a felhő-kapcsoló doboza mellett</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+        <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+        <span data-fkulcs="nav.szerep_tulajdonos" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-ai);background:var(--src-ai-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">tulajdonos</span>
+        <span data-fkulcs="rajz.sav_rovidites" style="margin-inline-start:auto;font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">a sáv a 1. artboard szerint</span>
+      </div>
+
+      <div style="padding:var(--ter-9) var(--ter-10) var(--ter-13);display:flex;flex-direction:column;gap:var(--ter-9);">
+        <div role="tablist" style="display:flex;gap:var(--ter-1);align-self:flex-start;background:var(--field-bg);border:var(--bw) solid var(--line-soft);border-radius:var(--r-btn);padding:var(--ter-2);">
+          <span role="tab" aria-selected="false" data-fkulcs="beallitasok.ful_ertesitesek" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-9);font-size:var(--fs-sm);color:var(--text-mut);">Értesítések</span>
+          <span role="tab" aria-selected="true" data-fkulcs="beallitasok.ful_adatpolitika" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-9);font-size:var(--fs-sm);background:var(--grad-primary);color:var(--on-primary);font-weight:var(--fw-strong);">Adatpolitika</span>
+        </div>
+
+        <span data-fkulcs="rajz.r4_valtozatlan" style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">AZ R-4 03. ARTBOARDJA VÁLTOZATLAN — ITT CSAK A JOBB OSZLOP KÉT DOBOZA LÁTSZIK</span>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:var(--ter-10);align-items:start;">
+
+          <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+            <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">A · BEKAPCSOLVA (ALAP)</span>
+            <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);">
+              <div style="display:flex;align-items:flex-start;gap:var(--ter-7);">
+                <span style="min-width:0;flex:1 1 auto;display:flex;flex-direction:column;gap:var(--ter-2);">
+                  <span data-fkulcs="ai_kapcsolo.cim" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Az AI a munkatérben</span>
+                  <span data-fkulcs="ai_kapcsolo.be" style="font-size:var(--fs-md);color:var(--ok-strong);">az AI dolgozik</span>
+                </span>
+                <span aria-hidden="true" style="flex:none;width:var(--kapcsolo-w);height:var(--kapcsolo-h);border-radius:var(--kapcsolo-h);background:var(--grad-primary);display:flex;align-items:center;justify-content:flex-end;padding:var(--ter-1);box-sizing:border-box;">
+                  <span style="width:calc(var(--kapcsolo-h) - var(--ter-4));height:calc(var(--kapcsolo-h) - var(--ter-4));border-radius:50%;background:var(--on-primary);"></span>
+                </span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-5);border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-7);">
+                <span data-fkulcs="ai_kapcsolo.mit_tesz" style="font-size:var(--fs-sm);color:var(--text-mut);">Kikapcsolva egyetlen AI-hívás sem indul a munkatér nevében. A hírfigyelő letölti a híreket, de nem értékeli őket — a találatok „az AI nem elérhető" jelölést kapnak.</span>
+                <span data-fkulcs="ai_kapcsolo.d19" style="font-size:var(--fs-sm);color:var(--text-mut);">A hírek letöltése ettől függetlenül fut: abban a lépésben ügyféladat nem hagyja el a rendszert.</span>
+                <span data-fkulcs="ai_kapcsolo.kulonbseg" style="font-size:var(--fs-sm);color:var(--text-mut);">Ez nem a felhő-kapcsoló: az mindent leállít, ami AI; a felhő-kapcsoló majd csak a felhős szolgáltatót tiltaná, a házon belülit engedné.</span>
+              </div>
+            </div>
+
+            <div style="border:var(--bw) dashed var(--keszul-border);border-radius:var(--r-block);background:var(--keszul-bg);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-5);">
+              <div style="display:flex;align-items:flex-start;gap:var(--ter-7);">
+                <span style="min-width:0;flex:1 1 auto;display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+                  <span data-fkulcs="adatpolitika.kapcsolo_cim" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Az adatom ne menjen ki felhőbe</span>
+                  <span data-fkulcs="jelzes.meg_nem_mukodik" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--keszul);border:var(--bw) solid var(--keszul-border);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">még nem működik</span>
+                </span>
+                <span aria-hidden="true" style="flex:none;width:var(--kapcsolo-w);height:var(--kapcsolo-h);border-radius:var(--kapcsolo-h);background:var(--panel-soft-2);border:var(--bw) solid var(--keszul-border);display:flex;align-items:center;justify-content:flex-start;padding:var(--ter-1);box-sizing:border-box;opacity:0.6;">
+                  <span style="width:calc(var(--kapcsolo-h) - var(--ter-4));height:calc(var(--kapcsolo-h) - var(--ter-4));border-radius:50%;background:var(--text-faint);"></span>
+                </span>
+              </div>
+              <span data-fkulcs="adatpolitika.kapcsolo_miert" style="font-size:var(--fs-sm);color:var(--text-mut);">Akkor lesz bekapcsolható, ha eldőlt, hol fut élesben az AI. Amíg saját AI-gép nincs, ez a kapcsoló olyat ígérne, amit a rendszer nem tud betartani.</span>
+              <span data-fkulcs="rajz.ket_doboz_megj" style="font-size:var(--fs-xs);color:var(--text-dim);border-top:var(--bw) solid var(--keszul-border);padding-top:var(--ter-5);">A rajz jegyzete: a két doboz <strong>egymás alatt</strong> áll a jobb oszlopban, ebben a sorrendben — előbb a működő kapcsoló, utána a készülő. A bal oszlopban a szolgáltató doboza marad, változatlanul.</span>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+            <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">B · KIKAPCSOLVA</span>
+            <div style="border:var(--bw) solid var(--warn-border);border-radius:var(--r-block);background:var(--warn-bg);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);">
+              <div style="display:flex;align-items:flex-start;gap:var(--ter-7);">
+                <span style="min-width:0;flex:1 1 auto;display:flex;flex-direction:column;gap:var(--ter-2);">
+                  <span data-fkulcs="ai_kapcsolo.cim" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Az AI a munkatérben</span>
+                  <span data-fkulcs="ai_kapcsolo.ki" style="font-size:var(--fs-md);color:var(--warn);font-weight:var(--fw-strong);">az AI kikapcsolva</span>
+                  <span data-fkulcs="ai_kapcsolo.kikapcsolva_mikor" style="font-size:var(--fs-sm);color:var(--text-mut);">Kikapcsolva 2026-09-13 08:20 · Portik Vilmos</span>
+                </span>
+                <span aria-hidden="true" style="flex:none;width:var(--kapcsolo-w);height:var(--kapcsolo-h);border-radius:var(--kapcsolo-h);background:var(--field-bg);border:var(--bw) solid var(--field-border);display:flex;align-items:center;justify-content:flex-start;padding:var(--ter-1);box-sizing:border-box;">
+                  <span style="width:calc(var(--kapcsolo-h) - var(--ter-4));height:calc(var(--kapcsolo-h) - var(--ter-4));border-radius:50%;background:var(--text-dim);"></span>
+                </span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-5);border-top:var(--bw) solid var(--warn-border);padding-top:var(--ter-7);">
+                <span data-fkulcs="ai_kapcsolo.mit_tesz" style="font-size:var(--fs-sm);color:var(--text-mut);">Kikapcsolva egyetlen AI-hívás sem indul a munkatér nevében. A hírfigyelő letölti a híreket, de nem értékeli őket — a találatok „az AI nem elérhető" jelölést kapnak.</span>
+                <span data-fkulcs="ai_kapcsolo.d19" style="font-size:var(--fs-sm);color:var(--text-mut);">A hírek letöltése ettől függetlenül fut: abban a lépésben ügyféladat nem hagyja el a rendszert.</span>
+              </div>
+            </div>
+
+            <div style="border:var(--bw) dashed var(--line-dash);border-radius:var(--r-block);background:var(--panel-soft-2);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-3);">
+              <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.05em;">A RAJZ JEGYZETE — KI LÁTJA</span>
+              <span data-fkulcs="rajz.ai_ki_latja" style="font-size:var(--fs-sm);color:var(--text-mut);">A doboz <strong>csak a tulajdonosnál</strong> van ott. Nézőnek és szerkesztőnek nem szürkén jelenik meg, hanem egyáltalán nem — ők az R-4 04. artboardját látják, változatlanul.</span>
+              <span data-fkulcs="rajz.ai_esemeny" style="font-size:var(--fs-sm);color:var(--text-mut);">A kapcsolás eseményt ír: <span style="font-family:var(--font-code-active);">ai_kapcsolo_valtozott</span> — a naplóban és a kimenő értesítésben is látszik. Ha nincs adat a legutóbbi kapcsolásról, a „Kikapcsolva {ido} · {ki}" sor elmarad.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="06">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">6 · A HÍRFIGYELŐ, KIKAPCSOLT AI-VAL · asztali 1440 · a figyelmeztető sáv a lap tetején</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+        <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+        <span data-fkulcs="rajz.sav_rovidites" style="margin-inline-start:auto;font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">a sáv a 1. artboard szerint · a Modulok lenyíló a Hírfigyelőn áll</span>
+      </div>
+
+      <div style="padding:var(--ter-8) var(--ter-10) var(--ter-13);display:flex;flex-direction:column;gap:var(--ter-8);">
+
+        <div style="display:flex;align-items:center;gap:var(--ter-7);flex-wrap:wrap;border:var(--bw) solid var(--warn-border);border-radius:var(--r-block);background:var(--warn-bg);padding:var(--ter-7) var(--pad-tile);">
+          <span data-fkulcs="ai_kapcsolo.hirfigyelo_sav" style="min-width:0;flex:1 1 480px;font-size:var(--fs-md);color:var(--text);">Az AI ki van kapcsolva ebben a munkatérben — a hírek letöltődnek, az értékelés áll. Bekapcsolni az Adatpolitika fülön tudod.</span>
+          <a href="#" data-fkulcs="ai_kapcsolo.sav_link" style="font-size:var(--fs-md);font-weight:var(--fw-strong);">Adatpolitika →</a>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+          <h1 data-fkulcs="hf.modTitle" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);">Hírfigyelő</h1>
+          <span data-fkulcs="hf.futas_allapot" style="font-size:var(--fs-md);color:var(--text-mut);">Utolsó futás: 2026-09-13 06:02 · 10 találat</span>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);overflow:hidden;">
+          <div style="display:grid;grid-template-columns:2.4fr 1fr auto;gap:var(--ter-8);align-items:center;padding:var(--ter-6) var(--pad-tile);border-bottom:var(--bw) solid var(--line-soft);">
+            <span style="min-width:0;font-size:var(--fs-md);color:var(--text);">[TALÁLAT CÍME]</span>
+            <span style="font-size:var(--fs-sm);color:var(--text-dim);">[FORRÁS] · 09-13 06:02</span>
+            <span data-fkulcs="hf.ai_nem_elerheto" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--warn);background:var(--warn-bg);border:var(--bw) solid var(--warn-border);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-5);white-space:nowrap;">az AI nem elérhető</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2.4fr 1fr auto;gap:var(--ter-8);align-items:center;padding:var(--ter-6) var(--pad-tile);border-bottom:var(--bw) solid var(--line-soft);">
+            <span style="min-width:0;font-size:var(--fs-md);color:var(--text);">[TALÁLAT CÍME]</span>
+            <span style="font-size:var(--fs-sm);color:var(--text-dim);">[FORRÁS] · 09-13 06:02</span>
+            <span data-fkulcs="hf.ai_nem_elerheto" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--warn);background:var(--warn-bg);border:var(--bw) solid var(--warn-border);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-5);white-space:nowrap;">az AI nem elérhető</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2.4fr 1fr auto;gap:var(--ter-8);align-items:center;padding:var(--ter-6) var(--pad-tile);">
+            <span style="min-width:0;font-size:var(--fs-md);color:var(--text);">[TALÁLAT CÍME]</span>
+            <span style="font-size:var(--fs-sm);color:var(--text-dim);">[FORRÁS] · 09-13 06:02</span>
+            <span data-fkulcs="hf.ai_nem_elerheto" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--warn);background:var(--warn-bg);border:var(--bw) solid var(--warn-border);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-5);white-space:nowrap;">az AI nem elérhető</span>
+          </div>
+        </div>
+
+        <div style="border:var(--bw) dashed var(--line-dash);border-radius:var(--r-block);background:var(--panel-soft-2);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-3);max-width:90ch;">
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.05em;">A RAJZ JEGYZETE</span>
+          <span data-fkulcs="rajz.hirfigyelo_sav_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A sáv <strong>nem hiba</strong>, hanem állapot: <span style="font-family:var(--font-code-active);">--warn</span> a színe, nem a hibaszín. A találatok jelölése a meglévő „az AI nem elérhető" — azt nem rajzoltuk újra, csak a sávot a lap tetején. A hivatkozás <strong>csak a tulajdonosnál</strong> van ott; szerkesztőnél és nézőnél ugyanaz a mondat áll, hivatkozás nélkül, mert ők nem tudják bekapcsolni.</span>
+          <span data-fkulcs="rajz.kezdolap_nincs_jelzes" style="font-size:var(--fs-sm);color:var(--text-mut);">A Kezdőképernyő csempéje <strong>nem kap új jelzést</strong> (3. kérdés): a hírfigyelő csempéje ma is tud „részleges futás"-t mutatni, és ez a sáv ott áll, ahol a hiány számít. Ha mégis kell, az egy sor a csempén — és új rajz nélkül megy.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="07">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">7 · TELEFON 390 · A: a Gépház a két új csempével · B: a Kimenő lap, csoportonként összecsukva</div>
+    <div style="display:flex;gap:var(--ter-10);align-items:flex-start;flex-wrap:wrap;">
+
+      <div style="width:390px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+        <div style="display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-5) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+          <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+          <span data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-md);color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Kommunikációs munkatér</span>
+          <button type="button" aria-label="Menü" style="margin-inline-start:auto;flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--control-min);height:var(--control-min);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-title);cursor:pointer;">≡</button>
+        </div>
+        <div style="padding:var(--ter-8) var(--ter-8) var(--ter-12);display:flex;flex-direction:column;gap:var(--ter-7);">
+          <h1 data-fkulcs="gephaz.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-title);color:var(--text);">Gépház</h1>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--ter-7);display:flex;flex-direction:column;gap:var(--ter-5);">
+            <span data-fkulcs="csomag.cim" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Csomag</span>
+            <span data-fkulcs="csomag.pilot_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);line-height:1.1;">Pilot</span>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+              <span data-fkulcs="hf.modTitle" style="font-size:var(--fs-md);color:var(--text);">Hírfigyelő</span>
+              <span data-fkulcs="csomag.benne" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--ok-strong);background:var(--ok-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">benne</span>
+            </div>
+            <span data-fkulcs="csomag.pilot_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A pilot csomag: a Hírfigyelő modul, ár és fizetés nélkül. Az árazás a pilot után dől el.</span>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);border:var(--bw) dashed var(--keszul-border);border-radius:var(--r-field);background:var(--keszul-bg);padding:var(--ter-6);">
+              <span style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+                <span data-fkulcs="csomag.arazas_cim" style="font-size:var(--fs-md);color:var(--text);">Árazás és fizetés</span>
+                <span data-fkulcs="jelzes.meg_nem_mukodik" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--keszul);border:var(--bw) solid var(--keszul-border);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">még nem működik</span>
+              </span>
+              <span data-fkulcs="csomag.arazas_miert" style="font-size:var(--fs-sm);color:var(--text-mut);">A pilot után dől el. Amíg nincs ár, a csomag nem jár le, és nem kér fizetést.</span>
+            </div>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--ter-7);display:flex;flex-direction:column;gap:var(--ter-5);">
+            <span data-fkulcs="kimeno.cim" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Kimenő értesítések</span>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <span aria-hidden="true" style="width:var(--ter-4);height:var(--ter-4);border-radius:50%;background:var(--ok-strong);flex:none;"></span>
+              <span data-fkulcs="kimeno.bekotve" style="font-size:var(--fs-md);color:var(--text);">A kimenő csatorna be van kötve</span>
+            </div>
+            <span data-fkulcs="kimeno.kimeno_szam" style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);line-height:1.15;">2 eseményről megy ki üzenet</span>
+            <a href="#" data-fkulcs="kimeno.megnyitas" style="font-size:var(--fs-md);font-weight:var(--fw-strong);">Beállítás →</a>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--ter-7);display:flex;flex-direction:column;gap:var(--ter-4);">
+            <span data-fkulcs="gephaz.koltseg_cim" style="font-size:var(--fs-xs);letter-spacing:0.05em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);">Költség</span>
+            <span style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);line-height:1.1;">[ÖSSZEG]</span>
+            <a href="#" data-fkulcs="gephaz.koltseg_link" style="font-size:var(--fs-md);font-weight:var(--fw-strong);">Megnyitás →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="width:390px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+        <div style="display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-5) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+          <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+          <span data-fkulcs="kimeno.cim" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-md);color:var(--text);">Kimenő értesítések</span>
+          <button type="button" aria-label="Menü" style="margin-inline-start:auto;flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--control-min);height:var(--control-min);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-title);cursor:pointer;">≡</button>
+        </div>
+        <div style="padding:var(--ter-8) var(--ter-8) var(--ter-12);display:flex;flex-direction:column;gap:var(--ter-7);">
+          <a href="#" data-fkulcs="kimeno.vissza" style="font-size:var(--fs-sm);">← Gépház</a>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--ter-7);display:flex;flex-direction:column;gap:var(--ter-4);">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <span aria-hidden="true" style="width:var(--ter-4);height:var(--ter-4);border-radius:50%;background:var(--ok-strong);flex:none;"></span>
+              <span data-fkulcs="kimeno.bekotve" style="font-size:var(--fs-md);color:var(--text);">A kimenő csatorna be van kötve</span>
+            </div>
+            <span data-fkulcs="kimeno.csatorna_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">A horog címét a rendszergazda állítja be a kiszolgálón; a felületen nem látszik.</span>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);min-height:var(--control-min);box-sizing:border-box;padding:var(--ter-5) var(--ter-7);background:var(--panel-soft-2);border-bottom:var(--bw) solid var(--line-soft);cursor:pointer;">
+              <span data-fkulcs="kimeno.csoport_futas" style="min-width:0;flex:1 1 auto;font-size:var(--fs-md);font-weight:var(--fw-strong);color:var(--text);">Hírfigyelő futás</span>
+              <span aria-hidden="true" style="color:var(--text-mut);font-size:var(--fs-sm);">▴</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-5);padding:var(--ter-6) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);">
+              <span data-fkulcs="esemeny.futas_kesz_cim" style="font-size:var(--fs-md);color:var(--text);">Lefutott a figyelés</span>
+              <span style="display:flex;gap:var(--ter-1);background:var(--field-bg);border:var(--bw) solid var(--line-soft);border-radius:var(--r-btn);padding:var(--ter-2);">
+                <span data-fkulcs="kimeno.orokli" style="flex:1 1 0;text-align:center;min-height:var(--control-min);box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:var(--r-btn);font-size:var(--fs-sm);background:var(--grad-primary);color:var(--on-primary);font-weight:var(--fw-strong);">örökli</span>
+                <span data-fkulcs="kimeno.kimeno" style="flex:1 1 0;text-align:center;min-height:var(--control-min);box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:var(--r-btn);font-size:var(--fs-sm);color:var(--text-mut);">kimenő</span>
+                <span data-fkulcs="kimeno.nincs" style="flex:1 1 0;text-align:center;min-height:var(--control-min);box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:var(--r-btn);font-size:var(--fs-sm);color:var(--text-mut);">nincs</span>
+              </span>
+              <span style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--text-dim);">
+                <span data-fkulcs="kimeno.fejlec_alap">Közös alap</span><span>nincs</span>
+                <span aria-hidden="true">·</span>
+                <span data-fkulcs="kimeno.fejlec_hatasos">Ami érvényes</span><span>nincs</span>
+              </span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-5);padding:var(--ter-6) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);">
+              <span data-fkulcs="esemeny.futas_hiba_cim" style="font-size:var(--fs-md);color:var(--text);">A futás hibára futott</span>
+              <span style="display:flex;gap:var(--ter-1);background:var(--field-bg);border:var(--bw) solid var(--line-soft);border-radius:var(--r-btn);padding:var(--ter-2);">
+                <span data-fkulcs="kimeno.orokli" style="flex:1 1 0;text-align:center;min-height:var(--control-min);box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:var(--r-btn);font-size:var(--fs-sm);color:var(--text-mut);">örökli</span>
+                <span data-fkulcs="kimeno.kimeno" style="flex:1 1 0;text-align:center;min-height:var(--control-min);box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:var(--r-btn);font-size:var(--fs-sm);background:var(--grad-primary);color:var(--on-primary);font-weight:var(--fw-strong);">kimenő</span>
+                <span data-fkulcs="kimeno.nincs" style="flex:1 1 0;text-align:center;min-height:var(--control-min);box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:var(--r-btn);font-size:var(--fs-sm);color:var(--text-mut);">nincs</span>
+              </span>
+              <span style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--text-dim);">
+                <span data-fkulcs="kimeno.fejlec_alap">Közös alap</span><span>nincs</span>
+                <span aria-hidden="true">·</span>
+                <span data-fkulcs="kimeno.fejlec_hatasos">Ami érvényes</span><span style="color:var(--ok-strong);">kimenő</span>
+              </span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);min-height:var(--control-min);box-sizing:border-box;padding:var(--ter-5) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);cursor:pointer;">
+              <span data-fkulcs="kimeno.csoport_fiok" style="min-width:0;flex:1 1 auto;font-size:var(--fs-md);color:var(--text-mut);">Fiók és belépés</span>
+              <span aria-hidden="true" style="color:var(--text-mut);font-size:var(--fs-sm);">▾</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);min-height:var(--control-min);box-sizing:border-box;padding:var(--ter-5) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);cursor:pointer;">
+              <span data-fkulcs="kimeno.csoport_tagok" style="min-width:0;flex:1 1 auto;font-size:var(--fs-md);color:var(--text-mut);">Tagok</span>
+              <span aria-hidden="true" style="color:var(--text-mut);font-size:var(--fs-sm);">▾</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);min-height:var(--control-min);box-sizing:border-box;padding:var(--ter-5) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);cursor:pointer;">
+              <span data-fkulcs="kimeno.csoport_beallitas" style="min-width:0;flex:1 1 auto;font-size:var(--fs-md);color:var(--text-mut);">Beállítás és profil</span>
+              <span aria-hidden="true" style="color:var(--text-mut);font-size:var(--fs-sm);">▾</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);min-height:var(--control-min);box-sizing:border-box;padding:var(--ter-5) var(--ter-7);cursor:pointer;">
+              <span data-fkulcs="kimeno.csoport_rendszer" style="min-width:0;flex:1 1 auto;font-size:var(--fs-md);color:var(--text-mut);">Rendszer</span>
+              <span aria-hidden="true" style="color:var(--text-mut);font-size:var(--fs-sm);">▾</span>
+            </div>
+          </div>
+
+          <button type="button" data-fkulcs="kimeno.mentes" style="display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:pointer;">Beállítás mentése</button>
+
+          <span data-fkulcs="rajz.telefon_megj" style="font-size:var(--fs-xs);color:var(--text-dim);">A rajz jegyzete: telefonon a csoportok <strong>összecsukhatók</strong>, alapból az első nyitva; a választó teljes szélességben áll a fajta neve alatt, mindhárom állás legalább 44px magas. A rendszergazda-nézet telefonon ugyanez a szerkezet, a munkatér-oszlop nélkül.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1600,&quot;height&quot;:1000}}">
+const AKTIV_BG = 'var(--grad-primary)', AKTIV_FG = 'var(--on-primary)';
+const PASSZIV_BG = 'transparent', PASSZIV_FG = 'var(--text-mut)';
+
+const FAJTAK = [
+  ['kimeno.csoport_fiok', 'Fiók és belépés', [
+    ['belepes', 'Belépés'],
+    ['kilepes', 'Kilépés'],
+    ['jelszo_valtas', 'Jelszóváltás'],
+    ['kileptetes_mindenhol', 'Kiléptetés minden eszközről'],
+    ['belepesi_kiserletek', 'Sok sikertelen belépési kísérlet', 'rendszer']
+  ]],
+  ['kimeno.csoport_tagok', 'Tagok', [
+    ['meghivo_kiadva', 'Meghívó kiadva'],
+    ['meghivo_visszavonva', 'Meghívó visszavonva'],
+    ['meghivo_elfogadva', 'Meghívó elfogadva'],
+    ['tag_felveve', 'Tag felvéve'],
+    ['szerep_valtozott', 'Szerep változott'],
+    ['tag_eltavolitva', 'Tag eltávolítva'],
+    ['tag_kilepett', 'Tag kilépett']
+  ]],
+  ['kimeno.csoport_futas', 'Hírfigyelő futás', [
+    ['futas_indult', 'Elindult a figyelés'],
+    ['futas_kesz', 'Lefutott a figyelés'],
+    ['futas_hiba', 'A futás hibára futott', null, 'kimeno'],
+    ['futas_beragadt', 'Beragadt egy futás'],
+    ['forras_hibas', 'Egy forrás nem válaszol'],
+    ['ai_nem_valaszol', 'Az AI nem válaszol'],
+    ['keret_kimerult', 'Elfogyott a havi AI-keret', null, 'kimeno']
+  ]],
+  ['kimeno.csoport_beallitas', 'Beállítás és profil', [
+    ['tema_alkalmazva', 'Téma alkalmazva'],
+    ['feliratok_alkalmazva', 'Feliratok alkalmazva'],
+    ['profil_jovahagyva', 'Profil jóváhagyva'],
+    ['ai_kapcsolo_valtozott', 'Az AI-kapcsoló változott'],
+    ['fajl_feltoltve', 'Fájl feltöltve']
+  ]],
+  ['kimeno.csoport_rendszer', 'Rendszer', [
+    ['mentes_kimaradt', 'Kimaradt egy mentés']
+  ]]
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    const csoportok = FAJTAK.map(([kulcs, cim, sorok]) => ({
+      kulcs, cim,
+      sorok: sorok.filter(s => s[2] !== 'rendszer').map(([kod, nev, , munkater]) => {
+        const all = munkater || 'orokli';
+        const hatasos = all === 'orokli' ? 'nincs' : all === 'kimeno' ? 'kimenő' : 'nincs';
+        return {
+          kod, cim: nev, alap: 'nincs', hatasos,
+          o_bg: all === 'orokli' ? AKTIV_BG : PASSZIV_BG, o_fg: all === 'orokli' ? AKTIV_FG : PASSZIV_FG,
+          k_bg: all === 'kimeno' ? AKTIV_BG : PASSZIV_BG, k_fg: all === 'kimeno' ? AKTIV_FG : PASSZIV_FG,
+          n_bg: all === 'nincs' ? AKTIV_BG : PASSZIV_BG, n_fg: all === 'nincs' ? AKTIV_FG : PASSZIV_FG,
+          h_pont: hatasos === 'kimenő' ? 'var(--ok-strong)' : 'var(--text-faint)',
+          h_fg: hatasos === 'kimenő' ? 'var(--ok-strong)' : 'var(--text-dim)'
+        };
+      })
+    }));
+
+    const gazda_csoportok = FAJTAK.map(([kulcs, cim, sorok]) => ({
+      kulcs, cim,
+      sorok: sorok.map(([kod, nev]) => {
+        const be = false;
+        return {
+          kod, cim: nev, alap: be ? 'kimenő' : 'nincs',
+          g_bg: be ? 'var(--grad-primary)' : 'var(--field-bg)',
+          g_all: be ? 'flex-end' : 'flex-start',
+          g_gomb: be ? 'var(--on-primary)' : 'var(--text-dim)',
+          g_fg: be ? 'var(--ok-strong)' : 'var(--text-dim)'
+        };
+      })
+    }));
+
+    return { csoportok, gazda_csoportok };
+  }
+}
+</script>
+</body>
+</html>

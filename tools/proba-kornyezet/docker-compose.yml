@@ -1,0 +1,20 @@
+# Helyi PRÓBA-adatbázis a fejlesztő gépen (2026-09-12-től a Dellen). Csak a próbákhoz: nem a NAS, nem éles.
+# Indítás:  docker compose -p saas-proba --env-file <titkos .env> -f tools/proba-kornyezet/docker-compose.yml up -d
+# Migráció: docker compose -p saas-proba ... exec -T db bash /migral/migral.sh
+# Az .env két sora: KM_TULAJ_JELSZO=… és KM_APP_JELSZO=… (véletlen; a tárhelyen kívül tartjuk)
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: saas-proba-db
+    environment:
+      POSTGRES_DB: km
+      POSTGRES_USER: km_tulaj
+      POSTGRES_PASSWORD: ${KM_TULAJ_JELSZO:?}
+      KM_APP_JELSZO: ${KM_APP_JELSZO:?}
+      POSTGRES_INITDB_ARGS: "--locale-provider=icu --icu-locale=hu-HU --encoding=UTF8"
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - ../../nas/adatbazis/init:/docker-entrypoint-initdb.d:ro
+      - ../../nas/adatbazis/migral.sh:/migral/migral.sh:ro
+      - ../../apps/web/adatbazis/migraciok:/migraciok:ro

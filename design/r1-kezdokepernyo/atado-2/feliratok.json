@@ -1,0 +1,141 @@
+{
+  "_rol": "R-1 · Kezdőképernyő és navigáció · javítókör (v3) — minden látható szöveg felirat-kulccsal, kivétel nélkül.",
+  "alapnyelv": "en",
+  "nyelvek": ["en", "hu", "ro"],
+  "_megjegyzes": "Az eredeti magyar; a tartaléknyelv az angol. A {kapcsos} részek futásidőben behelyettesített adatok. A 'adatbol_jon' listában szereplő kulcsok helyén nincs felirat, hanem adat (név, dátum, szám).",
+
+  "feliratok": {
+    "kozos.app_nev": { "en": "Communications workspace", "hu": "Kommunikációs munkatér", "ro": "Spațiu de comunicare" },
+    "kozos.nyelv": { "en": "Interface language", "hu": "A felület nyelve", "ro": "Limba interfeței" },
+
+    "nav.kezdolap": { "en": "Home", "hu": "Kezdőképernyő", "ro": "Ecran de start" },
+    "nav.modulok": { "en": "Modules", "hu": "Modulok", "ro": "Module" },
+    "nav.ugyfelprofil": { "en": "Client profile", "hu": "Ügyfélprofil", "ro": "Profilul clientului" },
+    "nav.gephaz": { "en": "Engine room", "hu": "Gépház", "ro": "Camera motoarelor" },
+    "nav.kilepes": { "en": "Sign out", "hu": "Kilépés", "ro": "Ieșire" },
+    "nav.munkatereim": { "en": "My workspaces", "hu": "Munkatereim", "ro": "Spațiile mele" },
+    "nav.szerep_tulajdonos": { "en": "owner", "hu": "tulajdonos", "ro": "proprietar" },
+    "nav.szerep_szerkeszto": { "en": "editor", "hu": "szerkesztő", "ro": "editor" },
+    "nav.szerep_nezo": { "en": "viewer", "hu": "néző", "ro": "vizitator" },
+    "nav.szerep_rendszergazda": { "en": "administrator", "hu": "rendszergazda", "ro": "administrator" },
+    "nav.sajat_fiok_sor": { "en": "{nev} · {szerepek}", "hu": "{nev} · {szerepek}", "ro": "{nev} · {szerepek}" },
+    "nav.uj_talalat_jelzes": { "en": "{n} new", "hu": "{n} új", "ro": "{n} noi" },
+    "nav.tovabbi_modulok": { "en": "Further modules go into this list; it holds five rows.", "hu": "A további modulok ebbe a listába kerülnek; öt sor elfér benne.", "ro": "Modulele următoare intră în această listă; încap cinci rânduri." },
+    "nav.theme": { "en": "Theme settings", "hu": "Theme-beállítások", "ro": "Setări Theme" },
+    "nav.feliratok": { "en": "Labels", "hu": "Feliratok", "ro": "Etichete" },
+    "nav.koltseg": { "en": "Cost", "hu": "Költség", "ro": "Costuri" },
+    "nav.fiokok": { "en": "Accounts", "hu": "Fiókok", "ro": "Conturi" },
+
+    "kezdolap.cim": { "en": "Home", "hu": "Kezdőképernyő", "ro": "Ecran de start" },
+    "kezdolap.mi_tortent": { "en": "Since your last sign-in {uj} new matches arrived and {hiba} sources stalled.", "hu": "A legutóbbi belépésed óta {uj} új találat jött, és {hiba} forrás elakadt.", "ro": "De la ultima conectare au venit {uj} rezultate noi și {hiba} surse s-au blocat." },
+    "kezdolap.csempe_modul": { "en": "module", "hu": "modul", "ro": "modul" },
+    "kezdolap.hf_uj_szam": { "en": "{n}", "hu": "{n}", "ro": "{n}" },
+    "kezdolap.hf_uj_cimke": { "en": "new matches", "hu": "új találat", "ro": "rezultate noi" },
+    "kezdolap.hf_utolso_futas": { "en": "Last successful run", "hu": "Utolsó sikeres futás", "ro": "Ultima rulare reușită" },
+    "kezdolap.hf_utolso_futas_nincs": { "en": "Has not run yet", "hu": "Még nem futott", "ro": "Nu a rulat încă" },
+    "kezdolap.hf_kovetkezo_futas": { "en": "Next scheduled run", "hu": "Következő tervezett futás", "ro": "Următoarea rulare programată" },
+    "kezdolap.hf_kovetkezo_kezi": { "en": "Manual run only", "hu": "Kézi indítás", "ro": "Pornire manuală" },
+    "kezdolap.hf_fut": { "en": "monitoring is running in the background", "hu": "figyelés fut a háttérben", "ro": "monitorizarea rulează în fundal" },
+    "kezdolap.hf_forrashiba": { "en": "{n} sources stalled", "hu": "{n} forrás elakadt", "ro": "{n} surse s-au blocat" },
+    "kezdolap.hf_ertekeles_fuggoben": { "en": "Assessment pending for {n} matches", "hu": "{n} találat értékelése függőben", "ro": "Evaluarea a {n} rezultate în așteptare" },
+    "kezdolap.hf_link": { "en": "Overview →", "hu": "Áttekintés →", "ro": "Prezentare →" },
+
+    "kezdolap.profil_cim": { "en": "Client profile", "hu": "Ügyfélprofil", "ro": "Profilul clientului" },
+    "kezdolap.profil_jovahagyva": { "en": "approved", "hu": "jóváhagyva", "ro": "aprobat" },
+    "kezdolap.profil_nincs_jovahagyva": { "en": "not approved", "hu": "nincs jóváhagyva", "ro": "neaprobat" },
+    "kezdolap.profil_jovahagyva_meta": { "en": "{datum} · {nev}", "hu": "{datum} · {nev}", "ro": "{datum} · {nev}" },
+    "kezdolap.profil_hianyzo": { "en": "{n} sections missing", "hu": "{n} rész hiányzik", "ro": "Lipsesc {n} secțiuni" },
+    "kezdolap.profil_hianyzo_sor": { "en": "{n} sections missing — {reszek}", "hu": "{n} rész hiányzik — {reszek}", "ro": "Lipsesc {n} secțiuni — {reszek}" },
+    "kezdolap.profil_link": { "en": "Client profile →", "hu": "Ügyfélprofil →", "ro": "Profilul clientului →" },
+
+    "kezdolap.arculat_cim": { "en": "Brand identity", "hu": "Arculat", "ro": "Identitate vizuală" },
+    "kezdolap.arculat_nincs": { "en": "not provided", "hu": "nincs megadva", "ro": "nespecificat" },
+    "kezdolap.arculat_tervezet": { "en": "draft", "hu": "tervezet", "ro": "schiță" },
+    "kezdolap.arculat_kesobb": { "en": "deferred", "hu": "későbbre hagyva", "ro": "amânat" },
+    "kezdolap.arculat_jovahagyott": { "en": "approved", "hu": "jóváhagyott", "ro": "aprobat" },
+    "kezdolap.arculat_megj": { "en": "Modules work from the approved brand identity.", "hu": "A modulok a jóváhagyott arculatból dolgoznak.", "ro": "Modulele lucrează din identitatea aprobată." },
+    "kezdolap.arculat_link": { "en": "Brand identity in the profile →", "hu": "Arculat a profilban →", "ro": "Identitatea în profil →" },
+
+    "kezdolap.forrasok_cim": { "en": "Sources", "hu": "Források", "ro": "Surse" },
+    "kezdolap.forrasok_ossz": { "en": "{n} sources", "hu": "{n} forrás", "ro": "{n} surse" },
+    "kezdolap.forras_hasznalhato": { "en": "usable", "hu": "használható", "ro": "utilizabilă" },
+    "kezdolap.forras_korlatozott": { "en": "limited", "hu": "korlátozott", "ro": "limitată" },
+    "kezdolap.forras_hibas": { "en": "failing", "hu": "hibás", "ro": "defectă" },
+    "kezdolap.forras_nem_tamogatott": { "en": "unsupported", "hu": "nem támogatott", "ro": "nesuportată" },
+    "kezdolap.forras_ellenorzes_alatt": { "en": "under check", "hu": "ellenőrzés alatt", "ro": "în verificare" },
+    "kezdolap.forrasok_link": { "en": "Monitoring setup →", "hu": "Figyelés beállítása →", "ro": "Configurarea monitorizării →" },
+
+    "kezdolap.keret_cim": { "en": "AI budget — {honap}", "hu": "AI-keret — {honap}", "ro": "Buget AI — {honap}" },
+    "kezdolap.koltseg_becsult": { "en": "estimated", "hu": "becsült", "ro": "estimat" },
+    "kezdolap.koltseg_reszletek": { "en": "{hivas} calls · {gepido} AI machine time", "hu": "{hivas} hívás · {gepido} AI-gépidő", "ro": "{hivas} apeluri · {gepido} timp AI" },
+    "kezdolap.koltseg_reszletek_sor": { "en": "{hivas} calls · {gepido} · {osszeg} estimated", "hu": "{hivas} hívás · {gepido} · {osszeg} becsült", "ro": "{hivas} apeluri · {gepido} · {osszeg} estimat" },
+    "kezdolap.keret_maradt": { "en": "{maradt} left of the {keret} budget", "hu": "{maradt} maradt a {keret}-s keretből", "ro": "Au rămas {maradt} din bugetul de {keret}" },
+    "kezdolap.keret_elfogyott": { "en": "The budget is used up; assessment stays pending.", "hu": "A keret elfogyott; az értékelés függőben marad.", "ro": "Bugetul s-a epuizat; evaluarea rămâne în așteptare." },
+    "kezdolap.koltseg_link": { "en": "Cost →", "hu": "Költség →", "ro": "Costuri →" },
+
+    "kezdolap.tervezet_cim": { "en": "Unsaved draft", "hu": "Mentetlen tervezet", "ro": "Schiță nesalvată" },
+    "kezdolap.tervezet_szoveg": { "en": "There is an unapplied draft on the {lap} page.", "hu": "A {lap} lapon van egy nem alkalmazott tervezet.", "ro": "Pe pagina {lap} există o schiță neaplicată." },
+    "kezdolap.tervezet_link": { "en": "{lap} →", "hu": "{lap} →", "ro": "{lap} →" },
+    "kezdolap.nezo_megj": { "en": "In the viewer role running and marking are unavailable.", "hu": "Néző szerepben a futtatás és a jelölés nem érhető el.", "ro": "În rolul de vizitator rularea și marcarea nu sunt disponibile." },
+
+    "kezdolap.elso_cim": { "en": "Let us fill in the client profile", "hu": "Töltsük ki az ügyfélprofilt", "ro": "Să completăm profilul clientului" },
+    "kezdolap.elso_szoveg": { "en": "Every module works from the shared client profile: what the company does, for whom, to what end, in what tone. Without an approved profile the news monitor cannot assess.", "hu": "Minden modul a közös ügyfélprofilból dolgozik: mit csinál a cég, kinek, milyen céllal, milyen hangnemben. Amíg nincs jóváhagyott profil, a hírfigyelő nem tud értékelni.", "ro": "Toate modulele lucrează din profilul comun al clientului: ce face firma, pentru cine, cu ce scop, pe ce ton. Fără un profil aprobat monitorizarea nu poate evalua." },
+    "kezdolap.elso_gomb": { "en": "Fill in the client profile", "hu": "Ügyfélprofil kitöltése", "ro": "Completează profilul" },
+    "kezdolap.elso_lepesek": { "en": "Three steps, saved as you go.", "hu": "Három lépés, közben menthető.", "ro": "Trei pași, se poate salva pe parcurs." },
+    "kezdolap.elso_hf_szoveg": { "en": "Has not run yet. After the profile is approved, run status and new match count appear here.", "hu": "Még nem futott. A profil jóváhagyása után itt jelenik meg a futás állapota és az új találatok száma.", "ro": "Nu a rulat încă. După aprobarea profilului aici apare starea rulării și numărul rezultatelor noi." },
+
+    "gephaz.cim": { "en": "Engine room", "hu": "Gépház", "ro": "Camera motoarelor" },
+    "gephaz.jelveny": { "en": "administrator view", "hu": "rendszergazda nézet", "ro": "vedere administrator" },
+    "gephaz.bevezeto": { "en": "The system-level pages. They do not appear on the client home screen. The administrator sets the shared base, which affects every workspace.", "hu": "A rendszerszintű lapok. Az ügyfél kezdőképernyőjén ezek nem jelennek meg. A rendszergazda a közös alapot állítja, ami minden munkatérre hat.", "ro": "Paginile de nivel sistem. Nu apar pe ecranul de start al clientului. Administratorul setează baza comună, care afectează fiecare spațiu." },
+    "gephaz.mentetlen_tervezet": { "en": "unsaved draft", "hu": "mentetlen tervezet", "ro": "schiță nesalvată" },
+    "gephaz.nincs_tervezet": { "en": "no draft", "hu": "nincs tervezet", "ro": "fără schiță" },
+    "gephaz.theme_allapot": { "en": "{n} tokens · the applied theme took effect on {datum}", "hu": "{n} token · az alkalmazott téma {datum}-án lépett érvénybe", "ro": "{n} tokenuri · tema aplicată a intrat în vigoare la {datum}" },
+    "gephaz.theme_link": { "en": "Theme settings →", "hu": "Theme-beállítások →", "ro": "Setări Theme →" },
+    "gephaz.feliratok_allapot": { "en": "Hungarian · Romanian · English; the base language is English", "hu": "Magyar · román · angol; az alapnyelv az angol", "ro": "Maghiară · română · engleză; limba de bază este engleza" },
+    "gephaz.feliratok_link": { "en": "Labels →", "hu": "Feliratok →", "ro": "Etichete →" },
+    "gephaz.koltseg_allapot": { "en": "{honap}, estimated · {n} workspaces, {osszeg} in total", "hu": "{honap}, becsült · {n} munkatér összesen {osszeg}", "ro": "{honap}, estimat · {n} spații, în total {osszeg}" },
+    "gephaz.koltseg_link": { "en": "Cost →", "hu": "Költség →", "ro": "Costuri →" },
+    "gephaz.fiok_cimke": { "en": "accounts · {n} workspaces", "hu": "fiók · {n} munkatér", "ro": "conturi · {n} spații" },
+    "gephaz.felfuggesztett": { "en": "{n} suspended accounts", "hu": "{n} felfüggesztett fiók", "ro": "{n} conturi suspendate" },
+    "gephaz.utolso_belepes": { "en": "Last sign-in: {nev}, {idopont}", "hu": "Utolsó belépés: {nev}, {idopont}", "ro": "Ultima conectare: {nev}, {idopont}" },
+    "gephaz.fiokok_link": { "en": "Accounts →", "hu": "Fiókok →", "ro": "Conturi →" },
+
+    "nav.ez_a_munkater": { "en": "This workspace", "hu": "Ez a munkatér", "ro": "Acest spațiu" },
+    "nav.tagok": { "en": "Members", "hu": "Tagok", "ro": "Membri" },
+    "nav.tagok_szam": { "en": "{n} members · {m} pending invites", "hu": "{n} tag · {m} függő meghívó", "ro": "{n} membri · {m} invitații în așteptare" },
+    "nav.gephaz_negy_csempe": { "en": "{n} tiles", "hu": "{n} csempe", "ro": "{n} carduri" },
+
+    "kezdolap.penznem_megj": { "en": "The currency is a workspace setting: euro · dollar · forint · lei.", "hu": "A pénznem a munkatér beállítása: euró · dollár · forint · lej.", "ro": "Moneda e o setare a spațiului: euro · dolar · forint · leu." },
+    "kezdolap.penznem_megj_rovid": { "en": "The currency is a workspace setting.", "hu": "A pénznem a munkatér beállítása.", "ro": "Moneda e o setare a spațiului." },
+
+    "gephaz.jelveny_tulaj": { "en": "owner view", "hu": "tulajdonos nézet", "ro": "vedere proprietar" },
+    "gephaz.tulaj_bevezeto": { "en": "Here you set things for your own workspace: what you change affects only {munkater}, not the other workspaces in the system. Whatever you do not change, the administrator’s shared base applies to.", "hu": "Itt a saját munkaterére állít: amit átír, az csak az {munkater}-re hat, a rendszer többi munkaterére nem. Amit nem ír át, arra a rendszergazda közös alapja érvényes.", "ro": "Aici setezi pentru spațiul tău: ce modifici afectează doar {munkater}, nu celelalte spații din sistem. Pentru ce nu modifici se aplică baza comună a administratorului." },
+    "gephaz.theme_felulir": { "en": "Your workspace’s override. Today you override {n} tokens; the other {m} come from the shared base.", "hu": "A munkatered felülírása. Ma {n} tokent írsz felül; a többi {m} a közös alapból jön.", "ro": "Suprascrierea spațiului tău. Azi suprascrii {n} tokenuri; celelalte {m} vin din baza comună." },
+    "gephaz.feliratok_felulir": { "en": "Your workspace’s texts. Today you override {n} keys in three languages; the rest come from the shared base.", "hu": "A munkatered szövegei. Ma {n} kulcsot írsz felül, három nyelven; a többi a közös alapból jön.", "ro": "Textele spațiului tău. Azi suprascrii {n} chei în trei limbi; restul vin din baza comună." },
+    "gephaz.tulaj_nincs_cim": { "en": "What is not here", "hu": "Ami itt nincs", "ro": "Ce nu e aici" },
+    "gephaz.tulaj_nincs": { "en": "The Cost and Accounts pages are system-level: they show data from several workspaces, so they do not appear in the owner’s engine room at all — not as locked tiles, but not at all. Your own workspace’s AI budget is shown on the AI budget tile of the home screen.", "hu": "A Költség és a Fiókok lap rendszerszintű: több munkatér adatát mutatja, ezért a tulajdonos Gépházában meg sem jelenik — nem zárt csempeként, hanem egyáltalán. A saját munkatered AI-keretének állása a kezdőképernyő AI-keret csempéjén látszik.", "ro": "Paginile Costuri și Conturi sunt de nivel sistem: arată date din mai multe spații, deci nu apar deloc în camera motoarelor a proprietarului — nu ca carduri blocate, ci deloc. Bugetul AI al spațiului tău apare pe cardul de buget AI din ecranul de start." }
+  },
+
+  "meglevo_kulcsok": {
+    "_rol": "Ezek már léteznek a rendszerben, nem újak; a rajz csak használja őket.",
+    "hf.modTitle": { "en": "News monitor", "hu": "Hírfigyelő", "ro": "Monitorizare presă" }
+  },
+
+  "adatbol_jon": {
+    "_rol": "Ezeken a helyeken nincs felirat, hanem adat. A data-fkulcs csak azt jelöli, hol áll.",
+    "nav.munkater_nev": "a munkatér neve",
+    "nav.munkater_nev_2": "a második munkatér neve a váltóban",
+    "nav.sajat_fiok": "a bejelentkezett fiók neve"
+  },
+
+  "csak_a_rajz_jegyzetei": {
+    "_rol": "Ezek a rajzlap magyarázó szövegei, NEM kerülnek a termékbe, ezért nincs fordításuk.",
+    "rajz.sav_egy_cim": "A · EGY MUNKATÉR — a lenyíló csak a Tagok sort tartalmazza; Modulok nyitva",
+    "rajz.sav_tobb_cim": "B · KÉT VAGY TÖBB MUNKATÉR — a lenyílóban a Tagok sor és a munkaterek listája is; a fiók rendszergazda",
+    "rajz.sav_megj_cim": "A sáv szerkezete",
+    "rajz.sav_megj": "Balról jobbra: a termék neve, a munkatér, a lapok (Kezdőképernyő · Modulok · Ügyfélprofil · Gépház), majd a nyelvválasztó, a fiók neve és a Kilépés.",
+    "rajz.sav_valto_megj": "A munkatér neve mindig lenyíló, akkor is, ha csak egy munkatere van az embernek — a Tagok sor miatt a lenyíló egy munkaternél sem üres. Az R-1 eredeti D3 döntése ezen a ponton elévült.",
+    "rajz.tagok_fuggo": "A Tagok sor mögött az R-2 gépezete áll, ami még nem épült meg — amíg nincs, ez a sor nem mehet élesbe.",
+    "rajz.gephaz_telefon_megj": "Tulajdonosnál ugyanez a sor áll, de mögötte két csempe van: Theme-beállítások és Feliratok."
+  }
+}

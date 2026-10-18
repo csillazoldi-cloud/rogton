@@ -1,0 +1,454 @@
+/* R-11/A3 — Posztszöveg. Csak tokenek: nincs beégetett szín, méret, betű.
+   Elrendezés: bal oldalon a blokkválasztó, középen a szerkesztő, jobbra a jelzés. Egy képernyő. */
+
+.km-po {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-6);
+}
+
+.km-po-toltes {
+  color: var(--text-mut);
+  padding: var(--ter-9);
+}
+
+/* Üres lap: hívogató kártya, nem üres rács */
+.km-po-ures {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ter-6);
+  text-align: center;
+  padding: var(--ter-12) var(--ter-9);
+  border: var(--bw) dashed var(--line);
+  border-radius: var(--r-block);
+  background: var(--panel-soft);
+  min-height: 46vh;
+}
+.km-po-ures h2 {
+  margin: var(--ter-0);
+  font-size: var(--fs-h1);
+}
+.km-po-ures p {
+  margin: var(--ter-0);
+  max-width: 52ch;
+  color: var(--text-mut);
+  font-size: var(--fs-md);
+}
+
+/* Új munka */
+.km-po-uj {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-5);
+  padding: var(--ter-9);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-block);
+  background: var(--bg-elev);
+}
+.km-po-uj-gombok {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+}
+
+/* A rács: blokkválasztó · szerkesztő · jelzés */
+.km-po-racs {
+  display: grid;
+  grid-template-columns: 0.8fr 2.2fr 1.1fr;
+  gap: var(--ter-9);
+  align-items: stretch;
+  min-height: 68vh;
+}
+@media (max-width: 1200px) {
+  .km-po-racs {
+    grid-template-columns: 0.9fr 2fr;
+  }
+}
+@media (max-width: 900px) {
+  .km-po-racs {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Bal: a blokkválasztó */
+.km-po-valaszto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+  position: sticky;
+  top: var(--ter-9);
+  align-self: start;
+  min-width: 0;
+}
+.km-po-valaszto-fej {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ter-4);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  padding-top: var(--ter-4);
+}
+.km-po-munkalista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-2);
+  max-height: 34vh;
+  overflow-y: auto;
+}
+.km-po-munkalista button,
+.km-po-ful,
+.km-po-ful-aktiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ter-1);
+  width: 100%;
+  text-align: left;
+  min-height: var(--control-min);
+  padding: var(--ter-4) var(--ter-6);
+  border-radius: var(--r-btn);
+  background: transparent;
+  border: var(--bw) solid transparent;
+  cursor: pointer;
+  font-family: var(--font-body-active);
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+.km-po-munkalista button:hover,
+.km-po-ful:hover {
+  background: var(--panel-soft);
+}
+.km-po-munka-aktiv,
+.km-po-ful-aktiv {
+  background: var(--bg-elev);
+  border-color: var(--line);
+  color: var(--text);
+  box-shadow: inset var(--ter-1) var(--ter-0) var(--ter-0) var(--ter-0) var(--primary);
+}
+.km-po-munka-cim {
+  font-weight: var(--fw-strong);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.km-po-munka-allapot {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+.km-po-sor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-2);
+}
+.km-po-apro-gomb {
+  font: inherit;
+  font-size: var(--fs-xs);
+  padding: var(--ter-2) var(--ter-4);
+  border-radius: var(--r-btn);
+  border: var(--bw) solid var(--line);
+  background: transparent;
+  color: var(--text-mut);
+  cursor: pointer;
+}
+
+/* Közép: a szerkesztő */
+.km-po-szerkeszto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-5);
+  min-width: 0;
+}
+.km-po-fejsor {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--ter-6);
+}
+.km-po-cim {
+  margin: var(--ter-0);
+  font-size: var(--fs-title);
+}
+.km-po-mentes {
+  font-size: var(--fs-xs);
+  color: var(--text-mut);
+  font-variant-numeric: tabular-nums;
+}
+.km-po-mezo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-3);
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+.km-po-mezo input,
+.km-po-mezo textarea {
+  font: inherit;
+  font-size: var(--fs-md);
+  color: var(--text);
+  background: var(--field-bg);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-field);
+  padding: var(--ter-5) var(--ter-6);
+  width: 100%;
+  box-sizing: border-box;
+}
+.km-po-szovegmezo {
+  flex: 1;
+}
+.km-po-szovegmezo textarea {
+  min-height: 40vh;
+  height: 100%;
+  resize: vertical;
+  line-height: var(--lh);
+}
+.km-po-rejtett {
+  position: absolute;
+  width: var(--ter-1);
+  height: var(--ter-1);
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.km-po-labsor {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+}
+.km-po-karakter {
+  font-size: var(--fs-xs);
+  color: var(--text-mut);
+  font-variant-numeric: tabular-nums;
+}
+.km-po-muveletek {
+  display: flex;
+  gap: var(--ter-4);
+  flex-wrap: wrap;
+}
+.km-po-muvelet {
+  font: inherit;
+  font-size: var(--fs-sm);
+  padding: var(--ter-4) var(--ter-6);
+  border-radius: var(--r-btn);
+  border: var(--bw) solid var(--line);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.km-po-muvelet:hover {
+  background: var(--panel-soft);
+}
+/* J-1: a letiltott gomb láthatóan halványabb (átírás közben nem nyomható) */
+.km-po-muvelet:disabled,
+.km-po-halvany-gomb:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.km-po-muvelet:disabled:hover {
+  background: transparent;
+}
+.km-po-szovegmezo[data-dolgozik="true"] textarea {
+  opacity: 0.6;
+}
+.km-po-dolgozik {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ter-3);
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+  margin-bottom: var(--ter-3);
+}
+.km-po-porgo {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%; /* tokenőr: ok — kör alak (pörgő) */
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  animation: km-po-porog var(--dur-spin) linear infinite;
+  display: inline-block;
+}
+@keyframes km-po-porog {
+  to { transform: rotate(360deg); }
+}
+.km-po-gombsor {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+  padding-top: var(--ter-5);
+  border-top: var(--bw) solid var(--line);
+}
+.km-po-vegleges-sav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ter-6);
+  padding: var(--ter-5) var(--ter-6);
+  border-radius: var(--r-block);
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-size: var(--fs-sm);
+}
+.km-po-figyelmeztetes {
+  margin: var(--ter-0);
+  padding: var(--ter-4) var(--ter-6);
+  border-radius: var(--r-block);
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: var(--fs-sm);
+}
+
+/* Jobb: a jelzés és a dobozok */
+.km-po-jobb {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-6);
+  min-width: 0;
+}
+.km-po-jelzes,
+.km-po-doboz {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ter-4);
+  padding: var(--ter-6);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-block);
+  font-size: var(--fs-sm);
+}
+.km-po-jelzes h3,
+.km-po-doboz h3 {
+  margin: var(--ter-0);
+  font-size: var(--fs-md);
+}
+.km-po-jelzes p,
+.km-po-doboz p {
+  margin: var(--ter-0);
+}
+.km-po-jelzes-zold {
+  background: var(--ok-bg);
+  border-color: var(--ok);
+  color: var(--ok);
+}
+.km-po-jelzes-piros {
+  background: var(--err-bg);
+  border-color: var(--err);
+  color: var(--err);
+}
+.km-po-jelzes-semleges {
+  border-style: dashed;
+  color: var(--text-mut);
+}
+.km-po-jelzes-nincs {
+  border-style: dashed;
+  color: var(--text-faint);
+}
+
+.km-po-fogomb {
+  font: inherit;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-strong);
+  padding: var(--ter-5) var(--ter-9);
+  border-radius: var(--r-btn);
+  border: var(--bw) solid var(--primary);
+  background: var(--primary);
+  color: var(--on-primary);
+  cursor: pointer;
+}
+.km-po-halvany-gomb {
+  font: inherit;
+  font-size: var(--fs-sm);
+  padding: var(--ter-4) var(--ter-6);
+  border-radius: var(--r-btn);
+  border: var(--bw) solid var(--line);
+  background: transparent;
+  color: var(--text-mut);
+  cursor: pointer;
+}
+.km-po-halvany {
+  margin: var(--ter-0);
+  font-size: var(--fs-xs);
+  color: var(--text-mut);
+}
+.km-po-hiba {
+  margin: var(--ter-0);
+  font-size: var(--fs-sm);
+  color: var(--err);
+}
+.km-po-link {
+  color: var(--accent-link);
+  font-size: var(--fs-sm);
+}
+
+/* Felugró: a piros jelzés részletei */
+.km-po-fedo {
+  position: fixed;
+  inset: var(--ter-0);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fatyol-eros);
+  padding: var(--ter-9);
+}
+.km-po-parbeszed {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-5);
+  max-width: 62ch;
+  padding: var(--ter-9);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-block);
+  background: var(--bg-elev);
+  font-size: var(--fs-sm);
+}
+.km-po-parbeszed h3 {
+  margin: var(--ter-0);
+  font-size: var(--fs-title);
+  color: var(--err);
+}
+.km-po-parbeszed p,
+.km-po-parbeszed ul {
+  margin: var(--ter-0);
+}
+
+/* A-4: eredetjelölés — mi az AI javaslata, és mit írt át az ember */
+.km-po-eredet {
+  flex: 1;
+  min-height: 40vh;
+  padding: var(--ter-5) var(--ter-6);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-field);
+  background: var(--field-bg);
+  color: var(--text);
+  font-size: var(--fs-md);
+  line-height: var(--lh);
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
+.km-po-eredet-ai {
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+  text-underline-offset: var(--ter-2);
+}
+.km-po-eredet-ember {
+  text-decoration: underline;
+  text-decoration-color: var(--text-faint);
+  text-underline-offset: var(--ter-2);
+  font-weight: var(--fw-strong);
+}
+.km-po-jelmagyarazat {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+  font-size: var(--fs-xs);
+  color: var(--text-mut);
+}

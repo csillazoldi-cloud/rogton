@@ -1,0 +1,14 @@
+{
+ "hu": {
+  "r15.kozos.minta_jel": "Minta",
+  "r15.kozos.minta_sor": "A fotódat a következő lépésben kérjük."
+ },
+ "ro": {
+  "r15.kozos.minta_jel": "Exemplu",
+  "r15.kozos.minta_sor": "Fotografia ți-o cerem la pasul următor."
+ },
+ "en": {
+  "r15.kozos.minta_jel": "Sample",
+  "r15.kozos.minta_sor": "We ask for your photo in the next step."
+ }
+}

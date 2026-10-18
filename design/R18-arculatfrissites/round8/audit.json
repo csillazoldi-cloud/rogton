@@ -1,0 +1,1155 @@
+{
+ "datum": "2026-10-11",
+ "mit": "R-18 3. kör · elrendezés-audit",
+ "matrix": "54 útvonal-változat × HU/RO/EN × 390/768/1024/1280/1440 × sötét/világos = 1620 lapnézet",
+ "ellenorzes": [
+  "vízszintes görgetés (a lap szélesebb a képernyőnél)",
+  "szöveg-túlcsordulás gombban, csempén, jelvényen, menüben (scrollWidth > clientWidth; a szándékos „…” nem hiba)",
+  "két sorba tört gombfelirat",
+  "átfedés két tartalmi elem között (gomb, mező, cím, bekezdés, kép)",
+  "flex-sor elemei nem egy vonalban (> 2 px)"
+ ],
+ "megjegyzes": "Helyi mérés a VM-ben (Postgres 18.4, éles build, teszt AI, a betűk rendszerbetűként). Előtte = ennek a körnek a kódja az elrendezés-javítások ELŐTT (benne az új Naptár menüponttal).",
+ "elotte": {
+  "kombinacio": 1890,
+  "hibas_betoltes": 0,
+  "talalat": 402,
+  "tipus": {
+   "vizszintes-gorgetes": 0,
+   "ket-soros-gomb": 22,
+   "tulcsordulas": 6,
+   "atfedes": 0,
+   "elcsuszott-sor": 0,
+   "lebego-takar": 0,
+   "disz-takar": 0,
+   "nem-a-lap-vegen": 374
+  },
+  "utvonal": {
+   "/feliratok": 30,
+   "/fiok/arculat/betuk": 6,
+   "/fiok/arculat/logok": 6,
+   "/fiok/arculat/logoterv": 24,
+   "/fiok/arculat/nevlogo": 24,
+   "/fiok/arculat/szinek/mas": 6,
+   "/fiok/arculat/szinek": 12,
+   "/fiok/arculat": 6,
+   "/fiok": 24,
+   "/gephaz/kimeno": 2,
+   "/gephaz": 30,
+   "/kepek/kozlekedes": 6,
+   "/kepek/kozlemenyek": 6,
+   "/kepek?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6": 24,
+   "/kepek/szoveges-kepek": 6,
+   "/kepek/uj/kesz?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6": 6,
+   "/kepek/uj/uj?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6": 6,
+   "/kepek": 48,
+   "/naptar": 28,
+   "/poszt?munka=…": 48,
+   "/sajat-fiok": 24,
+   "/tema": 30
+  },
+  "kulonbozo": [
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/feliratok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Feliratok JSON",
+    "adat": "830 < 2489",
+    "db": 18,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/1280/sötét",
+     "en/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/tema",
+    "elem": "km-vj-gomb",
+    "szoveg": "INPUT",
+    "adat": "790 < 2190",
+    "db": 12,
+    "hol": [
+     "en/390/sötét",
+     "en/390/világos",
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/gephaz",
+    "elem": "km-vj-gomb",
+    "szoveg": "Brand warnings on images Rule violations found whe",
+    "adat": "830 < 1529",
+    "db": 10,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/1280/sötét",
+     "en/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/gephaz",
+    "elem": "km-vj-gomb",
+    "szoveg": "Márka-jelzések a képeken A szöveges képek letöltés",
+    "adat": "830 < 1550",
+    "db": 10,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/1280/sötét",
+     "hu/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/gephaz",
+    "elem": "km-vj-gomb",
+    "szoveg": "Semnalări de brand pe imagini Încălcările de regul",
+    "adat": "830 < 1550",
+    "db": 10,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/logoterv",
+    "elem": "km-vj-gomb",
+    "szoveg": "Price: €79. We call you first to talk it over.",
+    "adat": "830 < 866",
+    "db": 8,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/1280/sötét",
+     "en/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/logoterv",
+    "elem": "km-vj-gomb",
+    "szoveg": "Ára: 79 €. Előbb felhívunk, és megbeszéljük.",
+    "adat": "830 < 866",
+    "db": 8,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/1280/sötét",
+     "hu/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/logoterv",
+    "elem": "km-vj-gomb",
+    "szoveg": "Preț: 79 €. Mai întâi te sunăm și discutăm.",
+    "adat": "830 < 866",
+    "db": 8,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/nevlogo",
+    "elem": "km-vj-gomb",
+    "szoveg": "Let us design your logo — €79",
+    "adat": "830 < 874",
+    "db": 8,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/1280/sötét",
+     "en/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/nevlogo",
+    "elem": "km-vj-gomb",
+    "szoveg": "Tervezzünk neked logót — 79 €",
+    "adat": "830 < 874",
+    "db": 8,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/1280/sötét",
+     "hu/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/nevlogo",
+    "elem": "km-vj-gomb",
+    "szoveg": "Îți proiectăm noi un logo — 79 €",
+    "adat": "830 < 874",
+    "db": 8,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok",
+    "elem": "km-vj-gomb",
+    "szoveg": "What the AI suggests is not a fact.",
+    "adat": "830 < 1200",
+    "db": 8,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/1280/sötét",
+     "en/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Az AI javaslata nem tény.",
+    "adat": "830 < 1200",
+    "db": 8,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/1280/sötét",
+     "hu/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Propunerea AI nu este un fapt.",
+    "adat": "830 < 1200",
+    "db": 8,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "One number One big number and a sentence about it.",
+    "adat": "830 < 1654",
+    "db": 8,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Did you know? A useful tip from your trade.",
+    "adat": "830 < 1097",
+    "db": 8,
+    "hol": [
+     "en/1280/sötét",
+     "en/1280/világos",
+     "en/1440/sötét",
+     "en/1440/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Egy szám Egy nagy szám és egy mondat róla.",
+    "adat": "830 < 1675",
+    "db": 8,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Tudtad? Egy hasznos tipp a szakmádból.",
+    "adat": "830 < 1097",
+    "db": 8,
+    "hol": [
+     "hu/1280/sötét",
+     "hu/1280/világos",
+     "hu/1440/sötét",
+     "hu/1440/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Un număr Un număr mare și o propoziție despre el.",
+    "adat": "830 < 1675",
+    "db": 8,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Știai că? Un sfat util din meseria ta.",
+    "adat": "830 < 1097",
+    "db": 8,
+    "hol": [
+     "ro/1280/sötét",
+     "ro/1280/világos",
+     "ro/1440/sötét",
+     "ro/1440/világos"
+    ]
+   },
+   {
+    "tipus": "ket-soros-gomb",
+    "ut": "/naptar",
+    "elem": "button.r15-halk-gomb",
+    "szoveg": "Am publicat-o",
+    "adat": "2 sor",
+    "db": 8,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "ket-soros-gomb",
+    "ut": "/naptar",
+    "elem": "button.r15-fo-gomb",
+    "szoveg": "Am publicat-o",
+    "adat": "2 sor",
+    "db": 8,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "We copy the text and download the image.",
+    "adat": "830 < 2285",
+    "db": 8,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/1280/sötét",
+     "en/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "A szöveget kimásoljuk, a képet letöltjük.",
+    "adat": "830 < 2331",
+    "db": 8,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/1280/sötét",
+     "hu/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "Copiem textul și descărcăm imaginea.",
+    "adat": "830 < 2331",
+    "db": 8,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/sajat-fiok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Permanent deletion of the account is done by the a",
+    "adat": "830 < 2099",
+    "db": 8,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/1280/sötét",
+     "en/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/sajat-fiok",
+    "elem": "km-vj-gomb",
+    "szoveg": "A fiók végleges törlését a rendszergazda tudja elv",
+    "adat": "830 < 2099",
+    "db": 8,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/1280/sötét",
+     "hu/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/sajat-fiok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Ștergerea definitivă a contului o face administrat",
+    "adat": "830 < 2076",
+    "db": 8,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/tema",
+    "elem": "km-vj-gomb",
+    "szoveg": "Shadow color --shadow-color",
+    "adat": "830 < 1470",
+    "db": 6,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/1280/sötét",
+     "en/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/tema",
+    "elem": "km-vj-gomb",
+    "szoveg": "Árnyékszín --shadow-color",
+    "adat": "830 < 1493",
+    "db": 6,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/1280/sötét",
+     "hu/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/tema",
+    "elem": "km-vj-gomb",
+    "szoveg": "Culoare umbră --shadow-color",
+    "adat": "830 < 1478",
+    "db": 6,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/1280/sötét",
+     "ro/1280/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/feliratok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Previous versions",
+    "adat": "790 < 3052",
+    "db": 4,
+    "hol": [
+     "en/390/sötét",
+     "en/390/világos",
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/feliratok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Korábbi verziók",
+    "adat": "790 < 3331",
+    "db": 4,
+    "hol": [
+     "hu/390/sötét",
+     "hu/390/világos",
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/feliratok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Versiuni anterioare",
+    "adat": "790 < 3280",
+    "db": 4,
+    "hol": [
+     "ro/390/sötét",
+     "ro/390/világos",
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/szinek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Use this",
+    "adat": "830 < 991",
+    "db": 4,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/szinek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Ez legyen",
+    "adat": "830 < 991",
+    "db": 4,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/szinek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Asta să fie",
+    "adat": "830 < 991",
+    "db": 4,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "One number One big number and a sentence about it.",
+    "adat": "830 < 1686",
+    "db": 4,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Event Open day, fair, demo: what, where, when.",
+    "adat": "830 < 1129",
+    "db": 4,
+    "hol": [
+     "en/1280/sötét",
+     "en/1280/világos",
+     "en/1440/sötét",
+     "en/1440/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Egy szám Egy nagy szám és egy mondat róla.",
+    "adat": "830 < 1707",
+    "db": 4,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Esemény Nyílt nap, vásár, bemutató: mi, hol, mikor",
+    "adat": "830 < 1129",
+    "db": 4,
+    "hol": [
+     "hu/1280/sötét",
+     "hu/1280/világos",
+     "hu/1440/sötét",
+     "hu/1440/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Un număr Un număr mare și o propoziție despre el.",
+    "adat": "830 < 1707",
+    "db": 4,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Eveniment Zi porți deschise, târg, prezentare: ce,",
+    "adat": "830 < 1129",
+    "db": 4,
+    "hol": [
+     "ro/1280/sötét",
+     "ro/1280/világos",
+     "ro/1440/sötét",
+     "ro/1440/világos"
+    ]
+   },
+   {
+    "tipus": "ket-soros-gomb",
+    "ut": "/naptar",
+    "elem": "button.r15-halk-gomb",
+    "szoveg": "I posted it",
+    "adat": "2 sor",
+    "db": 4,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "You can copy it without an image too.",
+    "adat": "830 < 2249",
+    "db": 4,
+    "hol": [
+     "en/1024/sötét",
+     "en/1024/világos",
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "Done, copy it",
+    "adat": "830 < 1017",
+    "db": 4,
+    "hol": [
+     "en/1280/sötét",
+     "en/1280/világos",
+     "en/1440/sötét",
+     "en/1440/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "Kép nélkül is kimásolhatod.",
+    "adat": "830 < 2295",
+    "db": 4,
+    "hol": [
+     "hu/1024/sötét",
+     "hu/1024/világos",
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "Kész, másolom",
+    "adat": "830 < 1017",
+    "db": 4,
+    "hol": [
+     "hu/1280/sötét",
+     "hu/1280/világos",
+     "hu/1440/sötét",
+     "hu/1440/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "Poți copia și fără imagine.",
+    "adat": "830 < 2295",
+    "db": 4,
+    "hol": [
+     "ro/1024/sötét",
+     "ro/1024/világos",
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/poszt?munka=…",
+    "elem": "km-vj-gomb",
+    "szoveg": "Gata, copiez",
+    "adat": "830 < 1017",
+    "db": 4,
+    "hol": [
+     "ro/1280/sötét",
+     "ro/1280/világos",
+     "ro/1440/sötét",
+     "ro/1440/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/betuk",
+    "elem": "km-vj-gomb",
+    "szoveg": "Use this",
+    "adat": "830 < 1227",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/betuk",
+    "elem": "km-vj-gomb",
+    "szoveg": "Ez legyen",
+    "adat": "830 < 1227",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/betuk",
+    "elem": "km-vj-gomb",
+    "szoveg": "Asta să fie",
+    "adat": "830 < 1227",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/logok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Another sample",
+    "adat": "830 < 1265",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/logok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Másik minta",
+    "adat": "830 < 1265",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/logok",
+    "elem": "km-vj-gomb",
+    "szoveg": "Alt exemplu",
+    "adat": "830 < 1265",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/szinek/mas",
+    "elem": "km-vj-gomb",
+    "szoveg": "Use this",
+    "adat": "830 < 1191",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/szinek/mas",
+    "elem": "km-vj-gomb",
+    "szoveg": "Ez legyen",
+    "adat": "830 < 1191",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat/szinek/mas",
+    "elem": "km-vj-gomb",
+    "szoveg": "Asta să fie",
+    "adat": "830 < 1191",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat",
+    "elem": "km-vj-gomb",
+    "szoveg": "Guide, samples, documents:",
+    "adat": "830 < 1165",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat",
+    "elem": "km-vj-gomb",
+    "szoveg": "Kézikönyv, minták, dokumentumok:",
+    "adat": "830 < 1165",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/fiok/arculat",
+    "elem": "km-vj-gomb",
+    "szoveg": "Manual, exemple, documente:",
+    "adat": "830 < 1165",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/gephaz/kimeno",
+    "elem": "km-vj-gomb",
+    "szoveg": "Save settings",
+    "adat": "790 < 811",
+    "db": 2,
+    "hol": [
+     "en/390/sötét",
+     "en/390/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/kozlekedes",
+    "elem": "km-vj-gomb",
+    "szoveg": "Make it",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/kozlekedes",
+    "elem": "km-vj-gomb",
+    "szoveg": "Elkészítjük",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/kozlekedes",
+    "elem": "km-vj-gomb",
+    "szoveg": "O pregătim",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/kozlemenyek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Make it",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/kozlemenyek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Elkészítjük",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/kozlemenyek",
+    "elem": "km-vj-gomb",
+    "szoveg": "O pregătim",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/szoveges-kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Make it",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/szoveges-kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "Elkészítjük",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/szoveges-kepek",
+    "elem": "km-vj-gomb",
+    "szoveg": "O pregătim",
+    "adat": "830 < 1042",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/uj/kesz?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Romanian version too",
+    "adat": "830 < 1649",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/uj/kesz?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Román változat is",
+    "adat": "830 < 1653",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/uj/kesz?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Și varianta în română",
+    "adat": "830 < 1654",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/uj/uj?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Romanian version too",
+    "adat": "830 < 1630",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/uj/uj?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Román változat is",
+    "adat": "830 < 1630",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "nem-a-lap-vegen",
+    "ut": "/kepek/uj/uj?poszt=d2a3766a-04f7-4c73-83f5-7dde408abba6",
+    "elem": "km-vj-gomb",
+    "szoveg": "Și varianta în română",
+    "adat": "830 < 1631",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "ket-soros-gomb",
+    "ut": "/naptar",
+    "elem": "button.r15-fo-gomb",
+    "szoveg": "I posted it",
+    "adat": "3 sor",
+    "db": 2,
+    "hol": [
+     "en/768/sötét",
+     "en/768/világos"
+    ]
+   },
+   {
+    "tipus": "tulcsordulas",
+    "ut": "/naptar",
+    "elem": "button.r15-halk-gomb",
+    "szoveg": "Elfogadom",
+    "adat": "69 > 66",
+    "db": 2,
+    "hol": [
+     "hu/768/sötét",
+     "hu/768/világos"
+    ]
+   },
+   {
+    "tipus": "tulcsordulas",
+    "ut": "/naptar",
+    "elem": "button.r15-halk-gomb",
+    "szoveg": "Am publicat-o",
+    "adat": "69 > 66",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   },
+   {
+    "tipus": "tulcsordulas",
+    "ut": "/naptar",
+    "elem": "button.r15-fo-gomb",
+    "szoveg": "Am publicat-o",
+    "adat": "70 > 68",
+    "db": 2,
+    "hol": [
+     "ro/768/sötét",
+     "ro/768/világos"
+    ]
+   }
+  ]
+ },
+ "utana": {
+  "kombinacio": 1890,
+  "hibas_betoltes": 0,
+  "talalat": 0,
+  "tipus": {
+   "vizszintes-gorgetes": 0,
+   "ket-soros-gomb": 0,
+   "tulcsordulas": 0,
+   "atfedes": 0,
+   "elcsuszott-sor": 0,
+   "lebego-takar": 0,
+   "disz-takar": 0,
+   "nem-a-lap-vegen": 0
+  },
+  "utvonal": {},
+  "kulonbozo": []
+ }
+}

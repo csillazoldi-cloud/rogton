@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{
+    --bg:#0c0d13;--bg-elev:#12141c;--text:#e8ebf1;--text-mut:#9aa3b2;--text-dim:#7a8496;--text-faint:#6b7484;
+    --on-primary:#ffffff;--primary:#4f5fd6;--primary-2:#7f8fff;--accent:#ff4520;--accent-text:#ff7a55;
+    --ok:#7fe0a0;--err:#ffb3a3;--focus:#8a98ff;
+    --font-display:'Archivo',system-ui,sans-serif;--font-body:'Public Sans',system-ui,sans-serif;--font-code:'IBM Plex Mono',ui-monospace,monospace;
+    --fw-head:700;--fw-strong:600;--fs-h1:34px;--fs-h2:24px;--fs-base:15px;--fs-title:16px;--fs-md:14px;--fs-sm:13px;--fs-xs:12px;
+    --r-card:10px;--r-block:10px;--r-btn:6px;--r-field:6px;--r-badge:4px;--bw:1px;
+    --pad-card:36px;--pad-block:22px;--gap:12px;--lh:1.55;--control-min:44px;
+    --line:color-mix(in srgb,#e8ebf1 10%,transparent);
+    --line-soft:color-mix(in srgb,#e8ebf1 7%,transparent);
+    --field-bg:color-mix(in srgb,#e8ebf1 5%,transparent);
+    --field-border:color-mix(in srgb,#e8ebf1 14%,transparent);
+    --panel-soft:color-mix(in srgb,#e8ebf1 2%,transparent);
+    --panel-soft-2:color-mix(in srgb,#e8ebf1 4%,transparent);
+    --btn-ghost-bg:color-mix(in srgb,#e8ebf1 5%,transparent);
+    --btn-ghost-border:color-mix(in srgb,#e8ebf1 14%,transparent);
+    --grad-primary:linear-gradient(120deg,#4f5fd6,#7f8fff);
+    --glow-primary:color-mix(in srgb,#4f5fd6 40%,transparent);
+    --ok-bg:color-mix(in srgb,#7fe0a0 13%,transparent);
+    --err-bg:color-mix(in srgb,#ffb3a3 10%,transparent);
+    --err-border:color-mix(in srgb,#ffb3a3 30%,transparent);
+    --warn:#ff7a55;--warn-border:color-mix(in srgb,#ff7a55 30%,transparent);--warn-bg:color-mix(in srgb,#ff4520 8%,transparent);
+    }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:var(--fs-base); line-height:var(--lh); }
+    a { color:#ff6a40; } a:hover { color:#ff4520; }
+    .fejlec { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:12px 24px; border-bottom:var(--bw) solid var(--line-soft); background:var(--bg-elev); }
+    .fejbal { display:flex; align-items:center; gap:10px; }
+    .logo { width:26px; height:26px; border-radius:var(--r-btn); background:var(--grad-primary); display:flex; align-items:center; justify-content:center; color:var(--on-primary); font-family:var(--font-display); font-weight:var(--fw-head); font-size:var(--fs-md); }
+    .cim { font-family:var(--font-display); font-weight:var(--fw-strong); font-size:var(--fs-title); }
+    .jelveny { font-size:var(--fs-xs); color:var(--text-dim); border:var(--bw) solid var(--line); border-radius:var(--r-badge); padding:2px 8px; }
+    .fejjobb { display:flex; align-items:center; gap:10px; }
+    .valaszto { padding:6px 9px; border:var(--bw) solid var(--field-border); border-radius:var(--r-field); background:var(--bg-elev); color:var(--text); font-size:var(--fs-sm); font-family:var(--font-body); }
+    .tartalom { max-width:1180px; margin:0 auto; padding:20px 24px 40px; box-sizing:border-box; }
+    .lapcim { font-family:var(--font-display); font-weight:var(--fw-head); font-size:var(--fs-h2); margin:0 0 4px; }
+    .lapalcim { color:var(--text-mut); font-size:var(--fs-sm); margin:0 0 20px; }
+    .kartya { border:var(--bw) solid var(--line); background:var(--panel-soft); border-radius:var(--r-card); padding:var(--pad-block); }
+    .kartyacim { font-family:var(--font-display); font-weight:var(--fw-strong); font-size:var(--fs-title); margin:0 0 14px; }
+    .szam { font-family:var(--font-display); font-weight:var(--fw-head); font-size:28px; letter-spacing:-0.5px; }
+    .cimke { font-size:var(--fs-xs); color:var(--text-dim); text-transform:none; }
+    .mono { font-family:var(--font-code); font-size:var(--fs-sm); }
+    .sav { height:6px; border-radius:3px; background:var(--field-bg); overflow:hidden; }
+    .savbelso { height:100%; border-radius:3px; background:var(--grad-primary); }
+    .megj { font-size:var(--fs-xs); color:var(--text-dim); }
+    table { width:100%; border-collapse:collapse; }
+    th { text-align:start; font-size:var(--fs-xs); color:var(--text-dim); font-weight:var(--fw-strong); padding:0 12px 10px 0; border-bottom:var(--bw) solid var(--line); }
+    td { padding:13px 12px 13px 0; border-bottom:var(--bw) solid var(--line-soft); font-size:var(--fs-sm); vertical-align:middle; }
+    .jobbra { text-align:end; padding-inline-end:0; }
+    .gomb { border:var(--bw) solid var(--btn-ghost-border); background:var(--btn-ghost-bg); color:var(--text); border-radius:var(--r-btn); padding:8px 16px; font-size:var(--fs-sm); font-family:var(--font-body); cursor:pointer; }
+    .gomb-fo { border:none; background:var(--grad-primary); color:var(--on-primary); font-weight:var(--fw-strong); box-shadow:0 4px 14px var(--glow-primary); }
+    .mezo { width:74px; padding:7px 9px; border:var(--bw) solid var(--field-border); border-radius:var(--r-field); background:var(--field-bg); color:var(--text); font-family:var(--font-code); font-size:var(--fs-sm); box-sizing:border-box; }
+    .pont { display:inline-block; width:7px; height:7px; border-radius:50%; margin-inline-end:7px; vertical-align:1px; }
+  </style>
+</helmet>
+<div style="padding:26px; background:var(--bg)">
+  <div class="megj" style="margin-bottom:14px">Ez az üzenet a Hírfigyelő Áttekintés lapjának tetején jelenik meg, amikor a keret elfogyott.</div>
+
+  <div style="border:var(--bw) solid var(--err-border); background:var(--err-bg); border-radius:var(--r-block); padding:15px 18px; display:flex; gap:14px; align-items:flex-start; margin-bottom:20px">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb3a3" stroke-width="1.8" stroke-linecap="round" style="flex:none; margin-top:2px">
+      <circle cx="12" cy="12" r="9"></circle><path d="M12 8v5"></path><path d="M12 16.5v.01"></path>
+    </svg>
+    <div>
+      <div style="font-weight:var(--fw-strong); color:var(--err); margin-bottom:4px">A havi AI-keret elfogyott</div>
+      <div style="font-size:var(--fs-sm); color:var(--text-mut)">A hírek letöltése és a lista megy tovább, de az értékelés, az összkép és a tartalomötlet áll. A keretet a rendszergazda emelheti; új hónapban magától újraindul.</div>
+    </div>
+  </div>
+
+  <div class="megj" style="margin-bottom:14px">A rendszergazda ugyanezt a sort látja a szervezet mellett a költséglapon:</div>
+
+  <div class="kartya">
+    <table>
+      <thead><tr><th style="width:34%">Szervezet</th><th>Hívás</th><th>Becsült költség</th><th>Havi keret ($)</th><th style="width:26%">Keret kihasználva</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div style="font-weight:var(--fw-strong)">Alfa Kommunikáció</div>
+              <div class="megj"><span class="pont" style="background:var(--warn)"></span>felhőben dolgozik</div></td>
+          <td class="mono">214</td>
+          <td class="mono" style="color:var(--err)">5,00 $</td>
+          <td><input class="mezo" value="5,00" readonly style="border-color:var(--err-border)"></td>
+          <td>
+            <div class="sav"><div class="savbelso" style="width:100%; background:linear-gradient(120deg,#ff4520,#ff7a55)"></div></div>
+            <div class="megj" style="margin-top:5px; color:var(--err)">100% — megállt</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

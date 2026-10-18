@@ -1,0 +1,35 @@
+{
+  "hu": {
+    "fejlec.termeknev": "Posztgyár",
+    "fejlec.haza": "{nev} – Kezdőlap",
+    "nav.profil": "Profil",
+    "nav.cegeim": "Cégeim",
+    "nav.ertesitesek_szammal": "Értesítések: {n}",
+    "mod.valto.vilagosra": "Világos mód bekapcsolása",
+    "mod.valto.sotetre": "Sötét mód bekapcsolása",
+    "mod.vilagos": "Világos mód",
+    "mod.sotet": "Sötét mód"
+  },
+  "ro": {
+    "fejlec.termeknev": "Fabrica de postări",
+    "fejlec.haza": "{nev} – Acasă",
+    "nav.profil": "Profil",
+    "nav.cegeim": "Companiile mele",
+    "nav.ertesitesek_szammal": "Notificări: {n}",
+    "mod.valto.vilagosra": "Activează modul luminos",
+    "mod.valto.sotetre": "Activează modul întunecat",
+    "mod.vilagos": "Mod luminos",
+    "mod.sotet": "Mod întunecat"
+  },
+  "en": {
+    "fejlec.termeknev": "Post factory",
+    "fejlec.haza": "{nev} – Home",
+    "nav.profil": "Profile",
+    "nav.cegeim": "My companies",
+    "nav.ertesitesek_szammal": "Notifications: {n}",
+    "mod.valto.vilagosra": "Switch to light mode",
+    "mod.valto.sotetre": "Switch to dark mode",
+    "mod.vilagos": "Light mode",
+    "mod.sotet": "Dark mode"
+  }
+}

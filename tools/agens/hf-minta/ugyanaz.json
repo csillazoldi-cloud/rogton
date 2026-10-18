@@ -1,0 +1,124 @@
+{
+  "parok": [
+    {
+      "id": "u1",
+      "a": {
+        "cim": "Marosvásárhelyi Kommunikációs Ügynökség új irodát nyit [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] új irodát nyit a városközpontban. Az ügynökség vezetője szerint a bővülésre a növekvő ügyfélszám miatt van szükség. Az új iroda októberben nyílik meg.",
+        "csonkolt": false
+      },
+      "b": {
+        "cim": "Bővül a helyi PR-ügynökség: új iroda a központban [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] bejelentette, hogy új irodát nyit a belvárosban. A cég vezetője elmondta, a lépésre a megnövekedett ügyfélszám miatt volt szükség. Az új iroda megnyitását októberre tervezik.",
+        "csonkolt": false
+      },
+      "vart": { "ugyanaz": true },
+      "indok": "Mindkét cikk ugyanarról az eseményről szól: az ügynökség új irodát nyit, más címmel."
+    },
+    {
+      "id": "u2",
+      "a": {
+        "cim": "Marosvásárhelyi városi tanács ülése: költségvetés [MINTA]",
+        "szoveg": "A marosvásárhelyi városi tanács [MINTA] mai ülésén a jövő évi költségvetésről tárgyalt. A tanácsosok vitatták a kulturális programokra szánt összegeket. A döntés a következő ülésen várható.",
+        "csonkolt": false
+      },
+      "b": {
+        "cim": "Költségvetési vita a marosvásárhelyi tanácsban [MINTA]",
+        "szoveg": "A marosvásárhelyi városi tanács [MINTA] keddi ülésén a kulturális kiadásokról vitázott. Több tanácsos is módosítást javasolt a költségvetési tervezethez. A szavazást elhalasztották.",
+        "csonkolt": false
+      },
+      "vart": { "ugyanaz": true },
+      "indok": "Mindkettő ugyanarról a tanácsülésről szól, a költségvetési vitáról."
+    },
+    {
+      "id": "u3",
+      "a": {
+        "cim": "Első ülés: Marosvásárhelyi tanács a parkolásról [MINTA]",
+        "szoveg": "A marosvásárhelyi városi tanács [MINTA] hétfői ülésén a parkolási díjak emeléséről döntött. Az új díjszabás jövő hónaptól lép életbe. A döntést a lakosság vegyesen fogadta.",
+        "csonkolt": false
+      },
+      "b": {
+        "cim": "Második ülés: Marosvásárhelyi tanács a zöldterületekről [MINTA]",
+        "szoveg": "A marosvásárhelyi városi tanács [MINTA] csütörtöki ülésén új parkok létesítéséről tárgyalt. A tanácsosok jóváhagyták a zöldterület-fejlesztési tervet. A munkálatok jövő tavasszal kezdődnek.",
+        "csonkolt": false
+      },
+      "vart": { "ugyanaz": false },
+      "indok": "Két különböző ülés, más témáról — nem ugyanaz az esemény."
+    },
+    {
+      "id": "u4",
+      "a": {
+        "cim": "Marosvásárhelyi Kommunikációs Ügynökség díjat nyert [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] elnyerte a megyei PR-díjat. A zsűri a cég innovatív kampányát díjazta. Az ügynökség vezetője köszönetet mondott a csapatnak.",
+        "csonkolt": false
+      },
+      "b": {
+        "cim": "Folytatás: a díjnyertes kampány részletei [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] díjnyertes kampányának részleteit mutatjuk be. A kampány célja a helyi vállalkozások támogatása volt. Az ügynökség most új projekteken dolgozik.",
+        "csonkolt": false
+      },
+      "vart": { "ugyanaz": false },
+      "indok": "Az első a díjnyerésről szól, a második egy későbbi folytatás, új fejlemény — nem ugyanaz az esemény."
+    },
+    {
+      "id": "u5",
+      "a": {
+        "cim": "Marosvásárhelyi Kommunikációs Ügynökség új vezetőt választ [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] új vezérigazgatót választott. A korábbi vezető nyugdíjba vonul. Az új vezető korábban egy másik ügynökségnél dolgozott.",
+        "csonkolt": false
+      },
+      "b": {
+        "cim": "Kolozsvári Kommunikációs Ügynökség új vezetőt választ [MINTA]",
+        "szoveg": "A Kolozsvári Kommunikációs Ügynökség [MINTA] új vezérigazgatót nevezett ki. A cég vezetése szerint a változás a növekedési stratégiát szolgálja. Az új vezető hosszú tapasztalattal rendelkezik.",
+        "csonkolt": false
+      },
+      "vart": { "ugyanaz": false },
+      "indok": "Azonos cím, de más város, más szervezet — nem ugyanaz az esemény."
+    },
+    {
+      "id": "u6",
+      "a": {
+        "cim": "Marosvásárhelyi Kommunikációs Ügynökség kampánya [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] új kampányt indított a helyi vállalkozásoknak. A kampány célja a digitális jelenlét erősítése. Az első eseményt jövő héten tartják.",
+        "csonkolt": false
+      },
+      "b": {
+        "cim": "Marosvásárhelyi Kommunikációs Ügynökség másik kampánya [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] egy másik, új kampányt jelentett be, amely a hagyományos sajtóra összpontosít. A kampány keretében sajtótájékoztatót is tartanak. Ez a kampány különbözik a korábbitól.",
+        "csonkolt": false
+      },
+      "vart": { "ugyanaz": false },
+      "indok": "Két különböző kampány, más témával és céllal — nem ugyanaz az esemény."
+    },
+    {
+      "id": "u7",
+      "a": {
+        "cim": "Marosvásárhelyi Kommunikációs Ügynökség közgyűlése [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] éves közgyűlését tartotta. A közgyűlésen beszámoltak az elmúlt év eredményeiről. A tagok jóváhagyták a jövő évi tervet.",
+        "csonkolt": false
+      },
+      "b": {
+        "cim": "Beszámoló a Marosvásárhelyi Kommunikációs Ügynökség közgyűléséről [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] közgyűlésén elfogadták a éves beszámolót. A vezetőség ismertette a pénzügyi eredményeket. A következő közgyűlést jövőre tartják.",
+        "csonkolt": false
+      },
+      "vart": { "ugyanaz": true },
+      "indok": "Mindkettő ugyanarról a közgyűlésről számol be, más címmel."
+    },
+    {
+      "id": "u8",
+      "a": {
+        "cim": "Marosvásárhelyi Kommunikációs Ügynökség irodája kirabolva [MINTA]",
+        "szoveg": "A Marosvásárhelyi Kommunikációs Ügynökség [MINTA] irodáját kirabolták a hétvégén. A rendőrség vizsgálatot indított. Az ügynökség szerint a kár jelentős, de a működés nem áll le.",
+        "csonkolt": false
+      },
+      "b": {
+        "cim": "Betörés a Marosvásárhelyi Kommunikációs Ügynökségnél [MINTA]",
+        "szoveg": "Ismeretlenek törtek be a Marosvásárhelyi Kommunikációs Ügynökség [MINTA] irodájába. A rendőrség nyomoz. Az ügynökség közleménye szerint az anyagi kár mellett nem történt személyi sérülés.",
+        "csonkolt": false
+      },
+      "vart": { "ugyanaz": true },
+      "indok": "Mindkettő ugyanarról a betörésről szól, más címmel."
+    }
+  ]
+}

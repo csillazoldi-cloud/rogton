@@ -1,0 +1,50 @@
+
+=== 1. munkafa: d3cb6730c87f ===
+d3cb673 c4 K2 fix: loopback check before connecting; background app launched on its own line so the subshell does not hold the caller's pipe
+
+=== 2. pnpm install --frozen-lockfile ===
+
+=== 3. ellenőrzések (a package.json ellenoriz lánca, egyenként) ===
+  BUKIK  ellenoriz::hatar::nincs-kor::apps/web/profil/index.ts → apps/web/vizual/peldak.ts
+  BUKIK  ellenoriz::hatar::nincs-kor::apps/web/profil/index.ts → apps/web/vizual/peldak.ts → apps/web/vizual/helyzet.ts
+  zöld   tokenor
+  zöld   keretor
+  zöld   terkoz-szamlalo.mjs --ellenoriz
+  zöld   dockerfile-or.mjs
+  zöld   allapotor
+  zöld   tipus
+  zöld   epit
+
+=== 5. próbakörnyezet (Postgres 18, minden migráció a nulláról, az alkalmazás) ===
+-- migrációk (helyi: a migral.sh 3. lépése, mentés nélkül) --
+migrációk rendben
+próbakörnyezet kész: alkalmazás 127.0.0.1:26471, adatbázis 127.0.0.1:24755 (jelölő kapu-d3cb6730c87f)
+
+=== 6. próbák ===
+  packages/ai-adapters               lefutott
+  packages/arculat-core              lefutott
+  packages/design-system             lefutott
+  packages/esemeny-core              lefutott
+  packages/fajl-core                 lefutott
+  packages/hozzaferes-core           lefutott
+  packages/letolto                   lefutott
+  packages/news-monitor-core         lefutott
+  packages/news-monitor-feliratok    lefutott
+  packages/news-monitor-promptok     lefutott
+  packages/visszajelzes-core         lefutott
+  packages/visszajelzes-react        lefutott
+  packages/vizual-core               lefutott
+  apps/proba-host                    lefutott
+  apps/referencia-host               lefutott
+  apps/web                           lefutott
+próbakörnyezet lebontva (d3cb6730c87f)
+
+=== 7. összevetés: /tmp/saas-kapu/munkafa/tools/kapu/ismert-bukasok.json ===
+  "piros": [],
+  "jelzes": [],
+  "jelzes": [],
+  "javult": [],
+próbák: {osszes:1403,zold:1367,bukik:20,kimarad:16}
+KAPU: nem-rosszabb — Zöld a kapu (nem-rosszabb; {osszes:1403,zold:1367,bukik:20,kimarad:16}).
+futás: /tmp/saas-kapu/futasok/20261007-153606-d3cb6730c87f
+KILEPES=0

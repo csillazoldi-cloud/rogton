@@ -1,0 +1,7 @@
+0s 1. munkafa: d3cb6730c87f
+0s 2. pnpm install --frozen-lockfile
+1s 3. ellenőrzések (a package.json ellenoriz lánca, egyenként)
+25s 5. próbakörnyezet (Postgres 18, minden migráció a nulláról, az alkalmazás)
+46s 6. próbák
+184s 7. összevetés: /tmp/saas-kapu/munkafa/tools/kapu/ismert-bukasok.json
+184s vége: nem-rosszabb

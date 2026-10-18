@@ -1,0 +1,182 @@
+/* A Költség-saját lap stílusai — csak tokenek, a Koltseg-szervezet.dc.html rajz szerint. */
+.km-koltsajat-fejlec {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+  padding: var(--ter-6) var(--ter-10);
+  border-bottom: var(--bw) solid var(--line-soft);
+  background: var(--bg-elev);
+}
+.km-koltsajat-fejlec-bal { display: flex; align-items: center; gap: var(--ter-5); }
+.km-koltsajat-fejlec-jobb { display: flex; align-items: center; gap: var(--ter-5); }
+.km-koltsajat-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-btn);
+  background: var(--grad-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-primary);
+  font-family: var(--font-display);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-md);
+}
+.km-koltsajat-cim { font-family: var(--font-display); font-weight: var(--fw-strong); font-size: var(--fs-title); color: var(--text); }
+.km-koltsajat-jelveny {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-badge);
+  padding: var(--ter-1) var(--ter-4);
+}
+.km-koltsajat-valaszto {
+  padding: var(--ter-3) var(--ter-4);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--bg-elev);
+  color: var(--text);
+  font-size: var(--fs-sm);
+  font-family: var(--font-body);
+}
+.km-koltsajat-valaszto:disabled { opacity: 0.6; }
+
+.km-koltsajat-uzenet {
+  margin: var(--ter-7) var(--ter-10) var(--ter-0);
+  padding: var(--ter-5) var(--ter-8);
+  border: var(--bw) solid var(--line);
+  background: var(--panel-soft-2);
+  border-radius: var(--r-block);
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+.km-koltsajat-uzenet[data-fajta="info"] { border-color: var(--line); background: var(--panel-soft-2); color: var(--text-mut); }
+.km-koltsajat-uzenet[data-fajta="hiba"] { border-color: var(--err-border); background: var(--err-bg); color: var(--err); }
+
+.km-koltsajat-tartalom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-tile);
+}
+.km-koltsajat-lapcim {
+  font-family: var(--font-display);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-h2);
+  margin: var(--ter-0) var(--ter-0) var(--ter-2);
+  color: var(--text);
+}
+.km-koltsajat-lapalcim { color: var(--text-mut); font-size: var(--fs-sm); margin: var(--ter-0) var(--ter-0) var(--ter-9); }
+
+.km-koltsajat-kartya {
+  border: var(--bw) solid var(--line);
+  background: var(--panel-soft);
+  border-radius: var(--r-card);
+  padding: var(--pad-block);
+}
+.km-koltsajat-kartyacim {
+  font-family: var(--font-display);
+  font-weight: var(--fw-strong);
+  font-size: var(--fs-title);
+  margin: var(--ter-0) var(--ter-0) var(--ter-7);
+  color: var(--text);
+}
+
+.km-koltsajat-keret-kartya { margin-bottom: var(--ter-7); }
+.km-koltsajat-keret-sor {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ter-10);
+  flex-wrap: wrap;
+}
+.km-koltsajat-cimke { font-size: var(--fs-xs); color: var(--text-dim); }
+.km-koltsajat-szam {
+  font-family: var(--font-display);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-h2);
+  letter-spacing: -0.5px;
+  margin-top: var(--ter-3);
+  color: var(--text);
+}
+.km-koltsajat-szam-keret { font-size: var(--fs-md); color: var(--text-dim); font-weight: var(--fw-strong); }
+.km-koltsajat-maradek { text-align: end; }
+.km-koltsajat-maradek-ertek { color: var(--ok); }
+
+.km-koltsajat-sav {
+  height: 8px;
+  border-radius: var(--r-badge);
+  background: var(--field-bg);
+  overflow: hidden;
+  margin-top: var(--ter-8);
+}
+.km-koltsajat-sav-belso { height: 100%; border-radius: var(--r-badge); }
+.km-koltsajat-sav-lablec {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--ter-4);
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+}
+.km-koltsajat-megjegyzes { font-size: var(--fs-xs); color: var(--text-dim); margin: var(--ter-0); }
+
+.km-koltsajat-racs {
+  display: flex;
+  gap: var(--ter-7);
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.km-koltsajat-tablazat-kartya { flex: 2 1 460px; }
+.km-koltsajat-hely-kartya { flex: 1 1 300px; }
+
+.km-koltsajat-tablazat { width: 100%; border-collapse: collapse; }
+.km-koltsajat-tablazat th {
+  text-align: start;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  font-weight: var(--fw-strong);
+  padding: var(--ter-0) var(--ter-6) var(--ter-5) var(--ter-0);
+  border-bottom: var(--bw) solid var(--line);
+}
+.km-koltsajat-tablazat td {
+  padding: var(--ter-6) var(--ter-6) var(--ter-6) var(--ter-0);
+  border-bottom: var(--bw) solid var(--line-soft);
+  font-size: var(--fs-sm);
+  vertical-align: middle;
+  color: var(--text);
+}
+.km-koltsajat-tablazat tr:last-child td { border-bottom: none; }
+.km-koltsajat-jobbra { text-align: end; padding-inline-end: var(--ter-0); }
+.km-koltsajat-mono { font-family: var(--font-code); font-size: var(--fs-sm); }
+
+.km-koltsajat-hely-sor {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  margin-bottom: var(--ter-6);
+}
+.km-koltsajat-hely-cim { font-weight: var(--fw-strong); color: var(--text); }
+.km-koltsajat-pont {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%; /* tokenőr: ok — kör alak */
+  flex-shrink: 0;
+}
+.km-koltsajat-hely-lablec {
+  border-top: var(--bw) solid var(--line-soft);
+  margin-top: var(--ter-8);
+  padding-top: var(--ter-7);
+}
+
+@media (max-width: 720px) {
+  .km-koltsajat-tartalom { gap: var(--ter-7); }
+  .km-koltsajat-fejlec { padding: var(--ter-5) var(--ter-6); }
+  .km-koltsajat-racs { flex-direction: column; }
+  .km-koltsajat-tablazat-kartya,
+  .km-koltsajat-hely-kartya { flex: 1 1 auto; }
+  .km-koltsajat-keret-sor { flex-direction: column; align-items: flex-start; gap: var(--ter-6); }
+  .km-koltsajat-maradek { text-align: start; }
+  .km-koltsajat-sav-lablec { flex-direction: column; gap: var(--ter-2); }
+}

@@ -1,0 +1,43 @@
+
+=== 0. a kapu képei: d3cb6730c87f ===
+a képek megvannak, a feliratuk d3cb6730c87f90cbdeb72bbcdb71805d668c0de1
+
+=== 1. képgyártó a Gigabyte-on (ha változott) ===
+A képgyártó csak a Gigabyte-on fut (V-6) — itt kihagyom.
+
+=== 2. forráscsomag: git archive d3cb6730c87f ===
+forráscsomag: 20M
+képcsomag: 4.0K
+
+=== 3. mérés, majd forrás és képek a NAS-ra ===
+NAS: felszabadítható 9000 MB, terhelés 1
+rendben
+rendben
+rendben
+
+=== 4. betöltés, és a címkék: :helyi → :elozo, :d3cb6730c87f → :helyi ===
+rendben
+rendben
+
+=== 5. mentés és migrációk (migral.sh) — az új alkalmazás előtt ===
+rendben
+új migráció: 1 db (0154_proba) — előbb mentés
+mentés kész: /var/lib/postgresql/mentes/20261007-1600-elotte-0154_proba.sql.gz (4321 bájt)
+lefutott: 0154_proba
+migrációk rendben
+MIGRAL_KOD:0
+MENTÉS: /var/lib/postgresql/mentes/20261007-1600-elotte-0154_proba.sql.gz
+migrációk rendben (1 új)
+
+=== 6. indítás (--no-build) és a hálózati kerítés ===
+rendben
+rendben
+
+=== 7. válaszol-e az oldal ===
+  saas.mediapartizan.ro/api/egeszseg → 502
+  saas.mediapartizan.ro/api/egeszseg → 502
+  saas.mediapartizan.ro/api/egeszseg → 502
+  saas.mediapartizan.ro/api/egeszseg → 502
+  saas.mediapartizan.ro/api/egeszseg → 502
+  saas.mediapartizan.ro/api/egeszseg → 502
+PIROS: az oldal nem válaszol, és 1 migráció lefutott — NEM állok vissza magamtól (a régi alkalmazás az új sémán: döntés kell).

@@ -1,0 +1,11 @@
+node_modules
+**/node_modules
+**/.next
+.git
+vault
+Claude outputs
+design
+docs
+nas
+*.md
+!apps/web/prompts/*.md

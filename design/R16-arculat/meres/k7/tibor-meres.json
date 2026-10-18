@@ -1,0 +1,199 @@
+[
+ {
+  "lap": "szervezet-adatai",
+  "nezet": "asztali",
+  "ut": "/fiok",
+  "zold": false,
+  "hibak": [
+   "T2 fő gomb: 0 (pontosan 1) []",
+   "T5 80 szó görgetés nélkül (≤ 60)"
+  ],
+  "jelzesek": [
+   "T7 figyelmeztető szín 1 elemen — csak valódi bajnál szabad",
+   "nincs data-r15 jelölés — a mérés becslés (a lap még nem az R-15 rajzból épült)"
+  ],
+  "meres": {
+   "szavak": 80,
+   "cim": "Szervezet adatai",
+   "fo": [],
+   "melyseg": 1,
+   "melyPelda": "NÉV\nTe adtad meg\nSzerkesztés\nCipó Pékség",
+   "figyel": 1,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": false,
+   "vanFoJel": false,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  }
+ },
+ {
+  "lap": "arculat-12b-honlap",
+  "nezet": "asztali",
+  "ut": "/fiok/arculat",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 40,
+   "cim": "Jól ismer a gép?",
+   "fo": [
+    "Igen, ez mi vagyunk"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Logó\nTöbb logó\nCsere\nSzínek\nfő\nmásodik\nháttér\nCser",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  }
+ },
+ {
+  "lap": "kepek",
+  "nezet": "asztali",
+  "ut": "/kepek",
+  "zold": false,
+  "hibak": [
+   "T2 fő gomb: 0 (pontosan 1) []"
+  ],
+  "jelzesek": [
+   "nincs data-r15 jelölés — a mérés becslés (a lap még nem az R-15 rajzból épült)"
+  ],
+  "meres": {
+   "szavak": 42,
+   "cim": "Mit szeretnél ma megmutatni?",
+   "fo": [],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": false,
+   "vanFoJel": false,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  }
+ },
+ {
+  "lap": "szervezet-adatai",
+  "nezet": "telefon",
+  "ut": "/fiok",
+  "zold": false,
+  "hibak": [
+   "T2 fő gomb: 0 (pontosan 1) []",
+   "T5 66 szó görgetés nélkül (≤ 40)",
+   "T10 lebegő elem takar: Későbbre hagyva, A forrásjelölés nem jelenti, h"
+  ],
+  "jelzesek": [
+   "T7 figyelmeztető szín 1 elemen — csak valódi bajnál szabad",
+   "nincs data-r15 jelölés — a mérés becslés (a lap még nem az R-15 rajzból épült)"
+  ],
+  "meres": {
+   "szavak": 66,
+   "cim": "Szervezet adatai",
+   "fo": [],
+   "melyseg": 1,
+   "melyPelda": "NÉV\nTe adtad meg\nSzerkesztés\nCipó Pékség",
+   "figyel": 1,
+   "vizszintes": false,
+   "takar": [
+    "Későbbre hagyva",
+    "A forrásjelölés nem jelenti, h"
+   ],
+   "vanJeloles": false,
+   "vanFoJel": false,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  }
+ },
+ {
+  "lap": "arculat-12b-honlap",
+  "nezet": "telefon",
+  "ut": "/fiok/arculat",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 25,
+   "cim": "Jól ismer a gép?",
+   "fo": [
+    "Igen, ez mi vagyunk"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Logó\nCsere\nSzínek\nCsere\nBetűk\nCím: Tiszta\nSzöveg: ",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  }
+ },
+ {
+  "lap": "kepek",
+  "nezet": "telefon",
+  "ut": "/kepek",
+  "zold": false,
+  "hibak": [
+   "T2 fő gomb: 0 (pontosan 1) []",
+   "T5 42 szó görgetés nélkül (≤ 40)",
+   "T10 lebegő elem takar: Fontos hír\nZárva tartás, nyitv, Fontos hír, Zárva tartás, nyitvatartás, sz"
+  ],
+  "jelzesek": [
+   "nincs data-r15 jelölés — a mérés becslés (a lap még nem az R-15 rajzból épült)"
+  ],
+  "meres": {
+   "szavak": 42,
+   "cim": "Mit szeretnél ma megmutatni?",
+   "fo": [],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [
+    "Fontos hír\nZárva tartás, nyitv",
+    "Fontos hír",
+    "Zárva tartás, nyitvatartás, sz"
+   ],
+   "vanJeloles": false,
+   "vanFoJel": false,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  }
+ },
+ {
+  "lap": "arculat-12b-svg",
+  "nezet": "asztali",
+  "ut": "/fiok/arculat",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 44,
+   "cim": "Te cunoaștem bine?",
+   "fo": [
+    "Da, acesta suntem noi"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Logo\nMai multe logouri\nSchimbă\nCulori\nprincipală\ns",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  }
+ }
+]

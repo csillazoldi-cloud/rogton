@@ -1,0 +1,31 @@
+{
+ "verzio": 1,
+ "lepes": 3,
+ "bemutatkozas": {
+  "nev": "Cipó Pékség",
+  "osszefoglalo": "Kovászos kenyér Marosvásárhelyen."
+ },
+ "kommunikacio": {},
+ "arculat": {
+  "allapot": "tervezet",
+  "tervezet": {
+   "elsodleges": "#2f5d50",
+   "masodlagos": "#c9a86a",
+   "hatter": "#f1ede4",
+   "betu_cim": "'Archivo',sans-serif",
+   "betu_szoveg": "Georgia, serif",
+   "betu_iranymutatas": "Erős, tárgyilagos címek.",
+   "kepvilag": "Kész udvarok, térkő közelről, természetes fény.",
+   "kovetendo": "Valós munkák fotói",
+   "kerulendo": "Stockfotó",
+   "lekerekites": 8,
+   "nyelv": "hu",
+   "eredet": "forras",
+   "modositva": true,
+   "logo_fajl_id": "3f1c2a9e-7b4d-4c1e-9a55-0d2b6c8e1f01"
+  },
+  "verzio": 1,
+  "jovahagyott_verzio": null,
+  "verziok": {}
+ }
+}

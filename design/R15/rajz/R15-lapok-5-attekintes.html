@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R-15 Round 2 review</title>
+<style>
+  :root{
+    --bg:#f4f5f8; --card:#ffffff; --text:#1a1c24; --mut:#555c6a; --line:#dfe2e8; --ok:#1f7a48; --ok-bg:#e6f4ec;
+    --q:#4f5fd6; --q-bg:#eef0fc; --warn:#a8461c; --warn-bg:#fbefe9; --shadow:0 1px 2px rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0f1117; --card:#171a22; --text:#e8ebf1; --mut:#9aa3b2; --line:#2a2f3b; --ok:#7fe0a0; --ok-bg:#16301f;
+      --q:#9aa6ff; --q-bg:#1c2040; --warn:#ffb08a; --warn-bg:#3a2218; --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f1117; --card:#171a22; --text:#e8ebf1; --mut:#9aa3b2; --line:#2a2f3b; --ok:#7fe0a0; --ok-bg:#16301f;
+    --q:#9aa6ff; --q-bg:#1c2040; --warn:#ffb08a; --warn-bg:#3a2218; --shadow:none;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:1500px;margin:0 auto;padding:32px 16px 64px}
+  h1{font-size:28px;margin:0 0 6px}
+  h2{font-size:21px;margin:0}
+  .sub{color:var(--mut);margin:0 0 20px}
+  .top{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+  .pill{padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);font-size:14px}
+  .pill b{color:var(--ok)}
+  .pill.w b{color:var(--warn)}
+  .screen{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:24px;box-shadow:var(--shadow)}
+  .head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:12px}
+  .probe{font-size:13px;padding:3px 10px;border-radius:999px;background:var(--ok-bg);color:var(--ok);font-weight:600}
+  .shots{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;padding-bottom:6px}
+  .shots figure{margin:0;flex:none}
+  .shots img{display:block;border:1px solid var(--line);border-radius:8px;height:420px;width:auto}
+  .shots figcaption{font-size:12px;color:var(--mut);margin-top:4px}
+  .why{margin:12px 0 0;color:var(--text);max-width:1100px}
+  .why li{margin-bottom:2px}
+  .qs{display:grid;gap:8px;margin-top:8px}
+  .q{background:var(--q-bg);border-radius:8px;padding:10px 12px;font-size:14px}
+  .q b{color:var(--q)}
+  table{border-collapse:collapse;width:100%;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--mut);font-weight:600}
+  .off{color:var(--warn);font-weight:600}
+  @media (max-width:700px){ .shots img{height:300px} h1{font-size:23px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>R-15 Round 2 — Images · Organisation · Settings · Notifications · „Fixed yesterday”</h1>
+  <p class="sub">Drawing only, no code. Branch <code>c5-r15-kor2</code> · 2026-10-10. Full drawing with all states: <code>R15-lapok-5.dc.html</code>. Machinery: <code>gepezet-5.md</code>. Questions: <code>kerdesek-5.md</code>.</p>
+  <div class="top">
+    <span class="pill">Probe: <b>26 / 26 views green</b> (measured 10-10 17:53)</span>
+    <span class="pill w">Judge: <b>not run yet</b> — only on 09, 10a, 10b, 03j, 03j2 (Mac batch)</span>
+    <span class="pill">18 questions, all with a ★ default · 21 new labels, no changed values</span>
+  </div>
+  <div class="screen">
+    <div class="head"><h2>09 Képek — what to show</h2><span class="probe">probe: 2/2 green · judged</span></div>
+    <div class="shots"><figure><img src="kep-5/09-kepek-telefon.png" alt="phone"><figcaption>phone</figcaption></figure><figure><img src="kep-5/09-kepek-asztali.png" alt="desktop"><figcaption>desktop</figcaption></figure></div>
+    <ul class="why"><li>Same 7 situations. New: one primary „Képet készítek a munkámról” on the first card (today the page has none — T2).</li><li>One sentence under the title. Phone: names only (the sample image shows the rest); the button sits under the thumb, Feedback no longer covers a card.</li></ul>
+    <div class="qs"><div class="q"><b>Q1</b> No card descriptions on the phone ★ yes.</div><div class="q"><b>Q2</b> The primary on the „Kész munka” card ★ yes.</div></div>
+  </div>
+  <div class="screen">
+    <div class="head"><h2>10 Kitöltő — ready · making · downloaded</h2><span class="probe">probe: 6/6 green · 10a + 10b judged, 10w not</span></div>
+    <div class="shots"><figure><img src="kep-5/10a-kitolto-telefon.png" alt="phone · ready"><figcaption>phone · ready</figcaption></figure><figure><img src="kep-5/10w-keszul-telefon.png" alt="phone · making"><figcaption>phone · making</figcaption></figure><figure><img src="kep-5/10b-letoltve-telefon.png" alt="phone · downloaded"><figcaption>phone · downloaded</figcaption></figure><figure><img src="kep-5/10a-kitolto-asztali.png" alt="desktop · ready"><figcaption>desktop · ready</figcaption></figure><figure><img src="kep-5/10b-letoltve-asztali.png" alt="desktop · downloaded"><figcaption>desktop · downloaded</figcaption></figure></div>
+    <ul class="why"><li>Ready: his photo on the image, both fields filled, „Letöltés” is the one primary; „Poszthoz teszem” stays quiet next to it.</li><li>The chosen size is now obvious (accent edge, fill, ✓) — the old complaint was „a kiválasztott méret alig különbözik”.</li><li>Making: spinner + „Készítjük a képet…”, disabled, „Pár másodperc — addig nincs teendőd.” — the image stays visible, faded.</li><li>Downloaded: „Kész a képed.”, the text to post next to it, „Szöveg másolása”. The „javaslat” badge is gone.</li></ul>
+    <div class="qs"><div class="q"><b>Q3</b> „Így jó: …” only under empty fields ★ yes.</div><div class="q"><b>Q4</b> Remove the „javaslat” badge on 10b ★ remove.</div></div>
+  </div>
+  <div class="screen">
+    <div class="head"><h2>12 Szervezet adatai — „Ezt tudjuk rólatok”</h2><span class="probe">probe: 4/4 green · not judged</span></div>
+    <div class="shots"><figure><img src="kep-5/12a-szervezet-telefon.png" alt="phone"><figcaption>phone</figcaption></figure><figure><img src="kep-5/12b-atiras-telefon.png" alt="phone · editing"><figcaption>phone · editing</figcaption></figure><figure><img src="kep-5/12a-szervezet-asztali.png" alt="desktop"><figcaption>desktop</figcaption></figure><figure><img src="kep-5/12b-atiras-asztali.png" alt="desktop · editing"><figcaption>desktop · editing</figcaption></figure></div>
+    <ul class="why"><li>One calm list instead of a card per field; the green badge became a quiet line.</li><li>„Átírom” opens today's editor; the source shows as one sentence there („Ezt te adtad meg.”). Save note under Mentés.</li><li>Primary: „Logó és színek” (the R-16 pages).</li></ul>
+    <div class="qs"><div class="q"><b>Q5</b> Primary „Logó és színek” ★ yes.</div><div class="q"><b>Q6 (you + Vilmos)</b> Source badges + the „Az AI-javaslat nem tény” footnote leave the list; one sentence in the editor ★ remove.</div><div class="q"><b>Q18</b> Non-owner view = same without „Átírom” ★ OK.</div></div>
+  </div>
+  <div class="screen">
+    <div class="head"><h2>13 Beállítások — „Minden be van állítva”</h2><span class="probe">probe: 4/4 green · not judged</span></div>
+    <div class="shots"><figure><img src="kep-5/13a-beallitasok-telefon.png" alt="phone"><figcaption>phone</figcaption></figure><figure><img src="kep-5/13a-beallitasok-asztali.png" alt="desktop"><figcaption>desktop</figcaption></figure><figure><img src="kep-5/13b-halado-asztali.png" alt="desktop · Haladó open"><figcaption>desktop · Haladó open</figcaption></figure></div>
+    <ul class="why"><li>Rows only, no descriptions. Trial as one quiet line („most nem kell fizetni”); the dead pricing box and the „tulajdonos nézet” badge are gone.</li><li>AI-keret → the R-13 credit line + „Mire ment el?”. AI-használat, currency, integrations and label texts under „Haladó ▾”.</li><li>Primary: „Meghívok valakit” → Tagok with the invite open.</li></ul>
+    <div class="qs"><div class="q"><b>Q7</b> Primary „Meghívok valakit” ★ yes.</div><div class="q"><b>Q8 (you; Vilmos for product)</b> Remove badge, közös-alap intro, pricing box ★ remove.</div><div class="q"><b>Q9</b> Row descriptions go ★ yes.</div><div class="q"><b>Q10</b> Credit line; AI-használat + Pénznem under Haladó ★ yes.</div></div>
+  </div>
+  <div class="screen">
+    <div class="head"><h2>14 Értesítések — state in the title</h2><span class="probe">probe: 6/6 green · not judged</span></div>
+    <div class="shots"><figure><img src="kep-5/14a-ertesitesek-telefon.png" alt="phone · 2 new"><figcaption>phone · 2 new</figcaption></figure><figure><img src="kep-5/14b-nincs-uj-telefon.png" alt="phone · none"><figcaption>phone · none</figcaption></figure><figure><img src="kep-5/14a-ertesitesek-asztali.png" alt="desktop · 2 new"><figcaption>desktop · 2 new</figcaption></figure><figure><img src="kep-5/14c-kapcsolok-asztali.png" alt="desktop · switches open"><figcaption>desktop · switches open</figcaption></figure></div>
+    <ul class="why"><li>Title says what is there („2 új értesítésed van” / „Nincs új értesítésed”) — not „Beállítások”. Primary opens the newest.</li><li>The empty message no longer looks like an input. Switches behind „Miről szóljon ▾”; „AI-keret” → „kredit”.</li><li>The two dead channels (e-mail, phone — „még nem működik”) are gone. Adatkezelés tab unchanged this round.</li></ul>
+    <div class="qs"><div class="q"><b>Q11</b> Switches behind „Miről szóljon ▾” ★ yes.</div><div class="q"><b>Q12 (you; Vilmos)</b> Remove the dead e-mail / phone rows ★ remove.</div><div class="q"><b>Q13 (Vilmos)</b> Adatkezelés tab not redrawn now; he reviews it first ★.</div><div class="q"><b>Q14</b> State title, count line goes ★ yes.</div><div class="q"><b>Q15</b> Empty state primary „Vissza a Kezdőlapra” ★ yes.</div></div>
+  </div>
+  <div class="screen">
+    <div class="head"><h2>03 Kezdőlap + „Tegnap javítva” (c7)</h2><span class="probe">probe: 4/4 green · judged</span></div>
+    <div class="shots"><figure><img src="kep-5/03j-javitva-telefon.png" alt="phone"><figcaption>phone</figcaption></figure><figure><img src="kep-5/03j2-javitva-nyitva-telefon.png" alt="phone · open"><figcaption>phone · open</figcaption></figure><figure><img src="kep-5/03j-javitva-asztali.png" alt="desktop"><figcaption>desktop</figcaption></figure><figure><img src="kep-5/03j2-javitva-nyitva-asztali.png" alt="desktop · open"><figcaption>desktop · open</figcaption></figure></div>
+    <ul class="why"><li>The approved 03b, unchanged. Only for someone whose report was fixed: a green ✓ and the number in the top bar, before „Értesítések”.</li><li>Click → a small list: their own words, the page, „Megnézem”. Data: <code>kesz_ido</code> (0154) exists; one new read of the person's own rows (no migration).</li><li>Why the bar: 03b is at 58/60 and 39/40 words — a line in the page breaks T5; a worded bar item wrapped the menu (measured).</li></ul>
+    <div class="qs"><div class="q"><b>Q16</b> ✓ + number in the bar, list as a drop-down ★ yes (alternative: a body line, T5 red).</div><div class="q"><b>Q17</b> Own reports, current organisation, fixed in the last 24 h ★ yes.</div></div>
+  </div>
+
+  <h2 style="margin:8px 0 10px">Taken off the screen</h2>
+  <table>
+    <tr><th>Page</th><th>Element</th><th>Now</th></tr>
+    <tr><td>10b</td><td>„javaslat” badge</td><td class="off">removed (Q4)</td></tr>
+    <tr><td>12</td><td>source badges incl. „AI-javaslat”, the footnote „Az AI-javaslat nem tény…”</td><td class="off">removed; one source sentence in the editor (Q6)</td></tr>
+    <tr><td>13</td><td>„tulajdonos nézet” badge, közös-alap intro, „Árazás és fizetés — még nem működik” box, row descriptions</td><td class="off">removed (Q8, Q9)</td></tr>
+    <tr><td>14</td><td>„E-mailben” / „Telefonos értesítés” — „még nem működik”; count line; „Beállítások” title</td><td class="off">removed (Q12, Q14)</td></tr>
+    <tr><td>all</td><td>everything else</td><td>moved, full list in kerdesek-5.md</td></tr>
+  </table>
+</div>
+</body>
+</html>

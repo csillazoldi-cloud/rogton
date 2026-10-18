@@ -1,0 +1,11 @@
+rendben: 1. 1200×300, átlátszó sarok, közép #a4471f (7190 bájt)
+rendben: 2a. szelesseg 400 → 400×100
+rendben: 2b. %-kódolt, 300px × 300px → 1200×1200
+rendben: 3. a szkript nem futott (közép 30,58,138 = #1e3a8a)
+rendben: 4. külső kiszolgáló: 0 kérés
+rendben: 5. png data URL: 400 {"hiba":"ERVENYTELEN_TARTALOM","reszlet":"adat: csak data:im
+rendben: 5. nincs <svg>: 400 {"hiba":"ERVENYTELEN_TARTALOM","reszlet":"adat: nincs benne 
+rendben: 5. hibás XML: 400 {"hiba":"ERVENYTELEN_TARTALOM","reszlet":"az SVG nem rajzolh
+rendben: 5. nem szöveg: 400 {"hiba":"ERVENYTELEN_TARTALOM","reszlet":"adat: data URL kel
+
+svg-png füstpróba: minden rendben

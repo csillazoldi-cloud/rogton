@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900&family=Public+Sans:ital,wght@0,400;0,500;0,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="km-theme.js"></script>
+<style>
+/* Tartalék az első kirajzoláshoz — a hiteles forrás a tema-alap.json + km-theme.js. */
+:root{
+--bg:#0c0d13; --bg-elev:#12141c; --text:#e8ebf1; --text-mut:#9aa3b2; --text-dim:#7a8496; --text-faint:#6b7484;
+--on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff;
+--grad-primary:linear-gradient(120deg,var(--primary),var(--primary-2));
+--grad-headline:linear-gradient(110deg,#ff7a55,#ff4520);
+--accent:#ff4520; --accent-text:#ff7a55; --accent-link:#ff6a40;
+--accent-tint-weak:rgba(255,70,30,0.09); --accent-border-soft:rgba(255,100,65,0.45);
+--line:rgba(255,255,255,0.1); --line-soft:rgba(255,255,255,0.07); --line-dash:rgba(255,255,255,0.15);
+--field-bg:rgba(255,255,255,0.05); --field-border:rgba(255,255,255,0.14);
+--panel-soft:rgba(255,255,255,0.02); --panel-soft-2:rgba(255,255,255,0.04);
+--btn-ghost-bg:rgba(255,255,255,0.05); --btn-ghost-border:rgba(255,255,255,0.14); --btn-ghost-text:#cdd4e0; --btn-ghost-hover:rgba(255,255,255,0.1);
+--focus:#8a98ff; --focus-ring:rgba(120,135,255,0.3);
+--ok:#7fe0a0; --ok-bg:rgba(74,222,128,0.13);
+--src-web:#aab6ff; --src-web-bg:rgba(130,145,255,0.15);
+--src-ai:#ff7a55; --src-ai-bg:rgba(255,70,30,0.2);
+--src-empty:#8a94a6; --src-empty-bg:rgba(255,255,255,0.07);
+--glass-bg:linear-gradient(160deg,rgba(255,255,255,0.1),rgba(255,255,255,0.035));
+--glass-border:rgba(255,255,255,0.16);
+--glass-shadow:0 24px 80px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.14);
+--glow-primary:rgba(95,110,230,0.4);
+--blur-glass:28px; --sat-glass:150%;
+--r-card:10px; --r-block:10px; --r-btn:6px; --r-field:6px; --r-badge:4px; --bw:1px;
+--font-display-active:'Archivo',sans-serif; --font-body-active:'Public Sans',sans-serif; --font-code-active:'IBM Plex Mono',monospace;
+--fw-head:700; --fw-strong:600;
+--fs-h1:34px; --fs-hero:52px; --fs-hero-sm:32px; --fs-title:16px; --fs-base:15px; --fs-md:14px; --fs-sm:13px; --fs-xs:12px; --lh:1.55;
+--pad-card:36px; --pad-block:22px; --btn-pad-y:13px; --btn-pad-x:26px; --gap:12px; --control-min:44px;
+--dur-fast:0.2s; --dur-amb:18s;
+}
+html,body{margin:0;padding:0;background:#0c0d13;background:var(--bg);}
+a{color:var(--accent-link);text-decoration:none;}
+a:hover{color:var(--accent-text);text-decoration:underline;}
+input,button,select{font-family:var(--font-body-active);}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(60px,-40px) scale(1.12);}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-70px,40px) scale(0.92);}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.001s !important;transition:none !important;}}
+</style>
+</helmet>
+
+<section style="display:flex;gap:60px;align-items:flex-start;padding:40px;background:#07080c;font-family:var(--font-body-active)">
+
+  <div id="1a" style="flex:none">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-family:var(--font-code-active);font-size:12px;color:var(--on-primary);background:var(--grad-primary);border-radius:var(--r-badge);padding:3px 9px">1a</span>
+      <span style="font-size:13px;color:var(--text-dim)">Nyitólap — asztali, 1440</span>
+    </div>
+    <div data-screen-label="LP Nyitólap desktop" style="width:1440px;background:var(--bg);color:var(--text);font-size:var(--fs-base);line-height:var(--lh);border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;position:relative">
+      <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
+        <div style="position:absolute;top:-220px;left:-140px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--accent-tint-weak),transparent 65%);filter:blur(70px);animation:drift1 var(--dur-amb) ease-in-out infinite"></div>
+        <div style="position:absolute;top:60px;right:-220px;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,var(--focus-ring),transparent 65%);filter:blur(80px);animation:drift2 var(--dur-amb) ease-in-out -6s infinite"></div>
+      </div>
+
+      <header style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:var(--gap);padding:16px 56px;border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:28px;height:28px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:800;font-size:var(--fs-md)">K</div>
+          <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title)">Kommunikációs munkatér</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--gap)">
+          <select aria-label="A felület nyelve" style="padding:8px 11px;min-height:40px;border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--bg-elev);color:var(--text);font-size:var(--fs-sm);cursor:pointer">
+            <option>Magyar</option><option>Română</option><option>English</option>
+          </select>
+          <button style="border:var(--bw) solid var(--btn-ghost-border);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);border-radius:var(--r-btn);padding:10px 18px;min-height:40px;font-size:var(--fs-sm);cursor:pointer" style-hover="background:var(--btn-ghost-hover)">Belépés</button>
+          <button style="border:none;background:var(--grad-primary);color:var(--on-primary);border-radius:var(--r-btn);padding:10px 20px;min-height:40px;font-size:var(--fs-sm);font-weight:var(--fw-strong);cursor:pointer;box-shadow:0 6px 22px var(--glow-primary)" style-hover="transform:translateY(-1px)">Fiók létrehozása</button>
+        </div>
+      </header>
+
+      <div style="position:relative;z-index:1;display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;padding:76px 56px 68px">
+        <div>
+          <div style="font-size:var(--fs-xs);letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);font-weight:var(--fw-strong);margin-bottom:16px">Aitmetica SRL</div>
+          <h1 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-hero);line-height:1.1;margin:0 0 18px;text-wrap:pretty">Megtudod, mi <span style="background:var(--grad-headline);-webkit-background-clip:text;background-clip:text;color:transparent">fontos nektek</span> abból, ami megjelenik.</h1>
+          <p style="font-size:18px;color:var(--text-mut);margin:0 0 30px;max-width:52ch">Felveszed a szervezeted profilját, megadod a figyelt forrásokat, és naponta rangsorolt találatokat kapsz — mindegyiknél ott van a forrás és az indoklás, hogy miért került eléd.</p>
+          <div style="display:flex;gap:var(--gap);align-items:center;flex-wrap:wrap">
+            <button style="border:none;background:var(--grad-primary);color:var(--on-primary);border-radius:var(--r-btn);padding:var(--btn-pad-y) var(--btn-pad-x);min-height:var(--control-min);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;box-shadow:0 8px 28px var(--glow-primary)" style-hover="transform:translateY(-2px)">Fiók létrehozása</button>
+            <button style="border:var(--bw) solid var(--btn-ghost-border);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);border-radius:var(--r-btn);padding:var(--btn-pad-y) 22px;min-height:var(--control-min);font-size:var(--fs-md);cursor:pointer" style-hover="background:var(--btn-ghost-hover)">Belépés</button>
+          </div>
+          <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-top:16px">Magyar, román és angol felület. A felület a saját arculatodra állítható.</div>
+        </div>
+
+        <div style="background:var(--glass-bg);border:var(--bw) solid var(--glass-border);backdrop-filter:blur(var(--blur-glass)) saturate(var(--sat-glass));border-radius:var(--r-card);padding:var(--pad-block);box-shadow:var(--glass-shadow)">
+          <div style="font-size:var(--fs-xs);letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);margin-bottom:16px">Amit egy találat mellé megkapsz</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:10px;border:var(--bw) solid var(--line-soft);border-radius:var(--r-badge);padding:11px 14px;background:var(--panel-soft-2)">
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-strong);background:var(--src-web-bg);color:var(--src-web);border-radius:var(--r-badge);padding:2px 8px;white-space:nowrap">Forrás</span>
+              <span style="font-size:var(--fs-sm);color:var(--text-mut)">honnan és mikor jelent meg</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;border:var(--bw) solid var(--line-soft);border-radius:var(--r-badge);padding:11px 14px;background:var(--panel-soft-2)">
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-strong);background:var(--src-ai-bg);color:var(--src-ai);border-radius:var(--r-badge);padding:2px 8px;white-space:nowrap">Miért fontos</span>
+              <span style="font-size:var(--fs-sm);color:var(--text-mut)">a profilodhoz kötött indoklás</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;border:var(--bw) solid var(--line-soft);border-radius:var(--r-badge);padding:11px 14px;background:var(--panel-soft-2)">
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-strong);background:var(--src-empty-bg);color:var(--src-empty);border-radius:var(--r-badge);padding:2px 8px;white-space:nowrap">Fontosság</span>
+              <span style="font-size:var(--fs-sm);color:var(--text-mut)">kategória, nem kitalált százalék</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;border:var(--bw) solid var(--line-soft);border-radius:var(--r-badge);padding:11px 14px;background:var(--panel-soft-2)">
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-strong);background:var(--ok-bg);color:var(--ok);border-radius:var(--r-badge);padding:2px 8px;white-space:nowrap">Egy esemény</span>
+              <span style="font-size:var(--fs-sm);color:var(--text-mut)">az ugyanarról szóló cikkek egy csoportban</span>
+            </div>
+          </div>
+          <div style="font-size:var(--fs-xs);color:var(--text-dim);margin-top:16px;border-top:var(--bw) solid var(--line-soft);padding-top:12px">Az AI-javaslatokat átírhatod, és a jóváhagyás mindig a tiéd.</div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 56px 68px">
+        <h2 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:26px;margin:0 0 6px">Mit tud ma</h2>
+        <p style="font-size:var(--fs-md);color:var(--text-dim);margin:0 0 24px">Ez a felsorolás csak azt tartalmazza, ami a rendszerben már működik.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:var(--pad-block);background:var(--panel-soft)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:14px"><path d="M4 5h9M4 10h13M4 15h7"></path><path d="M17 15.5l2 2 3.5-3.5"></path></svg>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:7px">Profil és arculat három lépésben</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Megadod, mivel foglalkoztok, kikhez szólsz és milyen hangnemben. Az AI javaslatot készít belőle, te átírod, és jóváhagyod. Ami hiányzik, az „még nincs megadva” marad, nem lesz kitalálva.</div>
+          </div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:var(--pad-block);background:var(--panel-soft)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--src-web)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:14px"><circle cx="11" cy="11" r="6.5"></circle><path d="M15.8 15.8L21 21"></path><path d="M8.5 11h5M11 8.5v5"></path></svg>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:7px">Napi forrásfigyelés</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">A megadott hírforrásokat és oldalakat naponta feldolgozza, az ugyanarról az eseményről szóló cikkeket összevonja, és a profilod alapján rangsorol. Rövid összképet is ad a fejleményekről.</div>
+          </div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:var(--pad-block);background:var(--panel-soft)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:14px"><path d="M12 3.5l1.7 3.9 4.3.4-3.2 2.8.9 4.2-3.7-2.2-3.7 2.2.9-4.2L6 7.8l4.3-.4z"></path><path d="M7 19h10"></path></svg>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:7px">Tartalomötlet, ha kérsz</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Egy találathoz kérhetsz kommunikációs megközelítést. Ez javaslat, elkülönítve a hír tényeitől — nem készül automatikusan minden hírhez, és a közzététel nem a rendszer feladata.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 56px 68px">
+        <h2 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:26px;margin:0 0 24px">Hogyan indul</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:var(--pad-block);background:var(--panel-soft)">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--grad-primary);color:var(--on-primary);display:flex;align-items:center;justify-content:center;font-weight:var(--fw-head);font-size:var(--fs-sm);margin-bottom:14px">1</div>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:7px">Elmondod, mivel foglalkoztok</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Egy weboldalt adsz meg, vagy leírod pár mondatban. Ennyi elég a kezdéshez.</div>
+          </div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:var(--pad-block);background:var(--panel-soft)">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--grad-primary);color:var(--on-primary);display:flex;align-items:center;justify-content:center;font-weight:var(--fw-head);font-size:var(--fs-sm);margin-bottom:14px">2</div>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:7px">A rendszer javasol, te átírod</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Célközönség, kommunikációs cél, nyelvek, hangnem és arculat — javaslatként. Minden mezőnél látszik, honnan származik, és bármit átírhatsz vagy későbbre hagyhatsz.</div>
+          </div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:var(--pad-block);background:var(--panel-soft)">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--grad-primary);color:var(--on-primary);display:flex;align-items:center;justify-content:center;font-weight:var(--fw-head);font-size:var(--fs-sm);margin-bottom:14px">3</div>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:7px">Beállítod a forrásokat</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Beilleszted a figyelendő oldalak címét, kipróbálod egy próbafutással, és másnaptól jönnek a találatok. A visszajelzéseidből a rendszer módosítást javasol.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 56px 68px">
+        <div style="border:var(--bw) solid var(--accent-border-soft);background:var(--accent-tint-weak);border-radius:var(--r-block);padding:var(--pad-card);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+          <div>
+            <h2 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:26px;margin:0 0 10px">Mi történik az adatokkal</h2>
+            <p style="font-size:var(--fs-md);color:var(--text-mut);margin:0">A rendszer a megadott szervezeti profilból és az általad kijelölt forrásokból dolgozik. Nem figyeli a teljes internetet, és nem ígéri, hogy minden megjelenést megtalál.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:11px">
+            <div style="font-size:var(--fs-md);color:var(--text-mut)"><span style="color:var(--text);font-weight:var(--fw-strong)">Amit megadsz, a te profilod marad.</span> A jóváhagyott profil a fiókodhoz tartozik, és ott bármikor módosíthatod.</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)"><span style="color:var(--text);font-weight:var(--fw-strong)">Az AI-javaslat nem ellenőrzött tény.</span> Minden mezőnél és találatnál látszik, honnan származik az információ, és ki módosította utoljára.</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)"><span style="color:var(--text);font-weight:var(--fw-strong)">Az adatfeldolgozás részletei:</span> [ADATKEZELÉSI TÁJÉKOZTATÓ — az AI-szolgáltató, a tárolás helye és a megőrzési idő megnevezésével].</div>
+            <a href="#" style="font-size:var(--fs-md);font-weight:var(--fw-strong)">Adatkezelési tájékoztató →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 56px 72px;text-align:center">
+        <h2 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:30px;margin:0 0 12px">Kezdjük azzal, mivel foglalkoztok.</h2>
+        <p style="font-size:var(--fs-md);color:var(--text-mut);margin:0 0 22px">A profil felvétele három lépés, és közben bármikor kiléphetsz — a piszkozat megmarad.</p>
+        <button style="border:none;background:var(--grad-primary);color:var(--on-primary);border-radius:var(--r-btn);padding:var(--btn-pad-y) var(--btn-pad-x);min-height:var(--control-min);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;box-shadow:0 8px 28px var(--glow-primary)" style-hover="transform:translateY(-2px)">Fiók létrehozása</button>
+        <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-top:14px">Árazás: [ÁRAZÁS — még nincs meghatározva].</div>
+      </div>
+
+      <footer style="position:relative;z-index:2;border-top:var(--bw) solid var(--line-soft);background:var(--bg-elev);padding:26px 56px;display:flex;align-items:center;justify-content:space-between;gap:var(--gap);flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <div style="font-size:var(--fs-sm);color:var(--text-mut)">Aitmetica SRL</div>
+          <span style="color:var(--text-faint)">·</span>
+          <div style="font-size:var(--fs-sm);color:var(--text-mut)">[KAPCSOLAT — e-mail, székhely]</div>
+          <span style="color:var(--text-faint)">·</span>
+          <a href="#" style="font-size:var(--fs-sm)">Adatkezelési tájékoztató</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);direction:ltr;unicode-bidi:isolate">0.1.0</span>
+          <span style="font-size:var(--fs-xs);color:var(--src-empty);border:var(--bw) solid var(--line);border-radius:var(--r-badge);padding:2px 9px">tesztkörnyezet</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div id="1b" style="flex:none">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-family:var(--font-code-active);font-size:12px;color:var(--on-primary);background:var(--grad-primary);border-radius:var(--r-badge);padding:3px 9px">1b</span>
+      <span style="font-size:13px;color:var(--text-dim)">Nyitólap — telefon, 390</span>
+    </div>
+    <div data-screen-label="LP Nyitólap mobil" style="width:390px;background:var(--bg);color:var(--text);font-size:var(--fs-base);line-height:var(--lh);border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;position:relative">
+      <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
+        <div style="position:absolute;top:-160px;left:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--accent-tint-weak),transparent 65%);filter:blur(60px)"></div>
+      </div>
+
+      <header style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 20px;border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev)">
+        <div style="display:flex;align-items:center;gap:9px;min-width:0">
+          <div style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:800;font-size:var(--fs-sm);flex:none">K</div>
+          <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-md);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Kommunikációs munkatér</div>
+        </div>
+        <select aria-label="A felület nyelve" style="padding:7px 10px;min-height:var(--control-min);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--bg-elev);color:var(--text);font-size:var(--fs-sm);cursor:pointer;flex:none">
+          <option>HU</option><option>RO</option><option>EN</option>
+        </select>
+      </header>
+
+      <div style="position:relative;z-index:1;padding:32px 20px 34px">
+        <div style="font-size:var(--fs-xs);letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);font-weight:var(--fw-strong);margin-bottom:12px">Aitmetica SRL</div>
+        <h1 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-hero-sm);line-height:1.15;margin:0 0 14px;text-wrap:pretty">Megtudod, mi <span style="background:var(--grad-headline);-webkit-background-clip:text;background-clip:text;color:transparent">fontos nektek</span> abból, ami megjelenik.</h1>
+        <p style="font-size:var(--fs-title);color:var(--text-mut);margin:0 0 22px">Felveszed a szervezeted profilját, megadod a figyelt forrásokat, és naponta rangsorolt találatokat kapsz — forrással és indoklással.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <button style="border:none;background:var(--grad-primary);color:var(--on-primary);border-radius:var(--r-btn);padding:var(--btn-pad-y) var(--btn-pad-x);min-height:var(--control-min);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;box-shadow:0 8px 28px var(--glow-primary);width:100%">Fiók létrehozása</button>
+          <button style="border:var(--bw) solid var(--btn-ghost-border);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);border-radius:var(--r-btn);padding:var(--btn-pad-y) 22px;min-height:var(--control-min);font-size:var(--fs-md);cursor:pointer;width:100%">Belépés</button>
+        </div>
+        <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-top:14px">Magyar, román és angol felület. A felület a saját arculatodra állítható.</div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 20px 34px">
+        <div style="background:var(--glass-bg);border:var(--bw) solid var(--glass-border);border-radius:var(--r-card);padding:18px">
+          <div style="font-size:var(--fs-xs);letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);font-weight:var(--fw-strong);margin-bottom:13px">Amit egy találat mellé megkapsz</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;flex-direction:column;gap:4px;border:var(--bw) solid var(--line-soft);border-radius:var(--r-badge);padding:10px 12px;background:var(--panel-soft-2)">
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-strong);background:var(--src-web-bg);color:var(--src-web);border-radius:var(--r-badge);padding:2px 8px;align-self:flex-start">Forrás</span>
+              <span style="font-size:var(--fs-sm);color:var(--text-mut)">honnan és mikor jelent meg</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;border:var(--bw) solid var(--line-soft);border-radius:var(--r-badge);padding:10px 12px;background:var(--panel-soft-2)">
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-strong);background:var(--src-ai-bg);color:var(--src-ai);border-radius:var(--r-badge);padding:2px 8px;align-self:flex-start">Miért fontos</span>
+              <span style="font-size:var(--fs-sm);color:var(--text-mut)">a profilodhoz kötött indoklás</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;border:var(--bw) solid var(--line-soft);border-radius:var(--r-badge);padding:10px 12px;background:var(--panel-soft-2)">
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-strong);background:var(--src-empty-bg);color:var(--src-empty);border-radius:var(--r-badge);padding:2px 8px;align-self:flex-start">Fontosság</span>
+              <span style="font-size:var(--fs-sm);color:var(--text-mut)">kategória, nem kitalált százalék</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;border:var(--bw) solid var(--line-soft);border-radius:var(--r-badge);padding:10px 12px;background:var(--panel-soft-2)">
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-strong);background:var(--ok-bg);color:var(--ok);border-radius:var(--r-badge);padding:2px 8px;align-self:flex-start">Egy esemény</span>
+              <span style="font-size:var(--fs-sm);color:var(--text-mut)">az ugyanarról szóló cikkek egy csoportban</span>
+            </div>
+          </div>
+          <div style="font-size:var(--fs-xs);color:var(--text-dim);margin-top:13px;border-top:var(--bw) solid var(--line-soft);padding-top:11px">Az AI-javaslatokat átírhatod, és a jóváhagyás mindig a tiéd.</div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 20px 34px">
+        <h2 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:22px;margin:0 0 6px">Mit tud ma</h2>
+        <p style="font-size:var(--fs-md);color:var(--text-dim);margin:0 0 18px">Ez a felsorolás csak azt tartalmazza, ami már működik.</p>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:18px;background:var(--panel-soft)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:11px"><path d="M4 5h9M4 10h13M4 15h7"></path><path d="M17 15.5l2 2 3.5-3.5"></path></svg>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:6px">Profil és arculat három lépésben</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Megadod, mivel foglalkoztok, kikhez szólsz és milyen hangnemben. Az AI javaslatot készít, te átírod és jóváhagyod. Ami hiányzik, nem lesz kitalálva.</div>
+          </div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:18px;background:var(--panel-soft)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--src-web)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:11px"><circle cx="11" cy="11" r="6.5"></circle><path d="M15.8 15.8L21 21"></path><path d="M8.5 11h5M11 8.5v5"></path></svg>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:6px">Napi forrásfigyelés</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">A megadott forrásokat naponta feldolgozza, az ugyanarról az eseményről szóló cikkeket összevonja, és a profilod alapján rangsorol. Rövid összképet is ad.</div>
+          </div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:18px;background:var(--panel-soft)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:11px"><path d="M12 3.5l1.7 3.9 4.3.4-3.2 2.8.9 4.2-3.7-2.2-3.7 2.2.9-4.2L6 7.8l4.3-.4z"></path><path d="M7 19h10"></path></svg>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:6px">Tartalomötlet, ha kérsz</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Egy találathoz kérhetsz kommunikációs megközelítést. Ez javaslat, elkülönítve a hír tényeitől — a közzététel nem a rendszer feladata.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 20px 34px">
+        <h2 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:22px;margin:0 0 18px">Hogyan indul</h2>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:18px;background:var(--panel-soft)">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--grad-primary);color:var(--on-primary);display:flex;align-items:center;justify-content:center;font-weight:var(--fw-head);font-size:var(--fs-sm);margin-bottom:11px">1</div>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:6px">Elmondod, mivel foglalkoztok</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Egy weboldalt adsz meg, vagy leírod pár mondatban.</div>
+          </div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:18px;background:var(--panel-soft)">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--grad-primary);color:var(--on-primary);display:flex;align-items:center;justify-content:center;font-weight:var(--fw-head);font-size:var(--fs-sm);margin-bottom:11px">2</div>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:6px">A rendszer javasol, te átírod</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Célközönség, cél, nyelvek, hangnem és arculat — javaslatként. Minden mezőnél látszik, honnan származik.</div>
+          </div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);padding:18px;background:var(--panel-soft)">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--grad-primary);color:var(--on-primary);display:flex;align-items:center;justify-content:center;font-weight:var(--fw-head);font-size:var(--fs-sm);margin-bottom:11px">3</div>
+            <div style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);margin-bottom:6px">Beállítod a forrásokat</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)">Beilleszted a figyelendő oldalak címét, kipróbálod egy próbafutással, és másnaptól jönnek a találatok.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 20px 34px">
+        <div style="border:var(--bw) solid var(--accent-border-soft);background:var(--accent-tint-weak);border-radius:var(--r-block);padding:20px">
+          <h2 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:22px;margin:0 0 10px">Mi történik az adatokkal</h2>
+          <p style="font-size:var(--fs-md);color:var(--text-mut);margin:0 0 14px">A rendszer a megadott profilból és az általad kijelölt forrásokból dolgozik. Nem figyeli a teljes internetet, és nem ígéri, hogy minden megjelenést megtalál.</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="font-size:var(--fs-md);color:var(--text-mut)"><span style="color:var(--text);font-weight:var(--fw-strong)">Amit megadsz, a te profilod marad.</span> A jóváhagyott profil a fiókodhoz tartozik, és ott bármikor módosíthatod.</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)"><span style="color:var(--text);font-weight:var(--fw-strong)">Az AI-javaslat nem ellenőrzött tény.</span> Látszik, honnan származik az információ, és ki módosította utoljára.</div>
+            <div style="font-size:var(--fs-md);color:var(--text-mut)"><span style="color:var(--text);font-weight:var(--fw-strong)">Az adatfeldolgozás részletei:</span> [ADATKEZELÉSI TÁJÉKOZTATÓ — az AI-szolgáltató, a tárolás helye és a megőrzési idő megnevezésével].</div>
+            <a href="#" style="font-size:var(--fs-md);font-weight:var(--fw-strong)">Adatkezelési tájékoztató →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;padding:0 20px 34px">
+        <h2 style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:24px;line-height:1.2;margin:0 0 10px">Kezdjük azzal, mivel foglalkoztok.</h2>
+        <p style="font-size:var(--fs-md);color:var(--text-mut);margin:0 0 18px">A profil felvétele három lépés, és közben bármikor kiléphetsz — a piszkozat megmarad.</p>
+        <button style="border:none;background:var(--grad-primary);color:var(--on-primary);border-radius:var(--r-btn);padding:var(--btn-pad-y) var(--btn-pad-x);min-height:var(--control-min);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;box-shadow:0 8px 28px var(--glow-primary);width:100%">Fiók létrehozása</button>
+        <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-top:12px">Árazás: [ÁRAZÁS — még nincs meghatározva].</div>
+      </div>
+
+      <footer style="position:relative;z-index:2;border-top:var(--bw) solid var(--line-soft);background:var(--bg-elev);padding:20px;display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:var(--fs-sm);color:var(--text-mut)">Aitmetica SRL</div>
+        <div style="font-size:var(--fs-sm);color:var(--text-mut)">[KAPCSOLAT — e-mail, székhely]</div>
+        <a href="#" style="font-size:var(--fs-sm)">Adatkezelési tájékoztató</a>
+        <div style="display:flex;align-items:center;gap:9px;margin-top:2px">
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);direction:ltr;unicode-bidi:isolate">0.1.0</span>
+          <span style="font-size:var(--fs-xs);color:var(--src-empty);border:var(--bw) solid var(--line);border-radius:var(--r-badge);padding:2px 9px">tesztkörnyezet</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    fetch('tema-alap.json').then(r => r.json()).then(base => {
+      let tokens = { ...(base.tokens || {}) };
+      try { const raw = localStorage.getItem('km-theme-applied'); if (raw) { const a = JSON.parse(raw); if (a && a.tokens) tokens = { ...tokens, ...a.tokens }; } } catch (e) {}
+      if (window.KM_THEME) window.KM_THEME.applyToRoot(tokens, 'hu');
+    }).catch(() => {});
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

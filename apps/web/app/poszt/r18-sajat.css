@@ -1,0 +1,29 @@
+/* R-18 3. kör · „Saját ötlet” — a rajz (tema.css .mezo, .lap-also, .fatyol, .fogo) értékei tokenekből. */
+.r18s-panel { display: flex; flex-direction: column; gap: var(--ter-8); max-width: 760px; } /* tokenőr: ok — a rajz dobozszélessége */
+.r18s-doboz { gap: var(--ter-7); padding: var(--ter-10); }
+.r18s-mezo {
+  box-sizing: border-box; width: 100%; min-height: 96px; padding: var(--ter-6) var(--ter-8); /* tokenőr: ok — három sor */
+  border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--field-bg); color: var(--text);
+  font: inherit; font-size: var(--fs-base); line-height: 1.5; resize: vertical;
+}
+.r18s-mezo::placeholder { color: var(--text-faint); }
+.r18s-mezo:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; } /* tokenőr: ok — a fókusz gyűrűje */
+.r18s-gombsor { display: flex; align-items: center; gap: var(--ter-9); flex-wrap: wrap; }
+.r18s-gombsor .r15-fo-gomb { padding: var(--ter-0) var(--ter-11); }
+/* Ha a panel nyitva van, asztalon a Posztszöveg többi része (fej, fülek, szöveg, előnézet) eltűnik — a rajzon csak a kérdés és a doboz áll. */
+@media (min-width: 641px) {
+  .r15p-racs.r18s-nyitva .r15p-kozep > :not(.r18s-panel) { display: none; }
+  .r15p-racs.r18s-nyitva .r15p-oldal { display: none; }
+}
+
+.r18s-fatyol { position: fixed; inset: var(--ter-0); z-index: 80; background: var(--fatyol-menu); }
+.r18s-lap {
+  position: fixed; z-index: 81; left: var(--ter-0); right: var(--ter-0); bottom: var(--ter-0); max-height: 90dvh; overflow-y: auto; box-sizing: border-box;
+  display: flex; flex-direction: column; gap: var(--ter-7); padding: var(--ter-5) var(--ter-9) var(--ter-9);
+  border-radius: var(--r-card) var(--r-card) var(--ter-0) var(--ter-0); background: var(--uveg-tomor); border-top: var(--bw) solid var(--uveg-el); box-shadow: var(--uveg-arnyek);
+}
+.r18s-fogo { align-self: center; width: 40px; height: 4px; border-radius: var(--r-badge); background: var(--line); } /* tokenőr: ok — a fogantyú */
+.r18s-lap-fej { display: flex; align-items: center; justify-content: space-between; gap: var(--ter-4); }
+.r18s-lap-cim { margin: var(--ter-0); font-family: var(--font-display); font-weight: var(--fw-head); font-size: var(--fs-title); letter-spacing: var(--ls-h2); line-height: 1.25; }
+.r18s-bezar { min-width: var(--control-min); min-height: var(--control-min); border: 0; background: transparent; color: var(--text); font: inherit; font-size: var(--fs-title); cursor: pointer; margin-right: calc(-1 * var(--ter-5)); }
+.r18s-teljes { width: 100%; }

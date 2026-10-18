@@ -1,0 +1,30 @@
+/* c7 · „Tegnap javítva” a felső sávban (R15-lapok-5 03j · 03j2). Csak tokenek. Halk: se jelvény, se keret a sávban. */
+.r15jv { position: relative; display: flex; align-items: center; }
+.r15jv-gomb {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--ter-1); min-width: 32px; min-height: var(--control-min-s); /* tokenőr: ok — rajz 03j: 32 px széles elem */
+  padding: var(--ter-0) var(--ter-2); border: none; background: transparent; color: var(--text-mut); font-family: var(--font-body-active);
+  font-size: var(--fs-sm); cursor: pointer;
+}
+.r15jv-pipa { color: var(--ok); }
+.r15jv-lista {
+  position: absolute; top: calc(100% + var(--ter-3)); right: var(--ter-0); z-index: 70; box-sizing: border-box; width: 420px; /* tokenőr: ok — rajz 03j2: 420 px-es lenyíló */
+  display: flex; flex-direction: column; gap: var(--ter-3); padding: var(--ter-6) var(--ter-8); background: var(--bg-elev);
+  border: var(--bw) solid var(--line); border-radius: var(--r-block); white-space: normal;
+}
+.r15jv-cim { margin: var(--ter-0); font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text); }
+.r15jv-tetel { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ter-6); padding: var(--ter-5) var(--ter-0); border-bottom: var(--bw) solid var(--line-soft); }
+.r15jv-tetel:last-child { border-bottom: none; }
+.r15jv-szoveg { display: flex; flex-direction: column; gap: var(--ter-1); min-width: 0; font-size: var(--fs-sm); color: var(--text); }
+.r15jv-lap { font-size: var(--info-fs); color: var(--info-text); }
+.r15jv-tetel .r15-halk-link { flex: none; }
+.r15jv-tel { display: none; }
+@media (max-width: 640px) {
+  .r15jv-asztal { display: none; }
+  .r15jv-tel { display: flex; position: static; }
+  .r15jv-tel .r15jv-gomb { min-width: 44px; min-height: 44px; } /* tokenőr: ok — érintési cél 44 px */
+  .r15jv-tel { position: relative; }
+  .r15jv-tel .r15jv-lista { position: absolute; top: calc(100% + var(--ter-3)); right: calc(-1 * var(--ter-12)); width: calc(100vw - 2 * var(--ter-6)); } /* a telefonos sáv alatt, a képernyő szélességében (rajz 03j2) */
+}
+@media (max-width: 640px) {
+  .km-sav-telefon:has(.r15jv-tel) { display: flex; align-items: center; gap: var(--ter-2); }
+}

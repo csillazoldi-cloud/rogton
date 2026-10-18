@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0d13; --bg-elev:#12141c; --text:#e8ebf1; --text-mut:#9aa3b2; --text-dim:#7a8496; --text-faint:#6b7484;
+  --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff;
+  --accent:#ff4520; --accent-text:#ff7a55; --accent-link:#ff6a40;
+  --ok:#7fe0a0; --err:#ffb3a3; --focus:#8a98ff; --shadow-color:#000000; --shadow-strength:45;
+  --font-display:'Archivo',sans-serif; --font-body:'Public Sans',sans-serif; --font-code:'IBM Plex Mono',monospace;
+  --fw-head:700; --fw-strong:600;
+  --fs-h1:34px; --fs-base:15px; --fs-title:16px;
+  --r-card:10px; --r-block:10px; --r-btn:6px; --r-field:6px; --r-badge:4px; --bw:1px;
+  --control-min:44px; --blur-glass:28px; --glass-alpha:10; --motion:normal;
+  --lh:1.55; --sat-glass:150%;
+
+  --ter-0:0px; --ter-1:2px; --ter-2:4px; --ter-3:6px; --ter-4:8px; --ter-5:10px;
+  --ter-6:12px; --ter-7:14px; --ter-8:16px; --ter-9:20px; --ter-10:24px;
+  --ter-11:32px; --ter-12:40px; --ter-13:56px; --ter-14:80px;
+
+  --gap:var(--ter-6); --pad-card:var(--ter-11); --pad-block:var(--ter-9);
+  --pad-field-y:var(--ter-6); --pad-field-x:var(--ter-7);
+  --btn-pad-y:var(--ter-6); --btn-pad-x:var(--ter-10);
+
+  --font-display-active:var(--font-display); --font-body-active:var(--font-body); --font-code-active:var(--font-code);
+  --grad-primary:linear-gradient(120deg,var(--primary),var(--primary-2));
+  --grad-headline:linear-gradient(110deg,var(--accent-text),var(--accent));
+  --accent-tint-weak:color-mix(in srgb, var(--accent) 9%, transparent);
+  --accent-tint:color-mix(in srgb, var(--accent) 16%, transparent);
+  --accent-border-soft:color-mix(in srgb, var(--accent) 45%, transparent);
+  --focus-ring:color-mix(in srgb, var(--focus) 30%, transparent);
+  --glow-primary:color-mix(in srgb, var(--primary) 40%, transparent);
+  --ok-strong:var(--ok); --ok-bg:color-mix(in srgb, var(--ok) 13%, transparent);
+  --err-strong:var(--err); --err-bg:color-mix(in srgb, var(--err) 10%, transparent); --err-border:color-mix(in srgb, var(--err) 30%, transparent);
+  --warn:var(--accent-text); --warn-border:color-mix(in srgb, var(--accent-text) 30%, transparent); --warn-bg:color-mix(in srgb, var(--accent) 8%, transparent);
+  --src-user:var(--ok); --src-user-bg:color-mix(in srgb, var(--ok) 13%, transparent);
+  --src-web:var(--primary-2); --src-web-bg:color-mix(in srgb, var(--primary-2) 15%, transparent);
+  --src-ai:var(--accent-text); --src-ai-bg:color-mix(in srgb, var(--accent) 20%, transparent);
+  --src-empty:var(--text-faint); --src-empty-bg:color-mix(in srgb, var(--text) 7%, transparent);
+  --glass-bg:linear-gradient(160deg,color-mix(in srgb, var(--text) 10%, transparent),color-mix(in srgb, var(--text) 4%, transparent));
+  --glass-border:color-mix(in srgb, var(--text) 16%, transparent);
+  --glass-shadow:0 24px 80px color-mix(in srgb, var(--shadow-color) 45%, transparent), inset 0 1px 0 color-mix(in srgb, var(--text) 14%, transparent);
+  --shadow-pop:0 12px 32px color-mix(in srgb, var(--shadow-color) 50%, transparent);
+  --line:color-mix(in srgb, var(--text) 10%, transparent); --line-soft:color-mix(in srgb, var(--text) 7%, transparent); --line-dash:color-mix(in srgb, var(--text) 15%, transparent);
+  --field-bg:color-mix(in srgb, var(--text) 5%, transparent); --field-border:color-mix(in srgb, var(--text) 14%, transparent);
+  --panel-soft:color-mix(in srgb, var(--text) 2%, transparent); --panel-soft-2:color-mix(in srgb, var(--text) 4%, transparent);
+  --btn-ghost-bg:color-mix(in srgb, var(--text) 5%, transparent); --btn-ghost-border:color-mix(in srgb, var(--text) 14%, transparent);
+  --btn-ghost-text:color-mix(in srgb, var(--text) 85%, var(--bg)); --btn-ghost-hover:color-mix(in srgb, var(--text) 10%, transparent);
+  --fs-h2:24px; --fs-md:14px; --fs-sm:13px; --fs-xs:12px; --control-min-s:36px;
+  --dur-fast:0.2s; --dur-spin:0.7s;
+  --header-bg:color-mix(in srgb, var(--bg) 90%, transparent);
+  --gap-tile:var(--ter-7); --pad-tile:var(--ter-8); --tile-min:300px; --fs-metric:30px;
+}
+body{margin:0;background:#06070b;color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-base);line-height:var(--lh);}
+a{color:var(--accent-link);text-decoration:none;}
+@keyframes r3-porog{to{transform:rotate(360deg);}}
+a:hover{color:var(--accent-text);text-decoration:underline;}
+</style>
+</helmet>
+
+<div style="padding:var(--ter-13) var(--ter-13) var(--ter-14);display:flex;flex-direction:column;gap:var(--ter-13);">
+
+  <div style="display:flex;flex-direction:column;gap:var(--ter-3);max-width:900px;">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.06em;">R-3 · SAJÁT FIÓK · v1 · 2026-09-12</div>
+    <div style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h1);color:var(--text);">Öt artboard</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);">A lap útja <span style="font-family:var(--font-code-active);font-size:var(--fs-sm);">/sajat-fiok</span>, és a felső sávban a <strong>fiók nevére</strong> kattintva nyílik — a név eddig az ügyfélprofilra vitt, mostantól ide. Minden belépett fiók látja, szereptől függetlenül. A lap a felhasználóról szól, nem a munkatérről: a név, a jelszó, a felület nyelve, a munkaterei és a belépései. Az e-mail-cím a felületen nem módosítható. A felirat-kulcsok az elemek <span style="font-family:var(--font-code-active);font-size:var(--fs-sm);">data-fkulcs</span> attribútumában állnak.</div>
+  </div>
+
+  <section data-screen-label="01">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">1 · SAJÁT FIÓK — ALAPHELYZET · asztali 1440 · két munkatér, kétféle szereppel</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--gap);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div style="display:flex;align-items:center;gap:var(--ter-5);flex:none;white-space:nowrap;">
+          <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+          <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+          <span aria-hidden="true" style="color:var(--text-faint);font-size:var(--fs-sm);">·</span>
+          <button type="button" aria-expanded="false" style="display:inline-flex;align-items:center;gap:var(--ter-4);box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;">
+            <span data-fkulcs="nav.munkater_nev">Aitmetica SRL</span>
+            <span aria-hidden="true" style="color:var(--text-mut);font-size:var(--fs-xs);">▾</span>
+          </button>
+        </div>
+        <nav aria-label="Fő navigáció" style="display:flex;gap:var(--ter-1);background:var(--field-bg);border:var(--bw) solid var(--line-soft);border-radius:var(--r-btn);padding:var(--ter-2);">
+          <a href="#" data-fkulcs="nav.kezdolap" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;text-decoration:none;color:var(--text-mut);">Kezdőképernyő</a>
+          <span data-fkulcs="nav.modulok" style="display:flex;align-items:center;gap:var(--ter-3);border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;color:var(--text-mut);">Modulok <span aria-hidden="true" style="font-size:var(--fs-xs);">▾</span></span>
+          <a href="#" data-fkulcs="nav.ugyfelprofil" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;text-decoration:none;color:var(--text-mut);">Ügyfélprofil</a>
+          <a href="#" data-fkulcs="nav.gephaz" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;text-decoration:none;color:var(--text-mut);">Gépház</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:var(--ter-5);flex:none;white-space:nowrap;">
+          <select aria-label="A felület nyelve" data-fkulcs="kozos.nyelv" style="padding:var(--ter-3) var(--ter-4);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--bg-elev);color:var(--text);font-size:var(--fs-sm);font-family:var(--font-body-active);cursor:pointer;">
+            <option>Magyar</option><option>Română</option><option>English</option>
+          </select>
+          <a href="#" data-fkulcs="nav.sajat_fiok" aria-current="page" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-weight:var(--fw-strong);text-decoration:none;font-size:var(--fs-sm);">Portik Vilmos</a>
+          <button type="button" data-fkulcs="nav.kilepes" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;">Kilépés</button>
+        </div>
+      </div>
+      <div style="max-width:1180px;margin:var(--ter-0) auto;padding:var(--ter-10) var(--ter-10) var(--ter-13);box-sizing:border-box;display:flex;flex-direction:column;gap:var(--gap-tile);">
+
+        <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+          <h1 data-fkulcs="sajat.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);">Saját fiók</h1>
+          <p data-fkulcs="sajat.bevezeto" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);max-width:70ch;">A te adataid és a belépéseid. Ez nem az ügyfélprofil: az a munkatérről szól, ez rólad.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--tile-min),1fr));gap:var(--gap-tile);align-items:start;">
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);">
+            <h2 data-fkulcs="sajat.adatok_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Adataim</h2>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <label data-fkulcs="sajat.nev_cimke" for="s-nev" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Név</label>
+              <input id="s-nev" value="Portik Vilmos" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);">
+              <span data-fkulcs="sajat.nev_megj" style="font-size:var(--fs-xs);color:var(--text-dim);">Ez a név jelenik meg a sávban, a tagoknál és az eseménynaplóban.</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <label data-fkulcs="sajat.email_cimke" for="s-email" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">E-mail-cím</label>
+              <input id="s-email" dir="ltr" value="vilmos@[MINTA].ro" readOnly="{{ igen }}" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);border-style:dashed;color:var(--text-mut);font-family:var(--font-code-active);cursor:not-allowed;">
+              <span data-fkulcs="sajat.email_megj" style="font-size:var(--fs-xs);color:var(--text-dim);">Az e-mail-cím a belépésed azonosítója, ezért itt nem írható át. Ha meg kell változtatni, a rendszergazda írja át.</span>
+            </div>
+            <button type="button" data-fkulcs="sajat.nev_mentes_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:pointer;align-self:flex-start;">Név mentése</button>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);">
+            <h2 data-fkulcs="sajat.jelszo_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Jelszó</h2>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <label data-fkulcs="sajat.jelenlegi_cimke" for="s-j1" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Jelenlegi jelszó</label>
+              <input id="s-j1" type="password" value="••••••••••••" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <label data-fkulcs="sajat.uj_cimke" for="s-j2" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Új jelszó</label>
+              <input id="s-j2" type="password" value="••••••••••••" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);">
+              <span data-fkulcs="sajat.jelszo_hossz" style="font-size:var(--fs-xs);color:var(--text-dim);">Legalább 10 karakter.</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-2);border:var(--bw) solid var(--warn-border);background:var(--warn-bg);border-radius:var(--r-block);padding:var(--ter-6) var(--ter-7);">
+              <span data-fkulcs="sajat.jelszo_kovetkezmeny_cim" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--warn);">Ami a jelszóváltás után történik</span>
+              <span data-fkulcs="sajat.jelszo_kovetkezmeny" style="font-size:var(--fs-sm);color:var(--text-mut);">Ezen az eszközön belépve maradsz. A többi eszközről — telefon, másik böngésző — kilépteti a rendszer, és újra be kell jelentkezned rajtuk.</span>
+            </div>
+            <button type="button" data-fkulcs="sajat.jelszo_mentes_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:pointer;align-self:flex-start;">Jelszó megváltoztatása</button>
+          </div>
+
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);">
+            <h2 data-fkulcs="sajat.belepesek_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Belépések</h2>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-1);">
+              <span data-fkulcs="sajat.utolso_belepes_cimke" style="font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.05em;text-transform:uppercase;font-weight:var(--fw-strong);">Utolsó belépésem</span>
+              <span style="font-size:var(--fs-md);color:var(--text);">2026-09-12 08:41</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <span data-fkulcs="sajat.kileptetes_megj" style="font-size:var(--fs-sm);color:var(--text-mut);">Ha idegen eszközön maradtál belépve, innen mindenhonnan kiléptetheted magad. Ez az eszköz belépve marad.</span>
+              <button type="button" data-fkulcs="sajat.kileptetes_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-md);cursor:pointer;align-self:flex-start;">Kiléptetés minden más eszközről</button>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-7);">
+              <label data-fkulcs="sajat.nyelv_cimke" for="s-nyelv" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">A felület nyelve</label>
+              <select id="s-nyelv" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);cursor:pointer;">
+                <option>Magyar</option><option>Română</option><option>English</option>
+              </select>
+              <span data-fkulcs="sajat.nyelv_megj" style="font-size:var(--fs-xs);color:var(--text-dim);">Csak a felület nyelve. A tartalmak nyelvét az ügyfélprofil mondja meg.</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);overflow:hidden;">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;padding:var(--ter-7) var(--pad-tile);border-bottom:var(--bw) solid var(--line-soft);">
+            <h2 data-fkulcs="sajat.munkatereim_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Munkatereim</h2>
+            <span data-fkulcs="sajat.munkatereim_szam" style="font-size:var(--fs-sm);color:var(--text-mut);">2 munkatér</span>
+            <span data-fkulcs="sajat.munkatereim_megj" style="margin-inline-start:auto;font-size:var(--fs-xs);color:var(--text-dim);">Váltani a sáv munkatér-lenyílójában tudsz.</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2.2fr 1.1fr auto;gap:var(--ter-6);align-items:center;padding:var(--ter-7) var(--pad-tile);border-bottom:var(--bw) solid var(--line-soft);">
+            <div style="min-width:0;display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+              <span style="font-size:var(--fs-md);color:var(--text);">Aitmetica SRL</span>
+              <span data-fkulcs="sajat.aktualis" style="font-size:var(--fs-xs);color:var(--src-web);background:var(--src-web-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">most ebben vagy</span>
+            </div>
+            <div><span data-fkulcs="nav.szerep_tulajdonos" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-ai);background:var(--src-ai-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">tulajdonos</span></div>
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <button type="button" disabled="{{ igen }}" data-fkulcs="sajat.kilepek_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--line-dash);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text-faint);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:not-allowed;">Kilépek</button>
+              <span data-fkulcs="sajat.kilepek_zart_rovid" style="font-size:var(--fs-xs);color:var(--text-dim);max-width:34ch;">Te vagy az egyetlen tulajdonos.</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:2.2fr 1.1fr auto;gap:var(--ter-6);align-items:center;padding:var(--ter-7) var(--pad-tile);">
+            <div style="min-width:0;"><span style="font-size:var(--fs-md);color:var(--text);">Demo ügyfél Kft.</span></div>
+            <div><span data-fkulcs="nav.szerep_szerkeszto" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-web);background:var(--src-web-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">szerkesztő</span></div>
+            <div><button type="button" data-fkulcs="sajat.kilepek_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:none;color:var(--text-mut);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;">Kilépek</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="02">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">2 · JELSZÓVÁLTÁS · asztali 1440 · A: mentés közben · B: siker, a kiléptetett eszközök számával</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);padding:var(--ter-10);box-sizing:border-box;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:var(--ter-10);align-items:start;">
+
+        <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">A · MENTÉS KÖZBEN</span>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);">
+            <h2 data-fkulcs="sajat.jelszo_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Jelszó</h2>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);opacity:0.6;">
+              <label data-fkulcs="sajat.jelenlegi_cimke" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Jelenlegi jelszó</label>
+              <input type="password" value="••••••••••••" disabled="{{ igen }}" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);cursor:wait;">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);opacity:0.6;">
+              <label data-fkulcs="sajat.uj_cimke" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Új jelszó</label>
+              <input type="password" value="••••••••••••" disabled="{{ igen }}" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);cursor:wait;">
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--ter-6);">
+              <span aria-hidden="true" style="width:18px;height:18px;flex:none;border-radius:50%;border:2px solid var(--line);border-top-color:var(--accent);animation:r3-porog var(--dur-spin) linear infinite;"></span>
+              <span data-fkulcs="sajat.jelszo_mentes_kozben" style="font-size:var(--fs-md);color:var(--text-mut);">Jelszó mentése…</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">B · SIKER — A VÁLASZ MEGMONDJA, HÁNY ESZKÖZ LÉPETT KI</span>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);border-color:var(--ok-bg);">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:var(--ok-strong);flex:none;"></span>
+              <h2 data-fkulcs="sajat.jelszo_kesz_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">A jelszavad megváltozott</h2>
+            </div>
+            <span data-fkulcs="sajat.jelszo_kesz_szoveg" style="font-size:var(--fs-base);color:var(--text-mut);">Két másik eszközről kiléptettük a fiókodat. Ezen az eszközön belépve maradsz.</span>
+            <span data-fkulcs="sajat.jelszo_kesz_megj" style="font-size:var(--fs-xs);color:var(--text-dim);">Ha nem te léptél be azokon az eszközökön, most már nem érik el a fiókodat.</span>
+          </div>
+
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-top:var(--ter-6);">C · KILÉPTETÉS MINDEN MÁS ESZKÖZRŐL — UGYANAZ A VÁLASZ</span>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);">
+            <h2 data-fkulcs="sajat.belepesek_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Belépések</h2>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-2);border:var(--bw) solid var(--ok-bg);background:var(--ok-bg);border-radius:var(--r-block);padding:var(--ter-6) var(--ter-7);">
+              <span data-fkulcs="sajat.kileptetes_kesz" style="font-size:var(--fs-sm);color:var(--ok);">Három munkamenet szűnt meg. Ezen az eszközön belépve maradtál.</span>
+            </div>
+            <span data-fkulcs="sajat.kileptetes_nulla" style="font-size:var(--fs-xs);color:var(--text-dim);">Ha nem volt más belépés, a válasz ezt mondja: „Nem volt más belépés ezen a fiókon." — ez nem hiba.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="03">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">3 · A HÁROM HIBAÚT · asztali 1440 · üres név · rossz jelenlegi jelszó · túl rövid új jelszó</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);padding:var(--ter-10);box-sizing:border-box;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:var(--gap-tile);align-items:start;">
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);border-color:var(--err-border);">
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--err);">ERVENYTELEN_ADAT</span>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            <label data-fkulcs="sajat.nev_cimke" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Név</label>
+            <input value="" placeholder="" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);border-color:var(--err-strong);">
+            <span data-fkulcs="fiok.hiba_ervenytelen_adat" style="font-size:var(--fs-sm);color:var(--err);">A név nem lehet üres.</span>
+          </div>
+          <span data-fkulcs="sajat.nev_hiba_mit" style="font-size:var(--fs-sm);color:var(--text-mut);">Írj be legalább egy nevet, amin a többi tag felismer. A régi név addig érvényben marad.</span>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);border-color:var(--err-border);">
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--err);">ROSSZ_JELENLEGI_JELSZO</span>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            <label data-fkulcs="sajat.jelenlegi_cimke" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Jelenlegi jelszó</label>
+            <input type="password" value="••••••••" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);border-color:var(--err-strong);">
+            <span data-fkulcs="fiok.hiba_rossz_jelenlegi_jelszo" style="font-size:var(--fs-sm);color:var(--err);">A jelenlegi jelszó nem stimmel.</span>
+          </div>
+          <span data-fkulcs="sajat.jelszo_hiba_mit" style="font-size:var(--fs-sm);color:var(--text-mut);">Az új jelszót megtartottuk a mezőben, csak a jelenlegit írd be újra. A jelszavad nem változott, és egyetlen eszköz sem lépett ki.</span>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);border-color:var(--err-border);">
+          <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--err);">a 10 karakter a felületen dől el</span>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            <label data-fkulcs="sajat.uj_cimke" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Új jelszó</label>
+            <input type="password" value="••••••" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);border-color:var(--err-strong);">
+            <span data-fkulcs="sajat.jelszo_rovid" style="font-size:var(--fs-sm);color:var(--err);">Ez rövid: legalább 10 karakter kell.</span>
+          </div>
+          <span data-fkulcs="sajat.jelszo_rovid_mit" style="font-size:var(--fs-sm);color:var(--text-mut);">A mentés gombja addig zárva marad — nem küldünk el olyan kérést, amiről tudjuk, hogy elutasítják.</span>
+          <button type="button" disabled="{{ igen }}" data-fkulcs="sajat.jelszo_mentes_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;align-self:flex-start;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--src-empty-bg);color:var(--text-faint);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:not-allowed;">Jelszó megváltoztatása</button>
+        </div>
+      </div>
+
+      <div style="border:var(--bw) dashed var(--line-dash);border-radius:var(--r-block);background:var(--panel-soft-2);padding:var(--pad-tile);display:flex;flex-direction:column;gap:var(--ter-3);max-width:900px;margin-top:var(--ter-10);">
+        <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.05em;">A RAJZ JEGYZETE — A HIBÁK HELYE</span>
+        <span style="font-size:var(--fs-sm);color:var(--text-mut);">Mindhárom hiba <strong>a mező alatt</strong> áll, nem a lap tetején: így a felhasználó ott látja, ahol javítani kell. A hibát <strong>szöveg is jelzi</strong>, nem csak a keret színe.</span>
+        <span style="font-size:var(--fs-sm);color:var(--text-mut);">A hosszkövetelményt a felület nézi meg először, és addig zárva tartja a gombot. A végpont ettől függetlenül ellenőriz — a felületi zár kényelem, nem védelem.</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="04">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">4 · KILÉPÉS EGY MUNKATÉRBŐL · asztali 1440 · a megerősítő sáv az aljára rögzül; mellette az utolsó tulajdonos zárt esete</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--gap);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div style="display:flex;align-items:center;gap:var(--ter-5);flex:none;white-space:nowrap;">
+          <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+          <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+          <span aria-hidden="true" style="color:var(--text-faint);font-size:var(--fs-sm);">·</span>
+          <button type="button" aria-expanded="false" style="display:inline-flex;align-items:center;gap:var(--ter-4);box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;">
+            <span data-fkulcs="nav.munkater_nev">Aitmetica SRL</span>
+            <span aria-hidden="true" style="color:var(--text-mut);font-size:var(--fs-xs);">▾</span>
+          </button>
+        </div>
+        <nav aria-label="Fő navigáció" style="display:flex;gap:var(--ter-1);background:var(--field-bg);border:var(--bw) solid var(--line-soft);border-radius:var(--r-btn);padding:var(--ter-2);">
+          <a href="#" data-fkulcs="nav.kezdolap" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;text-decoration:none;color:var(--text-mut);">Kezdőképernyő</a>
+          <span data-fkulcs="nav.modulok" style="display:flex;align-items:center;gap:var(--ter-3);border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;color:var(--text-mut);">Modulok <span aria-hidden="true" style="font-size:var(--fs-xs);">▾</span></span>
+          <a href="#" data-fkulcs="nav.ugyfelprofil" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;text-decoration:none;color:var(--text-mut);">Ügyfélprofil</a>
+          <a href="#" data-fkulcs="nav.gephaz" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);white-space:nowrap;text-decoration:none;color:var(--text-mut);">Gépház</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:var(--ter-5);flex:none;white-space:nowrap;">
+          <select aria-label="A felület nyelve" data-fkulcs="kozos.nyelv" style="padding:var(--ter-3) var(--ter-4);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--bg-elev);color:var(--text);font-size:var(--fs-sm);font-family:var(--font-body-active);cursor:pointer;">
+            <option>Magyar</option><option>Română</option><option>English</option>
+          </select>
+          <a href="#" data-fkulcs="nav.sajat_fiok" aria-current="page" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-weight:var(--fw-strong);text-decoration:none;font-size:var(--fs-sm);">Portik Vilmos</a>
+          <button type="button" data-fkulcs="nav.kilepes" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;">Kilépés</button>
+        </div>
+      </div>
+      <div style="max-width:1180px;margin:var(--ter-0) auto;padding:var(--ter-10) var(--ter-10) var(--ter-0);box-sizing:border-box;display:flex;flex-direction:column;gap:var(--gap-tile);">
+        <h1 data-fkulcs="sajat.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);color:var(--text);">Saját fiók</h1>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);overflow:hidden;">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;padding:var(--ter-7) var(--pad-tile);border-bottom:var(--bw) solid var(--line-soft);">
+            <h2 data-fkulcs="sajat.munkatereim_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);">Munkatereim</h2>
+          </div>
+          <div style="display:grid;grid-template-columns:2.2fr 1.1fr auto;gap:var(--ter-6);align-items:center;padding:var(--ter-7) var(--pad-tile);border-bottom:var(--bw) solid var(--line-soft);">
+            <div style="min-width:0;display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+              <span style="font-size:var(--fs-md);color:var(--text);">Aitmetica SRL</span>
+              <span data-fkulcs="sajat.aktualis" style="font-size:var(--fs-xs);color:var(--src-web);background:var(--src-web-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">most ebben vagy</span>
+            </div>
+            <div><span data-fkulcs="nav.szerep_tulajdonos" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-ai);background:var(--src-ai-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">tulajdonos</span></div>
+            <div style="display:flex;align-items:center;gap:var(--ter-6);flex-wrap:wrap;justify-content:flex-end;">
+              <button type="button" disabled="{{ igen }}" data-fkulcs="sajat.kilepek_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--line-dash);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text-faint);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:not-allowed;">Kilépek</button>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-1);max-width:42ch;">
+                <span data-fkulcs="hozzaferes.hiba_utolso_tulajdonos" style="font-size:var(--fs-sm);color:var(--warn);">Te vagy az egyetlen tulajdonos — a munkatér nem maradhat tulajdonos nélkül.</span>
+                <span data-fkulcs="sajat.kilepek_zart_mit" style="font-size:var(--fs-xs);color:var(--text-dim);">A Tagok lapon adj tulajdonosi szerepet valaki másnak, utána léphetsz ki.</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:2.2fr 1.1fr auto;gap:var(--ter-6);align-items:center;padding:var(--ter-7) var(--pad-tile);background:var(--focus-ring);">
+            <div style="min-width:0;"><span style="font-size:var(--fs-md);color:var(--text);">Demo ügyfél Kft.</span></div>
+            <div><span data-fkulcs="nav.szerep_szerkeszto" style="font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-web);background:var(--src-web-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">szerkesztő</span></div>
+            <div><span data-fkulcs="sajat.megerositesre_var" style="font-size:var(--fs-xs);color:var(--warn);border:var(--bw) solid var(--warn-border);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">megerősítésre vár</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--ter-12);display:flex;align-items:center;gap:var(--ter-7);flex-wrap:wrap;padding:var(--ter-7) var(--ter-10);border-top:var(--bw) solid var(--glass-border);background:var(--bg-elev);box-shadow:var(--shadow-pop);">
+        <div style="display:flex;flex-direction:column;gap:var(--ter-1);min-width:0;flex:1 1 420px;">
+          <span data-fkulcs="sajat.kilepek_megerosit_cim" style="font-size:var(--fs-md);font-weight:var(--fw-strong);color:var(--text);">Kilépsz a Demo ügyfél Kft. munkatérből</span>
+          <span data-fkulcs="sajat.kilepek_megerosit_szoveg" style="font-size:var(--fs-sm);color:var(--text-mut);">A hozzáférésed azonnal megszűnik, és a munkatér eltűnik a sáv lenyílójából. A fiókod és a másik munkatered megmarad. Visszajutni csak új meghívóval tudsz.</span>
+        </div>
+        <div style="display:flex;gap:var(--ter-5);flex-wrap:wrap;">
+          <button type="button" data-fkulcs="kozos.megse" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-md);cursor:pointer;">Mégse</button>
+          <button type="button" data-fkulcs="sajat.kilepek_megerosit_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:pointer;">Kilépek a munkatérből</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="05">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">5 · SAJÁT FIÓK · telefon 390 · egy oszlop, a blokkok egymás alatt</div>
+    <div style="width:390px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-5) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);background:var(--bg-elev);">
+        <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;color:var(--on-primary);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-md);">K</div>
+        <div style="display:flex;flex-direction:column;min-width:0;">
+          <span data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-md);color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Kommunikációs munkatér</span>
+          <span data-fkulcs="nav.munkater_nev" style="font-size:var(--fs-xs);color:var(--text-dim);">Aitmetica SRL</span>
+        </div>
+        <button type="button" aria-label="Menü" style="margin-inline-start:auto;flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--control-min);height:var(--control-min);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-title);cursor:pointer;">≡</button>
+      </div>
+
+      <div style="padding:var(--ter-8);display:flex;flex-direction:column;gap:var(--ter-7);">
+        <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+          <h1 data-fkulcs="sajat.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-title);color:var(--text);">Saját fiók</h1>
+          <span data-fkulcs="sajat.bevezeto" style="font-size:var(--fs-sm);color:var(--text-mut);">A te adataid és a belépéseid.</span>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);padding:var(--ter-7);gap:var(--ter-6);">
+          <h2 data-fkulcs="sajat.adatok_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);font-size:var(--fs-md);">Adataim</h2>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            <label data-fkulcs="sajat.nev_cimke" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">Név</label>
+            <input value="Portik Vilmos" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            <label data-fkulcs="sajat.email_cimke" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">E-mail-cím</label>
+            <input dir="ltr" value="vilmos@[MINTA].ro" readOnly="{{ igen }}" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);border-style:dashed;color:var(--text-mut);font-family:var(--font-code-active);cursor:not-allowed;">
+            <span data-fkulcs="sajat.email_megj_rovid" style="font-size:var(--fs-xs);color:var(--text-dim);">A belépésed azonosítója — a rendszergazda írja át.</span>
+          </div>
+          <button type="button" data-fkulcs="sajat.nev_mentes_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:pointer;width:100%;justify-content:center;">Név mentése</button>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);padding:var(--ter-7);gap:var(--ter-6);">
+          <h2 data-fkulcs="sajat.jelszo_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);font-size:var(--fs-md);">Jelszó</h2>
+          <input type="password" value="••••••••••••" data-fkulcs="sajat.jelenlegi_cimke" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);">
+          <input type="password" value="••••••••••••" data-fkulcs="sajat.uj_cimke" style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);">
+          <span data-fkulcs="sajat.jelszo_kovetkezmeny" style="font-size:var(--fs-sm);color:var(--warn);">A többi eszközről kilép a fiókod; ezen belépve maradsz.</span>
+          <button type="button" data-fkulcs="sajat.jelszo_mentes_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--btn-pad-x);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-md);font-weight:var(--fw-strong);cursor:pointer;width:100%;justify-content:center;">Jelszó megváltoztatása</button>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);padding:var(--ter-7);gap:var(--ter-6);">
+          <h2 data-fkulcs="sajat.munkatereim_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);font-size:var(--fs-md);">Munkatereim</h2>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-4);border-bottom:var(--bw) solid var(--line-soft);padding-bottom:var(--ter-6);">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+              <span style="font-size:var(--fs-md);color:var(--text);">Aitmetica SRL</span>
+              <span data-fkulcs="nav.szerep_tulajdonos" style="margin-inline-start:auto;font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-ai);background:var(--src-ai-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">tulajdonos</span>
+            </div>
+            <span data-fkulcs="sajat.kilepek_zart_rovid" style="font-size:var(--fs-sm);color:var(--warn);">Te vagy az egyetlen tulajdonos — nem léphetsz ki.</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);flex-wrap:wrap;">
+              <span style="font-size:var(--fs-md);color:var(--text);">Demo ügyfél Kft.</span>
+              <span data-fkulcs="nav.szerep_szerkeszto" style="margin-inline-start:auto;font-size:var(--fs-xs);font-weight:var(--fw-strong);color:var(--src-web);background:var(--src-web-bg);border-radius:var(--r-badge);padding:var(--ter-1) var(--ter-4);">szerkesztő</span>
+            </div>
+            <button type="button" data-fkulcs="sajat.kilepek_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-md);cursor:pointer;width:100%;justify-content:center;">Kilépek</button>
+          </div>
+        </div>
+
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);display:flex;flex-direction:column;gap:var(--ter-7);padding:var(--ter-7);gap:var(--ter-6);">
+          <h2 data-fkulcs="sajat.belepesek_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);color:var(--text);font-size:var(--fs-md);">Belépések</h2>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-1);">
+            <span data-fkulcs="sajat.utolso_belepes_cimke" style="font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.05em;text-transform:uppercase;font-weight:var(--fw-strong);">Utolsó belépésem</span>
+            <span style="font-size:var(--fs-md);color:var(--text);">2026-09-12 08:41</span>
+          </div>
+          <button type="button" data-fkulcs="sajat.kileptetes_gomb" style="display:inline-flex;align-items:center;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-md);cursor:pointer;width:100%;justify-content:center;">Kiléptetés minden más eszközről</button>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-6);">
+            <label data-fkulcs="sajat.nyelv_cimke" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--btn-ghost-text);">A felület nyelve</label>
+            <select style="box-sizing:border-box;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-md);cursor:pointer;"><option>Magyar</option><option>Română</option><option>English</option></select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return { igen: true, nem: false }; }
+}
+</script>
+</body>
+</html>

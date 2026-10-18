@@ -1,0 +1,154 @@
+{
+  "vz.mezo_adatsavok_rovat_cimke": {
+    "hu": "Rovatcímke",
+    "ro": "Etichetă rubrică",
+    "en": "Section label",
+    "sugo_hu": "Írd ide a poszt rovatát vagy témáját egy-két szóban, mindkét nyelven. Használj kisbetűt.",
+    "sugo_ro": "Scrie aici rubrica sau tema postării în una-două cuvinte, în ambele limbi. Folosește litere mici.",
+    "sugo_en": "Write the post's section or topic here in one or two words, in both languages. Use lowercase."
+  },
+  "vz.mezo_adatsavok_focim": {
+    "hu": "Főcím",
+    "ro": "Titlu principal",
+    "en": "Main title",
+    "sugo_hu": "Fogalmazd meg egy mondatban, mindkét nyelven, mit mond a legnagyobb sáv. Számot ne írj bele.",
+    "sugo_ro": "Formulează într-o propoziție, în ambele limbi, ce spune bara cea mai mare. Nu include cifre.",
+    "sugo_en": "Write in one sentence, in both languages, what the largest bar says. Don't include numbers."
+  },
+  "vz.mezo_adatsavok_savok": {
+    "hu": "Sávok",
+    "ro": "Bare",
+    "en": "Bars",
+    "sugo_hu": "Add meg az adatsor elemeit: mindegyikhez egy rövid címke mindkét nyelven és egy százalék. Csökkenő sorrendben.",
+    "sugo_ro": "Adaugă elementele seriei: pentru fiecare o etichetă scurtă în ambele limbi și un procent. În ordine descrescătoare.",
+    "sugo_en": "Add the data series items: for each a short label in both languages and a percentage. In descending order."
+  },
+  "vz.mezo_adatsavok_mertek_magyarazat": {
+    "hu": "Mit mértünk",
+    "ro": "Ce am măsurat",
+    "en": "What we measured",
+    "sugo_hu": "Írd le röviden, mindkét nyelven, mi a mért mennyiség és milyen időszakban. Például felszállások egy hónapban.",
+    "sugo_ro": "Descrie scurt, în ambele limbi, ce cantitate ai măsurat și în ce perioadă. De exemplu îmbarcări într-o lună.",
+    "sugo_en": "Briefly describe, in both languages, what quantity you measured and over what period. For example boardings in a month."
+  },
+  "vz.mezo_adatsavok_azonosito_sor": {
+    "hu": "Azonosító sor",
+    "ro": "Linie de identificare",
+    "en": "Identifier line",
+    "sugo_hu": "Írd be a poszt azonosítóját: sorozatkód, sorszám és dátum. A forrás-címkét a program teszi hozzá.",
+    "sugo_ro": "Scrie identificatorul postării: cod de serie, număr și dată. Eticheta sursei este adăugată automat.",
+    "sugo_en": "Enter the post identifier: series code, number and date. The source label is added automatically."
+  },
+  "vz.mezo_adatsavok_forras": {
+    "hu": "Forrássor",
+    "ro": "Linie sursă",
+    "en": "Source line",
+    "sugo_hu": "Írd ide, honnan való az adat. Ha nincs ellenőrzött forrás, hagyd üresen, és a program kitölti helyetted.",
+    "sugo_ro": "Scrie aici de unde provine datele. Dacă nu ai o sursă verificată, lasă gol și programul completează.",
+    "sugo_en": "Write here where the data comes from. If you have no verified source, leave it empty and the program fills it in."
+  },
+  "vz.mezo_allitas_rovat_cimke": {
+    "hu": "Rovatcímke",
+    "ro": "Etichetă rubrică",
+    "en": "Section label",
+    "sugo_hu": "Írd ide a poszt rovatát vagy témáját egy-két szóban, mindkét nyelven. Használj kisbetűt.",
+    "sugo_ro": "Scrie aici rubrica sau tema postării în una-două cuvinte, în ambele limbi. Folosește litere mici.",
+    "sugo_en": "Write the post's section or topic here in one or two words, in both languages. Use lowercase."
+  },
+  "vz.mezo_allitas_focim": {
+    "hu": "Főcím",
+    "ro": "Titlu principal",
+    "en": "Main title",
+    "sugo_hu": "Fogalmazd meg az állítást mindkét nyelven, egy-két rövid mondatban. Ha hosszú, adj meg rövid változatot is.",
+    "sugo_ro": "Formulează afirmația în ambele limbi, în una-două propoziții scurte. Dacă e lungă, dă și o variantă scurtă.",
+    "sugo_en": "Write the statement in both languages, in one or two short sentences. If it's long, also give a short version."
+  },
+  "vz.mezo_allitas_magyarazat": {
+    "hu": "Magyarázó sor",
+    "ro": "Linie explicativă",
+    "en": "Explanatory line",
+    "sugo_hu": "Ha az állítás más döntéséről szól, itt nevezd meg tényszerűen, ki dönt miről. Egyébként írj rövid magyarázatot, vagy hagyd üresen.",
+    "sugo_ro": "Dacă afirmația se referă la decizia altcuiva, numește aici factual cine decide ce. Altfel scrie o scurtă explicație sau lasă gol.",
+    "sugo_en": "If the statement is about someone else's decision, name here factually who decides what. Otherwise write a short explanation or leave it empty."
+  },
+  "vz.mezo_allitas_forras": {
+    "hu": "Forrássor",
+    "ro": "Linie sursă",
+    "en": "Source line",
+    "sugo_hu": "Csak akkor töltsd ki, ha az állításban szám szerepel, aminek nincs ellenőrzött forrása. Egyébként hagyd üresen.",
+    "sugo_ro": "Completează doar dacă afirmația conține o cifră fără sursă verificată. Altfel lasă gol.",
+    "sugo_en": "Fill this in only if the statement contains a number without a verified source. Otherwise leave it empty."
+  },
+  "vz.mezo_allitas_azonosito_sor": {
+    "hu": "Azonosító sor",
+    "ro": "Linie de identificare",
+    "en": "Identifier line",
+    "sugo_hu": "Írd be a poszt azonosítóját: sorozatkód, sorszám és dátum. Ellenőrizd a dátumot.",
+    "sugo_ro": "Scrie identificatorul postării: cod de serie, număr și dată. Verifică data.",
+    "sugo_en": "Enter the post identifier: series code, number and date. Check the date."
+  },
+  "vz.mezo_zavar_allapot_cimke": {
+    "hu": "Állapotcímke",
+    "ro": "Etichetă stare",
+    "en": "Status label",
+    "sugo_hu": "Írd ide az esemény nevét röviden, mindkét nyelven: terelés, késés, kimaradó járat, helyreállt. Használj kisbetűt.",
+    "sugo_ro": "Scrie aici scurt numele evenimentului, în ambele limbi: deviere, întârziere, cursă anulată, reluat. Folosește litere mici.",
+    "sugo_en": "Write the event name briefly here, in both languages: diversion, delay, cancelled trip, restored. Use lowercase."
+  },
+  "vz.mezo_zavar_jarat": {
+    "hu": "Járat",
+    "ro": "Cursă",
+    "en": "Trip",
+    "sugo_hu": "Írd be a járat számát vagy kódját, és a nevét mindkét nyelven. Ha a járatnak saját neve van, írd át.",
+    "sugo_ro": "Scrie numărul sau codul cursei și numele ei în ambele limbi. Dacă cursa are un nume propriu, modifică-l.",
+    "sugo_en": "Enter the trip number or code, and its name in both languages. If the trip has its own name, change it."
+  },
+  "vz.mezo_zavar_focim": {
+    "hu": "Főcím",
+    "ro": "Titlu principal",
+    "en": "Main title",
+    "sugo_hu": "Írd le egy mondatban, mindkét nyelven, mi történik a járattal. Kijelentő mondat legyen, pont a végén.",
+    "sugo_ro": "Descrie într-o propoziție, în ambele limbi, ce se întâmplă cu cursa. Folosește o propoziție enunțiativă, cu punct la final.",
+    "sugo_en": "Describe in one sentence, in both languages, what happens to the trip. Use a declarative sentence with a period at the end."
+  },
+  "vz.mezo_zavar_idoszak": {
+    "hu": "Időtartomány",
+    "ro": "Interval orar",
+    "en": "Time range",
+    "sugo_hu": "Írd be, mettől meddig tart az esemény, óra:perc formában. Ha a vége csak becslés, jelöld be a „körülbelül” kapcsolót.",
+    "sugo_ro": "Scrie de la ce oră până la ce oră durează evenimentul, în format oră:minut. Dacă sfârșitul e doar estimat, bifează opțiunea „aproximativ”.",
+    "sugo_en": "Write from when to when the event lasts, in hour:minute format. If the end is only an estimate, tick the \"approximately\" switch."
+  },
+  "vz.mezo_zavar_nap": {
+    "hu": "Nap",
+    "ro": "Zi",
+    "en": "Day",
+    "sugo_hu": "Írd be, melyik napra vonatkozik az időtartomány: ma, holnap, vagy a nap neve. Mindkét nyelven, kisbetűvel.",
+    "sugo_ro": "Scrie pentru ce zi se aplică intervalul: azi, mâine sau numele zilei. În ambele limbi, cu litere mici.",
+    "sugo_en": "Write which day the time range applies to: today, tomorrow, or the day's name. In both languages, lowercase."
+  },
+  "vz.mezo_zavar_reszletek": {
+    "hu": "Részletek",
+    "ro": "Detalii",
+    "en": "Details",
+    "sugo_hu": "Írd le három sorban: melyik megállók maradnak ki, mit tegyen az utas, mikor jön frissítés. Amelyik nem kell, hagyd üresen.",
+    "sugo_ro": "Scrie în trei rânduri: ce stații sunt afectate, ce să facă călătorul, când vine o actualizare. Ce nu e nevoie, lasă gol.",
+    "sugo_en": "Write in three lines: which stops are skipped, what the passenger should do, when an update comes. Leave empty what you don't need."
+  },
+  "vz.mezo_zavar_forras": {
+    "hu": "Forrássor",
+    "ro": "Linie sursă",
+    "en": "Source line",
+    "sugo_hu": "Ha olyan szám vagy adat van a lapon, aminek nincs ellenőrzött forrása, ide kerül a nyilatkozat. Ha van valós forrás, azt írd ide.",
+    "sugo_ro": "Dacă pe pagină există o cifră sau un date fără sursă verificată, aici apare declarația. Dacă ai o sursă reală, scrie-o aici.",
+    "sugo_en": "If the page has a number or data without a verified source, the statement appears here. If you have a real source, write it here."
+  },
+  "vz.mezo_zavar_azonosito_sor": {
+    "hu": "Azonosító sor",
+    "ro": "Linie de identificare",
+    "en": "Identifier line",
+    "sugo_hu": "Írd be a poszt azonosítóját: sorozatkód, sorszám és dátum. A járathivatkozást a program teszi ide.",
+    "sugo_ro": "Scrie identificatorul postării: cod de serie, număr și dată. Referința cursei este adăugată automat.",
+    "sugo_en": "Enter the post identifier: series code, number and date. The trip reference is added automatically."
+  }
+}

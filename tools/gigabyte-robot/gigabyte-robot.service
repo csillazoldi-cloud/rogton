@@ -1,0 +1,9 @@
+[Unit]
+Description=A Gigabyte robotja: figyeli a tarolot es kirak
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/projektek/saas
+ExecStart=/bin/bash %h/projektek/saas/tools/gigabyte-robot/robot.sh
+TimeoutStartSec=2700

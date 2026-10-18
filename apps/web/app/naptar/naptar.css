@@ -1,0 +1,229 @@
+/* R-18 3. kör · Naptár — a rajz („Naptár · hét / javasolt nap / Kitetted? / napválasztó / üres”, tema.css .np-*) értékei tokenekből.
+   Asztalon a két hét egymás mellett (np-ket-het), telefonon egymás alatt. A napválasztó telefonon alsó lap, asztalon középre nyíló lap. */
+.r18n-lap { display: flex; flex-direction: column; gap: var(--ter-8); }
+.r18n-fej { display: flex; flex-direction: column; gap: var(--ter-7); align-items: flex-start; }
+.r18n-halad-szam { font-weight: var(--fw-strong); color: var(--text); }
+.r18n-felso { max-width: 760px; } /* tokenőr: ok — a rajz kártyaszélessége */
+.r18n-korabbi { align-self: flex-start; }
+
+.r18n-hetek { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ter-8) var(--ter-12); align-items: start; }
+.r18n-hetek.r18n-egy-het { grid-template-columns: minmax(0, 1fr); max-width: 760px; } /* tokenőr: ok — a rajz kártyaszélessége */
+.r18n-het-blokk { display: flex; flex-direction: column; min-width: 0; }
+.r18n-het { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ter-4); padding: var(--ter-3) var(--ter-0); border-bottom: var(--bw) solid var(--line); }
+.r18n-het-cim { font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-cimke); color: var(--text-mut); text-transform: uppercase; letter-spacing: 0.04em; }
+.r18n-het-datum { font-size: var(--fs-cimke); color: var(--text-dim); white-space: nowrap; }
+
+.r18n-nap { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: var(--ter-6); align-items: start; padding: var(--ter-5) var(--ter-0); border-bottom: var(--bw) solid var(--line-soft); } /* tokenőr: ok — a rajz naposzlopa */
+.r18n-nap.r18n-csendes { padding: var(--ter-3) var(--ter-0); }
+.r18n-nap-cimke { font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-cimke); line-height: 1.35; color: var(--text-mut); padding-top: var(--ter-1); overflow-wrap: anywhere; }
+.r18n-csendes .r18n-nap-cimke { color: var(--text-faint); }
+.r18n-nap-cimke.r18n-ma { color: var(--text); }
+.r18n-ma::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: var(--r-badge); background: var(--accent); margin-right: var(--ter-3); vertical-align: 1px; } /* tokenőr: ok — a „ma” pötty */
+.r18n-ures-sor { display: none; }
+.r18n-posztok { display: flex; flex-direction: column; gap: var(--ter-4); min-width: 0; }
+
+.r18n-poszt {
+  display: flex; flex-direction: column; gap: var(--ter-4); min-width: 0; box-sizing: border-box;
+  padding: var(--ter-5) var(--ter-6); border-radius: var(--r-block);
+  background: var(--teendo-bg); border: var(--bw) solid var(--teendo-border); box-shadow: var(--uveg-arnyek);
+}
+.r18n-poszt.r18n-javasolt-doboz { background: transparent; box-shadow: none; border: var(--bw) dashed var(--btn-ghost-border); }
+.r18n-poszt-fo { display: flex; gap: var(--ter-6); align-items: center; min-width: 0; }
+.r18n-kep { width: 44px; height: 44px; border-radius: var(--r-btn); overflow: hidden; flex: none; background: var(--panel-soft-2); } /* tokenőr: ok — a rajz bélyegképe */
+.r18n-kep img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.r18n-szoveg { display: flex; flex-direction: column; gap: var(--ter-1); min-width: 0; flex: 1; }
+.r18n-cim {
+  font-family: var(--font-display); font-weight: var(--fw-head); font-size: var(--fs-md); line-height: 1.25; letter-spacing: var(--ls-h2);
+  color: var(--text); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.r18n-cim:hover { text-decoration: underline; }
+.r18n-allapot { font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-cimke); color: var(--text-mut); }
+.r18n-allapot.r18n-kiteve { color: var(--ok); }
+.r18n-allapot.r18n-hangsuly { color: var(--text); }
+.r18n-muvelet { display: flex; gap: var(--ter-5); align-items: center; flex-wrap: wrap; }
+.r18n-muvelet .r15-fo-gomb, .r18n-muvelet .r15-halk-gomb { min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-8); }
+
+/* A napválasztó: fátyol + lap. Telefonon alulról (rajz: „napválasztó · telefon”), asztalon középen. A Visszajelzés gombja (z 69–71) alatta marad. */
+.r18n-fatyol { position: fixed; inset: var(--ter-0); z-index: 80; background: var(--fatyol-menu); }
+.r18n-valaszto {
+  position: fixed; z-index: 81; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: min(420px, calc(100vw - 2 * var(--ter-9))); max-height: calc(100dvh - 2 * var(--ter-12)); overflow-y: auto; box-sizing: border-box; /* tokenőr: ok — a lap szélessége */
+  display: flex; flex-direction: column; gap: var(--ter-3); padding: var(--ter-5) var(--ter-9) var(--ter-7);
+  border-radius: var(--r-card); background: var(--uveg-tomor); border: var(--bw) solid var(--uveg-el); box-shadow: var(--uveg-arnyek);
+}
+.r18n-fogo { display: none; }
+.r18n-valaszto-fej { display: flex; align-items: center; justify-content: space-between; gap: var(--ter-4); padding: var(--ter-1) var(--ter-0) var(--ter-3); }
+.r18n-valaszto-cim { margin: var(--ter-0); font-family: var(--font-display); font-weight: var(--fw-head); font-size: var(--fs-title); letter-spacing: var(--ls-h2); }
+.r18n-bezar { min-width: var(--control-min); min-height: var(--control-min); border: 0; background: transparent; color: var(--text); font: inherit; font-size: var(--fs-title); cursor: pointer; margin-right: calc(-1 * var(--ter-5)); }
+.r18n-napsorok { display: flex; flex-direction: column; gap: var(--ter-1); }
+.r18n-napsor {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--ter-4); width: 100%; min-height: var(--control-min); box-sizing: border-box;
+  padding: var(--ter-0) var(--ter-6); border: 0; border-radius: var(--r-btn); background: transparent; color: var(--text);
+  font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-ui); text-align: left; cursor: pointer;
+}
+.r18n-napsor:hover, .r18n-napsor:focus-visible { background: var(--panel-soft); }
+.r18n-napsor[aria-checked="true"] { background: color-mix(in srgb, var(--primary) 18%, transparent); box-shadow: inset 0 0 0 var(--bw) color-mix(in srgb, var(--primary) 60%, transparent); } /* tokenőr: ok — a rajz kiválasztott sora (a lila átlátszóan) */
+.r18n-napsor-megj { color: var(--text-mut); font-size: var(--fs-cimke); white-space: nowrap; }
+
+@media (max-width: 1100px) {
+  .r18n-hetek { grid-template-columns: minmax(0, 1fr); max-width: 760px; } /* tokenőr: ok — keskenyebb asztalon egy oszlop */
+}
+@media (max-width: 640px) {
+  .r18n-lap { gap: var(--ter-7); }
+  /* a rajz: telefonon is egymás mellett a „Kitettem” / „Elfogadom” és a halk párja (a közös szabály a fő gombot teljes szélességűre nyújtja) */
+  .r18n-muvelet .r15-fo-gomb, .r18n-muvelet .r15-halk-gomb { width: auto; flex: none; }
+  /* ha nincs alsó gombsáv, a lebegő Visszajelzés a lap végén se takarjon (T10) */
+  .r18n-lap:not(:has(.r15-also-sav)) { padding-bottom: calc(var(--ter-12) + var(--lebego-hely-tel)); }
+  .r18n-nap { grid-template-columns: 92px minmax(0, 1fr); } /* tokenőr: ok — a rajz naposzlopa telefonon */
+  .r18n-valaszto {
+    left: var(--ter-0); right: var(--ter-0); top: auto; bottom: var(--ter-0); transform: none; width: auto; max-height: 85dvh;
+    border-radius: var(--r-card) var(--r-card) var(--ter-0) var(--ter-0); border-bottom: 0; padding: var(--ter-5) var(--ter-9) var(--ter-7);
+  }
+  .r18n-fogo { display: block; align-self: center; width: 40px; height: 4px; border-radius: var(--r-badge); background: var(--line); } /* tokenőr: ok — a fogantyú */
+}
+
+/* ===== R-18 8. kör · Naptár (Claude Design „Round 8 · A sötét / B világos”, round8/shot-*-r8-naptar-*) =====
+   Asztalon egy hét hét oszlopban (a rajz 992 px-es rácsa), telefonon a hét sávja + a nap posztjai. Minden érték token. */
+.r18n8-lap { gap: var(--ter-9); max-width: calc(992px + 2 * var(--ter-10)); } /* tokenőr: ok — a rajz 992 px-es rácsa */
+.r18n8-csak-tel { display: none; }
+.r18n8-csak-asztal { display: contents; }
+.r18n8-fej { display: flex; flex-direction: column; gap: var(--ter-9); align-items: stretch; }
+.r18n8-fej > .r15-fo-gomb, .r18n8-fej > a.r15-fo-gomb { align-self: flex-start; }
+.r18n8-fej-sor { display: flex; align-items: center; justify-content: space-between; gap: var(--ter-6); flex-wrap: wrap; }
+.r18n8-halad { margin: var(--ter-0); }
+.r18n8-lapozo { display: flex; align-items: center; gap: var(--ter-6); }
+.r18n8-nyil {
+  display: inline-flex; align-items: center; justify-content: center; width: var(--control-min); height: var(--control-min); padding: var(--ter-0);
+  border: var(--bw) solid var(--btn-ghost-border); border-radius: var(--r-btn); background: var(--panel-soft-2); color: var(--text); cursor: pointer;
+}
+.r18n8-nyil:hover { background: var(--btn-ghost-hover); }
+.r18n8-tartomany { font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-ui); color: var(--text); white-space: nowrap; }
+.r18n8-ma-link { padding: var(--ter-0); border: 0; background: transparent; color: var(--text-mut); font-family: var(--font-code); font-size: var(--fs-cimke); text-decoration: underline; text-underline-offset: var(--ter-1); cursor: pointer; min-height: var(--control-min-s); }
+.r18n8-ma-link:hover { color: var(--text); }
+
+/* a hét rácsa: hét egyenlő oszlop, függőleges vonalakkal; a mai oszlop halványan kiemelt; a hétvége NEM halványabb (zárt válasz 3) */
+.r18n8-racs { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-top: var(--bw) solid var(--line-soft); border-bottom: var(--bw) solid var(--line-soft); }
+.r18n8-oszlop { display: flex; flex-direction: column; gap: var(--ter-4); min-width: 0; min-height: 486px; padding: var(--ter-4) var(--ter-4) var(--ter-4); box-sizing: border-box; border-left: var(--bw) solid var(--line-soft); } /* tokenőr: ok — a rajz oszlopmagassága (a „+” az oszlop alján) */
+.r18n8-oszlop:first-child { border-left: 0; }
+.r18n8-oszlop.r18n8-ma { background: var(--panel-soft); }
+.r18n8-oszlop.r18n8-cel { box-shadow: inset 0 0 0 2px var(--primary); background: color-mix(in srgb, var(--primary) 10%, transparent); } /* tokenőr: ok — a rajz célnapja (2 px keret, halvány lila) */
+.r18n8-oszlop-fej { display: flex; align-items: center; justify-content: space-between; gap: var(--ter-2); min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-1); }
+.r18n8-rovid { font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-cimke); color: var(--text-mut); }
+.r18n8-szam { font-family: var(--font-display); font-weight: var(--fw-head); font-size: var(--fs-title); color: var(--text); line-height: 1; }
+.r18n8-szam-ma { display: inline-flex; align-items: center; justify-content: center; width: var(--control-min-s); height: var(--control-min-s); max-width: 30px; max-height: 30px; border-radius: 50%; background: var(--accent); color: var(--on-primary); font-size: var(--fs-md); } /* tokenőr: ok — a rajz mai napjának kör-jele */
+.r18n8-oszlop-posztok { display: flex; flex-direction: column; gap: var(--ter-4); flex: 1 1 auto; min-width: 0; }
+.r18n8-plusz {
+  display: flex; align-items: center; justify-content: center; min-height: var(--control-min-s); border: var(--bw) dashed var(--line); border-radius: var(--r-btn);
+  color: var(--text-mut); font-size: var(--fs-md); text-decoration: none;
+}
+.r18n8-plusz:hover, .r18n8-plusz:focus-visible { border-color: var(--primary); color: var(--text); }
+
+/* a kártya: kép (ha van) a „···”-tal, cím, állapot, gomb */
+.r18n8-kartya {
+  position: relative; display: flex; flex-direction: column; gap: var(--ter-3); min-width: 0; box-sizing: border-box; padding: var(--ter-4);
+  border-radius: var(--r-btn); background: var(--teendo-bg); border: var(--bw) solid var(--teendo-border); box-shadow: var(--uveg-arnyek);
+  -webkit-touch-callout: none; user-select: none;
+}
+.r18n8-huzhato { cursor: grab; touch-action: pan-y; }
+.r18n8-kartya.r18n8-aktiv { border-color: var(--primary); box-shadow: var(--glow-primary); }
+.r18n8-kartya.r18n8-javasolt { background: transparent; box-shadow: none; border: var(--bw) dashed var(--btn-ghost-border); }
+.r18n8-kep { position: relative; display: block; aspect-ratio: 108 / 64; border-radius: var(--r-badge); overflow: hidden; background: var(--panel-soft-2); } /* tokenőr: ok — a rajz bélyegképe */
+.r18n8-kep img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.r18n8-kep .r18n8-tobb { position: absolute; top: var(--ter-1); right: var(--ter-1); background: var(--fatyol-menu); color: var(--on-primary); }
+.r18n8-cim-sor { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--ter-2); min-width: 0; }
+.r18n8-cim {
+  font-family: var(--font-display); font-weight: var(--fw-head); font-size: var(--fs-sm); line-height: 1.2; letter-spacing: var(--ls-h2);
+  color: var(--text); text-decoration: none; overflow-wrap: anywhere; min-width: 0;
+}
+.r18n8-cim:hover { text-decoration: underline; }
+.r18n8-tobb {
+  display: inline-flex; align-items: center; justify-content: center; flex: none; width: 26px; height: 22px; padding: var(--ter-0); border: 0;
+  border-radius: var(--r-badge); background: transparent; color: var(--text-mut); font-size: var(--fs-md); font-weight: var(--fw-strong); line-height: 1; letter-spacing: -0.05em; cursor: pointer;
+} /* tokenőr: ok — a rajz „···” gombja (a kártya sarkában; a koppintási felület a kártya padding-jével együtt) */
+.r18n8-tobb:hover { color: var(--text); }
+.r18n8-kartya .r18n-allapot { font-size: var(--fs-cimke); }
+.r18n8-muvelet { display: flex; }
+.r18n8-muvelet .r15-fo-gomb, .r18n8-muvelet .r15-halk-gomb { width: 100%; min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-2); justify-content: center; white-space: nowrap; font-size: var(--fs-cimke); }
+.r18n8-muvelet .r15-fo-gomb { min-height: 52px; } /* tokenőr: ok — a rajz „Kitettem” gombja */
+/* húzás: a helye szaggatott keret, a kártya követi az egeret, döntve */
+.r18n8-hely { display: flex; align-items: flex-start; padding: var(--ter-4); border: var(--bw) dashed var(--btn-ghost-border); border-radius: var(--r-btn); font-family: var(--font-code); font-size: var(--fs-cimke); color: var(--text-mut); }
+.r18n8-lebego { position: fixed; z-index: 75; pointer-events: none; transform: rotate(2deg); }
+.r18n8-lebego .r18n8-kartya { border-style: dashed; box-shadow: 0 12px 32px var(--fatyol-menu); }
+.r18n8-lap[data-huzas], .r18n8-lap[data-huzas] * { cursor: grabbing; }
+
+/* a „…” menü: asztalon középen, telefonon alsó lap (rajz: „Naptár · törlés”) */
+.r18n8-menu {
+  position: fixed; z-index: 81; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(420px, calc(100vw - 2 * var(--ter-9))); box-sizing: border-box;
+  display: flex; flex-direction: column; gap: var(--ter-6); padding: var(--ter-9) var(--ter-9) var(--ter-8);
+  border-radius: var(--r-block); background: var(--uveg-tomor); border: var(--bw) solid var(--uveg-el); box-shadow: var(--uveg-arnyek);
+} /* tokenőr: ok — a lap szélessége (a napválasztóéval azonos) */
+.r18n8-menu-cim { margin: var(--ter-0) var(--ter-0) var(--ter-1); font-family: var(--font-display); font-weight: var(--fw-head); font-size: var(--fs-title); letter-spacing: var(--ls-h2); }
+.r18n8-opcio {
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-1); width: 100%; box-sizing: border-box; padding: var(--ter-5) var(--ter-6);
+  border: var(--bw) solid var(--btn-ghost-border); border-radius: var(--r-btn); background: var(--panel-soft-2); color: var(--text); text-align: left; cursor: pointer; font: inherit;
+}
+.r18n8-opcio:hover { background: var(--btn-ghost-hover); }
+.r18n8-opcio-fo { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.r18n8-opcio-fo:hover { background: var(--primary); filter: brightness(1.08); }
+.r18n8-opcio-nev { font-family: var(--font-code); font-weight: var(--fw-strong); font-size: var(--fs-ui); }
+.r18n8-opcio-al { font-size: var(--fs-sm); opacity: 0.85; }
+.r18n8-opcio-torol .r18n8-opcio-nev { color: var(--err); }
+.r18n8-megse { align-self: flex-start; padding: var(--ter-0); min-height: var(--control-min-s); border: 0; background: transparent; color: var(--text-mut); font-family: var(--font-code); font-size: var(--fs-cimke); text-decoration: underline; text-underline-offset: var(--ter-1); cursor: pointer; }
+.r18n8-csak-tel.r18n8-opcio { display: none; }
+
+/* a „Visszavonás” sor: alul középen, a Visszajelzés fölött (nem takar fő gombot: a kártyák a lap tetején) */
+.r18n8-vissza {
+  position: fixed; z-index: 76; left: 50%; transform: translateX(-50%); bottom: calc(var(--control-min) + var(--ter-6) * 2);
+  display: flex; align-items: center; gap: var(--ter-6); padding: var(--ter-4) var(--ter-6) var(--ter-4) var(--ter-8); max-width: calc(100vw - 2 * var(--ter-9)); box-sizing: border-box;
+  border-radius: var(--r-btn); background: var(--uveg-tomor); border: var(--bw) solid var(--uveg-el); box-shadow: var(--uveg-arnyek); color: var(--text); font-size: var(--fs-sm);
+}
+.r18n8-vissza-gomb { min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-4); border: 0; background: transparent; color: var(--primary-2); font-family: var(--font-code); font-weight: var(--fw-strong); font-size: var(--fs-ui); text-decoration: underline; text-underline-offset: var(--ter-1); cursor: pointer; white-space: nowrap; }
+
+/* a hét-rács 1024 px alatt nem fér (a gombok tördeltek — elrendezés-audit 10-15): ott a telefonos nézet (a hét sávja + a nap posztjai) */
+@media (max-width: 1023px) {
+  .r18n8-csak-asztal { display: none; }
+  .r18n8-csak-tel { display: contents; }
+  .r18n8-csak-tel.r18n8-opcio { display: flex; }
+  .r18n8-tel { display: flex; flex-direction: column; gap: var(--ter-7); }
+  .r18n8-sav { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--ter-1); }
+  .r18n8-sav-nap {
+    display: flex; flex-direction: column; align-items: center; gap: var(--ter-1); min-height: 56px; padding: var(--ter-2) var(--ter-0); box-sizing: border-box;
+    border: var(--bw) solid transparent; border-radius: var(--r-btn); background: transparent; color: var(--text); cursor: pointer;
+  } /* tokenőr: ok — a rajz napcellája */
+  .r18n8-sav-nap .r18n8-szam { font-size: var(--fs-md); }
+  .r18n8-sav-nap.r18n8-valasztott { background: var(--panel-soft); border-color: var(--line); }
+  .r18n8-sav-nap.r18n8-cel { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 14%, transparent); } /* tokenőr: ok — a rajz célnapja */
+  .r18n8-szam-ma-tel { color: var(--accent); }
+  .r18n8-pont { width: 5px; height: 5px; border-radius: var(--r-badge); background: var(--text-faint); } /* tokenőr: ok — a rajz napjelző pöttye */
+  .r18n8-pont-kesz { background: var(--ok); }
+  .r18n8-pont-nincs { background: transparent; }
+  .r18n8-lapozo-nap { justify-content: space-between; }
+  .r18n8-tel-posztok { display: flex; flex-direction: column; gap: var(--ter-5); }
+  .r18n8-kartya-tel { padding: var(--ter-4); }
+  .r18n8-kartya-tel .r18n8-kep { aspect-ratio: auto; height: 64px; } /* tokenőr: ok — a rajz kép-sávja telefonon */
+  .r18n8-kartya-tel .r18n8-cim { font-size: var(--fs-md); }
+  .r18n8-kartya.r18n8-emelt { transform: rotate(-1.5deg); box-shadow: 0 12px 32px var(--fatyol-menu); }
+  .r18n8-uj-tel {
+    display: flex; align-items: center; justify-content: center; min-height: 48px; border: var(--bw) dashed var(--line); border-radius: var(--r-btn);
+    color: var(--text); font-family: var(--font-code); font-size: var(--fs-ui); text-decoration: none;
+  } /* tokenőr: ok — a rajz „+ Új poszt” sora */
+}
+@media (max-width: 640px) {
+  .r18n8-lap { gap: var(--ter-7); padding-inline: var(--ter-9); padding-bottom: calc(var(--ter-12) + var(--lebego-hely-tel)); }
+  .r18n8-fej { gap: var(--ter-6); }
+  .r18n8-menu {
+    left: var(--ter-0); right: var(--ter-0); top: auto; bottom: var(--ter-0); transform: none; width: auto;
+    border-radius: var(--r-card) var(--r-card) var(--ter-0) var(--ter-0); border-bottom: 0; padding: var(--ter-5) var(--ter-9) var(--ter-9);
+  }
+  .r18n8-megse { align-self: stretch; min-height: var(--control-min); border: var(--bw) solid var(--btn-ghost-border); border-radius: var(--r-btn); background: var(--panel-soft-2); color: var(--text); text-decoration: none; font-weight: var(--fw-strong); font-size: var(--fs-ui); }
+}
+
+/* c30 F8 (rajz D7b „Javaslat: holnapi program”): a horgonyzott ötlet szellem-sora — halk, szaggatott keret, kódbetű, a poszt-kártyától
+   jól elváló TÁJÉKOZTATÁS (T6); a sor végén egy halk „Megírjuk” gomb. Asztalon a nap oszlopában, a posztok alatt. */
+.c30-szellem {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--ter-5);
+  padding: var(--ter-4) var(--ter-4) var(--ter-4) var(--ter-6); border: var(--bw) dashed color-mix(in srgb, var(--text) 30%, transparent); /* tokenőr: ok — a rajz .r8-szellem szaggatott kerete */
+  border-radius: var(--r-block); font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-xs); color: var(--text-mut);
+}
+.c30-szellem .r15-halk-gomb { min-height: var(--control-min-s); flex: none; }
+.r18n8-oszlop-posztok .c30-szellem { flex-direction: column; align-items: stretch; padding: var(--ter-4); }

@@ -1,0 +1,9 @@
+.km-sf-keszul-jelveny {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-strong);
+  color: var(--keszul);
+  border: var(--bw) solid var(--keszul-border);
+  border-radius: var(--r-badge);
+  padding: var(--ter-1) var(--ter-4);
+}
+

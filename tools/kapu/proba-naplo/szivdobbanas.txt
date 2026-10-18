@@ -1,0 +1,6 @@
+--- 1. robot 66 perce néma + piros vár:
+ÜZENET: Robot — napi ellenőrzés | A robot 66 perce nem jelentkezett (systemctl --user status gigabyte-robot.timer). A abc123 változat piros volt, és még nem jött javítás. 
+A robot 66 perce nem jelentkezett (systemctl --user status gigabyte-robot.timer).
+A abc123 változat piros volt, és még nem jött javítás.
+--- 2. minden rendben (nincs üzenet):
+szívdobbanás: minden rendben

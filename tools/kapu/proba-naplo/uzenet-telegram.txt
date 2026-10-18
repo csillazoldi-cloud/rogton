@@ -1,0 +1,7 @@
+uzenet.sh önpróba, 2026-10-07, helyi ál-Telegram-API (python http.server a 127.0.0.1:28999-en), ál-token "123:ABC_def", chat 4567:
+- a kérés:  POST /bot123:ABC_def/sendMessage  chat_id=4567&text=Kint+van%0Acf49ce5+%E2%80%94+c4+pr%C3%B3ba+%289+perc%29.
+  (a token a curl -K - bemenetén ment, nem a parancssorban; a fájlnaplóba nem került)
+- uzenetek.txt: "2026-10-07T15:29:39+03:00  Kint van — cf49ce5 — c4 próba (9 perc)."
+- nincs telegram-fájl → csak fájl: "Cím — csak fájl"
+- elérhetetlen API → fájl + "(a Telegram-üzenet nem ment ki; csak itt van meg)"
+A valódi Telegram-API-t innen nem értem el (nem is próbáltam): a valódi bot a Gigabyte-on próbálandó (README, 3. csomag).

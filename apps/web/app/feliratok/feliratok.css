@@ -1,0 +1,74 @@
+/* A feliratok szerkesztője (E-16, az E-15 rajz szerint) — a Theme-lap osztályaira épül (tema.css), itt csak a saját elemei. */
+.km-feliratok-fo { display: flex; gap: var(--ter-9); align-items: flex-start; }
+.km-feliratok-oldalsav { flex: 0 0 240px; position: sticky; top: 76px; display: flex; flex-direction: column; gap: var(--ter-7); }
+.km-feliratok-csoportok { padding: var(--ter-6); }
+.km-feliratok-csoportok-cim { font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); font-weight: var(--fw-strong); margin: var(--ter-2) var(--ter-5) var(--ter-4); }
+.km-feliratok-csoportlista { display: flex; flex-direction: column; gap: var(--ter-1); }
+/* telefonon a képernyők listája lenyíló (az E-15 rajz szerint) */
+.km-feliratok-csoport-valaszto { display: none; width: 100%; box-sizing: border-box; padding: var(--ter-5); border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--bg-elev); color: var(--text); font-size: var(--fs-md); font-family: var(--font-body-active); min-height: var(--control-min); }
+.km-feliratok-csoport { display: flex; justify-content: space-between; align-items: center; gap: var(--ter-4); padding: var(--ter-4) var(--ter-5); border-radius: var(--r-btn); font-size: var(--fs-sm); font-family: var(--font-body-active); text-align: left; cursor: pointer; border: var(--bw) solid transparent; background: none; color: var(--text-mut); }
+.km-feliratok-csoport:hover { background: var(--btn-ghost-hover); }
+.km-feliratok-csoport[data-be="true"] { background: var(--panel-soft-2); border-color: var(--line-soft); color: var(--text); }
+.km-feliratok-csoport-db { font-size: var(--fs-xs); color: var(--text-dim); }
+.km-feliratok-szamlalo { padding: var(--ter-7); font-size: var(--fs-sm); color: var(--text-mut); display: flex; flex-direction: column; gap: var(--ter-3); }
+.km-feliratok-szamlalo > div { display: flex; justify-content: space-between; }
+.km-feliratok-szamlalo strong { color: var(--text); }
+.km-feliratok-szamlalo strong[data-szin="ok"] { color: var(--ok); }
+.km-feliratok-szamlalo strong[data-szin="figyelem"] { color: var(--warn); }
+.km-feliratok-tartalom { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: var(--ter-7); }
+.km-feliratok-fej { display: flex; align-items: baseline; gap: var(--ter-5); flex-wrap: wrap; margin-bottom: var(--ter-2); }
+.km-feliratok-fej .km-tema-szekcio-cim { margin: var(--ter-0); }
+.km-feliratok-fej-osszeg { font-size: var(--fs-xs); color: var(--text-dim); }
+.km-feliratok-magyarazat { margin-bottom: var(--ter-7); }
+.km-feliratok-eszkozok { display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; margin-bottom: var(--ter-7); }
+.km-feliratok-kereses { flex: 1 1 320px; position: relative; }
+.km-feliratok-kereses-mezo { width: 100%; box-sizing: border-box; padding: var(--ter-4) var(--ter-5) var(--ter-4) var(--ter-11); border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--field-bg); color: var(--text); font-family: var(--font-body-active); font-size: var(--fs-md); min-height: var(--control-min); }
+.km-feliratok-kereses-mezo::placeholder { color: var(--text-faint); }
+.km-feliratok-kereses-mezo:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring); }
+.km-feliratok-kereses-ikon { position: absolute; left: 12px; top: 12px; color: var(--text-dim); pointer-events: none; }
+.km-feliratok-szurok { margin-inline-start: var(--ter-0); }
+.km-feliratok-lista { display: flex; flex-direction: column; gap: var(--ter-5); }
+.km-feliratok-kartya { border: var(--bw) solid var(--line-soft); border-radius: var(--r-block); background: var(--panel-soft); padding: var(--ter-7) var(--ter-8); display: flex; flex-direction: column; gap: var(--ter-5); }
+.km-feliratok-kartya[data-sajat="true"] { background: var(--panel-soft-2); }
+.km-feliratok-kartya-fej { display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; }
+.km-feliratok-kartya-jobb { margin-inline-start: auto; display: flex; gap: var(--ter-4); align-items: center; }
+.km-feliratok-vissza-also { display: none; } /* telefonon a rajz szerint a gomb a nyelvek ALATT van (E-18 záró ellenőrzés) */
+.km-feliratok-allapot { font-size: var(--fs-xs); color: var(--text-dim); border: var(--bw) solid var(--line); border-radius: var(--r-badge); padding: var(--ter-1) var(--ter-4); white-space: nowrap; }
+.km-feliratok-allapot[data-fajta="sajat"] { color: var(--ok); border-color: var(--ok-bg); background: var(--ok-bg); }
+.km-feliratok-allapot[data-fajta="hianyzo"] { color: var(--warn); border-color: var(--warn-border); background: var(--warn-bg); }
+.km-feliratok-allapot[data-fajta="hibakod"] { color: var(--warn); border-color: var(--warn-border); }
+.km-feliratok-vissza { padding: var(--ter-2) var(--ter-5); font-size: var(--fs-xs); }
+.km-feliratok-nyelvek { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ter-6); }
+.km-feliratok-nyelv-cimke { font-size: var(--fs-xs); color: var(--text-mut); margin-bottom: var(--ter-2); }
+.km-feliratok-mezo { width: 100%; box-sizing: border-box; padding: var(--ter-4) var(--ter-5); border: var(--bw) solid var(--field-border); border-radius: var(--r-field); background: var(--field-bg); color: var(--text); font-family: var(--font-body-active); font-size: var(--fs-md); line-height: 1.45; resize: vertical; min-height: 66px; }
+.km-feliratok-mezo::placeholder { color: var(--text-dim); }
+.km-feliratok-mezo:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring); }
+.km-feliratok-mezo:disabled { opacity: 0.7; }
+.km-feliratok-tartalek { font-size: var(--fs-xs); color: var(--text-dim); margin-top: var(--ter-2); }
+.km-feliratok-ures { font-size: var(--fs-sm); color: var(--text-dim); padding: var(--ter-6) var(--ter-0); }
+.km-feliratok-tovabbi { display: flex; justify-content: center; margin-top: var(--ter-7); }
+.km-feliratok-also { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ter-7); }
+.km-csak-telefon { display: none; }
+.km-tema-gomb-kiemelt { font-weight: var(--fw-strong); }
+@media (max-width: 900px) {
+  .km-csak-asztal { display: none; }
+  .km-csak-telefon { display: inline; }
+  .km-feliratok-fo { flex-direction: column; }
+  .km-feliratok-oldalsav { position: static; flex: none; width: 100%; }
+  .km-feliratok-csoportlista { display: none; }
+  .km-feliratok-csoport-valaszto { display: block; }
+  .km-feliratok-kereses { flex: none; }
+  .km-feliratok-nyelvek { grid-template-columns: 1fr; }
+  .km-feliratok-kartya { padding: var(--ter-6); }
+  .km-feliratok-kartya-jobb { display: none; }
+  .km-feliratok-vissza-also { display: block; }
+  .km-feliratok-also { grid-template-columns: 1fr; }
+  .km-feliratok-eszkozok { flex-direction: column; align-items: stretch; }
+}
+
+/* ---- R-7c 07 (D-F43): nyelvfülek, a technikai kulcs halkan ---- */
+.km-feliratok-nyelvfulek { display: flex; gap: var(--ter-2); background: var(--field-bg); border: var(--bw) solid var(--line-soft); border-radius: var(--r-btn); padding: var(--ter-2); width: fit-content; margin-bottom: var(--ter-7); }
+.km-feliratok-nyelvfulek [role="tab"] { min-height: var(--control-min-s); border: none; background: none; color: var(--text-mut); border-radius: var(--r-btn); padding: var(--ter-3) var(--ter-7); font-family: var(--font-body-active); font-size: var(--fs-sm); cursor: pointer; }
+.km-feliratok-nyelvfulek [role="tab"][aria-selected="true"] { background: var(--btn-ghost-bg); border: var(--bw) solid var(--btn-ghost-border); color: var(--text); font-weight: var(--fw-strong); }
+.km-feliratok-kulcs-halk { font-family: var(--font-code-active); font-size: var(--fs-xs); color: var(--text-faint); }
+.km-feliratok-referencia { color: var(--text-dim); font-size: var(--fs-sm); margin-top: var(--ter-3); }

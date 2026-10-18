@@ -1,0 +1,968 @@
+[
+ {
+  "id": "T4",
+  "nev": "Technikai réteg: nagybetű, betűköz, arány",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "metadata",
+   "source",
+   "label",
+   "kicker"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "ratio_max",
+   "requireCase": "upper",
+   "requireTracking": "@tech.tracking",
+   "maxShareOfVisibleText": "@tech.maxShare",
+   "maxLinesPerSlide": "@tech.maxLinesPerSlide"
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A technikai réteg nagybetűs, @tech.tracking betűközzel, és legfeljebb a látható szöveg ~10 %-a; carousel-dián legfeljebb 3 rövid sor."
+ },
+ {
+  "id": "M13",
+  "nev": "Metaadat fotón: legkontrasztosabb szín, sosem zajos részen",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "metadata"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "color_on_ground",
+   "when": {
+    "ground": "photo"
+   },
+   "requireColor": "@color.metaOnPhoto",
+   "mutedAllowedIf": {
+    "scrimOpacity>=": "@color.scrimMinForMutedMeta"
+   },
+   "forbidOnBusyArea": true
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "Fotón a metaadat @color.metaOnPhoto színű legyen; tompított szín csak ≥ @color.scrimMinForMutedMeta scrim fölött; zajos fotórészre nem kerülhet."
+ },
+ {
+  "id": "K2",
+  "nev": "Egy fotó, egy címpár, semmi átfedés, semmi levágás",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "photo",
+   "headline",
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "no_overlap",
+   "maxCount": {
+    "photo": 1,
+    "headline": 1
+   },
+   "noOverlap": true,
+   "noClip": true,
+   "layout": "flow (flex/grid), nem abszolút pozíció"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Kompozíciónként legfeljebb egy fotó és egy cím lehet; egyetlen blokk sem fedhet másikat, és nem lóghat ki a vászonból."
+ },
+ {
+  "id": "K3",
+  "nev": "Jelzés-méretek",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "signal"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "dimension",
+   "rule": "@signal.rule",
+   "dotRadius": "@signal.dotRadius",
+   "arcRadius": "@signal.arcRadius",
+   "arcCutBy": "topRightCorner",
+   "scale": "canvasWidth/1080"
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A jelzés mérete eltér a szabványtól (vonalka @signal.rule, pont @signal.dotRadius, ív @signal.arcRadius[formátum])."
+ },
+ {
+  "id": "K4",
+  "nev": "Margó és rács",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "grid",
+   "margin": "@grid.margin",
+   "marginWide": "@grid.margin × 1.78",
+   "gapMultipleOf": "@grid.unit",
+   "gapSeverity": "figyelmeztetes",
+   "exemptFromMargin": [
+    "photo",
+    "scrim",
+    "plate",
+    "arc"
+   ]
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Minden tartalom a @grid.margin margón belül áll; a hézagok @grid.unit többszörösei (hézag-eltérés csak figyelmeztetés)."
+ },
+ {
+  "id": "K5",
+  "nev": "Aláírás: csak embléma, jobb alul",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "emblem",
+   "lockup"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "position",
+   "emblemSize": "@emblem.size",
+   "position": [
+    "bottom-right",
+    "top-right"
+   ],
+   "topRightOnlyIf": "bottomHoldsCriticalContent",
+   "story916": "aboveReplyZone",
+   "metadataSameCenterline": true,
+   "variant": "@emblem.variantByGround[ground]",
+   "forbid": {
+    "lockup": true
+   }
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Posztokon csak az embléma jelenhet meg (@emblem.size), jobb alul a margótól, a metaadattal egy középvonalon; alternatíva jobb felül. Lockup feed-képen tilos."
+ },
+ {
+  "id": "A6",
+  "nev": "Kapacitás archetípusonként",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "chart",
+   "list",
+   "table"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "capacity",
+   "limits": {
+    "bars": 4,
+    "range": 3,
+    "ratioUnits": 10,
+    "list": 5,
+    "rankedList": 5,
+    "stepsPerDiagram": 3,
+    "stepsPerFullSlide": 1,
+    "calendarGroups": 3
+   },
+   "stepsMinGap": "@steps.minGap",
+   "over": {
+    "bars|range": "ranked_list_or_carousel",
+    "list": "carousel",
+    "table2plus2lines": "stacked_table"
+   }
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A tartalom meghaladja az archetípus kapacitását (sáv 4, tartomány 3, arány 10 egység, lista 5, lépés 3 diagramonként, naptár 3 csoportsor); felette rangsorolt lista vagy carousel."
+ },
+ {
+  "id": "A11",
+  "nev": "Naptár: csoportosított napok",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "table"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "capacity",
+   "layout": "calendar",
+   "groupConsecutiveSameTimetable": true,
+   "maxGroups": 3,
+   "resumeRow": true,
+   "weekdayLabelSize": "@min.dataLabel"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Azonos menetrendű egymást követő napok csoportosítva, ≤ 3 csoportsor + folytatás-sor."
+ },
+ {
+  "id": "A12",
+  "nev": "Diagram-fókusz és kontextus színe",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "chart"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "color_on_ground",
+   "focus": {
+    "paper": "@color.focusOnLight",
+    "dark": "@color.focusOnDark"
+   },
+   "context": "@color.muted",
+   "focusBarIsSignal": true,
+   "forbiddenPairsRef": "K11"
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "Fókusz-adat világos alapon @color.focusOnLight, sötét alapon @color.focusOnDark; kontextus @color.muted; kiemelőszín világos alapon adatszínként tilos (K11)."
+ },
+ {
+  "id": "F3",
+  "nev": "Szöveg nem érint keep-clear dobozt",
+  "csoport": "foto",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "not_intersect",
+   "textBox": "notIntersect",
+   "with": "photo.keepClearBoxes",
+   "textOnPhotoRequires": [
+    "solid_block_below",
+    "dark_band",
+    "scrim"
+   ]
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A szövegdoboz arcot, fejet, kezet, tükröződést vagy szélvédő-arcot metsz; szöveg fotón csak tömör blokkon, sötét sávon vagy scrimen."
+ },
+ {
+  "id": "F4",
+  "nev": "Címköltségvetés a legalsó doboz alatt",
+  "csoport": "foto",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "label",
+   "metadata"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "min_gap",
+   "headlineTop>=": "lowestKeepClearBottomInTextColumn + @photo.faceGap",
+   "computedBeforeFit": true,
+   "labelOnFace": "moveAboveHeadline"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A cím teteje a szövegoszlop legalsó keep-clear doboza alatt legalább @photo.faceGap távolságra kezdődik (beférés előtt számolva); arcra eső címke a cím fölé költözik."
+ },
+ {
+  "id": "F5",
+  "nev": "Keep-clear doboz teljesen benn vagy kinn",
+  "csoport": "foto",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "photo"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "inside_box",
+   "box": "fullyInsideOrFullyOutside",
+   "of": [
+    "slot",
+    "band"
+   ],
+   "fix": [
+    "moveSlot(fy_bias, fx)"
+   ]
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Keep-clear doboz félig lóg ki a slotból/sávból (fej vágva); a slotot mozgatni kell, nem csak vágni."
+ },
+ {
+  "id": "F7",
+  "nev": "Minimális sáv- és slotmagasság",
+  "csoport": "foto",
+  "formatum": [
+   "reel916",
+   "carousel45",
+   "story916"
+  ],
+  "mezoTipus": [
+   "photo"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "dimension",
+   "minBand": "@photo.minBand",
+   "minSlot": "@carousel.minSlot",
+   "twoSubjectsBand916": {
+    "min": 560,
+    "max": 600,
+    "ref": 1920,
+    "tengely": "h"
+   },
+   "coverBandTooSmall": "switchToBottomLayout"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A fotósáv kisebb @photo.minBand-nál (borító automatikusan 'bottom' elrendezésre vált), vagy a carousel-slot kisebb @carousel.minSlot-nál."
+ },
+ {
+  "id": "F8",
+  "nev": "Osztott vágás paraméterei",
+  "csoport": "foto",
+  "formatum": [
+   "feed45",
+   "square11",
+   "reel916"
+  ],
+  "mezoTipus": [
+   "photo",
+   "headline"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "dimension",
+   "photoShare": "@split.photoShare[format]",
+   "scrim": "@split.scrim",
+   "headlineSteps": [
+    "M",
+    "S",
+    "XS"
+   ],
+   "maxLines": {
+    "feed45": 3,
+    "square11": 2
+   },
+   "reelBands": "@split.reelBands",
+   "headsNeverCut": true,
+   "neverUnderPlatformHeader": true,
+   "story916": "notAvailable → rewrite"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Osztott vágás: fotó felül @split.photoShare, alatta sötét szövegmező, @split.scrim scrim a fotó alsó élénél, cím M/S/XS ≤ 3 sor/nyelv (négyzeten ≤ 2); reelen a sáv alja @split.reelBands lépcsőn; story-n nincs osztott vágás."
+ },
+ {
+  "id": "F10",
+  "nev": "Scrim-görbék",
+  "csoport": "foto",
+  "formatum": [
+   "feed45",
+   "reel916"
+  ],
+  "mezoTipus": [
+   "photo"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "dimension",
+   "statementFeed": {
+    "from": "headlineTop - 380",
+    "to": "bottom",
+    "opacity": [
+     0,
+     0.96
+    ],
+    "ref": 1350
+   },
+   "reelTop": {
+    "y": [
+     0,
+     600
+    ],
+    "opacity": [
+     0.78,
+     0.55,
+     0
+    ],
+    "midAt": 330,
+    "ref": 1920
+   },
+   "subtitleC": {
+    "y": [
+     860,
+     1920
+    ],
+    "opacity": [
+     0,
+     0.72,
+     0.86
+    ],
+    "at": [
+     1000,
+     1185
+    ],
+    "ref": 1920
+   },
+   "portrait": {
+    "from": 520,
+    "opacity": 0.88,
+    "at": 0.28,
+    "ref": 1350
+   }
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A scrim eltér a szabvány görbétől (statement feed: cím teteje−380 → alsó él 0→96 %; reel felső: 0–600, 78→55 %→0; felirat C: 860→1920, 0→72 %→86 %; portré: 520-tól, 88 % 28 %-nál)."
+ },
+ {
+  "id": "F19",
+  "nev": "Portré-vezette megfigyelés",
+  "csoport": "foto",
+  "formatum": [
+   "feed45"
+  ],
+  "mezoTipus": [
+   "photo",
+   "headline"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "dimension",
+   "zoom": "@portrait.zoom",
+   "faceIn": "topThird",
+   "textBelow": "chin",
+   "scrim": "F10.portrait"
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "Portré-poszt: nagyítás @portrait.zoom, arc a felső harmadban, szöveg az áll alatt meredek scrimen (F10)."
+ },
+ {
+  "id": "F20",
+  "nev": "Kiemelőszínű szöveg hasonló színű fotófelületen",
+  "csoport": "foto",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "color_on_ground",
+   "textColor": "@color.accent",
+   "over": "photoRegionSimilarHue",
+   "fix": "solid_dark_panel",
+   "nyitottKerdes": 10
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "Kiemelőszínű szöveg kiemelőszínhez hasonló fotórészen áll; tegye tömör sötét panelre. (A kontraszt-küszöb nyitott kérdés.)"
+ },
+ {
+  "id": "B2",
+  "nev": "Margó",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "zone_clear",
+   "margin": "@grid.margin",
+   "wide169": "@grid.margin × 1.78",
+   "exempt": [
+    "photo",
+    "scrim",
+    "plate",
+    "arc"
+   ]
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Szöveg a margón belül (@grid.margin; 16:9-en ×1.78); fotó, scrim és lemez kivétel."
+ },
+ {
+  "id": "B3",
+  "nev": "Statikus story biztonságos sávjai",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "story916"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "zone_clear",
+   "top": {
+    "px": 250,
+    "ref": 1920,
+    "tengely": "h"
+   },
+   "bottom": {
+    "px": 340,
+    "ref": 1920,
+    "tengely": "h"
+   },
+   "appliesTo": "allLayers",
+   "extraSpaceIs": "air, not copy"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Statikus storyn a felső @story.safe.top és az alsó @story.safe.bottom sáv teljesen üres marad."
+ },
+ {
+  "id": "B4",
+  "nev": "Reel zónák",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "reel916"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "zone_text_forbidden",
+   "zones": "@platform.reelZones",
+   "textForbiddenIn": [
+    "top",
+    "bottom",
+    "sides",
+    "rail"
+   ],
+   "subtitleBandOnly": "subtitle",
+   "textColumn": {
+    "aboveRail": [
+     {
+      "px": 72,
+      "ref": 1080,
+      "tengely": "w"
+     },
+     {
+      "px": 1008,
+      "ref": 1080,
+      "tengely": "w"
+     }
+    ],
+    "inRailBand": [
+     {
+      "px": 72,
+      "ref": 1080,
+      "tengely": "w"
+     },
+     {
+      "px": 936,
+      "ref": 1080,
+      "tengely": "w"
+     }
+    ]
+   },
+   "firstBaseline": {
+    "px": 330,
+    "ref": 1920,
+    "tengely": "h"
+   },
+   "lastHeadlineBaseline": {
+    "px": 1210,
+    "ref": 1920,
+    "tengely": "h"
+   },
+   "footageAndPlatesMayEnter": true,
+   "coversExempt": true,
+   "nyitottKerdes": 19
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Szöveg a reel tiltott zónájában (felső 0–270, alsó 1248–1920, oldalak 65, jobb rail x 960–1080 / y 700–1248, felirat-sáv y 1000–1236 csak feliratnak). Felvétel és lemez befuthat, szöveg nem."
+ },
+ {
+  "id": "B5",
+  "nev": "Reel-borító a középső 1:1-ben",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "reel916"
+  ],
+  "mezoTipus": [
+   "headline",
+   "metadata",
+   "emblem"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "inside_box",
+   "box": {
+    "y": [
+     {
+      "px": 420,
+      "ref": 1920,
+      "tengely": "h"
+     },
+     {
+      "px": 1500,
+      "ref": 1920,
+      "tengely": "h"
+     }
+    ]
+   },
+   "alsoSafeIn": {
+    "grid45": [
+     285,
+     1635
+    ],
+    "grid34": [
+     240,
+     1680
+    ]
+   },
+   "lastHeadlineBaseline<=": {
+    "px": 1296,
+    "ref": 1920,
+    "tengely": "h"
+   },
+   "footer": {
+    "y": [
+     {
+      "px": 1360,
+      "ref": 1920,
+      "tengely": "h"
+     },
+     {
+      "px": 1436,
+      "ref": 1920,
+      "tengely": "h"
+     }
+    ],
+    "content": [
+     "shortMetadata",
+     "emblem"
+    ],
+    "emblemSize": "@emblem.size",
+    "position": "bottom-right of square"
+   }
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A borító címe és lábléce a középső 1:1 vágáson (y 420–1500) belül áll; utolsó cím-alapvonal ≤ 1296; lábléc y 1360–1436."
+ },
+ {
+  "id": "B6",
+  "nev": "Feed a profilrácsban",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "feed45",
+   "square11"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "zone_clear",
+   "grid34cropPerSide": {
+    "px": 34,
+    "ref": 1080,
+    "tengely": "w"
+   },
+   "grid11cropTopBottom": {
+    "px": 135,
+    "ref": 1080,
+    "tengely": "w"
+   },
+   "criticalContentInsideMargin": true
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A 3:4 profilrács ≈ 34 px-et vág oldalanként (a margón belül): kritikus tartalom nem lehet a margóban. Az 1:1 rács 135 px-et vág fent-lent (a lábléc elveszik — ismert korlát)."
+ },
+ {
+  "id": "B7",
+  "nev": "Carousel-dia grammatika",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "baseline",
+   "headerBaseline": {
+    "px": 100,
+    "ref": 1350,
+    "tengely": "h"
+   },
+   "indexColumnWidth": {
+    "px": 148,
+    "ref": 1080,
+    "tengely": "w"
+   },
+   "chapterLabelX": {
+    "px": 220,
+    "ref": 1080,
+    "tengely": "w"
+   },
+   "hairlineY": {
+    "px": 184,
+    "ref": 1350,
+    "tengely": "h"
+   },
+   "contentZone": [
+    {
+     "px": 236,
+     "ref": 1350,
+     "tengely": "h"
+    },
+    {
+     "px": 1154,
+     "ref": 1350,
+     "tengely": "h"
+    }
+   ],
+   "footerBand": [
+    {
+     "px": 1202,
+     "ref": 1350,
+     "tengely": "h"
+    },
+    {
+     "px": 1278,
+     "ref": 1350,
+     "tengely": "h"
+    }
+   ],
+   "index": {
+    "role": "technikai",
+    "size": "@min.meta"
+   },
+   "chapterLabelSize": {
+    "px": 40,
+    "ref": 1080,
+    "tengely": "w"
+   },
+   "sizeDeviationSeverity": "figyelmeztetes"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Carousel-dia: fejléc alapvonal 100, index-oszlop 148, fejezetcímke x 220, hajszálvonal y 184, tartalom y 236–1154, lábléc y 1202–1278 (ref. 1080×1350); a zónák átlépése tiltás, méret-eltérés figyelmeztetés."
+ },
+ {
+  "id": "B8",
+  "nev": "Felirat elhelyezése",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "reel916"
+  ],
+  "mezoTipus": [
+   "subtitle"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "baseline",
+   "textX": {
+    "px": 72,
+    "ref": 1080,
+    "tengely": "w"
+   },
+   "plateX": {
+    "px": 44,
+    "ref": 1080,
+    "tengely": "w"
+   },
+   "platePadding": [
+    {
+     "px": 28,
+     "ref": 1080,
+     "tengely": "w"
+    },
+    {
+     "px": 22,
+     "ref": 1080,
+     "tengely": "w"
+    }
+   ],
+   "corners": "square",
+   "plateEndsBefore": "rail",
+   "baselines": {
+    "primary": {
+     "px": 1134,
+     "ref": 1920,
+     "tengely": "h"
+    },
+    "secondary": {
+     "px": 1210,
+     "ref": 1920,
+     "tengely": "h"
+    }
+   },
+   "maxWidth": "@subtitle.maxWidth",
+   "styles": {
+    "A": {
+     "plate": "dark",
+     "opacity": 0.9
+    },
+    "B": {
+     "plate": "paper",
+     "opacity": 0.96,
+     "for": "light or busy footage"
+    },
+    "C": {
+     "plate": null,
+     "scrim": "F10.subtitleC"
+    }
+   },
+   "pauseWhileCard": true
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Felirat: szöveg x 72-től, lemez x 44-től (padding 28×22), szögletes, a rail előtt véget ér; alapvonalak 1134 (elsődleges) / 1210 (másodlagos); szélesség ≤ @subtitle.maxWidth. Kártya alatt a felirat szünetel."
+ },
+ {
+  "id": "B9",
+  "nev": "Lower third és speaker-ID alapvonalai",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "reel916"
+  ],
+  "mezoTipus": [
+   "name",
+   "role"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "baseline",
+   "lowerThirdLastBaseline": {
+    "px": 1222,
+    "ref": 1920,
+    "tengely": "h"
+   },
+   "speakerIdBaselines": [
+    {
+     "px": 982,
+     "ref": 1920,
+     "tengely": "h"
+    },
+    {
+     "px": 1034,
+     "ref": 1920,
+     "tengely": "h"
+    }
+   ],
+   "aboveSubtitlePlate": true,
+   "belowFace": true
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Lower third a felirat-slotban (utolsó alapvonal 1222); speaker-ID alapvonalai 982 / 1034, a feliratlemez felett, az arc alatt."
+ },
+ {
+  "id": "B10",
+  "nev": "Rögzített elemméretek",
+  "csoport": "biztonsagi-savok",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "emblem",
+   "lockup",
+   "photo"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "dimension",
+   "emblem": "@emblem.size",
+   "emblemOutro": "@emblem.sizeOutro",
+   "lockupOutro": "@lockup.widthOutro",
+   "nextCue": "@carousel.nextCue",
+   "authorPortrait": "@portrait.size",
+   "scale": "canvasWidth/1080"
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "Elemméret eltér: embléma @emblem.size (16:9: ×1.78), outro-embléma @emblem.sizeOutro, lockup @lockup.widthOutro, tovább-nyíl @carousel.nextCue, szerző-portré @portrait.size."
+ }
+]

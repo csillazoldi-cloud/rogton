@@ -1,0 +1,786 @@
+.km-tg-fo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-tile);
+}
+
+.km-tg-tartalom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-tile);
+  max-width: var(--tile-max, 1200px);
+  margin: var(--ter-0) auto;
+}
+
+.km-tg-fejlec {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+}
+
+.km-tg-cim-sor {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ter-6);
+  flex-wrap: wrap;
+}
+
+.km-tg-h1 {
+  margin: var(--ter-0);
+  font-family: var(--font-display-active);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-h2);
+  color: var(--text);
+}
+
+.km-tg-osszeg {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-tg-bevezeto {
+  margin: var(--ter-0);
+  font-size: var(--fs-base);
+  color: var(--text-mut);
+  max-width: 70ch;
+}
+
+.km-tg-gomb-kiemelt {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--btn-pad-x);
+  border: none;
+  border-radius: var(--r-btn);
+  background: var(--grad-primary);
+  color: var(--on-primary);
+  font-family: var(--font-body-active);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-strong);
+  cursor: pointer;
+  box-shadow: 0 var(--ter-2) var(--ter-7) var(--glow-primary);
+}
+
+.km-tg-gomb-masodlagos {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-9);
+  border: var(--bw) solid var(--btn-ghost-border);
+  border-radius: var(--r-btn);
+  background: var(--btn-ghost-bg);
+  color: var(--btn-ghost-text);
+  font-family: var(--font-body-active);
+  font-size: var(--fs-md);
+  cursor: pointer;
+}
+
+.km-tg-gomb-veszely {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--btn-pad-x);
+  border: var(--bw) solid var(--err-border);
+  border-radius: var(--r-btn);
+  background: var(--bg-elev);
+  color: var(--err);
+  font-family: var(--font-body-active);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-strong);
+  cursor: pointer;
+}
+
+.km-tg-gomb-szoveg {
+  border: none;
+  background: none;
+  color: var(--accent-text);
+  font-family: var(--font-body-active);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  padding: var(--ter-2);
+}
+
+.km-tg-gomb-eltavolitas {
+  color: var(--text-dim);
+}
+
+.km-tg-gomb-tiltott {
+  color: var(--text-faint);
+  cursor: default;
+}
+
+.km-tg-elso {
+  padding: var(--ter-12) var(--ter-0) var(--ter-13);
+}
+
+.km-tg-elso-kartya {
+  max-width: 620px;
+  background: var(--glass-bg);
+  border: var(--bw) solid var(--glass-border);
+  border-radius: var(--r-card);
+  padding: var(--pad-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-6);
+  box-shadow: var(--glass-shadow);
+}
+
+.km-tg-elso-gomb-sor {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-7);
+  flex-wrap: wrap;
+}
+
+.km-tg-elso-megj {
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
+}
+
+.km-tg-lista-tablazat {
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-block);
+  background: var(--panel-soft);
+  overflow: hidden;
+}
+
+.km-tg-lista-fej {
+  display: grid;
+  grid-template-columns: 2.2fr 1.1fr 1.1fr auto;
+  gap: var(--ter-6);
+  padding: var(--ter-5) var(--pad-tile);
+  background: var(--panel-soft-2);
+  border-bottom: var(--bw) solid var(--line-soft);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: var(--fw-strong);
+}
+
+.km-tg-sor {
+  display: grid;
+  grid-template-columns: 2.2fr 1.1fr 1.1fr auto;
+  gap: var(--ter-6);
+  align-items: center;
+  padding: var(--ter-6) var(--pad-tile);
+  border-bottom: var(--bw) solid var(--line-soft);
+}
+
+.km-tg-sor:last-child {
+  border-bottom: none;
+}
+
+.km-tg-sor-aktiv {
+  background: var(--focus-ring);
+}
+
+.km-tg-sor-ki {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+}
+
+.km-tg-sor-nev {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.km-tg-sor-email {
+  font-family: var(--font-code-active);
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
+  overflow-wrap: anywhere;
+}
+
+.km-tg-sor-datum {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-tg-sor-muveletek {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+}
+
+.km-tg-jelveny {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-strong);
+  border-radius: var(--r-badge);
+  padding: var(--ter-1) var(--ter-4);
+}
+
+.km-tg-jelveny-te {
+  color: var(--text-dim);
+  border: var(--bw) solid var(--line);
+}
+
+.km-tg-jelveny-info {
+  color: var(--text-dim);
+  border: var(--bw) solid var(--line);
+}
+
+.km-tg-szerep-tulaj {
+  color: var(--src-ai);
+  background: var(--src-ai-bg);
+}
+
+.km-tg-szerep-szerk {
+  color: var(--src-web);
+  background: var(--src-web-bg);
+}
+
+.km-tg-szerep-nezo {
+  color: var(--src-empty);
+  background: var(--src-empty-bg);
+}
+
+.km-tg-szerep-sor {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-4);
+  flex-wrap: wrap;
+}
+
+.km-tg-szerep-valaszto {
+  box-sizing: border-box;
+  min-height: var(--control-min-s);
+  padding: var(--ter-0) var(--ter-6);
+  border: var(--bw) solid var(--focus);
+  border-radius: var(--r-field);
+  background: var(--bg-elev);
+  color: var(--text);
+  font-family: var(--font-body-active);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.km-tg-szerep-valtozik {
+  font-size: var(--fs-xs);
+  color: var(--warn);
+}
+
+.km-tg-meghivok-blokk {
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-block);
+  background: var(--panel-soft);
+  padding: var(--pad-tile);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-6);
+}
+
+.km-tg-meghivok-fej {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  flex-wrap: wrap;
+}
+
+.km-tg-meghivok-cim {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-strong);
+  color: var(--text);
+}
+
+.km-tg-meghivo-sor {
+  display: grid;
+  grid-template-columns: 2.2fr 1.1fr 1.4fr auto;
+  gap: var(--ter-6);
+  align-items: center;
+}
+
+.km-tg-meghivo-halvany {
+  opacity: 0.6;
+}
+
+.km-tg-meghivo-cimzett {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+}
+
+.km-tg-meghivo-cimzett-megj {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.km-tg-meghivo-allapot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+}
+
+.km-tg-meghivo-lejar {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.km-tg-meghivo-hiba {
+  grid-column: 1 / -1;
+  font-size: var(--fs-sm);
+  color: var(--err);
+  padding: var(--ter-2) var(--ter-0);
+}
+
+.km-tg-esemenyek {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+  border-top: var(--bw) solid var(--line-soft);
+  padding-top: var(--ter-8);
+}
+
+.km-tg-esemenyek-cim {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: var(--fw-strong);
+}
+
+.km-tg-esemeny-sor {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ter-5);
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-tg-esemeny-ido {
+  font-family: var(--font-code-active);
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.km-tg-esemeny-szoveg {
+  color: var(--text-mut);
+}
+
+.km-tg-esemeny-link {
+  font-size: var(--fs-sm);
+  color: var(--accent-text);
+  text-decoration: none;
+}
+
+.km-tg-megerosit-sav {
+  position: fixed;
+  bottom: var(--ter-0);
+  left: var(--ter-0);
+  right: var(--ter-0);
+  display: flex;
+  align-items: center;
+  gap: var(--ter-7);
+  flex-wrap: wrap;
+  padding: var(--ter-7) var(--ter-10);
+  border-top: var(--bw) solid var(--glass-border);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-pop);
+  z-index: 100;
+}
+
+.km-tg-megerosit-tartalom {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-7);
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: var(--tile-max, 1200px);
+  margin: var(--ter-0) auto;
+}
+
+.km-tg-megerosit-szoveg {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+  min-width: 0;
+  flex: 1 1 400px;
+}
+
+.km-tg-megerosit-cim {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-strong);
+  color: var(--text);
+}
+
+.km-tg-megerosit-leiras {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-tg-megerosit-gombok {
+  display: flex;
+  gap: var(--ter-5);
+  flex-wrap: wrap;
+}
+
+.km-tg-parbeszed-hatter {
+  position: fixed;
+  inset: var(--ter-0);
+  background: var(--overlay);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--ter-10);
+  z-index: 200;
+  overflow-y: auto;
+}
+
+.km-tg-parbeszed {
+  background: var(--bg-elev);
+  border: var(--bw) solid var(--glass-border);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-pop);
+  padding: var(--pad-block);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-8);
+  width: 100%;
+  max-width: 560px;
+  margin-top: var(--ter-10);
+}
+
+.km-tg-parbeszed-cim {
+  margin: var(--ter-0);
+  font-family: var(--font-display-active);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-title);
+  color: var(--text);
+}
+
+.km-tg-szerep-valaszto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+}
+
+.km-tg-szerep-kartya {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ter-5);
+  min-height: var(--control-min);
+  box-sizing: border-box;
+  padding: var(--ter-4) var(--ter-6);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--panel-soft-2);
+  cursor: pointer;
+}
+
+.km-tg-szerep-kartya-aktiv {
+  border-color: var(--focus);
+  background: var(--focus-ring);
+}
+
+.km-tg-szerep-kartya-tiltott {
+  border-style: dashed;
+  border-color: var(--line-dash);
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.km-tg-szerep-kartya-tartalom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+  min-width: 0;
+}
+
+.km-tg-szerep-kartya-nev {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.km-tg-szerep-kartya-leiras {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-tg-szerep-kartya-hiba {
+  font-size: var(--fs-sm);
+  color: var(--err);
+}
+
+.km-tg-email-mezo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-3);
+}
+
+.km-tg-mezo-cimke {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-strong);
+  color: var(--btn-ghost-text);
+}
+
+.km-tg-mezo-opcionalis {
+  color: var(--text-dim);
+}
+
+.km-tg-bevitel {
+  box-sizing: border-box;
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--pad-field-x);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--field-bg);
+  color: var(--text);
+  font-family: var(--font-code-active);
+  font-size: var(--fs-md);
+  width: 100%;
+}
+
+.km-tg-mezo-megjegyzes {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.km-tg-elettartam {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-tg-parbeszed-gombok {
+  display: flex;
+  gap: var(--ter-5);
+  flex-wrap: wrap;
+}
+
+.km-tg-parbeszed-hiba {
+  font-size: var(--fs-sm);
+  color: var(--err);
+  padding: var(--ter-2) var(--ter-0);
+}
+
+.km-tg-kesz-fej {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  flex-wrap: wrap;
+}
+
+.km-tg-kesz-pont {
+  width: var(--ter-2);
+  height: var(--ter-2);
+  border-radius: 50%; /* tokenőr: ok — kör alakú pötty, alakérték */
+  background: var(--ok-strong);
+  flex: none;
+}
+
+.km-tg-link-mezo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-3);
+}
+
+.km-tg-link-sor {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: var(--ter-5) var(--pad-field-x);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--field-bg);
+}
+
+.km-tg-link-szoveg {
+  font-family: var(--font-code-active);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  overflow-wrap: anywhere;
+  min-width: 0;
+  flex: 1 1 200px;
+}
+
+.km-tg-figyelmeztetes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-3);
+  border: var(--bw) solid var(--warn-border);
+  background: var(--warn-bg);
+  border-radius: var(--r-block);
+  padding: var(--ter-6) var(--ter-7);
+}
+
+.km-tg-figyelmeztetes-cim {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-strong);
+  color: var(--warn);
+}
+
+.km-tg-figyelmeztetes-szoveg {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-tg-kesz-adatok {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-2);
+}
+
+.km-tg-kesz-adat-sor {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ter-5);
+  font-size: var(--fs-sm);
+}
+
+.km-tg-kesz-adat-cimke {
+  color: var(--text-dim);
+}
+
+.km-tg-kesz-adat-kod {
+  font-family: var(--font-code-active);
+}
+
+@media (max-width: 640px) {
+  .km-tg-fo {
+    gap: var(--ter-7);
+  }
+
+  .km-tg-fejlec {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .km-tg-gomb-kiemelt {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .km-tg-lista-tablazat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ter-5);
+    background: transparent;
+    border: none;
+    border-radius: var(--ter-0);
+  }
+
+  .km-tg-lista-fej {
+    display: none;
+  }
+
+  .km-tg-sor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--ter-4);
+    padding: var(--ter-7);
+    background: var(--panel-soft);
+    border: var(--bw) solid var(--line);
+    border-radius: var(--r-block);
+  }
+
+  .km-tg-sor-aktiv {
+    background: var(--focus-ring);
+  }
+
+  .km-tg-sor-muveletek {
+    width: 100%;
+  }
+
+  .km-tg-sor-muveletek .km-tg-gomb-szoveg {
+    flex: 1 1 120px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: var(--control-min);
+    padding: var(--ter-0) var(--ter-7);
+    border: var(--bw) solid var(--btn-ghost-border);
+    border-radius: var(--r-btn);
+    background: var(--btn-ghost-bg);
+    color: var(--btn-ghost-text);
+    font-size: var(--fs-sm);
+  }
+
+  .km-tg-sor-muveletek .km-tg-gomb-eltavolitas {
+    background: none;
+    color: var(--text-dim);
+  }
+
+  .km-tg-meghivok-blokk {
+    background: transparent;
+    border: none;
+    border-radius: var(--ter-0);
+    padding: var(--ter-0);
+    gap: var(--ter-5);
+  }
+
+  .km-tg-meghivo-sor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--ter-4);
+    padding: var(--ter-7);
+    background: var(--panel-soft);
+    border: var(--bw) solid var(--line);
+    border-radius: var(--r-block);
+  }
+
+  .km-tg-meghivo-sor.km-tg-meghivo-halvany {
+    border-color: var(--line-soft);
+    background: var(--panel-soft-2);
+  }
+
+  .km-tg-megerosit-sav {
+    position: fixed;
+    bottom: var(--ter-0);
+    left: var(--ter-0);
+    right: var(--ter-0);
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--ter-7) var(--ter-8);
+  }
+
+  .km-tg-megerosit-tartalom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .km-tg-megerosit-gombok {
+    width: 100%;
+  }
+
+  .km-tg-megerosit-gombok .km-tg-gomb-masodlagos,
+  .km-tg-megerosit-gombok .km-tg-gomb-kiemelt,
+  .km-tg-megerosit-gombok .km-tg-gomb-veszely {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .km-tg-parbeszed-hatter {
+    padding: var(--ter-0);
+    align-items: flex-end;
+  }
+
+  .km-tg-parbeszed {
+    max-width: 100%;
+    margin-top: auto;
+    border-radius: var(--r-card) var(--r-card) 0 0;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .km-tg-parbeszed-gombok {
+    flex-direction: column;
+  }
+
+  .km-tg-parbeszed-gombok .km-tg-gomb-kiemelt,
+  .km-tg-parbeszed-gombok .km-tg-gomb-masodlagos {
+    width: 100%;
+    justify-content: center;
+  }
+}

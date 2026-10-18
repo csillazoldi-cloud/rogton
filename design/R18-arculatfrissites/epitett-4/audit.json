@@ -1,0 +1,43 @@
+{
+ "datum": "2026-10-11",
+ "mit": "R-18 3. kör · elrendezés-audit",
+ "matrix": "54 útvonal-változat × HU/RO/EN × 390/768/1024/1280/1440 × sötét/világos = 1620 lapnézet",
+ "ellenorzes": [
+  "vízszintes görgetés (a lap szélesebb a képernyőnél)",
+  "szöveg-túlcsordulás gombban, csempén, jelvényen, menüben (scrollWidth > clientWidth; a szándékos „…” nem hiba)",
+  "két sorba tört gombfelirat",
+  "átfedés két tartalmi elem között (gomb, mező, cím, bekezdés, kép)",
+  "flex-sor elemei nem egy vonalban (> 2 px)"
+ ],
+ "megjegyzes": "Helyi mérés a VM-ben (Postgres 18.4, éles build, teszt AI, a betűk rendszerbetűként). Előtte = ennek a körnek a kódja az elrendezés-javítások ELŐTT (benne az új Naptár menüponttal).",
+ "elotte": {
+  "kombinacio": 1680,
+  "hibas_betoltes": 0,
+  "talalat": 0,
+  "tipus": {
+   "vizszintes-gorgetes": 0,
+   "ket-soros-gomb": 0,
+   "tulcsordulas": 0,
+   "atfedes": 0,
+   "elcsuszott-sor": 0,
+   "lebego-takar": 0
+  },
+  "utvonal": {},
+  "kulonbozo": []
+ },
+ "utana": {
+  "kombinacio": 1740,
+  "hibas_betoltes": 0,
+  "talalat": 0,
+  "tipus": {
+   "vizszintes-gorgetes": 0,
+   "ket-soros-gomb": 0,
+   "tulcsordulas": 0,
+   "atfedes": 0,
+   "elcsuszott-sor": 0,
+   "lebego-takar": 0
+  },
+  "utvonal": {},
+  "kulonbozo": []
+ }
+}

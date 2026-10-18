@@ -1,0 +1,97 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1788724696440,
+      "tag": "0000_szervezet_felhasznalo",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1788724697280,
+      "tag": "0001_vedelem_es_teszt_szervezetek",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1788725669823,
+      "tag": "0002_fiok_tagsag_munkamenet",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1788725686925,
+      "tag": "0003_vedelem_es_teszt_fiokok",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1788728238272,
+      "tag": "0004_tema_es_felirat",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1788728365955,
+      "tag": "0005_alaptema_es_feliratok",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1788754671098,
+      "tag": "0006_onboarding_piszkozat",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1788754672307,
+      "tag": "0007_piszkozat_vedelem",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1788755640766,
+      "tag": "0008_onboarding_feliratok",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1788756418343,
+      "tag": "0009_ai_hivas",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1788756420223,
+      "tag": "0010_ai_hivas_vedelem",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1788759086163,
+      "tag": "0011_osszefoglalo_feliratok",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1788760319064,
+      "tag": "0012_kommunikacio_feliratok",
+      "breakpoints": true
+    }
+  ]
+}

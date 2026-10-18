@@ -1,0 +1,5 @@
+{
+ "hu": { "r15.hirek.meg_hir": "Még {n} hír" },
+ "ro": { "r15.hirek.meg_hir": "Încă {n} știri" },
+ "en": { "r15.hirek.meg_hir": "{n} more news" }
+}

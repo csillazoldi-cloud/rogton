@@ -1,0 +1,12 @@
+[
+ {"n":1,"ro":"Linia 5 întârzie.","hu":"Az 5-ös járat késik.","rovid":null},
+ {"n":2,"ro":"Linia 12 circulă cu întârziere.","hu":"A 12-es járat késéssel közlekedik.","rovid":null},
+ {"n":3,"ro":"Linia 23 circulă pe traseu ocolitor azi.","hu":"A 23-as járat ma terelőúton közlekedik.","rovid":null},
+ {"n":4,"ro":"Linia 44 nu oprește în Piața Trandafirilor până la prânz.","hu":"A 44-es járat délig nem áll meg a Rózsák terén.","rovid":null},
+ {"n":5,"ro":"Din cauza lucrărilor, linia 3 circulă pe traseu ocolitor prin strada Gheorghe Doja.","hu":"Útfelújítás miatt a 3-as járat a Dózsa György utcán át, terelőúton közlekedik.","rovid":null},
+ {"n":6,"ro":"Linia 18 nu circulă între orele 10 și 14; vă rugăm să folosiți linia 20 între aceleași stații.","hu":"A 18-as járat 10 és 14 óra között nem közlekedik; kérjük, használják ugyanott a 20-as járatot.","rovid":null},
+ {"n":7,"ro":"Din cauza unui eveniment în centru, linia 26 ocolește Piața Trandafirilor și nu oprește la Teatrul Național.","hu":"Egy belvárosi rendezvény miatt a 26-os járat elkerüli a Rózsák terét, és nem áll meg a Nemzeti Színháznál.","rovid":{"ro":"Linia 26 ocolește centrul.","hu":"A 26-os járat elkerüli a belvárost."}},
+ {"n":8,"ro":"Linia 30 circulă astăzi cu o frecvență redusă, la fiecare 30 de minute, din cauza lipsei de șoferi disponibili.","hu":"A 30-as járat ma ritkábban, félóránként közlekedik, mert kevesebb gépkocsivezető áll rendelkezésre.","rovid":{"ro":"Linia 30: la fiecare 30 de minute.","hu":"A 30-as járat félóránként jár."}},
+ {"n":9,"ro":"Începând de luni, linia 42 are un traseu nou prin cartierul Tudor, cu trei stații noi, iar stația Gara CFR se mută.","hu":"Hétfőtől a 42-es járat új útvonalon, a Tudor negyeden át közlekedik, három új megállóval; a vasútállomási megálló áthelyeződik.","rovid":{"ro":"Linia 42: traseu nou de luni.","hu":"A 42-es járat hétfőtől új úton jár."}},
+ {"n":10,"ro":"Din cauza lucrărilor la podul de pe Mureș, linia 7 circulă pe traseu ocolitor prin centru până vineri, iar stațiile de pe strada Libertății nu sunt deservite în această perioadă.","hu":"A Maros-híd felújítása miatt a 7-es járat péntekig a belvároson át, terelőúton közlekedik, és ebben az időszakban nem áll meg a Szabadság utcai megállókban.","rovid":{"ro":"Linia 7 ocolește podul până vineri.","hu":"A 7-es járat péntekig elkerüli a hidat."}}
+]

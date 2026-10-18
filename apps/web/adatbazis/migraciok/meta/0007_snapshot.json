@@ -1,0 +1,537 @@
+{
+  "id": "26658113-0e14-46b9-9d8b-7568ee0a886e",
+  "prevId": "418ec155-2d8f-4ee6-99f7-86cb6be8dd4d",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.felirat": {
+      "name": "felirat",
+      "schema": "",
+      "columns": {
+        "kulcs": {
+          "name": "kulcs",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nyelv": {
+          "name": "nyelv",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "szoveg": {
+          "name": "szoveg",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "frissitve": {
+          "name": "frissitve",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "felirat_kulcs_nyelv_pk": {
+          "name": "felirat_kulcs_nyelv_pk",
+          "columns": [
+            "kulcs",
+            "nyelv"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fiok": {
+      "name": "fiok",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nev": {
+          "name": "nev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "jelszo_hash": {
+          "name": "jelszo_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "letrehozva": {
+          "name": "letrehozva",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "fiok_email": {
+          "name": "fiok_email",
+          "columns": [
+            {
+              "expression": "email",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.munkamenet": {
+      "name": "munkamenet",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "fiok_id": {
+          "name": "fiok_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "token_lenyomat": {
+          "name": "token_lenyomat",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lejar": {
+          "name": "lejar",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "letrehozva": {
+          "name": "letrehozva",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "munkamenet_token": {
+          "name": "munkamenet_token",
+          "columns": [
+            {
+              "expression": "token_lenyomat",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "munkamenet_fiok": {
+          "name": "munkamenet_fiok",
+          "columns": [
+            {
+              "expression": "fiok_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "munkamenet_fiok_id_fiok_id_fk": {
+          "name": "munkamenet_fiok_id_fiok_id_fk",
+          "tableFrom": "munkamenet",
+          "columnsFrom": [
+            "fiok_id"
+          ],
+          "tableTo": "fiok",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.onboarding_piszkozat": {
+      "name": "onboarding_piszkozat",
+      "schema": "",
+      "columns": {
+        "szervezet_id": {
+          "name": "szervezet_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "adatok": {
+          "name": "adatok",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "frissitve": {
+          "name": "frissitve",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "onboarding_piszkozat_szervezet_id_szervezet_id_fk": {
+          "name": "onboarding_piszkozat_szervezet_id_szervezet_id_fk",
+          "tableFrom": "onboarding_piszkozat",
+          "columnsFrom": [
+            "szervezet_id"
+          ],
+          "tableTo": "szervezet",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {
+        "piszkozat_sajat_szervezet": {
+          "name": "piszkozat_sajat_szervezet",
+          "as": "PERMISSIVE",
+          "for": "ALL",
+          "to": [
+            "km_app"
+          ],
+          "using": "szervezet_id = nullif(current_setting('app.szervezet_id', true), '')::uuid",
+          "withCheck": "szervezet_id = nullif(current_setting('app.szervezet_id', true), '')::uuid"
+        }
+      },
+      "checkConstraints": {},
+      "isRLSEnabled": true
+    },
+    "public.szervezet": {
+      "name": "szervezet",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "nev": {
+          "name": "nev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "letrehozva": {
+          "name": "letrehozva",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {
+        "szervezet_sajat": {
+          "name": "szervezet_sajat",
+          "as": "PERMISSIVE",
+          "for": "ALL",
+          "to": [
+            "km_app"
+          ],
+          "using": "id = nullif(current_setting('app.szervezet_id', true), '')::uuid",
+          "withCheck": "id = nullif(current_setting('app.szervezet_id', true), '')::uuid"
+        },
+        "szervezet_tagkent": {
+          "name": "szervezet_tagkent",
+          "as": "PERMISSIVE",
+          "for": "SELECT",
+          "to": [
+            "km_app"
+          ],
+          "using": "exists (select 1 from tagsag t where t.szervezet_id = szervezet.id and t.fiok_id = nullif(current_setting('app.fiok_id', true), '')::uuid)"
+        }
+      },
+      "checkConstraints": {},
+      "isRLSEnabled": true
+    },
+    "public.tagsag": {
+      "name": "tagsag",
+      "schema": "",
+      "columns": {
+        "szervezet_id": {
+          "name": "szervezet_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fiok_id": {
+          "name": "fiok_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "szerep": {
+          "name": "szerep",
+          "type": "szerep",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'nezo'"
+        },
+        "letrehozva": {
+          "name": "letrehozva",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "tagsag_fiok": {
+          "name": "tagsag_fiok",
+          "columns": [
+            {
+              "expression": "fiok_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "tagsag_szervezet_id_szervezet_id_fk": {
+          "name": "tagsag_szervezet_id_szervezet_id_fk",
+          "tableFrom": "tagsag",
+          "columnsFrom": [
+            "szervezet_id"
+          ],
+          "tableTo": "szervezet",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        },
+        "tagsag_fiok_id_fiok_id_fk": {
+          "name": "tagsag_fiok_id_fiok_id_fk",
+          "tableFrom": "tagsag",
+          "columnsFrom": [
+            "fiok_id"
+          ],
+          "tableTo": "fiok",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "tagsag_szervezet_id_fiok_id_pk": {
+          "name": "tagsag_szervezet_id_fiok_id_pk",
+          "columns": [
+            "szervezet_id",
+            "fiok_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {
+        "tagsag_sajat_szervezet": {
+          "name": "tagsag_sajat_szervezet",
+          "as": "PERMISSIVE",
+          "for": "ALL",
+          "to": [
+            "km_app"
+          ],
+          "using": "szervezet_id = nullif(current_setting('app.szervezet_id', true), '')::uuid",
+          "withCheck": "szervezet_id = nullif(current_setting('app.szervezet_id', true), '')::uuid"
+        },
+        "tagsag_sajat_fiok": {
+          "name": "tagsag_sajat_fiok",
+          "as": "PERMISSIVE",
+          "for": "SELECT",
+          "to": [
+            "km_app"
+          ],
+          "using": "fiok_id = nullif(current_setting('app.fiok_id', true), '')::uuid"
+        }
+      },
+      "checkConstraints": {},
+      "isRLSEnabled": true
+    },
+    "public.tema": {
+      "name": "tema",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "nev": {
+          "name": "nev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "verzio": {
+          "name": "verzio",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "definicio": {
+          "name": "definicio",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aktiv": {
+          "name": "aktiv",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "letrehozva": {
+          "name": "letrehozva",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "tema_nev_verzio": {
+          "name": "tema_nev_verzio",
+          "columns": [
+            {
+              "expression": "nev",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "verzio",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "tema_egy_aktiv": {
+          "name": "tema_egy_aktiv",
+          "columns": [
+            {
+              "expression": "aktiv",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "where": "aktiv",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.szerep": {
+      "name": "szerep",
+      "schema": "public",
+      "values": [
+        "tulajdonos",
+        "szerkeszto",
+        "nezo"
+      ]
+    }
+  },
+  "schemas": {},
+  "views": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <script src="vz2-kep.js"></script>
+  <style>
+    :root{
+      --bg:#f6f6f8; --bg-elev:#ffffff; --text:#1a1c24; --text-mut:#535a68; --text-dim:#6f7684; --text-faint:#6f7684;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#6a79ea; --accent-link:var(--primary);
+      --font-display:'Archivo',sans-serif; --font-body:'Public Sans',sans-serif; --font-code:'IBM Plex Mono',monospace;
+      --fw-head:700; --fw-strong:600;
+      --fs-h1:34px; --fs-h2:26px; --fs-title:17px; --fs-base:16px; --fs-md:15px; --fs-sm:14px; --fs-xs:12.5px;
+      --r-card:10px; --r-block:10px; --r-btn:6px; --r-badge:4px; --bw:1px;
+      --control-min:46px; --control-min-s:38px; --lh:1.5;
+      --ter-0:0px; --ter-1:2px; --ter-2:4px; --ter-3:6px; --ter-4:8px; --ter-5:10px; --ter-6:12px; --ter-7:14px;
+      --ter-8:16px; --ter-9:20px; --ter-10:24px; --ter-11:32px; --ter-12:40px; --ter-13:56px;
+      --grad-primary:linear-gradient(120deg,var(--primary),var(--primary-2));
+      --line:color-mix(in srgb, var(--text) 12%, transparent); --line-soft:color-mix(in srgb, var(--text) 8%, transparent);
+      --panel-soft:color-mix(in srgb, var(--text) 3%, transparent); --panel-soft-2:color-mix(in srgb, var(--text) 6%, transparent);
+      --btn-ghost-bg:#ffffff; --btn-ghost-border:color-mix(in srgb, var(--text) 18%, transparent); --btn-ghost-text:var(--text);
+      --header-bg:#ffffff; --lista-max:1180px;
+    }
+    body{margin:0;background:#e9e9ee;color:var(--text);font-family:var(--font-body);font-size:var(--fs-base);line-height:var(--lh);}
+    a{color:var(--accent-link);text-decoration:underline;text-underline-offset:2px;}
+    a:hover{color:var(--text);}
+  </style>
+</helmet>
+
+<div style="display:flex;flex-direction:column;gap:var(--ter-13);padding:var(--ter-12);">
+
+  <div style="display:flex;flex-direction:column;gap:var(--ter-3);max-width:960px;">
+    <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.06em;">VZ-2a · KÉPEK · „MIT SZERETNÉL MA MEGMUTATNI?” · 2026-09-24</div>
+    <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h1);">Helyzet, nem sablon</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);">Hét kártya, mindegyiken a cég saját színeivel és szakmájából vett példával. Telefon az első, asztali mellette. Világos séma. A képek vázlatok — a valódit a gép rajzolja a munkatér arculatából.</div>
+  </div>
+
+  <sc-for list="{{ allapotok }}" as="a" hint-placeholder-count="3">
+    <section data-screen-label="{{ a.cimke }}">
+      <div style="display:flex;align-items:baseline;gap:var(--ter-8);margin-bottom:var(--ter-5);flex-wrap:wrap;">
+        <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">{{ a.fejlec }}</div>
+        <div style="font-size:var(--fs-sm);color:var(--text-mut);">{{ a.leiras }}</div>
+      </div>
+      <div style="display:flex;gap:var(--ter-11);align-items:flex-start;">
+
+        <div style="width:390px;flex:none;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--ter-6) var(--ter-8);background:var(--header-bg);border-bottom:var(--bw) solid var(--line-soft);">
+            <span data-fkulcs="vz.nav" style="font-family:var(--font-display);font-weight:var(--fw-strong);font-size:var(--fs-title);">Képek</span>
+            <span aria-hidden="true" style="font-size:20px;color:var(--text-mut);">☰</span>
+          </div>
+          <div style="padding:var(--ter-9) var(--ter-8) var(--ter-11);display:flex;flex-direction:column;gap:var(--ter-8);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <h1 data-fkulcs="vz2.helyzet_cim" style="margin:var(--ter-0);font-family:var(--font-display);font-weight:var(--fw-head);font-size:24px;line-height:1.2;">Mit szeretnél ma megmutatni?</h1>
+              <p data-fkulcs="vz2.helyzet_bevezeto" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">Válassz egyet. Megírjuk helyetted, te csak átírod, ha kell.</p>
+            </div>
+            <sc-if value="{{ a.nincsArculat }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:var(--ter-0);padding:var(--ter-6) var(--ter-7);border-radius:var(--r-block);background:var(--panel-soft-2);font-size:var(--fs-sm);color:var(--text);"><span data-fkulcs="vz2.arculat_nelkul">A céged színeit és logóját a Szervezet adatainál adhatod meg — a képek akkor még jobban hasonlítanak rád.</span> <a href="#" data-fkulcs="nav.szervezet_adatai">Szervezet adatai</a></p>
+            </sc-if>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--ter-6);">
+              <sc-for list="{{ a.kartyakTel }}" as="k" hint-placeholder-count="7">
+                <button type="button" style="box-sizing:border-box;display:flex;flex-direction:column;gap:var(--ter-5);padding:var(--ter-4);border:var(--bw) solid var(--line);border-radius:var(--r-card);background:var(--bg-elev);color:var(--text);font-family:var(--font-body);text-align:left;cursor:pointer;">
+                  {{ k.kep }}
+                  <span style="display:flex;flex-direction:column;gap:var(--ter-1);padding:var(--ter-0) var(--ter-2) var(--ter-2);">
+                    <span style="font-weight:var(--fw-strong);font-size:var(--fs-base);">{{ k.nev }}</span>
+                    <span style="font-size:var(--fs-xs);color:var(--text-mut);line-height:1.35;">{{ k.leiras }}</span>
+                  </span>
+                </button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ a.csomag }}" hint-placeholder-val="{{ false }}">
+              <a href="#" data-fkulcs="vz2.iparagi_csomag" style="font-size:var(--fs-sm);color:var(--text-mut);">Közlekedési közlemények (3)</a>
+            </sc-if>
+          </div>
+        </div>
+
+        <div style="width:1440px;flex:none;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-9);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+              <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+            </div>
+            <nav aria-label="Fő navigáció" style="display:flex;gap:var(--ter-1);">
+              <a href="#" data-fkulcs="nav.kezdolap" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Kezdőlap</a>
+              <a href="#" data-fkulcs="nav.hirek" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Hírek</a>
+              <a href="#" data-fkulcs="nav.posztszoveg" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Posztszöveg</a>
+              <a href="#" aria-current="page" data-fkulcs="vz.nav" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text);background:var(--panel-soft-2);box-shadow:inset 0 -2px 0 var(--text-mut);">Képek</a>
+              <a href="#" data-fkulcs="nav.szervezet_adatai" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Szervezet adatai</a>
+              <a href="#" data-fkulcs="nav.beallitasok" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Beállítások</a>
+            </nav>
+            <span style="display:inline-flex;align-items:center;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);font-size:var(--fs-sm);">{{ a.felhasznalo }} ▾</span>
+          </div>
+          <div style="display:flex;justify-content:center;padding:var(--ter-11) var(--ter-10) var(--ter-13);">
+            <div style="width:100%;max-width:var(--lista-max);display:flex;flex-direction:column;gap:var(--ter-10);">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <h1 data-fkulcs="vz2.helyzet_cim" style="margin:var(--ter-0);font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Mit szeretnél ma megmutatni?</h1>
+                <p data-fkulcs="vz2.helyzet_bevezeto" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">Válassz egyet. Megírjuk helyetted, te csak átírod, ha kell.</p>
+              </div>
+              <sc-if value="{{ a.nincsArculat }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:var(--ter-0);padding:var(--ter-7) var(--ter-9);border-radius:var(--r-block);background:var(--panel-soft-2);font-size:var(--fs-base);"><span data-fkulcs="vz2.arculat_nelkul">A céged színeit és logóját a Szervezet adatainál adhatod meg — a képek akkor még jobban hasonlítanak rád.</span> <a href="#" data-fkulcs="nav.szervezet_adatai">Szervezet adatai</a></p>
+              </sc-if>
+              <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ter-9);">
+                <sc-for list="{{ a.kartyakAsz }}" as="k" hint-placeholder-count="7">
+                  <button type="button" style="box-sizing:border-box;display:flex;flex-direction:column;gap:var(--ter-6);padding:var(--ter-6);border:var(--bw) solid var(--line);border-radius:var(--r-card);background:var(--bg-elev);color:var(--text);font-family:var(--font-body);text-align:left;cursor:pointer;">
+                    {{ k.kep }}
+                    <span style="display:flex;flex-direction:column;gap:var(--ter-1);padding:var(--ter-0) var(--ter-2) var(--ter-2);">
+                      <span style="font-family:var(--font-display);font-weight:var(--fw-strong);font-size:var(--fs-title);">{{ k.nev }}</span>
+                      <span style="font-size:var(--fs-sm);color:var(--text-mut);">{{ k.leiras }}</span>
+                    </span>
+                  </button>
+                </sc-for>
+              </div>
+              <sc-if value="{{ a.csomag }}" hint-placeholder-val="{{ false }}">
+                <a href="#" data-fkulcs="vz2.iparagi_csomag" style="align-self:flex-start;font-size:var(--fs-sm);color:var(--text-mut);">Közlekedési közlemények (3)</a>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.var = setInterval(() => { if (window.VZ2) { clearInterval(this.var); this.forceUpdate(); } }, 50); }
+  componentWillUnmount() { clearInterval(this.var); }
+  renderVals() {
+    const V = window.VZ2;
+    if (!V) return { allapotok: [] };
+    const kartyak = (ceg, W) => V.HELYZETEK.map(h => ({ nev: h.nev, leiras: h.leiras, kep: V.kep(h.id, 'poszt', W, { ceg }) }));
+    const a = (n, nev, leiras, ceg, x) => Object.assign({
+      cimke: '0' + n, fejlec: '0' + n + ' · ' + nev.toUpperCase() + ' · telefon 390 + asztali 1440', leiras,
+      kartyakTel: kartyak(ceg, 162), kartyakAsz: kartyak(ceg, 258), nincsArculat: false, csomag: false, felhasznalo: 'Kövesi Tibor'
+    }, x);
+    return { allapotok: [
+      a(1, 'Első belépés, arculat nélkül', 'Tibor · semleges alap a cég nevével · egy sor a Szervezet adataihoz', 'semleges', { nincsArculat: true }),
+      a(2, 'Belépés, arculattal', 'Tibor · Kövesi Térkő színei · a példák a térkő szakmából', 'tibor', {}),
+      a(3, 'Belépés, arculattal — Piroska', 'Piroska Pékség színei · a példák a pékségből · iparági csomag sor (ha be van kapcsolva)', 'piroska', { felhasznalo: 'Piroska', csomag: true })
+    ] };
+  }
+}
+</script>
+</body>
+</html>

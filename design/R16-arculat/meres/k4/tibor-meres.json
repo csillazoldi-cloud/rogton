@@ -1,0 +1,88 @@
+{
+ "tibor": [
+  {
+   "lap": "arculat-szinek",
+   "nezet": "asztali",
+   "zold": true,
+   "hibak": [],
+   "jelzesek": [],
+   "szavak": 23,
+   "fo": [
+    "Ez legyen"
+   ],
+   "cim": "Melyik színek illenek hozzátok?",
+   "scrollWidth": 1440
+  },
+  {
+   "lap": "arculat-mas-szin (fő)",
+   "nezet": "asztali",
+   "zold": true,
+   "hibak": [],
+   "jelzesek": [],
+   "szavak": 29,
+   "fo": [
+    "Ez legyen"
+   ],
+   "cim": "Melyik legyen a fő szín?",
+   "scrollWidth": 1440
+  },
+  {
+   "lap": "arculat-mas-szin",
+   "nezet": "asztali",
+   "zold": true,
+   "hibak": [],
+   "jelzesek": [],
+   "szavak": 29,
+   "fo": [
+    "Ez legyen"
+   ],
+   "cim": "Melyik legyen a második szín?",
+   "scrollWidth": 1440
+  },
+  {
+   "lap": "arculat-szinek",
+   "nezet": "telefon",
+   "zold": true,
+   "hibak": [],
+   "jelzesek": [],
+   "szavak": 22,
+   "fo": [
+    "Ez legyen"
+   ],
+   "cim": "Melyik színek illenek hozzátok?",
+   "scrollWidth": 390
+  },
+  {
+   "lap": "arculat-mas-szin",
+   "nezet": "telefon",
+   "zold": true,
+   "hibak": [],
+   "jelzesek": [],
+   "szavak": 15,
+   "fo": [
+    "Ez legyen"
+   ],
+   "cim": "Melyik legyen a második szín?",
+   "scrollWidth": 390
+  }
+ ],
+ "lepesek": [
+  "logó feltöltés: 201",
+  "elemzés az adatbázisban: NULL",
+  "GET szin-javaslatok: {\"szettek\": [[\"jelenlegi\", \"termeszetes\", true], [\"megbizhato\", \"megbizhato\", false], [\"elegans\", \"elegans\", false], [\"meleg\", \"meleg\", false]], \"elemzes_nelkul\": 1, \"gyuru\": 12}",
+  "12d kártyák: ['Természetes ✓', 'A logódból', 'Megbízható', 'Elegáns']",
+  "12d kijelölt: Természetes",
+  "TIBOR arculat-szinek asztali: ZÖLD [] szó=23 fő=['Ez legyen'] sw=1440",
+  "jóváhagyás 1: 1|#2f5d50|termeszetes",
+  "jóváhagyás 2: 2|#1f3a5f|megbizhato|#2f5d50",
+  "TIBOR arculat-mas-szin (fő) asztali: ZÖLD [] szó=29 fő=['Ez legyen'] sw=1440",
+  "12d2 gyűrű gombok: 12",
+  "12d2: a gyűrű narancsára mindkét kép új (blob) — előnézet frissült",
+  "12d2 cím a Második fülön: Melyik legyen a második szín? · url: ful=masodik&fo=%231f3a5f&masodik=%237fb2e5&hatter=%23f3f6fa",
+  "TIBOR arculat-mas-szin asztali: ZÖLD [] szó=29 fő=['Ez legyen'] sw=1440",
+  "jóváhagyás 3: 3|#c2410c|#7fb2e5|sajat|3",
+  "TIBOR arculat-szinek telefon: ZÖLD [] szó=22 fő=['Ez legyen'] sw=390",
+  "12d telefon: fő gomb {'x': 20, 'y': 772, 'width': 350, 'height': 52} · Visszajelzés {'x': 254.515625, 'y': 706, 'width': 115.484375, 'height': 46}",
+  "TIBOR arculat-mas-szin telefon: ZÖLD [] szó=15 fő=['Ez legyen'] sw=390"
+ ]
+}

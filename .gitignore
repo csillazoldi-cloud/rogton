@@ -1,0 +1,32 @@
+# Belépések, kulcsok — SOHA nem kerülnek fel
+vault/
+*.pem
+*.key
+*_rsa
+*_ed25519
+
+# Munkakörnyezet szemete
+Claude outputs/
+.DS_Store
+Thumbs.db
+node_modules/
+.next/
+*.tsbuildinfo
+next-env.d.ts
+
+# Eldobott holmi (nem torlunk, ide tesszuk)
+_torolni/
+
+# A Claude Code sajat, gepenkenti beallitasai
+.claude/
+
+# Az agensek nyers kimenete (helyi, nem kerul fel)
+.agens-ki/
+
+# Feltöltött fájlok és helyi adatok (F-6: FAJL_MAPPA alapértéke) — nem kerülnek fel
+adatok/
+
+# A Gigabyte robotjának saját naplója és a helyi képernyőképek — a gép saját holmija, nem a tárhelyé.
+# (T-7 oka: ezek tették „elmentetlenné" a Gigabyte másolatát, és a robot ezért nem rakott ki semmit.)
+docs/robot-naplo.jsonl
+docs/kepek/

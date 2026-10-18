@@ -1,0 +1,11 @@
+segedek.ts őr, 2026-10-07, eldobható PG18 (jelölő kapu-abcdef777777), probak/r15-napi-figyeles.proba.ts:
+--- 1. helyes jelölő:
+      Tests  4 passed (4)
+--- 2. rossz jelölő (KAPU_JELOLO=kapu-masik):
+Error: MEGÁLL: ez nem a kapu eldobható adatbázisa (várt jelölő: kapu-masik, talált: kapu-abcdef777777) — a próbák itt nem futnak
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+--- 3. jelölő nélkül, nem helyi gazda (192.0.2.10, TEST-NET — nem létező cím):
+Error: MEGÁLL: a próbák csak helyi adatbázison futnak (DATABASE_URL gazdája: 192.0.2.10); a kapu a KAPU_JELOLO-val jelöli a sajátját
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+--- 4. jelölő nélkül, helyi gazda (fejlesztői gép):
+      Tests  4 passed (4)

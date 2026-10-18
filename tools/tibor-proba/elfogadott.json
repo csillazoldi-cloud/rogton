@@ -1,0 +1,35 @@
+{
+ "_magyarazat": "Csilla által kifejezetten elfogadott bíráló-pirosak. Ezeken az új-lap bíráló-szabály nem zár; a próba-piros és a romlás igen. Új sor csak Csilla döntésével, dátummal és döntésnapló-hivatkozással.",
+ "lapok": {
+  "tagok/asztali": {
+   "dontes": "Csilla 10-03 (Q15): tulajdonosi lap, átlagos napon nincs rajta tennivaló — bíráló-korlát",
+   "datum": "2026-10-04",
+   "naplo": "docs/decisions/2026-10-04-elfogadott-pirosak.md"
+  },
+  "tagok/telefon": {
+   "dontes": "Csilla 10-03 (Q15): tulajdonosi lap, átlagos napon nincs rajta tennivaló — bíráló-korlát",
+   "datum": "2026-10-04",
+   "naplo": "docs/decisions/2026-10-04-elfogadott-pirosak.md"
+  },
+  "ertesitesek/telefon": {
+   "dontes": "list/transient state, no single primary action — accepted by Csilla 2026-10-14 (R-18 8. kör: a /beallitasok telefonon a Beállítások listája)",
+   "datum": "2026-10-14",
+   "naplo": "docs/decisions/2026-10-14-r18-kor8-kati-naptar-beallitasok.md"
+  },
+  "adatkezeles/asztali": {
+   "dontes": "list/transient state, no single primary action — accepted by Csilla 2026-10-14 (R-18 8. kör: Adatkezelés — egy kapcsoló, nincs fő gomb)",
+   "datum": "2026-10-14",
+   "naplo": "docs/decisions/2026-10-14-r18-kor8-kati-naptar-beallitasok.md"
+  },
+  "adatkezeles/telefon": {
+   "dontes": "list/transient state, no single primary action — accepted by Csilla 2026-10-14 (R-18 8. kör: Adatkezelés — egy kapcsoló, nincs fő gomb)",
+   "datum": "2026-10-14",
+   "naplo": "docs/decisions/2026-10-14-r18-kor8-kati-naptar-beallitasok.md"
+  },
+  "naptar-huzas/telefon": {
+   "dontes": "list/transient state, no single primary action — accepted by Csilla 2026-10-14 (R-18 8. kör: Naptár, húzás közben (átmeneti állapot))",
+   "datum": "2026-10-14",
+   "naplo": "docs/decisions/2026-10-14-r18-kor8-kati-naptar-beallitasok.md"
+  }
+ }
+}

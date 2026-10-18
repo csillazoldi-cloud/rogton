@@ -1,0 +1,31 @@
+-- 0107: fiók végleges törlése a rendszergazda-lapon (hu/ro/en). Vilmos döntése 2026-09-19:
+-- a rendszergazda törölhet, kétszeres megerősítéssel (a fiók e-mail-címét be kell írni).
+INSERT INTO "felirat" ("kulcs", "nyelv", "szoveg") VALUES
+  ('fiokok.aDelete', 'hu', 'Fiók végleges törlése'),
+  ('fiokok.aDelete', 'ro', 'Ștergerea definitivă a contului'),
+  ('fiokok.aDelete', 'en', 'Delete the account for good'),
+  ('fiokok.sajatTorles', 'hu', 'A saját fiókodat innen nem törlöd.'),
+  ('fiokok.sajatTorles', 'ro', 'Contul tău propriu nu se poate șterge de aici.'),
+  ('fiokok.sajatTorles', 'en', 'You cannot delete your own account from here.'),
+  ('fiokok.cfDelete', 'hu', 'Véglegesen törlöd ezt a fiókot?'),
+  ('fiokok.cfDelete', 'ro', 'Ștergi definitiv acest cont?'),
+  ('fiokok.cfDelete', 'en', 'Delete this account for good?'),
+  ('fiokok.cfDeleteWhat', 'hu', 'a fiók, a tagságai, a belépései, az általa kiadott meghívók és a visszajelzései eltűnnek'),
+  ('fiokok.cfDeleteWhat', 'ro', 'contul, calitățile de membru, conectările, invitațiile emise și feedbackurile lui dispar'),
+  ('fiokok.cfDeleteWhat', 'en', 'the account, its memberships, logins, the invites it issued and its feedback all disappear'),
+  ('fiokok.cfDeleteWarn', 'hu', 'Ez nem vonható vissza. A munkaterek és a bennük készült munkák megmaradnak, de elvesztik a nevét. Aki egy munkatér egyetlen tulajdonosa, azt előbb le kell váltani.'),
+  ('fiokok.cfDeleteWarn', 'ro', 'Acest lucru nu poate fi anulat. Spațiile de lucru și lucrările rămân, dar pierd numele lui. Dacă este singurul proprietar al unui spațiu, întâi trebuie înlocuit.'),
+  ('fiokok.cfDeleteWarn', 'en', 'This cannot be undone. Workspaces and the work in them stay, but lose his or her name. If the account is the only owner of a workspace, hand that workspace over first.'),
+  ('fiokok.cfDeleteAsk', 'hu', 'Írd be a fiók e-mail-címét a törléshez'),
+  ('fiokok.cfDeleteAsk', 'ro', 'Scrie adresa de e-mail a contului pentru ștergere'),
+  ('fiokok.cfDeleteAsk', 'en', 'Type the account e-mail address to delete it'),
+  ('fiokok.doneDelete', 'hu', 'A fiók törölve.'),
+  ('fiokok.doneDelete', 'ro', 'Contul a fost șters.'),
+  ('fiokok.doneDelete', 'en', 'The account has been deleted.'),
+  ('hiba.MAGAT_NEM', 'hu', 'A saját fiókodat nem törölheted. Kérd meg egy másik rendszergazdát.'),
+  ('hiba.MAGAT_NEM', 'ro', 'Nu îți poți șterge propriul cont. Roagă alt administrator.'),
+  ('hiba.MAGAT_NEM', 'en', 'You cannot delete your own account. Ask another administrator.'),
+  ('hiba.UTOLSO_TULAJDONOS', 'hu', 'Ez a fiók egy munkatér egyetlen tulajdonosa. Előbb tegyél meg valaki mást tulajdonosnak.'),
+  ('hiba.UTOLSO_TULAJDONOS', 'ro', 'Acest cont este singurul proprietar al unui spațiu de lucru. Numește mai întâi pe altcineva proprietar.'),
+  ('hiba.UTOLSO_TULAJDONOS', 'en', 'This account is the only owner of a workspace. Make someone else an owner first.')
+ON CONFLICT ("kulcs", "nyelv") DO UPDATE SET "szoveg" = EXCLUDED."szoveg", "frissitve" = now();

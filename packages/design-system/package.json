@@ -1,0 +1,10 @@
+{
+  "name": "@km/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts", "./tema-alap.json": "./src/tema-alap.json" },
+  "scripts": { "tipus": "tsc --noEmit -p tsconfig.json", "proba": "vitest run" },
+  "dependencies": { "zod": "4.5.4" },
+  "devDependencies": { "vitest": "5.0.0" }
+}

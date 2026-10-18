@@ -1,0 +1,111 @@
+.km-adk-lap {
+  background: var(--bg);
+}
+
+.km-adk-cim {
+  font-family: var(--font-display-active);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-tight);
+  color: var(--text);
+  margin: var(--ter-0) var(--ter-0) var(--ter-3);
+}
+
+.km-adk-alcim {
+  font-size: var(--fs-lg);
+  line-height: var(--lh);
+  color: var(--text-mut);
+  margin: var(--ter-0) var(--ter-0) var(--ter-7);
+  max-width: 56ch;
+}
+
+.km-adk-kerdesek {
+  display: grid;
+  gap: var(--ter-4);
+  margin-bottom: var(--ter-7);
+}
+
+.km-adk-kerdes {
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-3);
+  padding: var(--ter-5) var(--ter-6);
+}
+
+.km-adk-kerdes-cim {
+  font-family: var(--font-display-active);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-h3);
+  color: var(--text);
+  margin: var(--ter-0) var(--ter-0) var(--ter-2);
+}
+
+.km-adk-kerdes-valasz {
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  color: var(--text-mut);
+  margin: var(--ter-0);
+}
+
+.km-adk-adatutak {
+  display: grid;
+  gap: var(--ter-2);
+  margin-bottom: var(--ter-7);
+}
+
+.km-adk-adatut {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--ter-4);
+  padding: var(--ter-3) var(--ter-4);
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-2);
+}
+
+.km-adk-adatut-mi {
+  font-size: var(--fs-sm);
+  color: var(--text);
+}
+
+.km-adk-adatut-kihez {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-adk-tajekoztato {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+  margin: var(--ter-0) var(--ter-0) var(--ter-4);
+}
+
+.km-adk-kapcsolat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+  margin-bottom: var(--ter-6);
+}
+
+.km-adk-kapcsolat-cim {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-adk-kapcsolat-ertek {
+  font-size: var(--fs-base);
+  color: var(--text);
+}
+
+.km-adk-vissza {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-min);
+  color: var(--accent-link);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+}
+
+.km-adk-vissza:hover {
+  text-decoration: underline;
+}

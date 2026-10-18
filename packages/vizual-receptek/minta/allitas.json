@@ -1,0 +1,26 @@
+{
+ "recept": "allitas",
+ "formatum": {
+  "szelesseg": 1080,
+  "magassag": 1350
+ },
+ "mezok": {
+  "rovat_cimke": {
+   "elsodleges": "Oraș",
+   "masodlagos": "Város"
+  },
+  "focim": {
+   "elsodleges": "Orarul îl decide ADI. Noi îl ducem la capăt.",
+   "masodlagos": "A menetrendről az ADI dönt. Mi napról napra végigvisszük."
+  },
+  "magyarazat": {
+   "elsodleges": "ADI Transport Târgu Mureș stabilește traseele și orarele.",
+   "masodlagos": "Az ADI Transport Târgu Mureș határozza meg a vonalakat és a menetrendet."
+  },
+  "azonosito_sor": {
+   "sorszam": 62,
+   "datum": "2026-09-23"
+  }
+ },
+ "rovid": {}
+}

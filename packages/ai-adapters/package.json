@@ -1,0 +1,18 @@
+{
+  "name": "@km/ai-adapters",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "proba": "vitest run",
+    "tipus": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "vitest": "5.0.0",
+    "@types/node": "24.13.3"
+  },
+  "dependencies": {
+    "zod": "4.5.4"
+  }
+}

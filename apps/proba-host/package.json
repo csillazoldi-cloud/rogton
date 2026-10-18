@@ -1,0 +1,21 @@
+{
+  "name": "@km/proba-host",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "tipus": "tsc --noEmit",
+    "proba": "vitest run",
+    "indit": "tsx src/indit.ts"
+  },
+  "dependencies": {
+    "@km/news-monitor-core": "workspace:*",
+    "@km/contracts": "workspace:*",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "vitest": "5.0.0",
+    "tsx": "4.23.13"
+  }
+}

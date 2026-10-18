@@ -1,0 +1,360 @@
+{
+  "$formatum": "social-vizual-recept/1",
+  "$megjegyzes": "Visszafejtve a project/AdatSavok.dc.html lapból és a SPEC.md-ből. Nem tartalmaz betűnevet, színkódot, cégnevet: minden ilyen a fiók arculatából jön a {{...}} paramétereken át. Forrásjelölés a szabályoknál: [LAP] a lapon megfigyelt, [SPEC] a szabálykönyv mondja, [MODUL] a modul tervezett viselkedése (a forrásokban nincs példa), [NYITOTT] nem dönthető el. A karakterkorlátot mindig méréssel kell megállapítani; a megfigyelt hosszak kalibrációs adatok, nem korlátok.",
+
+  "recept": {
+    "azonosito": "adatsavok",
+    "nev": "Adatsávok – arányok egy adatsorból",
+    "csalad": "adat",
+    "leiras": "Egy adatsor 2–N elemének aránya vízszintes sávokkal: rovatcímke, az adat üzenete főcímként, elemenként címke + érték + arányos sáv, alatta mit mértünk, a lábban forrás és azonosító. Nincs benne állapot, járat, idő.",
+    "forras_lap": "project/AdatSavok.dc.html",
+    "formatumok": {
+      "megfigyelt": ["1080x1350"],
+      "spec_szerint": {
+        "1080x1920": "minden elem a felső {{racs.biztonsagi_sav.fent}} és az alsó {{racs.biztonsagi_sav.lent}} sávon belül [SPEC]",
+        "1920x1080": "minden méret szorozva {{racs.fekvo_szorzo}}-val; laponként EGY nyelv [SPEC]"
+      },
+      "megjegyzes": "Csak az 1080x1350 változatra van kész lap [NYITOTT a többi]."
+    },
+    "kimenet": ["kep", "kepalairas", "jelentes"],
+    "alap": "a fiók sötét vagy világos alapja ({{szin.hatter}}); a forráslapon a mély sötét alap [LAP]",
+    "foto": "ezen a recepten nincs fotómező [LAP]"
+  },
+
+  "szerepek": {
+    "hang": "A mondat, ami beszél: itt az adat egy mondatos üzenete. Laponként egy főcímpár. [SPEC]",
+    "tajekoztatas": "Magyarázó szöveg, listák, a sávok címkéi, a mérték magyarázata. [SPEC]",
+    "technikai": "Minden szám, dátum, kód, forrássor, kiskapitális címke: itt a százalékértékek és a láb. Tabuláris számjegy kötelező. [SPEC]"
+  },
+
+  "arculati_parameterek": [
+    {"kulcs": "{{betu.hang}}", "mire": "főcím betűje", "megjegyzes": "két súly: {{betu.hang.suly.elsodleges}} és {{betu.hang.suly.masodlagos}} [LAP]"},
+    {"kulcs": "{{betu.tajekoztatas}}", "mire": "sávcímkék, mérték-magyarázat", "megjegyzes": "keskeny változat hosszú címkékhez: {{betu.tajekoztatas.keskeny}} [SPEC]"},
+    {"kulcs": "{{betu.technikai}}", "mire": "rovatcímke, értékek, forrás, azonosító sor", "megjegyzes": "tabuláris számjegy kötelező [SPEC]"},
+    {"kulcs": "{{szin.hatter}}", "mire": "a lap alapja"},
+    {"kulcs": "{{szin.hang.elsodleges}} / {{szin.hang.masodlagos}}", "mire": "főcím két nyelve"},
+    {"kulcs": "{{szin.tajekoztatas}}", "mire": "sávcímkék elsődleges nyelve, mérték-magyarázat"},
+    {"kulcs": "{{szin.tajekoztatas.masodlagos_nyelv}}", "mire": "a sávcímkék másodlagos nyelve [LAP: a lapon a kiemelő szín; a mérték-magyarázatban viszont nincs megkülönböztetés – stílus]"},
+    {"kulcs": "{{szin.tompa}}", "mire": "rovatcímke, láb"},
+    {"kulcs": "{{szin.adatsav}}", "mire": "a sávok színe (egy szín, egy adatsor) [LAP]"},
+    {"kulcs": "{{szin.hajszalvonal}}", "mire": "a láb fölötti vonal, ha a fiók használ ilyet [LAP → stílus]"},
+    {"kulcs": "{{meret.lepcso.focim.rovid}} / {{meret.lepcso.focim.normal}} / {{meret.lepcso.focim.hosszu}}", "mire": "főcím lépcsői [SPEC]"},
+    {"kulcs": "{{meret.lepcso.adatcimke}}", "mire": "sávcímke és érték [SPEC: adatcímke lépcső]"},
+    {"kulcs": "{{meret.lepcso.torzs}}", "mire": "mérték-magyarázat [SPEC; a lapon ettől eltérő, kisebb méret – NYITOTT]"},
+    {"kulcs": "{{meret.lepcso.kis}}", "mire": "rovatcímke, forrás, azonosító sor [SPEC]"},
+    {"kulcs": "{{meret.minimum}}", "mire": "a legkisebb megengedett szövegméret [SPEC]"},
+    {"kulcs": "{{racs.margo}} / {{racs.egyseg}}", "mire": "margó, közök"},
+    {"kulcs": "{{racs.sav_vastagsag}}", "mire": "a sáv vastagsága [LAP → stílus]"},
+    {"kulcs": "{{racs.biztonsagi_sav.fent}} / {{racs.biztonsagi_sav.lent}} / {{racs.fekvo_szorzo}}", "mire": "más formátumok [SPEC]"},
+    {"kulcs": "{{emblema.svg.sotet_alapra}} / {{emblema.svg.vilagos_alapra}} / {{emblema.meret}}", "mire": "embléma"},
+    {"kulcs": "{{jelzes.van}} / {{jelzes.alak}}", "mire": "jelzés a főcím előtt [LAP: ezen a lapon nincs – NYITOTT]"},
+    {"kulcs": "{{lokal.nyelvek}} / {{lokal.par_elvalaszto}} / {{lokal.datumformatum}} / {{lokal.szazalek_jel}}", "mire": "nyelvek, elválasztó, dátum, a százalékjel és a szám közötti köz"},
+    {"kulcs": "{{szoveg.forras_cimke}}", "mire": "a „forrás” címke az azonosító sorban, nyelvpár [LAP]"},
+    {"kulcs": "{{szoveg.forras_nyilatkozat}}", "mire": "a „példa / illusztratív adat” nyilatkozat, nyelvpár [SPEC]"},
+    {"kulcs": "{{szoveg.sorozatkod.adat}}", "mire": "az adat-sorozat kódja [LAP: eltér a közlemény-sorozatétól]"},
+    {"kulcs": "{{szerkesztes.hangnem}}", "mire": "megszólítás, mondatkezdés [SPEC]"},
+    {"kulcs": "{{elrendezes.valtozat}}", "mire": "a blokkok elhelyezése; hogy a címke a sáv fölött vagy mellett áll; hogy az érték a címke sorában jobbra vagy a sáv végén"}
+  ],
+
+  "blokkok": [
+    {"azonosito": "fej", "sorrend": 1, "tartalom": ["rovat_cimke"]},
+    {"azonosito": "torzs", "sorrend": 2, "tartalom": ["jelzes", "focim"]},
+    {"azonosito": "adat", "sorrend": 3, "tartalom": ["savok", "mertek_magyarazat"], "megjegyzes": "a lap fő tömbje; a lapon a rugalmas közök a főcím és a sávok, illetve a magyarázat és a láb között [LAP → stílus]"},
+    {"azonosito": "lab", "sorrend": 4, "tartalom": ["azonosito_sor", "forras", "emblema"], "megjegyzes": "a lapon a forrás az azonosító sor második sora, „forrás” címkével bevezetve [LAP → stílus]"}
+  ],
+
+  "mezok": [
+    {
+      "azonosito": "rovat_cimke",
+      "cimke": "Rovatcímke",
+      "blokk": "fej",
+      "sorrend": 1,
+      "szerep": "technikai",
+      "tipus": "rovid_szoveg",
+      "kotelezo": true,
+      "nyelvpar": {"ertek": true, "megjelenites_javaslat": "egysoros", "egynyelvu_lapon": "elsodleges_marad"},
+      "karakterkorlat": {
+        "mire": "teljes_mezo",
+        "megallapitas": "meres",
+        "meres_alapja": "{{betu.technikai}} a {{meret.lepcso.kis}} lépcsőn, egy sorban, a fiók elválasztójával",
+        "rendelkezesre_allo_szelesseg": "tartalomszelesseg",
+        "max_sor": 1,
+        "megfigyelt_hossz": {"elsodleges": 9, "masodlagos": 8, "egyutt_elvalasztoval": 20, "sorok": 1},
+        "beegetett_szam": null
+      },
+      "illesztes": {"lepcsok": ["kis"], "keskenyites": false, "rovid_valtozat_megadhato": true, "kikoltoztetheto_kepalairasba": false, "padlo": "{{meret.minimum}}", "vegso": "figyelmeztetes"},
+      "szabalyok": [
+        "A lap első eleme: a téma vagy rovat egy-két szóval. [LAP, SPEC]",
+        "A nagybetűs, ritkított szedés stílus. [SPEC → stílus]"
+      ],
+      "sugo": "A poszt rovata vagy témája egy-két szóban, mindkét nyelven (pl. utazások, jegyek). Kisbetűvel.",
+      "pelda": {"elsodleges": "Călătorii", "masodlagos": "Utazások"}
+    },
+    {
+      "azonosito": "jelzes",
+      "cimke": "Jelzés (arculati hely)",
+      "blokk": "torzs",
+      "sorrend": 1,
+      "szerep": null,
+      "tipus": "arculati_hely",
+      "kotelezo": "a fiók dönti el ({{jelzes.van}}); a forráslapon NINCS jelzés, bár a SPEC laponként egyet ír elő – NYITOTT, hogy az adatrecepten a sávok helyettesítik-e",
+      "nyelvpar": false,
+      "karakterkorlat": null,
+      "illesztes": null,
+      "szabalyok": [
+        "Ha van, közvetlenül a főcímpár előtt; laponként legfeljebb egy. [SPEC]",
+        "A forráslapon hiányzik. [LAP]"
+      ],
+      "sugo": "Nincs teendőd vele.",
+      "pelda": null
+    },
+    {
+      "azonosito": "focim",
+      "cimke": "Főcím (az adat üzenete)",
+      "blokk": "torzs",
+      "sorrend": 2,
+      "szerep": "hang",
+      "tipus": "hosszu_szoveg",
+      "kotelezo": true,
+      "nyelvpar": {
+        "ertek": true,
+        "megjelenites_javaslat": "ketsoros",
+        "egyenrangu": "közös méretlépcső [SPEC, LAP]",
+        "megkulonboztetes": "a fiók eszközével [LAP → stílus]",
+        "egynyelvu_lapon": "elsodleges_marad",
+        "nyelvi_jeloles": "a másodlagos érték nyelvi (lang) jelölést kap [LAP: ezen a lapon megvan]"
+      },
+      "karakterkorlat": {
+        "mire": "nyelvenkent_kulon",
+        "megallapitas": "meres",
+        "meres_alapja": "{{betu.hang}} az aktuális főcím-lépcsőn; a pár közös lépcsőn, a hosszabb tag dönt",
+        "rendelkezesre_allo_szelesseg": "tartalomszelesseg",
+        "max_sor": {"nyelvenkent": 3, "megjegyzes": "a lapon 2 sor; hogy 3 a felső határ-e: NYITOTT"},
+        "megfigyelt_hossz": {"elsodleges": 44, "masodlagos": 34, "lepcso": "hosszu", "sorok_nyelvenkent": 2},
+        "beegetett_szam": null
+      },
+      "illesztes": {"lepcsok": ["focim.rovid", "focim.normal", "focim.hosszu"], "koztes_meret_megengedett": "igen, mérés alapján", "keskenyites": false, "rovid_valtozat_megadhato": true, "kikoltoztetheto_kepalairasba": false, "padlo": "{{meret.lepcso.focim.hosszu}}", "vegso": "figyelmeztetes"},
+      "szabalyok": [
+        "Laponként egy főcímpár. [SPEC]",
+        "Az adat üzenete egy mondatban: mit mond a legnagyobb (vagy a legfontosabb) sáv. [LAP]",
+        "A mondat nem ismétli a számot; a számot a sáv mutatja. [LAP]",
+        "Hangnem a fiók szabályai szerint. [SPEC]"
+      ],
+      "sugo": "Az adat egy mondatban, mindkét nyelven: mit mond a legnagyobb sáv. Szám nélkül – a számot a sávok mutatják.",
+      "pelda": {"elsodleges": "Abonamentul lunar duce jumătate din drumuri.", "masodlagos": "A havi bérlet viszi az utak felét."}
+    },
+    {
+      "azonosito": "savok",
+      "cimke": "Sávok (adatsor)",
+      "blokk": "adat",
+      "sorrend": 1,
+      "szerep": "tajekoztatas (címkék) + technikai (értékek)",
+      "tipus": "lista",
+      "abrazolas": "aranyos_sav",
+      "kotelezo": true,
+      "nyelvpar": "elemenként a címke nyelvpár; az érték nem",
+      "elem_tipus": {
+        "cimke": {"tipus": "rovid_szoveg", "szerep": "tajekoztatas", "kotelezo": true, "nyelvpar": {"ertek": true, "megjelenites_javaslat": "egysoros", "egynyelvu_lapon": "elsodleges_marad", "nyelvi_jeloles": "a másodlagos rész nyelvi jelölést kap [LAP: megvan]"}},
+        "ertek": {"tipus": "szam", "szerep": "technikai", "kotelezo": true, "formatum": "egész a lapon; tizedes NYITOTT", "egyseg": "százalék a lapon ({{lokal.szazalek_jel}} a szám után); más egység NYITOTT"}
+      },
+      "elemszam": {
+        "megfigyelt": 4,
+        "minimum": "2 (ennél kevesebb nem arány) [MODUL]",
+        "maximum": "mérés: a rendelkezésre álló magasság osztva egy elem magasságával (címkesor + sáv + köz); a felső határ vagy „egyéb” összevonás NYITOTT"
+      },
+      "karakterkorlat": {
+        "mire": "elemenkent",
+        "megallapitas": "meres",
+        "meres_alapja": "címke: {{betu.tajekoztatas}} a {{meret.lepcso.adatcimke}} lépcsőn, a két nyelv a fiók elválasztójával egy sorban; érték: {{betu.technikai}} ugyanazon a lépcsőn, tabuláris számjegyekkel, jobbra zárva",
+        "rendelkezesre_allo_szelesseg": "címke: tartalomszelesseg - ertekoszlop - koz; az értékoszlop a leghosszabb érték szélessége",
+        "max_sor": {"cimke": 1},
+        "megfigyelt_hossz": {"leghosszabb_cimke_elsodleges": 18, "leghosszabb_cimke_masodlagos": 15, "leghosszabb_cimke_egyutt": 36, "ertek": 4},
+        "beegetett_szam": null
+      },
+      "illesztes": {"lepcsok": ["adatcimke"], "keskenyites": true, "rovid_valtozat_megadhato": true, "kikoltoztetheto_kepalairasba": false, "padlo": "{{meret.minimum}}", "vegso": "figyelmeztetes", "megjegyzes": "az adat a kép; ha nem fér ki, a címkék keskenyednek, majd rövidülnek, végül figyelmeztetés – elem nem kerül a képaláírásba [MODUL]"},
+      "szabalyok": [
+        "A sáv hossza arányos az értékkel: hossz = rendelkezésre álló szélesség × érték / skála. A lapon a skála 100 (százalék), és a négy sáv hossza pontosan a tartalomszélesség 52 / 28 / 14 / 6 százaléka. [LAP]",
+        "Abszolút értéknél a skála (legnagyobb elem, összeg vagy megadott maximum) NYITOTT.",
+        "Egy adatsor: minden sáv ugyanazt a színt kapja ({{szin.adatsav}}); a különbséget a hossz hordozza, nem a szín. [LAP]",
+        "Az elemek csökkenő sorrendben. [LAP; a szerkesztő felülírhatja-e: NYITOTT]",
+        "Az érték technikai, tabuláris, a címke sorában jobbra zárva; hogy a címke a sáv fölött áll, stílus. [LAP → stílus]",
+        "A lapon az értékek összege 100; hogy ez kötelező-e: NYITOTT.",
+        "Hosszú címke: keskeny változat a kisebbítés előtt. [SPEC]",
+        "Számokhoz forrás kell: a forrássor ezen a recepten mindig kötelező. [SPEC]"
+      ],
+      "sugo": "Az adatsor elemei: mindegyikhez egy rövid címke mindkét nyelven és egy szám (százalék). Nagyságrend szerint csökkenő sorrendben add meg; a sávot a rendszer rajzolja arányosan.",
+      "pelda": [
+        {"cimke": {"elsodleges": "Abonament lunar", "masodlagos": "Havi bérlet"}, "ertek": 52},
+        {"cimke": {"elsodleges": "Bilet simplu", "masodlagos": "Egyszeri jegy"}, "ertek": 28},
+        {"cimke": {"elsodleges": "Abonament elevi", "masodlagos": "Diákbérlet"}, "ertek": 14},
+        {"cimke": {"elsodleges": "Călătorii gratuite", "masodlagos": "Ingyenes utazás"}, "ertek": 6}
+      ]
+    },
+    {
+      "azonosito": "mertek_magyarazat",
+      "cimke": "Mit mértünk",
+      "blokk": "adat",
+      "sorrend": 2,
+      "szerep": "tajekoztatas",
+      "tipus": "rovid_szoveg",
+      "kotelezo": {"ertek": true, "megjegyzes": "a lapon szerepel; adatsor mérték nélkül nem értelmezhető – kötelezőnek vettük"},
+      "nyelvpar": {"ertek": true, "megjelenites_javaslat": "egysoros", "egynyelvu_lapon": "elsodleges_marad", "nyelvi_jeloles": "a másodlagos rész nyelvi jelölést kap [LAP: megvan]"},
+      "karakterkorlat": {
+        "mire": "teljes_mezo",
+        "megallapitas": "meres",
+        "meres_alapja": "{{betu.tajekoztatas}} a {{meret.lepcso.torzs}} lépcsőn (a lapon annál kisebb köztes méret), a fiók elválasztójával, egy sorban",
+        "rendelkezesre_allo_szelesseg": "tartalomszelesseg",
+        "max_sor": {"ertek": 1, "megjegyzes": "a lapon egy sor; két sor NYITOTT"},
+        "megfigyelt_hossz": {"elsodleges": 18, "masodlagos": 24, "egyutt_elvalasztoval": 45, "sorok": 1},
+        "beegetett_szam": null
+      },
+      "illesztes": {"lepcsok": ["torzs"], "keskenyites": true, "rovid_valtozat_megadhato": true, "kikoltoztetheto_kepalairasba": false, "padlo": "{{meret.minimum}}", "vegso": "figyelmeztetes"},
+      "szabalyok": [
+        "Megnevezi a mért mennyiséget és az időszakot (pl. felszállások egy hónapban). [LAP]",
+        "Közvetlenül a sávok után. [LAP]",
+        "A lapon a két nyelv azonos színnel (nincs nyelvi megkülönböztetés) – stílus. [LAP → stílus]"
+      ],
+      "sugo": "Mi a mért mennyiség és milyen időszakban: pl. felszállások egy hónapban. Rövid, mindkét nyelven.",
+      "pelda": {"elsodleges": "Urcări într-o lună", "masodlagos": "Felszállások egy hónapban"}
+    },
+    {
+      "azonosito": "azonosito_sor",
+      "cimke": "Azonosító sor",
+      "blokk": "lab",
+      "sorrend": 1,
+      "szerep": "technikai",
+      "tipus": "rovid_szoveg",
+      "altipus": "osszetett",
+      "kotelezo": true,
+      "nyelvpar": false,
+      "reszek": [
+        {"azonosito": "sorozat_kod", "tipus": "rovid_szoveg", "kotelezo": true, "forras": "{{szoveg.sorozatkod.adat}}", "megfigyelt": "az adat-sorozat kódja, más, mint a közleményé [LAP]"},
+        {"azonosito": "sorszam", "tipus": "szam", "kotelezo": true, "formatum": "egész; a lapon három jegyre nullázva (stílus)", "megjegyzes": "kiosztás, sorozatonkénti számlálás: NYITOTT"},
+        {"azonosito": "datum", "tipus": "datum", "kotelezo": true, "formatum": "{{lokal.datumformatum}}"},
+        {"azonosito": "forras_cimke", "tipus": "rovid_szoveg", "kotelezo": "igen, ha van forrássor", "forras": "rögzített nyelvpár a fiókból ({{szoveg.forras_cimke}}); a forrássort vezeti be [LAP]"}
+      ],
+      "karakterkorlat": {
+        "mire": "teljes_mezo",
+        "megallapitas": "meres",
+        "meres_alapja": "{{betu.technikai}} a {{meret.lepcso.kis}} lépcsőn, tabuláris számjegyekkel, a fiók elválasztójával",
+        "rendelkezesre_allo_szelesseg": "tartalomszelesseg - emblema - koz",
+        "max_sor": 1,
+        "megfigyelt_hossz": {"karakter": 36, "sorok": 1},
+        "beegetett_szam": null
+      },
+      "illesztes": {"lepcsok": ["kis"], "keskenyites": false, "rovid_valtozat_megadhato": false, "kikoltoztetheto_kepalairasba": false, "padlo": "{{meret.minimum}}", "vegso": "figyelmeztetes"},
+      "szabalyok": [
+        "Sorozatkód + sorszám + dátum + forrás-címke, a fiók elválasztójával. [LAP]",
+        "Egy sor, a legkisebb technikai lépcsőn; a minimum alá nem megy. [SPEC]",
+        "Az embléma előtt, vele egy csoportban; a lapon a forrássor ennek a második sora. [LAP]"
+      ],
+      "sugo": "A poszt azonosítója: sorozatkód, sorszám és dátum. A forrás-címkét a rendszer teszi hozzá, mert az adatlapon mindig van forrássor.",
+      "pelda": {"sorozat_kod": "{{szoveg.sorozatkod.adat}}", "sorszam": 72, "datum": "2026-09-23", "forras_cimke": "{{szoveg.forras_cimke}}"}
+    },
+    {
+      "azonosito": "forras",
+      "cimke": "Forrássor",
+      "blokk": "lab",
+      "sorrend": 2,
+      "szerep": "technikai",
+      "tipus": "rovid_szoveg",
+      "kotelezo": {"ertek": true, "megjegyzes": "az adatlapon mindig van szám, ezért a SPEC szabálya miatt mindig kötelező: valós forrás vagy a fiók nyilatkozata [SPEC, LAP]"},
+      "nyelvpar": {"ertek": true, "megjelenites_javaslat": "egysoros", "egynyelvu_lapon": "elsodleges_marad"},
+      "ertek": "vagy a fiók rögzített nyilatkozata ({{szoveg.forras_nyilatkozat}}), vagy a valós forrás megnevezése",
+      "karakterkorlat": {
+        "mire": "teljes_mezo",
+        "megallapitas": "meres",
+        "meres_alapja": "{{betu.technikai}} a {{meret.lepcso.kis}} lépcsőn, egy sorban",
+        "rendelkezesre_allo_szelesseg": "tartalomszelesseg - emblema - koz (a lapon az azonosító sorral közös tömbben)",
+        "max_sor": 1,
+        "megfigyelt_hossz": {"egyutt": 56, "sorok": 1},
+        "beegetett_szam": null
+      },
+      "illesztes": {"lepcsok": ["kis"], "keskenyites": false, "rovid_valtozat_megadhato": false, "kikoltoztetheto_kepalairasba": false, "padlo": "{{meret.minimum}}", "vegso": "figyelmeztetes"},
+      "szabalyok": [
+        "A képen marad; a számokat a forrássor a képen kíséri. [SPEC]",
+        "Ha nincs ellenőrzött forrás, a fiók nyilatkozata áll itt. [SPEC]",
+        "Elhelyezése (az azonosító sor második sora, forrás-címkével bevezetve) stílus; a közlemény-lapon külön sor. [LAP, NYITOTT]"
+      ],
+      "sugo": "Honnan való az adat. Ha nincs ellenőrzött forrás, a rendszer a fiók „illusztratív adat” nyilatkozatát teszi ide – ne hagyd üresen.",
+      "pelda": "{{szoveg.forras_nyilatkozat}}"
+    },
+    {
+      "azonosito": "emblema",
+      "cimke": "Embléma (arculati hely)",
+      "blokk": "lab",
+      "sorrend": 3,
+      "szerep": null,
+      "tipus": "arculati_hely",
+      "kotelezo": true,
+      "nyelvpar": false,
+      "karakterkorlat": null,
+      "illesztes": null,
+      "szabalyok": [
+        "A lap utolsó eleme; az azonosító sorral és a forrással egy csoport. [LAP]",
+        "A fiók emblémája az alaphoz illő változatban, a fiók méretében. [SPEC]",
+        "A szerkesztő nem cseréli és nem méretezi. [MODUL]"
+      ],
+      "sugo": "Nincs teendőd vele: a fiók emblémája automatikusan a lap aljára kerül.",
+      "pelda": null
+    }
+  ],
+
+  "lapszintu_szabalyok": [
+    "Egy rovatcímke, egy főcímpár, egy adatsor. [SPEC, LAP]",
+    "Nincs állapotjelző, nincs állapotszín ezen a recepten. [SPEC]",
+    "Nincs fotó. [LAP]",
+    "A forrássor mindig kötelező, mert mindig van szám. [SPEC]",
+    "Minden elem a folyamban; semmi átfedés, semmi levágás. [SPEC]",
+    "Nincs emoji, zászló, hashtag a képen. [SPEC]",
+    "Tabuláris számjegy minden technikai értéken. [SPEC]",
+    "A másodlagos nyelvű szövegek nyelvi jelölést kapnak a kimenetben. [LAP: ezen a lapon megvan]",
+    "Jelzés a főcím előtt: a forráslapon nincs, a SPEC egyet ír elő – NYITOTT."
+  ],
+
+  "illesztesi_letra": {
+    "elv": "Mezőnként: lépcsőzetes kisebbítés → rövid változat → kiköltöztetés a képaláírásba → figyelmeztetés. Az adat a kép: sáv nem költözik ki. [MODUL; a lépcsők és a padló a SPEC-ből]",
+    "lap_sorrend": [
+      "1. a főcím lépcsőt lép (rövid → normál → hosszú), a pár együtt [SPEC; LAP: a lapon a hosszú lépcsőn]",
+      "2. a sávcímkék és a mérték-magyarázat keskeny változatra [SPEC]",
+      "3. a főcím rövid változata, ha van [MODUL]",
+      "4. a sávcímkék és a mérték-magyarázat rövid változata, ha van [MODUL]",
+      "5. a sávok közötti köz csökken a rács egységének többszörösével a fiók minimumáig [MODUL; a rács egysége a SPEC-ből]",
+      "6. figyelmeztetés a jelentésben (túl sok elem, túl hosszú címke) [MODUL]"
+    ],
+    "sosem": ["vágás", "átfedés", "a fiók minimuma alá kisebbítés", "abszolút pozicionálás", "sáv elhagyása vagy a képaláírásba költöztetése", "a forrássor elhagyása", "a sáv hosszának torzítása (nem arányos hossz)"]
+  },
+
+  "nem_koti_meg": [
+    "betűcsaládok, súlyok, betűméretek és sorközök pixelben",
+    "színek: alap, szövegszínek nyelvenként, a sáv színe, hajszálvonal",
+    "az embléma rajza és mérete; a jelzés léte és alakja",
+    "rács: margó, közök, a sáv vastagsága, biztonsági sávok",
+    "elválasztó jel, dátumformátum, a százalékjel és a szám közötti köz, a sorozatkód és a forrás-címke szövege",
+    "elrendezés-variáns: a címke a sáv fölött vagy mellette; az érték a címke sorában jobbra vagy a sáv végén; a forrás külön sor vagy az azonosító sor része; a rugalmas hely elosztása",
+    "nagybetűsítés, ritkítás, a láb fölötti vonal"
+  ],
+
+  "megfigyelt_stilus": [
+    "A rovatcímke a lap tetején, nagybetűs, ritkított, halvány, mono betűvel.",
+    "Nincs jelzés a főcím fölött (eltérés a SPEC-től).",
+    "A főcím közvetlenül a rovatcímke alatt, a két nyelv azonos méretben, eltérő súllyal és színnel; a hosszú lépcsőn.",
+    "A sávok tömbje a lap közepén, rugalmas közökkel fölötte és alatta; elemenként: címkesor (elsődleges nyelv világos, másodlagos a kiemelő színnel, jobbra az érték mono betűvel), alatta egyszínű, egyforma vastag sáv, hossza a tartalomszélesség arányában.",
+    "A mérték-magyarázat a sávok alatt, a két nyelv azonos színnel, egy sorban.",
+    "A láb hajszálvonal fölött: azonosító sor balra két sorban (második sor a forrás), embléma jobbra."
+  ],
+
+  "nyitott_kerdesek": [
+    "Jelzés az adatrecepten: opcionális, a sávok helyettesítik, vagy hiány.",
+    "Skála abszolút értékeknél (legnagyobb elem / összeg / megadott maximum).",
+    "Kötelező-e, hogy az értékek összege 100 legyen; tizedes értékek; más egység, mint százalék.",
+    "Elemszám felső határa; „egyéb” összevonás.",
+    "A sorrend: mindig csökkenő, vagy a szerkesztő sorrendje.",
+    "A mérték-magyarázat lépcsője: a SPEC törzs-lépcsője vagy a lapon látott kisebb méret; kötelezősége.",
+    "A forrássor helye: az azonosító sor része (ezen a lapon) vagy külön sor (a közlemény-lapon).",
+    "Az adat-sorozat sorszámozása.",
+    "A főcím maximális sorszáma nyelvenként.",
+    "1080x1920 és 1920x1080 példalap; fekvőn melyik nyelv marad.",
+    "A SPEC „nagy szám” eleme (egyetlen kiemelt szám) külön adatrecept lenne; nincs forráslapja."
+  ]
+}

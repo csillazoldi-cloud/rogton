@@ -1,0 +1,23 @@
+/* R-15 · 05 Hír részletei (design/R15/rajz/R15-lapok-4.dc.html 05): egy 760 széles teendő-kártya a hírrel, a „Miért jó nektek?” sorral és a fő gombbal. */
+.r15-hir-belso { gap: var(--ter-10); }
+.r15-hir-belso > * { max-width: 760px; } /* tokenőr: ok — R15 rajz 05: 760 széles oszlop */
+.r15-hir-kartya { padding: var(--ter-9) var(--ter-10); gap: var(--ter-7); color: var(--text); }
+.r15-hir-fejsor { display: flex; align-items: center; justify-content: space-between; gap: var(--ter-6); }
+.r15-hir-hir { display: flex; flex-direction: column; gap: var(--ter-3); }
+.r15-hir-cim { font-size: var(--fs-title); font-weight: var(--fw-strong); line-height: 1.45; color: var(--text); }
+.r15-hir-osszefoglalo { font-size: var(--fs-base); line-height: 1.45; color: var(--text-mut); }
+.r15-hir-miert { display: flex; flex-direction: column; gap: var(--ter-2); padding-top: var(--ter-6); border-top: var(--bw) solid var(--line-soft); }
+.r15-hir-cimke { font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text-mut); }
+.r15-hir-ertek { font-size: var(--fs-base); line-height: 1.45; color: var(--text); }
+.r15-hir-gombsor { display: flex; align-items: center; gap: var(--ter-9); flex-wrap: wrap; }
+.r15-hir-reszletek { display: flex; flex-direction: column; gap: var(--ter-8); padding: var(--ter-9) var(--ter-10); border-left: 3px solid var(--line); } /* tokenőr: ok — R15 rajz: Részletek bal vonala */
+.r15-hir-bek { display: flex; flex-direction: column; gap: var(--ter-3); align-items: flex-start; margin: var(--ter-0); font-size: var(--fs-md); color: var(--text); }
+.r15-hir-bek p { margin: var(--ter-0); }
+.r15-hir-halk { color: var(--text-mut); font-size: var(--fs-sm); }
+.r15-hir-forrasok { list-style: none; margin: var(--ter-0); padding: var(--ter-0); display: flex; flex-direction: column; gap: var(--ter-3); font-size: var(--fs-sm); }
+.r15-hir-forrasok li { display: flex; flex-wrap: wrap; gap: var(--ter-5); align-items: baseline; }
+@media (max-width: 640px) {
+  .r15-hir-belso { gap: var(--ter-8); }
+  .r15-hir-kartya { padding: var(--ter-8) var(--ter-9); gap: var(--ter-6); }
+  .r15-hir-reszletek { padding: var(--ter-8) var(--ter-0) var(--ter-8) var(--ter-8); }
+}

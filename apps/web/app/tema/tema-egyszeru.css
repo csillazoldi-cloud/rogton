@@ -1,0 +1,183 @@
+/* F9-K1: a szélességet és a külső térközt a km-lap-keret (a <main>) adja; ez a burok csak az elrendezést. */
+.km-tema-egyszeru {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+}
+
+.km-tema-egyszeru-fej {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+}
+
+.km-tema-egyszeru-cim {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-head);
+  color: var(--text);
+}
+
+.km-tema-egyszeru-alkcim {
+  font-size: var(--fs-base);
+  color: var(--text-mut);
+}
+
+.km-tema-egyszeru-uzenet {
+  padding: var(--ter-2) var(--ter-3);
+  border-radius: var(--r-card);
+  border: var(--bw) solid var(--bg-elev);
+  background: var(--bg-elev);
+  color: var(--text);
+  font-size: var(--fs-base);
+}
+.km-tema-egyszeru-uzenet[data-fajta="ok"] {
+  border-color: var(--ok);
+}
+.km-tema-egyszeru-uzenet[data-fajta="hiba"] {
+  border-color: var(--err);
+}
+.km-tema-egyszeru-uzenet[data-fajta="figyelem"] {
+  border-color: var(--keszul);
+}
+
+.km-tema-egyszeru-fo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+}
+
+.km-tema-egyszeru-szekcio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-2);
+}
+
+.km-tema-egyszeru-szekcio-cim {
+  font-family: var(--font-display);
+  font-size: var(--fs-szekcio);
+  font-weight: var(--fw-head);
+  color: var(--text);
+  margin: var(--ter-0);
+}
+
+.km-tema-egyszeru-szinek {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ter-2);
+  align-items: center;
+}
+
+.km-tema-egyszeru-minta {
+  width: var(--control-min);
+  height: var(--control-min);
+  border-radius: var(--r-btn);
+  border: var(--bw) solid var(--bg-elev);
+  cursor: pointer;
+  padding: var(--ter-0);
+}
+.km-tema-egyszeru-minta[data-be="true"] {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.km-tema-egyszeru-minta:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.km-tema-egyszeru-szin-bemenet {
+  width: var(--control-min);
+  height: var(--control-min);
+  padding: var(--ter-0);
+  border: var(--bw) solid var(--bg-elev);
+  border-radius: var(--r-field);
+  background: var(--bg-elev);
+  cursor: pointer;
+}
+.km-tema-egyszeru-szin-bemenet:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.km-tema-egyszeru-betuk {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ter-2);
+}
+
+.km-tema-egyszeru-betu-gomb {
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-3);
+  border-radius: var(--r-btn);
+  border: var(--bw) solid var(--bg-elev);
+  background: var(--bg-elev);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  cursor: pointer;
+}
+.km-tema-egyszeru-betu-gomb[data-be="true"] {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+.km-tema-egyszeru-betu-gomb:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.km-tema-egyszeru-elonezet-keret {
+  border-radius: var(--r-card);
+  border: var(--bw) solid var(--bg-elev);
+  background: var(--bg-elev);
+  padding: var(--ter-3);
+  overflow: hidden;
+}
+
+.km-tema-egyszeru-sav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ter-3);
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--ter-3);
+  border-top: var(--bw) solid var(--bg-elev);
+}
+
+.km-tema-egyszeru-mentes {
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-4);
+  border-radius: var(--r-btn);
+  border: none;
+  background: var(--grad-primary);
+  color: var(--on-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-strong);
+  cursor: pointer;
+}
+.km-tema-egyszeru-mentes:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.km-tema-egyszeru-halado {
+  color: var(--primary);
+  font-size: var(--fs-base);
+  text-decoration: none;
+  min-height: var(--control-min);
+  display: inline-flex;
+  align-items: center;
+}
+.km-tema-egyszeru-halado:hover {
+  text-decoration: underline;
+}
+
+/* R-18 8. kör (Kati 10-13: „a Megjelenés telefonon zsúfolt”): 390-en a séma-választás elöl, a fő szín · betűméret · élő előnézet a
+   „Részletek” mögött; a mentés gombja velük jön elő (zárt állapotban nincs mit menteni). Asztalon minden látszik, mint eddig. */
+.km-tema-egyszeru-tobb { display: none; }
+@media (max-width: 640px) {
+  .km-tema-egyszeru-tobb { display: inline-flex; align-self: flex-start; align-items: center; gap: var(--ter-2); min-height: var(--control-min); padding: var(--ter-0); border: 0; background: transparent; color: var(--text-mut); font: inherit; font-size: var(--fs-base); font-weight: var(--fw-strong); text-decoration: underline; text-underline-offset: var(--ter-1); cursor: pointer; }
+  .km-tema-egyszeru-fo[data-tel-nyitva="false"] { display: none; }
+  .km-tema-egyszeru-sav[data-tel-nyitva="false"] .km-tema-egyszeru-mentes { display: none; }
+}

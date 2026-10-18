@@ -1,0 +1,342 @@
+[
+ {
+  "lap": "03-kezdolap",
+  "nezet": "asztali",
+  "ut": "/kezdolap",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 50,
+   "cim": "Ma 1 poszt vár rád",
+   "fo": [
+    "Megnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Ebből a hírből: Rekordszámú családi ház…\n\n[MINTA] ",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Hírek ma Posztszöveg Képek Iránytű Ma 1 poszt vár rád 1 hírből már megírtuk. Ezen a héten: ez lesz az első. Ebből a hírből: Rekordszámú családi ház… [MINTA] Posztszöveg a megadott forrásból: === A CÉG PROFILJA === A cég… Megnézem a posztot Kép hozzá Átírhatod, és csak te teszed ki.",
+  "kep": "03-kezdolap-asztali.png"
+ },
+ {
+  "lap": "03-kezdolap",
+  "nezet": "telefon",
+  "ut": "/kezdolap",
+  "zold": false,
+  "hibak": [
+   "T5 43 szó görgetés nélkül (≤ 40)"
+  ],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 43,
+   "cim": "Ma 1 poszt vár rád",
+   "fo": [
+    "Megnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Ebből a hírből: Rekordszámú családi ház…\n\n[MINTA] ",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Hírek Posztszöveg Képek Iránytű Ma 1 poszt vár rád Ezen a héten: ez lesz az első. Ebből a hírből: Rekordszámú családi ház… [MINTA] Posztszöveg a megadott forrásból: === A CÉG PROFILJA === A cég… Átírhatod, és csak te teszed ki. Megnézem a posztot",
+  "kep": "03-kezdolap-telefon.png"
+ },
+ {
+  "lap": "03-kezdolap-nyitva",
+  "nezet": "asztali",
+  "ut": "/kezdolap",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 50,
+   "cim": "Ma 1 poszt vár rád",
+   "fo": [
+    "Megnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Ebből a hírből: Rekordszámú családi ház…\n\n[MINTA] ",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Hírek ma Posztszöveg Képek Iránytű Ma 1 poszt vár rád 1 hírből már megírtuk. Ezen a héten: ez lesz az első. Ebből a hírből: Rekordszámú családi ház… [MINTA] Posztszöveg a megadott forrásból: === A CÉG PROFILJA === A cég… Megnézem a posztot Kép hozzá Átírhatod, és csak te teszed ki.",
+  "kep": "03-kezdolap-nyitva-asztali.png"
+ },
+ {
+  "lap": "03-kezdolap-nyitva",
+  "nezet": "telefon",
+  "ut": "/kezdolap",
+  "zold": false,
+  "hibak": [
+   "T5 43 szó görgetés nélkül (≤ 40)"
+  ],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 43,
+   "cim": "Ma 1 poszt vár rád",
+   "fo": [
+    "Megnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Ebből a hírből: Rekordszámú családi ház…\n\n[MINTA] ",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Hírek Posztszöveg Képek Iránytű Ma 1 poszt vár rád Ezen a héten: ez lesz az első. Ebből a hírből: Rekordszámú családi ház… [MINTA] Posztszöveg a megadott forrásból: === A CÉG PROFILJA === A cég… Átírhatod, és csak te teszed ki. Megnézem a posztot",
+  "kep": "03-kezdolap-nyitva-telefon.png"
+ },
+ {
+  "lap": "03-kezdolap-ures",
+  "nezet": "asztali",
+  "ut": "/kezdolap",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 34,
+   "cim": "Mutasd meg a legutóbbi munkádat",
+   "fo": [
+    "Képet készítek a munkámról"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Minta\n\nA fotódat a következő lépésben kérjük.\n\nKép",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Hírek Posztszöveg Képek Iránytű Mutasd meg a legutóbbi munkádat A fotódból kész kép lesz a posztodhoz — kiteszed, ha tetszik. A fotódat a következő lépésben kérjük. Képet készítek a munkámról Mit szeretnétek elérni? Megírom",
+  "kep": "03-kezdolap-ures-asztali.png"
+ },
+ {
+  "lap": "03-kezdolap-ures",
+  "nezet": "telefon",
+  "ut": "/kezdolap",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 33,
+   "cim": "Mutasd meg a legutóbbi munkádat",
+   "fo": [
+    "Képet készítek a munkámról"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Hírek Posztszöveg Képek Iránytű Mutasd meg a legutóbbi munkádat A fotódból kész kép lesz a posztodhoz — kiteszed, ha tetszik. A fotódat a következő lépésben kérjük. Még 1 javaslat Képet készítek a munkámról",
+  "kep": "03-kezdolap-ures-telefon.png"
+ },
+ {
+  "lap": "13a-beallitasok",
+  "nezet": "asztali",
+  "ut": "/gephaz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Minden be van állítva Ha valamit módosítanál, itt megtalálod. Szervezet Szervezet adatai Megjelenés Próbaidőszak — most nem kell fizetni. Csapattagok Csapattagok Meghívok valakit Használat Kreditjeid: 977 / 1000 ebben a hónapban Mire ment el? Haladó ▾",
+  "kep": "13a-beallitasok-asztali.png"
+ },
+ {
+  "lap": "13a-beallitasok",
+  "nezet": "telefon",
+  "ut": "/gephaz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Minden be van állítva Ha valamit módosítanál, itt megtalálod. Szervezet Szervezet adatai Megjelenés Próbaidőszak — most nem kell fizetni. Csapattagok Csapattagok Használat Kreditjeid: 977 / 1000 ebben a hónapban Mire ment el? Haladó ▾ Meghívok valakit",
+  "kep": "13a-beallitasok-telefon.png"
+ },
+ {
+  "lap": "13b-halado",
+  "nezet": "asztali",
+  "ut": "/gephaz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Minden be van állítva Ha valamit módosítanál, itt megtalálod. Szervezet Szervezet adatai Megjelenés Próbaidőszak — most nem kell fizetni. Csapattagok Csapattagok Meghívok valakit Használat Kreditjeid: 977 / 1000 ebben a hónapban Mire ment el? Haladó ▴",
+  "kep": "13b-halado-asztali.png"
+ },
+ {
+  "lap": "13b-halado",
+  "nezet": "telefon",
+  "ut": "/gephaz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Minden be van állítva Ha valamit módosítanál, itt megtalálod. Szervezet Szervezet adatai Megjelenés Próbaidőszak — most nem kell fizetni. Csapattagok Csapattagok Használat Kreditjeid: 977 / 1000 ebben a hónapban Mire ment el? Haladó ▴ Meghívok valakit",
+  "kep": "13b-halado-telefon.png"
+ },
+ {
+  "lap": "14c-kapcsolok",
+  "nezet": "asztali",
+  "ut": "/beallitasok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "2 új értesítésed van",
+   "fo": [
+    "Megnézem a legújabbat"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Értesítések\nAdatkezelés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Értesítések Adatkezelés 2 új értesítésed van 10-10 17:40 Elkészültek a friss hírek — 3 új hír. Megnyitás 10-09 17:40 A maszol.ro oldalt nem tudtuk elérni. Forrás megnyitása Megnézem a legújabbat Mind olvasottnak jelölöm Miről szóljon ▴",
+  "kep": "14c-kapcsolok-asztali.png"
+ },
+ {
+  "lap": "14c-kapcsolok",
+  "nezet": "telefon",
+  "ut": "/beallitasok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "2 új értesítésed van",
+   "fo": [
+    "Megnézem a legújabbat"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Értesítések\nAdatkezelés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "szoveg": "Értesítések Adatkezelés 2 új értesítésed van 10-10 17:40 Elkészültek a friss hírek — 3 új hír. Megnyitás 10-09 17:40 A maszol.ro oldalt nem tudtuk elérni. Forrás megnyitása Mind olvasottnak jelölöm Miről szóljon ▴ Megnézem a legújabbat",
+  "kep": "14c-kapcsolok-telefon.png"
+ }
+]

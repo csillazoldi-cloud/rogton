@@ -1,0 +1,32 @@
+/* Alapszabályok — csak tokenekkel (a :root értékeit a layout írja be az adatbázis aktív témájából). */
+/* R-18: a color-scheme a módot követi (design-system modCss: sötétben dark, világosban light). */
+body { margin: var(--ter-0); background: var(--bg); color: var(--text); font-family: var(--font-body-active); font-size: var(--fs-base); line-height: var(--lh); }
+a { color: var(--accent-link); text-decoration: none; }
+a:hover { color: var(--accent-text); text-decoration: underline; }
+
+/* F9-K1 (Vilmos szabálya 2026-09-16): EGY lapkeret minden belépett lapnak — 1180 (a --lista-max token) középen, a közös margóval.
+   A lap saját osztálya csak a BELSŐ elrendezését adja (rács, oszlopok, gap); szélességet, középre igazítást, külső térközt NEM. A keretőr (tools/hatar/keretor.mjs) ezt kényszeríti ki. */
+.km-lap-keret { width: 100%; max-width: var(--lista-max); margin-inline: auto; padding: var(--ter-10) var(--ter-10) var(--ter-13); box-sizing: border-box; }
+@media (max-width: 640px) { .km-lap-keret { padding: var(--ter-8) var(--ter-6) var(--ter-12); } }
+
+/* F9-K1/6 (Vilmos, 2026-09-16): a keret sáv-változata — a Hírek lap fülsora teljes szélességű hátterű, de a tartalma a közös keretben áll. */
+.km-lap-keret-sav { width: 100%; max-width: var(--lista-max); margin-inline: auto; padding-inline: var(--ter-10); box-sizing: border-box; display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; }
+@media (max-width: 640px) { .km-lap-keret-sav { padding-inline: var(--ter-6); } }
+
+/* R-8 → R-18 (2026-10-11): a fényudvar a LAP háttere — a lélegző változat a layout .km-aurora elemében és az r18.css-ben él
+   (három elmosott folt az egyetlen lilából és a narancsból; csak transform/opacity mozog). */
+body { position: relative; }
+/* R-8: az AI fénykorongja — csak ott, ahol az AI éppen dolgozik vagy az ő eredménye áll (összkép, folyamat, javaslat). */
+.km-orb { width: var(--orb-size); height: var(--orb-size); border-radius: 50%; /* tokenőr: ok — kör alak */ flex: none; position: relative;
+  background: conic-gradient(from 0deg, var(--primary), var(--primary-2), var(--accent-warm), var(--accent-gold), var(--primary)); /* tokenőr: ok — a korong színkúpja */
+  box-shadow: var(--glow-primary); animation: km-orb-forog var(--dur-amb) linear infinite; }
+.km-orb::after { content: ""; position: absolute; inset: var(--ter-3); border-radius: 50%; /* tokenőr: ok — kör alak */ background: var(--bg-elev); }
+.km-orb-sm { width: var(--orb-size-sm); height: var(--orb-size-sm); }
+.km-orb-sm::after { inset: var(--ter-2); }
+@keyframes km-orb-forog { to { transform: rotate(360deg); } }
+/* R-8: a kártyák beúszása — prefers-reduced-motion: nincs. */
+.km-emelkedik { animation: km-emelkedik var(--motion-rise) cubic-bezier(.2,.8,.2,1) both; }
+@keyframes km-emelkedik { from { opacity: 0; transform: translateY(var(--ter-6)); } to { opacity: 1; transform: none; } }
+/* R-8: gradiens szöveg — egy-két szóra egy mondatban, nem bekezdésre. */
+.km-grad { background: var(--grad-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@media (prefers-reduced-motion: reduce) { .km-orb { animation: none; } .km-emelkedik { animation: none; } }

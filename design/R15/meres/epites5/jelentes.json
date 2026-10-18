@@ -1,0 +1,716 @@
+[
+ {
+  "lap": "09-kepek",
+  "nezet": "asztali",
+  "ut": "/kepek",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 45,
+   "cim": "Mit szeretnél ma megmutatni?",
+   "fo": [
+    "Képet készítek a munkámról"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Kész munka\nEgy fotó a kész munkáról, vagy előtte–u",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "09-kepek-asztali.png"
+ },
+ {
+  "lap": "09-kepek",
+  "nezet": "telefon",
+  "ut": "/kepek",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 23,
+   "cim": "Mit szeretnél ma megmutatni?",
+   "fo": [
+    "Képet készítek a munkámról"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Kész munka",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "09-kepek-telefon.png"
+ },
+ {
+  "lap": "10a-kitolto",
+  "nezet": "asztali",
+  "ut": "/kepek/uj/kesz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 50,
+   "cim": "Kész munka",
+   "fo": [
+    "Letöltés"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Hová kerül?\n✓ Poszt\nFacebook, Instagram\nStory\nReel",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "10a-kitolto-asztali.png"
+ },
+ {
+  "lap": "10a-kitolto",
+  "nezet": "telefon",
+  "ut": "/kepek/uj/kesz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 24,
+   "cim": "Kész munka",
+   "fo": [
+    "Letöltés"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Hová kerül?\n✓ Poszt\nFacebook, Instagram\nStory\nReel",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "10a-kitolto-telefon.png"
+ },
+ {
+  "lap": "10w-keszul",
+  "nezet": "asztali",
+  "ut": "/kepek/uj/kesz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Készítjük a képet…",
+   "nyugtato": "Pár másodperc — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 58,
+   "cim": "Kész munka",
+   "fo": [
+    "Készítjük a képet…"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Hová kerül?\nPoszt\nFacebook, Instagram\nStory\nReels,",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "10w-keszul-asztali.png"
+ },
+ {
+  "lap": "10w-keszul",
+  "nezet": "telefon",
+  "ut": "/kepek/uj/kesz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Készítjük a képet…",
+   "nyugtato": "Pár másodperc — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 40,
+   "cim": "Kész munka",
+   "fo": [
+    "Készítjük a képet…"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Hová kerül?\nPoszt\nFacebook, Instagram\nStory\nReels,",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "10w-keszul-telefon.png"
+ },
+ {
+  "lap": "10b-letoltve",
+  "nezet": "asztali",
+  "ut": "/kepek/uj/kesz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 40,
+   "cim": "Kész a képed.",
+   "fo": [
+    "Szöveg másolása"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Mit írj mellé?\n\n[MINTA] Posztszöveg a megadott for",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "10b-letoltve-asztali.png"
+ },
+ {
+  "lap": "10b-letoltve",
+  "nezet": "telefon",
+  "ut": "/kepek/uj/kesz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 39,
+   "cim": "Kész a képed.",
+   "fo": [
+    "Szöveg másolása"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Mit írj mellé?\n\n[MINTA] Posztszöveg a megadott for",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "10b-letoltve-telefon.png"
+ },
+ {
+  "lap": "12a-szervezet",
+  "nezet": "asztali",
+  "ut": "/fiok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 43,
+   "cim": "Ezt tudjuk rólatok",
+   "fo": [
+    "Logó és színek"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "12a-szervezet-asztali.png"
+ },
+ {
+  "lap": "12a-szervezet",
+  "nezet": "telefon",
+  "ut": "/fiok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 32,
+   "cim": "Ezt tudjuk rólatok",
+   "fo": [
+    "Logó és színek"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "12a-szervezet-telefon.png"
+ },
+ {
+  "lap": "12b-atiras",
+  "nezet": "asztali",
+  "ut": "/fiok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 40,
+   "cim": "Ezt tudjuk rólatok",
+   "fo": [
+    "Mentés"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "12b-atiras-asztali.png"
+ },
+ {
+  "lap": "12b-atiras",
+  "nezet": "telefon",
+  "ut": "/fiok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 40,
+   "cim": "Ezt tudjuk rólatok",
+   "fo": [
+    "Mentés"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "12b-atiras-telefon.png"
+ },
+ {
+  "lap": "13a-beallitasok",
+  "nezet": "asztali",
+  "ut": "/gephaz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "13a-beallitasok-asztali.png"
+ },
+ {
+  "lap": "13a-beallitasok",
+  "nezet": "telefon",
+  "ut": "/gephaz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "13a-beallitasok-telefon.png"
+ },
+ {
+  "lap": "13b-halado",
+  "nezet": "asztali",
+  "ut": "/gephaz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "13b-halado-asztali.png"
+ },
+ {
+  "lap": "13b-halado",
+  "nezet": "telefon",
+  "ut": "/gephaz",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "13b-halado-telefon.png"
+ },
+ {
+  "lap": "14b-nincs-uj",
+  "nezet": "asztali",
+  "ut": "/beallitasok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 37,
+   "cim": "Nincs új értesítésed",
+   "fo": [
+    "Vissza a Kezdőlapra"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Értesítések\nAdatkezelés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "14b-nincs-uj-asztali.png"
+ },
+ {
+  "lap": "14b-nincs-uj",
+  "nezet": "telefon",
+  "ut": "/beallitasok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 37,
+   "cim": "Nincs új értesítésed",
+   "fo": [
+    "Vissza a Kezdőlapra"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Értesítések\nAdatkezelés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "14b-nincs-uj-telefon.png"
+ },
+ {
+  "lap": "14a-ertesitesek",
+  "nezet": "asztali",
+  "ut": "/beallitasok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "2 új értesítésed van",
+   "fo": [
+    "Megnézem a legújabbat"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Értesítések\nAdatkezelés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "14a-ertesitesek-asztali.png"
+ },
+ {
+  "lap": "14a-ertesitesek",
+  "nezet": "telefon",
+  "ut": "/beallitasok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "2 új értesítésed van",
+   "fo": [
+    "Megnézem a legújabbat"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Értesítések\nAdatkezelés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "14a-ertesitesek-telefon.png"
+ },
+ {
+  "lap": "14c-kapcsolok",
+  "nezet": "asztali",
+  "ut": "/beallitasok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "2 új értesítésed van",
+   "fo": [
+    "Megnézem a legújabbat"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Értesítések\nAdatkezelés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "14c-kapcsolok-asztali.png"
+ },
+ {
+  "lap": "14c-kapcsolok",
+  "nezet": "telefon",
+  "ut": "/beallitasok",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "2 új értesítésed van",
+   "fo": [
+    "Megnézem a legújabbat"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Értesítések\nAdatkezelés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "14c-kapcsolok-telefon.png"
+ },
+ {
+  "lap": "03j-javitva",
+  "nezet": "asztali",
+  "ut": "/kezdolap",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 37,
+   "cim": "Mára kész vagy",
+   "fo": [
+    "Új képet készítek"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Ha van kedved: még egy kép a munkádról.\n\nÚj képet ",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "03j-javitva-asztali.png"
+ },
+ {
+  "lap": "03j-javitva",
+  "nezet": "telefon",
+  "ut": "/kezdolap",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 28,
+   "cim": "Mára kész vagy",
+   "fo": [
+    "Új képet készítek"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "03j-javitva-telefon.png"
+ },
+ {
+  "lap": "03j2-javitva-nyitva",
+  "nezet": "asztali",
+  "ut": "/kezdolap",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 37,
+   "cim": "Mára kész vagy",
+   "fo": [
+    "Új képet készítek"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Ha van kedved: még egy kép a munkádról.\n\nÚj képet ",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "03j2-javitva-nyitva-asztali.png"
+ },
+ {
+  "lap": "03j2-javitva-nyitva",
+  "nezet": "telefon",
+  "ut": "/kezdolap",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 28,
+   "cim": "Mára kész vagy",
+   "fo": [
+    "Új képet készítek"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "03j2-javitva-nyitva-telefon.png"
+ }
+]

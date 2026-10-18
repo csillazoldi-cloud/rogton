@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R-15 Round 1 review</title>
+<style>
+  :root{
+    --bg:#f4f5f8; --card:#ffffff; --text:#1a1c24; --mut:#555c6a; --line:#dfe2e8; --ok:#1f7a48; --ok-bg:#e6f4ec;
+    --q:#4f5fd6; --q-bg:#eef0fc; --warn:#a8461c; --warn-bg:#fbefe9; --shadow:0 1px 2px rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0f1117; --card:#171a22; --text:#e8ebf1; --mut:#9aa3b2; --line:#2a2f3b; --ok:#7fe0a0; --ok-bg:#16301f;
+      --q:#9aa6ff; --q-bg:#1c2040; --warn:#ffb08a; --warn-bg:#3a2218; --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f1117; --card:#171a22; --text:#e8ebf1; --mut:#9aa3b2; --line:#2a2f3b; --ok:#7fe0a0; --ok-bg:#16301f;
+    --q:#9aa6ff; --q-bg:#1c2040; --warn:#ffb08a; --warn-bg:#3a2218; --shadow:none;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:1500px;margin:0 auto;padding:32px 16px 64px}
+  h1{font-size:28px;margin:0 0 6px}
+  h2{font-size:21px;margin:0}
+  .sub{color:var(--mut);margin:0 0 20px}
+  .top{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+  .pill{padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);font-size:14px}
+  .pill b{color:var(--ok)}
+  .pill.w b{color:var(--warn)}
+  .screen{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:24px;box-shadow:var(--shadow)}
+  .head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:12px}
+  .probe{font-size:13px;padding:3px 10px;border-radius:999px;background:var(--ok-bg);color:var(--ok);font-weight:600}
+  .shots{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;padding-bottom:6px}
+  .shots figure{margin:0;flex:none}
+  .shots img{display:block;border:1px solid var(--line);border-radius:8px;height:420px;width:auto}
+  .shots figcaption{font-size:12px;color:var(--mut);margin-top:4px}
+  .why{margin:12px 0 0;color:var(--text);max-width:1100px}
+  .why li{margin-bottom:2px}
+  .qs{display:grid;gap:8px;margin-top:8px}
+  .q{background:var(--q-bg);border-radius:8px;padding:10px 12px;font-size:14px}
+  .q b{color:var(--q)}
+  table{border-collapse:collapse;width:100%;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--mut);font-weight:600}
+  .off{color:var(--warn);font-weight:600}
+  @media (max-width:700px){ .shots img{height:300px} h1{font-size:23px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>R-15 Round 1 — Login · First setup · News detail · Compass</h1>
+  <p class="sub">Drawing only, no code. Branch <code>c5-r15-kor1</code> · 2026-10-09, updated 10-10 with Csilla's answers. Full drawing with all states: <code>R15-lapok-4.dc.html</code>.</p>
+
+  <div class="top">
+    <span class="pill">Probe: <b>24 / 24 views green</b> (measured 10-10 after the judge fixes)</span>
+    <span class="pill w">Judge rerun 14:07 on a49ff0a: <b>0 · 11 · 13</b> — working states no longer judged (decided 14:09); 11a redrawn; re-judge 11a pending</span>
+    <span class="pill">13 questions · Q2 + Q9 decided by Csilla 10-10 · the rest have a ★ default</span>
+  </div>
+
+  <div class="screen">
+    <div class="head"><h2>01 Belépés — login + wrong password</h2><span class="probe">probe: 4/4 green</span></div>
+    <div class="shots">
+      <figure><img src="kep-4/01-belepes-telefon.png" alt="01 phone"><figcaption>phone</figcaption></figure>
+      <figure><img src="kep-4/01b-belepes-hiba-telefon.png" alt="01b phone error"><figcaption>phone · error</figcaption></figure>
+      <figure><img src="kep-4/01b-belepes-hiba-asztali.png" alt="01b desktop error"><figcaption>desktop · error</figcaption></figure>
+    </div>
+    <ul class="why">
+      <li>Same form and logic. The error is one line above the card; on the phone the button sits under the thumb.</li>
+      <li>"Forgot password?" sits in the error line — but today it never shows (no contact set).</li>
+    </ul>
+    <div class="qs"><div class="q"><b>Judge 10-10 — accepted</b> 01b both widths (he picks „Elfelejtetted…” / „Jelszó mutatása”) and 02a desktop (he picks „Nincs weboldalunk…”).</div>
+      <div class="q"><b>Q1 (Vilmos)</b> Name the support e-mail for "Forgot password?" ★ set it as a label, no code.</div>
+      <div class="q"><b>Q12</b> Phone language picker as HU / RO / EN ★ yes.</div></div>
+  </div>
+
+  <div class="screen">
+    <div class="head"><h2>02 Első beállítás — tell us about you → working → check it</h2><span class="probe">probe: 10/10 green</span></div>
+    <div class="shots">
+      <figure><img src="kep-4/02a-elso-beallitas-telefon.png" alt="02a phone"><figcaption>phone · step 1</figcaption></figure>
+      <figure><img src="kep-4/02a2-keszitjuk-telefon.png" alt="02a2 phone working"><figcaption>phone · working</figcaption></figure>
+      <figure><img src="kep-4/02b-atnezes-telefon.png" alt="02b phone"><figcaption>phone · step 2</figcaption></figure>
+      <figure><img src="kep-4/02b-atnezes-asztali.png" alt="02b desktop"><figcaption>desktop · step 2</figcaption></figure>
+    </div>
+    <ul class="why">
+      <li>Step 1: new title „Mit kell tudnunk rólatok?”; name already filled, one empty field (website). The description opens only via "No website".</li>
+      <li>Working: the pressed button stays, spinner + „Készítjük…”, disabled; the items tick off as today. Phone top bar: HU and „Mentés és vissza” are now quiet text, not buttons.</li>
+      <li>Step 2: 8 open question groups → two read-only cards the machine filled. "Átírom" opens today's controls; nothing is lost.</li>
+      <li>"AI-javaslat / Te adtad meg" badges come off the screen (T3); the data stays.</li>
+    </ul>
+    <div class="qs"><div class="q"><b>Q2 — decided 10-10</b> Title is „Mit kell tudnunk rólatok?”.</div>
+      <div class="q"><b>Q3 (you + Vilmos)</b> Take the source badges off screen ★ accept.</div>
+      <div class="q"><b>Q4</b> Goals stay un-ticked, behind Részletek (J-1) ★ keep.</div>
+      <div class="q"><b>Q10</b> Description field behind "Nincs weboldalunk" ★ accept.</div></div>
+  </div>
+
+  <div class="screen">
+    <div class="head"><h2>05 Hír részletei — why it's good for you → post</h2><span class="probe">probe: 4/4 green</span></div>
+    <div class="shots">
+      <figure><img src="kep-4/05-hir-telefon.png" alt="05 phone"><figcaption>phone</figcaption></figure>
+      <figure><img src="kep-4/05w-hir-irjuk-telefon.png" alt="05w phone working"><figcaption>phone · working</figcaption></figure>
+      <figure><img src="kep-4/05-hir-asztali.png" alt="05 desktop"><figcaption>desktop</figcaption></figure>
+    </div>
+    <ul class="why">
+      <li>Today: a popup over the old overview, two steps to a post. Now: its own page, "Why it's good for you", one button to the post (T9).</li>
+      <li>Save / Not interested / Original article go into the "···" menu, like on Hírek.</li>
+    </ul>
+    <div class="qs"><div class="q"><b>Q5</b> Own page /hirfigyelo/hir/[id] (new route, existing data) ★ yes.</div>
+      <div class="q"><b>Q6</b> "Kérek tartalomötletet" moves behind Részletek ★ accept.</div></div>
+  </div>
+
+  <div class="screen">
+    <div class="head"><h2>11 Iránytű — empty · draft · ideas</h2><span class="probe">probe: 10/10 green</span></div>
+    <div class="shots">
+      <figure><img src="kep-4/11a-iranytu-ures-telefon.png" alt="11a phone"><figcaption>phone · empty</figcaption></figure>
+      <figure><img src="kep-4/11a2-iranytu-irjuk-telefon.png" alt="11a2 phone working"><figcaption>phone · writing</figcaption></figure>
+      <figure><img src="kep-4/11b-iranytu-tervezet-telefon.png" alt="11b phone"><figcaption>phone · draft</figcaption></figure>
+      <figure><img src="kep-4/11c-iranytu-otletek-telefon.png" alt="11c phone"><figcaption>phone · approved</figcaption></figure>
+      <figure><img src="kep-4/11c2-iranytu-irjuk-asztali.png" alt="11c2 desktop working"><figcaption>desktop · writing the post</figcaption></figure>
+    </div>
+    <ul class="why">
+      <li>Empty: a greyed example of the finished compass („Így néz majd ki — példa”) and one button; the machine writes it. Draft: four short lists + "Jóváhagyom". The 6-block editor stays behind "Átírom".</li>
+      <li>Approved: the running campaign and "push" items become post ideas, one click each — <b>new client logic</b>, existing endpoint.</li>
+    </ul>
+    <div class="qs"><div class="q"><b>Decided 14:09</b> Working states (02a2, 05w, 11a2, 11c2) are states of their page — the probe checks them, the judge does not.</div>
+      <div class="q"><b>Q13</b> The example is térkő-specific ★ code round picks it by trade (existing c15 list).</div>
+      <div class="q"><b>Q7 (Vilmos — product direction)</b> Compass items become post ideas (today: "content is not generated from this") ★ yes.</div>
+      <div class="q"><b>Q8</b> Idea order: campaign → push items → goals, max 3 ★ accept.</div>
+      <div class="q"><b>Judge 10-10 — fixed</b> „Kérd, és megírjuk a céljaitokat” (11a), „Ha jó így, hagyd jóvá” (11b), „Most írjuk a céljaitokat” while working (11a2), and every busy button has „… — addig nincs teendőd.” next to it.</div>
+      <div class="q"><b>Q9 — decided 10-10</b> Wording „Írjuk…”, and every generating button has a drawn working state: spinner + text, disabled, rest of the screen calm. A duration line only where known (02: „Kb. fél perc”).</div>
+      <div class="q"><b>Q11</b> Non-owner on the draft: "Átírom" is the main button ★ accept.</div></div>
+  </div>
+
+  <h2 style="margin:8px 0 10px">Taken off the screen (data kept)</h2>
+  <table>
+    <tr><th>Page</th><th>Element</th><th>Now</th></tr>
+    <tr><td>02b</td><td>"AI-javaslat / Te adtad meg / Weboldal alapján", "az AI ebből írta"</td><td class="off">off screen</td></tr>
+    <tr><td>05</td><td>"v{n} beállítással", "AI-összefoglaló" badge</td><td class="off">off screen</td></tr>
+    <tr><td>11</td><td>"javaslat / te adtad" row marks</td><td class="off">off screen</td></tr>
+    <tr><td>all</td><td>everything else from today's pages</td><td>moved behind Átírom / Részletek / "···" — full list in kerdesek-4.md</td></tr>
+  </table>
+</div>
+</body>
+</html>

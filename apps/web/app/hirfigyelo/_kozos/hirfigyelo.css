@@ -1,0 +1,36 @@
+/* A Hírfigyelő modul közös váza (E-24) — a v7 prototípus fejléce, fülei, profil-sora. Minden érték token; a lapok saját CSS-e külön fájlban. */
+.km-hf { min-height: 100vh; background: var(--bg); color: var(--text); font-family: var(--font-body-active); font-size: var(--fs-base); line-height: var(--lh); }
+.km-hf-fulsor { padding-block: var(--ter-5); border-bottom: var(--bw) solid var(--line-soft); background: var(--bg-elev); }
+.km-hf-modul-nev { font-family: var(--font-display-active); font-weight: var(--fw-strong); font-size: var(--fs-md); color: var(--text); }
+.km-hf-modul-jelveny { font-size: var(--fs-xs); color: var(--text-dim); border: var(--bw) solid var(--line); border-radius: var(--r-badge); padding: var(--ter-1) var(--ter-4); }
+.km-hf-fulek { display: flex; gap: var(--ter-1); background: var(--field-bg); border: var(--bw) solid var(--line-soft); border-radius: var(--r-btn); padding: var(--ter-2); }
+.km-hf-ful { border: none; background: none; color: var(--text-mut); border-radius: var(--r-btn); padding: var(--ter-4) var(--ter-7); font-size: var(--fs-sm); text-decoration: none; cursor: pointer; font-family: var(--font-body-active); white-space: nowrap; min-height: var(--control-min-s); box-sizing: border-box; }
+.km-hf-ful:hover { color: var(--text); text-decoration: none; }
+.km-hf-ful[data-aktiv="true"] { background: var(--btn-ghost-bg); border: var(--bw) solid var(--btn-ghost-border); color: var(--text); font-weight: var(--fw-strong); }
+.km-hf-uj-talalat { margin-inline-start: auto; font-size: var(--fs-xs); font-weight: var(--fw-strong); color: var(--on-primary); background: var(--grad-primary); border-radius: var(--r-badge); padding: var(--ter-1) var(--ter-4); }
+.km-hf-profil-sor { max-width: 1180px; margin: var(--ter-0) auto; padding: var(--ter-4) var(--ter-10) var(--ter-0); box-sizing: border-box; display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; }
+.km-hf-profil-megj { font-size: var(--fs-xs); color: var(--text-dim); }
+.km-hf-tartalom { display: flex; flex-direction: column; gap: var(--ter-7); }
+/* Közös apró elemek, amiket mindkét lap használ */
+.km-hf-uzenet { border: var(--bw) solid var(--line); background: var(--panel-soft-2); border-radius: var(--r-block); padding: var(--ter-6) var(--ter-8); margin-bottom: var(--ter-7); font-size: var(--fs-sm); color: var(--text-mut); }
+.km-hf-uzenet[data-fajta="hiba"] { border-color: var(--err-border); background: var(--err-bg); color: var(--err); }
+.km-hf-uzenet[data-fajta="figyelem"] { border-color: var(--warn-border); background: var(--warn-bg); color: var(--warn); }
+.km-hf-uzenet-gomb { margin-inline-start: var(--ter-5); border: var(--bw) solid var(--btn-ghost-border); background: var(--btn-ghost-bg); color: var(--btn-ghost-text); border-radius: var(--r-btn); padding: var(--ter-2) var(--ter-6); font-size: var(--fs-xs); cursor: pointer; font-family: var(--font-body-active); min-height: var(--control-min-s); box-sizing: border-box; }
+@keyframes km-hf-fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes km-hf-porog { to { transform: rotate(360deg); } }
+@media (max-width: 640px) {
+  .km-hf-fulsor { overflow-x: auto; white-space: nowrap; }
+  .km-hf-fulek { flex: none; }
+  .km-hf-ful { flex: none; }
+  .km-hf-uj-talalat { margin-inline-start: auto; flex: none; }
+}
+@media (max-width: 720px) {
+  .km-hf-profil-sor { padding-inline: var(--ter-8); }
+}
+
+/* R-7b 07 (D-F43): a fülek rövid neve telefonon — a két span közül egy látszik */
+.km-hf-fulek .km-csak-telefon { display: none; }
+@media (max-width: 640px) {
+  .km-hf-fulek .km-csak-asztal { display: none; }
+  .km-hf-fulek .km-csak-telefon { display: inline; }
+}

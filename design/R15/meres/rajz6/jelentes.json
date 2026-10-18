@@ -1,0 +1,380 @@
+[
+ {
+  "lap": "03bt-kezdlap-csempk-2-poszt-vr",
+  "cimke": "03bT Kezdőlap — csempék + 2 poszt vár",
+  "nezet": "asztali",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 59,
+   "cim": "Ma 2 poszt vár rád",
+   "fo": [
+    "Megnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "A díszburkolatos hírből\nNem is térkő, hanem díszbu",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03bt-kezdlap-csempk-2-poszt-vr-asztali.png"
+ },
+ {
+  "lap": "03bt-kezdlap-csempk-2-poszt-vr",
+  "cimke": "03bT Kezdőlap — csempék + 2 poszt vár",
+  "nezet": "telefon",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 38,
+   "cim": "Ma 2 poszt vár rád",
+   "fo": [
+    "Megnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "A díszburkolatos hírből\nNem is térkő, hanem díszbu",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03bt-kezdlap-csempk-2-poszt-vr-telefon.png"
+ },
+ {
+  "lap": "03ct-kezdlap-csempk-mra-ksz",
+  "cimke": "03cT Kezdőlap — csempék + mára kész",
+  "nezet": "asztali",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 43,
+   "cim": "Mára kész vagy",
+   "fo": [
+    "Képet készítek a munkámról"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Ha van kedved: még egy kép a munkádról.\nKépet kész",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03ct-kezdlap-csempk-mra-ksz-asztali.png"
+ },
+ {
+  "lap": "03ct-kezdlap-csempk-mra-ksz",
+  "cimke": "03cT Kezdőlap — csempék + mára kész",
+  "nezet": "telefon",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 39,
+   "cim": "Mára kész vagy",
+   "fo": [
+    "Képet készítek a munkámról"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03ct-kezdlap-csempk-mra-ksz-telefon.png"
+ },
+ {
+  "lap": "03c2t-kezdlap-csempk-mutasd-a-munkd",
+  "cimke": "03c2T Kezdőlap — csempék + mutasd a munkád",
+  "nezet": "asztali",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 43,
+   "cim": "Mutasd meg a legutóbbi munkádat",
+   "fo": [
+    "Képet készítek a munkámról"
+   ],
+   "melyseg": 1,
+   "melyPelda": "A fotódat a következő lépésben kérjük.\nKépet készí",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03c2t-kezdlap-csempk-mutasd-a-munkd-asztali.png"
+ },
+ {
+  "lap": "03c2t-kezdlap-csempk-mutasd-a-munkd",
+  "cimke": "03c2T Kezdőlap — csempék + mutasd a munkád",
+  "nezet": "telefon",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 34,
+   "cim": "Mutasd meg a legutóbbi munkádat",
+   "fo": [
+    "Képet készítek a munkámról"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03c2t-kezdlap-csempk-mutasd-a-munkd-telefon.png"
+ },
+ {
+  "lap": "03jt-kezdlap-csempk-tegnap-javtva",
+  "cimke": "03jT Kezdőlap — csempék + tegnap javítva",
+  "nezet": "asztali",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 59,
+   "cim": "Ma 2 poszt vár rád",
+   "fo": [
+    "Megnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "A díszburkolatos hírből\nNem is térkő, hanem díszbu",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03jt-kezdlap-csempk-tegnap-javtva-asztali.png"
+ },
+ {
+  "lap": "03jt-kezdlap-csempk-tegnap-javtva",
+  "cimke": "03jT Kezdőlap — csempék + tegnap javítva",
+  "nezet": "telefon",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 38,
+   "cim": "Ma 2 poszt vár rád",
+   "fo": [
+    "Megnézem a posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "A díszburkolatos hírből\nNem is térkő, hanem díszbu",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/03jt-kezdlap-csempk-tegnap-javtva-telefon.png"
+ },
+ {
+  "lap": "13ai-belltsok-ikonokkal",
+  "cimke": "13aI Beállítások — ikonokkal",
+  "nezet": "asztali",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 37,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/13ai-belltsok-ikonokkal-asztali.png"
+ },
+ {
+  "lap": "13ai-belltsok-ikonokkal",
+  "cimke": "13aI Beállítások — ikonokkal",
+  "nezet": "telefon",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 37,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/13ai-belltsok-ikonokkal-telefon.png"
+ },
+ {
+  "lap": "13bi-belltsok-halad-nyitva-ikonokkal",
+  "cimke": "13bI Beállítások — Haladó nyitva, ikonokkal",
+  "nezet": "asztali",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 37,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/13bi-belltsok-halad-nyitva-ikonokkal-asztali.png"
+ },
+ {
+  "lap": "13bi-belltsok-halad-nyitva-ikonokkal",
+  "cimke": "13bI Beállítások — Haladó nyitva, ikonokkal",
+  "nezet": "telefon",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 37,
+   "cim": "Minden be van állítva",
+   "fo": [
+    "Meghívok valakit"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/13bi-belltsok-halad-nyitva-ikonokkal-telefon.png"
+ },
+ {
+  "lap": "14ci-rtestsek-kapcsolk-ikonokkal",
+  "cimke": "14cI Értesítések — kapcsolók ikonokkal",
+  "nezet": "asztali",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 37,
+   "cim": "2 új értesítésed van",
+   "fo": [
+    "Megnézem a legújabbat"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/14ci-rtestsek-kapcsolk-ikonokkal-asztali.png"
+ },
+ {
+  "lap": "14ci-rtestsek-kapcsolk-ikonokkal",
+  "cimke": "14cI Értesítések — kapcsolók ikonokkal",
+  "nezet": "telefon",
+  "ut": "design/R15/rajz/R15-lapok-6.dc.html",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "meres": {
+   "szavak": 37,
+   "cim": "2 új értesítésed van",
+   "fo": [
+    "Megnézem a legújabbat"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "kep/14ci-rtestsek-kapcsolk-ikonokkal-telefon.png"
+ }
+]

@@ -1,0 +1,5 @@
+--- ures-ok: kilépés 1, döntés "dontes": "piros", első piros:     "alapvonal: nincs érdemi oka (≥ 15 betű): apps/web::probak/feliratok.proba.ts::feliratok ket szintje — kozos alap + szervezeti fel
+--- nincs-kimaradhat: kilépés 1, döntés "dontes": "piros", első piros:     "új kimaradt próba: apps/web::probak/hirfigyelo-finomhangolas.proba.ts::Hírfigyelő finomhangolás élő próbái > 1. GET finomhango
+--- uj-kor: kilépés 1, döntés "dontes": "piros", első piros:     "új hiba: ellenoriz::hatar::nincs-kor::apps/web/profil/index.ts → apps/web/vizual/peldak.ts"
+--- ketszer: kilépés 1, döntés "dontes": "piros", első piros:     "alapvonal: kétszer szerepel: apps/web::probak/feliratok.proba.ts::feliratok ket szintje — kozos alap + szervezeti feluliras (E-16) >
+--- bovult (a változat bővítette az alapvonalat): kilépés 0, "dontes": "nem-rosszabb", jelzés: "AZ ALAPVONAL BŐVÜLT 1 sorral (ez a változat tette bele)"

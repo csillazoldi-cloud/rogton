@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{
+      --bg:#0c0d13; --bg-elev:#12141c; --text:#e8ebf1; --text-mut:#9aa3b2; --text-dim:#7a8496; --text-faint:#6b7484;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff;
+      --accent:#ff4520; --accent-text:#ff7a55; --accent-link:var(--primary-2);
+      --ok:#7fe0a0; --err:#ffb3a3; --focus:#8a98ff; --shadow-color:#000000; --shadow-strength:45;
+      --font-display:'Archivo',sans-serif; --font-body:'Public Sans',sans-serif; --font-code:'IBM Plex Mono',monospace;
+      --fw-head:700; --fw-strong:600;
+      --fs-h1:34px; --fs-base:16px; --fs-title:17px;
+      --r-card:10px; --r-block:10px; --r-btn:6px; --r-field:6px; --r-badge:4px; --bw:1px;
+      --control-min:46px; --blur-glass:28px; --glass-alpha:10; --motion:normal;
+      --lh:1.5; --sat-glass:150%;
+      --ter-0:0px; --ter-1:2px; --ter-2:4px; --ter-3:6px; --ter-4:8px; --ter-5:10px;
+      --ter-6:12px; --ter-7:14px; --ter-8:16px; --ter-9:20px; --ter-10:24px;
+      --ter-11:32px; --ter-12:40px; --ter-13:56px; --ter-14:80px;
+      --gap:var(--ter-6); --pad-card:var(--ter-11); --pad-block:var(--ter-9);
+      --pad-field-y:var(--ter-6); --pad-field-x:var(--ter-7);
+      --btn-pad-y:var(--ter-6); --btn-pad-x:var(--ter-10);
+      --font-display-active:var(--font-display); --font-body-active:var(--font-body); --font-code-active:var(--font-code);
+      --grad-primary:linear-gradient(120deg,var(--primary),var(--primary-2));
+      --focus-ring:color-mix(in srgb, var(--focus) 30%, transparent);
+      --ok-strong:var(--ok); --ok-bg:color-mix(in srgb, var(--ok) 13%, transparent);
+      --err-strong:var(--err); --err-bg:color-mix(in srgb, var(--err) 10%, transparent); --err-border:color-mix(in srgb, var(--err) 35%, transparent);
+      --warn:var(--accent-text); --warn-border:color-mix(in srgb, var(--accent-text) 30%, transparent); --warn-bg:color-mix(in srgb, var(--accent) 8%, transparent);
+      --src-user:var(--text-mut); --src-user-bg:color-mix(in srgb, var(--text) 7%, transparent);
+      --src-ai:var(--primary-2); --src-ai-bg:color-mix(in srgb, var(--primary-2) 14%, transparent);
+      --src-empty:var(--text-faint); --src-empty-bg:color-mix(in srgb, var(--text) 6%, transparent);
+      --line:color-mix(in srgb, var(--text) 10%, transparent); --line-soft:color-mix(in srgb, var(--text) 7%, transparent); --line-dash:color-mix(in srgb, var(--text) 15%, transparent);
+      --field-bg:color-mix(in srgb, var(--text) 5%, transparent); --field-border:color-mix(in srgb, var(--text) 14%, transparent);
+      --panel-soft:color-mix(in srgb, var(--text) 3%, transparent); --panel-soft-2:color-mix(in srgb, var(--text) 5%, transparent);
+      --btn-ghost-bg:color-mix(in srgb, var(--text) 5%, transparent); --btn-ghost-border:color-mix(in srgb, var(--text) 14%, transparent);
+      --btn-ghost-text:color-mix(in srgb, var(--text) 88%, var(--bg)); --btn-ghost-hover:color-mix(in srgb, var(--text) 10%, transparent);
+      --fs-h2:26px; --fs-md:15px; --fs-sm:14px; --fs-xs:12.5px; --control-min-s:38px;
+      --dur-fast:0.2s; --dur-spin:0.7s; --header-bg:color-mix(in srgb, var(--bg) 90%, transparent);
+      --keszul:var(--text-dim); --keszul-bg:color-mix(in srgb, var(--text) 4%, transparent); --keszul-border:color-mix(in srgb, var(--text) 22%, transparent);
+      --urlap-max:680px; --lista-max:1180px;
+    }
+    body{margin:0;background:#06070b;color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-base);line-height:var(--lh);}
+    a{color:var(--accent-link);text-decoration:underline;text-underline-offset:2px;}
+    a:hover{color:var(--text);}
+  </style>
+</helmet>
+
+<div style="display:flex;flex-direction:column;gap:var(--ter-13);padding:var(--ter-12);">
+
+  <div style="display:flex;flex-direction:column;gap:var(--ter-3);max-width:900px;">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.06em;">R-7a · ELSŐ BEÁLLÍTÁS · AZ AUDIT JAVÍTÁSAI · 2026-09-13</div>
+    <div style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h1);">Nyolc artboard</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);">Regisztráció, belépés, a három lépés és a kész lap. A cél: az első próbahírek előtt nincs arculati vagy technikai döntés. A szövegek a <span style="font-family:var(--font-code-active);font-size:var(--fs-sm);">data-fkulcs</span> attribútumban jelölt kulcsokból jönnek. Az R-7e skála értékeivel rajzolva (alapszöveg 16 px, mező 46 px, narancs csak figyelmeztetésre).</div>
+  </div>
+
+  <section data-screen-label="01">
+    <div style="display:flex;align-items:baseline;gap:var(--ter-8);margin-bottom:var(--ter-4);">
+      <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">01 · REGISZTRÁCIÓ · asztali 1440</div>
+      <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">két állapot: üres · üres beküldés hibákkal</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-9);">
+
+      <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--ter-7) var(--ter-11);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);">
+            <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+            <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+          </div>
+          <a href="#" data-fkulcs="nyitolap.belepes" style="font-size:var(--fs-sm);">Már van fiókom</a>
+        </div>
+        <div style="padding:var(--ter-13) var(--ter-11);display:flex;justify-content:center;">
+          <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-9);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <h1 data-fkulcs="fiok.reg_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Fiók létrehozása</h1>
+              <p data-fkulcs="fiok.reg_cel" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">Hozd létre a fiókod. Utána megadod, milyen hírek érdekelnek.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-9);">
+              <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span data-fkulcs="fiok.nev" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Neved</span>
+                <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">Például: Kovács Anna</span>
+              </label>
+              <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span data-fkulcs="fiok.email" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">E-mail-cím</span>
+                <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">nev@pelda.ro</span>
+              </label>
+              <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);">
+                  <span data-fkulcs="fiok.jelszo" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Jelszó</span>
+                  <a href="#" data-fkulcs="fiok.jelszo_mutatasa" style="font-size:var(--fs-sm);">Jelszó mutatása</a>
+                </span>
+                <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">••••••••••</span>
+                <span data-fkulcs="fiok.jelszo_sugo" style="font-size:var(--fs-sm);color:var(--text-dim);">Legalább 10 karakter. Több szót is használhatsz.</span>
+              </label>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-6);align-items:flex-start;">
+                <button type="button" data-fkulcs="fiok.reg_gomb" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Fiók létrehozása</button>
+                <p style="margin:var(--ter-0);font-size:var(--fs-sm);color:var(--text-dim);"><span data-fkulcs="fiok.reg_adatkezeles">A fiók létrehozásával elfogadod, hogyan kezeljük az adataidat:</span> <a href="#" data-fkulcs="nav.adatkezeles">Adatkezelés</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--ter-7) var(--ter-11);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);">
+            <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+            <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+          </div>
+          <a href="#" data-fkulcs="nyitolap.belepes" style="font-size:var(--fs-sm);">Már van fiókom</a>
+        </div>
+        <div style="padding:var(--ter-13) var(--ter-11);display:flex;justify-content:center;">
+          <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-9);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <h1 data-fkulcs="fiok.reg_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Fiók létrehozása</h1>
+              <p data-fkulcs="fiok.reg_cel" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">Hozd létre a fiókod. Utána megadod, milyen hírek érdekelnek.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-9);">
+              <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span data-fkulcs="fiok.nev" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Neved</span>
+                <span aria-invalid="true" style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--err-border);border-radius:var(--r-field);background:var(--err-bg);box-shadow:0 0 0 3px var(--focus-ring);color:var(--text-faint);"> </span>
+                <span data-fkulcs="hiba.nev_hianyzik" style="font-size:var(--fs-sm);color:var(--err-strong);">Add meg a neved.</span>
+                <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">a fókusz az első hibás mezőn</span>
+              </label>
+              <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span data-fkulcs="fiok.email" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">E-mail-cím</span>
+                <span aria-invalid="true" style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--err-border);border-radius:var(--r-field);background:var(--err-bg);color:var(--text-faint);"> </span>
+                <span data-fkulcs="hiba.email_hianyzik" style="font-size:var(--fs-sm);color:var(--err-strong);">Add meg az e-mail-címed.</span>
+              </label>
+              <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);">
+                  <span data-fkulcs="fiok.jelszo" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Jelszó</span>
+                  <a href="#" data-fkulcs="fiok.jelszo_mutatasa" style="font-size:var(--fs-sm);">Jelszó mutatása</a>
+                </span>
+                <span aria-invalid="true" style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--err-border);border-radius:var(--r-field);background:var(--err-bg);color:var(--text-faint);">•••••</span>
+                <span data-fkulcs="hiba.jelszo_rovid" style="font-size:var(--fs-sm);color:var(--err-strong);">Adj meg legalább 10 karakteres jelszót.</span>
+                <span data-fkulcs="fiok.jelszo_sugo" style="font-size:var(--fs-sm);color:var(--text-dim);">Legalább 10 karakter. Több szót is használhatsz.</span>
+              </label>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-6);align-items:flex-start;">
+                <button type="button" data-fkulcs="fiok.reg_gomb" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Fiók létrehozása</button>
+                <p style="margin:var(--ter-0);font-size:var(--fs-sm);color:var(--text-dim);"><span data-fkulcs="fiok.reg_adatkezeles">A fiók létrehozásával elfogadod, hogyan kezeljük az adataidat:</span> <a href="#" data-fkulcs="nav.adatkezeles">Adatkezelés</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section data-screen-label="02">
+    <div style="display:flex;align-items:baseline;gap:var(--ter-8);margin-bottom:var(--ter-4);">
+      <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">02 · BELÉPÉS · asztali 1440</div>
+      <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--warn);">DÖNTÉS 3.4 — A változat</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-9);">
+
+      <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--ter-7) var(--ter-11);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);">
+            <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+            <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+          </div>
+          <a href="#" data-fkulcs="nyitolap.regisztracio" style="font-size:var(--fs-sm);">Fiók létrehozása</a>
+        </div>
+        <div style="padding:var(--ter-13) var(--ter-11);display:flex;justify-content:center;">
+          <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-9);">
+            <h1 data-fkulcs="fiok.belepes_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Belépés</h1>
+            <div role="alert" style="display:flex;gap:var(--ter-5);padding:var(--ter-7);border:var(--bw) solid var(--err-border);border-radius:var(--r-block);background:var(--err-bg);">
+              <span data-fkulcs="hiba.rossz_paros" style="font-size:var(--fs-base);color:var(--text);">Az e-mail-cím vagy a jelszó nem megfelelő. Próbáld újra.</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-9);">
+              <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span data-fkulcs="fiok.email" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">E-mail-cím</span>
+                <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);">anna@pekseg.ro</span>
+                <span data-fkulcs="hiba.email_hianyzik" style="font-size:var(--fs-sm);color:var(--text-faint);">(hibás állapotban itt: „Add meg az e-mail-címed.”)</span>
+              </label>
+              <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);">
+                  <span data-fkulcs="fiok.jelszo" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Jelszó</span>
+                  <a href="#" data-fkulcs="fiok.jelszo_mutatasa" style="font-size:var(--fs-sm);">Jelszó mutatása</a>
+                </span>
+                <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">••••••••••</span>
+                <span data-fkulcs="hiba.jelszo_hianyzik" style="font-size:var(--fs-sm);color:var(--text-faint);">(hibás állapotban itt: „Add meg a jelszavad.”)</span>
+              </label>
+              <div style="display:flex;align-items:center;gap:var(--ter-9);flex-wrap:wrap;">
+                <button type="button" data-fkulcs="fiok.belepes_gomb" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Belépés</button>
+                <a href="#" data-fkulcs="fiok.elfelejtett_jelszo" style="font-size:var(--fs-sm);">Elfelejtetted a jelszavad?</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">02/B · JELSZÓ-VISSZAÁLLÍTÁS · asztali 1440 · DÖNTÉS 3.4 A</div>
+        <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--ter-7) var(--ter-11);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+              <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+            </div>
+            <a href="#" data-fkulcs="fiok.belepes_cim" style="font-size:var(--fs-sm);">Belépés</a>
+          </div>
+          <div style="padding:var(--ter-13) var(--ter-11);display:flex;justify-content:center;">
+            <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-7);">
+              <h1 data-fkulcs="fiok.visszaallitas_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Elfelejtett jelszó</h1>
+              <p data-fkulcs="fiok.visszaallitas_szoveg" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">A jelszót a rendszergazda állítja vissza. Írj neki: <span data-fkulcs="kozos.kapcsolat" style="color:var(--text);">{kapcsolat}</span></p>
+              <p style="margin:var(--ter-0);font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">a {kapcsolat} adat Vilmostól — amíg nincs, ez a lap nem kerül a felületre (kerdesek.md 1.)</p>
+              <a href="#" data-fkulcs="fiok.vissza_belepesre" style="font-size:var(--fs-base);">Vissza a belépéshez</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section data-screen-label="03">
+    <div style="display:flex;align-items:baseline;gap:var(--ter-8);margin-bottom:var(--ter-4);">
+      <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">03 · 1. LÉPÉS · BEMUTATKOZÁS · asztali 1440</div>
+      <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--warn);">DÖNTÉS 3.2 — A változat: „Mentés és vissza”</div>
+    </div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-9);padding:var(--ter-6) var(--ter-11);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+        <div style="display:flex;align-items:center;gap:var(--ter-7);min-width:0;">
+          <div aria-hidden="true" style="width:24px;height:24px;border-radius:var(--r-btn);background:var(--grad-primary);flex:none;"></div>
+          <div data-fkulcs="onboarding.lepes_1_fejlec" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);white-space:nowrap;">1/3 · Bemutatkozás</div>
+          <div aria-hidden="true" style="display:flex;gap:var(--ter-2);align-items:center;">
+            <span style="width:22px;height:3px;border-radius:2px;background:var(--primary-2);"></span>
+            <span style="width:22px;height:3px;border-radius:2px;background:var(--line);"></span>
+            <span style="width:22px;height:3px;border-radius:2px;background:var(--line);"></span>
+          </div>
+          <div data-fkulcs="onboarding.mentes_allapot" style="font-size:var(--fs-sm);color:var(--text-faint);white-space:nowrap;">Mentve 14:18</div>
+        </div>
+        <button type="button" data-fkulcs="onboarding.mentes_es_vissza" style="box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;white-space:nowrap;">Mentés és vissza</button>
+      </div>
+      <div style="padding:var(--ter-12) var(--ter-11) var(--ter-13);display:flex;justify-content:center;">
+        <div style="width:100%;max-width:1060px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:var(--ter-12);align-items:start;">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-9);min-width:0;">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <h1 data-fkulcs="onboarding1.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Mutasd be a szervezetet</h1>
+              <p data-fkulcs="onboarding1.bevezeto" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">Elég a weboldal címe vagy néhány mondat. Ebből készítünk egy javaslatot, amit átírhatsz.</p>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <span data-fkulcs="onboarding1.szervezet_neve" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">A szervezet neve</span>
+              <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);">Marosi Pékség</span>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <span data-fkulcs="onboarding1.weboldal" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Weboldal</span>
+              <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">marosipekseg.ro</span>
+              <span data-fkulcs="onboarding1.vagy" style="font-size:var(--fs-sm);color:var(--text-dim);">Ha nincs weboldal, írd le pár mondatban.</span>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <span data-fkulcs="onboarding1.mivel_foglalkoztok" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Mivel foglalkoztok?</span>
+              <span style="box-sizing:border-box;display:block;min-height:96px;padding:var(--ter-6) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">Például: pékségünk van Marosvásárhelyen, helyi családoknak sütünk.</span>
+              <span data-fkulcs="onboarding1.mivel_sugo" style="font-size:var(--fs-sm);color:var(--text-dim);">Például: pékségünk van Marosvásárhelyen, helyi családoknak sütünk.</span>
+            </label>
+            <div style="display:flex;align-items:center;gap:var(--ter-9);flex-wrap:wrap;">
+              <button type="button" data-fkulcs="onboarding1.javaslat_gomb" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Javaslat készítése</button>
+              <a href="#" data-fkulcs="onboarding.tovabb_lepes2" style="font-size:var(--fs-sm);">Tovább a kommunikációhoz</a>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-7);border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);padding:var(--pad-block);">
+            <div data-fkulcs="onboarding1.elonezet_cim" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--text-mut);">Javaslat</div>
+            <p data-fkulcs="onboarding1.elonezet_ures" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-dim);">Itt jelenik meg a javaslat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:var(--ter-5);max-width:1060px;font-size:var(--fs-sm);color:var(--text-dim);">Innen elmarad: dokumentumfeltöltés, logó, kézikönyv, referenciák, arculati forrás — mind a Szervezet adatai lapra kerül (R-7c 10). Kész javaslatnál az előnézet a mai tartalmat mutatja, szerkeszthető szövegként.</div>
+  </section>
+
+  <section data-screen-label="04">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">04 · 1. LÉPÉS · telefon 390</div>
+    <div style="width:390px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-5);padding:var(--ter-6) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);">
+        <div style="display:flex;flex-direction:column;gap:var(--ter-1);min-width:0;">
+          <div data-fkulcs="onboarding.lepes_1_fejlec" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-md);">1/3 · Bemutatkozás</div>
+          <div data-fkulcs="onboarding.mentes_allapot" style="font-size:var(--fs-xs);color:var(--text-faint);">Mentve 14:18</div>
+        </div>
+        <button type="button" data-fkulcs="onboarding.mentes_es_vissza_rovid" style="box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;white-space:nowrap;">Mentés</button>
+      </div>
+      <div style="padding:var(--ter-9) var(--ter-7);display:flex;flex-direction:column;gap:var(--ter-8);">
+        <h1 data-fkulcs="onboarding1.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:22px;">Mutasd be a szervezetet</h1>
+        <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+          <span data-fkulcs="onboarding1.szervezet_neve" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">A szervezet neve</span>
+          <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);">Marosi Pékség</span>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+          <span data-fkulcs="onboarding1.weboldal" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Weboldal</span>
+          <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">marosipekseg.ro</span>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:var(--ter-3);">
+          <span data-fkulcs="onboarding1.mivel_foglalkoztok" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Mivel foglalkoztok?</span>
+          <span style="box-sizing:border-box;display:block;min-height:84px;padding:var(--ter-6) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">Például: pékségünk van Marosvásárhelyen…</span>
+        </label>
+        <button type="button" data-fkulcs="onboarding1.javaslat_gomb" style="box-sizing:border-box;width:100%;min-height:var(--control-min);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Javaslat készítése</button>
+        <button type="button" style="box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;width:100%;min-height:var(--control-min);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-base);cursor:pointer;">
+          <span data-fkulcs="onboarding1.elonezet_megnyitas">Javaslat megnézése</span>
+          <span aria-hidden="true" style="color:var(--text-dim);">▾</span>
+        </button>
+      </div>
+    </div>
+    <div style="margin-top:var(--ter-5);max-width:390px;font-size:var(--fs-sm);color:var(--text-dim);">Egy oszlop, az előnézet összecsukva; a fő gomb az első képernyőn látszik. Vízszintes görgetés nincs.</div>
+  </section>
+
+  <section data-screen-label="05">
+    <div style="display:flex;align-items:baseline;gap:var(--ter-8);margin-bottom:var(--ter-4);">
+      <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">05 · 2. LÉPÉS · KOMMUNIKÁCIÓ · asztali 1440</div>
+      <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">A készül · B kész · C nem válaszolt</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-9);">
+
+      <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-9);padding:var(--ter-6) var(--ter-11);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <div style="display:flex;align-items:center;gap:var(--ter-7);">
+            <div aria-hidden="true" style="width:24px;height:24px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+            <div data-fkulcs="onboarding.lepes_2_fejlec" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">2/3 · Kommunikáció</div>
+            <div aria-hidden="true" style="display:flex;gap:var(--ter-2);align-items:center;">
+              <span style="width:22px;height:3px;border-radius:2px;background:var(--primary-2);"></span>
+              <span style="width:22px;height:3px;border-radius:2px;background:var(--primary-2);"></span>
+              <span style="width:22px;height:3px;border-radius:2px;background:var(--line);"></span>
+            </div>
+            <div data-fkulcs="onboarding.mentes_allapot" style="font-size:var(--fs-sm);color:var(--text-faint);">Mentve 14:22</div>
+          </div>
+          <button type="button" data-fkulcs="onboarding.mentes_es_vissza" style="box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;">Mentés és vissza</button>
+        </div>
+        <div style="padding:var(--ter-12) var(--ter-11) var(--ter-13);display:flex;justify-content:center;">
+          <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-10);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <h1 data-fkulcs="onboarding2.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Kiknek és hogyan írunk?</h1>
+              <p data-fkulcs="onboarding2.halasztas" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">Amit most nem tudsz, később is kitöltheted.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-10);">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--ter-6);">
+                  <span data-fkulcs="onboarding2.kiknek" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Kiknek szólnak a tartalmaid?</span>
+                  <a href="#" data-fkulcs="onboarding.kesobbre" style="font-size:var(--fs-xs);">később</a>
+                </div>
+                <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">Például: helyi családok, kisgyermekes szülők</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--ter-6);">
+                  <span data-fkulcs="onboarding2.cel" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Mit szeretnél elérni?</span>
+                  <a href="#" data-fkulcs="onboarding.kesobbre" style="font-size:var(--fs-xs);">később</a>
+                </div>
+                <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;">
+                  <span data-fkulcs="onboarding2.cel_tajekoztat" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Tájékoztatni</span>
+                  <span data-fkulcs="onboarding2.cel_erdeklodo" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Érdeklődőket szerezni</span>
+                  <span data-fkulcs="onboarding2.sajat" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) dashed var(--line-dash);border-radius:var(--r-btn);font-size:var(--fs-sm);color:var(--text-mut);">+ saját</span>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+                <span data-fkulcs="onboarding2.nyelvek" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Milyen nyelven írjunk?</span>
+                <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;align-items:center;">
+                  <span data-fkulcs="kozos.magyar" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;gap:var(--ter-4);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--primary-2);border-radius:var(--r-btn);background:color-mix(in srgb, var(--primary-2) 14%, transparent);font-size:var(--fs-sm);">Magyar</span>
+                  <span data-fkulcs="kozos.roman" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Román</span>
+                  <span data-fkulcs="kozos.angol" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Angol</span>
+                  <span data-fkulcs="onboarding2.tovabbi_nyelvek" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;gap:var(--ter-4);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);color:var(--text-mut);">További nyelvek ▾</span>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+                <span data-fkulcs="onboarding2.stilus" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Milyen stílusban írjunk?</span>
+                <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;">
+                  <span data-fkulcs="onboarding2.stilus_kozvetlen" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Közvetlen</span>
+                  <span data-fkulcs="onboarding2.stilus_targyilagos" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Tárgyilagos</span>
+                  <span data-fkulcs="onboarding2.sajat" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) dashed var(--line-dash);border-radius:var(--r-btn);font-size:var(--fs-sm);color:var(--text-mut);">+ saját</span>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-5);border-top:var(--bw) solid var(--line-soft);padding-top:var(--ter-9);">
+                <div style="display:flex;align-items:center;gap:var(--ter-5);">
+                  <span aria-hidden="true" style="width:120px;height:4px;border-radius:2px;background:var(--field-bg);overflow:hidden;display:block;"><span style="display:block;width:45%;height:100%;background:var(--primary-2);"></span></span>
+                  <span data-fkulcs="onboarding2.javaslat_keszul" style="font-size:var(--fs-sm);color:var(--text-mut);">Készítjük a javaslatokat… A mezőket közben is szerkesztheted.</span>
+                </div>
+              </div>
+              <button type="button" data-fkulcs="onboarding.mentes_es_tovabb" style="align-self:flex-start;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Mentés és tovább</button>
+            </div>
+          </div>
+        </div>
+        <div style="padding:var(--ter-5) var(--ter-11) var(--ter-9);font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">A állapot — a haladásjelző a mezők alatt, a mezők szerkeszthetők</div>
+      </div>
+
+      <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+        <div style="padding:var(--ter-12) var(--ter-11);display:flex;justify-content:center;">
+          <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-9);">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <span data-fkulcs="jelzes.javaslat" style="display:inline-flex;align-items:center;padding:var(--ter-1) var(--ter-5);border-radius:var(--r-badge);background:var(--src-ai-bg);color:var(--src-ai);font-size:var(--fs-xs);">javaslat</span>
+              <span data-fkulcs="onboarding2.javaslat_kesz" style="font-size:var(--fs-sm);color:var(--text-mut);">Elkészültek a javaslatok. Írd át, ahol nem stimmel.</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <span data-fkulcs="onboarding2.kiknek" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Kiknek szólnak a tartalmaid?</span>
+              <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);">Helyi családok Marosvásárhelyen és környékén</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <span data-fkulcs="onboarding2.cel" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Mit szeretnél elérni?</span>
+              <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;">
+                <span style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--primary-2);border-radius:var(--r-btn);background:color-mix(in srgb, var(--primary-2) 14%, transparent);font-size:var(--fs-sm);">Tájékoztatni</span>
+                <span style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Érdeklődőket szerezni</span>
+              </div>
+            </div>
+            <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">B állapot — a javaslatok megjöttek; az AI-eredet semleges jelvénnyel (nem narancs)</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+        <div style="padding:var(--ter-12) var(--ter-11);display:flex;justify-content:center;">
+          <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-9);">
+            <div style="display:flex;align-items:center;gap:var(--ter-7);flex-wrap:wrap;padding:var(--ter-7);border:var(--bw) solid var(--warn-border);border-radius:var(--r-block);background:var(--warn-bg);">
+              <span data-fkulcs="onboarding2.javaslat_hiba" style="font-size:var(--fs-base);">A javaslat most nem készült el. Kitöltheted kézzel is.</span>
+              <button type="button" data-fkulcs="kozos.ujraprobalas" style="box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;">Újrapróbálás</button>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <span data-fkulcs="onboarding2.kiknek" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Kiknek szólnak a tartalmaid?</span>
+              <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">Például: helyi családok, kisgyermekes szülők</span>
+            </div>
+            <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">C állapot — az AI nem válaszolt; a kézi kitöltés és a Mentés és tovább megy</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section data-screen-label="06">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">06 · 3. LÉPÉS · ELLENŐRZÉS · asztali 1440</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-9);padding:var(--ter-6) var(--ter-11);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+        <div style="display:flex;align-items:center;gap:var(--ter-7);">
+          <div aria-hidden="true" style="width:24px;height:24px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+          <div data-fkulcs="onboarding.lepes_3_fejlec" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">3/3 · Ellenőrzés</div>
+          <div aria-hidden="true" style="display:flex;gap:var(--ter-2);align-items:center;">
+            <span style="width:22px;height:3px;border-radius:2px;background:var(--primary-2);"></span>
+            <span style="width:22px;height:3px;border-radius:2px;background:var(--primary-2);"></span>
+            <span style="width:22px;height:3px;border-radius:2px;background:var(--primary-2);"></span>
+          </div>
+          <div data-fkulcs="onboarding.mentes_allapot" style="font-size:var(--fs-sm);color:var(--text-faint);">Mentve 14:26</div>
+        </div>
+        <button type="button" data-fkulcs="onboarding.mentes_es_vissza" style="box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;">Mentés és vissza</button>
+      </div>
+      <div style="padding:var(--ter-12) var(--ter-11) var(--ter-13);display:flex;justify-content:center;">
+        <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-10);">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+            <h1 data-fkulcs="onboarding3.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Nézd át az adatokat.</h1>
+            <p data-fkulcs="onboarding3.bevezeto" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">Nézd át a javaslatot, és javítsd, ha szükséges.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-0);border:var(--bw) solid var(--line);border-radius:var(--r-block);overflow:hidden;">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);padding:var(--ter-9);border-bottom:var(--bw) solid var(--line-soft);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);">
+                <span data-fkulcs="onboarding1.szervezet_neve" style="font-size:var(--fs-sm);color:var(--text-mut);">A szervezet neve</span>
+                <span data-fkulcs="jelzes.te_adtad" style="padding:var(--ter-1) var(--ter-5);border-radius:var(--r-badge);background:var(--src-user-bg);color:var(--src-user);font-size:var(--fs-xs);">te adtad meg</span>
+              </div>
+              <span style="font-size:var(--fs-base);">Marosi Pékség</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);padding:var(--ter-9);border-bottom:var(--bw) solid var(--line-soft);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);">
+                <span data-fkulcs="onboarding3.bemutatkozas" style="font-size:var(--fs-sm);color:var(--text-mut);">Bemutatkozás</span>
+                <span style="display:flex;align-items:center;gap:var(--ter-5);">
+                  <span data-fkulcs="jelzes.javaslat" style="padding:var(--ter-1) var(--ter-5);border-radius:var(--r-badge);background:var(--src-ai-bg);color:var(--src-ai);font-size:var(--fs-xs);">javaslat</span>
+                  <a href="#" data-fkulcs="onboarding3.reszlet" style="font-size:var(--fs-xs);">részletek</a>
+                </span>
+              </div>
+              <span style="font-size:var(--fs-base);">Kézműves pékség Marosvásárhelyen, napi friss kenyérrel és helyben sült süteményekkel. Helyi családoknak dolgozunk, reggel hattól.</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);padding:var(--ter-9);border-bottom:var(--bw) solid var(--line-soft);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);">
+                <span data-fkulcs="onboarding2.kiknek" style="font-size:var(--fs-sm);color:var(--text-mut);">Kiknek szólnak a tartalmaid?</span>
+                <span data-fkulcs="jelzes.javaslat" style="padding:var(--ter-1) var(--ter-5);border-radius:var(--r-badge);background:var(--src-ai-bg);color:var(--src-ai);font-size:var(--fs-xs);">javaslat</span>
+              </div>
+              <span style="font-size:var(--fs-base);">Helyi családok Marosvásárhelyen és környékén</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-5);padding:var(--ter-9);">
+              <span data-fkulcs="onboarding2.nyelvek" style="font-size:var(--fs-sm);color:var(--text-mut);">Milyen nyelven írjunk?</span>
+              <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;align-items:center;">
+                <span data-fkulcs="kozos.magyar" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--primary-2);border-radius:var(--r-btn);background:color-mix(in srgb, var(--primary-2) 14%, transparent);font-size:var(--fs-sm);">Magyar</span>
+                <span data-fkulcs="kozos.roman" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Román</span>
+                <span data-fkulcs="onboarding2.tovabbi_nyelvek" style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);color:var(--text-mut);">További nyelvek ▾</span>
+              </div>
+              <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-faint);">ugyanaz a választó, mint a 2. lépésben</span>
+            </div>
+          </div>
+          <p data-fkulcs="onboarding3.arculat_kesobb" style="margin:var(--ter-0);font-size:var(--fs-sm);color:var(--text-dim);">Az arculatot később, a Szervezet adatai lapon állíthatod be.</p>
+          <button type="button" data-fkulcs="onboarding.mentes_es_tovabb" style="align-self:flex-start;box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Mentés és tovább</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:var(--ter-5);max-width:1060px;font-size:var(--fs-sm);color:var(--text-dim);">Elmarad: a jobb oldali profil-előnézet és az egész arculat-blokk (színek, betűk, mintakártya, feltöltők) — az R-7c 10. artboardjára költözik.</div>
+  </section>
+
+  <section data-screen-label="07">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">07 · KÉSZ · asztali 1440</div>
+    <div style="width:1440px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+      <div style="display:flex;align-items:center;gap:var(--ter-7);padding:var(--ter-6) var(--ter-11);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+        <div aria-hidden="true" style="width:24px;height:24px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+        <div data-fkulcs="onboarding.kesz_fejlec" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Első beállítás</div>
+      </div>
+      <div style="padding:var(--ter-14) var(--ter-11);display:flex;justify-content:center;">
+        <div style="width:100%;max-width:var(--urlap-max);display:flex;flex-direction:column;gap:var(--ter-9);">
+          <h1 data-fkulcs="onboarding.kesz_cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Kész — a szervezet adatai mentve.</h1>
+          <p data-fkulcs="onboarding.kesz_szoveg" style="margin:var(--ter-0);font-size:var(--fs-base);color:var(--text-mut);">Következő lépés: add meg, mely hírportálokat figyeljük, és mely témák érdekelnek.</p>
+          <div style="display:flex;align-items:center;gap:var(--ter-7);flex-wrap:wrap;">
+            <button type="button" data-fkulcs="onboarding.kesz_gomb_forrasok" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Hírforrások megadása</button>
+            <button type="button" data-fkulcs="onboarding.kesz_gomb_profil" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-base);cursor:pointer;">Szervezet adatai megnézése</button>
+          </div>
+          <p data-fkulcs="onboarding.kesz_arculat" style="margin:var(--ter-0);font-size:var(--fs-sm);color:var(--text-dim);">Az arculatot (logó, színek) később, a Szervezet adatai lapon adhatod meg.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="08">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);margin-bottom:var(--ter-4);">08 · 2. ÉS 3. LÉPÉS · telefon 390</div>
+    <div style="display:flex;gap:var(--ter-10);flex-wrap:wrap;">
+
+      <div style="width:390px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);position:relative;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-5);padding:var(--ter-6) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);">
+          <div data-fkulcs="onboarding.lepes_2_fejlec" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-md);">2/3 · Kommunikáció</div>
+          <button type="button" data-fkulcs="onboarding.mentes_es_vissza_rovid" style="box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;">Mentés</button>
+        </div>
+        <div style="padding:var(--ter-9) var(--ter-7) 88px;display:flex;flex-direction:column;gap:var(--ter-9);">
+          <p data-fkulcs="onboarding2.halasztas" style="margin:var(--ter-0);font-size:var(--fs-sm);color:var(--text-mut);">Amit most nem tudsz, később is kitöltheted.</p>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+            <span data-fkulcs="onboarding2.kiknek" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Kiknek szólnak a tartalmaid?</span>
+            <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-0) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">Például: helyi családok</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+            <span data-fkulcs="onboarding2.cel" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Mit szeretnél elérni?</span>
+            <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;">
+              <span style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Tájékoztatni</span>
+              <span style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Érdeklődőket szerezni</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+            <span data-fkulcs="onboarding2.nyelvek" style="font-size:var(--fs-base);font-weight:var(--fw-strong);">Milyen nyelven írjunk?</span>
+            <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;">
+              <span style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--primary-2);border-radius:var(--r-btn);background:color-mix(in srgb, var(--primary-2) 14%, transparent);font-size:var(--fs-sm);">Magyar</span>
+              <span style="min-height:var(--control-min-s);display:inline-flex;align-items:center;padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--field-border);border-radius:var(--r-btn);background:var(--field-bg);font-size:var(--fs-sm);">Román</span>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:var(--ter-6) var(--ter-7);border-top:var(--bw) solid var(--line);background:var(--bg-elev);">
+          <button type="button" data-fkulcs="onboarding.mentes_es_tovabb" style="box-sizing:border-box;width:100%;min-height:var(--control-min);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Mentés és tovább</button>
+        </div>
+      </div>
+
+      <div style="width:390px;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);position:relative;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-5);padding:var(--ter-6) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);">
+          <div data-fkulcs="onboarding.lepes_3_fejlec" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-md);">3/3 · Ellenőrzés</div>
+          <button type="button" data-fkulcs="onboarding.mentes_es_vissza_rovid" style="box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;">Mentés</button>
+        </div>
+        <div style="padding:var(--ter-9) var(--ter-7) 88px;display:flex;flex-direction:column;gap:var(--ter-8);">
+          <h1 data-fkulcs="onboarding3.cim" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:20px;">Nézd át az adatokat.</h1>
+          <div style="display:flex;flex-direction:column;border:var(--bw) solid var(--line);border-radius:var(--r-block);overflow:hidden;">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-2);padding:var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-5);">
+                <span data-fkulcs="onboarding1.szervezet_neve" style="font-size:var(--fs-xs);color:var(--text-mut);">A szervezet neve</span>
+                <span data-fkulcs="jelzes.te_adtad" style="padding:var(--ter-1) var(--ter-4);border-radius:var(--r-badge);background:var(--src-user-bg);color:var(--src-user);font-size:var(--fs-xs);">te adtad meg</span>
+              </div>
+              <span style="font-size:var(--fs-base);">Marosi Pékség</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-2);padding:var(--ter-7);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-5);">
+                <span data-fkulcs="onboarding3.bemutatkozas" style="font-size:var(--fs-xs);color:var(--text-mut);">Bemutatkozás</span>
+                <span data-fkulcs="jelzes.javaslat" style="padding:var(--ter-1) var(--ter-4);border-radius:var(--r-badge);background:var(--src-ai-bg);color:var(--src-ai);font-size:var(--fs-xs);">javaslat</span>
+              </div>
+              <span style="font-size:var(--fs-base);">Kézműves pékség Marosvásárhelyen, napi friss kenyérrel.</span>
+            </div>
+          </div>
+          <p data-fkulcs="onboarding3.arculat_kesobb" style="margin:var(--ter-0);font-size:var(--fs-sm);color:var(--text-dim);">Az arculatot később, a Szervezet adatai lapon állíthatod be.</p>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:var(--ter-6) var(--ter-7);border-top:var(--bw) solid var(--line);background:var(--bg-elev);">
+          <button type="button" data-fkulcs="onboarding.mentes_es_tovabb" style="box-sizing:border-box;width:100%;min-height:var(--control-min);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Mentés és tovább</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,706 @@
+[
+ {
+  "lap": "01-belepes",
+  "nezet": "asztali",
+  "ut": "/belepes",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 11,
+   "cim": "Belépés",
+   "fo": [
+    "Belépés"
+   ],
+   "melyseg": 1,
+   "melyPelda": "E-mail-cím\nJelszó\nJelszó mutatása\nBelépés",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "01-belepes-asztali.png"
+ },
+ {
+  "lap": "01-belepes",
+  "nezet": "telefon",
+  "ut": "/belepes",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 15,
+   "cim": "Belépés",
+   "fo": [
+    "Belépés"
+   ],
+   "melyseg": 1,
+   "melyPelda": "E-mail-cím\nJelszó\nJelszó mutatása",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "01-belepes-telefon.png"
+ },
+ {
+  "lap": "01b-belepes-hiba",
+  "nezet": "asztali",
+  "ut": "/belepes",
+  "zold": false,
+  "hibak": [
+   "T7 baj-jelzés gomb nélkül: 1"
+  ],
+  "jelzesek": [
+   "T7 figyelmeztető szín 2 elemen — csak valódi bajnál szabad"
+  ],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 24,
+   "cim": "Belépés",
+   "fo": [
+    "Belépés"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Nem találunk ilyen e-mail-címet, vagy nem jó a jel",
+   "figyel": 2,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 1,
+   "kicsiFo": 0
+  },
+  "kep": "01b-belepes-hiba-asztali.png"
+ },
+ {
+  "lap": "01b-belepes-hiba",
+  "nezet": "telefon",
+  "ut": "/belepes",
+  "zold": false,
+  "hibak": [
+   "T7 baj-jelzés gomb nélkül: 1"
+  ],
+  "jelzesek": [
+   "T7 figyelmeztető szín 2 elemen — csak valódi bajnál szabad"
+  ],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 28,
+   "cim": "Belépés",
+   "fo": [
+    "Belépés"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Nem találunk ilyen e-mail-címet, vagy nem jó a jel",
+   "figyel": 2,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 1,
+   "kicsiFo": 0
+  },
+  "kep": "01b-belepes-hiba-telefon.png"
+ },
+ {
+  "lap": "02a-elso-beallitas",
+  "nezet": "asztali",
+  "ut": "/onboarding",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Mit kell tudnunk rólatok?",
+   "fo": [
+    "Készítsük el"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Név\nWeboldal — ha van\nNincs weboldalunk — leírom p",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "02a-elso-beallitas-asztali.png"
+ },
+ {
+  "lap": "02a-elso-beallitas",
+  "nezet": "telefon",
+  "ut": "/onboarding",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 36,
+   "cim": "Mit kell tudnunk rólatok?",
+   "fo": [
+    "Készítsük el"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Név\nWeboldal — ha van\nNincs weboldalunk — leírom p",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "02a-elso-beallitas-telefon.png"
+ },
+ {
+  "lap": "02a2-keszitjuk",
+  "nezet": "asztali",
+  "ut": "/onboarding",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Készítjük…",
+   "nyugtato": "Kb. fél perc — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 35,
+   "cim": "Készítjük a javaslatot…",
+   "fo": [
+    "Készítjük…"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "02a2-keszitjuk-asztali.png"
+ },
+ {
+  "lap": "02a2-keszitjuk",
+  "nezet": "telefon",
+  "ut": "/onboarding",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Készítjük…",
+   "nyugtato": "Kb. fél perc — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 35,
+   "cim": "Készítjük a javaslatot…",
+   "fo": [
+    "Készítjük…"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "02a2-keszitjuk-telefon.png"
+ },
+ {
+  "lap": "02b-atnezes",
+  "nezet": "asztali",
+  "ut": "/onboarding",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 46,
+   "cim": "Nézd át, és indulhat.",
+   "fo": [
+    "Jóváhagyom, és indul a hírgyűjtés"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Rólatok\nÁtírom\nMivel foglalkoztok?\nTérkövezés, udv",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "02b-atnezes-asztali.png"
+ },
+ {
+  "lap": "02b-atnezes",
+  "nezet": "telefon",
+  "ut": "/onboarding",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 32,
+   "cim": "Nézd át, és indulhat.",
+   "fo": [
+    "Jóváhagyom, és indul a hírgyűjtés"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Rólatok\nÁtírom\nMivel foglalkoztok?\nTérkövezés, udv",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "02b-atnezes-telefon.png"
+ },
+ {
+  "lap": "05-hir",
+  "nezet": "asztali",
+  "ut": "/hirfigyelo/hir/1ebabd48-754f-4061-a601-709dbbe28d32",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 30,
+   "cim": "Ebből jó poszt lehet",
+   "fo": [
+    "Készíts belőle posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "e-nepujsag.ro · okt. 10. 12:35\n\n···\nRekordszámú cs",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "05-hir-asztali.png"
+ },
+ {
+  "lap": "05-hir",
+  "nezet": "telefon",
+  "ut": "/hirfigyelo/hir/1ebabd48-754f-4061-a601-709dbbe28d32",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 30,
+   "cim": "Ebből jó poszt lehet",
+   "fo": [
+    "Készíts belőle posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "e-nepujsag.ro · okt. 10. 12:35\n\n···\nRekordszámú cs",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "05-hir-telefon.png"
+ },
+ {
+  "lap": "05w-hir-irjuk",
+  "nezet": "asztali",
+  "ut": "/hirfigyelo/hir/1ebabd48-754f-4061-a601-709dbbe28d32",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Írjuk a posztot…",
+   "nyugtato": "Pár másodperc — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 30,
+   "cim": "Ebből jó poszt lehet",
+   "fo": [
+    "Írjuk a posztot…"
+   ],
+   "melyseg": 1,
+   "melyPelda": "e-nepujsag.ro · okt. 10. 12:35\n\n···\nRekordszámú cs",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "05w-hir-irjuk-asztali.png"
+ },
+ {
+  "lap": "05w-hir-irjuk",
+  "nezet": "telefon",
+  "ut": "/hirfigyelo/hir/1ebabd48-754f-4061-a601-709dbbe28d32",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Írjuk a posztot…",
+   "nyugtato": "Pár másodperc — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 30,
+   "cim": "Ebből jó poszt lehet",
+   "fo": [
+    "Írjuk a posztot…"
+   ],
+   "melyseg": 1,
+   "melyPelda": "e-nepujsag.ro · okt. 10. 12:35\n\n···\nRekordszámú cs",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "05w-hir-irjuk-telefon.png"
+ },
+ {
+  "lap": "11a-iranytu-ures",
+  "nezet": "asztali",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 38,
+   "cim": "Kérd, és megírjuk a céljaitokat",
+   "fo": [
+    "Kérek javaslatot"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11a-iranytu-ures-asztali.png"
+ },
+ {
+  "lap": "11a-iranytu-ures",
+  "nezet": "telefon",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 38,
+   "cim": "Kérd, és megírjuk a céljaitokat",
+   "fo": [
+    "Kérek javaslatot"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11a-iranytu-ures-telefon.png"
+ },
+ {
+  "lap": "11a2-iranytu-irjuk",
+  "nezet": "asztali",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Írjuk az iránytűtöket…",
+   "nyugtato": "Eltart egy kicsit — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 18,
+   "cim": "Most írjuk a céljaitokat",
+   "fo": [
+    "Írjuk az iránytűtöket…"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11a2-iranytu-irjuk-asztali.png"
+ },
+ {
+  "lap": "11a2-iranytu-irjuk",
+  "nezet": "telefon",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Írjuk az iránytűtöket…",
+   "nyugtato": "Eltart egy kicsit — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 18,
+   "cim": "Most írjuk a céljaitokat",
+   "fo": [
+    "Írjuk az iránytűtöket…"
+   ],
+   "melyseg": 0,
+   "melyPelda": "",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11a2-iranytu-irjuk-telefon.png"
+ },
+ {
+  "lap": "11b-iranytu-tervezet",
+  "nezet": "asztali",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 22,
+   "cim": "Ha jó így, hagyd jóvá",
+   "fo": [
+    "Jóváhagyom"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Célok\nÁtírom\n20 új udvar-megrendelés a tavaszi sze",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11b-iranytu-tervezet-asztali.png"
+ },
+ {
+  "lap": "11b-iranytu-tervezet",
+  "nezet": "telefon",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 22,
+   "cim": "Ha jó így, hagyd jóvá",
+   "fo": [
+    "Jóváhagyom"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Célok\nÁtírom\n20 új udvar-megrendelés a tavaszi sze",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11b-iranytu-tervezet-telefon.png"
+ },
+ {
+  "lap": "11c-iranytu-otletek",
+  "nezet": "asztali",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 45,
+   "cim": "Ezekről érdemes most posztolni",
+   "fo": [
+    "Készíts belőle posztot"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Kampány · okt. 1. – nov. 30.\n\nŐszi felmérés: tavas",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11c-iranytu-otletek-asztali.png"
+ },
+ {
+  "lap": "11c-iranytu-otletek",
+  "nezet": "telefon",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": null,
+  "meres": {
+   "szavak": 34,
+   "cim": "Ezekről érdemes most posztolni",
+   "fo": [
+    "Posztot írunk az elsőről"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Kampány · okt. 1. – nov. 30.\n\nŐszi felmérés: tavas",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11c-iranytu-otletek-telefon.png"
+ },
+ {
+  "lap": "11c2-iranytu-irjuk",
+  "nezet": "asztali",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Írjuk a posztot…",
+   "nyugtato": "Pár másodperc — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 51,
+   "cim": "Ezekről érdemes most posztolni",
+   "fo": [
+    "Írjuk a posztot…"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Kampány · okt. 1. – nov. 30.\n\nŐszi felmérés: tavas",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11c2-iranytu-irjuk-asztali.png"
+ },
+ {
+  "lap": "11c2-iranytu-irjuk",
+  "nezet": "telefon",
+  "ut": "/iranytu",
+  "zold": true,
+  "hibak": [],
+  "jelzesek": [],
+  "dolgozik": {
+   "disabled": true,
+   "busy": "true",
+   "porgo": true,
+   "szoveg": "Írjuk a posztot…",
+   "nyugtato": "Pár másodperc — addig nincs teendőd."
+  },
+  "meres": {
+   "szavak": 39,
+   "cim": "Ezekről érdemes most posztolni",
+   "fo": [
+    "Írjuk a posztot…"
+   ],
+   "melyseg": 1,
+   "melyPelda": "Kampány · okt. 1. – nov. 30.\n\nŐszi felmérés: tavas",
+   "figyel": 0,
+   "vizszintes": false,
+   "takar": [],
+   "vanJeloles": true,
+   "vanFoJel": true,
+   "infoHiba": 0,
+   "bajGombNelkul": 0,
+   "kicsiFo": 0
+  },
+  "kep": "11c2-iranytu-irjuk-telefon.png"
+ }
+]

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root,[data-sema="ejkek"]{
+      --bg:#0c0d13; --bg-elev:#12141c; --text:#e8ebf1; --text-mut:#9aa3b2; --text-dim:#7a8496; --text-faint:#6b7484;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff; --accent:#ff4520; --accent-text:#ff7a55; --accent-link:var(--primary-2);
+      --ok:#7fe0a0; --err:#ffb3a3; --focus:#8a98ff; --header-bg:#10121a; --vaszon:#06070b;
+      --grad-primary:linear-gradient(120deg,#5563ee,#a06ff6); --fo-gomb-bg:var(--grad-primary); --lap-bg:var(--bg);
+      --line:color-mix(in srgb, var(--text) 10%, transparent); --line-soft:color-mix(in srgb, var(--text) 7%, transparent);
+      --field-bg:color-mix(in srgb, var(--text) 5%, transparent); --field-border:color-mix(in srgb, var(--text) 14%, transparent);
+      --panel-soft-2:color-mix(in srgb, var(--text) 6%, transparent);
+      --btn-ghost-bg:transparent; --btn-ghost-border:color-mix(in srgb, var(--text) 18%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 9%, transparent); --warn-border:color-mix(in srgb, var(--accent-text) 40%, transparent);
+      --ok-bg:color-mix(in srgb, var(--ok) 12%, transparent);
+    }
+    [data-sema="vilagos"]{
+      --bg:#f6f6f8; --bg-elev:#ffffff; --text:#1a1c24; --text-mut:#535a68; --text-dim:#6f7684; --text-faint:#6f7684;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#6a79ea; --accent:#d8471f; --accent-text:#b93c19; --accent-link:var(--primary);
+      --ok:#25764a; --err:#c0392b; --focus:#4f5fd6; --header-bg:#ffffff; --vaszon:#e9eaee;
+      --grad-primary:var(--primary); --fo-gomb-bg:var(--primary); --lap-bg:var(--bg);
+      --line:color-mix(in srgb, var(--text) 12%, transparent); --line-soft:color-mix(in srgb, var(--text) 8%, transparent);
+      --field-bg:#ffffff; --field-border:color-mix(in srgb, var(--text) 18%, transparent);
+      --panel-soft-2:color-mix(in srgb, var(--text) 7%, transparent);
+      --btn-ghost-bg:#ffffff; --btn-ghost-border:color-mix(in srgb, var(--text) 20%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 7%, transparent); --warn-border:color-mix(in srgb, var(--accent) 35%, transparent);
+      --ok-bg:color-mix(in srgb, var(--ok) 10%, transparent);
+    }
+    [data-sema="sotet"]{
+      --bg:#1a1a1a; --bg-elev:#262626; --text:#ededed; --text-mut:#ababab; --text-dim:#949494; --text-faint:#8a8a8a;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff; --accent:#ff4520; --accent-text:#ff7a55; --accent-link:#c9ccd2;
+      --ok:#7fe0a0; --err:#ffb3a3; --focus:#c9ccd2; --header-bg:#212121; --vaszon:#111111;
+      --grad-primary:var(--primary); --fo-gomb-bg:var(--primary); --lap-bg:var(--bg);
+      --line:color-mix(in srgb, var(--text) 11%, transparent); --line-soft:color-mix(in srgb, var(--text) 7%, transparent);
+      --field-bg:color-mix(in srgb, var(--text) 5%, transparent); --field-border:color-mix(in srgb, var(--text) 16%, transparent);
+      --panel-soft-2:color-mix(in srgb, var(--text) 7%, transparent);
+      --btn-ghost-bg:transparent; --btn-ghost-border:color-mix(in srgb, var(--text) 20%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 9%, transparent); --warn-border:color-mix(in srgb, var(--accent-text) 40%, transparent);
+      --ok-bg:color-mix(in srgb, var(--ok) 12%, transparent);
+    }
+    [data-sema="vegyes"]{
+      --bg:#f3f4f7; --bg-elev:#ffffff; --text:#1a1c24; --text-mut:#535a68; --text-dim:#6f7684; --text-faint:#6f7684;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#6a79ea; --accent:#d8471f; --accent-text:#b93c19; --accent-link:var(--primary);
+      --ok:#25764a; --err:#c0392b; --focus:#4f5fd6; --header-bg:#ffffff; --vaszon:#e4e6ec;
+      --line:color-mix(in srgb, var(--text) 12%, transparent); --line-soft:color-mix(in srgb, var(--text) 8%, transparent);
+      --field-bg:#ffffff; --field-border:color-mix(in srgb, var(--text) 18%, transparent);
+      --panel-soft-2:color-mix(in srgb, var(--text) 7%, transparent);
+      --btn-ghost-bg:#ffffff; --btn-ghost-border:color-mix(in srgb, var(--text) 20%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 7%, transparent); --warn-border:color-mix(in srgb, var(--accent) 35%, transparent);
+      --ok-bg:color-mix(in srgb, var(--ok) 10%, transparent);
+      --grad-primary:linear-gradient(120deg,#5563ee,#a06ff6); --fo-gomb-bg:var(--grad-primary);
+      --lap-bg:linear-gradient(180deg,#eef0f6 0%,#f6f6f8 60%);
+    }
+    [data-sema="vegyes"] [data-r15="teendo"],[data-sema="vegyes"] [data-r15="sotet-sav"]{
+      --bg:#12162a; --bg-elev:#171c33; --text:#eef0f6; --text-mut:#aab3c5; --text-dim:#8e98ad; --text-faint:#8e98ad;
+      --primary-2:#7f8fff; --accent-link:#b9c1ff; --ok:#7fe0a0;
+      --line:color-mix(in srgb, #eef0f6 12%, transparent); --line-soft:color-mix(in srgb, #eef0f6 8%, transparent);
+      --field-bg:color-mix(in srgb, #eef0f6 6%, transparent); --field-border:color-mix(in srgb, #eef0f6 18%, transparent);
+      --btn-ghost-bg:transparent; --btn-ghost-border:color-mix(in srgb, #eef0f6 24%, transparent);
+      --header-bg:linear-gradient(120deg,#171c33,#10142a);
+      --lap-bg:linear-gradient(150deg,#1d2344 0%,#12162a 100%); --teendo-bg:linear-gradient(150deg,#1d2344 0%,#12162a 100%);
+      --teendo-border:transparent; --halk-link:#c3cad8;
+      color:var(--text);
+    }
+    :root,[data-sema]{
+      --font-display:'Archivo',sans-serif; --font-body:'Public Sans',sans-serif; --font-code:'IBM Plex Mono',monospace;
+      --fw-head:700; --fw-strong:600; --lh:1.5;
+      --fs-h1:34px; --fs-h2:26px; --fs-title:17px; --fs-base:16px; --fs-md:15px; --fs-sm:14px; --fs-xs:12.5px;
+      --r-card:10px; --r-block:10px; --r-btn:6px; --r-field:6px; --r-badge:4px; --bw:1px;
+      --control-min:46px; --control-min-s:38px;
+      --ter-0:0px; --ter-1:2px; --ter-2:4px; --ter-3:6px; --ter-4:8px; --ter-5:10px; --ter-6:12px; --ter-7:14px; --ter-8:16px;
+      --ter-9:20px; --ter-10:24px; --ter-11:32px; --ter-12:40px; --ter-13:56px; --ter-14:80px;
+      /* R-15 */
+      --kerdes-fs:28px; --kerdes-fs-tel:24px; --kerdes-fw:var(--fw-head); --kerdes-alcim:var(--text-mut);
+      --fo-gomb-text:var(--on-primary); --fo-gomb-min:52px; --fo-gomb-fs:var(--fs-base); --fo-gomb-fw:var(--fw-strong); --fo-gomb-r:var(--r-btn);
+      --halk-gomb-bg:var(--btn-ghost-bg); --halk-gomb-border:var(--btn-ghost-border); --halk-gomb-text:var(--text); --halk-gomb-min:var(--control-min);
+      --halk-link:var(--text-mut);
+      --teendo-bg:var(--bg-elev); --teendo-border:var(--field-border); --teendo-r:var(--r-card); --teendo-pad:var(--ter-9);
+      --info-text:var(--text-mut); --info-fs:var(--fs-sm);
+      --halad-text:var(--text); --halad-sav:var(--panel-soft-2); --halad-telt:var(--ok); --halad-szam:var(--text);
+      --kesz-bg:var(--ok-bg); --kesz-text:var(--text); --kesz-jel:var(--ok);
+      --baj-bg:var(--warn-bg); --baj-border:var(--warn-border); --baj-jel:var(--warn); --baj-text:var(--text);
+      --rossz-jel:var(--err);
+      --lebego-hely-tel:56px; --lebego-hely-asztali:168px;
+    }
+    body{margin:0;background:#06070b;font-family:'Public Sans',sans-serif;line-height:1.5;}
+    a{color:var(--accent-link);text-decoration:underline;text-underline-offset:2px;}
+    a:hover{color:var(--text);}
+  </style>
+</helmet>
+
+<div data-sema="{{ sema }}" style="background:var(--vaszon);color:var(--text);font-family:var(--font-body);font-size:var(--fs-base);line-height:var(--lh);min-height:100vh;">
+<div style="display:flex;flex-direction:column;gap:var(--ter-13);padding:var(--ter-12);max-width:1720px;min-width:1200px;">
+
+  <div style="display:flex;flex-direction:column;gap:var(--ter-5);max-width:920px;">
+    <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.06em;">R-15 · TIBOR-SZABÁLYLAP · 2026-09-26 · kiváltja az R-14-et</div>
+    <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h1);">„Jó nekem itt lenni.”</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Tíz szabály, amelyből minden lap épül. Minden szabálynál egy jó és egy rossz példa, telefonszélességben (390). A rossz példák a mai lapokból vannak, áthúzva. A számokat a mérő program ellenőrzi: ami átlépi, nem mehet ki.</div>
+    <div style="font-size:var(--fs-sm);color:var(--text-dim);text-wrap:pretty;">A rossz példák a <span style="font-family:var(--font-code);">mai-lapok</span> képeiből vannak (Ötödik Térkő, 2026-09-26), szó szerint.</div>
+  </div>
+
+  <div style="position:sticky;top:var(--ter-6);z-index:5;display:flex;align-items:center;gap:var(--ter-6);flex-wrap:wrap;align-self:flex-start;padding:var(--ter-4);border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--header-bg);">
+    <span style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);padding:var(--ter-0) var(--ter-4);">SÉMA</span>
+    <div role="group" aria-label="Séma" style="display:flex;gap:var(--ter-2);">
+      <sc-for list="{{ semaGombok }}" as="g" hint-placeholder-count="3">
+        <button type="button" aria-pressed="{{ g.aktiv }}" onClick="{{ g.valaszt }}" style="{{ g.stilus }}">{{ g.nev }}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <section data-screen-label="00 Alapelemek" style="display:flex;flex-direction:column;gap:var(--ter-9);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-3);max-width:880px;">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">00 · A HÉT ALAPELEM · mind a négy sémában egyszerre</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Egy lap ebből a hét darabból áll</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Kérdés-cím · haladás · teendő · fő gomb · halk gomb · tájékoztatás · kész-pillanat. A valódi baj a nyolcadik, és csak akkor jelenik meg, ha tényleg baj van. Mindegyik egy tokencsoport (<span style="font-family:var(--font-code);">tokenek.md</span>).</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,390px);gap:var(--ter-10);">
+      <sc-for list="{{ harmasSema }}" as="s" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+          <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">{{ s.nev }}</div>
+          <div data-sema="{{ s.kulcs }}" style="box-sizing:border-box;width:390px;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-9);font-family:var(--font-body);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+              <div style="font-family:var(--font-code);font-size:11px;color:var(--text-faint);">kérdés-cím</div>
+              <div style="font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Ma 2 poszt vár rád</div>
+              <div style="font-size:var(--fs-md);color:var(--kerdes-alcim);">Két hírből már megírtuk a szöveget.</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <div style="font-family:var(--font-code);font-size:11px;color:var(--text-faint);">haladás</div>
+              <div style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--halad-text);">
+                <span aria-hidden="true" style="flex:none;width:72px;height:6px;border-radius:3px;background:var(--halad-sav);overflow:hidden;display:block;"><span style="display:block;width:60%;height:100%;background:var(--halad-telt);"></span></span>
+                <span>Ezen a héten: <strong style="font-weight:var(--fw-strong);">3 poszt kész</strong> · 2 kép letöltve</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <div style="font-family:var(--font-code);font-size:11px;color:var(--text-faint);">teendő · fő gomb · halk gomb</div>
+              <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--teendo-pad);display:flex;flex-direction:column;gap:var(--ter-6);">
+                <div style="font-family:var(--font-display);font-weight:var(--fw-strong);font-size:var(--fs-title);line-height:1.3;">Új térkő-szabvány a járdákra 2027-től</div>
+                <div style="font-size:var(--fs-sm);color:var(--text-mut);">Posztötlet: „Mit jelent ez az udvarodnak?”</div>
+                <button type="button" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Készíts belőle posztot</button>
+                <div style="display:flex;gap:var(--ter-8);justify-content:center;">
+                  <a href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Részletek</a>
+                  <a href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Nem érdekel</a>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+              <div style="font-family:var(--font-code);font-size:11px;color:var(--text-faint);">tájékoztatás</div>
+              <div style="font-size:var(--info-fs);color:var(--info-text);">Holnap reggel újra átnézzük a híreket.</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <div style="font-family:var(--font-code);font-size:11px;color:var(--text-faint);">kész-pillanat</div>
+              <div style="display:flex;align-items:center;gap:var(--ter-6);padding:var(--ter-6) var(--ter-8);border-radius:var(--r-block);background:var(--kesz-bg);color:var(--kesz-text);font-size:var(--fs-md);">
+                <span aria-hidden="true" style="flex:none;width:24px;height:24px;border-radius:12px;background:var(--kesz-jel);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;">✓</span>
+                <span><strong style="font-weight:var(--fw-strong);">Kész a poszt.</strong> Ez a héten a negyedik.</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <div style="font-family:var(--font-code);font-size:11px;color:var(--text-faint);">valódi baj · csak ha van</div>
+              <div style="display:flex;flex-direction:column;gap:var(--ter-5);padding:var(--ter-6) var(--ter-8);border:var(--bw) solid var(--baj-border);border-radius:var(--r-block);background:var(--baj-bg);font-size:var(--fs-sm);color:var(--baj-text);">
+                <span>A Facebook-oldaladhoz nem férünk hozzá. Kapcsold össze újra.</span>
+                <button type="button" style="align-self:flex-start;box-sizing:border-box;min-height:var(--halk-gomb-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Összekapcsolom</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="T1" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T1</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Egy lap, egy kérdés</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">A lap tetején az áll, mit csináljon most Tibor. A lap neve a menüben van, nem a címben.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">cím ≤ 6 szó · alatta ≤ 1 mondat</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div style="box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-2);">
+        <div style="font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Ma 2 poszt vár rád</div>
+        <div style="font-size:var(--fs-md);color:var(--kerdes-alcim);">Két hírből már megírtuk a szöveget.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 03 Kezdőlap</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-2);overflow:hidden;">
+        <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--kerdes-fs-tel);text-decoration:line-through;text-decoration-color:var(--rossz-jel);">Kezdőlap</div>
+        <div style="font-size:var(--fs-sm);color:var(--text-mut);">szeptember 26., szombat</div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);margin-top:var(--ter-4);">A lap nevét mondja, nem a dolgát.</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T2" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T2</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Egy fő gomb</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Az a lépés, ami a legtöbbet adja. A séma fő színe (Éjkéken és Vegyesben átmenettel), teljes szélesség telefonon. Minden más szöveges link vagy keretes halk gomb.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">pontosan 1 fő gomb képernyőnként</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div data-r15="teendo" style="color:var(--text);box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-6);">
+        <div style="font-family:var(--font-display);font-weight:var(--fw-strong);font-size:var(--fs-title);line-height:1.3;">Új térkő-szabvány a járdákra 2027-től</div>
+        <button type="button" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Készíts belőle posztot</button>
+        <div style="display:flex;gap:var(--ter-8);justify-content:center;">
+          <a href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Részletek</a>
+          <a href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Nem érdekel</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 04 Hírek</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-6);overflow:hidden;">
+        <div style="font-family:var(--font-display);font-weight:var(--fw-strong);font-size:var(--fs-title);line-height:1.3;">Új térkő-szabvány a járdákra 2027-től</div>
+        <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;">
+          <span style="display:inline-flex;align-items:center;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border-radius:var(--r-btn);background:var(--primary);color:var(--on-primary);font-size:var(--fs-sm);">Részletek</span>
+          <span style="display:inline-flex;align-items:center;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-sm);">Elmentem</span>
+          <span style="display:inline-flex;align-items:center;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-sm);">Nem érdekel</span>
+          <span style="display:inline-flex;align-items:center;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) dashed var(--line);border-radius:var(--r-btn);font-size:var(--fs-sm);color:var(--text-faint);">Készíts belőle posztot →</span>
+        </div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);">A színes gomb a mellékes. A lényeg halvány, szaggatott.</div>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T3" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T3</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Eredményt mutat, nem gépezetet</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Azt mondja, mit csinált a gép Tibor helyett. Hogy hogyan, az a Beállítások mélyén van.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">0 tiltott szó: futás · modul · szűrés · verzió · AI-keret · token · forrás-állapot · AI-javaslat</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div style="box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-6);">
+        <div style="font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">3 hír a szakmádból</div>
+        <div style="font-size:var(--fs-md);color:var(--kerdes-alcim);">Mindegyikhez kész posztötlet.</div>
+        <div style="font-size:var(--info-fs);color:var(--info-text);">Holnap reggel újra átnézzük a híreket.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 03 · 04</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-5);overflow:hidden;">
+        <div style="font-size:var(--fs-sm);color:var(--text-mut);">Utolsó sikeres futás: szept. 26. 08:16 · Automatikus futás kikapcsolva — kézi indítás</div>
+        <div style="display:flex;gap:var(--ter-4);flex-wrap:wrap;align-items:center;">
+          <span style="padding:var(--ter-1) var(--ter-5);border-radius:var(--r-badge);background:var(--panel-soft-2);font-size:var(--fs-xs);color:var(--text-mut);">modul</span>
+          <span style="padding:var(--ter-1) var(--ter-5);border-radius:var(--r-badge);background:var(--panel-soft-2);font-size:var(--fs-xs);color:var(--text-mut);">AI-javaslat</span>
+          <span style="font-size:var(--fs-sm);color:var(--text-mut);">AI-keret: 4,57 € maradt</span>
+        </div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);">Tibor ebből azt érti, hogy a gép nem dolgozik.</div>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T4" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T4</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Minden előre ki van töltve</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Tibor jóváhagy vagy átír. Hogy honnan jött az érték, azt nem jelvény mondja: a mező egyszerűen ki van töltve. Üres mező csak ott, ahol a gép tényleg nem tudhatja.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">üres mező: csak gép által nem tudható adat</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div style="box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-4);">
+        <label style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Mivel foglalkoztok?</label>
+        <div style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-5) var(--ter-6);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);font-size:var(--fs-base);">Térkövezés, udvarok és járdák Marosvásárhelyen és környékén.</div>
+        <div style="font-size:var(--fs-sm);color:var(--info-text);">A weboldaladról írtuk. Ha jó, hagyd így.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 02 Első beállítás</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-4);overflow:hidden;">
+        <label style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">Mivel foglalkoztok?</label>
+        <div style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--line);border-radius:var(--r-field);background:var(--panel-soft-2);font-size:var(--fs-xs);color:var(--text-mut);">AI-javaslat · Te adtad meg</div>
+        <div style="box-sizing:border-box;min-height:88px;padding:var(--ter-5) var(--ter-6);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);font-size:var(--fs-base);color:var(--text-faint);"></div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);">A sáv mezőnek látszik; az üres mezőnél nem tudja, mennyit írjon.</div>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T5" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T5</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Kevés szöveg</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">A magyarázat a „Miért?” vagy „Részletek” mögött van, egy kattintásra, és helyben nyílik ki.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">görgetés nélkül ≤ 60 szó asztalon · ≤ 40 szó telefonon</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div style="box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-5);">
+        <div style="font-size:var(--fs-base);">Az új szabvány vastagabb alapréteget kér a járdákhoz. Jó alkalom megmutatni, hogy ti már így dolgoztok.</div>
+        <a href="#" style="align-self:flex-start;font-size:var(--fs-sm);color:var(--halk-link);">Miért jó ez nekem?</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 03 Kezdőlap · 04 Hírek</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-5);overflow:hidden;">
+        <div style="font-size:var(--fs-sm);color:var(--text-mut);">2 cikket néztünk át. Két releváns helyi projekt: a VIASTEIN LUX bemutatása mint prémium díszburkolat, és a Tisza-parti település központjának megújulása — mindkettő jó alap közösségi posztokra és referenciatartalomra udvar- vagy térfelújítási ajánlatainkhoz.</div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);">Egy félkövér bekezdés; ez a lap legnagyobb szövege. Tibor nem olvassa el.</div>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T6" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T6 · az R-14</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Teendő ≠ tájékoztatás</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Teendő: kiemelt lap, benne mező vagy gomb. Tájékoztatás: halk sor. Nincs kerete, jelvénye, gombja. Ha nincs mit mondani, a sor nem jelenik meg.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">keretes tájékoztatás: 0 · doboz a dobozban: 0</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div style="box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-8);">
+        <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--teendo-pad);display:flex;flex-direction:column;gap:var(--ter-6);">
+          <div style="font-weight:var(--fw-strong);">Hívd meg a kollégádat</div>
+          <div style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-5) var(--ter-6);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);color:var(--text-faint);">e-mail cím</div>
+          <button type="button" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Meghívó küldése</button>
+        </div>
+        <div style="font-size:var(--info-fs);color:var(--info-text);">Még nincs értesítésed.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 04 · 14</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-6);overflow:hidden;">
+        <div style="border:var(--bw) solid var(--warn-border);background:var(--warn-bg);border-radius:var(--r-block);padding:var(--ter-6);display:flex;flex-direction:column;gap:var(--ter-4);">
+          <div style="font-size:var(--fs-xs);color:var(--text-mut);letter-spacing:0.06em;">ÖSSZKÉP <span style="padding:var(--ter-1) var(--ter-4);border-radius:var(--r-badge);background:var(--panel-soft-2);">AI-összefoglaló · forrásokra hivatkozik</span></div>
+          <div style="border:var(--bw) solid var(--line);border-radius:var(--r-field);padding:var(--ter-5);font-size:var(--fs-sm);color:var(--text-mut);">Az összkép csak a lenti forrásokból dolgozik.</div>
+        </div>
+        <div style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-5) var(--ter-6);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);font-size:var(--fs-sm);color:var(--text-mut);">Még nincs értesítésed.</div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);">Narancs keret hírre, doboz a dobozban; a tájékoztatás mezőnek látszik.</div>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T7" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T7</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Nem ijeszt</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Narancs csak valódi bajnál, egy mondattal: mi a baj, mi a teendő. Az „érdekes”, az „összefoglaló” és a „nincs megadva” sosem narancs.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">--baj-* csak ott, ahol van teendő-gomb</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div style="box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-8);">
+        <div style="display:flex;justify-content:space-between;gap:var(--ter-6);font-size:var(--fs-sm);"><span>Weboldal</span><span style="color:var(--info-text);">nincs megadva</span></div>
+        <div style="display:flex;flex-direction:column;gap:var(--ter-5);padding:var(--ter-6) var(--ter-8);border:var(--bw) solid var(--baj-border);border-radius:var(--r-block);background:var(--baj-bg);font-size:var(--fs-sm);color:var(--baj-text);">
+          <span>A Facebook-oldaladhoz nem férünk hozzá. Kapcsold össze újra.</span>
+          <button type="button" style="align-self:flex-start;box-sizing:border-box;min-height:var(--halk-gomb-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Összekapcsolom</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 04 · 12</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-6);overflow:hidden;">
+        <div style="display:flex;justify-content:space-between;gap:var(--ter-6);font-size:var(--fs-sm);"><span>Weboldal</span><span style="color:var(--warn);">nincs megadva</span></div>
+        <div style="display:flex;justify-content:space-between;gap:var(--ter-6);font-size:var(--fs-sm);"><span>Delgaz jelentés</span><span style="padding:var(--ter-1) var(--ter-5);border:var(--bw) solid var(--warn-border);border-radius:var(--r-badge);color:var(--warn);font-size:var(--fs-xs);">érdekes</span></div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);">Tibor hibát lát ott, ahol nincs.</div>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T8" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T8</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Látszik a haladás</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">A haladás-sor a kérdés-cím alatt áll minden munkalapon. A befejezés egy zöld pillanat: mi lett kész, és hányadik a héten. Új számláló: <span style="font-family:var(--font-code);">gepezet.md</span>.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">haladás-sor: 1 · befejezés: kész-pillanat, nem néma</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div style="box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-8);">
+        <div style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--halad-text);">
+          <span aria-hidden="true" style="flex:none;width:72px;height:6px;border-radius:3px;background:var(--halad-sav);overflow:hidden;display:block;"><span style="display:block;width:80%;height:100%;background:var(--halad-telt);"></span></span>
+          <span>Ezen a héten: <strong style="font-weight:var(--fw-strong);">4 poszt kész</strong> · 2 kép letöltve</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--ter-6);padding:var(--ter-6) var(--ter-8);border-radius:var(--r-block);background:var(--kesz-bg);color:var(--kesz-text);font-size:var(--fs-md);">
+          <span aria-hidden="true" style="flex:none;width:24px;height:24px;border-radius:12px;background:var(--kesz-jel);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;">✓</span>
+          <span><strong style="font-weight:var(--fw-strong);">Kész a poszt.</strong> Ez a héten a negyedik.</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 08 Posztszöveg</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-6);overflow:hidden;">
+        <div style="display:flex;gap:var(--ter-5);align-items:center;font-size:var(--fs-sm);"><span style="color:var(--text-mut);">Állapot:</span><span style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-mut);">szerkesztve</span></div>
+        <div style="font-size:var(--fs-xs);color:var(--text-faint);">Mentve 21:40</div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);">A munka vége néma; nem látszik, mennyi lett kész.</div>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T9" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T9</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Egy kattintás a posztig</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Hírből, iránytűből és a kezdőlapról a fő gomb egyenesen a kész posztszöveghez vagy képhez visz.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">ötlet → kész szöveg: ≤ 1 kattintás</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ · 1 kattintás</div>
+      <div style="box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-6);">
+        <div style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);">
+          <span style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--line);border-radius:var(--r-btn);">Hír</span>
+          <span aria-hidden="true" style="color:var(--text-dim);">→</span>
+          <span style="padding:var(--ter-3) var(--ter-6);border-radius:var(--r-btn);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);">Készíts belőle posztot</span>
+          <span aria-hidden="true" style="color:var(--text-dim);">→</span>
+          <span style="font-weight:var(--fw-strong);">kész</span>
+        </div>
+        <div style="padding:var(--ter-6);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);font-size:var(--fs-sm);">2027-től vastagabb alapréteg kell a járdák alá. Mi már most így építjük az udvarotokat, hogy húsz év múlva se süllyedjen meg.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 04 → 05 → 08 · 4 kattintás</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-6);overflow:hidden;">
+        <div style="display:flex;align-items:center;gap:var(--ter-3);flex-wrap:wrap;font-size:var(--fs-xs);color:var(--text-mut);">
+          <span>Részletek</span><span aria-hidden="true">→</span><span>Készíts belőle tartalmat</span><span aria-hidden="true">→</span><span>Posztszöveg lap</span><span aria-hidden="true">→</span><span>Szöveg írása</span>
+        </div>
+        <div style="font-size:var(--fs-xs);color:var(--rossz-jel);">Két hasznos hírből egy poszt sem lett.</div>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="T10" style="display:grid;grid-template-columns:minmax(300px,1fr) 390px 390px;gap:var(--ter-10);align-items:start;border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">T10</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);line-height:1.2;">Telefon az első</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">390 szélesen is minden elfér. A fő gomb alul, hüvelykujjnyira, teljes szélességben. A Visszajelzés lebeg, de semmit nem takar: minden lap saját helyet hagy neki. Telefonon egy sávot az alsó gombsáv fölött, asztalon egy szabad oszlopot a tartalom jobb oldalán. Nem a gomb igazodik a laphoz, hanem a lap hagy neki helyet.</div>
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text);">vízszintes görgetés: 0 · fő gomb ≥ 52 px, az alsó harmadban · a lebegő elem semmit nem fed, görgetés közben sem</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--ok);">JÓ</div>
+      <div style="box-sizing:border-box;width:390px;height:520px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;overflow:hidden;">
+        <div data-r15="sotet-sav" style="display:flex;justify-content:space-between;align-items:center;padding:var(--ter-6) var(--ter-9);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);color:var(--text);font-size:var(--fs-sm);"><span style="font-weight:var(--fw-strong);">Ötödik Térkő</span><span style="color:var(--text-mut);">☰</span></div>
+        <div style="flex:1;padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-3);">
+          <div style="font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Kész a posztod?</div>
+          <div style="font-size:var(--fs-md);color:var(--kerdes-alcim);">Olvasd át, és másold ki.</div>
+          <div style="margin-top:var(--ter-6);padding:var(--ter-6);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);font-size:var(--fs-sm);">2027-től vastagabb alapréteg kell a járdák alá. Mi már most így építjük…</div>
+        </div>
+        <div style="flex:none;height:var(--lebego-hely-tel);box-sizing:border-box;margin:var(--ter-0) var(--ter-9);border:var(--bw) dashed var(--line);border-radius:var(--r-btn);display:flex;align-items:center;justify-content:flex-end;padding:var(--ter-0) var(--ter-3);">
+          <button type="button" data-r15="lebego" style="box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:20px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Visszajelzés</button>
+        </div>
+        <div style="padding:var(--ter-6) var(--ter-9) var(--ter-9);border-top:var(--bw) solid var(--line-soft);display:flex;flex-direction:column;gap:var(--ter-4);">
+          <button type="button" data-r15="fo-gomb" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Szöveg másolása</button>
+          <a href="#" style="align-self:center;font-size:var(--fs-sm);color:var(--halk-link);">Kép hozzá</a>
+        </div>
+      </div>
+      <div style="font-size:var(--fs-xs);color:var(--text-dim);">A szaggatott sáv a Visszajelzés fenntartott helye (--lebego-hely-tel · 56 px). A kész lapon nem látszik.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--rossz-jel);">ROSSZ · mai 08 telefonon</div>
+      <div style="position:relative;box-sizing:border-box;width:390px;height:520px;background:var(--lap-bg);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;overflow:hidden;">
+        <div style="display:flex;gap:var(--ter-7);padding:var(--ter-6) var(--ter-9);border-bottom:var(--bw) solid var(--line-soft);font-size:var(--fs-sm);white-space:nowrap;color:var(--text-mut);"><span>Kezdőlap</span><span>Hírek</span><span>Szervezet adatai</span><span>Posztszöveg</span><span>Iránytű</span></div>
+        <div style="flex:1;padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-4);">
+          <div style="display:flex;gap:var(--ter-3);flex-wrap:wrap;">
+            <span style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-xs);">Rövidebb</span>
+            <span style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-xs);">Hosszabb</span>
+            <span style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-xs);">Lazább</span>
+            <span style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-xs);">Hivatalosabb</span>
+            <span style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-xs);">Újraírás</span>
+            <span style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-xs);">Mentés</span>
+            <span style="padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);font-size:var(--fs-xs);">Másolás</span>
+          </div>
+          <div style="font-size:var(--fs-xs);color:var(--rossz-jel);margin-top:var(--ter-4);">A menü kilóg jobbra; 7 egyforma gomb; a lebegő gomb a Másolás fölött.</div>
+        </div>
+        <span style="position:absolute;right:var(--ter-9);bottom:var(--ter-12);padding:var(--ter-5) var(--ter-8);border-radius:20px;background:var(--primary);color:var(--on-primary);font-size:var(--fs-sm);">Visszajelzés</span>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--rossz-jel) 50%,transparent calc(50% + 1px));opacity:0.7;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Mérés" style="display:flex;flex-direction:column;gap:var(--ter-9);border-top:var(--bw) solid var(--line);padding-top:var(--ter-11);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-3);max-width:880px;">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">A MÉRŐ PROGRAM · mit számol és miből</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Minden elem jelölve van a kódban</div>
+      <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">A mérő nem kinézetből következtet: minden alapelem egy <span style="font-family:var(--font-code);">data-r15</span> jelölést visz. A részletek a <span style="font-family:var(--font-code);">tokenek.md</span> 3. pontjában.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:80px minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg-elev);font-size:var(--fs-sm);">
+      <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">#</div>
+      <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">mit számol</div>
+      <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">jelölés</div>
+      <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">határ</div>
+      <sc-for list="{{ meresSorok }}" as="m" hint-placeholder-count="10">
+        <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);border-bottom:var(--bw) solid var(--line-soft);">{{ m.sz }}</div>
+        <div style="padding:var(--ter-5) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">{{ m.mit }}</div>
+        <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-mut);border-bottom:var(--bw) solid var(--line-soft);">{{ m.jel }}</div>
+        <div style="padding:var(--ter-5) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">{{ m.hatar }}</div>
+      </sc-for>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;sema&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ejkek&quot;,&quot;vegyes&quot;,&quot;vilagos&quot;,&quot;sotet&quot;],&quot;default&quot;:&quot;ejkek&quot;,&quot;tsType&quot;:&quot;'ejkek'|'vegyes'|'vilagos'|'sotet'&quot;}}">
+class Component extends DCLogic {
+  state = { sema: null };
+  renderVals() {
+    const sema = this.state.sema ?? this.props.sema ?? 'ejkek';
+    const nevek = { ejkek: 'Éjkék', vegyes: 'Vegyes', vilagos: 'Világos', sotet: 'Sötét' };
+    const semaGombok = Object.keys(nevek).map(k => ({
+      nev: nevek[k], aktiv: k === sema,
+      valaszt: () => this.setState({ sema: k }),
+      stilus: {
+        minHeight: 'var(--control-min-s)', padding: '0 var(--ter-8)', borderRadius: 'var(--r-btn)', cursor: 'pointer',
+        fontFamily: 'var(--font-body)', fontSize: 'var(--fs-sm)',
+        border: k === sema ? 'var(--bw) solid var(--text)' : 'var(--bw) solid transparent',
+        background: k === sema ? 'var(--panel-soft-2)' : 'transparent',
+        color: k === sema ? 'var(--text)' : 'var(--text-mut)', fontWeight: k === sema ? 600 : 400
+      }
+    }));
+    const harmasSema = Object.keys(nevek).map(k => ({ kulcs: k, nev: nevek[k].toUpperCase() }));
+    const meresSorok = [
+      { sz: 'T1', mit: 'a kérdés-cím szavai; az alcím mondatai', jel: 'data-r15="kerdes" · "kerdes-alcim"', hatar: '≤ 6 szó · ≤ 1 mondat' },
+      { sz: 'T2', mit: 'fő gombok a látható képernyőn', jel: 'data-r15="fo-gomb"', hatar: 'pontosan 1' },
+      { sz: 'T3', mit: 'tiltott szavak a látható szövegben (hu · ro · en lista)', jel: 'teljes szöveg, kivéve data-r15="mely"', hatar: '0' },
+      { sz: 'T4', mit: 'üres mező, amelyhez a gép adhatott volna értéket', jel: 'data-r15-forras="gep" + üres value', hatar: '0' },
+      { sz: 'T5', mit: 'szavak görgetés nélkül, a Részletek mögötti szöveg nélkül', jel: 'data-r15="reszletek" kizárva', hatar: '≤ 60 asztal · ≤ 40 telefon' },
+      { sz: 'T6', mit: 'tájékoztatás kerettel, háttérrel vagy gombbal; keretes elem kereten belül', jel: 'data-r15="info" · "teendo"', hatar: '0 · 0' },
+      { sz: 'T7', mit: '--baj-* szín olyan elemen, amelyben nincs gomb', jel: 'data-r15="baj"', hatar: '0' },
+      { sz: 'T8', mit: 'haladás-sor munkalapon; kész-pillanat a befejező gomb után', jel: 'data-r15="halad" · "kesz"', hatar: '1 · 1' },
+      { sz: 'T9', mit: 'kattintás az ötlettől a kész szövegig', jel: 'data-r15-cel="poszt" a fő gombon', hatar: '≤ 1' },
+      { sz: 'T10', mit: '390 szélesen: scrollWidth − clientWidth; fő gomb mérete; a lebegő elem fed-e bármit (mindkét szélesség, görgetés közben is)', jel: 'data-r15="fo-gomb" · "lebego"', hatar: '0 · ≥ 52 px · 0' }
+    ];
+    return { sema, semaGombok, harmasSema, meresSorok };
+  }
+}
+</script>
+</body>
+</html>

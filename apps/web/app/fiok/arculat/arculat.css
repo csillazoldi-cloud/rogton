@@ -1,0 +1,403 @@
+/* R-16 · Arculat lapjai (/fiok/arculat/*) — design/R16-arculat/R16-arculat.dc.html. K1: 12f „Töltsd fel a logóidat”.
+   Minden érték tokenből; a helyek próbahátterei a munkatér színei (adat, a lap adja inline) — az egyszínű fehérje itt áll, megjelölve.
+   Asztal: bal oszlop 640 (kérdés · teendő · linkek), jobbra „Így néz ki egy képed”; telefon (≤ 640): egymás alatt, a fő gomb a lap alján. */
+
+.r16a-racs {
+  display: grid;
+  grid-template-columns: minmax(0, 640px) minmax(0, 1fr); /* tokenőr: ok — R16 rajz 12f: 640 széles bal oszlop */
+  gap: var(--ter-13);
+  align-items: start;
+  padding: var(--ter-12) var(--ter-0);
+}
+.r16a-bal { display: flex; flex-direction: column; gap: var(--ter-10); min-width: 0; }
+.r16a-bal .r15-kerdes-alcim { font-size: var(--fs-md); }
+
+/* A teendő: a négy hely és alatta a fő gomb */
+.r16a-teendo { padding: var(--ter-10); gap: var(--ter-9); }
+.r16a-helyek { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ter-9); }
+.r16a-hely {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-3);
+  align-items: stretch;
+  padding: var(--ter-0);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+}
+.r16a-hely:disabled { cursor: default; }
+.r16a-hely-kep {
+  height: 96px; /* tokenőr: ok — R16 rajz 12f: a hely magassága */
+  border-radius: var(--r-btn);
+  background: var(--field-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.r16a-hely-egyszinu .r16a-telt { background: #ffffff; } /* tokenőr: ok — R16 rajz 12f: az egyszínű logó próbaháttere fehér (ügyfélkreatív, nem felület) */
+.r16a-hely-kep img { display: block; max-width: 84%; max-height: 72%; object-fit: contain; }
+.r16a-hely:focus-visible .r16a-hely-kep { outline: 2px solid var(--primary); outline-offset: 2px; } /* tokenőr: ok — fókuszjel */
+.r16a-hely-cimke { font-size: var(--fs-xs); color: var(--text-mut); }
+.r16a-plusz { font-size: 22px; color: var(--text-dim); } /* tokenőr: ok — R16 rajz 12f: az üres hely + jele */
+.r16a-feltoltes { display: flex; flex-direction: column; gap: var(--ter-3); align-items: center; font-size: var(--fs-xs); color: var(--text-mut); }
+.r16a-sav {
+  display: block;
+  width: 90px; /* tokenőr: ok — R16 rajz 12f: 90×6 px feltöltési sáv */
+  height: 6px; /* tokenőr: ok — R16 rajz 12f: 90×6 px feltöltési sáv */
+  border-radius: var(--r-badge);
+  background: var(--halad-sav);
+  overflow: hidden;
+}
+.r16a-sav-telt { display: block; height: 100%; background: var(--halad-telt); transition: width 0.2s linear; }
+.r16a-gombsor { display: flex; align-items: center; gap: var(--ter-9); }
+.r16a-gombsor .r15-fo-gomb { padding: var(--ter-0) var(--ter-11); }
+
+.r16a-linkek { display: flex; gap: var(--ter-9); flex-wrap: wrap; }
+.r16a-reszletek { margin: var(--ter-0); font-size: var(--fs-sm); color: var(--text-mut); }
+
+/* „Így néz ki egy képed:” — két kész kép (4 : 5), a nagy világos és a kicsi színes */
+.r16a-igy { display: flex; flex-direction: column; gap: var(--ter-6); align-items: flex-start; min-width: 0; }
+/* A két kép a rajz méretében (380 és 198 széles), de a hasábhoz arányosan zsugorodnak — keskenyebb keretben sem lógnak ki (T10). */
+.r16a-igy-kepek {
+  display: grid;
+  grid-template-columns: minmax(0, 380fr) minmax(0, 198fr); /* tokenőr: ok — R16 rajz 12f: a két mintakép aránya */
+  gap: var(--ter-8);
+  align-items: end;
+  width: 100%;
+  max-width: 594px; /* tokenőr: ok — R16 rajz 12f: 380 + 16 (--ter-8) + 198 */
+}
+.r16a-igy-kep {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background: var(--panel-soft-2, var(--field-bg));
+  box-shadow: var(--shadow-pop);
+}
+.r16a-igy-kep img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Keskeny asztalon (a lebegő Visszajelzés sávja és a keret miatt) a két hasáb egymás alá kerül */
+@media (max-width: 900px) {
+  .r16a-racs { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .r16a-racs { gap: var(--ter-8); padding: var(--ter-9) var(--ter-0); }
+  .r16a-bal { gap: var(--ter-8); }
+  .r16a-teendo { padding: var(--ter-8); }
+  .r16a-helyek { gap: var(--ter-7); }
+  .r16a-hely-kep { height: 84px; } /* tokenőr: ok — R16 rajz 12f telefon: a hely magassága */
+  .r16a-igy-kepek { gap: var(--ter-6); grid-template-columns: minmax(0, 132fr) minmax(0, 92fr); max-width: 236px; } /* tokenőr: ok — R16 rajz 12f telefon: 132 + 12 + 92 */
+}
+
+/* ——— R-16 K3 · 12a · 12b · 12c — a „Logó, színek, betűk” szakasz (/fiok/arculat) ———
+   Asztal: bal hasáb 640 (fej · teendő · alja), jobbra a két kép a teljes magasságban; telefon: fej → képek → teendő → alja. */
+.r16a-szakasz {
+  display: grid;
+  grid-template-columns: minmax(0, 640px) minmax(0, 1fr); /* tokenőr: ok — R16 rajz 12a–12c: 640 széles bal oszlop */
+  grid-template-areas: "fej kep" "teendo kep" "alja kep";
+  grid-template-rows: auto auto 1fr;
+  column-gap: var(--ter-13);
+  row-gap: var(--ter-10);
+  align-items: start;
+  padding: var(--ter-12) var(--ter-0);
+}
+.r16a-fej { grid-area: fej; display: flex; flex-direction: column; gap: var(--ter-10); min-width: 0; }
+.r16a-fej .r15-kerdes-alcim { font-size: var(--fs-md); }
+.r16a-kep { grid-area: kep; min-width: 0; }
+.r16a-sorok { grid-area: teendo; padding: var(--ter-10); gap: var(--ter-9); min-width: 0; }
+.r16a-alja { grid-area: alja; display: flex; flex-direction: column; gap: var(--ter-8); min-width: 0; }
+
+/* A kész-sor (12c): ✓ és egy mondat — a rajzon háttér nélkül */
+.r16a-kesz .r15-kesz { background: transparent; padding: var(--ter-0); font-size: var(--fs-md); }
+
+/* Egy sor: címke (96) · tartalom · Csere */
+.r16a-sor {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) auto; /* tokenőr: ok — R16 rajz 12a–12c: a sorcímke 96 széles */
+  grid-template-areas: "cimke tartalom csere";
+  align-items: center;
+  gap: var(--ter-8);
+  padding-bottom: var(--ter-8);
+  border-bottom: var(--bw) solid var(--line-soft);
+}
+.r16a-sor-cimke { grid-area: cimke; font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text); }
+.r16a-sor-tartalom { grid-area: tartalom; display: flex; align-items: center; gap: var(--ter-6); flex-wrap: wrap; min-width: 0; }
+.r16a-sor-csere { grid-area: csere; }
+.r15-halk-gomb.r16a-csere { flex: none; min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-8); }
+.r15-halk-gomb.r16a-halk-nagy { flex: none; min-height: var(--fo-gomb-min); padding: var(--ter-0) var(--ter-8); }
+
+/* Logó: „Még nincs” mező (220 × 64) — maga a gomb a 12f-re */
+.r16a-meg-nincs { flex: none; width: 220px; display: flex; flex-direction: column; color: var(--text); text-decoration: none; } /* tokenőr: ok — R16 rajz 12a: 220 széles */
+.r16a-meg-nincs-mezo {
+  height: 64px; /* tokenőr: ok — R16 rajz 12a: 64 magas */
+  border-radius: var(--r-btn);
+  background: var(--field-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+a.r16a-meg-nincs:focus-visible .r16a-meg-nincs-mezo { outline: 2px solid var(--primary); outline-offset: 2px; } /* tokenőr: ok — fókuszjel */
+
+/* Logó-csempe: a hely próbahátterén (a munkatér színei inline; az egyszínűé fehér) */
+.r16a-csempek { display: flex; align-items: center; gap: var(--ter-6); flex-wrap: wrap; }
+.r16a-csempe {
+  flex: none;
+  height: 52px; /* tokenőr: ok — R16 rajz 12b/12c: a logó-csempe magassága */
+  padding: var(--ter-0) var(--ter-5);
+  border-radius: var(--r-btn);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.r16a-csempe-egyszinu { background: #ffffff; } /* tokenőr: ok — R16 rajz 12c: az egyszínű logó próbaháttere fehér (ügyfélkreatív, nem felület) */
+.r16a-csempe img { display: block; height: 30px; max-width: 147px; object-fit: contain; } /* tokenőr: ok — R16 rajz 12b/12c: a széles logó 147 × 30 */
+.r16a-csempe-negyzetes img { height: 36px; max-width: 36px; } /* tokenőr: ok — R16 rajz 12c: a négyzetes logó 36 × 36 */
+/* A FoGomb / HalkGomb linkként: a globális a:hover (alap.css) ne színezze át és ne húzza alá (a rajzon nincs ilyen állapot) */
+.r16a-lap a.r15-fo-gomb:hover { color: var(--fo-gomb-text); text-decoration: none; }
+.r16a-lap a.r15-halk-gomb:hover { color: var(--halk-gomb-text); text-decoration: none; }
+
+/* Színek: 44 px-es korongok, alattuk a szó */
+.r16a-szin { display: flex; flex-direction: column; align-items: center; gap: var(--ter-2); }
+.r16a-korong {
+  flex: none;
+  width: 44px; /* tokenőr: ok — R16 rajz 12a: 44 px-es színkorong */
+  height: 44px; /* tokenőr: ok — R16 rajz 12a: 44 px-es színkorong */
+  border-radius: 50%; /* tokenőr: ok — kör alak */
+  border: var(--bw) solid var(--line);
+  box-sizing: border-box;
+}
+.r16a-szin-szo { font-size: var(--fs-xs); color: var(--text-mut); }
+
+/* Betűk: „Cím: <szó>” · „Szöveg: <szó>”, a szó a saját betűjével (kepbetuk.css) */
+.r16a-betu { font-size: var(--fs-sm); color: var(--text-mut); }
+.r16a-betu-nev { font-size: var(--info-fs); color: var(--info-text); } /* VJ-1011 (Kati #8): a beépített betű neve halkan a szó mellett */
+.r16a-betu-cim { font-weight: 700; font-size: 20px; color: var(--text); } /* tokenőr: ok — R16 rajz 12a: a cím-betű mintája (ügyfélkreatív) */
+.r16a-betu-szoveg { font-weight: 400; font-size: 18px; color: var(--text); } /* tokenőr: ok — R16 rajz 12a: a szöveg-betű mintája (ügyfélkreatív) */
+
+/* Gombsor a teendő alján (asztal) */
+.r16a-sorok .r16a-gombsor { flex-wrap: wrap; }
+.r16a-tel-sor { justify-content: space-between; align-items: center; }
+
+/* Alja: Fájlok · Részletek */
+.r16a-fajlok-sor { display: flex; gap: var(--ter-9); align-items: center; flex-wrap: wrap; }
+.r16a-reszletek-mezok { display: flex; flex-direction: column; gap: var(--ter-6); }
+.r16a-mezo { display: flex; flex-direction: column; gap: var(--ter-3); font-size: var(--fs-sm); color: var(--text-mut); }
+.r16a-mezo textarea,
+.r16a-mezo input:not([type="range"]) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--control-min-s);
+  padding: var(--ter-4) var(--ter-6);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--field-bg);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-md);
+}
+.r16a-fajlok { min-width: 0; }
+
+/* A két kép a szakaszban: asztalon a 12f méretében (380 + 198), telefonon 150 + 104 (a rajz 12a–12c telefon) */
+@media (max-width: 900px) {
+  .r16a-szakasz { grid-template-columns: minmax(0, 1fr); grid-template-areas: "fej" "kep" "teendo" "alja"; grid-template-rows: none; }
+}
+@media (max-width: 640px) {
+  .r16a-szakasz { row-gap: var(--ter-8); padding: var(--ter-4) var(--ter-0) var(--ter-9); }
+  .r16a-fej { gap: var(--ter-8); }
+  .r16a-sorok { padding: var(--ter-8); gap: var(--ter-6); }
+  .r16a-sor {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "cimke csere" "tartalom tartalom";
+    gap: var(--ter-4) var(--ter-5);
+    padding-bottom: var(--ter-6);
+  }
+  .r16a-korong { width: 40px; height: 40px; } /* tokenőr: ok — R16 rajz 12a telefon: 40 px-es színkorong */
+  .r16a-csempe { height: 48px; } /* tokenőr: ok — R16 rajz 12c telefon: a logó-csempe magassága */
+  .r16a-csempe img { height: 26px; max-width: 127px; } /* tokenőr: ok — R16 rajz 12c telefon: a széles logó 127 × 26 */
+  .r16a-csempe-negyzetes img { height: 32px; max-width: 32px; } /* tokenőr: ok — R16 rajz 12c telefon: a négyzetes logó 32 × 32 */
+  .r16a-csempek { gap: var(--ter-4); }
+  .r16a-sor-tartalom { gap: var(--ter-6); }
+  .r16a-igy-szakasz .r16a-igy-kepek { gap: var(--ter-6); grid-template-columns: minmax(0, 150fr) minmax(0, 104fr); max-width: 266px; } /* tokenőr: ok — R16 rajz 12a telefon: 150 + 12 + 104 */
+  .r16a-sorok .r16a-tel-sor { display: flex; }
+  /* A telefonos keret (fejléc · görgethető tartalom · Visszajelzés sávja · fő gomb sávja): a közös szabály, _kozos/r15-lapok.css. */
+}
+
+/* ——— R-16 utókérés 2 · 12a TELEFON, nincs logó (UTOKERES-2.md; R16-arculat.dc.html 12a telefon): a nyitó a névlogóval ———
+   Asztalon a .r16a-nl rejtve (r15-csak-tel), a szakasz változatlan. Telefonon a szakaszból csak az alja (Fájlok · Részletek) marad. */
+.r16a-nl { flex-direction: column; gap: var(--ter-8); grid-area: nl; min-width: 0; }
+.r16a-nl-savok { display: flex; flex-direction: column; gap: var(--ter-6); }
+.r16a-nl-sav-gomb { display: block; width: 100%; padding: var(--ter-0); border: 0; border-radius: var(--r-btn); background: transparent; cursor: pointer; }
+.r16a-nl-sav-ki { box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--text); } /* tokenőr: ok — R16 rajz 12a telefon: a kijelölt névlogó kettős kerete (mint a 12g) */
+.r16a-nl-sav-gomb:focus-visible { outline: 2px solid var(--primary); outline-offset: 8px; } /* tokenőr: ok — fókuszjel */
+.r16a-nl-sav { display: flex; align-items: center; justify-content: center; width: 100%; height: 64px; border-radius: var(--r-btn); overflow: hidden; } /* tokenőr: ok — R16 rajz 12a telefon: a névlogó doboza 64 px */
+.r16a-nl-logo { display: block; width: auto; height: auto; max-width: 88%; }
+.r16a-nl-logo-nev { max-height: 22px; } /* tokenőr: ok — R16 rajz 12a telefon: a szó */
+.r16a-nl-logo-kor { max-height: 54px; } /* tokenőr: ok — R16 rajz 12a telefon: a bélyeg */
+.r16a-nl-logo-negyzet { max-height: 40px; } /* tokenőr: ok — R16 rajz 12a telefon: a keretes */
+.r16a-nl-sor { display: flex; gap: var(--ter-8); align-items: center; }
+.r16a-nl-kep { flex: none; width: 112px; } /* tokenőr: ok — R16 rajz 12a telefon: a mintakép 112 × 140 */
+.r16a-nl-ertekek { display: flex; flex-direction: column; gap: var(--ter-7); flex: 1; min-width: 0; }
+.r16a-nl-ertek { display: flex; align-items: center; gap: var(--ter-6); font-size: var(--fs-sm); }
+.r16a-nl-ertek .r15-halk-link { margin-left: auto; }
+.r16a-nl-cimke { width: 52px; color: var(--text-mut); } /* tokenőr: ok — R16 rajz 12a telefon: a címke oszlopa */
+.r16a-nl-korong { flex: none; width: 26px; height: 26px; border-radius: 50%; border: var(--bw) solid var(--line); } /* tokenőr: ok — R16 rajz 12a telefon: 26 px-es korong, kör */
+.r16a-nl-aa { line-height: 1; color: var(--text); }
+.r16a-nl-aa-cim { font-size: var(--fs-h3, var(--fs-title)); font-weight: var(--fw-head); }
+.r16a-nl-aa-szoveg { font-size: var(--fs-title); color: var(--text-mut); }
+.r16a-nl-linkek { display: flex; gap: var(--ter-9); flex-wrap: wrap; }
+@media (max-width: 640px) {
+  .r16a-nl.r15-csak-tel { display: flex; }
+  .r16a-szakasz-nl { grid-template-areas: "nl" "alja"; }
+  .r16a-szakasz-nl > .r16a-fej, .r16a-szakasz-nl > .r16a-kep, .r16a-szakasz-nl > .r16a-sorok { display: none; }
+}
+
+/* ——— R-16 utókérés 2 · 12f0 „Van már logód?” (TELEFON; UTOKERES-2.md): két egyenrangú kártya, a kijelölt kettős kerettel ——— */
+.r16a-f0 { flex-direction: column; gap: var(--ter-9); padding: var(--ter-9) var(--ter-0); }
+.r16a-f0-utak { display: flex; gap: var(--ter-7); }
+.r16a-f0-ut {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ter-4);
+  padding: var(--ter-8);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-card);
+  background: var(--bg-elev);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.r16a-f0-ki { box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--text); } /* tokenőr: ok — R16 rajz 12f0: a kijelölt kártya kettős kerete */
+.r16a-f0-ut:focus-visible { outline: 2px solid var(--primary); outline-offset: 6px; } /* tokenőr: ok — fókuszjel */
+.r16a-f0-ikon {
+  width: 56px; /* tokenőr: ok — R16 rajz 12f0: az ikon doboza */
+  height: 56px; /* tokenőr: ok — R16 rajz 12f0 */
+  border-radius: var(--r-btn);
+  background: var(--panel-soft-2);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.r16a-f0-jel {
+  width: 40px; /* tokenőr: ok — R16 rajz 12f0: a kezdőbetű-jel */
+  height: 40px; /* tokenőr: ok — R16 rajz 12f0 */
+  border-radius: 50%; /* tokenőr: ok — kör */
+  background: var(--primary);
+  color: var(--on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-head);
+  font-size: var(--fs-title);
+}
+.r16a-f0-cim { font-family: var(--font-display-active, var(--font-display)); font-weight: var(--fw-head); font-size: var(--fs-title); line-height: 1.25; }
+.r16a-f0-alcim { font-size: var(--fs-sm); color: var(--text-mut); }
+@media (max-width: 640px) {
+  .r16a-f0.r15-csak-tel { display: flex; }
+}
+
+/* R-17 (design/R17-visszajelzes): a cím fölötti halk vissza-link a szakaszra („‹ Logó, színek, betűk”) — minden arculat-allapon */
+.r17-vissza {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ter-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-strong);
+  color: var(--text-mut);
+  text-decoration: none;
+}
+.r17-vissza:hover { color: var(--text); text-decoration: none; }
+.r17-fej { display: flex; flex-direction: column; gap: var(--ter-3); }
+
+/* R-17 A2: a kijelölt kitöltött logóhely jele — ugyanaz, mint a 12g névlogó-kártyáké (tokenek.md) */
+.r17-hely-ki .r16a-hely-kep { outline: 2px solid var(--text); outline-offset: 3px; } /* tokenőr: ok — R17 rajz 12f2: a 12g kijelölés-jele */
+.r17-hely-ki .r16a-hely-cimke { color: var(--text); font-weight: var(--fw-strong); }
+
+/* R-17 A2: „Így néz ki profilképként:” — közösségi fejléc-makett (fehér kártya: a 08b előnézet értékei, tartalom-makett) */
+.r17-pk-cimke { margin: var(--ter-0); }
+.r17-pk {
+  --pk-bg: #ffffff; /* tokenőr: ok — R17 A2 makett: a 08b előnézet fehér kártyája */
+  --pk-text: #1c1e21; /* tokenőr: ok — R17 A2 makett (08b értékek) */
+  --pk-mut: #65676b; /* tokenőr: ok — R17 A2 makett (08b értékek) */
+  --pk-hely: #e4e6eb; /* tokenőr: ok — R17 A2 makett (08b értékek) */
+  position: relative;
+  width: 100%;
+  max-width: 380px; /* tokenőr: ok — R17 rajz 12f2: 380 széles makett */
+  background: var(--pk-bg);
+  color: var(--pk-text);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+.r17-pk-borito { height: 118px; } /* tokenőr: ok — R17 rajz 12f2: a borító sávja */
+.r17-pk-kor {
+  position: absolute;
+  top: 66px; /* tokenőr: ok — R17 rajz 12f2: a profilkép a borító aljára lóg */
+  left: var(--ter-9);
+  width: 104px; height: 104px; /* tokenőr: ok — R17 rajz 12f2 */
+  border-radius: 50%; /* tokenőr: ok — kör alak (profilkép) */
+  border: 4px solid var(--pk-bg); /* tokenőr: ok — R17 rajz 12f2 */
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.r17-pk-kor img { width: 70%; height: 70%; object-fit: contain; }
+.r17-pk-test { padding: var(--ter-13) var(--ter-9) var(--ter-9); display: flex; flex-direction: column; gap: var(--ter-2); }
+.r17-pk-nev { font-family: var(--font-display-active, var(--font-display)); font-weight: var(--fw-head); font-size: var(--fs-title); }
+.r17-pk-alcim { color: var(--pk-mut); font-size: var(--fs-sm); }
+.r17-pk-gombok { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ter-4); margin-top: var(--ter-5); }
+.r17-pk-gombok span { height: 30px; border-radius: var(--r-btn); background: var(--pk-hely); } /* tokenőr: ok — R17 rajz 12f2 makett-gombok */
+
+/* R-17 A8 (12a telefon): „Aa” + a betű hangulat-neve alatta */
+.r17-aa { display: inline-flex; flex-direction: column; align-items: center; gap: var(--ter-1); }
+.r17-aa-nev { font-size: var(--fs-xs); color: var(--text-mut); line-height: 1; }
+/* R-17 A9: asztalon a 12b egy logója + „Több logó” egy sorban, mint eddig */
+.r17-egy-logo { display: inline-flex; align-items: center; gap: var(--ter-6); }
+
+/* R-17 B2/B3 · 12h kérdőív és 12h2 köszönő oldal: bal hasáb 640 (a rajz), mezők egymás alatt, „Hol” kapcsolók egy sorban */
+.r17-lt { display: flex; flex-direction: column; gap: var(--ter-10); max-width: 640px; padding: var(--ter-12) var(--ter-0); } /* tokenőr: ok — R17 rajz 12h: 640 széles bal hasáb */
+.r17-lt-teendo { padding: var(--ter-10); gap: var(--ter-9); }
+.r17-lt-mezo { display: flex; flex-direction: column; gap: var(--ter-4); }
+.r17-lt-cimke { font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text); }
+.r17-lt-mezo input {
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-7);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-btn);
+  background: var(--field-bg, var(--panel-soft));
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-md);
+  box-sizing: border-box;
+  min-width: 0;
+}
+.r17-lt-chipek { display: flex; flex-wrap: wrap; gap: var(--ter-4); }
+.r17-lt-chip {
+  min-height: var(--control-min-s);
+  padding: var(--ter-0) var(--ter-7);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-btn);
+  background: transparent;
+  color: var(--text-mut);
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+.r17-lt-chip-ki { border-color: var(--primary-2); background: var(--valaszto-aktiv-bg, var(--panel-soft)); color: var(--text); }
+.r17-lt-gombsor { display: flex; align-items: center; gap: var(--ter-9); }
+.r17-lt-tel-sor { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-5); }
+.r17-lt-info { display: flex; flex-direction: column; gap: var(--ter-4); }
+@media (max-width: 640px) {
+  .r17-lt { padding: var(--ter-8) var(--ter-0); gap: var(--ter-8); }
+  .r17-lt-teendo { padding: var(--ter-0); border: 0; background: transparent; gap: var(--ter-8); }
+}
+.r17-ajanlat { display: flex; }

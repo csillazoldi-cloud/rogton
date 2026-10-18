@@ -1,0 +1,185 @@
+/* R-13 kredit-képernyők (design/R13/rajz/R13-lapok.dc.html; tokenek.md). Csak tokenek: az R-15 alapelemek (r15.css, r15-lapok.css)
+   és a négy új R-13 token (r15.css :root: --r-kerek, --kartya-cim-fs, --kartya-cim-fs-tel, --ikon-fs). */
+
+/* ---------- közös ---------- */
+.r13-halk { color: var(--text-mut); font-size: var(--fs-sm); margin: var(--ter-0); }
+.r13-kicsi { font-size: var(--fs-xs); }
+.r13-figyel { color: var(--warn); }
+.r13-eros { font-weight: var(--fw-strong); }
+.r13-szakasz-cim { font-size: var(--fs-base); font-weight: var(--fw-strong); margin: var(--ter-0); color: var(--text); }
+/* a kis jel: valódi, de nem riasztó baj (T7) — egy pont a mondat előtt, se doboz, se keret */
+.r13-pont {
+  flex: none;
+  display: inline-block;
+  width: var(--ter-4);
+  height: var(--ter-4);
+  border-radius: var(--r-kerek);
+  background: var(--warn);
+}
+.r13-elfogyott {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ter-4);
+  margin: var(--ter-0);
+  color: var(--info-text);
+  font-size: var(--info-fs);
+}
+.r13-elfogyott .r13-pont { transform: translateY(calc(var(--ter-1) * -1)); }
+/* halvány link (Keress most, Továbbiak, Más nyelven, Saját ötletből elfogyott kreditnél) */
+.r15-halk-link:disabled { opacity: 0.45; cursor: default; text-decoration: none; }
+
+/* ---------- 13a Saját fiók ---------- */
+.r13a-lap { padding-bottom: var(--ter-0); }
+.r13a-belso { max-width: 640px; } /* tokenőr: ok — R13 rajz 13a: a szakasz a bal oszlopban, 640 széles */
+.r13a-osszegzes {
+  background: var(--teendo-bg);
+  border: var(--bw) solid var(--teendo-border);
+  border-radius: var(--teendo-r);
+  padding: var(--ter-9) var(--ter-9);
+  display: flex;
+  flex-direction: column;
+}
+.r13a-osszegzes-sor { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--ter-9); padding-bottom: var(--ter-7); border-bottom: var(--bw) solid var(--line-soft); }
+.r13a-osszegzes-sor2 { display: flex; flex-direction: column; gap: var(--ter-2); padding-top: var(--ter-7); }
+.r13a-mondat-fo { margin: var(--ter-0); font-weight: var(--fw-strong); color: var(--text); font-size: var(--fs-base); }
+.r13a-mondat { margin: var(--ter-0); color: var(--text); font-size: var(--fs-base); }
+.r13a-also { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-7); }
+.r13a-kreditsor { display: flex; gap: var(--ter-8); align-items: baseline; flex-wrap: wrap; }
+.r13a-panel {
+  background: var(--teendo-bg);
+  border: var(--bw) solid var(--teendo-border);
+  border-radius: var(--teendo-r);
+  padding: var(--ter-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-7);
+}
+.r13a-valaszto { display: flex; flex-direction: column; gap: var(--ter-2); }
+.r13a-radio { display: flex; gap: var(--ter-6); align-items: flex-start; padding: var(--ter-6) var(--ter-6); border-radius: var(--r-block); cursor: pointer; }
+.r13a-radio input { margin: var(--ter-1) var(--ter-0) var(--ter-0); accent-color: var(--primary); }
+.r13a-radio-aktiv { background: var(--valaszto-aktiv-bg); }
+.r13a-radio-szoveg { display: flex; flex-direction: column; gap: var(--ter-2); color: var(--text); }
+.r13a-kapcsolo-sor { display: flex; gap: var(--ter-6); align-items: flex-start; padding: var(--ter-7) var(--ter-6) var(--ter-4); border-top: var(--bw) solid var(--line-soft); }
+.r13a-kapcsolo-sor .km-kapcsolo { border-radius: var(--r-kerek); }
+.r13a-kesz-sor { display: flex; align-items: center; gap: var(--ter-7); flex-wrap: wrap; }
+.r13a-reszlet { line-height: var(--lh); }
+.r13a-kredit-panel {
+  align-self: stretch;
+  background: var(--teendo-bg);
+  border: var(--bw) solid var(--teendo-border);
+  border-radius: var(--teendo-r);
+  padding: var(--ter-9);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-5);
+}
+.r13a-nagyszam { display: flex; align-items: baseline; gap: var(--ter-4); margin: var(--ter-0); color: var(--text); }
+.r13a-metric { font-size: var(--fs-metric); font-weight: var(--fw-head); line-height: 1; }
+.r13a-sav { display: block; height: var(--ter-3); border-radius: var(--r-kerek); background: var(--halad-sav); overflow: hidden; }
+.r13a-sav-telt { display: block; height: 100%; background: var(--halad-telt); }
+.r13a-mire { font-size: var(--fs-xs); }
+.r13a-bontas { margin: var(--ter-0); display: flex; flex-direction: column; }
+.r13a-bontas-sor { display: flex; justify-content: space-between; padding: var(--ter-4) var(--ter-0); border-bottom: var(--bw) solid var(--line-soft); font-size: var(--fs-sm); }
+.r13a-bontas-sor dt { color: var(--text-mut); }
+.r13a-bontas-sor dd { margin: var(--ter-0); color: var(--text); }
+.r13a-kredit-szakasz { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-4); }
+.r15-lap-belso.r13a-elfogyott { flex-direction: row; gap: var(--ter-13); align-items: flex-start; }
+.r13a-elfogyott-bal { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-9); max-width: 520px; } /* tokenőr: ok — R13 rajz 13a3: a bal oszlop */
+.r13a-elso { display: flex; flex-direction: column; gap: var(--ter-11); }
+/* Csilla 10-06: elfogyott kreditnél a hírek beállítása a lap alján, halványan; fókuszban/egér alatt teljes erővel (használható marad) */
+.r13a-halvany { opacity: var(--szakasz-halvany); transition: opacity var(--dur-fast); padding-top: var(--ter-0); max-width: 640px; } /* tokenőr: ok — R13 rajz 13a: 640 széles oszlop */
+.r13a-halvany:hover, .r13a-halvany:focus-within { opacity: 1; }
+.r13a-tel-kredit { padding-top: var(--ter-9); border-top: var(--bw) solid var(--line-soft); }
+@media (max-width: 640px) {
+  .r13a-belso { max-width: none; }
+  /* 13a1 telefon: az első képernyő csak a cím és az összegzés; a kreditek görgetés alatt (a rajz „TELEFON · LEJJEBB GÖRGETVE” kerete) */
+  .r13a-elso { gap: var(--ter-9); min-height: calc(100svh - 110px); } /* tokenőr: ok — 110 = felső sáv + a lap felső térköze (390×844-en mérve): a kreditek a hajtás alatt kezdődnek */
+  .r15-lap-belso.r13a-elfogyott { flex-direction: column; gap: var(--ter-9); }
+  .r13a-elfogyott-bal { min-height: calc(100svh - 110px); } /* tokenőr: ok — mint .r13a-elso: 13a3 telefonon az első képernyő csak a cím, az alcím és a halk sor */
+  .r13a-osszegzes { padding: var(--ter-8); }
+  .r13a-osszegzes-sor { gap: var(--ter-6); }
+  .r13a-kredit-panel { padding: var(--ter-7); }
+}
+
+/* ---------- 13b Tagok: a „Kreditek ›” sor és az egyedül-állapot ---------- */
+.r13b-link-sor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--ter-6);
+  padding: var(--ter-7) var(--ter-0);
+  border-bottom: var(--bw) solid var(--line-soft);
+  color: var(--text-mut);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+}
+.r13b-link-sor:hover { color: var(--text); }
+.r13b4 { display: flex; flex-direction: column; gap: var(--ter-9); padding: var(--ter-13) var(--ter-0) var(--ter-12); max-width: 640px; } /* tokenőr: ok — R13 rajz 13b4: a kártya 640 széles */
+.r13b4-kartya { gap: var(--ter-7); align-items: flex-start; }
+.r13b4-szoveg { margin: var(--ter-0); color: var(--text); font-size: var(--fs-base); }
+@media (max-width: 640px) {
+  .r13b4 { padding: var(--ter-10) var(--ter-4); }
+}
+
+/* ---------- 13b Kreditek nézet ---------- */
+.r13b-belso { max-width: 820px; } /* tokenőr: ok — R13 rajz 13b1–13b3: a lista 590, a táblázat 820 széles */
+.r13b-fej { display: flex; flex-direction: column; gap: var(--ter-4); }
+.r13b-vissza { font-size: var(--fs-sm); }
+.r13b-lista { display: flex; flex-direction: column; max-width: 590px; } /* tokenőr: ok — R13 rajz 13b1 */
+.r13b-sor { display: flex; justify-content: space-between; align-items: center; gap: var(--ter-7); padding: var(--ter-7) var(--ter-0); border-bottom: var(--bw) solid var(--line-soft); }
+.r13b-sor-bal { display: flex; flex-direction: column; gap: var(--ter-2); min-width: 0; }
+.r13b-sor-jobb { display: flex; align-items: baseline; gap: var(--ter-7); flex-wrap: wrap; justify-content: flex-end; }
+.r13b-nev { font-weight: var(--fw-strong); color: var(--text); }
+.r13b-osszeg { color: var(--text); }
+.r13b-gombsor { display: flex; align-items: center; gap: var(--ter-9); flex-wrap: wrap; }
+.r13b-tabla { border-collapse: collapse; width: 100%; font-size: var(--fs-base); }
+.r13b-tabla th, .r13b-tabla td { padding: var(--ter-7) var(--ter-6); border-bottom: var(--bw) solid var(--line-soft); text-align: right; }
+.r13b-tabla thead th { color: var(--text-mut); font-size: var(--fs-xs); font-weight: 400; } /* tokenőr: ok — a táblafej normál betűje (R13 rajz 13b3) */
+.r13b-tabla th:first-child, .r13b-tabla td:first-child { text-align: left; padding-left: var(--ter-0); }
+.r13b-tabla-tag { display: flex; flex-direction: column; gap: var(--ter-2); }
+.r13b-panel {
+  background: var(--teendo-bg);
+  border: var(--bw) solid var(--teendo-border);
+  border-radius: var(--teendo-r);
+  padding: var(--ter-7) var(--ter-9);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-7);
+  max-width: 590px; /* tokenőr: ok — R13 rajz 13b2 panel */
+}
+.r13b-panel-sor { display: flex; flex-direction: column; gap: var(--ter-4); padding-bottom: var(--ter-7); border-bottom: var(--bw) solid var(--line-soft); }
+.r13b-panel-fej { display: flex; justify-content: space-between; gap: var(--ter-6); color: var(--text); }
+.r13b-panel-mezosor { display: flex; align-items: center; gap: var(--ter-5); flex-wrap: wrap; }
+.r13b-mezo {
+  box-sizing: border-box;
+  width: 96px; /* tokenőr: ok — R13 rajz 13b2: a szám-mező */
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-6);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--field-bg);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-base);
+  text-align: right;
+}
+.r13b-mezo-egyenlo { color: var(--text-mut); }
+.r13b-havonta { color: var(--text); font-size: var(--fs-sm); }
+.r13b-panel-gombok { display: flex; gap: var(--ter-4); margin-left: auto; }
+@media (max-width: 640px) {
+  .r13b-sor-jobb { flex-direction: column; align-items: flex-end; gap: var(--ter-3); }
+  .r13b-panel { padding: var(--ter-7); }
+  /* szerkesztés közben nincs alsó gombsáv: a lebegő Visszajelzés gomb a lap végén ne takarja a magyarázatot */
+  .r13b-belso { padding-bottom: calc(var(--lebego-hely-tel) + var(--ter-12)); }
+  .r13b-panel-gombok { margin-left: var(--ter-0); }
+}
+
+/* ---------- 13d Kezdőlap, Hírek ---------- */
+.r13d-alja { display: flex; gap: var(--ter-9); flex-wrap: wrap; }
+.r13d-elfogyott { flex-direction: row; align-items: center; justify-content: space-between; gap: var(--ter-9); align-self: flex-start; padding: var(--ter-6) var(--ter-7); }
+.r13d-elfogyott-mondat { display: flex; align-items: baseline; gap: var(--ter-5); margin: var(--ter-0); color: var(--text); font-size: var(--fs-base); }
+.r13d-tel-keres { display: none; flex-direction: column; gap: var(--ter-4); }
+@media (max-width: 640px) {
+  .r13d-elfogyott { flex-direction: column; align-items: flex-start; align-self: stretch; }
+  .r13d-tel-keres { display: flex; }
+}

@@ -1,0 +1,370 @@
+{
+  "_rol": "R-3 · Saját fiók — minden látható szöveg felirat-kulccsal. A 'fiok.hiba_*' és 'hozzaferes.hiba_*' kulcsok a rendszerben MÁR megvannak: a rajz csak használja őket.",
+  "alapnyelv": "en",
+  "nyelvek": [
+    "en",
+    "hu",
+    "ro"
+  ],
+  "feliratok": {
+    "sajat.cim": {
+      "en": "My account",
+      "hu": "Saját fiók",
+      "ro": "Contul meu"
+    },
+    "sajat.bevezeto": {
+      "en": "Your own details and sign-ins. This is not the client profile: that one is about the workspace, this one about you.",
+      "hu": "A te adataid és a belépéseid. Ez nem az ügyfélprofil: az a munkatérről szól, ez rólad.",
+      "ro": "Datele și conectările tale. Aceasta nu este profilul clientului: acela e despre spațiu, aceasta despre tine."
+    },
+    "sajat.adatok_cim": {
+      "en": "My details",
+      "hu": "Adataim",
+      "ro": "Datele mele"
+    },
+    "sajat.nev_cimke": {
+      "en": "Name",
+      "hu": "Név",
+      "ro": "Nume"
+    },
+    "sajat.nev_megj": {
+      "en": "This name appears in the bar, among the members and in the event log.",
+      "hu": "Ez a név jelenik meg a sávban, a tagoknál és az eseménynaplóban.",
+      "ro": "Acest nume apare în bară, la membri și în jurnalul de evenimente."
+    },
+    "sajat.nev_mentes_gomb": {
+      "en": "Save name",
+      "hu": "Név mentése",
+      "ro": "Salvează numele"
+    },
+    "sajat.nev_hiba_mit": {
+      "en": "Enter at least a name the other members will recognise. The old name stays until then.",
+      "hu": "Írj be legalább egy nevet, amin a többi tag felismer. A régi név addig érvényben marad.",
+      "ro": "Scrie cel puțin un nume după care te recunosc ceilalți membri. Până atunci rămâne numele vechi."
+    },
+    "sajat.email_cimke": {
+      "en": "E-mail address",
+      "hu": "E-mail-cím",
+      "ro": "Adresă de e-mail"
+    },
+    "sajat.email_megj": {
+      "en": "Changing the e-mail address would need a confirmation mail, which the system does not have yet. Until then the administrator can change it.",
+      "hu": "Az e-mail-cím módosításához megerősítő levél kellene, ami még nincs a rendszerben. Addig a rendszergazda tudja átállítani.",
+      "ro": "Modificarea adresei de e-mail ar necesita un mesaj de confirmare, pe care sistemul încă nu îl poate trimite. Până atunci, administratorul o poate schimba."
+    },
+    "sajat.email_megj_rovid": {
+      "en": "Changing it would need a confirmation mail, which the system does not have yet. Until then the administrator changes it.",
+      "hu": "A módosításához megerősítő levél kellene, ami még nincs a rendszerben. Addig a rendszergazda állítja át.",
+      "ro": "Modificarea ar necesita un mesaj de confirmare, inexistent încă. Până atunci o schimbă administratorul."
+    },
+    "sajat.jelszo_cim": {
+      "en": "Password",
+      "hu": "Jelszó",
+      "ro": "Parolă"
+    },
+    "sajat.jelenlegi_cimke": {
+      "en": "Current password",
+      "hu": "Jelenlegi jelszó",
+      "ro": "Parola actuală"
+    },
+    "sajat.uj_cimke": {
+      "en": "New password",
+      "hu": "Új jelszó",
+      "ro": "Parola nouă"
+    },
+    "sajat.jelszo_hossz": {
+      "en": "At least 10 characters.",
+      "hu": "Legalább 10 karakter.",
+      "ro": "Cel puțin 10 caractere."
+    },
+    "sajat.jelszo_rovid": {
+      "en": "That is short: at least 10 characters are needed.",
+      "hu": "Ez rövid: legalább 10 karakter kell.",
+      "ro": "Este prea scurtă: sunt necesare cel puțin 10 caractere."
+    },
+    "sajat.jelszo_rovid_mit": {
+      "en": "The save button stays locked — we do not send a request we know will be refused.",
+      "hu": "A mentés gombja addig zárva marad — nem küldünk el olyan kérést, amiről tudjuk, hogy elutasítják.",
+      "ro": "Butonul de salvare rămâne blocat — nu trimitem o cerere despre care știm că va fi respinsă."
+    },
+    "sajat.jelszo_kovetkezmeny_cim": {
+      "en": "What happens after the password change",
+      "hu": "Ami a jelszóváltás után történik",
+      "ro": "Ce se întâmplă după schimbarea parolei"
+    },
+    "sajat.jelszo_kovetkezmeny": {
+      "en": "You stay signed in on this device. On the others — phone, another browser — the system signs you out and you will need to sign in again.",
+      "hu": "Ezen az eszközön belépve maradsz. A többi eszközről — telefon, másik böngésző — kilépteti a rendszer, és újra be kell jelentkezned rajtuk.",
+      "ro": "Pe acest dispozitiv rămâi conectat. De pe celelalte — telefon, alt browser — sistemul te deconectează și va trebui să te conectezi din nou."
+    },
+    "sajat.jelszo_mentes_gomb": {
+      "en": "Change password",
+      "hu": "Jelszó megváltoztatása",
+      "ro": "Schimbă parola"
+    },
+    "sajat.jelszo_mentes_kozben": {
+      "en": "Saving the password…",
+      "hu": "Jelszó mentése…",
+      "ro": "Se salvează parola…"
+    },
+    "sajat.jelszo_kesz_cim": {
+      "en": "Your password has changed",
+      "hu": "A jelszavad megváltozott",
+      "ro": "Parola ta s-a schimbat"
+    },
+    "sajat.jelszo_kesz_szoveg": {
+      "en": "We signed your account out of {n} other devices. You stay signed in on this one.",
+      "hu": "{n} másik eszközről kiléptettük a fiókodat. Ezen az eszközön belépve maradsz.",
+      "ro": "Ți-am deconectat contul de pe {n} alte dispozitive. Pe acest dispozitiv rămâi conectat."
+    },
+    "sajat.jelszo_kesz_megj": {
+      "en": "If it was not you who signed in on those devices, they can no longer reach your account.",
+      "hu": "Ha nem te léptél be azokon az eszközökön, most már nem érik el a fiókodat.",
+      "ro": "Dacă nu tu te-ai conectat pe acele dispozitive, acum nu mai au acces la contul tău."
+    },
+    "sajat.jelszo_hiba_mit": {
+      "en": "We kept the new password in the field, just retype the current one. Your password did not change and no device was signed out.",
+      "hu": "Az új jelszót megtartottuk a mezőben, csak a jelenlegit írd be újra. A jelszavad nem változott, és egyetlen eszköz sem lépett ki.",
+      "ro": "Am păstrat parola nouă în câmp, rescrie doar cea actuală. Parola nu s-a schimbat și niciun dispozitiv nu a fost deconectat."
+    },
+    "sajat.belepesek_cim": {
+      "en": "Sign-ins",
+      "hu": "Belépések",
+      "ro": "Conectări"
+    },
+    "sajat.utolso_belepes_cimke": {
+      "en": "My last sign-in",
+      "hu": "Utolsó belépésem",
+      "ro": "Ultima mea conectare"
+    },
+    "sajat.kileptetes_megj": {
+      "en": "If you stayed signed in on someone else’s device, you can sign out everywhere from here. This device stays signed in.",
+      "hu": "Ha idegen eszközön maradtál belépve, innen mindenhonnan kiléptetheted magad. Ez az eszköz belépve marad.",
+      "ro": "Dacă ai rămas conectat pe un dispozitiv străin, de aici te poți deconecta de pe toate. Acest dispozitiv rămâne conectat."
+    },
+    "sajat.kileptetes_gomb": {
+      "en": "Sign out of all other devices",
+      "hu": "Kiléptetés minden más eszközről",
+      "ro": "Deconectare de pe toate celelalte dispozitive"
+    },
+    "sajat.kileptetes_kesz": {
+      "en": "{n} sessions were ended. You stayed signed in on this device.",
+      "hu": "{n} munkamenet szűnt meg. Ezen az eszközön belépve maradtál.",
+      "ro": "{n} sesiuni au fost încheiate. Pe acest dispozitiv ai rămas conectat."
+    },
+    "sajat.kileptetes_nulla": {
+      "en": "There was no other sign-in on this account.",
+      "hu": "Nem volt más belépés ezen a fiókon.",
+      "ro": "Nu a existat altă conectare pe acest cont."
+    },
+    "sajat.nyelv_cimke": {
+      "en": "Interface language",
+      "hu": "A felület nyelve",
+      "ro": "Limba interfeței"
+    },
+    "sajat.nyelv_megj": {
+      "en": "The interface language only. The language of the content is set by the client profile.",
+      "hu": "Csak a felület nyelve. A tartalmak nyelvét az ügyfélprofil mondja meg.",
+      "ro": "Doar limba interfeței. Limba conținutului o stabilește profilul clientului."
+    },
+    "sajat.munkatereim_cim": {
+      "en": "My workspaces",
+      "hu": "Munkatereim",
+      "ro": "Spațiile mele"
+    },
+    "sajat.munkatereim_szam": {
+      "en": "{n} workspaces",
+      "hu": "{n} munkatér",
+      "ro": "{n} spații"
+    },
+    "sajat.munkatereim_megj": {
+      "en": "You switch from the workspace list in the bar.",
+      "hu": "Váltani a sáv munkatér-lenyílójában tudsz.",
+      "ro": "Poți comuta din lista de spații din bară."
+    },
+    "sajat.aktualis": {
+      "en": "you are in this one",
+      "hu": "most ebben vagy",
+      "ro": "ești acum în el"
+    },
+    "sajat.kilepek_gomb": {
+      "en": "Leave",
+      "hu": "Kilépek",
+      "ro": "Ies"
+    },
+    "sajat.kilepek_zart_rovid": {
+      "en": "You are the only owner.",
+      "hu": "Te vagy az egyetlen tulajdonos.",
+      "ro": "Ești singurul proprietar."
+    },
+    "sajat.kilepek_zart_mit": {
+      "en": "Give the owner role to someone else on the Members page, then you can leave.",
+      "hu": "A Tagok lapon adj tulajdonosi szerepet valaki másnak, utána léphetsz ki.",
+      "ro": "Acordă rolul de proprietar altcuiva în pagina Membri, apoi poți ieși."
+    },
+    "sajat.megerositesre_var": {
+      "en": "awaiting confirmation",
+      "hu": "megerősítésre vár",
+      "ro": "așteaptă confirmarea"
+    },
+    "sajat.kilepek_megerosit_cim": {
+      "en": "You are leaving the {munkater} workspace",
+      "hu": "Kilépsz a {munkater} munkatérből",
+      "ro": "Ieși din spațiul {munkater}"
+    },
+    "sajat.kilepek_megerosit_szoveg": {
+      "en": "Your access ends immediately and the workspace disappears from the list in the bar. Your account and your other workspace stay. You can return only with a new invitation.",
+      "hu": "A hozzáférésed azonnal megszűnik, és a munkatér eltűnik a sáv lenyílójából. A fiókod és a másik munkatered megmarad. Visszajutni csak új meghívóval tudsz.",
+      "ro": "Accesul tău încetează imediat, iar spațiul dispare din lista din bară. Contul și celălalt spațiu rămân. Poți reveni doar cu o invitație nouă."
+    },
+    "sajat.kilepek_megerosit_gomb": {
+      "en": "Leave the workspace",
+      "hu": "Kilépek a munkatérből",
+      "ro": "Ies din spațiu"
+    },
+    "kozos.megse": {
+      "en": "Cancel",
+      "hu": "Mégse",
+      "ro": "Renunță"
+    },
+    "jelzes.meg_nem_mukodik": {
+      "en": "not working yet",
+      "hu": "még nem működik",
+      "ro": "încă nu funcționează"
+    },
+    "sajat.utolso_belepesek_cimke": {
+      "en": "My recent sign-ins",
+      "hu": "Utolsó belépéseim",
+      "ro": "Autentificările mele recente"
+    },
+    "sajat.belepes_sikeres": {
+      "en": "successful",
+      "hu": "sikeres",
+      "ro": "reușită"
+    },
+    "sajat.belepes_sikertelen": {
+      "en": "failed",
+      "hu": "sikertelen",
+      "ro": "eșuată"
+    },
+    "sajat.belepesek_megorzes": {
+      "en": "We keep sign-ins for 30 days — anything older is not shown in the list.",
+      "hu": "A belépéseket 30 napig őrizzük — ennél régebbi nem látszik a listán.",
+      "ro": "Păstrăm autentificările 30 de zile — cele mai vechi nu apar în listă."
+    },
+    "sajat.egy_munkater_megj": {
+      "en": "You are in a single workspace, so there is nothing to switch to. The bar's dropdown still opens, showing only this one row.",
+      "hu": "Egyetlen munkateredben vagy, ezért nincs mire váltani. A sáv lenyílója ilyenkor is nyílik, de csak ezt az egy sort mutatja.",
+      "ro": "Ești într-un singur spațiu, deci nu ai la ce comuta. Lista din bară se deschide și atunci, dar arată doar acest rând."
+    },
+    "sajat.gazda_cim": {
+      "en": "Administrator access",
+      "hu": "Rendszergazdai hozzáférés",
+      "ro": "Acces de administrator"
+    },
+    "sajat.gazda_jelveny": {
+      "en": "administrator",
+      "hu": "rendszergazda",
+      "ro": "administrator"
+    },
+    "sajat.gazda_megj": {
+      "en": "This account also sets the shared foundation. The administrator pages:",
+      "hu": "Ez a fiók a közös alapot is állítja. A gazdai lapok:",
+      "ro": "Acest cont setează și baza comună. Paginile de administrator:"
+    },
+    "sajat.torles_megj": {
+      "en": "Permanent deletion of the account is done by the administrator.",
+      "hu": "A fiók végleges törlését a rendszergazda tudja elvégezni.",
+      "ro": "Ștergerea definitivă a contului o face administratorul."
+    },
+    "sajat.ertesitesek_cim": {
+      "en": "Notifications and data policy",
+      "hu": "Értesítések és adatpolitika",
+      "ro": "Notificări și politica datelor"
+    },
+    "sajat.ertesitesek_megj": {
+      "en": "When and how the system should tell you, and where your text goes. It lives on a separate page.",
+      "hu": "Mikor és hogyan szóljon neked a rendszer, és hova kerül a szöveged. Külön lapon áll.",
+      "ro": "Când și cum să te anunțe sistemul și unde ajunge textul tău. Se află pe o pagină separată."
+    },
+    "nav.beallitasok": {
+      "en": "Settings",
+      "hu": "Beállítások",
+      "ro": "Setări"
+    },
+    "sajat.uj_megegyszer_cimke": {
+      "en": "New password again",
+      "hu": "Új jelszó még egyszer",
+      "ro": "Noua parolă încă o dată"
+    },
+    "sajat.jelszo_nem_egyezik": {
+      "en": "The two new passwords do not match.",
+      "hu": "A két új jelszó nem egyezik.",
+      "ro": "Cele două parole noi nu coincid."
+    },
+    "sajat.jelszo_nem_egyezik_mit": {
+      "en": "We clear neither field — overwrite the one with the typo. The request does not even start until the two match.",
+      "hu": "Egyik mezőt sem ürítjük ki — írd felül azt, amelyik elgépelődött. A kérés el sem indul, amíg a kettő nem egyezik.",
+      "ro": "Nu golim niciun câmp — rescrie-l pe cel greșit. Cererea nici nu pornește până când cele două nu coincid."
+    },
+    "nav.sajat_fiok_sor": {
+      "en": "My account",
+      "hu": "Saját fiók",
+      "ro": "Contul meu"
+    },
+    "sajat.oldalsav_cim": {
+      "en": "Your account",
+      "hu": "A fiókod",
+      "ro": "Contul tău"
+    }
+  },
+  "meglevo_kulcsok": {
+    "_rol": "A rendszerben MÁR megvannak — a rajz használja őket, ne duplázd.",
+    "fiok.hiba_ervenytelen_adat": {
+      "en": "The name cannot be empty.",
+      "hu": "A név nem lehet üres.",
+      "ro": "Numele nu poate fi gol."
+    },
+    "fiok.hiba_rossz_jelenlegi_jelszo": {
+      "en": "The current password is not right.",
+      "hu": "A jelenlegi jelszó nem stimmel.",
+      "ro": "Parola actuală nu este corectă."
+    },
+    "hozzaferes.hiba_utolso_tulajdonos": {
+      "en": "You are the only owner — the workspace cannot be left without one.",
+      "hu": "Te vagy az egyetlen tulajdonos — a munkatér nem maradhat tulajdonos nélkül.",
+      "ro": "Ești singurul proprietar — spațiul nu poate rămâne fără proprietar."
+    },
+    "nav.szerep_tulajdonos": {
+      "en": "owner",
+      "hu": "tulajdonos",
+      "ro": "proprietar"
+    },
+    "nav.szerep_szerkeszto": {
+      "en": "editor",
+      "hu": "szerkesztő",
+      "ro": "editor"
+    },
+    "nav.szerep_nezo": {
+      "en": "viewer",
+      "hu": "néző",
+      "ro": "vizitator"
+    },
+    "nav.sajat_fiok_sor": {
+      "en": "{nev} · {szerepek}",
+      "hu": "{nev} · {szerepek}",
+      "ro": "{nev} · {szerepek}"
+    }
+  },
+  "adatbol_jon": {
+    "_rol": "Ezeken a helyeken nincs felirat, hanem adat.",
+    "sajat.nev": "a fiók neve",
+    "sajat.email": "a fiók e-mail-címe",
+    "sajat.utolso_belepes": "az utolsó belépés időpontja",
+    "sajat.munkater_nev": "a munkatér neve",
+    "sajat.munkater_szerep": "a szerep abban a munkatérben"
+  },
+  "csak_a_rajz_jegyzetei": {
+    "_rol": "A rajzlap magyarázó szövegei, NEM kerülnek a termékbe."
+  }
+}

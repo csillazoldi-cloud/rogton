@@ -1,0 +1,171 @@
+[
+ {
+  "lap": "03-kezdlap",
+  "nezet": "asztali",
+  "itelet": "sarga",
+  "okok": [
+   "bizonytalan, pont 6"
+  ],
+  "valasz": {
+   "elso": "Ma 2 poszt vár rád",
+   "dolgom": "Nézzem át a kész posztokat.",
+   "hova_nyomnek": "Átnézem a posztot",
+   "nem_ertem": [
+    "Kommunikációs munkatér",
+    "Hírfigyelés",
+    "Iránytű"
+   ],
+   "ijeszt": [
+    "Szervezet adatai",
+    "Beállítások"
+   ],
+   "sok_szoveg": false,
+   "erzes": "bizonytalan vagyok",
+   "pont": 6
+  },
+  "jelolt": true,
+  "mp": 70
+ },
+ {
+  "lap": "03-kezdlap",
+  "nezet": "telefon",
+  "itelet": "sarga",
+  "okok": [
+   "bizonytalan, pont 6"
+  ],
+  "valasz": {
+   "elso": "A nagy lila gomb alul, amin az áll: Átnézem a posztot.",
+   "dolgom": "Nézzem meg a kész posztokat.",
+   "hova_nyomnek": "Átnézem a posztot",
+   "nem_ertem": [
+    "poszt",
+    "díszburkolatos hírből"
+   ],
+   "ijeszt": [
+    "Ma 2 poszt vár rád"
+   ],
+   "sok_szoveg": false,
+   "erzes": "bizonytalan vagyok",
+   "pont": 6
+  },
+  "jelolt": true,
+  "mp": 51
+ },
+ {
+  "lap": "04-hrek",
+  "nezet": "asztali",
+  "itelet": "sarga",
+  "okok": [
+   "bizonytalan, pont 6"
+  ],
+  "valasz": {
+   "elso": "Két posztot kell átnéznem.",
+   "dolgom": "Két posztot kell ellenőriznem.",
+   "hova_nyomnek": "Átnézem a posztot",
+   "nem_ertem": [
+    "Kommunikációs munkatér",
+    "Iránytű",
+    "Szervezet adatai"
+   ],
+   "ijeszt": [
+    "Legutóbb 4 napja kerestünk"
+   ],
+   "sok_szoveg": false,
+   "erzes": "bizonytalan vagyok",
+   "pont": 6
+  },
+  "jelolt": true,
+  "mp": 58
+ },
+ {
+  "lap": "04-hrek",
+  "nezet": "telefon",
+  "itelet": "sarga",
+  "okok": [
+   "bizonytalan, pont 6"
+  ],
+  "valasz": {
+   "elso": "Nézd át a 2 kész posztot",
+   "dolgom": "Két posztot kell megneznom a cégemnek",
+   "hova_nyomnek": "Átnézem az elsőt",
+   "nem_ertem": [
+    "magyarepitok.hu",
+    "a zöld csík",
+    "a jobb felső sarokban lévő 1-es"
+   ],
+   "ijeszt": [
+    "Visszajelzés"
+   ],
+   "sok_szoveg": false,
+   "erzes": "bizonytalan vagyok",
+   "pont": 6
+  },
+  "jelolt": true,
+  "mp": 51
+ },
+ {
+  "lap": "08-posztszveg",
+  "nezet": "asztali",
+  "itelet": "zold",
+  "okok": [],
+  "valasz": {
+   "elso": "A \"Kész a posztod, nézd át\" feliratot és a nagy szöveges dobozt látom.",
+   "dolgom": "Ellenőriznem kell a szöveget, és ha jó, kimásolnom.",
+   "hova_nyomnek": "Kész, másolom",
+   "nem_ertem": [
+    "Kommunikációs munkatár"
+   ],
+   "ijeszt": [
+    "VÁR RÁD"
+   ],
+   "sok_szoveg": false,
+   "erzes": "jó nekem itt lenni",
+   "pont": 9
+  },
+  "jelolt": true,
+  "mp": 61
+ },
+ {
+  "lap": "08-posztszveg",
+  "nezet": "telefon",
+  "itelet": "zold",
+  "okok": [],
+  "valasz": {
+   "elso": "Kész a posztod, nézd át",
+   "dolgom": "Ellenőriznem kell a szöveget, aztán lemásolnom",
+   "hova_nyomnek": "Kész, másolom",
+   "nem_ertem": [
+    "LinkedIn",
+    "#ÖtödikTérkő"
+   ],
+   "ijeszt": [
+    "1/2"
+   ],
+   "sok_szoveg": false,
+   "erzes": "jó nekem itt lenni",
+   "pont": 9
+  },
+  "jelolt": true,
+  "mp": 47
+ },
+ {
+  "lap": "08-posztszveg-2",
+  "nezet": "telefon",
+  "itelet": "zold",
+  "okok": [],
+  "valasz": {
+   "elso": "Egy nagy zöld pipa és a 'Kész a poszt!' felirat.",
+   "dolgom": "Kiszerezni a posztot Facebookra, vagy továbblépni a következőre.",
+   "hova_nyomnek": "Jöhet a következő (1 vár)",
+   "nem_ertem": [
+    "a jobb felső sarokban lévő 1-es"
+   ],
+   "ijeszt": [],
+   "sok_szoveg": false,
+   "erzes": "jó nekem itt lenni",
+   "pont": 9
+  },
+  "jelolt": true,
+  "mp": 38
+ }
+]

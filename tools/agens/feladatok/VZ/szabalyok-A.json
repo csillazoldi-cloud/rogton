@@ -1,0 +1,811 @@
+[
+ {
+  "id": "T1",
+  "nev": "Egy mező, egy szerep",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "field_role",
+   "allowed": [
+    "hang",
+    "tajekoztatas",
+    "technikai"
+   ],
+   "exactlyOne": true
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A mezőnek pontosan egy tipográfiai szerepe lehet (hang / tájékoztatás / technikai)."
+ },
+ {
+  "id": "T2",
+  "nev": "Szám csak technikai szerepben",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "number",
+   "metadata",
+   "source",
+   "dataLabel",
+   "label"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "field_role",
+   "when": {
+    "contentMatches": "[0-9]"
+   },
+   "requireRole": "technikai",
+   "requireCss": {
+    "font-variant-numeric": "tabular-nums"
+   },
+   "exceptRole": [
+    "hang"
+   ],
+   "note": "hang szerepű címben álló szám (pl. járatszám a címben) nem hiba, ha a cím a márka hang-betűjével van szedve; a technikai réteg a metaadat/forrás/index/adat mezőkre kötelező"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Szám, idő, dátum, kód csak technikai szerepű mezőben állhat, tabular-nums számjegyekkel."
+ },
+ {
+  "id": "T3",
+  "nev": "Nincs monospace",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "font_forbidden",
+   "forbiddenFontClass": "monospace"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Monospace betű sehol nem használható."
+ },
+ {
+  "id": "T5",
+  "nev": "Nagybetű csak technikai rétegben",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "lead",
+   "body",
+   "list",
+   "table",
+   "quote",
+   "cta",
+   "subtitle"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "text_case",
+   "forbidCase": "upper",
+   "requireCase": "sentence"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Csupa-nagybetűs mondat tilos; mondatkezdő nagybetű (sentence case) kell."
+ },
+ {
+  "id": "T8",
+  "nev": "Sorköz szerepenként",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "body",
+   "lead",
+   "subtitle"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "fixed_size",
+   "lineHeightByField": {
+    "headline": "@voice.lineHeight",
+    "body": "@info.lineHeight",
+    "lead": "@info.lineHeight",
+    "subtitle": "@subtitle.lineHeight"
+   }
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A sorköz a szerep értékétől eltér (cím @voice.lineHeight, törzs @info.lineHeight, felirat @subtitle.lineHeight)."
+ },
+ {
+  "id": "M1",
+  "nev": "Szerepenkénti minimális méret",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "subtitle",
+   "body",
+   "lead",
+   "list",
+   "table",
+   "dataLabel",
+   "metadata",
+   "label",
+   "kicker",
+   "source",
+   "cta",
+   "name",
+   "role"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "min_size",
+   "minByField": {
+    "headline": "@min.headline",
+    "subtitle": "@min.subtitle",
+    "body": "@min.body",
+    "lead": "@min.body",
+    "list": "@min.body",
+    "table": "@min.body",
+    "cta": "@min.body",
+    "dataLabel": "@min.dataLabel",
+    "metadata": "@min.meta",
+    "label": "@min.meta",
+    "kicker": "@min.meta",
+    "source": "@min.meta",
+    "name": "@min.headline",
+    "role": "@min.dataLabel"
+   },
+   "scale": "canvasWidth/1080",
+   "derivation": "min = @minPhone[role] × @audienceBoost × canvasWidth/390, felfelé kerekítve a házi szabályra"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A szöveg kisebb a szerep minimumánál (cím @min.headline, felirat @min.subtitle, törzs @min.body, adatcímke @min.dataLabel, metaadat/címke/forrás @min.meta) — arányosan a vászonra."
+ },
+ {
+  "id": "M2",
+  "nev": "Széles vászon szorzója",
+  "csoport": "meret",
+  "formatum": [
+   "wide169"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "scale_factor",
+   "factor": "canvasWidth/1080",
+   "minFactor": 1.78
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "1920 széles vásznon minden méret ×1.78 (= 1920/1080); kisebb szorzó nem megengedett."
+ },
+ {
+  "id": "M3",
+  "nev": "Két nyelv azonos méretben",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "equal_size",
+   "compare": [
+    "lang.primary",
+    "lang.secondary"
+   ],
+   "property": "font-size"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Az elsődleges és a másodlagos nyelv ugyanannak a mezőnek ugyanazon a méretén áll."
+ },
+ {
+  "id": "M4",
+  "nev": "Méretlépcsők",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "size_steps",
+   "allowedValues": {
+    "feed45,square11,story916,carousel45": "@steps.headline.feed",
+    "reel916": "@steps.headline.reelHook",
+    "wide169": "@steps.headline.wide"
+   },
+   "monotonic": "down"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A címméret csak a @steps.headline létra lépcsőin állhat, és nem mehet a legalsó (XS) alá."
+ },
+ {
+  "id": "M5",
+  "nev": "Beférési létra sorrendje",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "ladder_order",
+   "order": [
+    "size_step",
+    "short_copy",
+    "layout_rung",
+    "split_items",
+    "stop_rewrite"
+   ],
+   "layoutRungByFamily": {
+    "photo": "split_crop",
+    "data|practical|personal": {
+     "moveToCaption": [
+      "caveat",
+      "explanation",
+      "lead"
+     ]
+    },
+    "carousel": {
+     "shrinkSlotStep": "@carousel.slotStep",
+     "minSlot": "@carousel.minSlot"
+    }
+   },
+   "shortCopyField": "<field>_s",
+   "logRewrites": true
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A beférést csak a létra sorrendjében szabad oldani: méretlépcső → rövid szöveg → elrendezési fok → tételek szétosztása → leállás és átírás. Kézi méretcsökkentés vagy lépcső átugrása nem megengedett."
+ },
+ {
+  "id": "M6",
+  "nev": "Sorszám-korlátok",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "subtitle",
+   "label",
+   "table",
+   "list"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "max_lines",
+   "perLanguage": true,
+   "limits": {
+    "statement.headline": {
+     "feed45": 3,
+     "square11": 2,
+     "story916": 4,
+     "modifiers": {
+      "ground=dark": "+1",
+      "ground=paper&story916": "+1"
+     }
+    },
+    "wide169.headline": {
+     "maxLines": 3,
+     "maxWords": "@wide.headlineWords"
+    },
+    "reel916.hook": {
+     "perLanguage": 2,
+     "totalMax": 3,
+     "totalMax3OnlyIfSize>=": "@steps.headlineMediumIndex",
+     "elseTotal": 4
+    },
+    "carousel45.cover": 3,
+    "carousel45.keyLine": 3,
+    "carousel45.listOrTableHeading": 2,
+    "data.headline": {
+     "preferred": 1,
+     "max": 2
+    },
+    "subtitle": {
+     "exact": 1
+    },
+    "source": 2,
+    "placeholder": 3,
+    "dataLabel": 2
+   }
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A mező több sorból áll, mint a formátum/család engedi."
+ },
+ {
+  "id": "M7",
+  "nev": "Nyelvek sorszám-eltérése",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "lead",
+   "body"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "line_diff",
+   "maxDiff": 1
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A két nyelv sorszáma több mint 1-gyel tér el."
+ },
+ {
+  "id": "M8",
+  "nev": "Árva sor",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "lead",
+   "body",
+   "quote"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "widow",
+   "widowIf": {
+    "lastLineWords": 1,
+    "lastLineChars<": "@widow.minChars",
+    "orLastLineWidthRatio<": "@widow.minRatio"
+   },
+   "dataFamily": {
+    "lastLineWords": 1,
+    "orChars<=": "@widow.dataMaxChars"
+   },
+   "fix": [
+    "rebalance_narrower",
+    "next_ladder_step",
+    "short_copy"
+   ],
+   "acceptOnlyLogged": true
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "Egyszavas, rövid utolsó sor: előbb keskenyebb mértéken újratördelni, majd a létra következő foka; elfogadás csak naplózva."
+ },
+ {
+  "id": "M9",
+  "nev": "Karakterköltségvetés (kényszerített)",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "lead",
+   "dataLabel",
+   "label",
+   "subtitle",
+   "source"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "max_chars",
+   "perLanguage": true,
+   "measureOn": "longestLanguage",
+   "limits": {
+    "data.headline": "@budget.dataHeadline",
+    "data.explanation": "@budget.dataExplanation",
+    "chartLabel|carouselLabel": {
+     "max": "@budget.label",
+     "over": "useShortLabelsBothLanguages"
+    },
+    "subtitle": {
+     "chars": "@budget.subtitleChars",
+     "width": "@subtitle.maxWidth"
+    },
+    "source": {
+     "lines": 2
+    }
+   }
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A szöveg túllépi a mező karakterköltségvetését (adat-kulcsmondat @budget.dataHeadline, magyarázat @budget.dataExplanation, címke @budget.label, felirat @budget.subtitleChars); címke felett mindkét nyelv a rövid címkére vált."
+ },
+ {
+  "id": "M10",
+  "nev": "Írói irányszámok",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "label"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "max_chars",
+   "perLanguage": true,
+   "measureOn": "longestLanguage",
+   "limits": {
+    "reel916.hook|reel916.cover": "@guide.hookChars",
+    "carousel45.cover": "@guide.carouselCoverChars",
+    "listHeading|stepsHeading": "@guide.listHeadingChars"
+   },
+   "enforced": false
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A szöveg hosszabb az írói irányszámnál (hook/borító @guide.hookChars, carousel-borító @guide.carouselCoverChars, lista-/lépéscím @guide.listHeadingChars); a hosszabb nyelven mérve."
+ },
+ {
+  "id": "M11",
+  "nev": "Felirat: rögzített méret, egy sor",
+  "csoport": "meret",
+  "formatum": [
+   "reel916"
+  ],
+  "mezoTipus": [
+   "subtitle"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "fixed_size",
+   "size": "@subtitle.size",
+   "lineHeight": "@subtitle.lineHeight",
+   "linesPerLanguage": 1,
+   "maxWidth": "@subtitle.maxWidth",
+   "onOverflow": [
+    "split_to_next_cue",
+    "rewrite"
+   ],
+   "forbid": [
+    "shrink",
+    "wrap"
+   ]
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A felirat mérete rögzített (@subtitle.size), nyelvenként pontosan 1 sor; nem zsugorítható és nem törhető — ossza a következő cue-ba vagy írja át."
+ },
+ {
+  "id": "M14",
+  "nev": "Metaadat szélessége",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "metadata"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "max_width_formula",
+   "maxWidth": "canvasWidth - 2*@grid.margin - @emblem.size - @meta.gapToEmblem"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A metaadat sor szélesebb, mint vászonszélesség − 2×@grid.margin − @emblem.size − @meta.gapToEmblem."
+ },
+ {
+  "id": "M15",
+  "nev": "Nagy szám méretsávjai",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "number"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "size_range",
+   "rangeByArchetype": {
+    "hero": "@number.hero",
+    "ratio": "@number.ratio",
+    "inChart": "@number.inChart",
+    "reelCard": "@number.reelCard"
+   },
+   "approxGlyphScale": "@number.approxScale"
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A kulcsszám mérete kívül esik az archetípus sávján (hős @number.hero, arány @number.ratio, diagramon belül @number.inChart, reel-adatkártya @number.reelCard); a ≈ jel a szám @number.approxScale-szerese."
+ },
+ {
+  "id": "N5",
+  "nev": "Megszólítás, mondatkezdés, 24 órás idő, ékezetek",
+  "csoport": "nyelvek",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_chars",
+   "forbiddenGlyphs": "@lang.forbiddenGlyphs[lang]",
+   "timeFormat": "@locale.timeFormat",
+   "forbidTimePattern": "(am|pm|AM|PM|\\d{1,2}\\s?[ap]\\.?m\\.?)",
+   "politeForms": {
+    "ref": "@lang.politeForms",
+    "kezi": true,
+    "szigorusag": "figyelmeztetes"
+   }
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Tiltott helyettesítő karakter (@lang.forbiddenGlyphs) vagy 12 órás időformátum; a megszólítás formája emberi ellenőrzés."
+ },
+ {
+  "id": "A1",
+  "nev": "Minden szám technikai szerepben",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "number",
+   "dataLabel",
+   "metadata",
+   "source"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "field_role",
+   "sameAs": "T2"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Szám csak technikai szerepben, tabular-nums számjegyekkel (lásd T2)."
+ },
+ {
+  "id": "A5",
+  "nev": "Kulcsmondat: állítás igével",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "max_chars",
+   "when": {
+    "contentType": "data"
+   },
+   "linesPerLanguage": 1,
+   "maxChars": "@budget.dataHeadline",
+   "hasVerb": {
+    "kezi": true,
+    "szigorusag": "figyelmeztetes"
+   }
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Az adatposzt kulcsmondata 1 sor/nyelv és ≤ @budget.dataHeadline karakter; tartalmilag állítás igével (emberi ellenőrzés)."
+ },
+ {
+  "id": "A7",
+  "nev": "Adatcímkék közvetlenek és rövidek",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "dataLabel"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "max_chars",
+   "minSize": "@min.dataLabel",
+   "maxChars": "@budget.label",
+   "perLanguage": true,
+   "over": "useShortLabelsBothLanguages",
+   "inlineOrStacked": true
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Adatcímke ≥ @min.dataLabel, 'A · B' egy sorban vagy egymás alatt, ≤ @budget.label karakter/nyelv; felette mindkét nyelv a @lang.shortLabels rövid címkére vált."
+ },
+ {
+  "id": "A9",
+  "nev": "Dátum explicit, évvel; tartomány nagykötőjellel",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "metadata",
+   "table",
+   "dataLabel",
+   "number"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "date_format",
+   "format": "@locale.dateFormat",
+   "requireYear": true,
+   "rangeDash": "–",
+   "languageNeutralColumn": true
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A dátum nem a @locale.dateFormat alakú, vagy hiányzik az év; tartományban nagykötőjel (–) kell."
+ },
+ {
+  "id": "H2",
+  "nev": "Forrás a képen rövid, teljes a captionban",
+  "csoport": "forras-hitelesseg",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "source"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "max_lines",
+   "onImage": {
+    "label": "@lang.sourceLabel",
+    "maxLinesPerLanguage": 2
+   },
+   "fullReference": {
+    "place": "caption",
+    "field": "source_full",
+    "onImage": "forbidden"
+   }
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A forrás a képen: @lang.sourceLabel + rövid hivatkozás ≤ 2 sor/nyelv; a teljes hivatkozás (source_full) csak a captionban — a képen ContentError."
+ },
+ {
+  "id": "H9",
+  "nev": "Tiltott írásjelek és jelek a képen",
+  "csoport": "forras-hitelesseg",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_chars",
+   "forbidChars": [
+    "!"
+   ],
+   "forbidUnicodeBlocks": [
+    "Emoji",
+    "Regional_Indicator"
+   ],
+   "forbidPattern": "(^|\\s)#\\w+",
+   "forbidCase": "upper-sentence (kivéve technikai szerep)"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A képen felkiáltójel, emoji, zászló, hashtag vagy csupa-nagybetűs mondat áll."
+ }
+]

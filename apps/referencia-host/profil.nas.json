@@ -1,0 +1,108 @@
+{
+  "szervezet_id": "33333333-3333-4333-8333-333333333333",
+  "fiok_id": "22222222-2222-4222-8222-222222222222",
+  "adatbazis": "/adat/referencia.sqlite",
+  "port": 8600,
+  "ai": "ollama",
+  "letolto": "valodi",
+  "utemezo_ms": 30000,
+  "forrasok": [
+    "https://marosvasarhelyiek.ro/feed"
+  ],
+  "kezdo_beallitas": {
+    "celok": [
+      "sajat_marka",
+      "szakmai"
+    ],
+    "temak": [
+      {
+        "nev": "Marosvásárhely",
+        "nevvaltozatok": [
+          "Targu Mures",
+          "Târgu Mureș"
+        ],
+        "megkulonboztetes": "város"
+      },
+      {
+        "nev": "önkormányzat",
+        "nevvaltozatok": [
+          "polgármesteri hivatal"
+        ],
+        "megkulonboztetes": ""
+      }
+    ],
+    "foldrajzi_fokusz": "Erdély",
+    "nyelvek": [
+      "hu",
+      "ro"
+    ],
+    "kizarasok": [],
+    "idozites": {
+      "mod": "napi",
+      "ora": 7,
+      "perc": 0,
+      "idozona": "Europe/Bucharest"
+    },
+    "szabad_szoveg": "Marosvásárhelyi városi hírek követése bemutató céllal."
+  },
+  "profil": {
+    "nev": "Referencia bemutató",
+    "osszefoglalo": "Bemutató szervezet: a hírfigyelő mag második befogadó rendszerben (referencia-host), marosvásárhelyi hírek követésével.",
+    "osszefoglalo_forras": "ai",
+    "celkozonseg": "Marosvásárhelyi lakosok és helyi vállalkozások.",
+    "celkozonseg_forras": "ai",
+    "cel": "Annak bemutatása, hogy ugyanaz a mag két különböző rendszerben fut.",
+    "cel_forras": "sajat",
+    "nyelvek": [
+      "hu",
+      "ro"
+    ],
+    "nyelvek_forras": "sajat",
+    "hangnem_leiras": "Közvetlen, szakmai, érthető",
+    "hangnem_minta": "Minden bútorunk egyedi tervek alapján készül.",
+    "hangnem_nyelv": "hu",
+    "hangnem_forras": "ai",
+    "arculat": {
+      "allapot": "jovahagyott",
+      "tervezet": {
+        "elsodleges": "#2f5d4e",
+        "masodlagos": "#d9a441",
+        "hatter": "#f5f1e8",
+        "betu_cim": "'Archivo',sans-serif",
+        "betu_szoveg": "'Public Sans',sans-serif",
+        "kepvilag": "Természetes fényű műhelyfotók.",
+        "kovetendo": "anyagközeli fotók",
+        "kerulendo": "stockfotó-hangulat",
+        "lekerekites": 8,
+        "nyelv": "hu",
+        "eredet": "ai",
+        "modositva": false
+      },
+      "verzio": 1,
+      "jovahagyott_verzio": 1,
+      "verziok": {
+        "1": {
+          "verzio": 1,
+          "jovahagyva": "2026-09-01T10:00:00.000Z",
+          "elsodleges": "#2f5d4e",
+          "masodlagos": "#d9a441",
+          "hatter": "#f5f1e8",
+          "betu_cim": "'Archivo',sans-serif",
+          "betu_szoveg": "'Public Sans',sans-serif",
+          "kepvilag": "Természetes fényű műhelyfotók.",
+          "kovetendo": "anyagközeli fotók",
+          "kerulendo": "stockfotó-hangulat",
+          "lekerekites": 8,
+          "nyelv": "hu",
+          "eredet": "ai",
+          "modositva": false
+        }
+      }
+    },
+    "kesobbre": [],
+    "jovahagyva": "2026-09-01T10:00:00.000Z",
+    "jovahagyta": "22222222-2222-4222-8222-222222222222"
+  },
+  "nyelv": "hu",
+  "alap_ut": "/referencia"
+}

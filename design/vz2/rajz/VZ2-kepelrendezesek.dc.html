@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <script src="vz2-kep.js"></script>
+  <style>
+    :root{
+      --text:#1a1c24; --text-mut:#535a68; --text-dim:#6f7684;
+      --font-display:'Archivo',sans-serif; --font-body:'Public Sans',sans-serif; --font-code:'IBM Plex Mono',monospace;
+      --fw-head:700; --fw-strong:600; --fs-h1:34px; --fs-title:17px; --fs-md:15px; --fs-sm:14px; --fs-xs:12.5px;
+      --ter-3:6px; --ter-5:10px; --ter-7:14px; --ter-9:20px; --ter-11:32px; --ter-12:40px; --ter-13:56px;
+      --line:color-mix(in srgb, var(--text) 12%, transparent); --r-card:10px; --bw:1px;
+    }
+    body{margin:0;background:#e9e9ee;color:var(--text);font-family:var(--font-body);line-height:1.5;}
+    a{color:#4f5fd6;}
+    a:hover{color:var(--text);}
+  </style>
+</helmet>
+
+<div style="display:flex;flex-direction:column;gap:var(--ter-13);padding:var(--ter-12);">
+  <div style="display:flex;flex-direction:column;gap:var(--ter-3);max-width:960px;">
+    <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.06em;">VZ-2 · A HÉT HELYZET KÉPE · MINDHÁROM MÉRETBEN · 2026-09-24</div>
+    <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h1);">Az új képek rajza</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);">Ebből épül a gép receptje. Poszt 1080×1350 · Story 1080×1920 · Négyzet 1080×1080. Minden helyzet Tibor és Piroska arculatában is, hogy látsszon: a szín, a betű és a logó a munkatéré, az elrendezés a helyzeté. A csíkos terület a fotó helye.</div>
+  </div>
+  <sc-for list="{{ sorok }}" as="s" hint-placeholder-count="7">
+    <section data-screen-label="{{ s.cimke }}" style="display:flex;flex-direction:column;gap:var(--ter-7);">
+      <div style="display:flex;align-items:baseline;gap:var(--ter-9);flex-wrap:wrap;">
+        <span style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">{{ s.cimke }}</span>
+        <span style="font-family:var(--font-display);font-weight:var(--fw-strong);font-size:var(--fs-title);">{{ s.nev }}</span>
+        <span style="font-size:var(--fs-sm);color:var(--text-mut);">{{ s.szabaly }}</span>
+      </div>
+      <div style="display:flex;gap:var(--ter-11);align-items:flex-end;flex-wrap:wrap;">
+        <sc-for list="{{ s.kepek }}" as="k" hint-placeholder-count="6">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            {{ k.el }}
+            <span style="font-family:var(--font-code);font-size:11px;color:var(--text-dim);">{{ k.felirat }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.var = setInterval(() => { if (window.VZ2) { clearInterval(this.var); this.forceUpdate(); } }, 50); }
+  componentWillUnmount() { clearInterval(this.var); }
+  renderVals() {
+    const V = window.VZ2;
+    if (!V) return { sorok: [] };
+    const SZ = {
+      kesz: 'fotó felül (Story-n a kép ⅔-a) · kicker + cím + egy mondat alul · előtte–utána: két fotó egymás mellett',
+      akcio: 'a nagy szám kiemelő dobozban · mire · meddig a cég színével · fotó nem kötelező (négyzeten elmarad)',
+      uj: 'teljes képes fotó · alul sötétedés, rajta „ÚJ” + cím + mondat fehérrel',
+      hir: 'a cég fő színe az egész háttér · nagy cím · mikor · egy mondat · fotó nincs',
+      tudtad: '„Tudtad?” a cég színével · a tipp nagyban · vonal · magyarázat',
+      esemeny: 'fotó felül, nem kötelező · cím · HOL és MIKOR külön sorban',
+      szam: 'egy óriási szám a cég színével · egy mondat alatta'
+    };
+    const M = [['poszt', 'poszt', 200], ['story', 'story', 169], ['negyzet', 'négyzet', 200]];
+    const sorok = V.HELYZETEK.map((h, i) => ({
+      cimke: String(i + 1).padStart(2, '0'), nev: h.nev, szabaly: SZ[h.id],
+      kepek: [].concat(
+        M.map(m => ({ el: V.kep(h.id, m[0], m[2], { ceg: 'tibor', eu: h.id === 'kesz' && m[0] === 'negyzet' }), felirat: 'Kövesi Térkő · ' + m[1] + (h.id === 'kesz' && m[0] === 'negyzet' ? ' · előtte–utána' : '') })),
+        M.map(m => ({ el: V.kep(h.id, m[0], m[2], { ceg: 'piroska', ro: h.id === 'hir' && m[0] === 'poszt' }), felirat: 'Piroska Pékség · ' + m[1] + (h.id === 'hir' && m[0] === 'poszt' ? ' · két nyelven' : '') }))
+      )
+    }));
+    return { sorok };
+  }
+}
+</script>
+</body>
+</html>

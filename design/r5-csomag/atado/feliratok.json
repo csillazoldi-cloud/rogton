@@ -1,0 +1,359 @@
+{
+  "_rol": "R-5 · Csomag, Kimenő értesítések, AI-kapcsoló — minden látható szöveg felirat-kulccsal. A 'rajz.*' kulcsok a rajz jegyzetei, NEM kerülnek a felületre. A '{…}' helyek behelyettesítendők. Az 'esemeny.<fajta>_szoveg' kulcsok (a kimenő üzenet mondata) nincsenek itt: a felületen nem jelennek meg.",
+  "alapnyelv": "en",
+  "nyelvek": [
+    "en",
+    "hu",
+    "ro"
+  ],
+  "feliratok": {
+    "csomag.cim": {
+      "en": "Plan",
+      "hu": "Csomag",
+      "ro": "Pachet"
+    },
+    "csomag.modulok_cimke": {
+      "en": "Modules",
+      "hu": "Modulok",
+      "ro": "Module"
+    },
+    "csomag.benne": {
+      "en": "included",
+      "hu": "benne",
+      "ro": "inclus"
+    },
+    "csomag.arazas_cim": {
+      "en": "Pricing and payment",
+      "hu": "Árazás és fizetés",
+      "ro": "Prețuri și plată"
+    },
+    "csomag.arazas_miert": {
+      "en": "It is decided after the pilot. While there is no price, the plan does not expire and does not ask for payment.",
+      "hu": "A pilot után dől el. Amíg nincs ár, a csomag nem jár le, és nem kér fizetést.",
+      "ro": "Se decide după pilot. Cât timp nu există preț, pachetul nu expiră și nu cere plată."
+    },
+    "csomag.rendszergazda_megj": {
+      "en": "Today every workspace is on the Pilot plan. There is no plan change — after the pilot.",
+      "hu": "Ma minden munkatér a Pilot csomagban van. Csomagváltás nincs — a pilot után.",
+      "ro": "Astăzi toate spațiile sunt pe pachetul Pilot. Schimbarea pachetului nu există — după pilot."
+    },
+    "kimeno.cim": {
+      "en": "Outgoing notifications",
+      "hu": "Kimenő értesítések",
+      "ro": "Notificări de ieșire"
+    },
+    "kimeno.bekotve": {
+      "en": "The outgoing channel is connected",
+      "hu": "A kimenő csatorna be van kötve",
+      "ro": "Canalul de ieșire este conectat"
+    },
+    "kimeno.nincs_bekotve": {
+      "en": "The outgoing channel is not connected",
+      "hu": "A kimenő csatorna nincs bekötve",
+      "ro": "Canalul de ieșire nu este conectat"
+    },
+    "kimeno.kimeno_szam": {
+      "en": "a message goes out for {n} events",
+      "hu": "{n} eseményről megy ki üzenet",
+      "ro": "pentru {n} evenimente iese un mesaj"
+    },
+    "kimeno.kozos_szam": {
+      "en": "the shared baseline: a message goes out for {n} events",
+      "hu": "a közös alap: {n} eseményről megy ki üzenet",
+      "ro": "baza comună: pentru {n} evenimente iese un mesaj"
+    },
+    "kimeno.megj": {
+      "en": "A short message goes out to a web hook when the selected events happen. The content never goes out, only the kind and one sentence.",
+      "hu": "Egy rövid üzenet megy ki egy webes horogra, ha a kiválasztott események megtörténnek. A tartalom soha nem megy ki, csak a fajta és egy mondat.",
+      "ro": "Un mesaj scurt iese către un cârlig web când au loc evenimentele alese. Conținutul nu iese niciodată, doar tipul și o propoziție."
+    },
+    "kimeno.megnyitas": {
+      "en": "Set up →",
+      "hu": "Beállítás →",
+      "ro": "Configurare →"
+    },
+    "kimeno.vissza": {
+      "en": "← Machine room",
+      "hu": "← Gépház",
+      "ro": "← Sala mașinilor"
+    },
+    "kimeno.csatorna_megj": {
+      "en": "The hook's address is set by the administrator on the server; it is not shown in the interface. If it is not connected, the setting is kept and takes effect as soon as the channel is connected.",
+      "hu": "A horog címét a rendszergazda állítja be a kiszolgálón; a felületen nem látszik. Ha nincs bekötve, a beállítás megmarad, és él, amint a csatorna bekötődik.",
+      "ro": "Adresa cârligului o setează administratorul pe server; în interfață nu se vede. Dacă nu este conectat, setarea se păstrează și intră în vigoare imediat ce canalul se conectează."
+    },
+    "kimeno.kozos_megj": {
+      "en": "The shared baseline applies to every workspace where the owner does not override it. By default no message goes out about anything.",
+      "hu": "A közös alap minden munkatérre érvényes, ahol a tulajdonos nem ír felül. Alapból semmiről nem megy ki üzenet.",
+      "ro": "Baza comună se aplică tuturor spațiilor unde proprietarul nu o suprascrie. Implicit nu iese mesaj despre nimic."
+    },
+    "kimeno.fejlec_esemeny": {
+      "en": "Event",
+      "hu": "Esemény",
+      "ro": "Eveniment"
+    },
+    "kimeno.fejlec_alap": {
+      "en": "Shared baseline",
+      "hu": "Közös alap",
+      "ro": "Baza comună"
+    },
+    "kimeno.fejlec_munkater": {
+      "en": "In this workspace",
+      "hu": "Ebben a munkatérben",
+      "ro": "În acest spațiu"
+    },
+    "kimeno.fejlec_hatasos": {
+      "en": "What applies",
+      "hu": "Ami érvényes",
+      "ro": "Ce se aplică"
+    },
+    "kimeno.orokli": {
+      "en": "inherits",
+      "hu": "örökli",
+      "ro": "moștenește"
+    },
+    "kimeno.kimeno": {
+      "en": "outgoing",
+      "hu": "kimenő",
+      "ro": "iese"
+    },
+    "kimeno.nincs": {
+      "en": "none",
+      "hu": "nincs",
+      "ro": "nu"
+    },
+    "kimeno.alap_kimeno": {
+      "en": "outgoing",
+      "hu": "kimenő",
+      "ro": "iese"
+    },
+    "kimeno.alap_nincs": {
+      "en": "none",
+      "hu": "nincs",
+      "ro": "nu"
+    },
+    "kimeno.hatasos_kimeno": {
+      "en": "outgoing",
+      "hu": "kimenő",
+      "ro": "iese"
+    },
+    "kimeno.hatasos_nincs": {
+      "en": "none",
+      "hu": "nincs",
+      "ro": "nu"
+    },
+    "kimeno.mentes": {
+      "en": "Save settings",
+      "hu": "Beállítás mentése",
+      "ro": "Salvează setarea"
+    },
+    "kimeno.mentve": {
+      "en": "Saved {ido}",
+      "hu": "Mentve {ido}",
+      "ro": "Salvat {ido}"
+    },
+    "kimeno.nem_ugyanaz": {
+      "en": "This is the workspace's external channel. What we tell you about in the app is set on Settings → Notifications.",
+      "hu": "Ez a munkatér külső csatornája. Hogy neked a felületen miről szóljunk, azt a Beállítások → Értesítések fülön állítod.",
+      "ro": "Acesta este canalul extern al spațiului. Despre ce să te anunțăm în aplicație setezi în Setări → Notificări."
+    },
+    "kimeno.csoport_fiok": {
+      "en": "Account and sign-in",
+      "hu": "Fiók és belépés",
+      "ro": "Cont și autentificare"
+    },
+    "kimeno.csoport_tagok": {
+      "en": "Members",
+      "hu": "Tagok",
+      "ro": "Membri"
+    },
+    "kimeno.csoport_futas": {
+      "en": "News watch runs",
+      "hu": "Hírfigyelő futás",
+      "ro": "Rulările monitorizării"
+    },
+    "kimeno.csoport_beallitas": {
+      "en": "Settings and profile",
+      "hu": "Beállítás és profil",
+      "ro": "Setări și profil"
+    },
+    "kimeno.csoport_rendszer": {
+      "en": "System",
+      "hu": "Rendszer",
+      "ro": "Sistem"
+    },
+    "ai_kapcsolo.cim": {
+      "en": "AI in this workspace",
+      "hu": "Az AI a munkatérben",
+      "ro": "IA în acest spațiu"
+    },
+    "ai_kapcsolo.be": {
+      "en": "the AI is working",
+      "hu": "az AI dolgozik",
+      "ro": "IA lucrează"
+    },
+    "ai_kapcsolo.ki": {
+      "en": "the AI is switched off",
+      "hu": "az AI kikapcsolva",
+      "ro": "IA este oprită"
+    },
+    "ai_kapcsolo.mit_tesz": {
+      "en": "When switched off, no AI call starts in the workspace's name. The news watch downloads the news but does not evaluate it — the results are marked “the AI is unavailable”.",
+      "hu": "Kikapcsolva egyetlen AI-hívás sem indul a munkatér nevében. A hírfigyelő letölti a híreket, de nem értékeli őket — a találatok „az AI nem elérhető\" jelölést kapnak.",
+      "ro": "Oprită, niciun apel de IA nu pornește în numele spațiului. Monitorizarea descarcă știrile, dar nu le evaluează — rezultatele primesc marcajul „IA nu este disponibilă”."
+    },
+    "ai_kapcsolo.d19": {
+      "en": "Downloading the news runs regardless: in that step no client data leaves the system.",
+      "hu": "A hírek letöltése ettől függetlenül fut: abban a lépésben ügyféladat nem hagyja el a rendszert.",
+      "ro": "Descărcarea știrilor rulează oricum: în acel pas nu părăsesc sistemul date ale clientului."
+    },
+    "ai_kapcsolo.kulonbseg": {
+      "en": "This is not the cloud switch: this one stops everything that is AI; the cloud switch would later block only the cloud provider and allow the in-house one.",
+      "hu": "Ez nem a felhő-kapcsoló: az mindent leállít, ami AI; a felhő-kapcsoló majd csak a felhős szolgáltatót tiltaná, a házon belülit engedné.",
+      "ro": "Acesta nu este comutatorul de cloud: el oprește tot ce ține de IA; comutatorul de cloud ar bloca ulterior doar furnizorul din cloud, permițându-l pe cel intern."
+    },
+    "ai_kapcsolo.kikapcsolva_mikor": {
+      "en": "Switched off {ido} · {ki}",
+      "hu": "Kikapcsolva {ido} · {ki}",
+      "ro": "Oprită {ido} · {ki}"
+    },
+    "ai_kapcsolo.hirfigyelo_sav": {
+      "en": "The AI is switched off in this workspace — the news is downloaded, the evaluation is on hold. You can switch it on under Data policy.",
+      "hu": "Az AI ki van kapcsolva ebben a munkatérben — a hírek letöltődnek, az értékelés áll. Bekapcsolni az Adatpolitika fülön tudod.",
+      "ro": "IA este oprită în acest spațiu — știrile se descarcă, evaluarea stă. O poți porni în fila Politica datelor."
+    },
+    "ai_kapcsolo.sav_link": {
+      "en": "Data policy →",
+      "hu": "Adatpolitika →",
+      "ro": "Politica datelor →"
+    },
+    "esemeny.belepes_cim": {
+      "en": "Sign-in",
+      "hu": "Belépés",
+      "ro": "Autentificare"
+    },
+    "esemeny.kilepes_cim": {
+      "en": "Sign-out",
+      "hu": "Kilépés",
+      "ro": "Deconectare"
+    },
+    "esemeny.jelszo_valtas_cim": {
+      "en": "Password change",
+      "hu": "Jelszóváltás",
+      "ro": "Schimbare de parolă"
+    },
+    "esemeny.kileptetes_mindenhol_cim": {
+      "en": "Signed out of all devices",
+      "hu": "Kiléptetés minden eszközről",
+      "ro": "Deconectare de pe toate dispozitivele"
+    },
+    "esemeny.belepesi_kiserletek_cim": {
+      "en": "Many failed sign-in attempts",
+      "hu": "Sok sikertelen belépési kísérlet",
+      "ro": "Multe încercări eșuate de autentificare"
+    },
+    "esemeny.meghivo_kiadva_cim": {
+      "en": "Invitation issued",
+      "hu": "Meghívó kiadva",
+      "ro": "Invitație emisă"
+    },
+    "esemeny.meghivo_visszavonva_cim": {
+      "en": "Invitation withdrawn",
+      "hu": "Meghívó visszavonva",
+      "ro": "Invitație retrasă"
+    },
+    "esemeny.meghivo_elfogadva_cim": {
+      "en": "Invitation accepted",
+      "hu": "Meghívó elfogadva",
+      "ro": "Invitație acceptată"
+    },
+    "esemeny.tag_felveve_cim": {
+      "en": "Member added",
+      "hu": "Tag felvéve",
+      "ro": "Membru adăugat"
+    },
+    "esemeny.szerep_valtozott_cim": {
+      "en": "Role changed",
+      "hu": "Szerep változott",
+      "ro": "Rol schimbat"
+    },
+    "esemeny.tag_eltavolitva_cim": {
+      "en": "Member removed",
+      "hu": "Tag eltávolítva",
+      "ro": "Membru eliminat"
+    },
+    "esemeny.tag_kilepett_cim": {
+      "en": "Member left",
+      "hu": "Tag kilépett",
+      "ro": "Membru plecat"
+    },
+    "esemeny.futas_indult_cim": {
+      "en": "The watch has started",
+      "hu": "Elindult a figyelés",
+      "ro": "Monitorizarea a pornit"
+    },
+    "esemeny.futas_kesz_cim": {
+      "en": "The watch has run",
+      "hu": "Lefutott a figyelés",
+      "ro": "Monitorizarea a rulat"
+    },
+    "esemeny.futas_hiba_cim": {
+      "en": "The run ended in an error",
+      "hu": "A futás hibára futott",
+      "ro": "Rularea s-a încheiat cu eroare"
+    },
+    "esemeny.futas_beragadt_cim": {
+      "en": "A run got stuck",
+      "hu": "Beragadt egy futás",
+      "ro": "O rulare s-a blocat"
+    },
+    "esemeny.forras_hibas_cim": {
+      "en": "A source is not responding",
+      "hu": "Egy forrás nem válaszol",
+      "ro": "O sursă nu răspunde"
+    },
+    "esemeny.ai_nem_valaszol_cim": {
+      "en": "The AI does not respond",
+      "hu": "Az AI nem válaszol",
+      "ro": "IA nu răspunde"
+    },
+    "esemeny.keret_kimerult_cim": {
+      "en": "The monthly AI budget has run out",
+      "hu": "Elfogyott a havi AI-keret",
+      "ro": "Bugetul lunar de IA s-a epuizat"
+    },
+    "esemeny.tema_alkalmazva_cim": {
+      "en": "Theme applied",
+      "hu": "Téma alkalmazva",
+      "ro": "Temă aplicată"
+    },
+    "esemeny.feliratok_alkalmazva_cim": {
+      "en": "Labels applied",
+      "hu": "Feliratok alkalmazva",
+      "ro": "Etichete aplicate"
+    },
+    "esemeny.profil_jovahagyva_cim": {
+      "en": "Profile approved",
+      "hu": "Profil jóváhagyva",
+      "ro": "Profil aprobat"
+    },
+    "esemeny.ai_kapcsolo_valtozott_cim": {
+      "en": "The AI switch changed",
+      "hu": "Az AI-kapcsoló változott",
+      "ro": "Comutatorul de IA s-a schimbat"
+    },
+    "esemeny.fajl_feltoltve_cim": {
+      "en": "File uploaded",
+      "hu": "Fájl feltöltve",
+      "ro": "Fișier încărcat"
+    },
+    "esemeny.mentes_kimaradt_cim": {
+      "en": "A backup was missed",
+      "hu": "Kimaradt egy mentés",
+      "ro": "O salvare a fost ratată"
+    }
+  },
+  "meglevo_kulcsok": {
+    "_rol": "A rendszerben már megvannak, a rajz csak használja őket: kozos.app_nev, nav.kezdolap, nav.modulok, nav.ugyfelprofil, nav.gephaz, nav.sajat_fiok, nav.kilepes, nav.munkater_nev, nav.szerep_tulajdonos, nav.beallitasok, gephaz.* (a Gépház címei és a meglévő csempék), gazda.fiokok, gazda.theme, gazda.feliratok, hf.modTitle, hf.ai_nem_elerheto, jelzes.meg_nem_mukodik, beallitasok.ful_ertesitesek, beallitasok.ful_adatpolitika, adatpolitika.kapcsolo_cim, adatpolitika.kapcsolo_miert, sajat.gazda_jelveny, csomag.pilot_nev, csomag.pilot_megj. Ha a rendszerben más a szövegük, a rendszeré a hiteles. A 25 esemeny.*_cim kulcs is meglehet már — akkor ezek elhagyandók."
+  }
+}

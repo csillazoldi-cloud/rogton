@@ -1,0 +1,31 @@
+/* E-50: a rendszergazda-lapok közös navigációja. Csak tokenek, a rajz szerint (Fiokok.dc.html). */
+.km-gnav {
+  display: flex;
+  gap: var(--ter-2);
+  background: var(--field-bg);
+  border: var(--bw) solid var(--line-soft);
+  border-radius: var(--r-btn);
+  padding: var(--ter-2);
+  flex-wrap: wrap;
+}
+.km-gnav-elem {
+  border-radius: var(--r-btn);
+  padding: var(--ter-3) var(--ter-6);
+  min-height: var(--control-min-s);
+  display: flex;
+  align-items: center;
+  font-family: var(--font-body-active);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-strong);
+  color: var(--text-dim);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.km-gnav-elem:hover { color: var(--text); background: var(--btn-ghost-hover); }
+.km-gnav-elem[aria-current="page"] {
+  color: var(--on-primary);
+  background: var(--grad-primary);
+  cursor: default;
+}

@@ -1,0 +1,47 @@
+{
+ "artboards": [
+  {
+   "file": "Main.dc.html",
+   "x": 0,
+   "y": 0,
+   "w": 1240,
+   "h": 1000,
+   "title": "Rendszergazda — AI-költség szervezetenként"
+  },
+  {
+   "file": "Szervezet.dc.html",
+   "x": 1360,
+   "y": 0,
+   "w": 1240,
+   "h": 880,
+   "title": "Szervezet — saját AI-használat"
+  },
+  {
+   "file": "KeretKimerult.dc.html",
+   "x": 0,
+   "y": 1140,
+   "w": 880,
+   "h": 560,
+   "title": "Ha elfogy a keret"
+  }
+ ],
+ "annotations": [
+  {
+   "id": "megj-1",
+   "x": 0,
+   "y": -150,
+   "w": 700,
+   "text": "E-39 — AI-költség szervezetenként. Rajz, kód még nincs.\\nA számok mintaadatok. Ami ma van: EGY közös havi keret az egész rendszerre. Ami készülne: szervezetenkénti keret, és ami mögötte megáll, ha elfogy."
+  },
+  {
+   "id": "megj-2",
+   "x": 900,
+   "y": 1140,
+   "w": 320,
+   "text": "A keret nem díszlet: ha elfogy, az AI-hívás tényleg megáll — a hírletöltés és a lista viszont megy tovább."
+  }
+ ],
+ "launch": {
+  "view": "canvas"
+ }
+}

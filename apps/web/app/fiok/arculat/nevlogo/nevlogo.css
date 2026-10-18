@@ -1,0 +1,71 @@
+/* R-16 K6 · 12g „Készítsünk egyet?” (design/R16-arculat/R16-arculat.dc.html 12g; TERV §2-K6). Minden érték tokenből; a méretek (sáv, kártya,
+   képek) a rajz alakértékei, megjelölve. A sávok háttere adat (a munkatér háttérszíne — a lap adja inline). */
+
+/* ——— asztal: kérdés · három kártya egy sorban (logódoboz 280 × 120 + kép 280 × 350) · gombsor ——— */
+.r16n-lap { display: flex; flex-direction: column; gap: var(--ter-10); padding: var(--ter-12) var(--ter-0); min-width: 0; }
+.r16n-alcim { font-size: var(--fs-md); }
+.r16n-kartyak { display: flex; gap: var(--ter-11); align-items: flex-start; flex-wrap: wrap; }
+.r16n-kartya {
+  flex: none;
+  width: 280px; /* tokenőr: ok — R16 rajz 12g: a kártya a mintakép szélessége (280); a logó doboza ehhez igazodik, a hosszú név nem szélesíti */
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+  align-items: flex-start;
+  padding: var(--ter-0);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.r16n-sav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 120px; /* tokenőr: ok — R16 rajz 12g (javítva 09-30, c10): a logó doboza 120 px magas, egyforma mindhárom stílusnál */
+  border-radius: var(--r-btn);
+  overflow: hidden;
+}
+/* a logó a doboz közepén, arányosan (c10, UTOKERES-12G): a három elrendezés más alakú, ezért stílusonként a rajz legnagyobb magassága;
+   a szélesség legfeljebb a doboz 88 %-a (a hosszú név kisebb lesz, nem lóg ki). A PNG szélessége 1200 px — a max-* méretez le. */
+.r16n-sav-logo { display: block; width: auto; height: auto; max-width: 88%; }
+.r16n-sav-nev { max-height: 31px; } /* tokenőr: ok — R16 rajz 12g: a szó ~216 × 31 (a betű festéke) */
+.r16n-sav-kor { max-height: 91px; } /* tokenőr: ok — R16 rajz 12g: a bélyeg 108 × 91 */
+.r16n-sav-negyzet { max-height: 60px; } /* tokenőr: ok — R16 rajz 12g: a keretes 226 × 60 */
+.r16n-keret { display: block; border-radius: var(--r-card); }
+.r16n-keret-ki { box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--text); } /* tokenőr: ok — R16 rajz 12g: a kijelölt kép kettős kerete */
+.r16n-kartya:focus-visible .r16n-keret { outline: 2px solid var(--primary); outline-offset: 8px; } /* tokenőr: ok — fókuszjel */
+.r16n-kep { width: 280px; } /* tokenőr: ok — R16 rajz 12g: 280 × 350 (4 : 5) */
+.r16n-gombok { display: flex; align-items: center; gap: var(--ter-9); flex-wrap: wrap; }
+.r16n-gombok .r15-fo-gomb { padding: var(--ter-0) var(--ter-11); }
+.r16n-gombok .r15-info { margin: var(--ter-0); }
+
+/* ——— telefon: kérdés · a három logó egymás alatt (teljes szélesség × 84 px) · a kiválasztott a két kész képen (150 + 104) · halk sor; a fő gomb alul ——— */
+.r16n-tel { flex-direction: column; gap: var(--ter-8); }
+.r16n-savok { display: flex; flex-direction: column; gap: var(--ter-7); }
+.r16n-sav-gomb {
+  display: block;
+  width: 100%;
+  padding: var(--ter-0);
+  border: 0;
+  border-radius: var(--r-btn);
+  background: transparent;
+  cursor: pointer;
+}
+.r16n-sav-ki { box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--text); } /* tokenőr: ok — R16 rajz 12g telefon: a kijelölt logó kettős kerete */
+.r16n-sav-gomb:focus-visible { outline: 2px solid var(--primary); outline-offset: 8px; } /* tokenőr: ok — fókuszjel */
+.r16n-tel-kepek { display: flex; gap: var(--ter-6); align-items: flex-end; }
+.r16n-tel-nagy { flex: none; width: 150px; } /* tokenőr: ok — R16 rajz 12g telefon: 150 × 188 */
+.r16n-tel-kicsi { flex: none; width: 104px; } /* tokenőr: ok — R16 rajz 12g telefon: 104 × 130 */
+
+@media (max-width: 640px) {
+  .r16n-lap { gap: var(--ter-8); padding: var(--ter-4) var(--ter-0) var(--ter-9); }
+  .r16n-tel.r15-csak-tel { display: flex; }
+  .r16n-sav { height: 84px; } /* tokenőr: ok — R16 rajz 12g telefon (c10): a logó doboza 84 px magas, egyforma mindhárom stílusnál */
+  .r16n-sav-nev { max-height: 18px; } /* tokenőr: ok — R16 rajz 12g telefon: a szó ~125 × 18 */
+  .r16n-sav-kor { max-height: 70px; } /* tokenőr: ok — R16 rajz 12g telefon: a bélyeg 83 × 70 */
+  .r16n-sav-negyzet { max-height: 46px; } /* tokenőr: ok — R16 rajz 12g telefon: a keretes 174 × 46 */
+}

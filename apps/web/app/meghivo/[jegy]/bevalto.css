@@ -1,0 +1,150 @@
+/* F-3e (R-2 07): a meghivo bevalto lapja — a fiok.css testvere, nincs felso sav. */
+.km-bv-kartya {
+  box-sizing: border-box;
+  width: 520px;
+  max-width: 100%;
+  padding: var(--pad-card);
+  border-radius: var(--r-card);
+  border: var(--bw) solid var(--glass-border);
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-7);
+}
+
+.km-bv-fej {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+}
+
+.km-bv-app-nev {
+  font-family: var(--font-display-active);
+  font-weight: var(--fw-strong);
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.km-bv-cim {
+  margin: var(--ter-0);
+  font-family: var(--font-display-active);
+  font-weight: var(--fw-head);
+  font-size: var(--fs-h2);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.km-bv-szerep-sor {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  flex-wrap: wrap;
+}
+
+.km-bv-szerep-cimke {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-bv-jelveny {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-strong);
+  color: var(--src-web);
+  background: var(--src-web-bg);
+  border-radius: var(--r-badge);
+  padding: var(--ter-1) var(--ter-4);
+}
+
+.km-bv-szerep-leiras {
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-bv-fiok {
+  margin: var(--ter-0);
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
+}
+
+.km-bv-fiok span {
+  font-family: var(--font-code-active);
+  color: var(--text-mut);
+}
+
+.km-bv-szoveg {
+  margin: var(--ter-0);
+  font-size: var(--fs-base);
+  color: var(--text-mut);
+}
+
+.km-bv-gombok {
+  display: flex;
+  gap: var(--ter-5);
+  flex-wrap: wrap;
+}
+
+.km-bv-megj {
+  margin: var(--ter-0);
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.km-bv-hiba {
+  padding: var(--ter-6) var(--ter-7);
+  border-radius: var(--r-block);
+  border: var(--bw) solid var(--err-border);
+  background: var(--err-bg);
+  color: var(--err);
+  font-size: var(--fs-md);
+}
+
+.km-bv-hiba-kartya {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+}
+
+.km-bv-hiba-cim {
+  margin: var(--ter-0);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-strong);
+  color: var(--err);
+}
+
+.km-bv-hiba-szoveg {
+  margin: var(--ter-0);
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+.km-bv-info-cim {
+  margin: var(--ter-0);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-strong);
+  color: var(--text);
+}
+
+.km-bv-info-szoveg {
+  margin: var(--ter-0);
+  font-size: var(--fs-sm);
+  color: var(--text-mut);
+}
+
+@media (max-width: 640px) {
+  .km-bv-kartya {
+    padding: var(--ter-9);
+    gap: var(--ter-6);
+  }
+
+  .km-bv-gombok {
+    flex-direction: column;
+  }
+
+  .km-bv-gombok .km-gomb,
+  .km-bv-gombok .km-gomb-szellem {
+    width: 100%;
+    box-sizing: border-box; /* R-18 8. kör (audit „kilog”, 10-15): a 100 % + padding 13–27 px-rel kilógott a kártyából */
+    justify-content: center;
+  }
+}

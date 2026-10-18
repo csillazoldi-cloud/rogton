@@ -1,0 +1,20 @@
+/* R-18 6. kör · Hivatalos nevek — a rajz (.r6-nevek, .r6-nev-sor, .r6-nev-kartya) értékei tokenekből */
+.r18f-lap { display: flex; flex-direction: column; gap: var(--ter-8); }
+.r18f-linkek { display: flex; gap: var(--ter-9); }
+.r18f-tabla { max-width: 960px; gap: var(--ter-0); padding: var(--ter-10); } /* tokenőr: ok — a rajz dobozszélessége */
+.r18f-fej, .r18f-sor { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) 44px; gap: var(--ter-4); align-items: center; } /* tokenőr: ok — a ✕ oszlopa */
+.r18f-fej { padding: var(--ter-0) var(--ter-0) var(--ter-3); }
+.r18f-sor { padding: var(--ter-3) var(--ter-0); border-top: var(--bw) solid var(--line-soft); }
+.r18f-cimke { font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text); }
+.r18f-torol { width: 44px; height: 44px; border: 0; border-radius: var(--r-btn); background: transparent; color: var(--text-mut); font: inherit; font-size: var(--fs-sm); cursor: pointer; } /* tokenőr: ok — 44 px érintési cél */
+.r18f-torol:hover:not(:disabled) { background: var(--btn-ghost-hover); color: var(--text); }
+.r18f-gombsor { display: flex; align-items: center; gap: var(--ter-9); flex-wrap: wrap; padding-top: var(--ter-7); }
+.r18f-gombsor .r15-fo-gomb { padding: var(--ter-0) var(--ter-11); }
+.r18f-kartyak { flex-direction: column; gap: var(--ter-6); }
+.r18f-kartya { position: relative; display: flex; flex-direction: column; gap: var(--ter-3); padding: var(--ter-6); border-radius: var(--r-block); background: var(--teendo-bg); border: var(--bw) solid var(--teendo-border); }
+.r18f-kartya-sor { display: flex; align-items: center; gap: var(--ter-4); }
+.r18f-kartya:has(.r18f-kartya-torol) .r18f-kartya-sor:first-child { padding-right: 44px; } /* tokenőr: ok — a ✕ helye */
+.r18f-kartya-torol { position: absolute; top: var(--ter-3); right: var(--ter-3); }
+.r18f-nyelv { width: 28px; flex: none; font-family: var(--font-code-active); font-weight: var(--fw-ui); font-size: var(--fs-ui-kicsi); color: var(--text-mut); } /* tokenőr: ok — a rajz nyelvjele */
+.r15-info.r18f-ok { color: var(--ok); }
+@media (max-width: 640px) { .r18f-kartyak:not(.r15-csak-asztal) { display: flex; } }

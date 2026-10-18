@@ -1,0 +1,28 @@
+/* R-15 c5 2. kör · 12 Szervezet adatai (design/R15/rajz/R15-lapok-5.dc.html 12a · 12b). Csak tokenek.
+   Egy nyugodt lista két csoportban — keret és háttér nélkül (T6); a sorokat csak egy halk vonal választja el. */
+.r15sz-belso { max-width: 760px; }
+.r15sz-cimsor { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--ter-8); }
+.r15sz-gombsor { display: flex; align-items: center; gap: var(--ter-9); flex-wrap: wrap; }
+.r15sz-lista { display: flex; flex-direction: column; gap: var(--ter-10); }
+.r15sz-csoport { display: flex; flex-direction: column; }
+.r15sz-csoport-cim {
+  margin: var(--ter-0) var(--ter-0) var(--ter-2); font-size: var(--fs-xs); font-weight: var(--fw-strong); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text-dim);
+}
+.r15sz-sor { position: relative; display: flex; flex-direction: column; gap: var(--ter-2); padding: var(--ter-6) var(--ter-0); border-bottom: var(--bw) solid var(--line-soft); }
+.r15sz-sor[data-nyitva="true"] { gap: var(--ter-4); padding: var(--ter-7) var(--ter-0); }
+.r15sz-fej { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ter-6); }
+.r15sz-cimke { font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text-mut); }
+.r15sz-ertek { font-size: var(--fs-base); line-height: 1.45; color: var(--text); white-space: pre-line; }
+.r15sz-ures { font-size: var(--fs-base); font-style: italic; color: var(--text-dim); }
+.r15sz-gombok { display: flex; align-items: center; gap: var(--ter-8); flex-wrap: wrap; }
+.r15sz-lab { padding-top: var(--ter-2); }
+/* telefon: az egész sor nyitja a szerkesztőt — a › gomb a sorra feszül (44 px-es cél helyett az egész sor) */
+.r15sz-chev { border: none; background: transparent; color: var(--text-dim); font-size: var(--fs-md); cursor: pointer; padding: var(--ter-0); }
+.r15sz-chev::after { content: ""; position: absolute; inset: 0; }
+@media (max-width: 640px) {
+  .r15sz-belso { max-width: none; }
+}
+@media (max-width: 640px) {
+  .r15sz-keret:has(.r15-also-sav) > .km-sav { flex: none; }
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>R-15 Round 3 built</title>
+<style>
+:root{--bg:#f4f5f8;--card:#fff;--text:#1a1c24;--mut:#555c6a;--line:#dfe2e8;--ok:#1f7a48;--okbg:#e6f4ec;--r:#a8461c;--rbg:#fbefe9}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f1117;--card:#171a22;--text:#e8ebf1;--mut:#9aa3b2;--line:#2a2f3b;--ok:#7fe0a0;--okbg:#16301f;--r:#ffb08a;--rbg:#3a2218}}
+:root[data-theme="dark"]{--bg:#0f1117;--card:#171a22;--text:#e8ebf1;--mut:#9aa3b2;--line:#2a2f3b;--ok:#7fe0a0;--okbg:#16301f;--r:#ffb08a;--rbg:#3a2218}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,sans-serif}
+.wrap{max-width:1600px;margin:0 auto;padding:28px 16px 60px} h1{font-size:26px;margin:0 0 6px} h2{font-size:19px;margin:0 0 6px}
+.sub{color:var(--mut);margin:0 0 18px} section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:18px}
+.row{display:flex;gap:12px;overflow-x:auto;align-items:flex-start} figure{margin:0;flex:none} img{display:block;height:380px;width:auto;border:1px solid var(--line);border-radius:6px}
+figcaption{font-size:12px;color:var(--mut)} .pills{font-size:13px;color:var(--mut);margin-bottom:8px} .p{padding:2px 8px;border-radius:999px;font-weight:600}
+.g{background:var(--okbg);color:var(--ok)} .r{background:var(--rbg);color:var(--r)} .n{color:var(--mut)}
+ul{margin:6px 0 0 18px;padding:0} .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:18px}
+@media (max-width:700px){img{height:260px}}
+</style></head><body><div class="wrap">
+
+<h1>R-15 Round 3 — drawing vs built</h1>
+<p class="sub">Branch <code>c5-r15-kor3-kod</code> · built from drawing f37b459 (+ „Még n javaslat”) · local production build, PG 18, test AI ([MINTA] texts) · 2026-10-10. Left: the approved drawing; right: the built page, same width.</p>
+<div class="box"><b>Probe on the built views: 10 / 12 green.</b>
+<ul><li>03 phone, 1 waiting post: 43 words (limit 40). Cause: the local test AI writes a 12-word first sentence (the card's maximum, „[MINTA] Posztszöveg a megadott forrásból: === A CÉG PROFILJA === …”); the drawing's headline has 5 words. The tiles add 4 words („Hírek Posztszöveg Képek Iránytű”). With a headline of 8 words or fewer the phone stays at or under 40. Open question for Csilla, not improvised.</li>
+<li>Data differs from the drawing where the test system differs: this local organisation has 1 waiting post and no „Még vár” rows, so the „Még n javaslat” link has nothing to fold here; the fold itself is covered by the unit test and the drawing.</li>
+<li>Deviation: the sysadmin-only switch „belépési kísérletek” is not on the drawing, so it has no icon (question for the next drawing round).</li>
+<li>Upload, 100 MB: a 101 MB PDF in „Minták, kézikönyv” → „A fájl túl nagy: legfeljebb 100 MB lehet.” / „Túl nagy: legfeljebb 100 MB.”; the type line says „legfeljebb 100 MB” (screens at the bottom).</li></ul></div>
+<section><h2>03 Kezdőlap — tiles first (03bT)</h2><div class="pills">desktop <span class="p g">probe green</span> · phone <span class="p r">T5 43 szó görgetés nélkül (≤ 40)</span></div>
+<div class="row"><figure><img src="kep-6/03bT-csempek-telefon.png" alt=""><figcaption>drawing · phone</figcaption></figure><figure><img src="kep-6-epitett/03-kezdolap-telefon.png" alt=""><figcaption>built · phone</figcaption></figure><figure><img class="d" src="kep-6/03bT-csempek-asztali.png" alt=""><figcaption>drawing · desktop</figcaption></figure><figure><img class="d" src="kep-6-epitett/03-kezdolap-asztali.png" alt=""><figcaption>built · desktop</figcaption></figure></div></section>
+<section><h2>03 Kezdőlap — nothing waiting (03c2T)</h2><div class="pills">desktop <span class="p g">probe green</span> · phone <span class="p g">probe green</span></div>
+<div class="row"><figure><img src="kep-6/03c2T-csempek-telefon.png" alt=""><figcaption>drawing · phone</figcaption></figure><figure><img src="kep-6-epitett/03-kezdolap-ures-telefon.png" alt=""><figcaption>built · phone</figcaption></figure><figure><img class="d" src="kep-6/03c2T-csempek-asztali.png" alt=""><figcaption>drawing · desktop</figcaption></figure><figure><img class="d" src="kep-6-epitett/03-kezdolap-ures-asztali.png" alt=""><figcaption>built · desktop</figcaption></figure></div></section>
+<section><h2>13 Beállítások — icons (13aI)</h2><div class="pills">desktop <span class="p g">probe green</span> · phone <span class="p g">probe green</span></div>
+<div class="row"><figure><img src="kep-6/13aI-ikonok-telefon.png" alt=""><figcaption>drawing · phone</figcaption></figure><figure><img src="kep-6-epitett/13a-beallitasok-telefon.png" alt=""><figcaption>built · phone</figcaption></figure><figure><img class="d" src="kep-6/13aI-ikonok-asztali.png" alt=""><figcaption>drawing · desktop</figcaption></figure><figure><img class="d" src="kep-6-epitett/13a-beallitasok-asztali.png" alt=""><figcaption>built · desktop</figcaption></figure></div></section>
+<section><h2>13 Beállítások — Haladó open (13bI)</h2><div class="pills">desktop <span class="p g">probe green</span> · phone <span class="p g">probe green</span></div>
+<div class="row"><figure><img src="kep-6/13bI-ikonok-telefon.png" alt=""><figcaption>drawing · phone</figcaption></figure><figure><img src="kep-6-epitett/13b-halado-telefon.png" alt=""><figcaption>built · phone</figcaption></figure><figure><img class="d" src="kep-6/13bI-ikonok-asztali.png" alt=""><figcaption>drawing · desktop</figcaption></figure><figure><img class="d" src="kep-6-epitett/13b-halado-asztali.png" alt=""><figcaption>built · desktop</figcaption></figure></div></section>
+<section><h2>14 Értesítések — switches with icons (14cI)</h2><div class="pills">desktop <span class="p g">probe green</span> · phone <span class="p g">probe green</span></div>
+<div class="row"><figure><img src="kep-6/14cI-ikonok-telefon.png" alt=""><figcaption>drawing · phone</figcaption></figure><figure><img src="kep-6-epitett/14c-kapcsolok-telefon.png" alt=""><figcaption>built · phone</figcaption></figure><figure><img class="d" src="kep-6/14cI-ikonok-asztali.png" alt=""><figcaption>drawing · desktop</figcaption></figure><figure><img class="d" src="kep-6-epitett/14c-kapcsolok-asztali.png" alt=""><figcaption>built · desktop</figcaption></figure></div></section>
+<section><h2>Arculati fájl 101 MB → friendly refusal (100 MB limit)</h2><div class="row"><figure><img src="kep-6-epitett/fajlok-101mb-telefon.png" alt=""><figcaption>built · phone</figcaption></figure><figure><img class="d" src="kep-6-epitett/fajlok-101mb-asztali.png" alt=""><figcaption>built · desktop</figcaption></figure></div></section>
+</div></body></html>

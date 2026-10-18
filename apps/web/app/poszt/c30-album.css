@@ -1,0 +1,42 @@
+/* c30 F10 — a fotóalbum (rajz D8a · D8b · D8c, a c30 vászon v19). Az értékek a rajzéi, tokenekből; az alsó lap a közös .c30-lap (r18.css). */
+.c30a-tart { display: flex; flex-direction: column; gap: var(--ter-7); }
+.c30a-tart .r15-halad-sav { width: 96px; } /* tokenőr: ok — rajz D8a: 96 px széles sáv */
+.c30a-szam { font-weight: var(--fw-strong); }
+.c30a-dolgozik { display: flex; align-items: center; gap: var(--ter-5); font-size: var(--fs-sm); color: var(--text-mut); }
+/* a feltöltött fotók: 64 px-es csempék, a hátralévők szaggatott helye (D8a) */
+.c30a-racs { display: flex; flex-wrap: wrap; gap: var(--ter-4); }
+.c30a-csempe {
+  position: relative; flex: none; width: 64px; height: 64px; box-sizing: border-box; overflow: hidden; display: flex; align-items: center; justify-content: center;
+  border-radius: var(--r-block); background: var(--panel-soft-2); border: var(--bw) solid var(--line);
+} /* tokenőr: ok — rajz D8a: 64 px-es csempe */
+.c30a-csempe img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.c30a-csempe-hely { background: transparent; border-style: dashed; }
+/* a választott fotók sora (D8b): 96 px-es csempék, vízszintesen görgethető, a sorszám bal alul, a „…” jobb felül */
+.c30a-sor { display: flex; gap: var(--ter-4); overflow-x: auto; margin: var(--ter-0) calc(-1 * var(--ter-9)); padding: var(--ter-0) var(--ter-9) var(--ter-1); scrollbar-width: none; }
+.c30a-sor-elem { display: flex; }
+.c30a-csempe-nagy { width: 96px; height: 96px; } /* tokenőr: ok — rajz D8b: 96 px-es csempe */
+.c30a-sorszam {
+  position: absolute; left: var(--ter-2); bottom: var(--ter-1); padding: var(--ter-0) var(--ter-1); border-radius: var(--r-badge);
+  background: var(--bg); color: var(--text); font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-cimke); /* a valódi fotón is olvasható (a rajz helyőrzője világos) */
+}
+.c30a-tobb {
+  position: absolute; top: var(--ter-1); right: var(--ter-1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  border: 0; border-radius: var(--r-btn); background: var(--fatyol-menu); color: var(--on-primary); cursor: pointer; padding: var(--ter-0);
+} /* tokenőr: ok — rajz D8b: a 32 px-es „…” gomb a csempe sarkában */
+.c30a-ikon-gomb { align-self: flex-start; display: inline-flex; align-items: center; gap: var(--ter-4); }
+.c30a-ures-gomb { display: flex; }
+.c30a-asztal-gomb { display: flex; align-items: center; gap: var(--ter-7); }
+/* a sorrend-lap (D8c) */
+.c30a-lap-foto { display: flex; align-items: center; gap: var(--ter-6); }
+.c30a-opcio {
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-1); width: 100%; min-height: 64px; box-sizing: border-box; padding: var(--ter-4) var(--ter-6);
+  border: var(--bw) solid var(--btn-ghost-border); border-radius: var(--r-block); background: var(--btn-ghost-bg); color: var(--text); text-align: left; cursor: pointer; font: inherit;
+} /* tokenőr: ok — rajz D8c: 64 px magas választó */
+.c30a-opcio b { font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-ui); }
+.c30a-opcio span { font-size: var(--fs-sm); color: var(--text-mut); }
+.c30a-opcio-fo { background: var(--primary); border-color: transparent; color: var(--on-primary); }
+.c30a-opcio-fo span { color: var(--on-primary); opacity: 0.85; }
+.c30a-megse {
+  align-self: stretch; min-height: 48px; border: var(--bw) solid var(--btn-ghost-border); border-radius: var(--r-btn); background: var(--panel-soft-2);
+  color: var(--text); font-family: var(--font-code); font-weight: var(--fw-strong); font-size: var(--fs-ui); cursor: pointer;
+} /* tokenőr: ok — rajz D8c: 48 px magas „Mégse” */

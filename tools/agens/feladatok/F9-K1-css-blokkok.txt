@@ -1,0 +1,141 @@
+### apps/web/app/_kozos/fiok.css
+.km-ob-racs { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: var(--ter-10); padding: var(--ter-9) var(--ter-14) var(--ter-13); align-items: start; }
+
+### apps/web/app/_kozos/fiok.css
+.km-ob-racs { grid-template-columns: minmax(0, 1fr); padding: var(--ter-8) var(--ter-6) var(--ter-12); }
+
+### apps/web/app/_kozos/fiok.css
+.km-fp-fo { max-width: 1180px; margin: var(--ter-0) auto; padding: var(--ter-10) var(--ter-10) var(--ter-14); box-sizing: border-box; }
+
+### apps/web/app/_kozos/fiok.css
+.km-fp-fo { padding: var(--ter-8) var(--ter-6) var(--ter-12); }
+
+### apps/web/app/_kozos/fiok.css
+.km-kozep { display: flex; justify-content: center; padding: var(--ter-13) var(--ter-10) var(--ter-13); }
+
+### apps/web/app/_kozos/fiok.css
+.km-kozep { padding: var(--ter-10) var(--ter-6) var(--ter-12); }
+
+### apps/web/app/adatkezeles/adatkezeles.css
+.km-adk-lap {
+  padding: var(--ter-8) var(--ter-0) var(--ter-9);
+  background: var(--bg);
+}
+
+### apps/web/app/beallitasok/beallitasok.css
+.km-be-lap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-tile);
+  /* a lap kerete, mint a Tagok lapon (km-tg-fo): a tartalom a rajz szerint 960 széles, a bal szélen a lap közös margója */
+  max-width: calc(960px + 2 * var(--ter-10));
+  padding: var(--ter-8) var(--ter-10) var(--ter-13);
+}
+
+### apps/web/app/beallitasok/beallitasok.css
+.km-be-lap {
+    gap: var(--ter-8);
+  }
+
+### apps/web/app/feliratok/feliratok.css
+.km-feliratok-fo { display: flex; gap: var(--ter-9); align-items: flex-start; padding: var(--ter-9) var(--ter-10) var(--ter-14); max-width: 1400px; margin: var(--ter-0) auto; box-sizing: border-box; }
+
+### apps/web/app/feliratok/feliratok.css
+.km-feliratok-fo { flex-direction: column; padding: var(--ter-7) var(--ter-6) var(--ter-13); }
+
+### apps/web/app/gephaz/gephaz.css
+.km-gh-fo {
+  max-width: var(--lista-max);
+  margin: var(--ter-0) auto;
+  padding: var(--ter-10) var(--ter-10) var(--ter-14);
+  box-sizing: border-box;
+}
+
+### apps/web/app/gephaz/gephaz.css
+.km-gh-fo {
+    padding: var(--ter-8) var(--ter-6) var(--ter-12);
+  }
+
+### apps/web/app/gephaz/kimeno/kimeno.css
+.km-ki-lap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-8);
+  padding: var(--ter-8) var(--ter-10) var(--ter-13);
+}
+
+### apps/web/app/gephaz/kimeno/kimeno.css
+.km-ki-lap {
+    padding: var(--ter-8) var(--ter-8) var(--ter-12);
+  }
+
+### apps/web/app/hirfigyelo/_kozos/hirfigyelo.css
+.km-hf-tartalom { max-width: 1180px; margin: var(--ter-0) auto; padding: var(--ter-7) var(--ter-10) var(--ter-14); box-sizing: border-box; }
+
+### apps/web/app/hirfigyelo/_kozos/hirfigyelo.css
+.km-hf-profil-sor, .km-hf-tartalom { padding-inline: var(--ter-8); }
+
+### apps/web/app/kezdolap/kezdolap.css
+.km-kp-fo {
+  width: 100%;
+  max-width: var(--lista-max);
+  margin: var(--ter-0) auto;
+  padding: var(--ter-11) var(--ter-10) var(--ter-13);
+  box-sizing: border-box;
+}
+
+### apps/web/app/kezdolap/kezdolap.css
+.km-kp-fo {
+    padding: var(--ter-9) var(--ter-7) var(--ter-13);
+  }
+
+### apps/web/app/koltseg/koltseg-sajat.css
+.km-koltsajat-tartalom {
+  max-width: 1180px;
+  margin: var(--ter-0) auto;
+  padding: var(--ter-9) var(--ter-10) var(--ter-12);
+  box-sizing: border-box;
+}
+
+### apps/web/app/koltseg/koltseg-sajat.css
+.km-koltsajat-tartalom { padding: var(--ter-7) var(--ter-6) var(--ter-11); }
+
+### apps/web/app/sajat-fiok/sajat-fiok.css
+.km-sf-lap {
+  max-width: 1180px;
+  margin: var(--ter-0) auto;
+  padding: var(--ter-10) var(--ter-10) var(--ter-13);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-tile);
+}
+
+### apps/web/app/sajat-fiok/sajat-fiok.css
+.km-sf-lap {
+    padding: var(--ter-8);
+    gap: var(--ter-7);
+  }
+
+### apps/web/app/tagok/tagok.css
+.km-tg-fo {
+  padding: var(--ter-8) var(--ter-10) var(--ter-13);
+}
+
+### apps/web/app/tagok/tagok.css
+.km-tg-fo {
+    padding: var(--ter-8) var(--ter-8) var(--ter-0);
+  }
+
+### apps/web/app/tema/tema-egyszeru.css
+.km-tema-egyszeru-fo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+}
+
+### apps/web/app/tema/tema.css
+.km-tema-fo { display: flex; gap: var(--ter-9); flex-wrap: wrap; align-items: flex-start; padding: var(--ter-9) var(--ter-10) var(--ter-14); max-width: 1400px; margin: var(--ter-0) auto; box-sizing: border-box; }
+
+### apps/web/app/tema/tema.css
+.km-tema-fo { padding: var(--ter-7) var(--ter-6) var(--ter-13); }

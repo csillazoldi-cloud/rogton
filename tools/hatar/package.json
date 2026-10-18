@@ -1,0 +1,10 @@
+{
+  "name": "@km/hatar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A határőr. Saját TypeScript 6-ot kap, mert a dependency-cruiser a 7-es fordítót még nem érti (mérve 2026-09-06).",
+  "devDependencies": {
+    "dependency-cruiser": "18.2.0",
+    "typescript": "6.0.3"
+  }
+}

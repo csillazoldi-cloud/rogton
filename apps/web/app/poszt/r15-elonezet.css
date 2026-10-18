@@ -1,0 +1,72 @@
+/* R-15 · 08b „Így fog kinézni” — az előnézet-kártya. A kártya szándékosan NEM a séma tokenjeit használja, hanem semleges,
+   világos „feed”-színeket (gepezet 16): így Éjkék és Sötét sémában is úgy néz ki, ahogy a platformon. A betű a rendszer betűje. */
+:root {
+  --elo-bg: #ffffff; /* tokenőr: ok — R15 08b előnézet: szándékosan nem séma-token */
+  --elo-text: #1c1e21; /* tokenőr: ok — R15 08b előnézet: szándékosan nem séma-token */
+  --elo-mut: #65676b; /* tokenőr: ok — R15 08b előnézet: szándékosan nem séma-token */
+  --elo-line: #e4e6eb; /* tokenőr: ok — R15 08b előnézet: szándékosan nem séma-token */
+  --elo-hely: #f0f2f5; /* tokenőr: ok — R15 08b előnézet: szándékosan nem séma-token */
+  --elo-betu: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; /* tokenőr: ok — R15 08b: a platformok rendszerbetűje */
+}
+
+.r15e { display: flex; flex-direction: column; gap: var(--ter-4); }
+.r15e-kartya {
+  background: var(--elo-bg);
+  color: var(--elo-text);
+  font-family: var(--elo-betu);
+  border: 1px solid var(--elo-line); /* tokenőr: ok — R15 08b */
+  border-radius: 8px; /* tokenőr: ok — R15 08b: a feed kártyája */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.r15e-fej { display: flex; align-items: center; gap: 8px; padding: 12px 16px 8px; } /* tokenőr: ok — R15 08b: a platform térközei */
+.r15e-fej-li { align-items: flex-start; }
+.r15e-fej-ig { gap: 10px; padding: 10px 12px; } /* tokenőr: ok — R15 08b */
+.r15e-kor {
+  flex: 0 0 auto;
+  width: 40px; height: 40px; border-radius: 50%; /* tokenőr: ok — R15 08b */
+  background: var(--grad-primary);
+  color: #ffffff; /* tokenőr: ok — R15 08b */
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; /* tokenőr: ok — R15 08b */
+  object-fit: cover;
+}
+.r15e-kor-li { width: 48px; height: 48px; border-radius: 6px; font-size: 16px; } /* tokenőr: ok — R15 08b */
+.r15e-kor-ig { width: 28px; height: 28px; font-size: 9px; } /* tokenőr: ok — R15 08b */
+.r15e-ig-gyuru { flex: 0 0 auto; padding: 2px; border-radius: 50%; background: linear-gradient(45deg, var(--accent), var(--primary-2)); display: flex; } /* tokenőr: ok — R15 08b */
+.r15e-ig-gyuru-belso { padding: 2px; border-radius: 50%; background: var(--elo-bg); display: flex; } /* tokenőr: ok — R15 08b */
+.r15e-nevek { flex: 1 1 0%; display: flex; flex-direction: column; line-height: 1.3; min-width: 0; }
+.r15e-nev { font-size: 15px; font-weight: 600; } /* tokenőr: ok — R15 08b */
+.r15e-fej-li .r15e-nev, .r15e-nev-ig { font-size: 14px; } /* tokenőr: ok — R15 08b */
+.r15e-mut { color: var(--elo-mut); }
+.r15e-kicsi { font-size: 12px; } /* tokenőr: ok — R15 08b */
+.r15e-pontok { color: var(--elo-mut); font-size: 18px; } /* tokenőr: ok — R15 08b */
+.r15e-szoveg { margin: 0; padding: 0 16px 12px; font-size: 15px; line-height: 1.35; white-space: pre-wrap; overflow-wrap: anywhere; } /* tokenőr: ok — R15 08b */
+.r15e-szoveg-li { font-size: 14px; line-height: 1.43; } /* tokenőr: ok — R15 08b */
+.r15e-szoveg-ig { padding: 0 12px 4px; font-size: 14px; line-height: 1.4; white-space: normal; } /* tokenőr: ok — R15 08b */
+.r15e-szoveg-ig strong { font-weight: 600; margin-right: 0.35em; } /* tokenőr: ok — R15 08b */
+.r15e-ig-ido { margin: 0; padding: 2px 12px 12px; font-size: 11px; color: var(--elo-mut); letter-spacing: 0.02em; text-transform: uppercase; } /* tokenőr: ok — R15 08b */
+.r15e-kep { display: block; width: 100%; object-fit: cover; background: var(--elo-hely); }
+/* az arány a lapról jön (r15/platform-aranyok.ts, inline aspect-ratio) */
+.r15e-kor-logo { background: var(--elo-bg); object-fit: contain; border: 1px solid var(--elo-line); box-sizing: border-box; } /* tokenőr: ok — R15 08b: a logó a kerek profilképben */
+.r15e-kephely { background: var(--elo-hely); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 12px; text-align: center; font-size: 14px; } /* tokenőr: ok — R15 08b */
+.r15e-ikonsor { display: flex; align-items: center; gap: 14px; padding: 10px 12px 6px; color: var(--elo-text); } /* tokenőr: ok — R15 08b */
+.r15e-kitolt { flex: 1 1 0%; }
+.r15e-reakciok { display: flex; gap: 4px; border-top: 1px solid var(--elo-line); margin: 0 12px; } /* tokenőr: ok — R15 08b */
+.r15e-reakciok > span { flex: 1 1 0%; text-align: center; padding: 10px 0; font-size: 13px; font-weight: 600; color: var(--elo-mut); white-space: nowrap; } /* tokenőr: ok — R15 08b */
+
+/* A kép helye a kártyán belül (08c): a gombok a feed világos kinézetében */
+.r15e-kephely .r15-halk-gomb { background: var(--elo-bg); color: var(--elo-text); border-color: var(--elo-line); font-weight: 600; } /* tokenőr: ok — R15 08c */
+.r15e-kephely .r15-halk-link { color: var(--elo-mut); }
+
+/* R-17 C2 (17-08bl): a honlap-cikk előnézete — a 08b fehér kártyája, a honlap sávjával és egy talpas betűs címmel */
+.r15e-cikk { display: flex; flex-direction: column; }
+.r15e-cikk-sav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--elo-line); } /* tokenőr: ok — R17 08bl */
+.r15e-cikk-domain { font-size: 13px; font-weight: 600; color: #1e5b46; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } /* tokenőr: ok — R17 08bl: a honlap-sáv neve */
+.r15e-cikk-menu { display: flex; gap: 8px; flex: none; } /* tokenőr: ok — R17 08bl */
+.r15e-cikk-menu span { width: 36px; height: 6px; border-radius: 3px; background: var(--elo-line); } /* tokenőr: ok — R17 08bl: díszítő menü-sávok */
+.r15e-cikk-test { display: flex; flex-direction: column; gap: 8px; padding: 16px 16px 18px; } /* tokenőr: ok — R17 08bl */
+.r15e-cikk-cim { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 20px; font-weight: 700; line-height: 1.25; color: var(--elo-text); } /* tokenőr: ok — R17 08bl: a cikk címe (honlap-makett) */
+.r15e-cikk-bek { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 14px; line-height: 1.55; white-space: pre-line; } /* tokenőr: ok — R17 08bl */
+.r15e-cikk-halvany { color: var(--elo-mut); }

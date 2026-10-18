@@ -1,0 +1,32 @@
+{
+ "hu": {
+  "r15.kezdolap.csempek": "Gyors elérés",
+  "r15.kezdolap.meg_apro": "Még {n} javaslat",
+  "fajl.hiba_tul_nagy_100": "A fájl túl nagy: legfeljebb 100 MB lehet.",
+  "arculat_fajl.nagy_mit_100": "Túl nagy: legfeljebb 100 MB.",
+  "arculat_fajl.halozat_mit_100": "Nem ért fel a fájl — túl nagy, vagy megszakadt a kapcsolat. Legfeljebb 100 MB.",
+  "arculat_fajl.tipusok": "PNG · JPG · WEBP · PDF · legfeljebb 100 MB",
+  "arculat_fajl.korlatok": "PNG, JPG vagy PDF, legfeljebb 100 MB.",
+  "arculat_fajl.nagy_korlat": "Arculati fájl legfeljebb 100 MB, betű legfeljebb 10 MB."
+ },
+ "ro": {
+  "r15.kezdolap.csempek": "Acces rapid",
+  "r15.kezdolap.meg_apro": "Încă {n} sugestii",
+  "fajl.hiba_tul_nagy_100": "Fișierul este prea mare: maximum 100 MB.",
+  "arculat_fajl.nagy_mit_100": "Prea mare: cel mult 100 MB.",
+  "arculat_fajl.halozat_mit_100": "Fișierul nu a ajuns — prea mare sau conexiunea s-a întrerupt. Cel mult 100 MB.",
+  "arculat_fajl.tipusok": "PNG · JPG · WEBP · PDF · maximum 100 MB",
+  "arculat_fajl.korlatok": "PNG, JPG sau PDF, cel mult 100 MB.",
+  "arculat_fajl.nagy_korlat": "Fișier de identitate cel mult 100 MB, font cel mult 10 MB."
+ },
+ "en": {
+  "r15.kezdolap.csempek": "Quick access",
+  "r15.kezdolap.meg_apro": "{n} more suggestions",
+  "fajl.hiba_tul_nagy_100": "The file is too large: at most 100 MB.",
+  "arculat_fajl.nagy_mit_100": "Too large: at most 100 MB.",
+  "arculat_fajl.halozat_mit_100": "The file did not arrive — too large, or the connection dropped. At most 100 MB.",
+  "arculat_fajl.tipusok": "PNG · JPG · WEBP · PDF · up to 100 MB",
+  "arculat_fajl.korlatok": "PNG, JPG or PDF, at most 100 MB.",
+  "arculat_fajl.nagy_korlat": "Brand files up to 100 MB, fonts up to 10 MB."
+ }
+}

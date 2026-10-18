@@ -1,0 +1,39 @@
+/* R-15 · 11 Iránytű (design/R15/rajz/R15-lapok-4.dc.html 11a · 11b · 11c) */
+.r15i-belso { gap: var(--ter-10); }
+.r15i-belso > * { max-width: 760px; } /* tokenőr: ok — R15 rajz 11: 760 széles oszlop */
+.r15i-belso.r15i-szeles > .r15i-racs { max-width: 1080px; } /* tokenőr: ok — R15 rajz 11c: három kártya */
+.r15i-pelda { display: flex; flex-direction: column; gap: var(--ter-3); padding: var(--ter-2) var(--ter-0) var(--ter-2) var(--ter-8); border-left: 3px solid var(--line); max-width: 560px; } /* tokenőr: ok — R15 rajz 11a: a példa bal vonala */
+.r15i-pelda-jel { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.04em; }
+.r15i-pelda-sor { font-size: var(--fs-md); }
+.r15i-gombsor { display: flex; align-items: center; gap: var(--ter-9); flex-wrap: wrap; }
+.r15i-kartya { padding: var(--ter-9) var(--ter-10); gap: var(--ter-7); color: var(--text); }
+.r15i-lista { display: flex; flex-direction: column; gap: var(--ter-2); }
+.r15i-fej { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ter-6); }
+.r15i-cimke { font-size: var(--fs-sm); font-weight: var(--fw-strong); color: var(--text-mut); }
+.r15i-ertek { font-size: var(--fs-base); line-height: 1.45; color: var(--text); }
+.r15i-racs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ter-9); align-items: stretch; }
+.r15i-otlet { padding: var(--ter-9) var(--ter-10); gap: var(--ter-4); color: var(--text); }
+.r15i-otlet-cim { font-size: var(--fs-title); font-weight: var(--fw-strong); line-height: 1.45; color: var(--text); }
+.r15i-otlet-alatta { font-size: var(--fs-base); line-height: 1.45; color: var(--text-mut); }
+.r15i-otlet-gomb { margin-top: auto; padding-top: var(--ter-4); display: flex; flex-direction: column; align-items: flex-start; gap: var(--ter-4); }
+.r15i-otlet-gomb .r15-halk-gomb { min-height: var(--fo-gomb-min); padding: var(--ter-0) var(--ter-9); font-size: var(--fs-base); }
+.r15i-lab { display: flex; flex-direction: column; gap: var(--ter-5); }
+.r15i-reszletek { display: flex; flex-direction: column; gap: var(--ter-8); padding: var(--ter-9) var(--ter-10); border-left: 3px solid var(--line); } /* tokenőr: ok — R15 rajz: Részletek bal vonala */
+.r15i-bek { display: flex; flex-direction: column; gap: var(--ter-2); font-size: var(--fs-md); }
+.r15i-bek p { margin: var(--ter-0); }
+.r15i-verziok { list-style: none; margin: var(--ter-0); padding: var(--ter-0); display: flex; flex-direction: column; gap: var(--ter-3); font-size: var(--fs-sm); }
+.r15i-verziok li { display: flex; gap: var(--ter-6); align-items: baseline; }
+@media (max-width: 640px) {
+  .r15i-belso { gap: var(--ter-8); }
+  .r15i-racs { grid-template-columns: minmax(0, 1fr); gap: var(--ter-8); }
+  .r15i-otlet { padding: var(--ter-8) var(--ter-9); }
+  .r15i-otlet-gomb .r15-halk-gomb { min-height: var(--control-min); font-size: var(--fs-sm); }
+  .r15i-kartya { padding: var(--ter-8) var(--ter-9); }
+  .r15i-reszletek { padding: var(--ter-8) var(--ter-0) var(--ter-8) var(--ter-8); }
+}
+@media (max-width: 640px) {
+  /* rajz 11c telefon: az első képernyő a két első ötlet és a linksor; a 3. ötlet és a „Jóváhagyva” sor a hajtás alatt (T5 — a Tibor-próba a
+     képernyő 844 px-éig mindent olvasottnak vesz). 228 = a blokk teteje 390×844-en (mérve 10-10: 234,6 px — felső sáv, a lap felső térköze, a kétsoros kérdés-cím és alcím), kis ráhagyással. */
+  .r15i-tel-elso { display: flex; flex-direction: column; gap: var(--ter-8); min-height: calc(100svh - 228px); } /* tokenőr: ok — lásd fent */
+  .r15i-tel-tobbi { display: flex; flex-direction: column; gap: var(--ter-8); padding-top: var(--ter-8); }
+}

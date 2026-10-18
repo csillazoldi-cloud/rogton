@@ -1,0 +1,26 @@
+{
+  "dontes": "piros",
+  "probak": {
+    "osszes": 1403,
+    "zold": 1367,
+    "bukik": 20,
+    "kimarad": 16
+  },
+  "piros": [
+    "új hiba: packages/visszajelzes-core::probak/csomag.proba.ts::csomagOsszeall > a lapokat egyedivé teszi, az azonosítókat a host adja"
+  ],
+  "jelzes": [
+    "1 ismert hiba már zöld — kivehető az alapvonalból"
+  ],
+  "javult": [
+    "apps/web::probak/visszajelzes-export.proba.ts::Visszajelzés export (V5b) > beküldés után a lista.json létezik és tartalmazza a szöveget"
+  ],
+  "eltunt": [],
+  "bovult": [],
+  "uj_hibak": [
+    {
+      "azonosito": "packages/visszajelzes-core::probak/csomag.proba.ts::csomagOsszeall > a lapokat egyedivé teszi, az azonosítókat a host adja",
+      "uzenet": "AssertionError: expected 'id-2' to be 'id-2-SZANDEKOS-HIBA' // Object.is equality\n    at /tmp/saas-kapu/munkafa/packages/visszajelzes-core/probak/csomag.proba.ts:91:23\n    at file:///tmp/saas-kapu/munkafa/node_modules/.pnpm/vitest@5.0.0_@types+node@24.13.3_vite@8.2.2_@types+node@24.13.3_esbuild@0.28.2_tsx@4.23.13_/node_modules/vitest/dist/chunks/run.CQOUYP-x.js:1628:35\n    at file:///tmp/saas-kapu"
+    }
+  ]
+}

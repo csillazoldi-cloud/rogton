@@ -1,0 +1,607 @@
+{
+ "T1": {
+  "hu": "Egy szöveg csak egy dolgot csinálhat",
+  "ro": "Un text poate avea un singur rol",
+  "en": "One text, one role only"
+ },
+ "T2": {
+  "hu": "Szám csak adatként, ne díszként",
+  "ro": "Cifrele apar doar ca date, nu ca decor",
+  "en": "Numbers only as data, never as decoration"
+ },
+ "T3": {
+  "hu": "Ne használj gépi írásmódú betűt",
+  "ro": "Nu folosi litere de tip mașină de scris",
+  "en": "Do not use typewriter-style letters"
+ },
+ "T4": {
+  "hu": "A technikai felirat rövid, ritkított nagybetű",
+  "ro": "Textul tehnic e scurt, cu majuscule rărite",
+  "en": "Technical text is short, spaced capitals"
+ },
+ "T5": {
+  "hu": "Ne írj csupa nagybetűvel",
+  "ro": "Nu scrie totul cu majuscule",
+  "en": "Do not write in all capitals"
+ },
+ "T6": {
+  "hu": "Ne nyomd össze vagy nyújtsd a szöveget",
+  "ro": "Nu strânge și nu întinde textul",
+  "en": "Do not squeeze or stretch the text"
+ },
+ "T7": {
+  "hu": "Szót csak engedélyezett helyen szabad elválasztani",
+  "ro": "Desparte cuvântul doar unde e permis",
+  "en": "Break words only where allowed"
+ },
+ "T8": {
+  "hu": "A sorok távolsága a szerep szerint változik",
+  "ro": "Distanța dintre rânduri depinde de rol",
+  "en": "Line spacing depends on the role"
+ },
+ "T9": {
+  "hu": "A két nyelvet vastagság vagy szín különbözteti meg",
+  "ro": "Cele două limbi se deosebesc prin grosime sau culoare",
+  "en": "The two languages differ by weight or colour"
+ },
+ "M1": {
+  "hu": "A szöveg kisebb a megengedett legkisebb méretnél",
+  "ro": "Textul e mai mic decât mărimea minimă permisă",
+  "en": "The text is smaller than the allowed minimum"
+ },
+ "M2": {
+  "hu": "Széles képen minden méret nagyobb legyen",
+  "ro": "Pe imaginea lată toate mărimile cresc",
+  "en": "On a wide image all sizes must grow"
+ },
+ "M3": {
+  "hu": "A két nyelv ugyanakkora legyen",
+  "ro": "Cele două limbi au aceeași mărime",
+  "en": "Both languages must be the same size"
+ },
+ "M4": {
+  "hu": "A cím csak a megadott méretek egyike lehet",
+  "ro": "Titlul poate avea doar mărimile prevăzute",
+  "en": "The title may only use the allowed sizes"
+ },
+ "M5": {
+  "hu": "A szöveget csak a megadott sorrendben szabad rövidíteni",
+  "ro": "Scurtează textul doar în ordinea prevăzută",
+  "en": "Shorten the text only in the given order"
+ },
+ "M6": {
+  "hu": "Túl sok sor került a szövegbe",
+  "ro": "Textul are prea multe rânduri",
+  "en": "The text has too many lines"
+ },
+ "M7": {
+  "hu": "A két nyelv sorszáma túl különböző",
+  "ro": "Numărul de rânduri diferă prea mult între limbi",
+  "en": "The line counts of the two languages differ too much"
+ },
+ "M8": {
+  "hu": "Az utolsó sor túl rövid, egyedül maradt",
+  "ro": "Ultimul rând e prea scurt, a rămas singur",
+  "en": "The last line is too short and left alone"
+ },
+ "M9": {
+  "hu": "A szöveg hosszabb a megengedettnél",
+  "ro": "Textul e mai lung decât e permis",
+  "en": "The text is longer than allowed"
+ },
+ "M10": {
+  "hu": "A szöveg hosszabb a javasoltnál",
+  "ro": "Textul e mai lung decât cel recomandat",
+  "en": "The text is longer than recommended"
+ },
+ "M11": {
+  "hu": "A felirat egy sor, rögzített méretben",
+  "ro": "Subtitrarea are un rând, cu mărime fixă",
+  "en": "The subtitle is one line at a fixed size"
+ },
+ "M12": {
+  "hu": "Kevesebb sor jobb, mint a nagyobb méret",
+  "ro": "Mai puține rânduri sunt mai bune decât o mărime mai mare",
+  "en": "Fewer lines beat a bigger size"
+ },
+ "M13": {
+  "hu": "A fotó szövege jól látható helyre kerüljön",
+  "ro": "Textul de pe fotografie să fie bine vizibil",
+  "en": "Text on a photo must be clearly visible"
+ },
+ "M14": {
+  "hu": "A fotó szövege túl széles",
+  "ro": "Textul de pe fotografie e prea lat",
+  "en": "The text on the photo is too wide"
+ },
+ "M15": {
+  "hu": "A nagy szám mérete nem megfelelő",
+  "ro": "Mărimea numărului mare nu e potrivită",
+  "en": "The big number has the wrong size"
+ },
+ "K1": {
+  "hu": "Képenként csak egy díszítő jel lehet",
+  "ro": "O singură marcă decorativă pe imagine",
+  "en": "Only one decorative mark per image"
+ },
+ "K2": {
+  "hu": "Egy kép, egy cím, semmi átfedés",
+  "ro": "O fotografie, un titlu, fără suprapuneri",
+  "en": "One photo, one title, no overlaps"
+ },
+ "K3": {
+  "hu": "A díszítő jel mérete nem megfelelő",
+  "ro": "Mărimea mărcii decorative nu e potrivită",
+  "en": "The decorative mark has the wrong size"
+ },
+ "K4": {
+  "hu": "A tartalom a margón belül, egyenletes hézagokkal",
+  "ro": "Conținutul stă în margine, cu spații egale",
+  "en": "Content stays inside the margin with even gaps"
+ },
+ "K5": {
+  "hu": "Az embléma csak jobb alul, a margón belül",
+  "ro": "Emblema doar jos-dreapta, în margine",
+  "en": "The emblem only bottom-right, inside the margin"
+ },
+ "K6": {
+  "hu": "A logó csak a videó végén, szlogen nélkül",
+  "ro": "Sigla doar la finalul videoclipului, fără slogan",
+  "en": "The logo only at the video end, without a slogan"
+ },
+ "K7": {
+  "hu": "Az embléma csak a borítón és a végén",
+  "ro": "Emblema doar pe copertă și la final",
+  "en": "The emblem only on the cover and at the end"
+ },
+ "K8": {
+  "hu": "A kiemelőszín csak egy helyen jelenjen meg",
+  "ro": "Culoarea de accent apare doar într-un singur loc",
+  "en": "The accent colour appears in only one place"
+ },
+ "K9": {
+  "hu": "Színes háttér csak új bevezetésnél vagy eseménynél",
+  "ro": "Fundal colorat doar la lansare sau eveniment",
+  "en": "Coloured background only for launch or event"
+ },
+ "K10": {
+  "hu": "A jelzőszín csak szolgáltatásnál, szóval együtt",
+  "ro": "Culoarea de stare doar la servicii, cu un cuvânt",
+  "en": "Status colour only for services, with a word"
+ },
+ "K11": {
+  "hu": "Ez a szín ezen a háttéren nem olvasható",
+  "ro": "Această culoare nu se citește pe acest fundal",
+  "en": "This colour is unreadable on this background"
+ },
+ "K12": {
+  "hu": "Ne használj díszítő elemeket",
+  "ro": "Nu folosi elemente decorative",
+  "en": "Do not use decorative elements"
+ },
+ "K13": {
+  "hu": "Képenként csak egy egyszerű ábra",
+  "ro": "O singură diagramă simplă pe imagine",
+  "en": "Only one simple chart per image"
+ },
+ "K14": {
+  "hu": "Gyakorlati képen csak egy fő elem lehet",
+  "ro": "Pe imaginea practică doar un element principal",
+  "en": "On a practical image only one main element"
+ },
+ "K15": {
+  "hu": "A kis címke csak színes háttéren jelenhet meg",
+  "ro": "Eticheta mică apare doar pe fundal colorat",
+  "en": "The small label appears only on a coloured background"
+ },
+ "K16": {
+  "hu": "A felhívás sima mondat legyen, ne gomb",
+  "ro": "Îndemnul e o propoziție simplă, nu un buton",
+  "en": "The call to action is a plain sentence, not a button"
+ },
+ "K17": {
+  "hu": "A címke ne ismételje a fő szöveget",
+  "ro": "Eticheta nu repetă textul principal",
+  "en": "The label must not repeat the main text"
+ },
+ "K18": {
+  "hu": "A lépéskártyán kötelező a szerep-címke",
+  "ro": "Pe cardul de pas e obligatorie eticheta de rol",
+  "en": "The step card requires a role label"
+ },
+ "K19": {
+  "hu": "A bemutató sáv csak vonal és szöveg",
+  "ro": "Banda de prezentare doar linie și text",
+  "en": "The intro band is only a line and text"
+ },
+ "K20": {
+  "hu": "A borító és az első kép ne legyen ugyanaz",
+  "ro": "Coperta și prima imagine să nu fie la fel",
+  "en": "The cover and the first frame must differ"
+ },
+ "K21": {
+  "hu": "Az első képen nincs embléma és adat",
+  "ro": "Pe prima imagine nu e emblemă și nici date",
+  "en": "The first frame has no emblem and no data"
+ },
+ "K22": {
+  "hu": "Az adatkártyán legfeljebb két szám lehet",
+  "ro": "Pe cardul de date cel mult două numere",
+  "en": "The data card holds at most two numbers"
+ },
+ "K23": {
+  "hu": "A sorozatot ne jelöld külön színnel vagy logóval",
+  "ro": "Nu marca seria cu culoare sau siglă proprie",
+  "en": "Do not mark the series with its own colour or logo"
+ },
+ "N1": {
+  "hu": "Az első nyelv elöl, mindkettő ugyanakkora",
+  "ro": "Prima limbă în față, ambele la fel de mari",
+  "en": "First language first, both the same size"
+ },
+ "N2": {
+  "hu": "A kétnyelvű címke egy sorban, ponttal elválasztva",
+  "ro": "Eticheta bilingvă pe un rând, cu punct separator",
+  "en": "The bilingual label on one line, dot-separated"
+ },
+ "N3": {
+  "hu": "Széles képen fájlonként egy nyelv",
+  "ro": "Pe imaginea lată o limbă pe fișier",
+  "en": "On a wide image one language per file"
+ },
+ "N4": {
+  "hu": "A leírás nyelvenként külön blokk, nyelvkóddal",
+  "ro": "Descrierea are un bloc pe limbă, cu cod de limbă",
+  "en": "The caption has one block per language, with a code"
+ },
+ "N5": {
+  "hu": "Ne használj tiltott jelet vagy 12 órás időt",
+  "ro": "Nu folosi caractere interzise sau ora în 12 ore",
+  "en": "Do not use forbidden characters or 12-hour time"
+ },
+ "N6": {
+  "hu": "A második nyelv a saját olvasóinak szóljon",
+  "ro": "A doua limbă se adresează cititorilor ei",
+  "en": "The second language speaks to its own readers"
+ },
+ "N7": {
+  "hu": "Az ünnepnél tüntesd fel a hagyományt és a dátumot",
+  "ro": "La sărbătoare indică tradiția și data",
+  "en": "For a holiday, state the tradition and the date"
+ },
+ "N8": {
+  "hu": "A szöveg a saját nyelvének szabályai szerint törjön",
+  "ro": "Textul se rupe după regulile limbii sale",
+  "en": "The text wraps by the rules of its own language"
+ },
+ "A1": {
+  "hu": "A szám csak adatként jelenjen meg",
+  "ro": "Numărul apare doar ca dată",
+  "en": "The number appears only as data"
+ },
+ "A2": {
+  "hu": "A becslést jelöld a hullámos jellel",
+  "ro": "Marchează estimarea cu semnul tildei",
+  "en": "Mark an estimate with the tilde sign"
+ },
+ "A3": {
+  "hu": "Az összehasonlítás módja hiányzik",
+  "ro": "Lipsește modul de comparație",
+  "en": "The comparison type is missing"
+ },
+ "A4": {
+  "hu": "Az adat rétegei rossz sorrendben vannak",
+  "ro": "Straturile datelor sunt în ordine greșită",
+  "en": "The data layers are in the wrong order"
+ },
+ "A5": {
+  "hu": "A fő mondat legyen rövid és állítás",
+  "ro": "Propoziția principală să fie scurtă și clară",
+  "en": "The main sentence must be short and assertive"
+ },
+ "A6": {
+  "hu": "Túl sok elem egy ábrán",
+  "ro": "Prea multe elemente într-o figură",
+  "en": "Too many items in one figure"
+ },
+ "A7": {
+  "hu": "A feliratok rövidek és egyértelműek",
+  "ro": "Etichetele sunt scurte și clare",
+  "en": "Labels are short and clear"
+ },
+ "A8": {
+  "hu": "A rangsorolt lista vonalak nélkül",
+  "ro": "Lista clasată fără linii",
+  "en": "Ranked list without grid lines"
+ },
+ "A9": {
+  "hu": "A dátum évszámmal, a tartomány hosszú vonallal",
+  "ro": "Data cu anul, intervalul cu linie lungă",
+  "en": "Date with year, range with en dash"
+ },
+ "A10": {
+  "hu": "A hét napja a dátumból jön",
+  "ro": "Ziua săptămânii vine din dată",
+  "en": "Weekday comes from the date"
+ },
+ "A11": {
+  "hu": "A naptár napjai csoportosítva",
+  "ro": "Zilele calendarului sunt grupate",
+  "en": "Calendar days are grouped"
+ },
+ "A12": {
+  "hu": "A kiemelt adat és a háttér színe",
+  "ro": "Culoarea datelor evidențiate și a fundalului",
+  "en": "Highlight and background colors"
+ },
+ "A13": {
+  "hu": "Egy összehasonlítás, egy forrás, nincs felhívás",
+  "ro": "O comparație, o sursă, fără îndemn",
+  "en": "One comparison, one source, no call to action"
+ },
+ "A14": {
+  "hu": "Az adatsor felépítése",
+  "ro": "Structura rândului de date",
+  "en": "Structure of the data line"
+ },
+ "A15": {
+  "hu": "Két szám között ott a jel",
+  "ro": "Semnul dintre două numere",
+  "en": "Sign between two numbers"
+ },
+ "F1": {
+  "hu": "Csak valódi fotó használható",
+  "ro": "Se folosește doar fotografie reală",
+  "en": "Only real photos may be used"
+ },
+ "F2": {
+  "hu": "A fotó adatai hiányosak",
+  "ro": "Datele fotografiei sunt incomplete",
+  "en": "Photo record is incomplete"
+ },
+ "F3": {
+  "hu": "A szöveg nem takar arcot vagy kezet",
+  "ro": "Textul nu acoperă fața sau mâna",
+  "en": "Text must not cover face or hand"
+ },
+ "F4": {
+  "hu": "A cím az arc alatt kezdődik",
+  "ro": "Titlul începe sub față",
+  "en": "Title starts below the face"
+ },
+ "F5": {
+  "hu": "A védett terület ne lógjon ki",
+  "ro": "Zona protejată să nu iasă afară",
+  "en": "Protected area must not stick out"
+ },
+ "F6": {
+  "hu": "Egy tárgy teljes képen, kettő sávban",
+  "ro": "Un obiect pe tot ecranul, două în bandă",
+  "en": "One object full screen, two in a band"
+ },
+ "F7": {
+  "hu": "A fotósáv és a képhely túl alacsony",
+  "ro": "Banda foto și locul imaginii sunt prea joase",
+  "en": "Photo band and image slot are too short"
+ },
+ "F8": {
+  "hu": "Az osztott kép beállításai",
+  "ro": "Setările imaginii divizate",
+  "en": "Settings for the split image"
+ },
+ "F9": {
+  "hu": "A fekvő kép nem nagyítható tovább",
+  "ro": "Imaginea orizontală nu poate fi mărită mai mult",
+  "en": "Landscape image cannot be enlarged further"
+ },
+ "F10": {
+  "hu": "A sötétítő átmenet görbéje",
+  "ro": "Curba de întunecare a imaginii",
+  "en": "Curve of the darkening overlay"
+ },
+ "F11": {
+  "hu": "A helyőrző kép nem publikálható",
+  "ro": "Imaginea provizorie nu poate fi publicată",
+  "en": "Placeholder image cannot be published"
+ },
+ "F12": {
+  "hu": "A szerző fotója hozzájárulással",
+  "ro": "Fotografia autorului cu acord",
+  "en": "Author's photo with consent"
+ },
+ "F13": {
+  "hu": "Névtelen fotóhoz nincs név és idézet",
+  "ro": "Fotografie anonimă fără nume și citat",
+  "en": "Anonymous photo without name and quote"
+ },
+ "F14": {
+  "hu": "A név helyőrző hozzájárulásig",
+  "ro": "Numele rămâne provizoriu până la acord",
+  "en": "Name stays placeholder until consent"
+ },
+ "F15": {
+  "hu": "Ugyanaz az arc tízből csak egyszer",
+  "ro": "Aceeași față doar o dată din zece",
+  "en": "Same face only once in ten posts"
+ },
+ "F16": {
+  "hu": "Gyerekarc vagy személyes adat a képen",
+  "ro": "Față de copil sau date personale în imagine",
+  "en": "Child's face or personal data in the image"
+ },
+ "F17": {
+  "hu": "A kép évszaka nem illik a poszthoz",
+  "ro": "Anotimpul imaginii nu se potrivește postării",
+  "en": "Image season does not match the post"
+ },
+ "F18": {
+  "hu": "Az útmutatóhoz világos alap és valódi fotó",
+  "ro": "Ghidul cere fundal deschis și fotografie reală",
+  "en": "Guide needs light background and real photo"
+ },
+ "F19": {
+  "hu": "A portré arca felül, szöveg alatta",
+  "ro": "Fața portretului sus, textul dedesubt",
+  "en": "Portrait face on top, text below"
+ },
+ "F20": {
+  "hu": "A kiemelőszínű szöveg ne legyen hasonló háttéren",
+  "ro": "Textul evidențiat să nu stea pe fundal asemănător",
+  "en": "Highlighted text must not sit on similar background"
+ },
+ "B1": {
+  "hu": "Ismeretlen képméret",
+  "ro": "Dimensiune de imagine necunoscută",
+  "en": "Unknown image size"
+ },
+ "B2": {
+  "hu": "A szöveg a margón belül marad",
+  "ro": "Textul rămâne în margine",
+  "en": "Text stays inside the margin"
+ },
+ "B3": {
+  "hu": "A story felső és alsó sávja üres",
+  "ro": "Banda de sus și de jos a story-ului rămâne goală",
+  "en": "Top and bottom story bands stay empty"
+ },
+ "B4": {
+  "hu": "A reel tiltott zónái",
+  "ro": "Zonele interzise ale reel-ului",
+  "en": "Forbidden zones of the reel"
+ },
+ "B5": {
+  "hu": "A reel borítója a középső négyzetben",
+  "ro": "Coperta reel-ului în pătratul din mijloc",
+  "en": "Reel cover inside the middle square"
+ },
+ "B6": {
+  "hu": "A kép a profilrácsban levágódik",
+  "ro": "Imaginea este tăiată în grila de profil",
+  "en": "Image is cropped in the profile grid"
+ },
+ "B7": {
+  "hu": "A carousel dia felépítése",
+  "ro": "Structura diapozitivului de carousel",
+  "en": "Structure of the carousel slide"
+ },
+ "B8": {
+  "hu": "A felirat helye a képen",
+  "ro": "Locul subtitrării pe imagine",
+  "en": "Position of the subtitle on the image"
+ },
+ "B9": {
+  "hu": "A névsáv és a beszélő neve",
+  "ro": "Banda de nume și numele vorbitorului",
+  "en": "Name band and speaker name"
+ },
+ "B10": {
+  "hu": "Az elemek mérete nem megfelelő",
+  "ro": "Dimensiunea elementelor nu este corectă",
+  "en": "Element sizes are incorrect"
+ },
+ "H1": {
+  "hu": "Minden számhoz forrás vagy jelölés kell",
+  "ro": "Fiecare număr are nevoie de sursă sau marcaj",
+  "en": "Every number needs a source or marker"
+ },
+ "H2": {
+  "hu": "A forrás rövid a képen, teljes a leírásban",
+  "ro": "Sursa scurtă pe imagine, completă în descriere",
+  "en": "Source short on image, full in caption"
+ },
+ "H3": {
+  "hu": "Forráskártyához kell idézhető dokumentum",
+  "ro": "Cardul de sursă cere document citabil",
+  "en": "Source card needs a citable document"
+ },
+ "H4": {
+  "hu": "Nincs kitalált idézet",
+  "ro": "Fără citat inventat",
+  "en": "No invented quote"
+ },
+ "H5": {
+  "hu": "Az ellenőrizendő adat blokkolja a publikálást",
+  "ro": "Datele de verificat blochează publicarea",
+  "en": "Data to verify blocks publishing"
+ },
+ "H6": {
+  "hu": "A szolgáltatás-változáshoz forrás és második ellenőrző kell",
+  "ro": "Schimbarea serviciului cere sursă și al doilea verificator",
+  "en": "Service change needs source and second checker"
+ },
+ "H7": {
+  "hu": "Más intézmény döntésénél ott a forrás sora",
+  "ro": "La decizia altei instituții apare rândul sursei",
+  "en": "Other institution's decision needs attribution line"
+ },
+ "H8": {
+  "hu": "A közügy-poszt a hasznot mondja",
+  "ro": "Postarea publică arată beneficiul",
+  "en": "Public post states the benefit"
+ },
+ "H9": {
+  "hu": "Tiltott jelek a képen",
+  "ro": "Semne interzise pe imagine",
+  "en": "Forbidden marks on the image"
+ },
+ "H10": {
+  "hu": "A frissítéshez nem készül új kép",
+  "ro": "Actualizarea nu primește imagine nouă",
+  "en": "Update does not get a new image"
+ },
+ "H11": {
+  "hu": "Csak igazolt állítás kerülhet a képre",
+  "ro": "Doar afirmații verificate ajung pe imagine",
+  "en": "Only verified claims go on the image"
+ },
+ "H12": {
+  "hu": "A szöveg szerkeszthető marad",
+  "ro": "Textul rămâne editabil",
+  "en": "Text stays editable"
+ },
+ "R1": {
+  "hu": "A hátterek váltakoznak a hírfolyamban",
+  "ro": "Fundalurile alternează în flux",
+  "en": "Backgrounds alternate in the feed"
+ },
+ "R2": {
+  "hu": "A kiemelt szín ritka és nem szomszédos",
+  "ro": "Culoarea evidențiată e rară și fără vecini",
+  "en": "Highlight color is rare and not adjacent"
+ },
+ "R3": {
+  "hu": "Az elrendezés és a hely nem ismétlődik tízből",
+  "ro": "Aspectul și locul nu se repetă din zece",
+  "en": "Layout and place do not repeat in ten"
+ },
+ "R4": {
+  "hu": "A ritmus a carouselen és a reelen belül",
+  "ro": "Ritmul în carousel și reel",
+  "en": "Rhythm inside carousel and reel"
+ },
+ "R5": {
+  "hu": "Ugyanaz az arc tízből legfeljebb egyszer",
+  "ro": "Aceeași față cel mult o dată din zece",
+  "en": "Same face at most once in ten"
+ },
+ "R6": {
+  "hu": "A hős-forma váltakozik",
+  "ro": "Forma principală alternează",
+  "en": "Hero form alternates"
+ },
+ "R7": {
+  "hu": "A szolgáltatási posztot a ritmus nem blokkolja",
+  "ro": "Ritmul nu blochează postarea de serviciu",
+  "en": "Rhythm does not block service posts"
+ },
+ "R8": {
+  "hu": "Napi keret a posztokra",
+  "ro": "Limita zilnică de postări",
+  "en": "Daily limit for posts"
+ },
+ "R9": {
+  "hu": "A két egyforma dia térjen el egymástól",
+  "ro": "Două diapozitive identice trebuie să difere",
+  "en": "Two identical slides must differ"
+ }
+}

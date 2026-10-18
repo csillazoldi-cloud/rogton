@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{
+      --bg:#0c0d13; --bg-elev:#12141c; --text:#e8ebf1; --text-mut:#9aa3b2; --text-dim:#7a8496; --text-faint:#6b7484;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff;
+      --accent:#ff4520; --accent-text:#ff7a55; --accent-link:var(--primary-2);
+      --ok:#7fe0a0; --err:#ffb3a3; --focus:#8a98ff;
+      --font-display:'Archivo',sans-serif; --font-body:'Public Sans',sans-serif; --font-code:'IBM Plex Mono',monospace;
+      --fw-head:700; --fw-strong:600;
+      --fs-h1:34px; --fs-h2:26px; --fs-title:17px; --fs-base:16px; --fs-md:15px; --fs-sm:14px; --fs-xs:12.5px;
+      --r-card:10px; --r-block:10px; --r-btn:6px; --r-field:6px; --r-badge:4px; --bw:1px;
+      --control-min:46px; --control-min-s:38px; --lh:1.5;
+      --ter-0:0px; --ter-1:2px; --ter-2:4px; --ter-3:6px; --ter-4:8px; --ter-5:10px; --ter-6:12px; --ter-7:14px;
+      --ter-8:16px; --ter-9:20px; --ter-10:24px; --ter-11:32px; --ter-12:40px; --ter-13:56px; --ter-14:80px;
+      --pad-field-x:var(--ter-7);
+      --font-display-active:var(--font-display); --font-body-active:var(--font-body); --font-code-active:var(--font-code);
+      --grad-primary:linear-gradient(120deg,var(--primary),var(--primary-2));
+      --line:color-mix(in srgb, var(--text) 10%, transparent); --line-soft:color-mix(in srgb, var(--text) 7%, transparent); --line-dash:color-mix(in srgb, var(--text) 15%, transparent);
+      --field-bg:color-mix(in srgb, var(--text) 5%, transparent); --field-border:color-mix(in srgb, var(--text) 14%, transparent);
+      --panel-soft:color-mix(in srgb, var(--text) 3%, transparent); --panel-soft-2:color-mix(in srgb, var(--text) 5%, transparent);
+      --btn-ghost-bg:color-mix(in srgb, var(--text) 5%, transparent); --btn-ghost-border:color-mix(in srgb, var(--text) 14%, transparent);
+      --btn-ghost-text:color-mix(in srgb, var(--text) 88%, var(--bg));
+      --ok-strong:var(--ok); --ok-bg:color-mix(in srgb, var(--ok) 12%, transparent);
+      --err-strong:var(--err); --err-bg:color-mix(in srgb, var(--err) 10%, transparent); --err-border:color-mix(in srgb, var(--err) 35%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 8%, transparent); --warn-border:color-mix(in srgb, var(--accent-text) 30%, transparent);
+      --illesztve:#e6c065; --illesztve-bg:color-mix(in srgb, var(--illesztve) 12%, transparent); --illesztve-border:color-mix(in srgb, var(--illesztve) 32%, transparent);
+      --kep-bg:#f4f2ee; --kep-text:#15171f; --kep-sav:var(--primary);
+      --header-bg:color-mix(in srgb, var(--bg) 90%, transparent);
+    }
+    body{margin:0;background:#06070b;color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-base);line-height:var(--lh);}
+    a{color:var(--accent-link);text-decoration:underline;text-underline-offset:2px;}
+    a:hover{color:var(--text);}
+  </style>
+</helmet>
+
+<div style="display:flex;flex-direction:column;gap:var(--ter-13);padding:var(--ter-12);">
+
+  <div style="display:flex;flex-direction:column;gap:var(--ter-3);max-width:940px;">
+    <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.06em;">VZ-1b · VIZUÁLGYÁRTÓ · SZERKESZTŐ · 1. KÖR · 2026-09-23</div>
+    <div style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h1);">Amit látsz, azt töltöd le</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);">Hét állapot, asztali 1440 és telefon 390. A kép helyén mindig a gép által elkészített kép áll — ugyanaz a fájl, amit a Letöltés ad. A kép helyén itt csak vázlat van: a valódit a képgyártó adja. Mezőnként a kiférés-sáv: zöld (semmit nem kellett tenni) · sárga (a gép lépett) · piros (nem fér ki).</div>
+  </div>
+
+  <sc-for list="{{ allapotok }}" as="a" hint-placeholder-count="7">
+    <section data-screen-label="{{ a.cimke }}">
+      <div style="display:flex;align-items:baseline;gap:var(--ter-8);margin-bottom:var(--ter-5);flex-wrap:wrap;">
+        <div style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">{{ a.fejlec }}</div>
+        <div style="font-size:var(--fs-sm);color:var(--text-mut);">{{ a.leiras }}</div>
+      </div>
+      <div style="display:flex;gap:var(--ter-11);align-items:flex-start;">
+
+        <div style="width:1440px;flex:none;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-9);padding:var(--ter-6) var(--ter-10);border-bottom:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+              <div aria-hidden="true" style="width:26px;height:26px;border-radius:var(--r-btn);background:var(--grad-primary);"></div>
+              <div data-fkulcs="kozos.app_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-title);">Kommunikációs munkatér</div>
+            </div>
+            <nav aria-label="Fő navigáció" style="display:flex;gap:var(--ter-1);">
+              <a href="#" data-fkulcs="nav.kezdolap" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Kezdőlap</a>
+              <a href="#" data-fkulcs="nav.hirek" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Hírek</a>
+              <a href="#" data-fkulcs="nav.posztszoveg" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Posztszöveg</a>
+              <a href="#" aria-current="page" data-fkulcs="vz.nav" style="border-radius:var(--r-btn);padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text);background:var(--panel-soft-2);box-shadow:inset 0 -2px 0 var(--text-mut);">Képek</a>
+              <a href="#" data-fkulcs="nav.beallitasok" style="padding:var(--ter-4) var(--ter-7);font-size:var(--fs-sm);text-decoration:none;color:var(--text-mut);">Beállítások</a>
+            </nav>
+            <span data-fkulcs="nav.sajat_fiok" style="display:inline-flex;align-items:center;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-6);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);font-size:var(--fs-sm);">Portik Vilmos ▾</span>
+          </div>
+
+          <div style="display:flex;justify-content:center;padding:var(--ter-10) var(--ter-10) var(--ter-13);">
+            <div style="width:100%;max-width:1180px;display:flex;flex-direction:column;gap:var(--ter-10);">
+
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:var(--ter-9);">
+                <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+                  <a href="#" data-fkulcs="vz.vissza_sablonokhoz" style="font-size:var(--fs-sm);">← Sablonok</a>
+                  <h1 data-fkulcs="vz.sablon_zavar_nev" style="margin:var(--ter-0);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:var(--fs-h2);">Zavar — forgalmi közlemény</h1>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:flex-end;gap:var(--ter-3);">
+                  <sc-if value="{{ a.letoltheto }}" hint-placeholder-val="{{ true }}">
+                    <button type="button" data-fkulcs="vz.letoltes" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Letöltés</button>
+                  </sc-if>
+                  <sc-if value="{{ a.tiltva }}" hint-placeholder-val="{{ false }}">
+                    <button type="button" aria-disabled="true" data-fkulcs="vz.letoltes" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-11);border:var(--bw) solid var(--line);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text-dim);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:not-allowed;">Letöltés</button>
+                    <span role="tooltip" style="max-width:320px;padding:var(--ter-4) var(--ter-6);border:var(--bw) solid var(--line);border-radius:var(--r-btn);background:var(--bg-elev);font-size:var(--fs-sm);color:var(--text);text-align:right;">{{ a.tiltasOka }}</span>
+                  </sc-if>
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:var(--ter-12);align-items:start;">
+
+                <div style="display:flex;flex-direction:column;gap:var(--ter-10);min-width:0;">
+                  <sc-for list="{{ a.mezok }}" as="m" hint-placeholder-count="4">
+                    <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+                      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--ter-6);">
+                        <span style="font-size:var(--fs-base);font-weight:var(--fw-strong);">{{ m.cimke }}</span>
+                        <span style="font-size:var(--fs-xs);color:var(--text-dim);">{{ m.kotelezoSzoveg }}</span>
+                      </div>
+                      <div style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:var(--ter-4) var(--ter-5);align-items:center;">
+                        <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">HU</span>
+                        <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-3) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);">{{ m.hu }}<span style="color:var(--text-faint);">{{ m.huPh }}</span></span>
+                        <span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">RO</span>
+                        <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-3) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);">{{ m.ro }}<span style="color:var(--text-faint);">{{ m.roPh }}</span></span>
+                      </div>
+                      <sc-if value="{{ m.ures }}" hint-placeholder-val="{{ false }}">
+                        <span style="font-size:var(--fs-sm);color:var(--text-dim);">{{ m.sugo }}</span>
+                      </sc-if>
+                      <sc-if value="{{ m.zold }}" hint-placeholder-val="{{ true }}">
+                        <div style="display:flex;align-items:center;gap:var(--ter-5);min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border-radius:var(--r-btn);background:var(--ok-bg);font-size:var(--fs-sm);">
+                          <span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:var(--ok-strong);flex:none;"></span>
+                          <span style="color:var(--text);">{{ m.sav }}</span>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ m.sarga }}" hint-placeholder-val="{{ false }}">
+                        <button type="button" style="box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:var(--ter-5);width:100%;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--illesztve-border);border-radius:var(--r-btn);background:var(--illesztve-bg);color:var(--text);font-family:var(--font-body-active);font-size:var(--fs-sm);cursor:pointer;text-align:left;">
+                          <span style="display:flex;align-items:center;gap:var(--ter-5);"><span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:var(--illesztve);flex:none;"></span>{{ m.sav }}</span>
+                          <span data-fkulcs="vz.mit_tett_a_gep" style="flex:none;color:var(--text-mut);">Mit tett a gép {{ m.nyil }}</span>
+                        </button>
+                      </sc-if>
+                      <sc-if value="{{ m.piros }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:flex;flex-direction:column;gap:var(--ter-2);padding:var(--ter-5) var(--ter-7);border:var(--bw) solid var(--err-border);border-radius:var(--r-btn);background:var(--err-bg);font-size:var(--fs-sm);">
+                          <span style="display:flex;align-items:center;gap:var(--ter-5);color:var(--text);"><span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:var(--err-strong);flex:none;"></span>{{ m.sav }}</span>
+                          <span data-fkulcs="vz.nem_fer_ki_teendo" style="color:var(--text-mut);">Rövidítsd a szöveget, vagy adj meg rövid változatot.</span>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ m.panel }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:flex;flex-direction:column;gap:var(--ter-5);padding:var(--ter-8) var(--ter-9);border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);">
+                          <span data-fkulcs="vz.mit_tett_a_gep" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--text-mut);">Mit tett a gép</span>
+                          <ol style="margin:var(--ter-0);padding-left:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-3);font-size:var(--fs-base);">
+                            <sc-for list="{{ m.lepesek }}" as="l" hint-placeholder-count="3"><li>{{ l }}</li></sc-for>
+                          </ol>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ m.rovidVan }}" hint-placeholder-val="{{ false }}">
+                        <a href="#" data-fkulcs="vz.rovid_valtozat_hozzaad" style="align-self:flex-start;font-size:var(--fs-sm);">Rövid változat megadása</a>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                </div>
+
+                <div style="display:flex;flex-direction:column;gap:var(--ter-8);">
+                  <div style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--text-mut);min-height:var(--ter-9);">
+                    <sc-if value="{{ a.kepKeszul }}" hint-placeholder-val="{{ false }}">
+                      <span aria-hidden="true" style="width:80px;height:3px;border-radius:2px;background:var(--field-bg);overflow:hidden;display:block;"><span style="display:block;width:45%;height:100%;background:var(--primary-2);"></span></span>
+                    </sc-if>
+                    <span>{{ a.kepAllapot }}</span>
+                  </div>
+
+                  <sc-if value="{{ a.kepUres }}" hint-placeholder-val="{{ false }}">
+                    <div style="box-sizing:border-box;width:440px;height:550px;border:var(--bw) dashed var(--line-dash);border-radius:var(--r-block);display:flex;align-items:center;justify-content:center;padding:var(--ter-11);text-align:center;">
+                      <span data-fkulcs="vz.kep_ures" style="font-size:var(--fs-base);color:var(--text-mut);">Írd be a címet, és elkészítjük a képet.</span>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ a.kepLatszik }}" hint-placeholder-val="{{ true }}">
+                    <div style="position:relative;width:440px;height:550px;border-radius:var(--r-block);overflow:hidden;">
+                      <div style="box-sizing:border-box;width:100%;height:100%;background:var(--kep-bg);color:var(--kep-text);display:flex;flex-direction:column;opacity:{{ a.kepAtlatszo }};">
+                        <div style="height:14px;background:var(--kep-sav);"></div>
+                        <div style="flex:1;display:flex;flex-direction:column;gap:var(--ter-8);padding:var(--ter-11) var(--ter-10);">
+                          <span style="font-family:var(--font-code-active);font-size:11px;letter-spacing:0.1em;">FORGALMI KÖZLEMÉNY · COMUNICAT</span>
+                          <span style="font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:{{ a.kepCimMeret }};line-height:1.1;">{{ a.kepCim }}</span>
+                          <span style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:18px;line-height:1.2;opacity:0.7;">{{ a.kepCimRo }}</span>
+                          <span style="height:1px;background:var(--kep-text);opacity:0.2;"></span>
+                          <span style="font-size:14px;line-height:1.35;">{{ a.kepSor1 }}</span>
+                          <span style="font-size:14px;line-height:1.35;">{{ a.kepSor2 }}</span>
+                          <span style="font-size:14px;line-height:1.35;font-weight:var(--fw-strong);">{{ a.kepSor3 }}</span>
+                        </div>
+                        <div style="padding:var(--ter-7) var(--ter-10);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:14px;">LOGÓ</div>
+                      </div>
+                      <sc-if value="{{ a.kepKeszul }}" hint-placeholder-val="{{ false }}">
+                        <div style="position:absolute;left:var(--ter-8);right:var(--ter-8);bottom:var(--ter-8);padding:var(--ter-5) var(--ter-7);border-radius:var(--r-btn);background:var(--bg-elev);border:var(--bw) solid var(--line);font-size:var(--fs-sm);color:var(--text);">
+                          <span data-fkulcs="vz.kep_regi">Ez még az előző kép. Az új pár másodperc múlva itt lesz.</span>
+                        </div>
+                      </sc-if>
+                      <div style="position:absolute;top:var(--ter-5);right:var(--ter-5);padding:var(--ter-1) var(--ter-4);border-radius:var(--r-badge);background:color-mix(in srgb, #000 55%, transparent);color:#fff;font-family:var(--font-code-active);font-size:11px;">vázlat · a valódi képet a gép adja</div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ a.kepHiba }}" hint-placeholder-val="{{ false }}">
+                    <div style="box-sizing:border-box;width:440px;height:550px;border:var(--bw) solid var(--err-border);border-radius:var(--r-block);background:var(--err-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--ter-7);padding:var(--ter-11);text-align:center;">
+                      <span data-fkulcs="vz.kep_hiba" style="font-size:var(--fs-base);color:var(--text);">A képgyártó most nem válaszol. A beírt szöveg megmaradt.</span>
+                      <button type="button" data-fkulcs="vz.ujra" style="box-sizing:border-box;min-height:var(--control-min);padding:var(--ter-0) var(--ter-10);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-family:var(--font-body-active);font-size:var(--fs-base);cursor:pointer;">Újra</button>
+                    </div>
+                  </sc-if>
+
+                  <sc-if value="{{ a.vanJelzes }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+                      <span data-fkulcs="vz.jelzesek" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--text-mut);letter-spacing:0.04em;">JELZÉSEK</span>
+                      <div style="display:flex;flex-direction:column;border:var(--bw) solid var(--line);border-radius:var(--r-block);overflow:hidden;">
+                        <sc-for list="{{ a.jelzesek }}" as="j" hint-placeholder-count="2">
+                          <div style="display:flex;flex-direction:column;gap:var(--ter-2);padding:var(--ter-7) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">
+                            <div style="display:flex;align-items:center;gap:var(--ter-5);">
+                              <sc-if value="{{ j.tiltas }}" hint-placeholder-val="{{ false }}"><span data-fkulcs="vz.jelzes_tiltas" style="padding:var(--ter-1) var(--ter-5);border-radius:var(--r-badge);background:var(--err-bg);border:var(--bw) solid var(--err-border);color:var(--err-strong);font-size:var(--fs-xs);">tiltás</span></sc-if>
+                              <sc-if value="{{ j.figy }}" hint-placeholder-val="{{ false }}"><span data-fkulcs="vz.jelzes_figyelmeztetes" style="padding:var(--ter-1) var(--ter-5);border-radius:var(--r-badge);background:var(--warn-bg);border:var(--bw) solid var(--warn-border);color:var(--warn);font-size:var(--fs-xs);">figyelmeztetés</span></sc-if>
+                              <span style="font-size:var(--fs-base);">{{ j.szabaly }}</span>
+                            </div>
+                            <span style="font-size:var(--fs-sm);color:var(--text-mut);">{{ j.mezo }} · {{ j.mert }} · {{ j.hatar }}</span>
+                            <a href="#" data-fkulcs="vz.ugras_mezohoz" style="align-self:flex-start;font-size:var(--fs-sm);">Ugrás a mezőhöz</a>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </sc-if>
+
+                  <sc-if value="{{ a.vanPosztba }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+                      <span data-fkulcs="vz.poszt_szovegebe" style="font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--text-mut);letter-spacing:0.04em;">A POSZT SZÖVEGÉBE</span>
+                      <p data-fkulcs="vz.poszt_szovegebe_sugo" style="margin:var(--ter-0);font-size:var(--fs-sm);color:var(--text-mut);">Ez a sor nem fért a képre. Másold a kép mellé, a poszt szövegébe.</p>
+                      <div style="display:flex;flex-direction:column;border:var(--bw) solid var(--line);border-radius:var(--r-block);overflow:hidden;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">
+                          <span style="font-size:var(--fs-base);"><span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">HU </span>{{ a.posztHu }}</span>
+                          <button type="button" data-fkulcs="vz.masolas" style="flex:none;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;">Másolás</button>
+                        </div>
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-6) var(--ter-8);">
+                          <span style="font-size:var(--fs-base);"><span style="font-family:var(--font-code-active);font-size:var(--fs-xs);color:var(--text-dim);">RO </span>{{ a.posztRo }}</span>
+                          <button type="button" data-fkulcs="vz.masolas" style="flex:none;box-sizing:border-box;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;">Másolás</button>
+                        </div>
+                      </div>
+                    </div>
+                  </sc-if>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:390px;flex:none;border:var(--bw) solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--bg);position:relative;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-5);padding:var(--ter-6) var(--ter-7);border-bottom:var(--bw) solid var(--line-soft);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-0);min-width:0;">
+              <a href="#" data-fkulcs="vz.vissza_sablonokhoz" style="font-size:var(--fs-xs);">← Sablonok</a>
+              <span data-fkulcs="vz.sablon_zavar_nev" style="font-family:var(--font-display-active);font-weight:var(--fw-strong);font-size:var(--fs-md);">Zavar — forgalmi közlemény</span>
+            </div>
+            <span aria-hidden="true" style="font-size:20px;color:var(--text-mut);">☰</span>
+          </div>
+          <div style="padding:var(--ter-8) var(--ter-7) 120px;display:flex;flex-direction:column;gap:var(--ter-8);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+              <span style="font-size:var(--fs-xs);color:var(--text-mut);">{{ a.kepAllapot }}</span>
+              <sc-if value="{{ a.kepUres }}" hint-placeholder-val="{{ false }}">
+                <div style="box-sizing:border-box;height:120px;border:var(--bw) dashed var(--line-dash);border-radius:var(--r-block);display:flex;align-items:center;justify-content:center;padding:var(--ter-7);text-align:center;font-size:var(--fs-sm);color:var(--text-mut);">Írd be a címet, és elkészítjük a képet.</div>
+              </sc-if>
+              <sc-if value="{{ a.kepLatszik }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;gap:var(--ter-6);align-items:center;">
+                  <div style="width:96px;height:120px;flex:none;border-radius:var(--r-btn);overflow:hidden;background:var(--kep-bg);color:var(--kep-text);display:flex;flex-direction:column;opacity:{{ a.kepAtlatszo }};">
+                    <div style="height:5px;background:var(--kep-sav);"></div>
+                    <div style="padding:var(--ter-4);font-family:var(--font-display-active);font-weight:var(--fw-head);font-size:11px;line-height:1.1;">{{ a.kepCim }}</div>
+                  </div>
+                  <a href="#" data-fkulcs="vz.kep_nagyitas" style="font-size:var(--fs-sm);">A kép teljes méretben</a>
+                </div>
+              </sc-if>
+              <sc-if value="{{ a.kepHiba }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:var(--ter-5);padding:var(--ter-7);border:var(--bw) solid var(--err-border);border-radius:var(--r-block);background:var(--err-bg);">
+                  <span style="font-size:var(--fs-sm);">A képgyártó most nem válaszol. A beírt szöveg megmaradt.</span>
+                  <button type="button" data-fkulcs="vz.ujra" style="box-sizing:border-box;min-height:var(--control-min);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-base);cursor:pointer;">Újra</button>
+                </div>
+              </sc-if>
+            </div>
+            <sc-for list="{{ a.mezok }}" as="m" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <span style="font-size:var(--fs-sm);font-weight:var(--fw-strong);">{{ m.cimke }}</span>
+                <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-3) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);font-size:var(--fs-sm);">{{ m.hu }}<span style="color:var(--text-faint);">{{ m.huPh }}</span></span>
+                <span style="box-sizing:border-box;display:flex;align-items:center;min-height:var(--control-min);padding:var(--ter-3) var(--pad-field-x);border:var(--bw) solid var(--field-border);border-radius:var(--r-field);background:var(--field-bg);font-size:var(--fs-sm);">{{ m.ro }}<span style="color:var(--text-faint);">{{ m.roPh }}</span></span>
+                <sc-if value="{{ m.zold }}" hint-placeholder-val="{{ true }}"><span style="display:flex;align-items:center;gap:var(--ter-4);padding:var(--ter-3) var(--ter-6);border-radius:var(--r-btn);background:var(--ok-bg);font-size:var(--fs-xs);"><span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:var(--ok-strong);flex:none;"></span>{{ m.savRovid }}</span></sc-if>
+                <sc-if value="{{ m.sarga }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:var(--ter-4);padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--illesztve-border);border-radius:var(--r-btn);background:var(--illesztve-bg);font-size:var(--fs-xs);"><span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:var(--illesztve);flex:none;"></span>{{ m.savRovid }} · Mit tett a gép</span></sc-if>
+                <sc-if value="{{ m.piros }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:var(--ter-4);padding:var(--ter-3) var(--ter-6);border:var(--bw) solid var(--err-border);border-radius:var(--r-btn);background:var(--err-bg);font-size:var(--fs-xs);"><span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:var(--err-strong);flex:none;"></span>{{ m.savRovid }}</span></sc-if>
+                <sc-if value="{{ m.panel }}" hint-placeholder-val="{{ false }}">
+                  <ol style="margin:var(--ter-0);padding:var(--ter-6) var(--ter-6) var(--ter-6) var(--ter-10);border:var(--bw) solid var(--line);border-radius:var(--r-block);background:var(--panel-soft);display:flex;flex-direction:column;gap:var(--ter-2);font-size:var(--fs-sm);">
+                    <sc-for list="{{ m.lepesek }}" as="l" hint-placeholder-count="3"><li>{{ l }}</li></sc-for>
+                  </ol>
+                </sc-if>
+              </div>
+            </sc-for>
+            <sc-if value="{{ a.vanJelzes }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-4);padding:var(--ter-7);border:var(--bw) solid var(--err-border);border-radius:var(--r-block);background:var(--err-bg);font-size:var(--fs-sm);">
+                <span data-fkulcs="vz.jelzesek" style="font-weight:var(--fw-strong);">Jelzések ({{ a.jelzesSzam }})</span>
+                <span>{{ a.jelzesElso }}</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ a.vanPosztba }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-4);padding:var(--ter-7);border:var(--bw) solid var(--line);border-radius:var(--r-block);font-size:var(--fs-sm);">
+                <span data-fkulcs="vz.poszt_szovegebe" style="font-weight:var(--fw-strong);color:var(--text-mut);">A poszt szövegébe</span>
+                <span>HU {{ a.posztHu }}</span>
+                <span>RO {{ a.posztRo }}</span>
+                <button type="button" data-fkulcs="vz.masolas_mind" style="box-sizing:border-box;min-height:var(--control-min);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--btn-ghost-text);font-size:var(--fs-sm);cursor:pointer;">Mindkettő másolása</button>
+              </div>
+            </sc-if>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:var(--ter-3);padding:var(--ter-6) var(--ter-7);border-top:var(--bw) solid var(--line);background:var(--bg-elev);">
+            <sc-if value="{{ a.tiltva }}" hint-placeholder-val="{{ false }}"><span style="font-size:var(--fs-xs);color:var(--text-mut);">{{ a.tiltasOka }}</span></sc-if>
+            <sc-if value="{{ a.letoltheto }}" hint-placeholder-val="{{ true }}">
+              <button type="button" data-fkulcs="vz.letoltes" style="box-sizing:border-box;width:100%;min-height:var(--control-min);border:none;border-radius:var(--r-btn);background:var(--grad-primary);color:var(--on-primary);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:pointer;">Letöltés</button>
+            </sc-if>
+            <sc-if value="{{ a.tiltva }}" hint-placeholder-val="{{ false }}">
+              <button type="button" aria-disabled="true" data-fkulcs="vz.letoltes" style="box-sizing:border-box;width:100%;min-height:var(--control-min);border:var(--bw) solid var(--line);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text-dim);font-family:var(--font-body-active);font-size:var(--fs-base);font-weight:var(--fw-strong);cursor:not-allowed;">Letöltés</button>
+            </sc-if>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </sc-for>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const T = {
+      cim: { hu: 'Lezárják a Rózsák terét a hétvégén', ro: 'Piața Trandafirilor se închide în weekend' },
+      szak: { hu: 'A Győzelem tér és a Bolyai utca között', ro: 'Între Piața Victoriei și str. Bolyai' },
+      mikor: { hu: 'Szombat 6:00 – vasárnap 22:00', ro: 'Sâmbătă 6:00 – duminică 22:00' },
+      teendo: { hu: 'A 3-as és 5-ös busz a Híd utcán kerül.', ro: 'Autobuzele 3 și 5 ocolesc pe str. Podului.' },
+      teendoHosszu: { hu: 'A 3-as és 5-ös busz a Híd utcán kerül. A 12-es járat szombaton nem közlekedik.', ro: 'Autobuzele 3 și 5 ocolesc pe str. Podului. Linia 12 nu circulă sâmbătă.' },
+      teendoTul: { hu: 'A 3-as és 5-ös busz a Híd utcán kerül, a megállók ideiglenesen a Színház térre költöznek. A 12-es járat szombaton nem közlekedik, vasárnap ritkítva jár.', ro: 'Autobuzele 3 și 5 ocolesc pe str. Podului, stațiile se mută temporar în Piața Teatrului. Linia 12 nu circulă sâmbătă, iar duminică circulă rar.' }
+    };
+    const DEF = [
+      { k: 'cim', cimke: 'Cím', kot: true, rovid: true, sugo: 'Egy mondat: mi történik. Legfeljebb 3 sor.' },
+      { k: 'szak', cimke: 'Érintett szakasz', kot: true, rovid: false, sugo: 'Hol. Utcanév vagy két végpont.' },
+      { k: 'mikor', cimke: 'Mikor', kot: true, rovid: false, sugo: 'Kezdet és vég, nappal és órával.' },
+      { k: 'teendo', cimke: 'Mit tegyél', kot: false, rovid: true, sugo: 'Kerülőút vagy teendő. Nem kötelező.' }
+    ];
+    const zold = { cim: 'HU 2 sor · RO 2 sor, a legfeljebb 3-ból · nagy betűméret', szak: 'HU 1 sor · RO 1 sor, a legfeljebb 2-ből · közepes betűméret', mikor: 'HU 1 sor · RO 1 sor, a legfeljebb 1-ből · közepes betűméret', teendo: 'HU 1 sor · RO 2 sor, a legfeljebb 3-ból · közepes betűméret' };
+    const mezo = (d, opt) => {
+      opt = opt || {};
+      const t = opt.ures ? null : (opt.szoveg || T[d.k]);
+      const tipus = opt.ures ? 'ures' : (opt.tipus || 'zold');
+      const sav = opt.sav || zold[d.k];
+      return {
+        cimke: d.cimke, sugo: d.sugo, kotelezoSzoveg: d.kot ? 'kötelező' : 'nem kötelező',
+        hu: t ? t.hu : '', ro: t ? t.ro : '', huPh: t ? '' : 'magyarul', roPh: t ? '' : 'románul',
+        ures: tipus === 'ures', zold: tipus === 'zold', sarga: tipus === 'sarga', piros: tipus === 'piros',
+        sav: sav, savRovid: opt.savRovid || (sav || '').split(',')[0],
+        panel: !!opt.lepesek, lepesek: opt.lepesek || [], nyil: opt.lepesek ? '▴' : '▾',
+        rovidVan: d.rovid && (tipus === 'sarga' || tipus === 'piros')
+      };
+    };
+    const mezok = (over) => DEF.map(d => mezo(d, (over || {})[d.k]));
+    const kep = (x) => Object.assign({
+      kepUres: false, kepLatszik: true, kepHiba: false, kepKeszul: false, kepAtlatszo: '1',
+      kepCim: T.cim.hu, kepCimRo: T.cim.ro, kepCimMeret: '40px',
+      kepSor1: T.szak.hu, kepSor2: T.mikor.hu, kepSor3: T.teendo.hu, kepAllapot: 'Kész · ez a kép kerül letöltésre'
+    }, x || {});
+    const alap = (n, nev, leiras, x) => Object.assign({
+      cimke: '0' + n, fejlec: '0' + n + ' · ' + nev.toUpperCase() + ' · asztali 1440 + telefon 390', leiras: leiras,
+      letoltheto: true, tiltva: false, tiltasOka: '', vanJelzes: false, jelzesek: [], jelzesSzam: 0, jelzesElso: '',
+      vanPosztba: false, posztHu: '', posztRo: ''
+    }, kep(), x);
+    const tilt = (ok) => ({ letoltheto: false, tiltva: true, tiltasOka: ok });
+
+    const allapotok = [
+      alap(1, 'Üres sablon', 'első megnyitás · a súgók látszanak, sáv még nincs', Object.assign(
+        { mezok: mezok({ cim: { ures: true }, szak: { ures: true }, mikor: { ures: true }, teendo: { ures: true } }) },
+        kep({ kepUres: true, kepLatszik: false, kepAllapot: 'Még nincs kép' }),
+        tilt('Töltsd ki a kötelező mezőket: Cím, Érintett szakasz, Mikor.'))),
+      alap(2, 'Kitöltve, minden kifér', 'minden sáv zöld · a letöltés él', { mezok: mezok() }),
+      alap(3, 'A gép lépett', 'sárga sáv, a „Mit tett a gép” panel nyitva · egy sor a poszt szövegébe került', {
+        mezok: mezok({ teendo: { szoveg: T.teendoHosszu, tipus: 'sarga', sav: 'HU 3 sor · RO 3 sor, a legfeljebb 3-ból · kisebb betűméret',
+          lepesek: ['Kisebb betűméret: közepes → kisebb', 'Így sem fért ki 3 sorba', 'A második mondat a poszt szövegébe került'] } }),
+        vanPosztba: true, posztHu: 'A 12-es járat szombaton nem közlekedik.', posztRo: 'Linia 12 nu circulă sâmbătă.'
+      }),
+      alap(4, 'Nem fér ki', 'piros sáv · a letöltés tiltva, rámutatva megmondja, miért', Object.assign({
+        mezok: mezok({ teendo: { szoveg: T.teendoTul, tipus: 'piros', sav: 'Nem fér ki · RO: 2 sorral lóg túl a lap alján, legkisebb betűméreten', savRovid: 'Nem fér ki · RO: 2 sorral túl' } })
+      }, kep({ kepSor3: T.teendoTul.hu, kepAllapot: 'Kész · de egy mező nem fér ki, ezért nem tölthető le' }),
+      tilt('A „Mit tegyél” mező nem fér ki a képre. Rövidítsd, vagy adj meg rövid változatot.'))),
+      alap(5, 'Szabálytiltás', 'egy tiltás és egy figyelmeztetés · a tiltás miatt a letöltés tiltva', Object.assign({
+        mezok: mezok({ cim: { tipus: 'sarga', szoveg: { hu: T.cim.hu, ro: 'Piața Trandafirilor din Târgu Mureș se închide complet în weekend' },
+          sav: 'HU 2 sor · RO 3 sor, a legfeljebb 3-ból · legkisebb betűméret', lepesek: ['Kisebb betűméret: nagy → közepes → kisebb → legkisebb'] } }),
+        vanJelzes: true, jelzesSzam: 2, jelzesElso: 'Tiltás: a cím betűmérete a legkisebb lépcsőn áll (román).',
+        jelzesek: [
+          { tiltas: true, figy: false, szabaly: 'A cím legkisebb betűmérete', mezo: 'Cím · román', mert: 'most: legkisebb', hatar: 'megengedett: legalább kisebb' },
+          { tiltas: false, figy: true, szabaly: 'Sorok a címben', mezo: 'Cím · román', mert: 'most: 3 sor', hatar: 'ajánlott: legfeljebb 2' }
+        ]
+      }, kep({ kepCimRo: 'Piața Trandafirilor din Târgu Mureș se închide complet în weekend', kepCimMeret: '28px' }),
+      tilt('Egy szabály tiltja a letöltést: A cím legkisebb betűmérete.'))),
+      alap(6, 'A kép készül', 'gépelés után · a régi kép halványan, felirattal · 1–3 mp', Object.assign(
+        { mezok: mezok() },
+        kep({ kepKeszul: true, kepAtlatszo: '0.4', kepAllapot: 'A kép készül…' }),
+        tilt('A kép még készül. Letölteni azt lehet, amit látsz.'))),
+      alap(7, 'A képgyártó nem válaszol', 'hiba · „Újra” · a beírt szöveg megmarad', Object.assign(
+        { mezok: mezok() },
+        kep({ kepLatszik: false, kepHiba: true, kepAllapot: 'Nem sikerült elkészíteni a képet' }),
+        tilt('Nincs elkészült kép, ezért most nem tölthető le.')))
+    ];
+    return { allapotok };
+  }
+}
+</script>
+</body>
+</html>

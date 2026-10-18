@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root,[data-sema="ejkek"]{
+      --bg:#0c0d13; --bg-elev:#12141c; --text:#e8ebf1; --text-mut:#9aa3b2; --text-dim:#7a8496; --text-faint:#6b7484;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff; --accent:#ff4520; --accent-text:#ff7a55; --accent-link:var(--primary-2);
+      --ok:#7fe0a0; --err:#ffb3a3; --focus:#8a98ff; --header-bg:#10121a; --vaszon:#06070b;
+      --grad-primary:linear-gradient(120deg,#5563ee,#a06ff6); --fo-gomb-bg:var(--grad-primary); --lap-bg:var(--bg);
+      --line:color-mix(in srgb, var(--text) 10%, transparent); --line-soft:color-mix(in srgb, var(--text) 7%, transparent);
+      --field-bg:color-mix(in srgb, var(--text) 5%, transparent); --field-border:color-mix(in srgb, var(--text) 14%, transparent);
+      --panel-soft-2:color-mix(in srgb, var(--text) 6%, transparent);
+      --btn-ghost-bg:transparent; --btn-ghost-border:color-mix(in srgb, var(--text) 18%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 9%, transparent); --warn-border:color-mix(in srgb, var(--accent-text) 40%, transparent);
+      --ok-bg:color-mix(in srgb, var(--ok) 12%, transparent);
+    }
+    [data-sema="vilagos"]{
+      --bg:#f6f6f8; --bg-elev:#ffffff; --text:#1a1c24; --text-mut:#535a68; --text-dim:#6f7684; --text-faint:#6f7684;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#6a79ea; --accent:#d8471f; --accent-text:#b93c19; --accent-link:var(--primary);
+      --ok:#25764a; --err:#c0392b; --focus:#4f5fd6; --header-bg:#ffffff; --vaszon:#e9eaee;
+      --grad-primary:var(--primary); --fo-gomb-bg:var(--primary); --lap-bg:var(--bg);
+      --line:color-mix(in srgb, var(--text) 12%, transparent); --line-soft:color-mix(in srgb, var(--text) 8%, transparent);
+      --field-bg:#ffffff; --field-border:color-mix(in srgb, var(--text) 18%, transparent);
+      --panel-soft-2:color-mix(in srgb, var(--text) 7%, transparent);
+      --btn-ghost-bg:#ffffff; --btn-ghost-border:color-mix(in srgb, var(--text) 20%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 7%, transparent); --warn-border:color-mix(in srgb, var(--accent) 35%, transparent);
+      --ok-bg:color-mix(in srgb, var(--ok) 10%, transparent);
+    }
+    [data-sema="sotet"]{
+      --bg:#1a1a1a; --bg-elev:#262626; --text:#ededed; --text-mut:#ababab; --text-dim:#949494; --text-faint:#8a8a8a;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#7f8fff; --accent:#ff4520; --accent-text:#ff7a55; --accent-link:#c9ccd2;
+      --ok:#7fe0a0; --err:#ffb3a3; --focus:#c9ccd2; --header-bg:#212121; --vaszon:#111111;
+      --grad-primary:var(--primary); --fo-gomb-bg:var(--primary); --lap-bg:var(--bg);
+      --line:color-mix(in srgb, var(--text) 11%, transparent); --line-soft:color-mix(in srgb, var(--text) 7%, transparent);
+      --field-bg:color-mix(in srgb, var(--text) 5%, transparent); --field-border:color-mix(in srgb, var(--text) 16%, transparent);
+      --panel-soft-2:color-mix(in srgb, var(--text) 7%, transparent);
+      --btn-ghost-bg:transparent; --btn-ghost-border:color-mix(in srgb, var(--text) 20%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 9%, transparent); --warn-border:color-mix(in srgb, var(--accent-text) 40%, transparent);
+      --ok-bg:color-mix(in srgb, var(--ok) 12%, transparent);
+    }
+    [data-sema="vegyes"]{
+      --bg:#f3f4f7; --bg-elev:#ffffff; --text:#1a1c24; --text-mut:#535a68; --text-dim:#6f7684; --text-faint:#6f7684;
+      --on-primary:#ffffff; --primary:#4f5fd6; --primary-2:#6a79ea; --accent:#d8471f; --accent-text:#b93c19; --accent-link:var(--primary);
+      --ok:#25764a; --err:#c0392b; --focus:#4f5fd6; --header-bg:#ffffff; --vaszon:#e4e6ec;
+      --line:color-mix(in srgb, var(--text) 12%, transparent); --line-soft:color-mix(in srgb, var(--text) 8%, transparent);
+      --field-bg:#ffffff; --field-border:color-mix(in srgb, var(--text) 18%, transparent);
+      --panel-soft-2:color-mix(in srgb, var(--text) 7%, transparent);
+      --btn-ghost-bg:#ffffff; --btn-ghost-border:color-mix(in srgb, var(--text) 20%, transparent);
+      --warn:var(--accent-text); --warn-bg:color-mix(in srgb, var(--accent) 7%, transparent); --warn-border:color-mix(in srgb, var(--accent) 35%, transparent);
+      --ok-bg:color-mix(in srgb, var(--ok) 10%, transparent);
+      --grad-primary:linear-gradient(120deg,#5563ee,#a06ff6); --fo-gomb-bg:var(--grad-primary);
+      --lap-bg:linear-gradient(180deg,#eef0f6 0%,#f6f6f8 60%);
+    }
+    [data-sema="vegyes"] [data-r15="teendo"],[data-sema="vegyes"] [data-r15="sotet-sav"]{
+      --bg:#12162a; --bg-elev:#171c33; --text:#eef0f6; --text-mut:#aab3c5; --text-dim:#8e98ad; --text-faint:#8e98ad;
+      --primary-2:#7f8fff; --accent-link:#b9c1ff; --ok:#7fe0a0;
+      --line:color-mix(in srgb, #eef0f6 12%, transparent); --line-soft:color-mix(in srgb, #eef0f6 8%, transparent);
+      --field-bg:color-mix(in srgb, #eef0f6 6%, transparent); --field-border:color-mix(in srgb, #eef0f6 18%, transparent);
+      --btn-ghost-bg:transparent; --btn-ghost-border:color-mix(in srgb, #eef0f6 24%, transparent);
+      --header-bg:linear-gradient(120deg,#171c33,#10142a);
+      --lap-bg:linear-gradient(150deg,#1d2344 0%,#12162a 100%); --teendo-bg:linear-gradient(150deg,#1d2344 0%,#12162a 100%);
+      --teendo-border:transparent; --halk-link:#c3cad8;
+      color:var(--text);
+    }
+    :root,[data-sema]{
+      --font-display:'Archivo',sans-serif; --font-body:'Public Sans',sans-serif; --font-code:'IBM Plex Mono',monospace;
+      --fw-head:700; --fw-strong:600; --lh:1.5;
+      --fs-h1:34px; --fs-h2:26px; --fs-title:17px; --fs-base:16px; --fs-md:15px; --fs-sm:14px; --fs-xs:12.5px;
+      --r-card:10px; --r-block:10px; --r-btn:6px; --r-field:6px; --r-badge:4px; --bw:1px;
+      --control-min:46px; --control-min-s:38px;
+      --ter-0:0px; --ter-1:2px; --ter-2:4px; --ter-3:6px; --ter-4:8px; --ter-5:10px; --ter-6:12px; --ter-7:14px; --ter-8:16px;
+      --ter-9:20px; --ter-10:24px; --ter-11:32px; --ter-12:40px; --ter-13:56px; --ter-14:80px;
+      /* R-15 */
+      --kerdes-fs:28px; --kerdes-fs-tel:24px; --kerdes-fw:var(--fw-head); --kerdes-alcim:var(--text-mut);
+      --fo-gomb-text:var(--on-primary); --fo-gomb-min:52px; --fo-gomb-fs:var(--fs-base); --fo-gomb-fw:var(--fw-strong); --fo-gomb-r:var(--r-btn);
+      --halk-gomb-bg:var(--btn-ghost-bg); --halk-gomb-border:var(--btn-ghost-border); --halk-gomb-text:var(--text); --halk-gomb-min:var(--control-min);
+      --halk-link:var(--text-mut);
+      --teendo-bg:var(--bg-elev); --teendo-border:var(--field-border); --teendo-r:var(--r-card); --teendo-pad:var(--ter-9);
+      --info-text:var(--text-mut); --info-fs:var(--fs-sm);
+      --halad-text:var(--text); --halad-sav:var(--panel-soft-2); --halad-telt:var(--ok); --halad-szam:var(--text);
+      --kesz-bg:var(--ok-bg); --kesz-text:var(--text); --kesz-jel:var(--ok);
+      --baj-bg:var(--warn-bg); --baj-border:var(--warn-border); --baj-jel:var(--warn); --baj-text:var(--text);
+      --rossz-jel:var(--err);
+      --lebego-hely-tel:56px; --lebego-hely-asztali:168px;
+    }
+    body{margin:0;background:#06070b;font-family:'Public Sans',sans-serif;line-height:1.5;}
+    a{color:var(--accent-link);text-decoration:underline;text-underline-offset:2px;}
+    a:hover{color:var(--text);}
+  </style>
+</helmet>
+<div data-sema="{{ sema }}" style="background:var(--vaszon);color:var(--text);font-family:var(--font-body);font-size:var(--fs-base);line-height:var(--lh);min-height:100vh;">
+<div style="display:flex;flex-direction:column;gap:var(--ter-14);padding:var(--ter-12);width:max-content;">
+
+    <div style="display:flex;flex-direction:column;gap:var(--ter-5);max-width:920px;">
+    <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);letter-spacing:0.06em;">R-15 · 3. SZÁLLÍTMÁNY · 03 · 04 · minden állapot · Éjkék · 2026-10-01</div>
+    <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h1);">Kezdőlap és Hírek — az üres nap is</div>
+    <div style="font-size:var(--fs-md);color:var(--text-mut);text-wrap:pretty;">Utókérés 2 (10-01 este): új 03c2 (friss fiók, még semmi kész — a „Mutasd meg…” változat) és a 04a szövege; a többi képernyő változatlan. A 2. szállítmány a dolgos napot rajzolta (03b, 04b — itt a 10-01-i javításokkal). Az élő lap a friss fiókon „Ma nincs dolgod”-ot mutat fő gomb nélkül, ezért piros. Itt az üres és a kész állapot is: minden képernyőn egy fő gomb, ami ma is ad egy posztot vagy egy képet. 2. kör (10-01, bíráló): a fő gomb mellett, mi jön utána; a kész nap késznek látszik; a Hírek a hírrel kezd. Semmi nem került le.</div>
+  </div>
+
+  <section data-screen-label="03a Kezdőlap — első nap" style="display:flex;flex-direction:column;gap:var(--ter-10);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">03a · első nap: friss fiók, 0 hír illett, 0 poszt kész · ma ez a lap piros (T2: 0 fő gomb)</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Kezdőlap — „Mi a dolgom ma?” · első nap</div>
+    </div>
+    <div style="display:flex;gap:var(--ter-12);align-items:flex-start;">
+      <div data-r15-kepernyo="asztali" style="position:relative;box-sizing:border-box;width:1440px;height:900px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:72px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-9);padding:var(--ter-0) var(--ter-10);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);"><span style="width:28px;height:28px;border-radius:14px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">K</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);">Kommunikációs munkatér</span></div>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kő és Kert Kft. ▾</button>
+          <nav style="flex:1;display:flex;gap:var(--ter-1);justify-content:center;font-size:var(--fs-sm);">
+            <a data-felirat="r15.nav.kezdolap" href="#" style="padding:var(--ter-4) var(--ter-6);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text);text-decoration:none;font-weight:var(--fw-strong);">Kezdőlap</a>
+            <a data-felirat="r15.nav.hirek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Hírek</a>
+            <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Posztszöveg <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+            <a data-felirat="r15.nav.kepek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Képek</a>
+            <a data-felirat="r15.nav.iranytu" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Iránytű</a>
+            <a data-felirat="r15.nav.szervezet" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Szervezet adatai</a>
+            <a data-felirat="r15.nav.beallitasok" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Beállítások</a>
+          </nav>
+          <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;font-size:var(--fs-sm);color:var(--text-mut);text-decoration:none;">Értesítések <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kovács Tibor ▾</button>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) var(--lebego-hely-asztali);min-height:0;">
+          <main style="box-sizing:border-box;width:100%;max-width:1152px;padding:var(--ter-13) var(--ter-0) var(--ter-12) 120px;display:flex;flex-direction:column;gap:var(--ter-11);">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-6);">
+                <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                  <h1 data-felirat="r15.kezdolap.elso_kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs);line-height:1.2;">Kész az első posztod</h1>
+                  <div data-felirat="r15.kezdolap.elso_alcim" data-r15="kerdes-alcim" style="font-size:var(--fs-base);color:var(--kerdes-alcim);">A cégetek adataiból írtuk.</div>
+                </div>
+                <div data-r15="halad" style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--halad-text);">
+                  <span aria-hidden="true" style="flex:none;width:72px;height:6px;border-radius:3px;background:var(--halad-sav);overflow:hidden;display:block;"><span style="display:block;width:0%;height:100%;background:var(--halad-telt);"></span></span>
+                  <span data-felirat="r15.kozos.halad_elso">Ezen a héten: ez lesz az első.</span>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--ter-10);align-items:start;">
+                <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-10);display:flex;flex-direction:column;gap:var(--ter-7);">
+                  <div data-felirat="r15.kezdolap.bemutatkozo" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Bemutatkozó poszt</div>
+                  <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+                    <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:22px;line-height:1.25;">Szép udvar, ami évtizedekig bírja.</div>
+                    <div data-r15="eredmeny" style="font-size:var(--fs-base);color:var(--text-mut);">Térkövezünk Marosvásárhelyen és környékén: udvart, járdát, kocsibeállót.</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+                    <div style="display:flex;align-items:center;gap:var(--ter-9);">
+                      <button data-felirat="r15.kezdolap.atnezem_posztot" type="button" data-r15="fo-gomb" data-r15-cel="poszt" style="box-sizing:border-box;min-height:var(--fo-gomb-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Megnézem a posztot</button>
+                      <a data-felirat="r15.kozos.kep_hozza" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Kép hozzá</a>
+                    </div>
+                    <div data-felirat="r15.kozos.nyugtato" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Átírhatod, és csak te teszed ki.</div>
+                  </div>
+                </div>
+                <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-4) var(--ter-9);display:flex;flex-direction:column;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-7) var(--ter-0);border-bottom:var(--bw) solid var(--line-soft);"><span data-felirat="r15.kozos.napi_hirek_sor" style="font-size:var(--fs-md);">Friss hírek minden reggel</span><button data-felirat="r15.kezdolap.bekapcsolom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Bekapcsolom</button></div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-7) var(--ter-0);"><span data-felirat="r15.kezdolap.celok" style="font-size:var(--fs-md);">Mit szeretnétek elérni?</span><button data-felirat="r15.kezdolap.megirom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Megírom</button></div>
+                </div>
+              </div>
+              <div data-felirat="r15.kozos.legutobb" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Legutóbb ma kerestünk híreket.</div>
+          </main>
+          <div></div>
+        </div>
+        <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="position:absolute;right:var(--ter-10);bottom:var(--ter-10);min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:23px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);font-weight:var(--fw-strong);cursor:pointer;">Visszajelzés</button>
+      </div>
+
+      <div data-r15-kepernyo="telefon" style="position:relative;box-sizing:border-box;width:390px;height:844px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:56px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-0) var(--ter-4) var(--ter-0) var(--ter-9);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <span style="width:26px;height:26px;border-radius:13px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">K</span>
+          <span style="flex:1;font-size:var(--fs-sm);font-weight:var(--fw-strong);">Kő és Kert Kft. ▾</span>
+          <a href="#" aria-label="Értesítések: 1" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;"><span style="padding:0 7px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" aria-label="Menü" style="width:44px;height:44px;border:none;background:transparent;color:var(--text);font-size:20px;cursor:pointer;">☰</button>
+        </div>
+        <div style="flex:1;min-height:0;overflow:hidden;padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-9);">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <h1 data-felirat="r15.kezdolap.elso_kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Kész az első posztod</h1>
+            </div>
+            <div data-r15="halad" style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--halad-text);">
+              <span aria-hidden="true" style="flex:none;width:56px;height:6px;border-radius:3px;background:var(--halad-sav);overflow:hidden;display:block;"><span style="display:block;width:0%;height:100%;background:var(--halad-telt);"></span></span>
+              <span data-felirat="r15.kozos.halad_elso">Ezen a héten: ez lesz az első.</span>
+            </div>
+          </div>
+          <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-4);">
+            <div data-felirat="r15.kezdolap.bemutatkozo" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Bemutatkozó poszt</div>
+            <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:20px;line-height:1.25;">Szép udvar, ami évtizedekig bírja.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-5) var(--ter-0);border-bottom:var(--bw) solid var(--line-soft);"><span data-felirat="r15.kozos.napi_hirek_sor" style="font-size:var(--fs-md);">Friss hírek minden reggel</span><button data-felirat="r15.kezdolap.bekapcsolom" type="button" style="flex:none;min-height:var(--control-min);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Bekapcsolom</button></div>
+            <a data-felirat="r15.kezdolap.meg_apro" href="#" style="padding:var(--ter-6) var(--ter-0);font-size:var(--fs-sm);color:var(--halk-link);">Még 1 javaslat</a>
+          </div>
+        </div>
+        <div style="flex:none;height:var(--lebego-hely-tel);box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-0) var(--ter-9);">
+          <span data-felirat="r15.kozos.nyugtato" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Átírhatod, és csak te teszed ki.</span>
+          <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:20px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Visszajelzés</button>
+        </div>
+        <div style="flex:none;padding:var(--ter-6) var(--ter-9) var(--ter-9);border-top:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <button data-felirat="r15.kezdolap.atnezem_posztot" type="button" data-r15="fo-gomb" data-r15-cel="poszt" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Megnézem a posztot</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-11);max-width:1870px;">
+      <div style="display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);border:var(--bw) solid var(--line);border-radius:var(--r-card);background:var(--bg-elev);font-size:var(--fs-sm);align-self:start;"><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TIBOR</div><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">ASZTALI</div><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TELEFON</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mit lát először?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">„Kész az első posztod” — és ott a poszt eleje a saját cégéről. Nem üres lap.</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanazt; a fő gomb alul, hüvelykujjnyira.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mi a dolga?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Megnézi a posztot, amit a gép a bemutatkozásából írt. A gomb alatt: „Átírhatod, és csak te teszed ki.” — tudja, mi jön, és hogy nélküle semmi nem megy ki.</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanaz; a nyugtató sor közvetlenül a fő gomb fölött. A „Mit szeretnétek elérni?” a „Még 1 javaslat” mögött.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);">Hány kattintás a kész posztig?</div><div style="padding:var(--ter-6) var(--ter-8);">1 · „Megnézem a posztot” → 08, kész szöveggel (gepezet-2 · 1)</div><div style="padding:var(--ter-6) var(--ter-8);">1</div></div>
+      <div style="display:flex;flex-direction:column;gap:var(--ter-4);font-size:var(--fs-sm);">
+        <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">A MAI LAPON VAN → HOVA KERÜLT · semmi nem került le</div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-3) var(--ter-9);color:var(--text-mut);"><span>„Ma nincs dolgod” (cím, fő gomb nélkül)</span><span style="color:var(--text);">helyette: „Kész az első posztod” + fő gomb (gepezet-2 · 1–2)</span><span>„Ezen a héten: 0 poszt kész · 0 kép letöltve”</span><span style="color:var(--text);">„Ezen a héten: ez lesz az első.” — ugyanaz a számláló, nullánál biztató szöveg (gepezet-2 · 3)</span><span>„Napi hírfigyelés · Bekapcsolom”</span><span style="color:var(--text);">megmaradt, halk sor: „Friss hírek minden reggel · Bekapcsolom” (kerdesek-2 · 4)</span><span>„Mit szeretnétek elérni? · Megírom”</span><span style="color:var(--text);">megmaradt; telefonon a „Még 1 javaslat” mögött</span><span>„Legutóbb ma kerestünk híreket.”</span><span style="color:var(--text);">megmaradt, halk sor alul (telefonon görgetés alatt)</span><span>alcím „Abból írtuk, amit a cégetekről megadtál.”</span><span style="color:var(--text);">10-01: rövidebb („A cégetek adataiból írtuk.”); telefonon nincs — a „Bemutatkozó poszt” sor mondja</span></div>
+      </div>
+    </div>
+  </section>
+
+<section data-screen-label="03b Kezdőlap — 2 poszt vár" style="display:flex;flex-direction:column;gap:var(--ter-10);border-top:var(--bw) solid var(--line);padding-top:var(--ter-12);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">03b · dolgos nap · R15-lapok-1 rajza; 10-01: „Megnézem”, rövidebb alcím, nyugtató sor a fő gomb alatt, „Friss hírek minden reggel”</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Kezdőlap — „Mi a dolgom ma?”</div>
+    </div>
+    <div style="display:flex;gap:var(--ter-12);align-items:flex-start;">
+
+      <div data-r15-kepernyo="asztali" style="position:relative;box-sizing:border-box;width:1440px;height:900px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:72px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-9);padding:var(--ter-0) var(--ter-10);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);"><span style="width:28px;height:28px;border-radius:14px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">K</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);">Kommunikációs munkatér</span></div>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kő és Kert Kft. ▾</button>
+          <nav style="flex:1;display:flex;gap:var(--ter-1);justify-content:center;font-size:var(--fs-sm);">
+            <a data-felirat="r15.nav.kezdolap" href="#" style="padding:var(--ter-4) var(--ter-6);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text);text-decoration:none;font-weight:var(--fw-strong);">Kezdőlap</a>
+            <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Hírek <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">2</span></a>
+            <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Posztszöveg <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">2</span></a>
+            <a data-felirat="r15.nav.kepek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Képek</a>
+            <a data-felirat="r15.nav.iranytu" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Iránytű</a>
+            <a data-felirat="r15.nav.szervezet" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Szervezet adatai</a>
+            <a data-felirat="r15.nav.beallitasok" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Beállítások</a>
+          </nav>
+          <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;font-size:var(--fs-sm);color:var(--text-mut);text-decoration:none;">Értesítések <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kovács Tibor ▾</button>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) var(--lebego-hely-asztali);min-height:0;">
+          <main style="box-sizing:border-box;width:100%;max-width:1152px;padding:var(--ter-13) var(--ter-0) var(--ter-12) 120px;display:flex;flex-direction:column;gap:var(--ter-11);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-6);">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <h1 data-felirat="r15.kezdolap.kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs);line-height:1.2;">Ma 2 poszt vár rád</h1>
+                <div data-felirat="r15.kezdolap.alcim" data-r15="kerdes-alcim" style="font-size:var(--fs-base);color:var(--kerdes-alcim);">Két hírből már megírtuk.</div>
+              </div>
+              <div data-r15="halad" style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--halad-text);">
+                <span aria-hidden="true" style="flex:none;width:72px;height:6px;border-radius:3px;background:var(--halad-sav);overflow:hidden;display:block;"><span style="display:block;width:34%;height:100%;background:var(--halad-telt);"></span></span>
+                <span data-felirat="r15.kozos.halad">Ezen a héten: <strong style="font-weight:var(--fw-strong);">1 poszt kész</strong> · 2 kép letöltve</span>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--ter-10);align-items:start;">
+              <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-10);display:flex;flex-direction:column;gap:var(--ter-7);">
+                <div data-felirat="r15.kezdolap.honnan" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">A díszburkolatos hírből</div>
+                <div style="display:flex;flex-direction:column;gap:var(--ter-4);">
+                  <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:22px;line-height:1.25;">Nem is térkő, hanem díszburkolat!</div>
+                  <div data-r15="eredmeny" style="font-size:var(--fs-base);color:var(--text-mut);">Sokan kérdezik, megéri-e prémium burkolatot tenni az udvarra.</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:var(--ter-5);"><div style="display:flex;align-items:center;gap:var(--ter-9);">
+                  <button data-felirat="r15.kezdolap.atnezem_posztot" type="button" data-r15="fo-gomb" data-r15-cel="poszt" style="box-sizing:border-box;min-height:var(--fo-gomb-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Megnézem a posztot</button>
+                  <a data-felirat="r15.kozos.kep_hozza" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Kép hozzá</a>
+                </div><div data-felirat="r15.kozos.nyugtato" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Átírhatod, és csak te teszed ki.</div></div>
+              </div>
+              <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-4) var(--ter-9);display:flex;flex-direction:column;">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-7) var(--ter-0);border-bottom:var(--bw) solid var(--line-soft);">
+                  <span data-felirat="r15.kezdolap.poszt_sor" style="font-size:var(--fs-md);">Poszt a Tisza-parti főtérről</span>
+                  <button data-felirat="r15.kezdolap.atnezem" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Megnézem</button>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-7) var(--ter-0);border-bottom:var(--bw) solid var(--line-soft);">
+                  <span data-felirat="r15.kozos.napi_hirek_sor" style="font-size:var(--fs-md);">Friss hírek minden reggel</span>
+                  <button data-felirat="r15.kezdolap.bekapcsolom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Bekapcsolom</button>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-7) var(--ter-0);">
+                  <span data-felirat="r15.kezdolap.celok" style="font-size:var(--fs-md);">Mit szeretnétek elérni?</span>
+                  <button data-felirat="r15.kezdolap.megirom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Megírom</button>
+                </div>
+              </div>
+            </div>
+            <div data-felirat="r15.kozos.legutobb" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Legutóbb 4 napja kerestünk híreket.</div>
+          </main>
+          <div></div>
+        </div>
+        <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="position:absolute;right:var(--ter-10);bottom:var(--ter-10);min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:23px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);font-weight:var(--fw-strong);cursor:pointer;">Visszajelzés</button>
+      </div>
+
+      <div data-r15-kepernyo="telefon" style="position:relative;box-sizing:border-box;width:390px;height:844px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:56px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-0) var(--ter-4) var(--ter-0) var(--ter-9);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <span style="width:26px;height:26px;border-radius:13px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">K</span>
+          <span style="flex:1;font-size:var(--fs-sm);font-weight:var(--fw-strong);">Kő és Kert Kft. ▾</span>
+          <a href="#" aria-label="Értesítések: 1" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;"><span style="padding:0 7px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" aria-label="Menü" style="width:44px;height:44px;border:none;background:transparent;color:var(--text);font-size:20px;cursor:pointer;">☰</button>
+        </div>
+        <div style="flex:1;min-height:0;overflow:hidden;padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-9);">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            <h1 data-felirat="r15.kezdolap.kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Ma 2 poszt vár rád</h1>
+          </div>
+          <div data-r15="halad" style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--halad-text);">
+            <span aria-hidden="true" style="flex:none;width:56px;height:6px;border-radius:3px;background:var(--halad-sav);overflow:hidden;display:block;"><span style="display:block;width:34%;height:100%;background:var(--halad-telt);"></span></span>
+            <span data-felirat="r15.kozos.halad">Ezen a héten: <strong style="font-weight:var(--fw-strong);">1 poszt</strong> · 2 kép</span>
+          </div>
+          <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-4);">
+            <div data-felirat="r15.kezdolap.honnan" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">A díszburkolatos hírből</div>
+            <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:20px;line-height:1.25;">Nem is térkő, hanem díszburkolat!</div>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-5) var(--ter-0);border-bottom:var(--bw) solid var(--line-soft);">
+              <span data-felirat="r15.kezdolap.poszt_sor" style="font-size:var(--fs-md);">Poszt a Tisza-parti főtérről</span>
+              <button data-felirat="r15.kezdolap.atnezem" type="button" style="flex:none;min-height:var(--control-min);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Megnézem</button>
+            </div>
+            <a data-felirat="r15.kezdolap.meg_apro" href="#" style="padding:var(--ter-6) var(--ter-0);font-size:var(--fs-sm);color:var(--halk-link);">Még 2 javaslat</a>
+          </div>
+        </div>
+        <div style="flex:none;height:var(--lebego-hely-tel);box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-0) var(--ter-9);">
+          <span data-felirat="r15.kozos.nyugtato" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Átírhatod, és csak te teszed ki.</span>
+          <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:20px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Visszajelzés</button>
+        </div>
+        <div style="flex:none;padding:var(--ter-6) var(--ter-9) var(--ter-9);border-top:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <button data-felirat="r15.kezdolap.atnezem_posztot" type="button" data-r15="fo-gomb" data-r15-cel="poszt" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Megnézem a posztot</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-11);max-width:1870px;">
+      <div style="display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);border:var(--bw) solid var(--line);border-radius:var(--r-card);background:var(--bg-elev);font-size:var(--fs-sm);align-self:start;">
+        <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TIBOR</div>
+        <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">ASZTALI</div>
+        <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TELEFON</div>
+        <div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mit lát először?</div>
+        <div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">„Ma 2 poszt vár rád”, mellette a kész díszburkolatos poszt eleje.</div>
+        <div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanazt; a fő gomb alul, hüvelykujjnyira.</div>
+        <div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mi a dolga?</div>
+        <div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Átnézi az első posztot. A második és két apróság jobbra, halkan.</div>
+        <div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Átnézi az első posztot.</div>
+        <div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);">Hány kattintás a kész posztig?</div>
+        <div style="padding:var(--ter-6) var(--ter-8);">1 · „Megnézem a posztot” → 08, kész szöveggel</div>
+        <div style="padding:var(--ter-6) var(--ter-8);">1</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:var(--ter-4);font-size:var(--fs-sm);">
+        <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">HÁTRÉBB KERÜLT · semmi nem került le</div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-3) var(--ter-9);color:var(--text-mut);">
+          <span>„Hírek megnyitása” gomb</span><span style="color:var(--text);">felső menü · Hírek</span>
+          <span>„2 új hír, ebből 2 érdekes”, összefoglaló</span><span style="color:var(--text);">Hírek lap, „Miért ezek?”</span>
+          <span>„Utolsó gyűjtés: 2026. 09. 26. 08:16”</span><span style="color:var(--text);">halk sor alul, napokban</span>
+          <span>„3 oldal működik”, AI-keret, próbaidőszak</span><span style="color:var(--text);">Beállítások · Csomag (kerdesek 3)</span>
+          <span>Román sorok a hírek alatt</span><span style="color:var(--text);">08, „Más nyelven” (kerdesek 6)</span>
+          <span>„Napi figyelés bekapcsolása”, „Adatok kiegészítése”</span><span style="color:var(--text);">megmaradt, a „Még vár” listában — új neve: „Friss hírek minden reggel” (3. szállítmány)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="03c Kezdőlap — mára kész" style="display:flex;flex-direction:column;gap:var(--ter-10);border-top:var(--bw) solid var(--line);padding-top:var(--ter-12);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">03c · semmi nem vár (a heti posztok kész) · a gepezet 7 „Ma nincs dolgod” állapota, fő gombbal</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Kezdőlap — „Mi a dolgom ma?” · mára kész</div>
+    </div>
+    <div style="display:flex;gap:var(--ter-12);align-items:flex-start;">
+      <div data-r15-kepernyo="asztali" style="position:relative;box-sizing:border-box;width:1440px;height:900px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:72px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-9);padding:var(--ter-0) var(--ter-10);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);"><span style="width:28px;height:28px;border-radius:14px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">K</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);">Kommunikációs munkatér</span></div>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kő és Kert Kft. ▾</button>
+          <nav style="flex:1;display:flex;gap:var(--ter-1);justify-content:center;font-size:var(--fs-sm);">
+            <a data-felirat="r15.nav.kezdolap" href="#" style="padding:var(--ter-4) var(--ter-6);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text);text-decoration:none;font-weight:var(--fw-strong);">Kezdőlap</a>
+            <a data-felirat="r15.nav.hirek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Hírek</a>
+            <a data-felirat="r15.nav.poszt" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Posztszöveg</a>
+            <a data-felirat="r15.nav.kepek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Képek</a>
+            <a data-felirat="r15.nav.iranytu" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Iránytű</a>
+            <a data-felirat="r15.nav.szervezet" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Szervezet adatai</a>
+            <a data-felirat="r15.nav.beallitasok" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Beállítások</a>
+          </nav>
+          <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;font-size:var(--fs-sm);color:var(--text-mut);text-decoration:none;">Értesítések <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kovács Tibor ▾</button>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) var(--lebego-hely-asztali);min-height:0;">
+          <main style="box-sizing:border-box;width:100%;max-width:1152px;padding:var(--ter-13) var(--ter-0) var(--ter-12) 120px;display:flex;flex-direction:column;gap:var(--ter-11);">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-6);">
+                <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                  <h1 data-felirat="r15.kezdolap.kesz_kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs);line-height:1.2;">Mára kész vagy</h1>
+                  <div data-felirat="r15.kezdolap.kesz_alcim" data-r15="kerdes-alcim" style="font-size:var(--fs-base);color:var(--kerdes-alcim);">Holnap reggel hozzuk a következő híreket.</div>
+                </div>
+                <div data-r15="kesz" style="display:flex;align-items:center;gap:var(--ter-8);padding:var(--ter-8) var(--ter-10);border-radius:var(--r-card);background:var(--kesz-bg);color:var(--kesz-text);align-self:flex-start;">
+                  <span aria-hidden="true" style="flex:none;width:44px;height:44px;border-radius:50%;background:var(--kesz-jel);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;">✓</span>
+                  <span style="display:flex;flex-direction:column;gap:var(--ter-1);">
+                    <strong data-felirat="r15.kozos.szep_munka" style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:22px;line-height:1.2;">Szép munka!</strong>
+                    <span data-felirat="r15.kozos.halad" data-r15="halad" style="font-size:var(--fs-sm);">Ezen a héten: 2 poszt kész · 3 kép letöltve</span>
+                  </span>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--ter-10);align-items:start;">
+                <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-9) var(--ter-10);display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--ter-10);align-items:center;">
+                  <div role="img" aria-label="Minta: így néz ki a képed — kész udvar, rajta a cég neve" style="position:relative;flex:none;height:120px;border-radius:var(--r-block);overflow:hidden;background-color:#8d8a84;background-image:linear-gradient(155deg,rgba(255,255,255,0.2),rgba(255,255,255,0) 55%),url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><rect width='56' height='56' fill='%238d8a84'/><rect x='1' y='1' width='26' height='26' fill='%23979389'/><rect x='29' y='1' width='26' height='26' fill='%23878379'/><rect x='-13' y='29' width='26' height='26' fill='%2383807a'/><rect x='15' y='29' width='26' height='26' fill='%239a968c'/><rect x='43' y='29' width='26' height='26' fill='%2383807a'/><g stroke='%23514d47' stroke-width='2'><path d='M0 0H56M0 28H56M0 56H56M0 0V28M28 0V28M14 28V56M42 28V56'/></g></svg>&quot;);background-size:100% 100%,56px 56px;"></div>
+                  <div style="display:flex;flex-direction:column;gap:var(--ter-6);align-items:flex-start;">
+                    <div data-felirat="r15.kezdolap.kesz_ajanlat" style="font-size:var(--fs-base);color:var(--text-mut);">Ha van kedved: még egy kép a munkádról.</div>
+                    <button data-felirat="r15.kozos.kepet_keszitek_munka" type="button" data-r15="fo-gomb" style="box-sizing:border-box;min-height:var(--fo-gomb-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Képet készítek a munkámról</button>
+                  </div>
+                </div>
+                <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-4) var(--ter-9);display:flex;flex-direction:column;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-7) var(--ter-0);"><span data-felirat="r15.kezdolap.celok" style="font-size:var(--fs-md);">Mit szeretnétek elérni?</span><button data-felirat="r15.kezdolap.megirom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Megírom</button></div>
+                </div>
+              </div>
+              <div data-felirat="r15.kozos.legutobb" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Legutóbb ma kerestünk híreket.</div>
+          </main>
+          <div></div>
+        </div>
+        <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="position:absolute;right:var(--ter-10);bottom:var(--ter-10);min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:23px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);font-weight:var(--fw-strong);cursor:pointer;">Visszajelzés</button>
+      </div>
+
+      <div data-r15-kepernyo="telefon" style="position:relative;box-sizing:border-box;width:390px;height:844px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:56px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-0) var(--ter-4) var(--ter-0) var(--ter-9);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <span style="width:26px;height:26px;border-radius:13px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">K</span>
+          <span style="flex:1;font-size:var(--fs-sm);font-weight:var(--fw-strong);">Kő és Kert Kft. ▾</span>
+          <a href="#" aria-label="Értesítések: 1" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;"><span style="padding:0 7px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" aria-label="Menü" style="width:44px;height:44px;border:none;background:transparent;color:var(--text);font-size:20px;cursor:pointer;">☰</button>
+        </div>
+        <div style="flex:1;min-height:0;overflow:hidden;padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-9);">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+              <h1 data-felirat="r15.kezdolap.kesz_kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Mára kész vagy</h1>
+              <div data-felirat="r15.kezdolap.kesz_alcim" data-r15="kerdes-alcim" style="font-size:var(--fs-md);color:var(--kerdes-alcim);">Holnap reggel hozzuk a következő híreket.</div>
+            </div>
+            <div data-r15="kesz" style="display:flex;align-items:center;gap:var(--ter-8);padding:var(--ter-8) var(--ter-9);border-radius:var(--r-card);background:var(--kesz-bg);color:var(--kesz-text);">
+              <span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:var(--kesz-jel);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;">✓</span>
+              <span style="display:flex;flex-direction:column;gap:var(--ter-1);">
+                <strong data-felirat="r15.kozos.szep_munka" style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-title);line-height:1.2;">Szép munka!</strong>
+                <span data-felirat="r15.kozos.halad_rovid" data-r15="halad" style="font-size:var(--fs-sm);">Ezen a héten: 2 poszt · 3 kép</span>
+              </span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--ter-8);">
+            <div style="flex:none;width:72px;"><div role="img" aria-label="Minta: így néz ki a képed — kész udvar, rajta a cég neve" style="position:relative;flex:none;height:72px;border-radius:var(--r-block);overflow:hidden;background-color:#8d8a84;background-image:linear-gradient(155deg,rgba(255,255,255,0.2),rgba(255,255,255,0) 55%),url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><rect width='56' height='56' fill='%238d8a84'/><rect x='1' y='1' width='26' height='26' fill='%23979389'/><rect x='29' y='1' width='26' height='26' fill='%23878379'/><rect x='-13' y='29' width='26' height='26' fill='%2383807a'/><rect x='15' y='29' width='26' height='26' fill='%239a968c'/><rect x='43' y='29' width='26' height='26' fill='%2383807a'/><g stroke='%23514d47' stroke-width='2'><path d='M0 0H56M0 28H56M0 56H56M0 0V28M28 0V28M14 28V56M42 28V56'/></g></svg>&quot;);background-size:100% 100%,56px 56px;"></div></div>
+            <div data-felirat="r15.kezdolap.kesz_ajanlat" style="font-size:var(--fs-md);color:var(--text-mut);">Ha van kedved: még egy kép a munkádról.</div>
+          </div>
+          <a data-felirat="r15.kezdolap.meg_apro" href="#" style="padding:var(--ter-2) var(--ter-0);font-size:var(--fs-sm);color:var(--halk-link);">Még 1 javaslat</a>
+        </div>
+        <div style="flex:none;height:var(--lebego-hely-tel);box-sizing:border-box;display:flex;align-items:center;justify-content:flex-end;padding:var(--ter-0) var(--ter-9);">
+          <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:20px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Visszajelzés</button>
+        </div>
+        <div style="flex:none;padding:var(--ter-6) var(--ter-9) var(--ter-9);border-top:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <button data-felirat="r15.kozos.kepet_keszitek_munka" type="button" data-r15="fo-gomb" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Képet készítek a munkámról</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-11);max-width:1870px;">
+      <div style="display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);border:var(--bw) solid var(--line);border-radius:var(--r-card);background:var(--bg-elev);font-size:var(--fs-sm);align-self:start;"><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TIBOR</div><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">ASZTALI</div><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TELEFON</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mit lát először?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">„Mára kész vagy”, és a lap legnagyobb eleme: ✓ „Szép munka!” a heti eredménnyel.</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanazt, egymás alatt; a fő gomb alul.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mi a dolga?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Semmi. A kép csak ajánlat, és így is szól: „Ha van kedved: még egy kép a munkádról.” A gomb rövid és nyugodt: „Képet készítek a munkámról”.</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanaz; az ajánlat egy kis kép mellett, halkan.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);">Hány kattintás a kész képig?</div><div style="padding:var(--ter-6) var(--ter-8);">1 a kitöltött képig (Képek · Kész munka, gepezet-2 · 4) · onnan fotó + Letöltés</div><div style="padding:var(--ter-6) var(--ter-8);">1</div></div>
+      <div style="display:flex;flex-direction:column;gap:var(--ter-4);font-size:var(--fs-sm);">
+        <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">A MAI LAPON VAN → HOVA KERÜLT · semmi nem került le</div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-3) var(--ter-9);color:var(--text-mut);"><span>„Ma nincs dolgod” (cím, fő gomb nélkül)</span><span style="color:var(--text);">„Mára kész vagy” + kész-pillanat + egy fő gomb (gepezet-2 · 2)</span><span>heti haladás (üres csík)</span><span style="color:var(--text);">a kész-pillanatban: „Szép munka! Ezen a héten: 2 poszt kész · 3 kép letöltve”</span><span>„Mit szeretnétek elérni? · Megírom”</span><span style="color:var(--text);">megmaradt, jobbra; telefonon a „Még 1 javaslat” mögött</span><span>„Napi hírfigyelés · Bekapcsolom”</span><span style="color:var(--text);">itt be van kapcsolva, ezért nem látszik; ha ki van: a lista első sora (gepezet-2 · 6)</span><span>(1. kör) „Mutasd meg a legutóbbi munkádat” + nagy kép</span><span style="color:var(--text);">10-01, bíráló: „nem világos, hogy ma kell-e még bármit” → kis kép, „Ha van kedved…”, a kész-pillanat nagyobb</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="03c2 Kezdőlap — még semmi kész" style="display:flex;flex-direction:column;gap:var(--ter-10);border-top:var(--bw) solid var(--line);padding-top:var(--ter-12);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">03c2 · semmi nem vár, és a héten még semmi nem készült (friss fiók, napi hírek kikapcsolva) · gepezet-2 · 2 harmadik ága · utókérés 2 (10-01): a bíráló 4 pontot adott</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Kezdőlap — „Mi a dolgom ma?” · még semmi kész</div>
+    </div>
+    <div style="display:flex;gap:var(--ter-12);align-items:flex-start;">
+      <div data-r15-kepernyo="asztali" style="position:relative;box-sizing:border-box;width:1440px;height:900px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:72px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-9);padding:var(--ter-0) var(--ter-10);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);"><span style="width:28px;height:28px;border-radius:14px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">K</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);">Kommunikációs munkatér</span></div>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kő és Kert Kft. ▾</button>
+          <nav style="flex:1;display:flex;gap:var(--ter-1);justify-content:center;font-size:var(--fs-sm);">
+            <a data-felirat="r15.nav.kezdolap" href="#" style="padding:var(--ter-4) var(--ter-6);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text);text-decoration:none;font-weight:var(--fw-strong);">Kezdőlap</a>
+            <a data-felirat="r15.nav.hirek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Hírek</a>
+            <a data-felirat="r15.nav.poszt" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Posztszöveg</a>
+            <a data-felirat="r15.nav.kepek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Képek</a>
+            <a data-felirat="r15.nav.iranytu" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Iránytű</a>
+            <a data-felirat="r15.nav.szervezet" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Szervezet adatai</a>
+            <a data-felirat="r15.nav.beallitasok" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Beállítások</a>
+          </nav>
+          <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;font-size:var(--fs-sm);color:var(--text-mut);text-decoration:none;">Értesítések <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kovács Tibor ▾</button>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) var(--lebego-hely-asztali);min-height:0;">
+          <main style="box-sizing:border-box;width:100%;max-width:1152px;padding:var(--ter-13) var(--ter-0) var(--ter-12) 120px;display:flex;flex-direction:column;gap:var(--ter-11);">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <h1 data-felirat="r15.kozos.munkad_cim" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs);line-height:1.2;">Mutasd meg a legutóbbi munkádat</h1>
+                <div data-felirat="r15.kozos.foto_munka" data-r15="kerdes-alcim" style="font-size:var(--fs-base);color:var(--kerdes-alcim);">A fotódból kész kép lesz a posztodhoz — kiteszed, ha tetszik.</div>
+              </div>
+              <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--ter-10);align-items:start;">
+                <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-9) var(--ter-10);display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--ter-10);align-items:center;">
+                  <div role="img" aria-label="Minta: így néz ki a képed — kész udvar, rajta a cég neve" style="position:relative;flex:none;height:120px;border-radius:var(--r-block);overflow:hidden;background-color:#8d8a84;background-image:linear-gradient(155deg,rgba(255,255,255,0.2),rgba(255,255,255,0) 55%),url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><rect width='56' height='56' fill='%238d8a84'/><rect x='1' y='1' width='26' height='26' fill='%23979389'/><rect x='29' y='1' width='26' height='26' fill='%23878379'/><rect x='-13' y='29' width='26' height='26' fill='%2383807a'/><rect x='15' y='29' width='26' height='26' fill='%239a968c'/><rect x='43' y='29' width='26' height='26' fill='%2383807a'/><g stroke='%23514d47' stroke-width='2'><path d='M0 0H56M0 28H56M0 56H56M0 0V28M28 0V28M14 28V56M42 28V56'/></g></svg>&quot;);background-size:100% 100%,56px 56px;"></div>
+                  <div style="display:flex;flex-direction:column;gap:var(--ter-6);align-items:flex-start;">
+                    <div data-felirat="r15.kozos.minta_sor" style="font-size:var(--fs-base);color:var(--text-mut);">A fotódat a következő lépésben kérjük.</div>
+                    <button data-felirat="r15.kozos.kepet_keszitek_munka" type="button" data-r15="fo-gomb" style="box-sizing:border-box;min-height:var(--fo-gomb-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Képet készítek a munkámról</button>
+                  </div>
+                </div>
+                <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-4) var(--ter-9);display:flex;flex-direction:column;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-7) var(--ter-0);border-bottom:var(--bw) solid var(--line-soft);"><span style="display:flex;align-items:baseline;gap:var(--ter-6);"><span data-felirat="r15.kozos.napi_hirek_sor" style="font-size:var(--fs-md);">Friss hírek minden reggel</span><a data-felirat="r15.kozos.mi_ez" aria-expanded="false" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Mi ez?</a></span><button data-felirat="r15.kezdolap.bekapcsolom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Bekapcsolom</button></div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-7) var(--ter-0);"><span data-felirat="r15.kezdolap.celok" style="font-size:var(--fs-md);">Mit szeretnétek elérni?</span><button data-felirat="r15.kezdolap.megirom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Megírom</button></div>
+                </div>
+              </div>
+              <div data-felirat="r15.kozos.legutobb" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Legutóbb ma kerestünk híreket.</div>
+          </main>
+          <div></div>
+        </div>
+        <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="position:absolute;right:var(--ter-10);bottom:var(--ter-10);min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:23px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);font-weight:var(--fw-strong);cursor:pointer;">Visszajelzés</button>
+      </div>
+
+      <div data-r15-kepernyo="telefon" style="position:relative;box-sizing:border-box;width:390px;height:844px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:56px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-0) var(--ter-4) var(--ter-0) var(--ter-9);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <span style="width:26px;height:26px;border-radius:13px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">K</span>
+          <span style="flex:1;font-size:var(--fs-sm);font-weight:var(--fw-strong);">Kő és Kert Kft. ▾</span>
+          <a href="#" aria-label="Értesítések: 1" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;"><span style="padding:0 7px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" aria-label="Menü" style="width:44px;height:44px;border:none;background:transparent;color:var(--text);font-size:20px;cursor:pointer;">☰</button>
+        </div>
+        <div style="flex:1;min-height:0;overflow:hidden;padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-9);">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            <h1 data-felirat="r15.kozos.munkad_cim" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Mutasd meg a legutóbbi munkádat</h1>
+            <div data-felirat="r15.kozos.foto_munka" data-r15="kerdes-alcim" style="font-size:var(--fs-md);color:var(--kerdes-alcim);">A fotódból kész kép lesz a posztodhoz — kiteszed, ha tetszik.</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--ter-8);">
+            <div style="flex:none;width:96px;"><div role="img" aria-label="Minta: így néz ki a képed — kész udvar, rajta a cég neve" style="position:relative;flex:none;height:96px;border-radius:var(--r-block);overflow:hidden;background-color:#8d8a84;background-image:linear-gradient(155deg,rgba(255,255,255,0.2),rgba(255,255,255,0) 55%),url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><rect width='56' height='56' fill='%238d8a84'/><rect x='1' y='1' width='26' height='26' fill='%23979389'/><rect x='29' y='1' width='26' height='26' fill='%23878379'/><rect x='-13' y='29' width='26' height='26' fill='%2383807a'/><rect x='15' y='29' width='26' height='26' fill='%239a968c'/><rect x='43' y='29' width='26' height='26' fill='%2383807a'/><g stroke='%23514d47' stroke-width='2'><path d='M0 0H56M0 28H56M0 56H56M0 0V28M28 0V28M14 28V56M42 28V56'/></g></svg>&quot;);background-size:100% 100%,56px 56px;"></div></div>
+            <div data-felirat="r15.kozos.minta_sor" style="font-size:var(--fs-md);color:var(--text-mut);">A fotódat a következő lépésben kérjük.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-5) var(--ter-0);border-bottom:var(--bw) solid var(--line-soft);"><span style="display:flex;flex-direction:column;gap:var(--ter-1);"><span data-felirat="r15.kozos.napi_hirek_sor" style="font-size:var(--fs-md);">Friss hírek minden reggel</span><a data-felirat="r15.kozos.mi_ez" aria-expanded="false" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Mi ez?</a></span><button data-felirat="r15.kezdolap.bekapcsolom" type="button" style="flex:none;min-height:var(--control-min);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Bekapcsolom</button></div>
+            <a data-felirat="r15.kezdolap.meg_apro" href="#" style="padding:var(--ter-6) var(--ter-0);font-size:var(--fs-sm);color:var(--halk-link);">Még 1 javaslat</a>
+          </div>
+        </div>
+        <div style="flex:none;height:var(--lebego-hely-tel);box-sizing:border-box;display:flex;align-items:center;justify-content:flex-end;padding:var(--ter-0) var(--ter-9);">
+          <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:20px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Visszajelzés</button>
+        </div>
+        <div style="flex:none;padding:var(--ter-6) var(--ter-9) var(--ter-9);border-top:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <button data-felirat="r15.kozos.kepet_keszitek_munka" type="button" data-r15="fo-gomb" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Képet készítek a munkámról</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-11);max-width:1870px;">
+      <div style="display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);border:var(--bw) solid var(--line);border-radius:var(--r-card);background:var(--bg-elev);font-size:var(--fs-sm);align-self:start;"><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TIBOR</div><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">ASZTALI</div><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TELEFON</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mit lát először?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">„Mutasd meg a legutóbbi munkádat”, alatta egy mondat: a fotóból kész kép lesz a posztjához, és ő dönti el, kiteszi-e.</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanazt; a fő gomb alul, hüvelykujjnyira.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mi a dolga?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Egy fotó egy kész munkáról. A kép mellett: „A fotódat a következő lépésben kérjük.” — tudja, hogy a kép minta, nem az övé.</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanaz, kisebb képpel. A „Mit szeretnétek elérni?” a „Még 1 javaslat” mögött.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mi a „Friss hírek”?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">„Mi ez?” a sor mellett: egy mondat, mit kap (lásd a lenyitott állapotot a 04a alatt).</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanaz, a „Mi ez?” a sor alatt.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);">Hány kattintás a kész képig?</div><div style="padding:var(--ter-6) var(--ter-8);">1 a kitöltött képig (Képek · Kész munka, gepezet-2 · 4) · onnan fotó + Letöltés</div><div style="padding:var(--ter-6) var(--ter-8);">1</div></div>
+      <div style="display:flex;flex-direction:column;gap:var(--ter-4);font-size:var(--fs-sm);">
+        <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">A MAI LAPON VAN → HOVA KERÜLT · semmi nem került le</div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-3) var(--ter-9);color:var(--text-mut);"><span>„Mutasd meg a legutóbbi munkádat” (cím, alcím nélkül)</span><span style="color:var(--text);">megmaradt; alatta az eredmény-mondat (r15.kozos.foto_munka, új szöveg): mi lesz a fotóból, és hogy ő dönti el, kiteszi-e</span><span>„Ha van kedved: még egy kép a munkádról.” (ebben az állapotban)</span><span style="color:var(--text);">itt nem illett („még egy”, de még nincs egy sem): helyette „A fotódat a következő lépésben kérjük.” A kulcs a 03c kész-állapotában marad.</span><span>a mintakép apró felirata</span><span style="color:var(--text);">levéve — a kép felirat nélkül, a mondat mellette mondja meg, mi ez</span><span>„Friss hírek minden reggel · Bekapcsolom”</span><span style="color:var(--text);">megmaradt, mellé „Mi ez?” (mit kapcsol be — helyben nyíló mondat)</span><span>„Mit szeretnétek elérni? · Megírom” · „Még 1 javaslat” · „Legutóbb ma kerestünk híreket.”</span><span style="color:var(--text);">mind megmaradt, a helyén</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="04a Hírek — ma nincs hír" style="display:flex;flex-direction:column;gap:var(--ter-10);border-top:var(--bw) solid var(--line);padding-top:var(--ter-12);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">04a · ma egy hír sem illett (43 átnézve) · utókérés 2 (10-01 este): a cím alatt az, amit ma csinálunk; a számok és a napi hírek sora a „Miért nincs ma hír?” mögött; a mintakép felirat nélkül</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Hírek — „Van valami, amiből posztot csinálhatok?” · ma nincs hír</div>
+    </div>
+    <div style="display:flex;gap:var(--ter-12);align-items:flex-start;">
+      <div data-r15-kepernyo="asztali" style="position:relative;box-sizing:border-box;width:1440px;height:900px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:72px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-9);padding:var(--ter-0) var(--ter-10);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);"><span style="width:28px;height:28px;border-radius:14px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">K</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);">Kommunikációs munkatér</span></div>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kő és Kert Kft. ▾</button>
+          <nav style="flex:1;display:flex;gap:var(--ter-1);justify-content:center;font-size:var(--fs-sm);">
+            <a data-felirat="r15.nav.kezdolap" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Kezdőlap</a>
+            <a data-felirat="r15.nav.hirek" href="#" style="padding:var(--ter-4) var(--ter-6);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text);text-decoration:none;font-weight:var(--fw-strong);">Hírek</a>
+            <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Posztszöveg <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+            <a data-felirat="r15.nav.kepek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Képek</a>
+            <a data-felirat="r15.nav.iranytu" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Iránytű</a>
+            <a data-felirat="r15.nav.szervezet" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Szervezet adatai</a>
+            <a data-felirat="r15.nav.beallitasok" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Beállítások</a>
+          </nav>
+          <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;font-size:var(--fs-sm);color:var(--text-mut);text-decoration:none;">Értesítések <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kovács Tibor ▾</button>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) var(--lebego-hely-asztali);min-height:0;">
+          <main style="box-sizing:border-box;width:100%;max-width:1152px;padding:var(--ter-13) var(--ter-0) var(--ter-12) 120px;display:flex;flex-direction:column;gap:var(--ter-10);">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <h1 data-felirat="r15.hirek.ures_kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs);line-height:1.2;">Ma nincs új hír nektek</h1>
+                <div data-felirat="r15.hirek.ures_ajanlat" data-r15="kerdes-alcim" style="font-size:var(--fs-base);color:var(--kerdes-alcim);">Ma a legutóbbi munkádból csinálunk képet.</div>
+              </div>
+              <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-10);display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--ter-11);align-items:center;max-width:760px;">
+                <div role="img" aria-label="Minta: így néz ki a képed — kész udvar, rajta a cég neve" style="position:relative;flex:none;height:200px;border-radius:var(--r-block);overflow:hidden;background-color:#8d8a84;background-image:linear-gradient(155deg,rgba(255,255,255,0.2),rgba(255,255,255,0) 55%),url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><rect width='56' height='56' fill='%238d8a84'/><rect x='1' y='1' width='26' height='26' fill='%23979389'/><rect x='29' y='1' width='26' height='26' fill='%23878379'/><rect x='-13' y='29' width='26' height='26' fill='%2383807a'/><rect x='15' y='29' width='26' height='26' fill='%239a968c'/><rect x='43' y='29' width='26' height='26' fill='%2383807a'/><g stroke='%23514d47' stroke-width='2'><path d='M0 0H56M0 28H56M0 56H56M0 0V28M28 0V28M14 28V56M42 28V56'/></g></svg>&quot;);background-size:100% 100%,56px 56px;"></div>
+                <div style="display:flex;flex-direction:column;gap:var(--ter-7);align-items:flex-start;">
+                  <div data-felirat="r15.kozos.foto_munka" style="font-size:var(--fs-base);color:var(--text-mut);">A fotódból kész kép lesz a posztodhoz — kiteszed, ha tetszik.</div>
+                  <button data-felirat="r15.kozos.kepet_keszitek_munka" type="button" data-r15="fo-gomb" style="box-sizing:border-box;min-height:var(--fo-gomb-min);padding:var(--ter-0) var(--ter-11);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Képet készítek a munkámról</button>
+                </div>
+              </div>
+              <div style="display:flex;gap:var(--ter-9);flex-wrap:wrap;font-size:var(--fs-sm);"><a data-felirat="r15.hirek.miert_nincs" aria-expanded="false" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);align-self:flex-start;">Miért nincs ma hír?</a><a data-felirat="r15.hirek.keress_most" href="#" style="color:var(--halk-link);">Keress most új híreket</a><a data-felirat="r15.hirek.beallitasok" href="#" title="Miért ezek? · Mit figyeljünk? · Pontosítás · Elmentett és elrejtett hírek" style="color:var(--halk-link);">Hírek beállításai</a></div>
+          </main>
+          <div></div>
+        </div>
+        <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="position:absolute;right:var(--ter-10);bottom:var(--ter-10);min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:23px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);font-weight:var(--fw-strong);cursor:pointer;">Visszajelzés</button>
+      </div>
+
+      <div data-r15-kepernyo="telefon" style="position:relative;box-sizing:border-box;width:390px;height:844px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:56px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-0) var(--ter-4) var(--ter-0) var(--ter-9);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <span style="width:26px;height:26px;border-radius:13px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">K</span>
+          <span style="flex:1;font-size:var(--fs-sm);font-weight:var(--fw-strong);">Kő és Kert Kft. ▾</span>
+          <a href="#" aria-label="Értesítések: 1" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;"><span style="padding:0 7px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" aria-label="Menü" style="width:44px;height:44px;border:none;background:transparent;color:var(--text);font-size:20px;cursor:pointer;">☰</button>
+        </div>
+        <div style="flex:1;min-height:0;overflow:hidden;padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-9);">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+            <h1 data-felirat="r15.hirek.ures_kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Ma nincs új hír nektek</h1>
+            <div data-felirat="r15.hirek.ures_ajanlat" data-r15="kerdes-alcim" style="font-size:var(--fs-md);color:var(--kerdes-alcim);">Ma a legutóbbi munkádból csinálunk képet.</div>
+          </div>
+          <div role="img" aria-label="Minta: így néz ki a képed — kész udvar, rajta a cég neve" style="position:relative;flex:none;height:150px;border-radius:var(--r-block);overflow:hidden;background-color:#8d8a84;background-image:linear-gradient(155deg,rgba(255,255,255,0.2),rgba(255,255,255,0) 55%),url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><rect width='56' height='56' fill='%238d8a84'/><rect x='1' y='1' width='26' height='26' fill='%23979389'/><rect x='29' y='1' width='26' height='26' fill='%23878379'/><rect x='-13' y='29' width='26' height='26' fill='%2383807a'/><rect x='15' y='29' width='26' height='26' fill='%239a968c'/><rect x='43' y='29' width='26' height='26' fill='%2383807a'/><g stroke='%23514d47' stroke-width='2'><path d='M0 0H56M0 28H56M0 56H56M0 0V28M28 0V28M14 28V56M42 28V56'/></g></svg>&quot;);background-size:100% 100%,56px 56px;"></div>
+          <a data-felirat="r15.hirek.miert_nincs" aria-expanded="false" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);align-self:flex-start;">Miért nincs ma hír?</a>
+        </div>
+        <div style="flex:none;height:var(--lebego-hely-tel);box-sizing:border-box;display:flex;align-items:center;justify-content:flex-end;padding:var(--ter-0) var(--ter-9);">
+          <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:20px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Visszajelzés</button>
+        </div>
+        <div style="flex:none;padding:var(--ter-6) var(--ter-9) var(--ter-9);border-top:var(--bw) solid var(--line-soft);background:var(--header-bg);">
+          <button data-felirat="r15.kozos.kepet_keszitek_munka" type="button" data-r15="fo-gomb" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Képet készítek a munkámról</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-11);max-width:1870px;">
+      <div style="display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);border:var(--bw) solid var(--line);border-radius:var(--r-card);background:var(--bg-elev);font-size:var(--fs-sm);align-self:start;"><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TIBOR</div><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">ASZTALI</div><div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TELEFON</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mit lát először?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">„Ma nincs új hír nektek”, és rögtön alatta, mit csinálunk helyette: „Ma a legutóbbi munkádból csinálunk képet.” Alatta a kártya a fő gombbal. Számot, számlálót nem lát.</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanazt; a minta nagyobb, a fő gomb alul.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mi a dolga?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Egy fotó egy kész munkáról. A kártyán, mi lesz belőle: „A fotódból kész kép lesz a posztodhoz — kiteszed, ha tetszik.”</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanaz; a kártya-mondat telefonon nincs (szókeret), a Képek kitöltője mondja.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mikor lesz dolga a hírekkel?</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">A „Miért nincs ma hír?” mögött: hány hírt néztünk át, és a „Friss hírek minden reggel · Bekapcsolom” sor (bekapcsolva: „Holnap reggel újra nézzük.”). A Kezdőlapon a sor továbbra is elöl van.</div><div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanaz; a link a minta alatt.</div><div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);">Hány kattintás a kész képig?</div><div style="padding:var(--ter-6) var(--ter-8);">1 a kitöltött képig (Képek · Kész munka) · onnan fotó + Letöltés</div><div style="padding:var(--ter-6) var(--ter-8);">1</div></div>
+      <div style="display:flex;flex-direction:column;gap:var(--ter-4);font-size:var(--fs-sm);">
+        <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">A MAI LAPON VAN → HOVA KERÜLT · semmi nem került le</div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-3) var(--ter-9);color:var(--text-mut);"><span>cím alatt: „43 hír nem illett hozzátok, ezeket kihagytuk.”</span><span style="color:var(--text);">megmaradt, eredménnyel kezdve: „43 hírt átnéztünk — egyik sem nektek való.” (r15.hirek.kihagytuk, új szöveg) — a „Miért nincs ma hír?” mögött (lenyitva lent). Mérve 10-01 este: látható sorként 3 bírálatból 3-szor 4 pontot hozott („ki döntötte el?”, „lemaradtam valamiről?”), nélküle 5-öt</span><span>„Addig mutasd meg a legutóbbi munkádat” (kártyacím)</span><span style="color:var(--text);">a cím alá került, és a mai dolgot mondja: „Ma a legutóbbi munkádból csinálunk képet.” (r15.hirek.ures_ajanlat, új szöveg) — az „Addig” határidőnek hangzott</span><span>„Ezen a héten: 0 poszt · 0 kép” (üres csíkkal)</span><span style="color:var(--text);">ha mindkettő 0: a lapon nem látszik; a „Miért nincs ma hír?” mögött: „Itt látod majd a heti eredményt.” A csík az első kész darabbal jelenik meg. Eltérés a kérés (c) pontjától — mérve: a nullás sor bármilyen szöveggel „számonkérés”-nek hangzott (kerdesek-3 · 1)</span><span>„Válassz egy fotót… — a szöveget mi írjuk rá.”</span><span style="color:var(--text);">„A fotódból kész kép lesz a posztodhoz — kiteszed, ha tetszik.” (r15.kozos.foto_munka, új szöveg)</span><span>„Elkészült! · cégnév” a mintaképen</span><span style="color:var(--text);">levéve: azt sugallta, hogy már készült valami; a kép felirat nélküli minta</span><span>„Friss hírek minden reggel · Bekapcsolom” (a 2. körben került ide a Kezdőlapról)</span><span style="color:var(--text);">a „Miért nincs ma hír?” mögé, „Mi ez?”-vel; a Kezdőlapon (03a, 03c2) elöl marad. Mérve 10-01 este: látható sorként a 04a asztali 3 bírálatból 2-szer 4 pont („mibe kerül?”), nélküle 3/3-szor 5</span><span>„Keress most új híreket” · „Hírek beállításai”</span><span style="color:var(--text);">megmaradt, halk linkek; telefonon görgetés alatt</span><span>„Legutóbb ma kerestünk híreket.” (már az alcímbe olvadt)</span><span style="color:var(--text);">a „Miért nincs ma hír?” mögött</span></div>
+      </div>
+    </div>
+<div style="display:flex;gap:var(--ter-11);flex-wrap:wrap;">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);max-width:560px;">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">„MI EZ?” A „FRISS HÍREK MINDEN REGGEL” SOR MELLETT (lenyitva) — helyben nyílik, a sor alatt (03a · 03c2 · 04a)</div>
+      <div style="display:flex;flex-direction:column;gap:var(--ter-4);padding:var(--ter-8) var(--ter-9);border-left:3px solid var(--line);background:var(--lap-bg);color:var(--text);">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);"><span data-felirat="r15.kozos.napi_hirek_sor" style="font-size:var(--fs-md);">Friss hírek minden reggel</span><button data-felirat="r15.kezdolap.bekapcsolom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Bekapcsolom</button></div>
+        <div data-r15="reszletek" data-felirat="r15.kozos.napi_hirek_reszlet" style="font-size:var(--fs-sm);color:var(--text-mut);text-wrap:pretty;">Minden reggel átnézzük a szakmátok híroldalait. Ami nektek való, abból posztot írunk, és itt várja, hogy megnézd.</div>
+        <a data-felirat="r15.kozos.mit_figyelunk" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);align-self:flex-start;">Mit figyelünk?</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--ter-4);max-width:560px;">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">„MIÉRT NINCS MA HÍR?” (lenyitva, helyben, asztalon és telefonon is) — ide került a kihagyott hírek sora, a nullás heti számláló és a „Friss hírek minden reggel” sor</div>
+      <div style="display:flex;flex-direction:column;gap:var(--ter-4);padding:var(--ter-8) var(--ter-9);border-left:3px solid var(--line);background:var(--lap-bg);color:var(--text);">
+        <a data-felirat="r15.hirek.miert_nincs" aria-expanded="true" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);align-self:flex-start;">Miért nincs ma hír?</a>
+        <div data-r15="reszletek" style="display:flex;flex-direction:column;gap:var(--ter-3);font-size:var(--fs-sm);color:var(--text-mut);">
+          <span data-felirat="r15.hirek.kihagytuk">43 hírt átnéztünk — egyik sem nektek való.</span>
+          <span data-felirat="r15.kozos.legutobb">Legutóbb ma kerestünk híreket.</span>
+          <span data-felirat="r15.kozos.halad_ures">Itt látod majd a heti eredményt.</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding-top:var(--ter-4);border-top:var(--bw) solid var(--line-soft);"><span style="display:flex;align-items:baseline;gap:var(--ter-6);"><span data-felirat="r15.kozos.napi_hirek_sor" style="font-size:var(--fs-md);">Friss hírek minden reggel</span><a data-felirat="r15.kozos.mi_ez" aria-expanded="false" href="#" style="font-size:var(--fs-sm);color:var(--halk-link);">Mi ez?</a></span><button data-felirat="r15.kezdolap.bekapcsolom" type="button" style="flex:none;min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Bekapcsolom</button></div>
+        <div data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Bekapcsolt napi híreknél a sor helyén: <span data-felirat="r15.hirek.holnap_ujra">Holnap reggel újra nézzük.</span></div>
+      </div>
+    </div>
+</div>
+  </section>
+
+<section data-screen-label="04b Hírek — 2 hír" style="display:flex;flex-direction:column;gap:var(--ter-10);border-top:var(--bw) solid var(--line);padding-top:var(--ter-12);">
+    <div style="display:flex;flex-direction:column;gap:var(--ter-2);">
+      <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">04b · két hír · R15-lapok-1 rajza; 10-01: „Megnézem”, a forrás a „···” › Részletek mögé, „Posztod:” az „Ötlet:” helyett, nyugtató sor</div>
+      <div style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-h2);">Hírek — „Van valami, amiből posztot csinálhatok?”</div>
+    </div>
+    <div style="display:flex;gap:var(--ter-12);align-items:flex-start;">
+
+      <div data-r15-kepernyo="asztali" style="position:relative;box-sizing:border-box;width:1440px;height:900px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:72px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-9);padding:var(--ter-0) var(--ter-10);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <div style="display:flex;align-items:center;gap:var(--ter-5);"><span style="width:28px;height:28px;border-radius:14px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">K</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);">Kommunikációs munkatér</span></div>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kő és Kert Kft. ▾</button>
+          <nav style="flex:1;display:flex;gap:var(--ter-1);justify-content:center;font-size:var(--fs-sm);">
+            <a data-felirat="r15.nav.kezdolap" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Kezdőlap</a>
+            <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;padding:var(--ter-4) var(--ter-6);border-radius:var(--r-btn);background:var(--panel-soft-2);color:var(--text);text-decoration:none;font-weight:var(--fw-strong);">Hírek <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);font-weight:400;">2</span></a>
+            <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Posztszöveg <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">2</span></a>
+            <a data-felirat="r15.nav.kepek" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Képek</a>
+            <a data-felirat="r15.nav.iranytu" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Iránytű</a>
+            <a data-felirat="r15.nav.szervezet" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Szervezet adatai</a>
+            <a data-felirat="r15.nav.beallitasok" href="#" style="padding:var(--ter-4) var(--ter-6);color:var(--text-mut);text-decoration:none;">Beállítások</a>
+          </nav>
+          <a href="#" style="display:flex;gap:var(--ter-3);align-items:center;font-size:var(--fs-sm);color:var(--text-mut);text-decoration:none;">Értesítések <span style="padding:0 6px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-7);border:var(--bw) solid var(--btn-ghost-border);border-radius:var(--r-btn);background:var(--btn-ghost-bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);">Kovács Tibor ▾</button>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) var(--lebego-hely-asztali);min-height:0;">
+          <main style="box-sizing:border-box;width:100%;max-width:1152px;padding:var(--ter-13) var(--ter-0) var(--ter-12) 120px;display:flex;flex-direction:column;gap:var(--ter-11);">
+            <div style="display:flex;flex-direction:column;gap:var(--ter-6);">
+              <div style="display:flex;flex-direction:column;gap:var(--ter-3);">
+                <h1 data-felirat="r15.hirek.kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs);line-height:1.2;">Nézd át a 2 kész posztot</h1>
+              </div>
+              <div data-r15="halad" style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--halad-text);">
+                <span aria-hidden="true" style="flex:none;width:72px;height:6px;border-radius:3px;background:var(--halad-sav);overflow:hidden;display:block;"><span style="display:block;width:34%;height:100%;background:var(--halad-telt);"></span></span>
+                <span data-felirat="r15.kozos.halad">Ezen a héten: <strong style="font-weight:var(--fw-strong);">1 poszt</strong> · 2 kép</span>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-10);align-items:stretch;">
+              <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-10);display:flex;flex-direction:column;gap:var(--ter-7);">
+                <a href="#" title="Nem is térkő, hanem díszburkolat! A prémium kültéri megoldások új szintjét képviseli a VIASTEIN LUX" style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:20px;line-height:1.3;color:var(--text);text-decoration:none;">Nem is térkő, hanem díszburkolat!</a>
+                <div data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">e-nepujsag.ro</div>
+                <div data-felirat="r15.hirek.posztod" style="font-size:var(--fs-md);color:var(--text-mut);">Posztod: megéri a prémium burkolat?</div>
+                <div style="flex:1;"></div>
+                <div style="display:flex;align-items:center;gap:var(--ter-9);flex-wrap:wrap;">
+                  <button data-felirat="r15.hirek.atnezem_posztot" type="button" data-r15="fo-gomb" data-r15-cel="poszt" style="box-sizing:border-box;min-height:var(--fo-gomb-min);padding:var(--ter-0) var(--ter-10);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Megnézem a posztot</button>
+                  <button type="button" aria-label="Továbbiak: Részletek (a hír forrása), Elmentem, Nem érdekel" style="width:var(--control-min);height:var(--control-min);border:none;border-radius:var(--r-btn);background:transparent;color:var(--halk-link);font-size:20px;line-height:1;cursor:pointer;">···</button>
+                </div>
+                <div data-felirat="r15.kozos.nyugtato" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Átírhatod, és csak te teszed ki.</div>
+              </div>
+              <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-10);display:flex;flex-direction:column;gap:var(--ter-7);">
+                <a href="#" style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:20px;line-height:1.3;color:var(--text);text-decoration:none;">Megújul a Tisza-parti település központja</a>
+                <div data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">maszol.ro</div>
+                <div data-felirat="r15.hirek.posztod" style="font-size:var(--fs-md);color:var(--text-mut);">Posztod: ti is építetek ilyet.</div>
+                <div style="flex:1;"></div>
+                <div style="display:flex;align-items:center;gap:var(--ter-9);flex-wrap:wrap;">
+                  <button data-felirat="r15.hirek.atnezem" type="button" data-r15-cel="poszt" style="box-sizing:border-box;min-height:var(--fo-gomb-min);padding:var(--ter-0) var(--ter-10);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-base);cursor:pointer;">Megnézem</button>
+                  <button type="button" aria-label="Továbbiak: Részletek (a hír forrása), Elmentem, Nem érdekel" style="width:var(--control-min);height:var(--control-min);border:none;border-radius:var(--r-btn);background:transparent;color:var(--halk-link);font-size:20px;line-height:1;cursor:pointer;">···</button>
+                </div>
+                <div aria-hidden="true" style="height:calc(var(--info-fs) * 1.5);"></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+              <div data-felirat="r15.hirek.legutobb_rovid" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Legutóbb 4 napja kerestünk.</div>
+              <div style="display:flex;gap:var(--ter-9);flex-wrap:wrap;font-size:var(--fs-sm);">
+                <a data-felirat="r15.hirek.keress_most" href="#" style="color:var(--halk-link);">Keress most új híreket</a>
+                <a data-felirat="r15.hirek.beallitasok" href="#" title="Miért ezek? · Mit figyeljünk? · Pontosítás · Elmentett és elrejtett hírek" style="color:var(--halk-link);">Hírek beállításai</a>
+              </div>
+            </div>
+          </main>
+          <div></div>
+        </div>
+        <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="position:absolute;right:var(--ter-10);bottom:var(--ter-10);min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--btn-ghost-border);border-radius:23px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);font-weight:var(--fw-strong);cursor:pointer;">Visszajelzés</button>
+      </div>
+
+      <div data-r15-kepernyo="telefon" style="position:relative;box-sizing:border-box;width:390px;height:844px;overflow:hidden;background:var(--lap-bg);color:var(--text);border:var(--bw) solid var(--line);border-radius:var(--r-card);display:flex;flex-direction:column;">
+        <div data-r15="sotet-sav" style="flex:none;height:56px;box-sizing:border-box;display:flex;align-items:center;gap:var(--ter-5);padding:var(--ter-0) var(--ter-4) var(--ter-0) var(--ter-9);background:var(--header-bg);color:var(--text);border-bottom:var(--bw) solid var(--line);">
+          <span style="width:26px;height:26px;border-radius:13px;background:var(--grad-primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">K</span>
+          <span style="flex:1;font-size:var(--fs-sm);font-weight:var(--fw-strong);">Kő és Kert Kft. ▾</span>
+          <a href="#" aria-label="Értesítések: 1" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;"><span style="padding:0 7px;border-radius:9px;background:var(--panel-soft-2);color:var(--text);font-size:var(--fs-xs);">1</span></a>
+          <button type="button" aria-label="Menü" style="width:44px;height:44px;border:none;background:transparent;color:var(--text);font-size:20px;cursor:pointer;">☰</button>
+        </div>
+        <div style="flex:1;min-height:0;overflow:hidden;padding:var(--ter-10) var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-9);">
+          <div style="display:flex;flex-direction:column;gap:var(--ter-5);">
+            <h1 data-felirat="r15.hirek.kerdes" data-r15="kerdes" style="margin:0;font-family:var(--font-display);font-weight:var(--kerdes-fw);font-size:var(--kerdes-fs-tel);line-height:1.2;">Nézd át a 2 kész posztot</h1>
+            <div data-r15="halad" style="display:flex;align-items:center;gap:var(--ter-5);font-size:var(--fs-sm);color:var(--halad-text);">
+              <span aria-hidden="true" style="flex:none;width:56px;height:6px;border-radius:3px;background:var(--halad-sav);overflow:hidden;display:block;"><span style="display:block;width:34%;height:100%;background:var(--halad-telt);"></span></span>
+              <span data-felirat="r15.kozos.halad">Ezen a héten: <strong style="font-weight:var(--fw-strong);">1 poszt</strong> · 2 kép</span>
+            </div>
+          </div>
+          <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-5);">
+            <a href="#" title="Nem is térkő, hanem díszburkolat! A prémium kültéri megoldások új szintjét képviseli a VIASTEIN LUX" style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-title);line-height:1.3;color:var(--text);text-decoration:none;">Nem is térkő, hanem díszburkolat!</a>
+            <div data-felirat="r15.hirek.posztod" style="font-size:var(--fs-sm);color:var(--text-mut);">Posztod: megéri a prémium burkolat?</div>
+          </div>
+          <div data-r15="teendo" style="background:var(--teendo-bg);color:var(--text);border:var(--bw) solid var(--teendo-border);border-radius:var(--teendo-r);padding:var(--ter-9);display:flex;flex-direction:column;gap:var(--ter-5);">
+            <a href="#" style="font-family:var(--font-display);font-weight:var(--fw-head);font-size:var(--fs-title);line-height:1.3;color:var(--text);text-decoration:none;">Megújul a Tisza-parti település központja</a>
+            <button data-felirat="r15.hirek.atnezem" type="button" data-r15-cel="poszt" style="align-self:flex-start;min-height:var(--control-min);padding:var(--ter-0) var(--ter-9);border:var(--bw) solid var(--halk-gomb-border);border-radius:var(--r-btn);background:var(--halk-gomb-bg);color:var(--halk-gomb-text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Megnézem</button>
+          </div>
+        </div>
+        <div style="flex:none;height:var(--lebego-hely-tel);box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:var(--ter-6);padding:var(--ter-0) var(--ter-9);">
+          <span data-felirat="r15.kozos.nyugtato" data-r15="info" style="font-size:var(--info-fs);color:var(--info-text);">Átírhatod, és csak te teszed ki.</span>
+          <button data-felirat="r15.kozos.visszajelzes" type="button" data-r15="lebego" style="min-height:var(--control-min-s);padding:var(--ter-0) var(--ter-8);border:var(--bw) solid var(--btn-ghost-border);border-radius:20px;background:var(--bg-elev);color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);cursor:pointer;">Visszajelzés</button>
+        </div>
+        <div style="flex:none;padding:var(--ter-6) var(--ter-9) var(--ter-9);border-top:var(--bw) solid var(--line-soft);background:var(--header-bg);display:flex;flex-direction:column;gap:var(--ter-3);">
+          <button data-felirat="r15.hirek.atnezem_elsot" type="button" data-r15="fo-gomb" data-r15-cel="poszt" style="box-sizing:border-box;width:100%;min-height:var(--fo-gomb-min);border:none;border-radius:var(--fo-gomb-r);background:var(--fo-gomb-bg);color:var(--fo-gomb-text);font-family:var(--font-body);font-size:var(--fo-gomb-fs);font-weight:var(--fo-gomb-fw);cursor:pointer;">Megnézem az elsőt</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-11);max-width:1870px;">
+      <div style="display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);border:var(--bw) solid var(--line);border-radius:var(--r-card);background:var(--bg-elev);font-size:var(--fs-sm);align-self:start;">
+        <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TIBOR</div>
+        <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">ASZTALI</div>
+        <div style="padding:var(--ter-5) var(--ter-8);font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);border-bottom:var(--bw) solid var(--line);">TELEFON</div>
+        <div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mit lát először?</div>
+        <div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">„Nézd át a 2 kész posztot”, alatta a két hír nagy betűvel, mindegyiknél egy sor ötlet.</div>
+        <div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanazt, egymás alatt; a fő gomb alul az első hírhez.</div>
+        <div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);border-bottom:var(--bw) solid var(--line-soft);">Mi a dolga?</div>
+        <div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Kiválaszt egy hírt, és megnyitja a hozzá megírt posztot.</div>
+        <div style="padding:var(--ter-6) var(--ter-8);border-bottom:var(--bw) solid var(--line-soft);">Ugyanaz.</div>
+        <div style="padding:var(--ter-6) var(--ter-8);font-weight:var(--fw-strong);">Hány kattintás a kész posztig?</div>
+        <div style="padding:var(--ter-6) var(--ter-8);">1 mindkét hírnél</div>
+        <div style="padding:var(--ter-6) var(--ter-8);">1 mindkét hírnél</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:var(--ter-4);font-size:var(--fs-sm);">
+        <div style="font-family:var(--font-code);font-size:var(--fs-xs);color:var(--text-dim);">HÁTRÉBB KERÜLT · semmi nem került le</div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ter-3) var(--ter-9);color:var(--text-mut);">
+          <span>Fülsor: Áttekintés · Hírfigyelés beállítása · Találatok pontosítása</span><span style="color:var(--text);">„Hírek beállításai” link a lap alján</span>
+          <span>Új · Mentett · Elrejtett · Mind</span><span style="color:var(--text);">„Hírek beállításai” · Elmentett és elrejtett</span>
+          <span>Összkép (AI-összefoglaló), narancs keretben</span><span style="color:var(--text);">„Hírek beállításai” · Miért ezek? (kerdesek 4)</span>
+          <span>„Futtatás most”, utolsó futás, automatikus futás</span><span style="color:var(--text);">„Keress most új híreket”, halk sor</span>
+          <span>„⚠ 1 forrás nem dolgozható fel”</span><span style="color:var(--text);">06 Mit figyeljünk (kerdesek 5)</span>
+          <span>„modul” jelvény, „érdekes” jelvény</span><span style="color:var(--text);">nincs rá szükség: a lapon csak érdekes hír van</span>
+          <span>A gép tanácsa nagy betűvel</span><span style="color:var(--text);">egy sor „Ötlet:”, a hír alatt</span>
+          <span>Részletek · Elmentem · Nem érdekel</span><span style="color:var(--text);">„···” menü a kártyán; a cím is a Részletekre visz</span>
+          <span>A hír teljes címe</span><span style="color:var(--text);">Részletek (05); a kártyán az első mondata (gepezet 11)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;sema&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ejkek&quot;,&quot;vegyes&quot;],&quot;default&quot;:&quot;ejkek&quot;,&quot;tsType&quot;:&quot;'ejkek'|'vegyes'&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { sema: this.props.sema ?? 'ejkek' };
+  }
+}
+</script>
+</body>
+</html>

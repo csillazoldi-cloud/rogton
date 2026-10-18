@@ -1,0 +1,222 @@
+/* R10-S2: a Megjelenés lap sémaválasztó sora (D rajz). Minden érték token vagy a --ter-N skála. */
+.km-sema {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-4);
+}
+
+.km-sema-cim {
+  font-family: var(--font-display);
+  font-size: var(--fs-szekcio);
+  font-weight: var(--fw-head);
+  color: var(--text);
+  margin: var(--ter-0);
+}
+
+.km-sema-magyarazat {
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  color: var(--text-mut);
+  margin: var(--ter-0);
+  max-width: var(--urlap-max);
+}
+
+.km-sema-racs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--ter-9);
+}
+
+.km-sema-csempe {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-7);
+  padding: var(--ter-8);
+  border-radius: var(--r-card);
+  background: var(--bg-elev);
+  border: var(--bw) solid var(--border);
+}
+
+.km-sema-csempe--aktiv {
+  /* a rajz 2 px kerete az aktív csempén */
+  border: 2px solid var(--primary);
+}
+
+.km-sema-elonezet {
+  position: relative;
+  overflow: hidden;
+  height: calc(var(--ter-14) * 2 + var(--ter-4)); /* 168 px a rajz szerint */
+  border-radius: var(--r-block);
+  border: var(--bw) solid var(--text-mut);
+}
+
+.km-sema-fenykorong {
+  position: absolute;
+  top: calc(var(--ter-11) * -1);
+  right: calc(var(--ter-11) * -1);
+  width: var(--ter-14);
+  height: var(--ter-14);
+  border-radius: var(--r-badge);
+  opacity: 0.25;
+  filter: blur(var(--ter-11));
+}
+
+.km-sema-fejsav {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-4);
+  height: var(--ter-11);
+  padding: var(--ter-0) var(--ter-6);
+  border-bottom: var(--bw) solid var(--text-mut);
+}
+
+.km-sema-pont {
+  width: var(--ter-6);
+  height: var(--ter-6);
+  border-radius: var(--r-field);
+}
+
+.km-sema-vonal {
+  width: var(--ter-13);
+  height: var(--ter-3);
+  border-radius: var(--r-badge);
+  opacity: 0.8;
+}
+
+.km-sema-vonal--rovid {
+  width: var(--ter-11);
+  opacity: 0.6;
+}
+
+.km-sema-kartyak {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ter-5);
+  padding: var(--ter-6);
+}
+
+.km-sema-kartya {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-3);
+  padding: var(--ter-5);
+  border-radius: var(--r-field);
+  border: var(--bw) solid var(--text-mut);
+}
+
+.km-sema-cimke {
+  width: var(--ter-11);
+  height: var(--ter-5);
+  border-radius: var(--r-badge);
+  opacity: 0.35;
+}
+
+.km-sema-sor {
+  width: 100%;
+  height: var(--ter-3);
+  border-radius: var(--r-badge);
+  opacity: 0.85;
+}
+
+.km-sema-sor--rovid {
+  width: 70%;
+}
+
+.km-sema-gomb-mini {
+  width: var(--ter-13);
+  height: var(--ter-7);
+  border-radius: var(--r-field);
+  margin-top: var(--ter-2);
+}
+
+.km-sema-gomb-mini--ures {
+  background: transparent;
+  border: var(--bw) solid var(--text-mut);
+}
+
+.km-sema-szoveg {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-2);
+}
+
+.km-sema-nev {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-head);
+  color: var(--text);
+  margin: var(--ter-0);
+}
+
+.km-sema-leiras {
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  color: var(--text-mut);
+  margin: var(--ter-0);
+}
+
+.km-sema-muvelet {
+  display: flex;
+}
+
+.km-sema-gomb {
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-8);
+  border-radius: var(--r-btn);
+  border: var(--bw) solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-strong);
+  cursor: pointer;
+}
+
+.km-sema-gomb:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.km-sema-jelveny {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ter-4);
+  min-height: var(--control-min);
+  padding: var(--ter-0) var(--ter-7);
+  border-radius: var(--r-btn);
+  background: var(--accent-tint);
+  color: var(--primary);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-head);
+}
+
+.km-sema-uzenet {
+  font-size: var(--fs-base);
+  color: var(--text);
+  margin: var(--ter-0);
+}
+
+.km-sema-uzenet[data-fajta="ok"] {
+  color: var(--ok);
+}
+
+.km-sema-uzenet[data-fajta="hiba"] {
+  color: var(--err);
+}
+
+@media (max-width: 700px) {
+  .km-sema-racs {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* R-18 8. kör (Kati 10-13: „a Megjelenés telefonon zsúfolt”): telefonon a séma-csempe kompakt — a kis rajz balra (kisebb), mellette a név
+   és a leírás, alatta a gomb. Minden elem megmaradt, csak egy csempe ~320 px helyett ~170 px magas. */
+@media (max-width: 640px) {
+  .km-sema-racs { gap: var(--ter-5); }
+  .km-sema-csempe { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--ter-5) var(--ter-6); padding: var(--ter-6); align-items: start; }
+  .km-sema-elonezet { height: calc(var(--ter-14) + var(--ter-4)); }
+  .km-sema-kartyak { padding: var(--ter-3); gap: var(--ter-3); }
+  .km-sema-muvelet { grid-column: 1 / -1; }
+  .km-sema-nev { font-size: var(--fs-base); }
+  .km-sema-leiras { font-size: var(--fs-sm); }
+}

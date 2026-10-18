@@ -1,0 +1,561 @@
+{
+ "konvenciok": {
+  "meret": "Minden hossz {\"px\": N, \"ref\": R, \"tengely\": \"w|h\"} alakú: tényleges = N × (vászon szélesség vagy magasság) / R. A referencia-vásznak: 1080 széles; magasságok 1350 (4:5), 1920 (9:16), 1080 (1:1). 16:9 (1920×1080) szorzó = 1920/1080 = 1.78.",
+  "telefon": "vászon px → telefon CSS px: px × 390 / vászonszélesség. Minimum = @minPhone[szerep] × @audienceBoost, a házi szabály ennél kicsit több (@min.*).",
+  "szigorusag": {
+   "tiltas": "mentés/export/publikálás blokkolva, amíg fennáll",
+   "figyelmeztetes": "jelzés; a szerkesztő indokolással továbbmehet, a döntés naplózódik"
+  },
+  "hatokor": {
+   "elem": "egy mező/objektum",
+   "kompozicio": "egy tábla/dia/képkocka",
+   "sorozat": "egy carousel vagy reel diái/képkockái",
+   "feed": "az utolsó N közzétett csempe + a tervezett",
+   "publikalas": "export/publikálás pillanata"
+  },
+  "feltetel": "A `feltetel` objektum `check` mezője a gépi ellenőrzés fajtája; a többi mező a paraméterei. @-kezdetű érték a márkaréteg paramétere. A `mezoTipus` `*` = minden szövegmező. `kezi: true` = emberi ellenőrző lista, a program csak felteszi a kérdést."
+ },
+ "szotarak": {
+  "szerep": [
+   "hang",
+   "tajekoztatas",
+   "technikai"
+  ],
+  "formatum": {
+   "feed45": "1080×1350",
+   "square11": "1080×1080",
+   "story916": "1080×1920 statikus",
+   "reel916": "1080×1920 videó",
+   "wide169": "1920×1080",
+   "carousel45": "1080×1350 dia"
+  },
+  "alap": [
+   "paper",
+   "dark",
+   "photo",
+   "accent"
+  ],
+  "mezoTipus": [
+   "headline",
+   "lead",
+   "body",
+   "list",
+   "table",
+   "label",
+   "kicker",
+   "metadata",
+   "source",
+   "number",
+   "dataLabel",
+   "subtitle",
+   "quote",
+   "cta",
+   "placeholder",
+   "photo",
+   "signal",
+   "emblem",
+   "lockup",
+   "chart",
+   "caption",
+   "name",
+   "role"
+  ],
+  "tartalomTipus": [
+   "service",
+   "update",
+   "practical",
+   "howto",
+   "explainer",
+   "data",
+   "comparison",
+   "personal",
+   "series",
+   "correction",
+   "event",
+   "launch",
+   "thanks",
+   "seasonal",
+   "observation"
+  ],
+  "check": [
+   "field_role",
+   "font_forbidden",
+   "text_case",
+   "ratio_max",
+   "min_size",
+   "scale_factor",
+   "equal_size",
+   "size_steps",
+   "ladder_order",
+   "max_lines",
+   "max_words",
+   "line_diff",
+   "widow",
+   "max_chars",
+   "max_width",
+   "fixed_size",
+   "prefer",
+   "color_on_ground",
+   "max_width_formula",
+   "size_range",
+   "count_exact",
+   "count_max",
+   "count_min",
+   "no_overlap",
+   "dimension",
+   "grid",
+   "position",
+   "forbidden_element",
+   "forbidden_combo",
+   "enum_only",
+   "required_field",
+   "field_consistency",
+   "order",
+   "capacity",
+   "stem_match",
+   "not_intersect",
+   "derived_field",
+   "date_format",
+   "grammar",
+   "zone_clear",
+   "zone_text_forbidden",
+   "inside_box",
+   "baseline",
+   "asset_flag",
+   "asset_record",
+   "min_gap",
+   "sequence_max",
+   "adjacency",
+   "repeat_window",
+   "same_property_window",
+   "manual",
+   "publish_gate",
+   "editable_text",
+   "forbidden_chars",
+   "no_new_visual"
+  ]
+ },
+ "parameterek": {
+  "_leiras": "A márkaréteg által kitöltendő paraméterek. Az 'ertekAForrasban' csak dokumentáció (a forrásrendszer 1080-as vásznon mért értéke), nem alapértelmezés.",
+  "type.voice.family": {
+   "leiras": "hang szerep betűcsaládja"
+  },
+  "type.voice.weightPrimary": {
+   "leiras": "hang szerep vastagsága elsődleges nyelven"
+  },
+  "type.voice.weightSecondary": {
+   "leiras": "hang szerep vastagsága másodlagos nyelven"
+  },
+  "type.info.family": {
+   "leiras": "tájékoztatás szerep betűcsaládja"
+  },
+  "type.info.weightPrimary": {},
+  "type.info.weightSecondary": {},
+  "type.info.narrowStretch": {
+   "leiras": "tájékoztatás szerep engedélyezett keskeny változata (font-stretch %), csak hosszú tulajdonnevekhez; nyitott kérdés 20"
+  },
+  "type.tech.family": {
+   "leiras": "technikai szerep betűcsaládja (nem monospace)"
+  },
+  "type.tech.weight": {},
+  "tech.tracking": {
+   "leiras": "technikai réteg betűköze (em)",
+   "ertekAForrasban": 0.06
+  },
+  "voice.lineHeight": {
+   "ertekAForrasban": 1.04
+  },
+  "info.lineHeight": {
+   "ertekAForrasban": 1.36
+  },
+  "subtitle.size": {
+   "ertekAForrasban": {
+    "px": 60,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "subtitle.lineHeight": {
+   "ertekAForrasban": {
+    "px": 76,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "subtitle.maxWidth": {
+   "ertekAForrasban": {
+    "px": 828,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "minPhone": {
+   "leiras": "telefonos minimum CSS px szerepenként, szorzó előtt (a forrás a szorzott értéket adja: 25.3 / 20.7 / 16.1 / 15.2 / 12.65; itt ÷1.15-tel visszaszámolva)",
+   "ertekAForrasban": {
+    "headline": 22.0,
+    "subtitle": 18.0,
+    "body": 14.0,
+    "dataLabel": 13.2,
+    "meta": 11.0
+   }
+  },
+  "audienceBoost": {
+   "leiras": "közönség-szorzó; nyitott kérdés 18",
+   "ertekAForrasban": 1.15
+  },
+  "min.headline": {
+   "ertekAForrasban": {
+    "px": 76,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "min.subtitle": {
+   "ertekAForrasban": {
+    "px": 60,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "min.body": {
+   "ertekAForrasban": {
+    "px": 46,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "min.dataLabel": {
+   "ertekAForrasban": {
+    "px": 42,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "min.meta": {
+   "leiras": "metaadat, címke, forrás minimum; nyitott kérdés 3",
+   "ertekAForrasban": {
+    "px": 36,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "steps.headline": {
+   "leiras": "címméret-létra, csökkenő",
+   "ertekAForrasban": {
+    "feed": [
+     104,
+     92,
+     84,
+     76
+    ],
+    "reelHook": [
+     120,
+     104,
+     92,
+     84,
+     76
+    ],
+    "wide": [
+     168,
+     150,
+     136
+    ]
+   }
+  },
+  "steps.headlineMediumIndex": {
+   "leiras": "az M lépcső értéke, amely felett a reel-hook 3 sort kaphat",
+   "ertekAForrasban": 92
+  },
+  "wide.headlineWords": {
+   "ertekAForrasban": 6
+  },
+  "budget.dataHeadline": {
+   "ertekAForrasban": 28
+  },
+  "budget.dataExplanation": {
+   "ertekAForrasban": 42
+  },
+  "budget.label": {
+   "ertekAForrasban": 22
+  },
+  "budget.subtitleChars": {
+   "ertekAForrasban": 30
+  },
+  "guide.hookChars": {
+   "ertekAForrasban": 34
+  },
+  "guide.carouselCoverChars": {
+   "ertekAForrasban": 50
+  },
+  "guide.listHeadingChars": {
+   "ertekAForrasban": 30
+  },
+  "widow.minChars": {
+   "ertekAForrasban": 8
+  },
+  "widow.minRatio": {
+   "ertekAForrasban": 0.3
+  },
+  "widow.dataMaxChars": {
+   "ertekAForrasban": 4
+  },
+  "number.hero": {
+   "ertekAForrasban": {
+    "min": 300,
+    "max": 330,
+    "ref": 1080
+   }
+  },
+  "number.ratio": {
+   "ertekAForrasban": 230
+  },
+  "number.inChart": {
+   "ertekAForrasban": {
+    "min": 130,
+    "max": 190
+   }
+  },
+  "number.reelCard": {
+   "ertekAForrasban": {
+    "steps": [
+     250,
+     160
+    ],
+    "maxWhenLabel2Lines": 200
+   }
+  },
+  "number.approxScale": {
+   "ertekAForrasban": 0.55
+  },
+  "grid.margin": {
+   "ertekAForrasban": {
+    "px": 72,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "grid.unit": {
+   "ertekAForrasban": {
+    "px": 8,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "signal.rule": {
+   "ertekAForrasban": {
+    "w": 96,
+    "h": 10,
+    "ref": 1080
+   }
+  },
+  "signal.dotRadius": {
+   "ertekAForrasban": 12
+  },
+  "signal.arcRadius": {
+   "ertekAForrasban": {
+    "feed45": 820,
+    "square11": 820,
+    "story916": 1150,
+    "wide169": 950
+   }
+  },
+  "emblem.size": {
+   "ertekAForrasban": {
+    "px": 76,
+    "ref": 1080,
+    "tengely": "w"
+   }
+  },
+  "emblem.sizeOutro": {
+   "ertekAForrasban": 132
+  },
+  "lockup.widthOutro": {
+   "ertekAForrasban": 520
+  },
+  "emblem.variantByGround": {
+   "leiras": "alap → embléma-változat (reverse / color / on-accent)"
+  },
+  "meta.gapToEmblem": {
+   "ertekAForrasban": 40
+  },
+  "meta.typeCodes": {
+   "leiras": "típuskód-készlet (a forrásban 6 kód)"
+  },
+  "meta.separator": {
+   "ertekAForrasban": " · "
+  },
+  "carousel.nextCue": {
+   "ertekAForrasban": 60
+  },
+  "carousel.minSlot": {
+   "ertekAForrasban": 360
+  },
+  "carousel.slotStep": {
+   "ertekAForrasban": 20
+  },
+  "photo.faceGap": {
+   "ertekAForrasban": 40
+  },
+  "photo.minBand": {
+   "ertekAForrasban": 420
+  },
+  "photo.maxUpscale": {
+   "ertekAForrasban": 1.7
+  },
+  "photo.placeholderTop": {
+   "ertekAForrasban": 0.16
+  },
+  "split.photoShare": {
+   "ertekAForrasban": {
+    "feed45": 0.52,
+    "square11": 0.5
+   }
+  },
+  "split.scrim": {
+   "ertekAForrasban": {
+    "px": 300,
+    "ref": 1350,
+    "tengely": "h"
+   }
+  },
+  "split.reelBands": {
+   "ertekAForrasban": {
+    "from": 1100,
+    "to": 700,
+    "ref": 1920
+   }
+  },
+  "portrait.zoom": {
+   "ertekAForrasban": 1.2
+  },
+  "portrait.size": {
+   "ertekAForrasban": 230
+  },
+  "steps.minGap": {
+   "ertekAForrasban": 56
+  },
+  "color.metaOnPhoto": {
+   "leiras": "metaadat színe fotón (a legkontrasztosabb)"
+  },
+  "color.muted": {},
+  "color.focusOnLight": {},
+  "color.focusOnDark": {},
+  "color.accent": {},
+  "color.status": {
+   "leiras": "disruption / delay / ok, mindegyik szöveg-színnel"
+  },
+  "color.forbiddenPairs": {
+   "leiras": "[szín, alap] tiltott párok listája; a forrásban: accent kis szöveg/adat világos alapon"
+  },
+  "color.scrimMinForMutedMeta": {
+   "ertekAForrasban": 0.9
+  },
+  "lang.order": {
+   "leiras": "[elsődleges, másodlagos] nyelvkódok"
+  },
+  "lang.separator": {
+   "ertekAForrasban": " · "
+  },
+  "lang.hyphenation": {
+   "leiras": "jóváhagyott összetételi törések nyelvenként"
+  },
+  "lang.wrapper": {
+   "leiras": "tördelő nyelvenként"
+  },
+  "lang.forbiddenGlyphs": {
+   "leiras": "tiltott helyettesítő karakterek nyelvenként"
+  },
+  "lang.shortLabels": {},
+  "lang.illustrativeLine": {},
+  "lang.sourceLabel": {},
+  "lang.photoNeededLabel": {},
+  "lang.namePlaceholder": {},
+  "lang.attributionLine": {},
+  "lang.politeForms": {},
+  "locale.dateFormat": {
+   "ertekAForrasban": "DD.MM.YYYY"
+  },
+  "locale.weekdayNames": {},
+  "locale.timeFormat": {
+   "ertekAForrasban": "HH:MM"
+  },
+  "platform.reelZones": {
+   "leiras": "a platform reel-zónái; nyitott kérdés 19",
+   "ertekAForrasban": {
+    "ref": [
+     1080,
+     1920
+    ],
+    "top": [
+     0,
+     270
+    ],
+    "bottom": [
+     1248,
+     1920
+    ],
+    "sides": 65,
+    "rail": {
+     "x": [
+      960,
+      1080
+     ],
+     "y": [
+      700,
+      1248
+     ]
+    },
+    "railTextEnd": 936,
+    "subtitleBaselines": [
+     1000,
+     1236
+    ],
+    "firstBaseline": 330,
+    "lastHeadlineBaseline": 1210
+   }
+  },
+  "story.safe": {
+   "ertekAForrasban": {
+    "ref": 1920,
+    "top": 250,
+    "bottom": 340
+   }
+  },
+  "rhythm.maxSameBase": {
+   "ertekAForrasban": 3
+  },
+  "rhythm.targetSameBase": {
+   "ertekAForrasban": 2
+  },
+  "rhythm.accentPerTiles": {
+   "ertekAForrasban": [
+    1,
+    9
+   ]
+  },
+  "rhythm.repeatWindow": {
+   "ertekAForrasban": 10
+  },
+  "rhythm.faceWindow": {
+   "ertekAForrasban": 10
+  },
+  "rhythm.maxFlatInRow": {
+   "ertekAForrasban": 2
+  },
+  "rhythm.maxCardsPerReel": {
+   "ertekAForrasban": 2
+  },
+  "rhythm.minFootageExplainer": {
+   "ertekAForrasban": 0.5
+  },
+  "rhythm.maxNonServicePerDay": {
+   "ertekAForrasban": 1
+  },
+  "tech.maxShare": {
+   "ertekAForrasban": 0.1
+  },
+  "tech.maxLinesPerSlide": {
+   "ertekAForrasban": 3
+  }
+ }
+}

@@ -1,0 +1,38 @@
+-- R-8 (12. rajz): a Szervezet adatai lap szövegei — a mezőcímkék és a fejléc-jelvény.
+-- A meglévő eredet-feliratok (onboarding3.eredet_*) maradnak; itt csak az új kulcsok.
+
+INSERT INTO "felirat" ("kulcs", "nyelv", "szoveg") VALUES
+  ('mezo.tevekenyseg', 'hu', 'Mivel foglalkoztok?'),
+  ('mezo.tevekenyseg', 'ro', 'Cu ce vă ocupați?'),
+  ('mezo.tevekenyseg', 'en', 'What do you do?'),
+  ('mezo.celkozonseg', 'hu', 'Kiknek szóltok?'),
+  ('mezo.celkozonseg', 'ro', 'Cui vă adresați?'),
+  ('mezo.celkozonseg', 'en', 'Who do you talk to?'),
+  ('mezo.cel', 'hu', 'Mit szeretnétek elérni?'),
+  ('mezo.cel', 'ro', 'Ce vreți să obțineți?'),
+  ('mezo.cel', 'en', 'What do you want to achieve?'),
+  ('mezo.nyelvek', 'hu', 'Milyen nyelven írjunk?'),
+  ('mezo.nyelvek', 'ro', 'În ce limbă să scriem?'),
+  ('mezo.nyelvek', 'en', 'Which language should we write in?'),
+  ('mezo.hangnem', 'hu', 'Hogyan fogalmazzunk?'),
+  ('mezo.hangnem', 'ro', 'Cum să formulăm?'),
+  ('mezo.hangnem', 'en', 'How should we phrase things?'),
+  ('mezo.nev', 'hu', 'Név'),
+  ('mezo.nev', 'ro', 'Nume'),
+  ('mezo.nev', 'en', 'Name'),
+  ('fiok.jovahagyva_datum', 'hu', 'Jóváhagyva · {datum}'),
+  ('fiok.jovahagyva_datum', 'ro', 'Aprobat · {datum}'),
+  ('fiok.jovahagyva_datum', 'en', 'Approved · {datum}'),
+  ('fiok.arculat_nem_kotelezo', 'hu', '— nem kötelező'),
+  ('fiok.arculat_nem_kotelezo', 'ro', '— opțional'),
+  ('fiok.arculat_nem_kotelezo', 'en', '— optional'),
+  ('fiok.arculat_mikor', 'hu', 'Logó, színek, kézikönyv. Akkor kérjük, amikor egy feladathoz kell — a hírfigyeléshez nem.'),
+  ('fiok.arculat_mikor', 'ro', 'Logo, culori, manual. Le cerem când e nevoie pentru o sarcină — pentru urmărirea știrilor nu.'),
+  ('fiok.arculat_mikor', 'en', 'Logo, colours, guidelines. We ask for them when a task needs them — not for news watching.'),
+  ('fiok.arculat_megnyitas', 'hu', 'Megnyitás'),
+  ('fiok.arculat_megnyitas', 'ro', 'Deschide'),
+  ('fiok.arculat_megnyitas', 'en', 'Open'),
+  ('fiok.mentes_kovetkezmeny', 'hu', 'A mentett adatok a következő hírgyűjtéstől érvényesek.'),
+  ('fiok.mentes_kovetkezmeny', 'ro', 'Datele salvate sunt valabile de la următoarea colectare de știri.'),
+  ('fiok.mentes_kovetkezmeny', 'en', 'Saved data applies from the next news collection.')
+ON CONFLICT ("kulcs", "nyelv") DO UPDATE SET "szoveg" = EXCLUDED."szoveg", "frissitve" = now();

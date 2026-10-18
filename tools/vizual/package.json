@@ -1,0 +1,11 @@
+{
+  "name": "@km/vizual-eszkoz",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@km/vizual-core": "workspace:*",
+    "playwright-core": "1.56.0",
+    "pngjs": "7.0.0"
+  }
+}

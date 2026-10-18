@@ -1,0 +1,239 @@
+/* R-15 · 2. szállítmány — a 03 · 04 · 08 lap közös váza (design/R15/rajz/R15-lapok-1.dc.html).
+   Asztal: a tartalom 1152 széles oszlop, jobbra hely a lebegő Visszajelzésnek; telefon (≤ 640): a fő gomb a lap alján, rögzített sávban. */
+
+:root {
+  --lebego-hely-tel: 56px; /* tokenőr: ok — R15 tokenek.md: a Visszajelzés sávja az alsó gombsáv fölött */
+}
+
+.r15-lap-belso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-11);
+  padding: var(--ter-13) var(--ter-0) var(--ter-12);
+}
+.r15-fej { display: flex; flex-direction: column; gap: var(--ter-6); }
+.r15-fej .r15-kerdes-alcim { margin: var(--ter-3) var(--ter-0) var(--ter-0); }
+
+/* Telefon / asztal szerint váltó darabok */
+.r15-csak-tel { display: none; }
+@media (max-width: 640px) {
+  .r15-csak-asztal { display: none !important; }
+  .r15-csak-tel { display: revert; }
+  .r15-lap-belso { padding: var(--ter-10) var(--ter-4); gap: var(--ter-9); }
+  .r15-fej { gap: var(--ter-5); }
+  .r15-halad .r15-halad-sav { width: 56px; } /* tokenőr: ok — R15 rajz: telefonon 56 px széles sáv */
+}
+
+/* A teendő-kártya a rajz szerinti belső térközzel */
+.r15-kartya {
+  padding: var(--ter-10);
+  gap: var(--ter-7);
+  color: var(--text);
+}
+.r15-kartya-nagy {
+  font-family: var(--font-display-active, var(--font-display));
+  font-weight: var(--fw-head);
+  font-size: 22px; /* tokenőr: ok — R15 rajz 03: a nagy kártya címe */
+  line-height: 1.25;
+  color: var(--text);
+  text-decoration: none;
+  margin: var(--ter-0);
+}
+.r15-kartya-cim {
+  font-family: var(--font-display-active, var(--font-display));
+  font-weight: var(--fw-head);
+  font-size: 20px; /* tokenőr: ok — R15 rajz 04: a hír címe a kártyán */
+  line-height: 1.3;
+  color: var(--text);
+  text-decoration: none;
+}
+.r15-kartya-cim:hover { text-decoration: underline; }
+.r15-kartya-mut { font-size: var(--fs-md); color: var(--text-mut); margin: var(--ter-0); }
+.r15-kartya-gombsor { display: flex; align-items: center; gap: var(--ter-9); flex-wrap: wrap; }
+.r15-kartya-kitolt { flex: 1 1 0%; }
+@media (max-width: 640px) {
+  .r15-kartya { padding: var(--ter-9); gap: var(--ter-5); }
+  .r15-kartya-nagy { font-size: 20px; } /* tokenőr: ok — R15 rajz 03 telefon */
+  .r15-kartya-cim { font-size: var(--fs-title); }
+  .r15-kartya-mut { font-size: var(--fs-sm); }
+}
+
+/* A „Még vár” lista: egy teendő-lap, benne sorok vonallal elválasztva */
+.r15-sorlista { padding: var(--ter-4) var(--ter-9); gap: var(--ter-0); }
+.r15-sor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ter-6);
+  padding: var(--ter-7) var(--ter-0);
+  border-bottom: var(--bw) solid var(--line-soft);
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+.r15-sor:last-child { border-bottom: 0; }
+.r15-sor .r15-halk-gomb { flex: 0 0 auto; min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-8); }
+@media (max-width: 640px) {
+  .r15-sorlista { background: transparent; border: 0; padding: var(--ter-0); }
+  .r15-sor { padding: var(--ter-5) var(--ter-0); }
+  .r15-sor .r15-halk-gomb { min-height: var(--control-min); }
+  .r15-sor-tobb { padding: var(--ter-6) var(--ter-0); align-self: flex-start; text-align: left; }
+}
+
+/* A halk linkek sora a lap alján */
+.r15-alja { display: flex; flex-direction: column; gap: var(--ter-5); }
+.r15-linksor { display: flex; gap: var(--ter-9); flex-wrap: wrap; font-size: var(--fs-sm); align-items: center; }
+
+/* Kis lenyíló menü (··· · Hírek beállításai · Továbbiak · Más nyelven) */
+.r15-menu-hely { position: relative; display: inline-flex; }
+.r15-pontok {
+  width: var(--control-min);
+  height: var(--control-min);
+  border: 0;
+  border-radius: var(--r-btn);
+  background: transparent;
+  color: var(--halk-link);
+  font-size: 20px; /* tokenőr: ok — R15 rajz: a ··· jel */
+  line-height: 1;
+  cursor: pointer;
+}
+.r15-menu {
+  position: absolute;
+  top: calc(100% + var(--ter-2));
+  left: var(--ter-0);
+  z-index: 40;
+  min-width: 220px; /* tokenőr: ok — lenyíló menü szélessége */
+  display: flex;
+  flex-direction: column;
+  padding: var(--ter-3);
+  background: var(--bg-elev);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-card);
+}
+.r15-menu-fel { top: auto; bottom: calc(100% + var(--ter-2)); }
+.r15-menu-sor {
+  display: block;
+  width: 100%;
+  min-height: var(--control-min-s);
+  padding: var(--ter-3) var(--ter-5);
+  border: 0;
+  border-radius: var(--r-btn);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-sm);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.r15-menu-sor:hover, .r15-menu-sor:focus-visible { background: var(--panel-soft); }
+
+/* Telefon: a fő gomb a lap alján, rögzített sávban (T10); fölötte hely a Visszajelzésnek */
+.r15-also-sav { display: none; }
+@media (max-width: 640px) {
+  .r15-also-sav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ter-3);
+    position: fixed;
+    left: var(--ter-0);
+    right: var(--ter-0);
+    bottom: var(--ter-0);
+    z-index: 60;
+    padding: var(--ter-6) var(--ter-9) var(--ter-9);
+    border-top: var(--bw) solid var(--line-soft);
+    background: var(--header-bg);
+  }
+  .r15-also-sav .r15-fo-gomb { width: 100%; }
+  body:has(.r15-also-sav) { padding-bottom: calc(var(--fo-gomb-min) + var(--ter-6) + var(--ter-9) + var(--lebego-hely-tel)); }
+  body:has(.r15-also-sav) .km-vj-gomb { bottom: calc(var(--fo-gomb-min) + var(--ter-6) + var(--ter-9) + var(--ter-4)); }
+}
+
+/* 03 Kezdőlap */
+.r15k-racs { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: var(--ter-10); align-items: start; }
+.r15k-kartya-szoveg { display: flex; flex-direction: column; gap: var(--ter-4); }
+.r15k-tel-lista { flex-direction: column; }
+@media (max-width: 640px) {
+  .r15k-racs { grid-template-columns: minmax(0, 1fr); gap: var(--ter-9); }
+  .r15k-tel-lista { display: flex; }
+}
+
+/* 04 Hírek */
+.r15h-racs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--ter-10); align-items: stretch; }
+.r15h-halk-nagy { min-height: var(--fo-gomb-min); padding: var(--ter-0) var(--ter-10); font-size: var(--fs-base); }
+.r15h-kartya .r15-fo-gomb { padding: var(--ter-0) var(--ter-10); }
+.r15h-tel-gomb .r15-halk-gomb { align-self: flex-start; padding: var(--ter-0) var(--ter-9); }
+@media (max-width: 640px) {
+  .r15h-racs { grid-template-columns: minmax(0, 1fr); gap: var(--ter-9); }
+  .r15h-tel-gomb { display: flex; }
+}
+
+/* 08 Posztszöveg */
+.r15p-racs {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 250px; /* tokenőr: ok — R15 rajz 08: lista · szöveg · kép */
+  gap: var(--ter-11);
+  align-items: start;
+  padding: var(--ter-12) var(--ter-0) var(--ter-10);
+}
+.r15p-lista { display: flex; flex-direction: column; gap: var(--ter-3); font-size: var(--fs-sm); }
+.r15p-csoport { font-family: var(--font-code); font-size: var(--fs-xs); color: var(--text-dim); padding: var(--ter-0) var(--ter-6); text-transform: uppercase; }
+.r15p-csoport-kesz { padding-top: var(--ter-6); }
+.r15p-elem { display: flex; justify-content: space-between; padding: var(--ter-5) var(--ter-6); border-radius: var(--r-btn); color: var(--text-mut); text-decoration: none; }
+.r15p-elem:hover { color: var(--text); }
+.r15p-elem-aktiv { background: var(--panel-soft-2); color: var(--text); font-weight: var(--fw-strong); }
+.r15p-pipa { color: var(--ok); }
+.r15p-sajat { margin-top: var(--ter-6); padding: var(--ter-0) var(--ter-6); }
+.r15p-kozep { display: flex; flex-direction: column; gap: var(--ter-8); min-width: 0; }
+.r15p-fej { gap: var(--ter-8); }
+.r15p-fulek { display: flex; gap: var(--ter-2); align-self: flex-start; padding: var(--ter-1); border-radius: var(--r-btn); background: var(--panel-soft-2); font-size: var(--fs-sm); }
+.r15p-ful { min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-8); border: 0; border-radius: var(--r-badge); background: transparent; color: var(--text-mut); font: inherit; font-size: var(--fs-sm); cursor: pointer; }
+.r15p-ful-aktiv { background: var(--bg-elev); color: var(--text); font-weight: var(--fw-strong); }
+.r15p-munka { display: flex; flex-direction: column; gap: var(--ter-5); }
+.r15p-mezo {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 300px; /* tokenőr: ok — R15 rajz 08: a teljes poszt elfér görgetés nélkül */
+  padding: var(--ter-8) var(--ter-9);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--field-bg);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  white-space: pre-wrap;
+  resize: vertical;
+}
+.r15p-irjuk { display: flex; align-items: center; gap: var(--ter-5); color: var(--text-mut); }
+.r15p-porgo { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--line); border-top-color: var(--primary); animation: r15p-forog 0.9s linear infinite; } /* tokenőr: ok — pörgő jel */
+@keyframes r15p-forog { to { transform: rotate(360deg); } }
+.r15p-eredet-ember { background: var(--panel-soft-2); border-radius: var(--r-badge); }
+.r15p-atiras { display: flex; align-items: center; gap: var(--ter-4); flex-wrap: wrap; font-size: var(--fs-sm); }
+.r15p-atiras .r15-halk-gomb { min-height: var(--control-min-s); }
+.r15p-atiras-cimke { color: var(--text-mut); }
+.r15p-kesz-sor { display: flex; align-items: center; gap: var(--ter-9); margin-top: var(--ter-4); }
+.r15p-kesz-sor .r15-fo-gomb { padding: var(--ter-0) var(--ter-11); }
+.r15p-oldal { display: flex; flex-direction: column; gap: var(--ter-5); padding-top: 120px; } /* tokenőr: ok — R15 rajz 08: a kép a szöveg magasságában kezdődik */
+.r15p-oldal-cim { font-size: var(--fs-sm); font-weight: var(--fw-strong); }
+.r15p-kephely { aspect-ratio: 1 / 1; border-radius: var(--r-block); background: var(--panel-soft-2); display: flex; align-items: center; justify-content: center; font-size: var(--fs-xs); color: var(--text-dim); font-family: var(--font-code); }
+.r15p-oldal .r15-halk-gomb { min-height: var(--control-min); }
+.r15p-tel-valaszto-gomb { min-height: var(--control-min); padding: var(--ter-0) var(--ter-4); border: 0; background: transparent; color: var(--text); font: inherit; font-size: var(--fs-sm); font-weight: var(--fw-strong); cursor: pointer; }
+.r15p-kesz { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--ter-9); padding: var(--ter-13) var(--ter-10) var(--ter-9); }
+.r15p-kesz-kor { width: 112px; height: 112px; border-radius: 50%; background: var(--kesz-bg); display: flex; align-items: center; justify-content: center; } /* tokenőr: ok — R15 rajz 08 kész-pillanat */
+.r15p-kesz-jel { width: 64px; height: 64px; border-radius: 50%; background: var(--kesz-jel); color: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; } /* tokenőr: ok — R15 rajz 08 kész-pillanat */
+.r15p-kesz-halad { display: flex; flex-direction: column; align-items: center; gap: var(--ter-4); font-size: var(--fs-md); color: var(--halad-text); }
+.r15p-kesz-sav { width: 160px; height: 8px; border-radius: var(--r-badge); background: var(--halad-sav); overflow: hidden; display: block; } /* tokenőr: ok — R15 rajz 08 kész-pillanat */
+.r15p-kesz-sav > span { display: block; height: 100%; background: var(--halad-telt); }
+.r15p-also-link { align-self: center; }
+@media (max-width: 640px) {
+  .r15p-racs { grid-template-columns: minmax(0, 1fr); gap: var(--ter-7); padding: var(--ter-9) var(--ter-4) var(--ter-4); }
+  .r15p-kozep { gap: var(--ter-7); }
+  .r15p-fej { gap: var(--ter-2); }
+  .r15p-fulek { align-self: stretch; }
+  .r15p-ful { flex: 1 1 0%; }
+  .r15p-mezo { min-height: 240px; padding: var(--ter-7) var(--ter-8); font-size: var(--fs-md); } /* tokenőr: ok — telefonon a mező görget */
+  .r15p-atiras { gap: var(--ter-3); }
+  .r15p-atiras .r15-halk-gomb { min-height: var(--control-min); }
+  .r15p-tel-valaszto { display: flex; }
+  .r15p-kesz { padding-top: var(--ter-13); }
+}

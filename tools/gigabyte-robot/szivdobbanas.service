@@ -1,0 +1,7 @@
+[Unit]
+Description=A robot napi szivdobbanasa: csak ha baj van, szol
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash %h/projektek/saas/tools/gigabyte-robot/szivdobbanas.sh
+TimeoutStartSec=120

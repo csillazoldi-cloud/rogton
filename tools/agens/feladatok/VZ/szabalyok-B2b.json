@@ -1,0 +1,616 @@
+[
+ {
+  "id": "T6",
+  "nev": "Nincs ad-hoc szűkítés, nyújtás, betűköz a beférésért",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "forbidCss": [
+    "font-stretch",
+    "letter-spacing",
+    "transform:scaleX"
+   ],
+   "except": [
+    {
+     "role": "tajekoztatas",
+     "variant": "@type.info.narrowStretch",
+     "onlyFor": "longProperName"
+    },
+    {
+     "role": "technikai",
+     "css": "letter-spacing",
+     "value": "@tech.tracking"
+    }
+   ],
+   "nyitottKerdes": 20
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A szöveg nem szűkíthető, nyújtható vagy ritkítható a beférés kedvéért; használja a beférési létrát."
+ },
+ {
+  "id": "T7",
+  "nev": "Szótő közepén nincs törés",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "wordBreakOnlyAt": "@lang.hyphenation[lang]",
+   "printHyphen": true,
+   "ownHyphenBreaksAfterHyphen": true,
+   "unlistedOverflow": "rewrite",
+   "nyitottKerdes": 9
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Szó csak a jóváhagyott összetételi listán szereplő ponton törhet (a kötőjel kinyomtatva); ha nem fér, átírás kell."
+ },
+ {
+  "id": "T9",
+  "nev": "Nyelveket vastagság/szín választja el, méret nem",
+  "csoport": "tipografia",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "headline",
+   "body",
+   "lead"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "primaryWeight": "@type.voice.weightPrimary",
+   "secondaryWeight": "@type.voice.weightSecondary",
+   "onGround": {
+    "accent": "weightOnlyDiffers"
+   },
+   "sizeMustBeEqual": true
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "A két nyelv vastagságban (vagy színben) különbözzön, méretben soha."
+ },
+ {
+  "id": "M12",
+  "nev": "Kevesebb sor jobb, mint nagyobb méret",
+  "csoport": "meret",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916"
+  ],
+  "mezoTipus": [
+   "headline"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "prefer",
+   "family": [
+    "data",
+    "practical",
+    "personal"
+   ],
+   "tryFirst": {
+    "linesPerLanguage": 1
+   },
+   "atEveryStep": true
+  },
+  "szigorusag": "figyelmeztetes",
+  "uzenet": "Adat/gyakorlati/személyes posztnál minden lépcsőn előbb az 1+1 soros változatot kell próbálni, mint a 2+2-t."
+ },
+ {
+  "id": "K6",
+  "nev": "Lockup csak videó-outrón, szlogen nélkül",
+  "csoport": "kompozicio",
+  "formatum": [
+   "reel916"
+  ],
+  "mezoTipus": [
+   "lockup"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "allowedOnly": {
+    "frame": "outro"
+   },
+   "forbidPairWith": [
+    "slogan"
+   ],
+   "widthOutro": "@lockup.widthOutro"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A lockup csak a reel outróján állhat, és sosem szlogennel együtt."
+ },
+ {
+  "id": "K10",
+  "nev": "Státuszszín csak szolgáltatási poszton, szóval",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "colors": "@color.status",
+   "allowedContentTypes": [
+    "service"
+   ],
+   "requireAccompanyingWord": true,
+   "nyitottKerdes": 15
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Státuszszín (@color.status.*) csak 'service' tartalomtípuson, és mindig kísérő szóval."
+ },
+ {
+  "id": "K11",
+  "nev": "Tiltott szín–alap párok",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "forbiddenPairs": "@color.forbiddenPairs"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Ez a szín ezen az alapon tilos (@color.forbiddenPairs — pl. kiemelőszínű kis szöveg vagy adat világos alapon)."
+ },
+ {
+  "id": "K12",
+  "nev": "Nincs dekoráció",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_element",
+   "forbid": [
+    "decorative_gradient",
+    "badge",
+    "swoosh",
+    "clipart",
+    "tv_bar",
+    "icon_font",
+    "emoji",
+    "flag",
+    "data_uri_image"
+   ],
+   "iconAllowed": "inline_stroke_svg",
+   "scrimOnlyForLegibility": true
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Dekoratív elem (színátmenet, jelvény, swoosh, clip-art, TV-sáv, ikonfont, emoji, zászló) nem megengedett; scrim csak olvashatóság céljából; ikon csak vonalas inline SVG."
+ },
+ {
+  "id": "K13",
+  "nev": "Nincs dashboard",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "chart",
+   "number"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_element",
+   "maxCharts": 1,
+   "forbid": [
+    "legend",
+    "gridlines",
+    "axes",
+    "card",
+    "rounded_panel",
+    "kpi_tile"
+   ],
+   "labelPosition": "above_bar",
+   "valuePosition": "bar_end",
+   "ticksOnlyOn": {
+    "archetype": "range",
+    "count": 4
+   },
+   "maxFigurePairs": 1
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Egy diagram posztonként; jelmagyarázat, rácsvonal, tengely, kártya, lekerekített panel, KPI-csempe tilos; címke a sáv felett, érték a sáv végén; tick-skála csak tartomány-poszton."
+ },
+ {
+  "id": "K15",
+  "nev": "Kicker (új) csak technikai címke, accent módban",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "kicker"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "kickerRole": "technikai",
+   "allowedGround": [
+    "accent"
+   ],
+   "forbid": [
+    "pill",
+    "badge",
+    "button"
+   ]
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Pill, jelvény vagy gomb tilos; a kicker címke technikai szerepű, és csak accent alapon jelenhet meg."
+ },
+ {
+  "id": "K16",
+  "nev": "CTA: mondat hajszálvonal után, vagy caption-link",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "cta"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_element",
+   "forbid": [
+    "button_style"
+   ],
+   "allowed": [
+    {
+     "frame": "outro",
+     "form": "plain_sentence_after_hairline",
+     "size": "@min.body"
+    },
+    {
+     "place": "caption",
+     "form": "link"
+    }
+   ]
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Gomb-kinézetű felhívás tilos; a CTA sima mondat hajszálvonal után (reel-outro) vagy link a captionban."
+ },
+ {
+  "id": "K17",
+  "nev": "Címke nem ismételheti a kulcssort",
+  "csoport": "kompozicio",
+  "formatum": [
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "label",
+   "headline"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "stem_match",
+   "compare": [
+    "label",
+    "keyLine"
+   ],
+   "matchOn": "stem",
+   "perLanguage": true
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A fejezet-/lépéscímke szótöve egyezik a kulcssor egy szavának tövével."
+ },
+ {
+  "id": "K19",
+  "nev": "Lower third és speaker-ID formája",
+  "csoport": "kompozicio",
+  "formatum": [
+   "reel916"
+  ],
+  "mezoTipus": [
+   "name",
+   "role",
+   "signal"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_element",
+   "lowerThird": {
+    "parts": {
+     "rule": "@signal.rule",
+     "name": {
+      "role": "hang",
+      "px": 64
+     },
+     "personRole": {
+      "role": "tajekoztatas",
+      "px": 42
+     },
+     "place": {
+      "role": "technikai",
+      "px": 36
+     }
+    },
+    "onScrim": true,
+    "durationSeconds": 3,
+    "occupies": "subtitleSlot"
+   },
+   "speakerId": {
+    "name": {
+     "px": 56
+    },
+    "roleLine": {
+     "px": 36
+    },
+    "runsWithSubtitles": true
+   },
+   "forbid": [
+    "bar",
+    "box",
+    "swoosh",
+    "logo_bug"
+   ],
+   "notIntersect": "keepClearBoxes",
+   "ref": 1080
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A bemutató sáv csak vonalka + szöveg lehet, scrimen; keret, doboz, logó-bug tilos; arcot nem fedhet."
+ },
+ {
+  "id": "K21",
+  "nev": "Hook: metaadat és embléma nélkül",
+  "csoport": "kompozicio",
+  "formatum": [
+   "reel916"
+  ],
+  "mezoTipus": [
+   "metadata",
+   "emblem",
+   "label",
+   "signal",
+   "headline"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_element",
+   "frame": "hook",
+   "forbid": [
+    "metadata",
+    "emblem"
+   ],
+   "requireOneOf": [
+    "topic_label",
+    "rule"
+   ],
+   "requireHeadline": true,
+   "layouts": [
+    "bottom",
+    "top",
+    "center"
+   ]
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Az első képkockán nem lehet metaadat és embléma; egy témacímke vagy egy vonalka, és egy kétnyelvű cím."
+ },
+ {
+  "id": "K23",
+  "nev": "Sorozat nem kampány",
+  "csoport": "kompozicio",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_element",
+   "when": {
+    "contentType": "series"
+   },
+   "forbid": [
+    "campaign_tag",
+    "own_color",
+    "own_logo"
+   ],
+   "identifyBy": [
+    "typeCode",
+    "runningNumber",
+    "captionLine"
+   ],
+   "nyitottKerdes": 16
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Sorozat saját tag-gel, saját színnel vagy saját logóval nem jelölhető; azonosítója a típuskód + sorszám + caption-sor."
+ },
+ {
+  "id": "N8",
+  "nev": "Nyelvenkénti tördelő",
+  "csoport": "nyelvek",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "elem",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "wrapper": "@lang.wrapper[lang]"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A szöveg nem a saját nyelvének tördelőjével törik (@lang.wrapper[lang])."
+ },
+ {
+  "id": "A8",
+  "nev": "Rangsorolt lista rács nélkül",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "chart"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_element",
+   "archetype": "ranked_list",
+   "sorted": "desc",
+   "forbid": [
+    "gridlines"
+   ],
+   "rows<=": 5
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "A rangsorolt lista rendezett (érték + címke + rövid sáv), rácsvonal nélkül."
+ },
+ {
+  "id": "A13",
+  "nev": "Összehasonlítás: egy összehasonlítás, egy forrás, nincs cél és felhívás",
+  "csoport": "szam-adat",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "*"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "when": {
+    "contentType": "comparison"
+   },
+   "comparisons": 1,
+   "namedSources": 1,
+   "forbidGround": [
+    "accent"
+   ],
+   "forbidContent": {
+    "targets": true,
+    "cta": true,
+    "kezi": true,
+    "szigorusag": "figyelmeztetes"
+   },
+   "campaignWeekName": "caption"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Ország-/régió-összehasonlítás: pontosan egy összehasonlítás és egy megnevezett forrás; accent alap tilos; célszám és felhívás (emberi ellenőrzés) tilos; kampányhét neve a captionba."
+ },
+ {
+  "id": "F13",
+  "nev": "Generikus fotó csak névtelen tartalomhoz",
+  "csoport": "foto",
+  "formatum": [
+   "feed45",
+   "square11",
+   "story916",
+   "reel916",
+   "wide169",
+   "carousel45"
+  ],
+  "mezoTipus": [
+   "photo",
+   "name",
+   "quote"
+  ],
+  "hatokor": "kompozicio",
+  "feltetel": {
+   "check": "forbidden_combo",
+   "when": {
+    "photo.rights": "generic"
+   },
+   "forbid": [
+    "byline",
+    "name",
+    "quote"
+   ],
+   "requireVoice": "generic"
+  },
+  "szigorusag": "tiltas",
+  "uzenet": "Generikus jogú fotó mellett nem lehet byline, név vagy idézet."
+ }
+]

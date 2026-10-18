@@ -1,0 +1,395 @@
+/* R-18 arculatfrissítés (2026-10-11): a felső sáv — rajz: A-/B-kezdolap/profil/cegeim-asztali|telefon.dc.html, Mod-valto.dc.html
+   (design/R18-arculatfrissites/IRANYOK.md + IRANYOK-round4.md; referencia: tema-r3-referencia.css). Előzmény: F-2 (R-1 v3), R-12, R-15, VJ-1011.
+   Üveg CSAK a sávon és a menükön, finoman. A sáv üvege egy ::before rétegen van, nem magán a sávon: a backdrop-filter a fix helyzetű
+   gyermekek (☰ lap, fátyol) viszonyítási dobozává tenné a sávot (a lap a 60 px-es sávba szorulna). Csak tokenek. */
+
+.km-sav {
+  position: sticky;
+  top: var(--ter-0);
+  z-index: 50;
+  color: var(--text);
+  border-bottom: var(--bw) solid var(--line);
+}
+.km-sav::before {
+  content: "";
+  position: absolute;
+  inset: var(--ter-0);
+  z-index: -1;
+  background: var(--sav-bg);
+  -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(var(--sat-glass));
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--sat-glass));
+}
+
+.km-sav-belso {
+  display: flex;
+  align-items: center;
+  gap: var(--ter-9);
+  height: var(--sav-h);
+  padding: var(--ter-0) var(--ter-10);
+  max-width: 1440px; /* tokenőr: ok — a sáv belső szélessége (F-2 óta) */
+  margin: var(--ter-0) auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* ---- Termékjel + név: az r18.css-ben (közös a nyilvános fejlécekkel, _kozos/Marka.tsx) ---- */
+
+/* ---- Navigáció (asztal): JetBrains Mono 13/500, az aktív lap alatt narancs vonal ---- */
+.r18-nav {
+  flex: 1 0 auto;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  gap: var(--ter-3);
+  font-family: var(--font-code-active);
+  font-weight: var(--fw-ui);
+  font-size: var(--fs-ui);
+}
+.r18-nav-lenyilo { position: relative; display: flex; }
+.r18-nav-a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--ter-3);
+  padding: var(--ter-0) var(--ter-6);
+  border: none;
+  background: none;
+  color: var(--text-mut);
+  font: inherit;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--t-fast) ease-out;
+}
+.r18-nav-a:hover, .r18-nav-a[aria-expanded="true"] { color: var(--text); text-decoration: none; }
+.r18-nav-a::after {
+  content: "";
+  position: absolute;
+  left: var(--ter-6);
+  right: var(--ter-6);
+  bottom: calc(-1 * var(--bw));
+  height: 2px;
+  border-radius: var(--r-badge);
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--e-out), opacity 220ms var(--e-out);
+}
+.r18-nav-a:hover::after { transform: scaleX(1); opacity: 0.55; }
+.r18-nav-a.aktiv { color: var(--text); }
+.r18-nav-a.aktiv::after { transform: scaleX(1); opacity: 1; }
+.r18-nyil { display: inline-block; font-size: var(--fs-ui-kicsi); opacity: 0.8; transition: transform 220ms var(--e-out); }
+[aria-expanded="true"] > .r18-nyil { transform: rotate(180deg); }
+.r18-szam {
+  padding: var(--ter-0) var(--ter-3);
+  border-radius: var(--r-badge);
+  background: var(--panel-soft-2);
+  color: var(--text);
+  font-size: var(--fs-ui-kicsi);
+  font-weight: var(--fw-ui);
+}
+.r18-szam-jobb { margin-left: auto; }
+
+/* ---- Lenyílók (Profil, Cégeim, Modulok, fiók): közel tömör üveg, hogy a szöveg sose küzdjön a lappal ---- */
+.r18-legordulo {
+  position: absolute;
+  top: calc(100% - var(--ter-3));
+  left: var(--ter-0);
+  z-index: 20;
+  width: var(--menu-w);
+  box-sizing: border-box;
+  padding: var(--ter-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+  border: var(--bw) solid var(--uveg-el);
+  border-radius: var(--r-card);
+  background: color-mix(in srgb, var(--uveg-tomor) 78%, transparent); /* tokenőr: ok — a rajz menü-alapja (78 %) */
+  box-shadow: inset 0 1px 0 var(--uveg-feny), var(--uveg-arnyek);
+  -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(var(--sat-glass));
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--sat-glass));
+  animation: r18-lenyit var(--t-menu) var(--e-out) both;
+  transform-origin: top center;
+  font-family: var(--font-code-active);
+}
+.r18-legordulo-ceg { width: max-content; min-width: var(--menu-w); max-width: min(360px, calc(100vw - var(--ter-12))); } /* tokenőr: ok — hosszú cégnévnél szélesebb, de a képernyőn belül */
+.r18-legordulo-fiok { left: auto; right: var(--ter-0); top: calc(100% + var(--ter-3)); width: calc(var(--menu-w) + var(--ter-6)); }
+@keyframes r18-lenyit { from { opacity: 0; transform: translateY(-6px) scale(0.97); } to { opacity: 1; transform: none; } }
+
+.r18-menu-sor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--ter-5);
+  width: 100%;
+  min-height: 44px; /* tokenőr: ok — a menüsor magassága (érintés) */
+  padding: var(--ter-0) var(--ter-6);
+  box-sizing: border-box;
+  border: none;
+  border-radius: var(--r-btn);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-code-active);
+  font-weight: var(--fw-ui);
+  font-size: var(--fs-ui);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--t-fast) ease-out;
+}
+.r18-menu-sor:hover, .r18-menu-sor:focus-visible { background: var(--btn-ghost-hover); color: var(--text); text-decoration: none; }
+.r18-menu-sor .r15-ikon, .r18-menu-ikon { color: var(--text-mut); flex: none; }
+.r18-menu-sor.aktiv::after {
+  content: "";
+  position: absolute;
+  left: var(--ter-6);
+  bottom: var(--ter-3);
+  width: 28px; /* tokenőr: ok — a rajz rövid narancs vonala */
+  height: 2px;
+  border-radius: var(--r-badge);
+  background: var(--accent);
+}
+.r18-menu-sor.aktiv-ceg .r15-ikon { color: var(--text); }
+.r18-ceg-pipa { flex: none; display: flex; width: 20px; } /* tokenőr: ok — a pipa helye (a nem aktív soroknál is) */
+.r18-menu-szoveg { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.r18-menu-szerep {
+  margin-left: auto;
+  flex: none;
+  padding: var(--ter-1) var(--ter-3);
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r-badge);
+  color: var(--text-dim);
+  font-size: var(--fs-ui-kicsi);
+}
+.r18-menu-fej { border-bottom: var(--bw) solid var(--line); border-radius: var(--ter-0); }
+.r18-menu-cim {
+  padding: var(--ter-4) var(--ter-6) var(--ter-2);
+  margin-top: var(--ter-6);
+  color: var(--text-dim);
+  font-family: var(--font-code-active);
+  font-weight: var(--fw-ui);
+  font-size: var(--fs-cimke);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.r18-menu-elval { height: var(--bw); margin: var(--ter-4) var(--ter-6); background: var(--line); }
+.r18-menu-nyelv { padding: var(--ter-2) var(--ter-6); }
+.r18-menu-nyelv select { width: 100%; }
+.r18-menu-kilep .km-gomb-szellem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px; /* tokenőr: ok — a menüsor magassága */
+  padding: var(--ter-0) var(--ter-6);
+  border: none;
+  border-radius: var(--r-btn);
+  background: transparent;
+  box-shadow: none;
+  color: var(--text);
+  text-align: left;
+}
+.r18-menu-kilep .km-gomb-szellem:hover { background: var(--btn-ghost-hover); transform: none; }
+
+/* ---- Jobb oldal: mód-váltó · harang · fiók ---- */
+.r18-jobb { display: flex; align-items: center; gap: var(--ter-4); flex: none; white-space: nowrap; }
+.r18-csengo {
+  position: relative;
+  flex: none;
+  width: 44px; /* tokenőr: ok — 44×44 érintési felület */
+  height: 44px; /* tokenőr: ok */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-btn);
+  color: var(--text);
+  text-decoration: none;
+  transition: background-color var(--t-fast) ease-out;
+}
+.r18-csengo:hover { background: var(--btn-ghost-bg); color: var(--text); text-decoration: none; }
+.r18-csengo-szam {
+  position: absolute;
+  top: 5px; /* tokenőr: ok — a jelvény helye a harangon (rajz) */
+  right: 4px; /* tokenőr: ok */
+  min-width: var(--szam-h);
+  height: var(--szam-h);
+  box-sizing: border-box;
+  padding: var(--ter-0) var(--ter-2);
+  border-radius: var(--r-kerek, var(--szam-h));
+  background: var(--olvasatlan);
+  color: var(--on-primary);
+  font-family: var(--font-code-active);
+  font-size: var(--fs-ui-kicsi);
+  font-weight: var(--fw-head);
+  line-height: var(--szam-h);
+  text-align: center;
+  box-shadow: 0 0 0 2px var(--bg);
+}
+
+.r18-fiok-blokk { position: relative; }
+.r18-gh {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ter-3);
+  max-width: 240px; /* tokenőr: ok — hosszú névnél a gomb nem nő a menü rovására */
+  min-height: var(--control-min-s);
+  padding: var(--ter-0) var(--ter-7);
+  border: var(--bw) solid var(--btn-ghost-border);
+  border-radius: var(--r-btn);
+  background: var(--btn-ghost-bg);
+  color: var(--text);
+  font-family: var(--font-code-active);
+  font-weight: var(--fw-ui);
+  font-size: var(--fs-ui);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--t-fast) ease-out;
+}
+.r18-gh > span:first-child { overflow: hidden; text-overflow: ellipsis; }
+.r18-gh:hover { background: var(--btn-ghost-hover); }
+
+/* a nyelvválasztó a ☰ lap alján (a régi sávból változatlanul) */
+.km-sav-nyelv {
+  min-height: var(--control-min-s);
+  padding: var(--ter-3) var(--ter-4);
+  border: var(--bw) solid var(--field-border);
+  border-radius: var(--r-field);
+  background: var(--bg-elev);
+  color: var(--text);
+  font-family: var(--font-code-active);
+  font-size: var(--fs-ui);
+  cursor: pointer;
+}
+
+/* ---- Telefon: lapnév · harang · ☰, és a ☰ lap ---- */
+.r18-hol, .r18-tel { display: none; }
+.r18-menu-t {
+  flex: none;
+  width: 44px; /* tokenőr: ok — 44×44 érintési felület */
+  height: 44px; /* tokenőr: ok */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--r-btn);
+  background: transparent;
+  color: var(--text);
+  font-size: var(--ikon-fs, var(--fs-title));
+  cursor: pointer;
+}
+.r18-fatyol { position: fixed; inset: var(--ter-0); z-index: 1; background: var(--fatyol-menu); animation: r18-elotun var(--t-menu) ease-out both; }
+.r18-lap {
+  position: fixed;
+  z-index: 2;
+  top: var(--ter-0);
+  right: var(--ter-0);
+  bottom: var(--ter-0);
+  width: min(var(--lap-w), calc(100vw - var(--ter-12)));
+  box-sizing: border-box;
+  padding: var(--ter-8) var(--ter-6) var(--ter-0);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-1);
+  border-left: var(--bw) solid var(--uveg-el);
+  background: color-mix(in srgb, var(--uveg-tomor) 80%, transparent); /* tokenőr: ok — a rajz ☰ lap-alapja (80 %) */
+  -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(var(--sat-glass));
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--sat-glass));
+  animation: r18-becsuszik var(--t-lap) var(--e-out) both;
+}
+.r18-lap > * { flex-shrink: 0; } /* hosszú lapnál a sorok nem nyomódnak össze — a lap görget */
+.r18-lap-fej { display: flex; justify-content: flex-end; margin-bottom: var(--ter-4); }
+.r18-lap .r18-menu-cim:first-of-type { margin-top: var(--ter-6); }
+@keyframes r18-elotun { from { opacity: 0; } to { opacity: 1; } }
+@keyframes r18-becsuszik { from { transform: translateX(100%); } to { transform: none; } }
+
+/* a mód-sor: hold · „Sötét mód” · a meglévő kapcsoló-minta (--kapcsolo-w/h) */
+.r18-mod-sor .r18-kapcsolo {
+  position: relative;
+  flex: none;
+  margin-left: auto;
+  width: var(--kapcsolo-w);
+  height: var(--kapcsolo-h);
+  border-radius: calc(var(--kapcsolo-h) / 2); /* tokenőr: ok — a kapcsoló pirula alakja a token magasságából */
+  background: var(--btn-ghost-border);
+  transition: background-color var(--t-mode) ease, box-shadow var(--t-mode) ease;
+}
+.r18-mod-sor .r18-kapcsolo::after {
+  content: "";
+  position: absolute;
+  top: 3px; /* tokenőr: ok — a kapcsoló gombjának helye */
+  left: 3px; /* tokenőr: ok */
+  width: calc(var(--kapcsolo-h) - 6px);
+  height: calc(var(--kapcsolo-h) - 6px);
+  border-radius: 50%; /* tokenőr: ok — kör alak */
+  background: var(--kapcsolo-gomb);
+  box-shadow: 0 1px 3px var(--btn-shadow);
+  transition: transform var(--t-mode) var(--e-out);
+}
+.r18-mod-sor[aria-checked="true"] .r18-kapcsolo { background: var(--primary); box-shadow: 0 0 0 var(--bw) var(--btn-edge); }
+.r18-mod-sor[aria-checked="true"] .r18-kapcsolo::after { transform: translateX(calc(var(--kapcsolo-w) - var(--kapcsolo-h))); }
+
+/* közepes ablak: a név helyét a menü kapja.
+   R-18 3. kör (audit, Csilla 10-11): 900 px alatt a sáv a telefonos alakot veszi fel (jel + lapnév + harang + ☰) — 768-on a hat menüpont
+   (a Naptárral), a mód-váltó, a harang és a fiók gombja nem fért ki: a lap vízszintesen görgetett (HU 803 / RO 819 / EN 778 px > 768). */
+@media (max-width: 1100px) and (min-width: 901px) {
+  .r18-marka-nev { display: none; }
+  .km-sav-belso { gap: var(--ter-6); padding: var(--ter-0) var(--ter-8); }
+  .r18-nav { gap: var(--ter-1); }
+  .r18-nav-a { padding: var(--ter-0) var(--ter-4); }
+  .r18-nav-a::after { left: var(--ter-4); right: var(--ter-4); }
+  .r18-gh { max-width: 150px; } /* tokenőr: ok */
+}
+
+@media (max-width: 900px) {
+  .km-sav-belso { height: var(--sav-h-tel); gap: var(--ter-4); padding: var(--ter-0) var(--ter-2) var(--ter-0) var(--ter-8); }
+  .r18-nav, .r18-jobb { display: none; }
+  .r18-marka { flex: 0 1 auto; }
+  .r18-hol {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 0;
+    align-items: center;
+    align-self: stretch;
+    padding-left: var(--ter-4);
+    border-left: var(--bw) solid var(--line);
+    overflow: hidden;
+  }
+  .r18-hol-lap {
+    position: relative;
+    padding-bottom: var(--ter-1);
+    font-family: var(--font-code-active);
+    font-weight: var(--fw-ui);
+    font-size: var(--fs-ui);
+    white-space: nowrap;
+  }
+  .r18-hol-lap::after { content: ""; position: absolute; left: var(--ter-0); right: var(--ter-0); bottom: calc(-1 * var(--ter-1)); height: 2px; border-radius: var(--r-badge); background: var(--accent); }
+  /* round 4: ha a név és a lapnév nem fér el egymás mellett (RO), a lapnév elbújik — a ☰ lapon jelölve marad */
+  .r18-hol-rejtve { border-left-color: transparent; }
+  .r18-hol-rejtve .r18-hol-lap { visibility: hidden; }
+  .r18-tel { display: flex; align-items: center; gap: var(--ter-1); flex: none; margin-left: auto; }
+
+  /* VJ-1011 (Kati #2, kétszer: „telefonon nincs kijelentkezés gomb”, mérve 10-11 390 × 664): nyitott menünél a sáv réteg a lap alsó
+     sávja (60) és a lebegő Visszajelzés (70) fölé kerül; a lap görget, és a Nyelv · Kijelentkezés sor az alján mindig látszik (ragad).
+     R-18: a ☰ lap a képernyő teljes magasságát kapja (oldalról becsúszó lap, a rajz szerint), így a régi „100dvh − 72px” korlát kikerült. */
+  .km-sav:has(.km-sav-telefon-menu) { z-index: 72; }
+  .km-sav-telefon-menu {
+    height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .km-sav-telefon-menu .km-sav-telefon-alul {
+    position: sticky;
+    bottom: var(--ter-0);
+    margin: auto calc(-1 * var(--ter-6)) var(--ter-0);
+    display: flex;
+    align-items: center;
+    gap: var(--ter-5);
+    flex-wrap: wrap;
+    padding: var(--ter-6) var(--ter-9) var(--ter-8);
+    border-top: var(--bw) solid var(--line-soft);
+    background: var(--uveg-tomor);
+  }
+  .km-sav-telefon-alul .km-gomb-szellem { box-shadow: none; }
+}

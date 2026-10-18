@@ -1,0 +1,109 @@
+{
+ "cipo-pekseg (e2e fiók, honlapos)": {
+  "utana/asztali": {
+   "szavak": 80,
+   "fo": [],
+   "melyseg": 1,
+   "takar": [],
+   "hibak": [
+    "T2 fő gomb: 0 (pontosan 1) []",
+    "T5 80 szó görgetés nélkül (≤ 60)"
+   ]
+  },
+  "elotte/asztali": {
+   "szavak": 95,
+   "fo": [],
+   "melyseg": 2,
+   "takar": [],
+   "hibak": [
+    "T2 fő gomb: 0 (pontosan 1) []",
+    "T5 95 szó görgetés nélkül (≤ 60)",
+    "T6 doboz a dobozban (2 szint): „”"
+   ]
+  },
+  "utana/telefon": {
+   "szavak": 66,
+   "fo": [],
+   "melyseg": 1,
+   "takar": [
+    "Későbbre hagyva",
+    "A forrásjelölés nem jelenti, h"
+   ],
+   "hibak": [
+    "T2 fő gomb: 0 (pontosan 1) []",
+    "T5 66 szó görgetés nélkül (≤ 40)",
+    "T10 lebegő elem takar: Későbbre hagyva, A forrásjelölés nem jelenti, h"
+   ]
+  },
+  "elotte/telefon": {
+   "szavak": 66,
+   "fo": [],
+   "melyseg": 2,
+   "takar": [
+    "Későbbre hagyva",
+    "Megnyitás"
+   ],
+   "hibak": [
+    "T2 fő gomb: 0 (pontosan 1) []",
+    "T5 66 szó görgetés nélkül (≤ 40)",
+    "T6 doboz a dobozban (2 szint): „”",
+    "T10 lebegő elem takar: Későbbre hagyva, Megnyitás"
+   ]
+  }
+ },
+ "tibor-proba fiók (leírásos)": {
+  "utana/asztali": {
+   "szavak": 116,
+   "fo": [],
+   "melyseg": 1,
+   "takar": [],
+   "hibak": [
+    "T2 fő gomb: 0 (pontosan 1) []",
+    "T3 tiltott szó: ai-javaslat",
+    "T5 116 szó görgetés nélkül (≤ 60)"
+   ]
+  },
+  "elotte/asztali": {
+   "szavak": 130,
+   "fo": [],
+   "melyseg": 2,
+   "takar": [],
+   "hibak": [
+    "T2 fő gomb: 0 (pontosan 1) []",
+    "T3 tiltott szó: ai-javaslat",
+    "T5 130 szó görgetés nélkül (≤ 60)",
+    "T6 doboz a dobozban (2 szint): „”"
+   ]
+  },
+  "utana/telefon": {
+   "szavak": 74,
+   "fo": [],
+   "melyseg": 1,
+   "takar": [
+    "Még nincs megadva"
+   ],
+   "hibak": [
+    "T2 fő gomb: 0 (pontosan 1) []",
+    "T3 tiltott szó: ai-javaslat",
+    "T5 74 szó görgetés nélkül (≤ 40)",
+    "T10 lebegő elem takar: Még nincs megadva"
+   ]
+  },
+  "elotte/telefon": {
+   "szavak": 74,
+   "fo": [],
+   "melyseg": 2,
+   "takar": [
+    "Még nincs megadva",
+    "— nem kötelező"
+   ],
+   "hibak": [
+    "T2 fő gomb: 0 (pontosan 1) []",
+    "T3 tiltott szó: ai-javaslat",
+    "T5 74 szó görgetés nélkül (≤ 40)",
+    "T6 doboz a dobozban (2 szint): „”",
+    "T10 lebegő elem takar: Még nincs megadva, — nem kötelező"
+   ]
+  }
+ }
+}
