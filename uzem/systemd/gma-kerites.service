@@ -1,0 +1,19 @@
+# G6 — the host fence for the gma docker networks (root unit: /etc/systemd/system/gma-kerites.service).
+# Re-applied at boot and every time docker.service (re)starts (PartOf + WantedBy docker.service). Script: /usr/local/sbin/gma-kerites.sh
+# (a root-owned copy of uzem/kerites.sh — never run a root unit from a user-writable checkout).
+[Unit]
+Description=Rögtön: hálózati kerítés a gma docker-hálózatok körül
+After=docker.service
+Requires=docker.service
+PartOf=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# the gma networks exist only once the stack has run; give Docker a moment after its own start
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/local/sbin/gma-kerites.sh
+ExecStop=/usr/local/sbin/gma-kerites.sh --torol
+
+[Install]
+WantedBy=multi-user.target docker.service

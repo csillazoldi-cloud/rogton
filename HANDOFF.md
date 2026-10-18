@@ -1,5 +1,25 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G6 + G7 — WARP egress, network fence, Cloudflare Tunnel (branch g6-g7, files only)
+
+- `gma-egress` = `caomingjun/warp:2026.7.1377.0-2.12.0` (free consumer WARP); `gma-app` has `network_mode: service:egress` (no
+  network of its own); nginx → `egress:3000`, resolved at request time. Kill-switch: `uzem/egress/kerites-belul.nft` (output
+  policy drop; only lo, replies, 172.16/12, the WARP tunnel interface, the WARP endpoint/API ranges), loaded by
+  `uzem/egress/indit.sh` before WARP starts; the wrapper also sets `tunnel_only` so Docker DNS stays. Healthcheck on egress
+  (`warp=on|plus` via the Cloudflare trace).
+- Host fence `uzem/kerites.sh` (root copy `/usr/local/sbin/gma-kerites.sh`, unit `systemd/gma-kerites.service`): own chains from
+  DOCKER-USER (gma subnets → LAN / Tailscale / other docker nets dropped) and INPUT (gma → the host dropped). Tested here against a
+  real dockerd + iptables: idempotent, one jump each, `--torol` leaves nothing.
+- `gma-tunnel` = `cloudflare/cloudflared:2026.10.0`, profile `tunnel`, token from `TUNNEL_TOKEN` (= `CF_TUNNEL_TOKEN` in .env).
+  nginx `set_real_ip_from 172.16.0.0/12` + `CF-Connecting-IP`, X-Forwarded-For overwritten → `MEGBIZHATO_PROXY_DB=1`.
+- `kirak.sh`: every tick re-creates gma-app if it is not in the CURRENT egress namespace; egress files compared with cmp and
+  egress re-created only on change (then the app); step 9 checks `warp=` (exit 10 if not on). New data folder `adatok/warp`.
+- Tests: `uzem-kotet-mappak.proba.ts` +6 (kepgyar internal-only, only 127.0.0.1:8410 published, app in the egress namespace,
+  tunnel without ports, nginx upstream + real_ip, kill-switch shape). Decision doc `docs/decisions/2026-10-18-g6-g7-halozat.md`;
+  batches 7–14 + the Cloudflare click steps in `uzem/README.md`.
+- NOT VERIFIED: the WARP image, tunnel_only, split-tunnel exclusions and the kill-switch in a live namespace, cloudflared, every
+  Cloudflare step — the batches measure them.
+
 ## 2026-10-18 G5b — no „teszt” mark, Saira Condensed UI font, no Google Fonts
 
 - „teszt” chip removed from the public headers (`Keretek.tsx`); `0183_g5b_teszt_jelzes_nelkul.sql` drops „· teszt” from

@@ -1,15 +1,21 @@
 # Rögtön — compose project `gma` on a single host. Started only by uzem/kirak.sh (or by hand with the same flags):
 #   docker compose -p gma --env-file "$GMA_GYOKER/.env" -f uzem/docker-compose.yml up -d --no-build
 #
-# Four services:
+# Services:
 #   db       — PostgreSQL 18, internal network only; data in $GMA_GYOKER/adatok/postgres, pre-migration dumps in $GMA_GYOKER/mentes
-#   app      — the Next.js app (image gma-app:aktiv, built by kirak.sh); internal + outbound network (OpenAI, news feeds)
+#   egress   — G6: Cloudflare WARP (free, no account) in its own network namespace, with an in-namespace kill-switch (nftables:
+#              outbound only through the WARP tunnel, to the docker subnets, or to the WARP endpoints themselves)
+#   app      — the Next.js app (image gma-app:aktiv, built by kirak.sh). It has NO network of its own: `network_mode: service:egress`,
+#              so every outbound request (news, websites, OpenAI) leaves through WARP or not at all. Reached as egress:3000.
 #   kepgyar  — the image maker (gma-kepgyar:aktiv), internal network ONLY: no host port, no outbound traffic
 #   web      — nginx, the only published port: 127.0.0.1:8410 (never 0.0.0.0)
+#   tunnel   — G7: cloudflared, outbound-only tunnel to Cloudflare → web:80. Profile `tunnel` (COMPOSE_PROFILES=tunnel in .env),
+#              so the stack runs without it until the token exists.
 #
 # Every bind-mount source is an ABSOLUTE path under $GMA_GYOKER (kirak.sh copies the config files there on each deploy), so a
 # deploy never re-creates the db container just because the source checkout moved, and data never lives in a named volume.
-# No Docker HEALTHCHECKs on purpose: kirak.sh checks health from outside after each deploy.
+# Healthcheck: only on egress (allowed on this host; the old „no HEALTHCHECK” rule was for the NAS) — it proves WARP is on.
+# Decision: docs/decisions/2026-10-18-g6-g7-halozat.md.
 name: gma
 
 x-naplo: &naplo
@@ -39,6 +45,38 @@ services:
     mem_limit: 768m
     logging: *naplo
 
+  egress:
+    # caomingjun/warp: the official Cloudflare WARP client + GOST; pinned (tag = WARP client version - GOST version)
+    image: caomingjun/warp:2026.7.1377.0-2.12.0
+    container_name: gma-egress
+    restart: unless-stopped
+    # our wrapper: the kill-switch first, then the image's own entrypoint (registration without an account, connect)
+    entrypoint: ["/bin/bash", "/gma/indit.sh"]
+    environment:
+      TZ: Europe/Budapest
+      WARP_SLEEP: "5"
+      # GOST (the image's proxy) only on loopback — nobody needs it, the app shares this namespace
+      GOST_ARGS: "-L 127.0.0.1:1080"
+    cap_add: [NET_ADMIN]
+    device_cgroup_rules:
+      - "c 10:200 rwm"
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: "0"
+      net.ipv4.conf.all.src_valid_mark: "1"
+    volumes:
+      - ${GMA_GYOKER}/adatok/warp:/var/lib/cloudflare-warp
+      - ${GMA_GYOKER}/uzem-aktiv/egress:/gma:ro
+    # proves the tunnel, not just the process: through WARP the Cloudflare trace says warp=on (or plus)
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS --max-time 10 https://www.cloudflare.com/cdn-cgi/trace | grep -qE '^warp=(on|plus)$'"]
+      interval: 60s
+      timeout: 15s
+      retries: 3
+      start_period: 60s
+    networks: [belso, kimeno]
+    mem_limit: 256m
+    logging: *naplo
+
   app:
     image: gma-app:aktiv
     container_name: gma-app
@@ -57,8 +95,9 @@ services:
       # the first system admin: the account with this e-mail gets the admin mark at login
       RENDSZERGAZDA_EMAIL: ${RENDSZERGAZDA_EMAIL:?a .env fájlból}
       HF_FUTTATO: ${HF_FUTTATO:-1}
-      # trusted reverse proxies in front of the app (cloudflared + nginx = 2) — MEASURE on /api/belso/cim after go-live
-      MEGBIZHATO_PROXY_DB: ${MEGBIZHATO_PROXY_DB:-2}
+      # trusted proxies: 1 — nginx takes the client address from CF-Connecting-IP (real_ip) and OVERWRITES X-Forwarded-For with it
+      # (uzem/nginx.conf). MEASURE on /api/belso/cim after go-live.
+      MEGBIZHATO_PROXY_DB: ${MEGBIZHATO_PROXY_DB:-1}
       FAJL_MAPPA: /adatok/fajlok
       ALBUM_MAPPA: /adatok/album
       KEPGYAR_URL: http://kepgyar:8601
@@ -66,8 +105,13 @@ services:
     volumes:
       - ${GMA_GYOKER}/adatok/fajlok:/adatok/fajlok
       - ${GMA_GYOKER}/adatok/album:/adatok/album
-    depends_on: [db, kepgyar]
-    networks: [belso, kimeno]
+    # G6: the app lives in the egress container's network namespace — no networks/ports of its own. If egress is down or
+    # restarted, this container has no usable network until it is re-created (kirak.sh checks that every 2 minutes).
+    network_mode: "service:egress"
+    depends_on:
+      db: { condition: service_started }
+      kepgyar: { condition: service_started }
+      egress: { condition: service_started, restart: true }
     mem_limit: 1g
     logging: *naplo
 
@@ -95,27 +139,26 @@ services:
     mem_limit: 64m
     logging: *naplo
 
-  # G6 (TODO): the VPN egress with a kill-switch, exit country Hungary. When it lands, `app` leaves the `kimeno` network and uses
-  # `network_mode: service:egress`-style routing (or a dedicated network whose only gateway is this container), so no outbound
-  # fetch (news, websites, OpenAI) ever leaves from the office IP. Until then outbound traffic shows the host's own address.
-  # egress:
-  #   image: <VPN client image, pinned by digest>
-  #   container_name: gma-egress
-  #   restart: unless-stopped
-  #   cap_add: [NET_ADMIN]
-  #   devices: ["/dev/net/tun:/dev/net/tun"]
-  #   environment:
-  #     VPN_ORSZAG: Hungary
-  #   volumes:
-  #     - ${GMA_GYOKER}/titkok/vpn:/titkok:ro
-  #   networks: [belso, kimeno]
-  #   logging: *naplo
+  tunnel:
+    # G7: Cloudflare Tunnel — dials OUT to Cloudflare only; the dashboard routes admin.gyorsmedia.hu → http://gma-web:80.
+    # The token comes from the .env as TUNNEL_TOKEN (read by cloudflared from the environment, so it is not on the command line).
+    image: cloudflare/cloudflared:2026.10.0
+    container_name: gma-tunnel
+    profiles: ["tunnel"]
+    restart: unless-stopped
+    command: ["tunnel", "--no-autoupdate", "--loglevel", "warn", "run"]
+    environment:
+      TUNNEL_TOKEN: ${CF_TUNNEL_TOKEN:-}
+    depends_on: [web]
+    networks: [kimeno]
+    mem_limit: 128m
+    logging: *naplo
 
 networks:
   # no gateway: db and kepgyar can reach nothing outside this network
   belso:
     name: gma-belso
     internal: true
-  # the only network with a route out; web publishes 127.0.0.1:8410 from here
+  # the only network with a route out: egress (WARP), web (publishes 127.0.0.1:8410), tunnel (cloudflared)
   kimeno:
     name: gma-kimeno

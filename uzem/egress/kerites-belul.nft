@@ -1,0 +1,32 @@
+# G6 kill-switch INSIDE the gma-egress network namespace (the app shares this namespace, so it applies to the app too).
+# Loaded by indit.sh before WARP starts. Policy: nothing leaves this namespace except
+#   - loopback (Docker's DNS at 127.0.0.11 lives here),
+#   - replies to connections that came in (gma-web → app:3000),
+#   - the docker subnets (db, kepgyar, web — all in 172.16.0.0/12; the LAN / Tailscale are fenced on the host by kerites.sh),
+#   - anything routed INTO the WARP tunnel interface,
+#   - WARP's own traffic to Cloudflare's WARP endpoints / API (the encapsulated tunnel packets and registration).
+# If WARP is disconnected, a request to any other address is dropped here — it never leaves from the office IP.
+# The WARP ranges are a measured-later assumption (see the decision doc): if they are too narrow WARP cannot connect and
+# everything fails CLOSED (no leak); the G6 probe batch shows it.
+
+table inet gma_kill
+flush table inet gma_kill
+
+table inet gma_kill {
+  # Cloudflare WARP: engage / WireGuard endpoints, MASQUE endpoints, client API
+  set warp4 {
+    type ipv4_addr
+    flags interval
+    elements = { 162.159.192.0/22, 162.159.198.0/23, 162.159.136.0/22 }
+  }
+
+  chain kifele {
+    type filter hook output priority filter; policy drop;
+    oifname "lo" accept
+    ct state established,related accept
+    oifname "CloudflareWARP" accept
+    ip daddr 172.16.0.0/12 accept
+    ip daddr @warp4 accept
+    counter drop
+  }
+}

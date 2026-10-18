@@ -17,8 +17,18 @@
 #   on failure in 8: no migration ran → retag :elozo → :aktiv and bring the previous version back (exit 4);
 #                    migrations ran → do NOT roll back (the old code may not fit the new schema), stop loudly (exit 7)
 #
+#   9. G6: the egress check — through the app's network the Cloudflare trace must say warp=on (else exit 10, the site stays up;
+#      outbound fetches fail closed because of the kill-switch)
+#
+# G6/G7 services: gma-egress (WARP) and gma-tunnel (cloudflared) are NOT restarted by a normal deploy — `compose up` re-creates a
+# container only when its compose config changed, and the egress script files are compared byte by byte (cmp) before they are
+# replaced. Re-creating gma-egress drops the app's network (the app lives in its namespace), so it happens only on a real change,
+# and then the app is re-created right after it. Every timer tick (even with nothing new) also checks that gma-app still sits in
+# the CURRENT gma-egress namespace, and re-creates gma-app if not (e.g. after the egress container restarted on its own).
+#
 # Exit codes: 0 live (or nothing new) · 2 lock / fetch / environment · 3 build · 5 guard red (image or DB) · 6 crawl guard red
 #             4 unhealthy, rolled back · 7 unhealthy after migrations, NOT rolled back · 8 backup or migration failed
+#             10 live, but the egress is not on WARP (outbound fetches fail closed until it is)
 set -uo pipefail
 
 KENYSZER=0; PROBA=0
@@ -48,6 +58,22 @@ git -C "$REPO" fetch -q origin "$AG" 2>>"$NAPLO" || { echo "$(date -Is) fetch hi
 SHA=$(git -C "$REPO" rev-parse "origin/$AG") || exit 2
 ID=${SHA:0:12}
 KINT=$(cat "$GMA/allapot/kint" 2>/dev/null || true)
+
+# G6 self-heal (every tick): gma-app must share the namespace of the CURRENT gma-egress container. If egress was re-created or
+# restarted, the app keeps a dead namespace (no network at all — fails closed, but the site is down): re-create the app.
+halo_or() {
+  local kint_dc="$GMA/forras/${KINT:0:12}/uzem/docker-compose.yml" egress app_mod
+  [ -n "$KINT" ] && [ -f "$kint_dc" ] || return 0
+  egress=$(docker inspect -f '{{.Id}}' gma-egress 2>/dev/null) || return 0
+  app_mod=$(docker inspect -f '{{.HostConfig.NetworkMode}}' gma-app 2>/dev/null) || return 0
+  case "$app_mod" in container:*) ;; *) return 0 ;; esac
+  if [ "$app_mod" != "container:$egress" ] || [ "$(docker inspect -f '{{.State.Running}}' gma-app 2>/dev/null)" != "true" ]; then
+    echo "$(date -Is) gma-app nincs a mostani gma-egress hálózatában — újraalkotom" >> "$NAPLO"
+    docker compose -p gma --env-file "$ENVF" -f "$kint_dc" up -d --no-build --force-recreate app >> "$NAPLO" 2>&1 || true
+  fi
+}
+halo_or
+
 if [ "$SHA" = "$KINT" ] && [ $KENYSZER -eq 0 ] && [ $PROBA -eq 0 ]; then exit 0; fi
 
 # from here on everything goes to the log as well
@@ -82,12 +108,17 @@ if [ $PROBA -eq 1 ]; then szakasz "próba vége: épít + őr rendben, konténer
 
 # --- 5. config + data folders ----------------------------------------------------------------------------------------------------
 szakasz "5. beállítások a helyükre ($GMA/uzem-aktiv)"
-mkdir -p "$GMA/uzem-aktiv/adatbazis/init" "$GMA/uzem-aktiv/migraciok" "$GMA/adatok/postgres" "$GMA/adatok/fajlok" "$GMA/adatok/album" "$GMA/mentes" || exit 2
+mkdir -p "$GMA/uzem-aktiv/adatbazis/init" "$GMA/uzem-aktiv/migraciok" "$GMA/uzem-aktiv/egress" "$GMA/adatok/postgres" "$GMA/adatok/fajlok" "$GMA/adatok/album" "$GMA/adatok/warp" "$GMA/mentes" || exit 2
 # cp into the SAME folders/files (never replace the folder): the running containers' bind mounts keep seeing them
 cp "$SRC/uzem/adatbazis/init/"*.sh "$GMA/uzem-aktiv/adatbazis/init/" && cp "$SRC/uzem/adatbazis/migral.sh" "$GMA/uzem-aktiv/adatbazis/migral.sh" \
   && cp "$SRC/apps/web/adatbazis/migraciok/"*.sql "$GMA/uzem-aktiv/migraciok/" || { echo "MEGÁLL: a beállítások másolása"; exit 2; }
 NGINX_VALTOZOTT=0
 cmp -s "$SRC/uzem/nginx.conf" "$GMA/uzem-aktiv/nginx.conf" || { cp "$SRC/uzem/nginx.conf" "$GMA/uzem-aktiv/nginx.conf" && NGINX_VALTOZOTT=1; }
+# G6: the egress files (kill-switch rules, entrypoint wrapper) — replaced, and the egress re-created, only when they changed
+EGRESS_VALTOZOTT=0
+for f in indit.sh kerites-belul.nft; do
+  cmp -s "$SRC/uzem/egress/$f" "$GMA/uzem-aktiv/egress/$f" || { cp "$SRC/uzem/egress/$f" "$GMA/uzem-aktiv/egress/$f" && EGRESS_VALTOZOTT=1; }
+done
 # the app runs as node (uid 1000) and writes these two folders; chown through a throwaway container (no sudo on the host)
 docker run --rm --user 0 --network none -v "$GMA/adatok:/a" --entrypoint chown "gma-app:$ID" 1000:1000 /a/fajlok /a/album || exit 2
 chmod 770 "$GMA/adatok/fajlok" "$GMA/adatok/album" 2>/dev/null || true
@@ -119,7 +150,16 @@ for k in gma-app gma-kepgyar; do
   docker image inspect "$k:aktiv" >/dev/null 2>&1 && docker tag "$k:aktiv" "$k:elozo"
   docker tag "$k:$ID" "$k:aktiv" || exit 2
 done
+EGRESS_ELOTTE=$(docker inspect -f '{{.Id}}' gma-egress 2>/dev/null || true)
 "${DC[@]}" up -d --no-build 2>&1 | tail -5
+if [ $EGRESS_VALTOZOTT -eq 1 ] && [ -n "$EGRESS_ELOTTE" ] && [ "$(docker inspect -f '{{.Id}}' gma-egress 2>/dev/null)" = "$EGRESS_ELOTTE" ]; then
+  echo "az egress fájljai változtak — gma-egress és gma-app újraalkotása"
+  "${DC[@]}" up -d --no-build --force-recreate egress app 2>&1 | tail -3
+fi
+# whenever egress got a new container (config or file change), the app must join the new namespace
+if [ "$(docker inspect -f '{{.HostConfig.NetworkMode}}' gma-app 2>/dev/null)" != "container:$(docker inspect -f '{{.Id}}' gma-egress 2>/dev/null)" ]; then
+  "${DC[@]}" up -d --no-build --force-recreate app 2>&1 | tail -2
+fi
 [ $NGINX_VALTOZOTT -eq 1 ] && docker exec gma-web nginx -s reload 2>/dev/null
 
 # --- 8. health -------------------------------------------------------------------------------------------------------------------
@@ -159,8 +199,22 @@ if ! docker run --rm --network gma-kimeno -v "$SRC/tools/tiltott:/tiltott:ro" --
   exit 6
 fi
 
+# --- 9. G6: does the app's traffic leave through WARP? -------------------------------------------------------------------------
+szakasz "9. kimenő forgalom: WARP"
+WARP=""
+for _ in $(seq 1 12); do
+  WARP=$(docker exec gma-egress curl -fsS --max-time 10 https://www.cloudflare.com/cdn-cgi/trace 2>/dev/null | sed -n 's/^warp=//p')
+  case "$WARP" in on|plus) break ;; esac
+  sleep 10
+done
+case "$WARP" in
+  on|plus) echo "kimenő forgalom: WARP ($WARP)" ;;
+  *) echo "PIROS: a kimenő forgalom NEM a WARP-on megy (warp=${WARP:-nincs válasz}) — a letöltések addig zárva maradnak (kill-switch)"
+     KILEPES=10 ;;
+esac
+
 # old sources: keep the last 5, move the rest aside (never delete)
 mapfile -t REGI < <(ls -1dt "$GMA/forras"/*/ 2>/dev/null | tail -n +6)
 [ "${#REGI[@]}" -gt 0 ] && mv -- "${REGI[@]}" "$GMA/_torolni/" && echo "régi források a _torolni/ alá: ${#REGI[@]} db"
 szakasz "kész: $ID"
-exit 0
+exit "${KILEPES:-0}"
