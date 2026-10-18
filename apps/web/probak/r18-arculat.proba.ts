@@ -35,8 +35,9 @@ describe("R-18 arculatfrissítés", () => {
     for (const f of r18BetuFajlok()) expect(existsSync(gy(`apps/web/public/betuk/${f}`)), f).toBe(true);
     // G4 (Rögtön, 2026-10-18): a régi halvány márkafelirat két PNG-je kikerült (a régi cégnevet hordozták, a fájlnevük is) — most az
     // a próba, hogy NINCSENEK meg; az a/t jel két PNG-je G5-ig marad.
-    for (const f of ["at-jel-szines.png", "at-jel-tinta.png"]) expect(existsSync(gy(`apps/web/public/r18/${f}`)), f).toBe(true);
-    for (const f of ["aitmetica-szurke.png", "aitmetica-tinta.png"]) expect(existsSync(gy(`apps/web/public/r18/${f}`)), f).toBe(false);
+    // G5: az a/t jel két PNG-je is kikerült — a » jel és a név SVG (Marka.tsx); az ikonok a public/r18/ikon alatt maradnak, új rajzzal
+    for (const f of ["at-jel-szines.png", "at-jel-tinta.png", "aitmetica-szurke.png", "aitmetica-tinta.png"]) expect(existsSync(gy(`apps/web/public/r18/${f}`)), f).toBe(false);
+    for (const f of ["ikon-sotet-32.png", "ikon-sotet-192.png", "ikon-sotet-512.png", "ikon-maszkolhato-512.png", "apple-touch-icon.png"]) expect(existsSync(gy(`apps/web/public/r18/ikon/${f}`)), f).toBe(true);
   });
 
   it("a felső sáv: Profil menü, Cégeim csak egynél több cégnél, harang a régi Értesítések helyett, mód-váltó; semmi nem tűnt el", () => {
@@ -63,7 +64,7 @@ describe("R-18 arculatfrissítés", () => {
     const html = await v.text();
     expect(html).toContain('<style id="km-modok">');
     expect(html).toContain(':root[data-mod="vilagos"]{');
-    expect(html).toContain("--primary:#4b09d8");
+    expect(html).toContain("--primary:#d0ff2c"); // G5: a sötét mód fő színe a neonzöld (a régi #4b09d8 lila helyett)
     expect(html).toContain("@font-face{font-family:");
     expect(html).toContain('class="km-aurora"');
     expect(html).not.toContain("km-sav"); // a belépés előtti lapon nincs felső sáv (kezdolap.proba 11, tagok-lap.proba 7)

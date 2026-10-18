@@ -14,6 +14,7 @@ function arnyalat(hex: string): { h: number; s: number } {
   return { h: (h * 60 + 360) % 360, s: d / (1 - Math.abs(max + min - 1)) };
 }
 
+// G5 (Rögtön, 2026-10-18): a re-skin — tinta / neonzöld #d0ff2c / narancs #ff4501, Saira Condensed + Saira (saját kiszolgálás). A régi „egyetlen lila #4b09d8” szabály helyére az új paletta szabálya került; a többi elvárás (a mód kulcsai, a két blokk, a mozgás, a saját betűk Google Fonts nélkül) változatlan.
 describe("R-18 módok", () => {
   it("a mód kulcsai a színek, betűk, lekerekítés — a betűméret és a térköz NEM (az a szervezeté marad)", () => {
     for (const k of ["--bg", "--text", "--primary", "--primary-2", "--font-display", "--font-body", "--font-code", "--r-card", "--r-btn", "--keszul", "--olvasatlan"]) {
@@ -22,28 +23,34 @@ describe("R-18 módok", () => {
     for (const k of ["--fs-base", "--ter-4", "--control-min", "--lista-max"]) expect(MOD_KULCSOK).not.toContain(k);
   });
 
-  it("egyetlen lila: #4b09d8 (és átlátszósága) — más lila árnyalat egyik módban sincs", () => {
+  it("a paletta: sötétben neon fő szín tintás szöveggel, világosban tinta fő szín neon szöveggel; narancs csak kitöltés; nincs lila", () => {
+    const s = modTokenek(alap, "sotet"), v = modTokenek(alap, "vilagos");
+    expect([s["--primary"], s["--primary-2"], s["--on-primary"]]).toEqual(["#d0ff2c", "#d0ff2c", "#0a0a0a"]);
+    expect([v["--primary"], v["--primary-2"], v["--on-primary"]]).toEqual(["#0a0a0a", "#0a0a0a", "#d0ff2c"]);
+    expect(s["--accent"]).toBe("#ff4501");
+    expect(v["--accent"]).toBe("#ff4501");
+    // narancson soha nincs fehér szöveg: a narancs kitöltésen álló szöveg tokenje mindkét módban tinta
+    expect(s["--on-accent"]).toBe("#0a0a0a");
+    expect(v["--on-accent"]).toBe("#0a0a0a");
+    // világosban a neon nem lehet szöveg: a link, a fókusz és a narancs szöveg sötét
+    expect(v["--accent-link"]).toBe("#0a0a0a");
+    expect(v["--focus"]).toBe("#0a0a0a");
+    expect(v["--accent-text"]).toBe("#b83200");
     for (const mod of ["sotet", "vilagos"] as const) {
-      const t = modTokenek(alap, mod);
-      expect(t["--primary"]).toBe("#4b09d8");
-      expect(t["--primary-2"]).toBe("#4b09d8");
-      const szoveg = Object.values(t).join(" ");
+      const szoveg = Object.values(modTokenek(alap, mod)).join(" ");
       for (const hex of szoveg.match(/#[0-9a-fA-F]{6}\b/g) ?? []) {
-        const { h, s } = arnyalat(hex);
-        if (h >= 245 && h <= 300 && s > 0.25) expect(hex.toLowerCase(), `${mod}: ${hex}`).toBe("#4b09d8");
-      }
-      for (const rgba of szoveg.match(/rgba?\(\s*\d+\s*,\s*\d+\s*,\s*\d+/g) ?? []) {
-        const [r, g, b] = rgba.replace(/rgba?\(/, "").split(",").map((x) => parseInt(x, 10)) as [number, number, number];
-        if (b > r + 40 && b > g + 40) expect(`${r},${g},${b}`, `${mod}: ${rgba}`).toBe("75,9,216");
+        const { h, s: tel } = arnyalat(hex);
+        expect(h >= 245 && h <= 300 && tel > 0.25, `${mod}: lila ${hex}`).toBe(false);
       }
     }
   });
 
-  it("sötét lapon nincs lila szöveg: a link és a fókusz színe világos", () => {
+  it("sötét lapon a link és a fókusz neon, a betűk Saira", () => {
     const t = modTokenek(alap, "sotet");
-    expect(t["--accent-link"]).toBe("#ececec");
-    expect(t["--focus"]).toBe("#ececec");
-    expect(t["--src-ai"]).not.toBe("#4b09d8");
+    expect(t["--accent-link"]).toBe("#d0ff2c");
+    expect(t["--focus"]).toBe("#d0ff2c");
+    expect(t["--font-display"]).toContain("'Saira Condensed'");
+    expect(t["--font-body"]).toContain("'Saira'");
   });
 
   it("a fej CSS-e: két blokk [data-mod] választóval, jelölés nélkül a sötét", () => {
@@ -51,7 +58,7 @@ describe("R-18 módok", () => {
     expect(css).toContain(':root[data-mod="sotet"],:root:not([data-mod]){');
     expect(css).toContain(':root[data-mod="vilagos"]{');
     expect(css).toContain("--bg:#0a0a0a");
-    expect(css).toContain("--bg:#eceae5");
+    expect(css).toContain("--bg:#ffffff");
     expect(css).toContain("--fs-ui:13px");
     expect(css).not.toMatch(/[<]/);
   });
@@ -61,11 +68,11 @@ describe("R-18 módok", () => {
     expect(modCss(alap)).toContain("--t-mode:250ms");
   });
 
-  it("saját betűk: 14 fájl, latin + latin-ext, Google Fonts nélkül", () => {
-    expect(r18BetuFajlok()).toHaveLength(14);
+  it("saját betűk: 16 fájl (Saira 4, Saira Condensed 2, JetBrains Mono 2 vastagság), latin + latin-ext, Google Fonts nélkül", () => {
+    expect(r18BetuFajlok()).toHaveLength(16);
     const css = betuCss("/betuk");
-    expect(css.match(/@font-face/g)).toHaveLength(14);
-    expect(css).toContain("font-family:'Inter Tight'");
+    expect(css.match(/@font-face/g)).toHaveLength(16);
+    expect(css).toContain("font-family:'Saira Condensed'");
     expect(css).toContain("U+0100-02AF");
     expect(css).not.toContain("googleapis");
   });

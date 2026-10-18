@@ -12,8 +12,8 @@ import { MOD_FEJ_SZKRIPT } from "./_kozos/mod";
 import "./alap.css";
 import "./r18.css";
 
-// R-18 3. kör: a fülikon és a telefonos ikon az a/t jelből (public/r18/ikon, public/favicon.ico) — a régi „K” helyett. Sötét csempe a
-// sötét böngészőhöz, papír csempe a világoshoz; a csempe miatt mindkét fülháttéren olvasható. A manifest: app/manifest.ts.
+// G5 (Rögtön): a fülikon és a telefonos ikon a » jelből (public/r18/ikon, public/favicon.ico — tools/kepernyokep/ikonok.mjs készíti).
+// Tinta csempe neon jellel a sötét böngészőhöz, neon csempe tinta jellel a világoshoz. A manifest: app/manifest.ts.
 export const metadata = {
   robots: { index: false, follow: false },
   icons: {
@@ -73,9 +73,9 @@ export default async function Keret({ children }: { children: ReactNode }) {
     <html lang={nyelv} data-sema={semaFelismer(tokenek as unknown as Partial<Record<string, string>>) ?? "sajat"} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: MOD_FEJ_SZKRIPT }} />
-        {/* R-18: az Inter, Inter Tight és JetBrains Mono saját kiszolgálásról (public/betuk) — a leggyakoribb három előre töltve */}
-        <link rel="preload" href="/betuk/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/betuk/inter-tight-latin-700-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* G5: a Saira, a Saira Condensed és a JetBrains Mono saját kiszolgálásról (public/betuk) — a leggyakoribb három előre töltve */}
+        <link rel="preload" href="/betuk/saira-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/betuk/saira-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/betuk/jetbrains-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* A Google Fonts sor az arculat (cég) betűválasztójának mintáihoz marad (Sora, Archivo, Public Sans, …) — a felület betűi már nem innen jönnek. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

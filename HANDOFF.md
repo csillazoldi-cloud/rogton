@@ -1,5 +1,18 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G5 — re-skin (gyorsmedia palette, Saira, » logo, dark by default)
+
+- Tokens: `tema-sotet.json` (neon primary with ink text, orange accent, white text on ink), `tema-vilagos.json` (ink primary with
+  neon text, orange fill with ink text, #B83200 for orange text), radii 2–4 px; `modok.ts` glass / aurora (neon + orange, low),
+  new `--marka-jel`, `--on-accent`, `--marka-arany`, `--cap-ratio` 0.688 (Saira Condensed, measured from the font file).
+- Fonts: Saira 400–700 + Saira Condensed 600/700 (latin + latin-ext) self-hosted; Inter / Inter Tight files and the a/t PNGs removed.
+- Logo: `Marka.tsx` draws the » (gyorsmedia favicon geometry) and the outlined „Rögtön” wordmark (Saira Condensed 800, −12°).
+- Icons regenerated from the » by `tools/kepernyokep/ikonok.mjs` (same file names; favicon.ico = 16 + 32 px PNG-in-ICO).
+- Dark by default (`MOD_FEJ_SZKRIPT`; the toggle no longer follows the device). Calendar „today” dot text uses `--on-accent`.
+- Tests (reasons in place): `modok.proba` (palette rule instead of „one purple”, 16 font files, Saira), `r18-arculat` (PNGs gone,
+  `--primary:#d0ff2c`). apps/web failure list identical to abfbf73; Tibor: nothing worse, 8 better. Decision doc:
+  `docs/decisions/2026-10-18-g5-arculat.md` (contrast table).
+
 ## 2026-10-18 G4 — identity scrub + banned-string guard
 
 - **Labels:** `0181_g4_rogton_nev_es_peldak.sql` (128 rows, hu/ro/en): product name → Rögtön (also the old name's RO/EN

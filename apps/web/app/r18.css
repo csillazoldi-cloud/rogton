@@ -42,24 +42,15 @@ html.mod-valt body { transition: background-color var(--t-mode) ease, color var(
 @keyframes km-lelegzik-2 { 0% { transform: translate3d(0, 0, 0) scale(0.85); opacity: var(--aur-min, 0.25); } 100% { transform: translate3d(-10%, 8%, 0) scale(1.2); opacity: var(--aur-max, 0.9); } }
 @keyframes km-lelegzik-3 { 0% { transform: translate3d(0, 0, 0) scale(0.85); opacity: calc(var(--aur-min, 0.25) * 0.8); } 100% { transform: translate3d(6%, -9%, 0) scale(1.2); opacity: calc(var(--aur-max, 0.9) * 0.65); } }
 
-/* ---------- 1b. A termékjel (a/t + NÉV) — közös a felső sávval és a nyilvános fejlécekkel (_kozos/Marka.tsx) ----------
-   2. kör (Csilla 10-11): a név alapvonala (= a nagybetűk alja) a jel „a” betűjének aljára ül, nem középre: align-items: baseline — a jel
-   dobozának nincs szöveges alapvonala, ezért a böngésző a doboz aljából képzi, és a doboz alja = az „a” alja (a kép 155 sorából a 153,5.,
-   mérve a PNG-n). A térköz a korábbi 1,5-szerese (asztal 10 → 15 px, telefon 8 → 12 px). A név mérete marad (a rajz × 0,8). */
-.r18-marka, .r18-marka:hover { display: flex; align-items: baseline; gap: calc(var(--ter-5) * 1.5); flex: none; min-width: 0; color: var(--text); text-decoration: none; }
-.r18-jel { position: relative; display: block; flex: none; height: var(--jel-h); width: calc(var(--jel-h) * 1.6); } /* a jel aránya 248:155 */
-.r18-jel img { position: absolute; inset: var(--ter-0); width: 100%; height: 100%; object-fit: contain; transition: opacity var(--t-mode) ease; }
-:root[data-mod="vilagos"] .r18-jel-sotet, :root:not([data-mod="vilagos"]) .r18-jel-vilagos { opacity: 0; }
-.r18-marka-nev {
-  font-family: var(--font-display-active);
-  font-weight: var(--fw-head);
-  font-size: calc(var(--jel-h) / var(--cap-ratio) * var(--nev-arany)); /* tokenőr: ok — tokenekből számolt: a jel magassága / nagybetű-arány × 0,8 */
-  line-height: 1;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-@media (max-width: 640px) { .r18-marka { --jel-h: var(--jel-h-tel); gap: calc(var(--ter-4) * 1.5); } }
+/* ---------- 1b. A termékjel (» + Rögtön) — közös a felső sávval és a nyilvános fejlécekkel (_kozos/Marka.tsx) ----------
+   G5 (Rögtön): két svg ugyanazzal a függőleges kerettel; a magasság a nagybetű (= a » jel) magasságából: --jel-h × --marka-arany.
+   A térköz a rajzban van (a két svg közvetlenül egymás mellett). */
+.r18-marka, .r18-marka:hover { display: flex; align-items: center; gap: var(--ter-0); flex: none; min-width: 0; color: var(--text); text-decoration: none; }
+.r18-jel, .r18-marka-nev { display: block; flex: none; line-height: 0; }
+.r18-jel svg, .r18-marka-nev svg { display: block; height: calc(var(--jel-h) * var(--marka-arany)); width: auto; overflow: visible; }
+.r18-jel-alak { fill: var(--marka-jel); transition: fill var(--t-mode) ease; }
+.r18-nev-alak { fill: currentColor; }
+@media (max-width: 640px) { .r18-marka { --jel-h: var(--jel-h-tel); } }
 
 /* a mód-váltó gomb (felső sáv és a nyilvános fejlécek): azt a módot mutatja, amit kapsz */
 .r18-mod-gomb {

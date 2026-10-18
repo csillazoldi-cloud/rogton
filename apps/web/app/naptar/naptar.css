@@ -110,7 +110,7 @@
 .r18n8-oszlop-fej { display: flex; align-items: center; justify-content: space-between; gap: var(--ter-2); min-height: var(--control-min-s); padding: var(--ter-0) var(--ter-1); }
 .r18n8-rovid { font-family: var(--font-code); font-weight: var(--fw-ui); font-size: var(--fs-cimke); color: var(--text-mut); }
 .r18n8-szam { font-family: var(--font-display); font-weight: var(--fw-head); font-size: var(--fs-title); color: var(--text); line-height: 1; }
-.r18n8-szam-ma { display: inline-flex; align-items: center; justify-content: center; width: var(--control-min-s); height: var(--control-min-s); max-width: 30px; max-height: 30px; border-radius: 50%; background: var(--accent); color: var(--on-primary); font-size: var(--fs-md); } /* tokenőr: ok — a rajz mai napjának kör-jele */
+.r18n8-szam-ma { display: inline-flex; align-items: center; justify-content: center; width: var(--control-min-s); height: var(--control-min-s); max-width: 30px; max-height: 30px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: var(--fs-md); } /* tokenőr: ok — a rajz mai napjának kör-jele; G5: narancson mindig tinta szöveg */
 .r18n8-oszlop-posztok { display: flex; flex-direction: column; gap: var(--ter-4); flex: 1 1 auto; min-width: 0; }
 .r18n8-plusz {
   display: flex; align-items: center; justify-content: center; min-height: var(--control-min-s); border: var(--bw) dashed var(--line); border-radius: var(--r-btn);

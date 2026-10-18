@@ -7,7 +7,7 @@
 import { useEffect, useState } from "react";
 import type { Mod } from "@rogton/design-system";
 import { useFeliratok } from "../../nyelv/kliens";
-import { MOD_ESEMENY, aktualisMod, modBeallit, taroltMod } from "./mod";
+import { MOD_ESEMENY, aktualisMod, modBeallit } from "./mod";
 
 function useMod(): [Mod, () => void] {
   const [mod, setMod] = useState<Mod>("sotet");
@@ -15,11 +15,8 @@ function useMod(): [Mod, () => void] {
     setMod(aktualisMod());
     const figyel = (e: Event) => setMod((e as CustomEvent<Mod>).detail);
     window.addEventListener(MOD_ESEMENY, figyel);
-    // Ha a felhasználó még nem választott, a készülék váltását követjük (pl. esti automatikus sötét mód).
-    let mq: MediaQueryList | null = null;
-    const keszulek = () => { if (!taroltMod() && mq) modBeallit(mq.matches ? "vilagos" : "sotet", { tarol: false }); };
-    try { mq = window.matchMedia("(prefers-color-scheme: light)"); mq.addEventListener("change", keszulek); } catch { mq = null; }
-    return () => { window.removeEventListener(MOD_ESEMENY, figyel); mq?.removeEventListener("change", keszulek); };
+    // G5 (Rögtön): a készülék módja nem dönt — választás nélkül a sötét az alap (mod.ts), így a készülék váltását sem követjük.
+    return () => { window.removeEventListener(MOD_ESEMENY, figyel); };
   }, []);
   return [mod, () => modBeallit(mod === "sotet" ? "vilagos" : "sotet")];
 }

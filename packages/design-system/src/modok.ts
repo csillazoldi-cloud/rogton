@@ -2,7 +2,8 @@
 // tema-vilagos.json). A felhasználó a fejléc váltójával választ; első látogatáskor a készülék beállítása dönt (prefers-color-scheme).
 // A választás a böngészőben marad (localStorage `km-mod`), szerverre nem kerül. A mód a <html data-mod="sotet|vilagos"> jelölésből
 // dolgozik: a lap feje (layout) a modCss() blokkjait teszi ki a hatásos (szervezeti) tokenkészlet UTÁN, magasabb specificitással,
-// így a mód kulcsai (színek, betűk, lekerekítés, üveg, fényudvar) mindig a jóváhagyott rajz értékei — „egyetlen lila: #4b09d8”.
+// így a mód kulcsai (színek, betűk, lekerekítés, üveg, fényudvar) mindig a jóváhagyott értékek. G5 (Rögtön): tinta / neonzöld #D0FF2C /
+// narancs #FF4501, Saira Condensed + Saira; alapból SÖTÉT (a készülék beállítása nem dönt, csak a felhasználó választása).
 // Ami nem mód-kulcs (betűméret, térköz-skála, vezérlőméret), az továbbra is a szervezet témájából jön.
 // Döntés: docs/decisions/2026-10-11-r18-arculatfrissites.md · rajz: design/R18-arculatfrissites/ (IRANYOK.md, IRANYOK-round4.md).
 import alapJson from "./tema-alap.json";
@@ -40,52 +41,56 @@ export function modFelulirasok(mod: Mod): TemaFelulirasok {
  * IRANYOK.md „Revised values (round 2 → round 3)”.
  */
 export const MOD_SAJAT: Record<Mod, Record<string, string>> = {
+  // G5 (Rögtön, 2026-10-18): tinta / neonzöld / narancs. A fényudvar halk (neon + narancs, alacsony fedéssel); a „lila” helyett neon.
   sotet: {
-    "--uveg-bg": "rgba(255,255,255,0.05)",
-    "--uveg-tomor": "#151515",
-    "--uveg-el": "rgba(255,255,255,0.09)",
-    "--uveg-feny": "rgba(255,255,255,0.10)",
-    "--uveg-arnyek": "0 10px 30px -12px rgba(0,0,0,0.6)",
-    "--sav-bg": "rgba(10,10,10,0.62)",
-    "--aur-1": "#4b09d8",
-    "--aur-2": "#4b09d8",
-    "--aur-3": "#eb5928",
+    "--uveg-bg": "rgba(255,255,255,0.04)",
+    "--uveg-tomor": "#141414",
+    "--uveg-el": "rgba(255,255,255,0.10)",
+    "--uveg-feny": "rgba(255,255,255,0.08)",
+    "--uveg-arnyek": "0 10px 30px -12px rgba(0,0,0,0.7)",
+    "--sav-bg": "rgba(10,10,10,0.78)",
+    "--aur-1": "rgba(208,255,44,0.55)",
+    "--aur-2": "rgba(208,255,44,0.30)",
+    "--aur-3": "rgba(255,69,1,0.45)",
     "--halvany": "0.13",
-    // 2. kör (a megrendelő 10-11, „nem lüktet”): a légzés látható íve és sötétben erősebb lila — a réteg 0,55 × 1,6 ≈ 0,88
-    "--aurora-szorzo": "1.6",
-    "--aur-min": "0.25",
-    "--aur-max": "0.9",
-    "--btn-edge": "rgba(255,255,255,0.24)",
-    "--btn-shadow": "rgba(0,0,0,0.55)",
-    "--hover-edge": "rgba(255,255,255,0.28)",
-    "--glow": "rgba(75,9,216,0.35)",
-    "--fatyol-menu": "rgba(0,0,0,0.42)",
-    // egyetlen lila: sötét lapon lila SZÖVEG nincs (IRANYOK.md one-purple rule) — az AI/web eredet jele halk szürke, lila alappal
-    "--src-web": "#b3b3b3",
-    "--src-ai": "#b3b3b3",
-    "--src-web-bg": "rgba(75,9,216,0.22)",
-    "--src-ai-bg": "rgba(75,9,216,0.22)",
+    "--aurora-szorzo": "1",
+    "--aur-min": "0.15",
+    "--aur-max": "0.45",
+    "--btn-edge": "rgba(255,255,255,0.22)",
+    "--btn-shadow": "rgba(0,0,0,0.6)",
+    "--hover-edge": "rgba(255,69,1,0.75)",
+    "--glow": "rgba(208,255,44,0.30)",
+    "--fatyol-menu": "rgba(0,0,0,0.5)",
+    // az AI/web eredet jele halk szürke szöveg, neon alappal (a neon itt csak felület)
+    "--src-web": "#c4c4c4",
+    "--src-ai": "#c4c4c4",
+    "--src-web-bg": "rgba(208,255,44,0.14)",
+    "--src-ai-bg": "rgba(208,255,44,0.14)",
+    // a » jel színe (Marka.tsx) és a narancs / neon kitöltésen álló szöveg színe (mindig tinta)
+    "--marka-jel": "#d0ff2c",
+    "--on-accent": "#0a0a0a",
   },
   vilagos: {
-    "--uveg-bg": "rgba(255,255,255,0.58)",
-    "--uveg-tomor": "#f6f5f1",
-    "--uveg-el": "rgba(17,17,17,0.08)",
-    "--uveg-feny": "rgba(255,255,255,0.85)",
-    "--uveg-arnyek": "0 10px 30px -14px rgba(42,36,24,0.25)",
-    "--sav-bg": "rgba(236,234,229,0.66)",
-    "--aur-1": "rgba(75,9,216,0.42)",
-    "--aur-2": "rgba(75,9,216,0.22)",
-    "--aur-3": "#ffb894",
+    "--uveg-bg": "rgba(255,255,255,0.72)",
+    "--uveg-tomor": "#ffffff",
+    "--uveg-el": "rgba(10,10,10,0.10)",
+    "--uveg-feny": "rgba(255,255,255,0.9)",
+    "--uveg-arnyek": "0 10px 30px -14px rgba(10,10,10,0.22)",
+    "--sav-bg": "rgba(255,255,255,0.78)",
+    "--aur-1": "rgba(208,255,44,0.45)",
+    "--aur-2": "rgba(208,255,44,0.25)",
+    "--aur-3": "rgba(255,69,1,0.18)",
     "--halvany": "0.14",
-    // világosban finomabban: a réteg 0,70 × 1,1 ≈ 0,77, az ív 0,35 → 0,8
-    "--aurora-szorzo": "1.1",
-    "--aur-min": "0.35",
-    "--aur-max": "0.8",
+    "--aurora-szorzo": "1",
+    "--aur-min": "0.2",
+    "--aur-max": "0.55",
     "--btn-edge": "transparent",
-    "--btn-shadow": "rgba(42,36,24,0.28)",
-    "--hover-edge": "rgba(75,9,216,0.40)",
-    "--glow": "rgba(75,9,216,0.35)",
-    "--fatyol-menu": "rgba(40,32,20,0.24)",
+    "--btn-shadow": "rgba(10,10,10,0.25)",
+    "--hover-edge": "rgba(255,69,1,0.8)",
+    "--glow": "rgba(10,10,10,0.18)",
+    "--fatyol-menu": "rgba(10,10,10,0.24)",
+    "--marka-jel": "#0a0a0a",
+    "--on-accent": "#0a0a0a",
   },
 };
 
@@ -96,13 +101,15 @@ export const R18_KOZOS: Readonly<Record<string, string>> = {
   "--fs-gomb": "14px", // fő gomb
   "--fs-ui-kicsi": "11.5px", // telefonos csempék, számjelvény
   "--fs-cimke": "12px", // csoportcímek, „Készül a kép”
-  "--ls-h1": "-0.028em", // a referencia-oldal h1 88px/−2.46px
-  "--ls-h2": "-0.018em", // a referencia-oldal h2 44px/−0.79px
-  "--jel-h": "22px", // az a/t jel magassága a felső sávban (asztal)
-  "--jel-h-tel": "16px", // … telefonon
-  "--cap-ratio": "0.734", // Inter Tight 700 nagybetű-magasság (mérve, IRANYOK-round4.md)
+  "--ls-h1": "0em", // G5: Saira Condensed — a sűrített betű nem kér szorosabb betűközt
+  "--ls-h2": "0.005em",
+  "--jel-h": "20px", // G5: a » jel (= a név nagybetűinek) magassága a felső sávban (asztal)
+  "--jel-h-tel": "17px", // … telefonon
+  "--cap-ratio": "0.688", // G5: Saira Condensed nagybetű-magasság / em (mérve a betűfájlból: 688/1000)
   // a megrendelő 10-11: „A TERMÉKNÉV should be about 20% smaller than now” — a rajz mérete (jel / 0,734) × 0,8
   "--nev-arany": "0.8",
+  // G5: a logó SVG magassága a nagybetű-magasság (= a » jel) többszöröse — a rajz 104 egység magas, a nagybetű 74 (Marka.tsx)
+  "--marka-arany": "1.405",
   "--sav-h": "72px",
   "--sav-h-tel": "60px",
   "--menu-w": "248px",
