@@ -1,5 +1,5 @@
 /* R-18 arculatfrissítés (2026-10-11, Csilla; rajz: Claude Design „Posztgyár · sötét/világos”; design/R18-arculatfrissites/IRANYOK.md,
-   IRANYOK-round4.md, tema-r3-referencia.css). A lap MINDEN elemére ható réteg: lélegző fényudvar, mód-átúszás, aitmetica.ro-betűrend
+   IRANYOK-round4.md, tema-r3-referencia.css). A lap MINDEN elemére ható réteg: lélegző fényudvar, mód-átúszás, a referencia-oldal-betűrend
    (Inter Tight címek, Inter szöveg, JetBrains Mono menü/gomb/cselekvő link), tömör gombok és kártyák, az aktív doboz vékony lila→narancs
    éle, narancs = „készül”. Funkció nem változik: csak kinézet. Az értékek tokenekből jönnek (design-system modCss: a két mód + R18_KOZOS).
    A szabályok `:root[data-mod]` előtaggal erősebbek a lapok saját stíluslapjainál (azok a layout után töltődnek be); a jelölést a fej
@@ -18,7 +18,7 @@ html.mod-valt { transition: --aur-1 var(--t-mode) ease, --aur-2 var(--t-mode) ea
 html.mod-valt body { transition: background-color var(--t-mode) ease, color var(--t-mode) ease; }
 
 /* ---------- 1. Lélegző fényudvar: három elmosott folt (egyetlen lila + narancs), csak transform/opacity mozog ----------
-   2. kör (Csilla 10-11: „nem lüktet, vagy alig látszik”; élőben mérve: a foltok 0,44–0,81 között, 4 %-os csúszással): az aitmetica.ro
+   2. kör (Csilla 10-11: „nem lüktet, vagy alig látszik”; élőben mérve: a foltok 0,44–0,81 között, 4 %-os csúszással): az a referencia-oldal
    nyitóképéhez hasonlóan JÓL LÁTHATÓ légzés — átlátszóság 0,25 → 0,9 (világosban 0,35 → 0,8, finomabban), méret 0,85 → 1,2, csúszás 6–10 %,
    gyorsabb ritmus (7–9 s), sötétben erősebb lila (a teljes réteg a mód szorzójával, --aurora-szorzo). */
 .km-aurora { position: fixed; inset: var(--ter-0); z-index: -1; overflow: hidden; pointer-events: none; opacity: calc(var(--aurora-atlatszo, 0) * var(--aurora-szorzo, 1)); }
@@ -79,7 +79,7 @@ html.mod-valt body { transition: background-color var(--t-mode) ease, color var(
 :root:not([data-mod="vilagos"]) .r18-mod-gomb .r18-ik-hold, :root[data-mod="vilagos"] .r18-mod-gomb .r18-ik-nap { opacity: 0; transform: rotate(-60deg) scale(0.6); }
 
 
-/* ---------- 2. Betűrend (aitmetica.ro): címek Inter Tight 700 szoros betűközzel; menü, gomb, cselekvő link JetBrains Mono 500 ---------- */
+/* ---------- 2. Betűrend (a referencia-oldal): címek Inter Tight 700 szoros betűközzel; menü, gomb, cselekvő link JetBrains Mono 500 ---------- */
 :root[data-mod] .r15-kerdes, :root[data-mod] .km-h1 { letter-spacing: var(--ls-h1); }
 :root[data-mod] .r15-teendo-cim, :root[data-mod] .r15-kartya-cim, :root[data-mod] .r15-kartya-nagy, :root[data-mod] .km-vz2-helyzet-nev, :root[data-mod] h2 {
   font-family: var(--font-display-active); font-weight: var(--fw-head); letter-spacing: var(--ls-h2);
@@ -154,31 +154,10 @@ html.mod-valt body { transition: background-color var(--t-mode) ease, color var(
   border-radius: var(--r-kerek, var(--r-badge));
 }
 
-/* ---------- 8. A halvány aitmetica felirat (díszítés) — a lap VÉGÉN, a tartalom után (sosem a tartalom fölött; 7. kör, koordinátor 10-12) ---------- */
-.r18-halvany-logo {
-  position: relative; pointer-events: none; opacity: var(--halvany, 0.13);
-  width: var(--hl-w); height: var(--hl-h);
-  /* asztal: a tartalomoszlop bal szélén (a keret 1180-as, középre tett, --ter-10 margóval), a lap alján */
-  margin: var(--ter-8) var(--ter-0) var(--ter-0) max(var(--ter-10), calc((100vw - var(--lista-max)) / 2 + var(--ter-10)));
-}
-.r18-halvany-logo img { position: absolute; inset: var(--ter-0); width: 100%; height: 100%; object-fit: contain; transition: opacity var(--t-mode) ease; }
-:root[data-mod="vilagos"] .r18-hl-sotet, :root:not([data-mod="vilagos"]) .r18-hl-vilagos { opacity: 0; }
-@media (max-width: 640px) {
-  /* telefon: középen, a lap végén */
-  .r18-halvany-logo { width: var(--hl-w-tel); height: var(--hl-h-tel); margin: var(--ter-8) auto var(--ter-0); }
-  /* R-18 8. kör (koordinátor 10-15: a felirat a képernyőhöz rögzítve a doboz alján ült): az alsó gombsávos keretben a lap a <main>-ben
-     görget, ezért a felirat ott a <main> tartalmának VÉGÉN áll, a folyásban (::after) — a tartalom alatt, soha nem fölötte. A body végi
-     példány ezeken a lapokon rejtve (a lap vége nem látszik). */
-  body:has(.r15-also-sav) .r18-halvany-logo { display: none; }
-  body:has(.r15-also-sav) main.km-lap-keret::after {
-    content: ""; display: block; flex: none; width: var(--hl-w-tel); height: var(--hl-h-tel); margin: var(--ter-8) auto var(--ter-0);
-    background: url("/r18/aitmetica-szurke.png") center / contain no-repeat; opacity: var(--halvany, 0.13); pointer-events: none;
-  }
-  :root[data-mod="vilagos"] body:has(.r15-also-sav) main.km-lap-keret::after { background-image: url("/r18/aitmetica-tinta.png"); }
-}
+/* ---------- 8. (G4, Rögtön: a régi halvány márkafelirat a lap alján kikerült — fájljaival együtt) ---------- */
 
 /* ---------- 8a. A nyilvános fejlécek (nyitólap, belépés, első beállítás, adatkezelés): finom üvegsáv, mint a belépett lapok sávja;
-   a nyitólap gombjai és címei az aitmetica.ro betűivel ---------- */
+   a nyitólap gombjai és címei az a referencia-oldal betűivel ---------- */
 :root[data-mod] .km-ny-fejlec, :root[data-mod] .km-fejlec {
   background: var(--sav-bg); border-bottom-color: var(--line);
   -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(var(--sat-glass)); backdrop-filter: blur(var(--blur-glass)) saturate(var(--sat-glass));

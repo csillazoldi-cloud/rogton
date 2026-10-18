@@ -282,7 +282,7 @@ export function ArculatAnyagok({ arculat, szerkesztheto, valtozik, celok = CELOK
       return new Intl.DateTimeFormat(nyelv, {
         year: "numeric", month: "short", day: "numeric",
         hour: "2-digit", minute: "2-digit",
-        timeZone: "Europe/Bucharest",
+        timeZone: "Europe/Budapest",
       }).format(d);
     } catch {
       return iso;

@@ -58,7 +58,7 @@ export function utolsoSikeres(futasok: Futas[]): Futas | null {
 /** A következő futás ideje: kezi → null; napi → a következő ora:perc az időzónában. */
 export function kovetkezoFutas(idozites: Idozites, most: Date): Date | null {
   if (idozites.mod === "kezi") return null;
-  const zona = idozites.idozona || "Europe/Bucharest";
+  const zona = idozites.idozona || "Europe/Budapest";
   const fmt = new Intl.DateTimeFormat("en-US", { timeZone: zona, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" });
   /** A zóna „helyi” óra-perc-nap részei egy pillanatra. */
   const reszek = (d: Date) => {
@@ -83,7 +83,7 @@ export function kovetkezoFutas(idozites: Idozites, most: Date): Date | null {
  */
 export function esedekes(idozites: Idozites, utolsoKezdet: Date | null, most: Date): boolean {
   if (idozites.mod === "kezi") return false;
-  const zona = idozites.idozona || "Europe/Bucharest";
+  const zona = idozites.idozona || "Europe/Budapest";
   const fmt = new Intl.DateTimeFormat("en-US", { timeZone: zona, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" });
   const reszek = (d: Date) => {
     const r = fmt.formatToParts(d); const g = (t: string) => Number(r.find((x) => x.type === t)?.value ?? "0");

@@ -446,7 +446,7 @@ export const kepPelda = pgTable(
 ).enableRLS();
 
 // R-15 T8 (2026-09-26): a heti haladás számláló eseményei. Egy sor = egy „kep_letoltve” esemény; a hétfő 00:00-tól
-// (Europe/Bucharest) számolunk. Sorszintű védelem a kep_pelda mintájára.
+// (Europe/Budapest) számolunk. Sorszintű védelem a kep_pelda mintájára.
 export const haladEsemeny = pgTable(
   "halad_esemeny",
   {
@@ -481,7 +481,7 @@ export const posztMunka = pgTable(
     letrehozva: timestamp("letrehozva", { withTimezone: true }).notNull().defaultNow(),
     frissitve: timestamp("frissitve", { withTimezone: true }).notNull().defaultNow(),
     letrehozta: uuid("letrehozta").references(() => fiok.id, { onDelete: "set null" }),
-    // R-18 3. kör · Naptár (0166): a kész poszt napja — ÉÉÉÉ-HH-NN szövegként (Bukarest szerinti nap), és mikor tette ki
+    // R-18 3. kör · Naptár (0166): a kész poszt napja — ÉÉÉÉ-HH-NN szövegként (Budapest szerinti nap), és mikor tette ki
     tervezettNap: date("tervezett_nap", { mode: "string" }),
     javasoltNap: date("javasolt_nap", { mode: "string" }),
     kiteve: timestamp("kiteve", { withTimezone: true }),
@@ -891,7 +891,7 @@ export const csomag = pgTable("csomag", {
 });
 
 // F9-A2: az összkép tárolva — futásonként egyszer készül (apps/web/hirfigyelo/osszkep.ts).
-/** R-13 (2026-09-22): a kredit felhasználása — egy sor = egy terhelés egy tagon, ezredben; a hónap Bukarest szerint. */
+/** R-13 (2026-09-22): a kredit felhasználása — egy sor = egy terhelés egy tagon, ezredben; a hónap Budapest szerint. */
 export const kreditMozgas = pgTable(
   "kredit_mozgas",
   {

@@ -159,7 +159,7 @@ export const tesztAi: AiHivo = async (feladat, bemenet) => {
             foldrajzi_fokusz: "",
             nyelvek: ["hu"],
             kizarasok: [],
-            idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Bucharest" },
+            idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Budapest" },
             szabad_szoveg: "",
           },
         },

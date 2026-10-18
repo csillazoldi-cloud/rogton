@@ -210,7 +210,7 @@ export function Feliratok({ kezdo, szervezetNev, tulajdonos, rendszergazda }: { 
   }
 
   const kesz = betoltes === "kesz";
-  const datum = (iso: string) => { try { return new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Bucharest" }).format(new Date(iso)); } catch { return iso; } };
+  const datum = (iso: string) => { try { return new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Budapest" }).format(new Date(iso)); } catch { return iso; } };
   const alattaNev = szint === "kozos" ? t("feliratok.allapot_alap") : t("feliratok.allapot_kozos");
   const visszaNev = szint === "kozos" ? t("feliratok.vissza_alapra") : t("feliratok.vissza_kozosre");
   const csoportSajat = csoportDb.filter(sajat).length;

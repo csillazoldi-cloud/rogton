@@ -21,7 +21,7 @@ export async function iparagiCsomagok(szervezetId: string): Promise<string[]> {
 // a tervezet (akkor is, ha „későbbre” hagyták — 2026-09-28); ha az sincs, a semleges alap a cég nevével — idegen márka soha.
 // Kivétel a logó (A5, 2026-09-30): az a legfrissebb feltöltött logó-fájl, a jóváhagyástól függetlenül (lásd `kepArculat`).
 
-const CIM = process.env["KEPGYAR_URL"] ?? "http://192.168.1.249:8601";
+const CIM = process.env["KEPGYAR_URL"] ?? "http://kepgyar:8601";
 export const HELYZETEK = ["kesz", "akcio", "uj", "hir", "tudtad", "esemeny", "szam"] as const;
 export type Helyzet = (typeof HELYZETEK)[number];
 export const MERETEK = ["poszt", "story", "negyzet"] as const;

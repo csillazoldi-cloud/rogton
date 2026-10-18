@@ -31,7 +31,7 @@ async function main(): Promise<void> {
     foldrajzi_fokusz: "Magyarország",
     nyelvek: ["hu", "ro"],
     kizarasok: ["nagyüzemi"],
-    idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Bucharest" },
+    idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Budapest" },
     szabad_szoveg: "Kézműves bútorok, asztalos műhely.",
   };
   const mentes = await beallitasMent(k, kontextus, beallitas, "ai_elokeszites");

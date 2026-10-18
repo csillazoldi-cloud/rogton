@@ -1,5 +1,37 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G4 — identity scrub + banned-string guard
+
+- **Labels:** `0181_g4_rogton_nev_es_peldak.sql` (128 rows, hu/ro/en): product name → Rögtön (also the old name's RO/EN
+  translations), the old company name, the old city / village examples → Debrecen, the „30 lej” example → 3000 Ft, the
+  data-location line „Románia” → „az Európai Unióban”, „100 MB” → „95 MB”. `0182_g4_magyar_forraspeldak.sql` (13 rows): site
+  examples → telex.hu / probapekseg.hu. Dry runs: INSERT 0 128 / INSERT 0 13, ROLLBACK. JSON base files edited the same way
+  (hf.* stay in sync with the DB).
+- **Code:** feedback Telegram/hub senders removed (`apps/web/visszajelzes/ertesites.ts`, `visszajelzes-core/src/ertesites.ts` and their
+  two test files; the runner hook is gone; the daily package stays in the DB). Faint wordmark (`HalvanyLogo`, its CSS, two PNGs)
+  removed. `/` redirects to `/belepes` (or `/kezdolap` when logged in); `Nyitolap.tsx` removed. Manifest name Rögtön.
+  Timezone Europe/Bucharest → Europe/Budapest in all code (72 places). UA `Mozilla/5.0 (compatible; RogtonBot/1.0)` (robots.txt token
+  `rogtonbot`). Image-maker default `http://kepgyar:8601`, Ollama default `127.0.0.1`. Upload cap 95 MB (Cloudflare reason in place).
+  Prompts: names out of the version headers, old-city rows out of the place-name tables (Kolozsvár examples). Test-AI fixtures →
+  Debrecen. News-source list → 7 national + 5 trade Hungarian feeds, all measured live RSS on 2026-10-18.
+- **Image hygiene:** the standalone build had traced the whole `apps/web` (458 .ts files incl. tests) because of two dynamic fs
+  calls (`fajl/tar.ts`, `visszajelzes/export.ts`) — fixed with `turbopackIgnore` + tracing excludes; now `.next/standalone/apps/web`
+  holds only `.next`, `prompts`, `server.js`. The Dockerfile deletes `*.map` (server source maps carried the comments).
+- **Guard:** `tools/tiltott/` (`minta.txt`, `engedett.txt`, `ellenoriz.mjs`), `pnpm tiltott` at the end of `ellenoriz`. Modes:
+  repo (default), `--kep`, `--db`, `--bejar [--fiok]`, `--sql-minta`. Old migrations: comment lines tolerated; label rows tolerated
+  ONLY when a 0181+ migration overwrites the same (key, lang) — checked structurally. Results: repo 0, simulated image 0, DB 0,
+  crawl of the standalone server (262 URLs, logged in) 0. Mutations: DB label → red (db + crawl), new migration with the old city → red.
+- **Tests (reasons in place):** 95 MB boundaries (fajl-core, nagy-feltoltes), Budapest times (futas, album-szabaly, horgony),
+  place-name tables (poszt-bemenet, poszt-forditas-elavult), feed list (forras-ajanlo, szakmai-hely), r18-arculat (PNGs gone),
+  vj-tg-hub (now asserts the sender is gone), c30-f6 (fixture place). Removed: c1c7-ertesitesek, visszajelzes-core ertesites.
+  apps/web 1081/1034/16/31, failure list identical to abfbf73.
+- **kirak.sh dry run** (fake `docker`, real git archive / migral.sh / psql / guard / nginx on :8410 / curl): first deploy → 183
+  migrations, label guard 0, health 200, crawl 0, exit 0; second run → no-op; nginx down → exit 4 with rollback to `:elozo`;
+  banned word in the image → exit 5. Two fixes from it: the health code read „000000” on a refused connection; a first deploy with
+  no previous image now says so instead of claiming a rollback. Log: plan-out/kirak-szaraz-futas.log.
+- **Gotcha:** a dynamic `fs` path in any server module makes Turbopack trace the whole project into the standalone output —
+  watch for the „Dynamic filesystem access causes tracing of the whole project” warning in `pnpm epit`.
+
 ## 2026-10-18 G3 — Hungarian-only interface
 
 - `@rogton/design-system` nyelvek.ts: `FELULETI_NYELVEK = ['hu']`, `ALAP_NYELV = 'hu'` (was `en`), `feluletiNyelv()`,

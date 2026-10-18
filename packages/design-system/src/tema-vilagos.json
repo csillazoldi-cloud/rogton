@@ -1,7 +1,7 @@
 {
   "$schema": "km-theme/2",
   "name": "R-18 Világos mód (Papír)",
-  "_megjegyzes": "R-18 arculatfrissítés: a termék világos módja. Forrás: design/R18-arculatfrissites/tema-B.json (Csilla jóváhagyása, 2026-10-11). Egyetlen lila: #4b09d8. A modok.ts ebből számolja a [data-mod] blokkot; a felhasználó a fejléc váltójával választ.",
+  "_megjegyzes": "R-18 arculatfrissítés: a termék világos módja. Forrás: design/R18-arculatfrissites/tema-B.json (a megrendelő jóváhagyása, 2026-10-11). Egyetlen lila: #4b09d8. A modok.ts ebből számolja a [data-mod] blokkot; a felhasználó a fejléc váltójával választ.",
   "tokens": {
     "--bg": "#eceae5",
     "--bg-elev": "#f7f6f2",

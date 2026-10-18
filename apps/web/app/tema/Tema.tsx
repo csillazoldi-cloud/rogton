@@ -230,7 +230,7 @@ export function Tema({ kezdo, szervezetNev, tulajdonos, rendszergazda }: { kezdo
 
   const kesz = betoltes === "kesz";
   const { nyelv } = useFeliratok();
-  const datum = (iso: string) => { try { return new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Bucharest" }).format(new Date(iso)); } catch { return iso; } };
+  const datum = (iso: string) => { try { return new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Budapest" }).format(new Date(iso)); } catch { return iso; } };
   const szintJelveny = szint === "kozos" ? t("tema.szint_kozos") : t("tema.szint_szervezet");
 
   // az alsó sáv mondata: hány TÉRKÖZ-fok tér el az alkalmazott készlettől (a rajz: „A tervezet {n} fokot módosít”)

@@ -1,5 +1,5 @@
 // A képgyártó: recept + arculat + tartalom → kép (PNG), mérés, illesztés, szabályellenőrzés.
-// A Gigabyte-on fut (Vilmos döntése, V-6), a NAS-on futó munkatér HTTP-n kéri tőle a képet.
+// A képgyártó gépén fut (a terméktulajdonos döntése, V-6), a NAS-on futó munkatér HTTP-n kéri tőle a képet.
 // Egy böngésző, egy lap, EGYSZERRE EGY kép — a kérések sorban várnak. Minden kép ugyanazzal a
 // kirajzolóval készül, ezért az előnézet és a letöltés képpontra azonos.
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
@@ -274,7 +274,7 @@ async function helyzetMinta(b: { helyzet?: unknown; arculat?: unknown; nyelv?: u
   const nyelv = ["hu", "ro", "en"].includes(String(b.nyelv)) ? String(b.nyelv) : "hu";
   // c15 (2026-10-08): a fotó a munkatér szakmájához illik (minta-foto.ts); ismeretlen szakma → a semleges fotó
   const nyers = b.tartalom ?? undefined;
-  // R-15 c5 2. kör (Csilla 10-10 18:08): az „Újdonság” mintája is fotót kap — az alap a helyzet SAJÁT általános mintája
+  // R-15 c5 2. kör (a megrendelő 10-10 18:08): az „Újdonság” mintája is fotót kap — az alap a helyzet SAJÁT általános mintája
   const alapMinta = b.helyzet === "uj" ? MINTA[nyelv]?.["uj"] : MINTA[nyelv]?.["kesz"];
   const tartalom = mintaFotoval(b.helyzet, nyers, alapMinta, mintaFotoAdat(kategoria));
   const fotos = tartalom !== nyers;

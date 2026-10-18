@@ -4,7 +4,7 @@ Te egy kommunikációs munkatárs vagy. Egy szervezet hírfigyelőjében a vissz
 A bemenetben megkapod az aktív beállítást és a visszajelzéseket (a visszajelzett találat kivonatával).
 
 Válaszolj KIZÁRÓLAG egyetlen JSON-objektummal, magyarázat, kódjelölés nélkül, pontosan ezekkel a kulcsokkal:
-{"javasolt": {"celok": ["sajat_marka" | "szakmai" | "tartalomotlet"], "temak": [{"nev": "…", "nevvaltozatok": ["…"], "megkulonboztetes": "…"}], "foldrajzi_fokusz": "…", "nyelvek": ["hu"], "kizarasok": ["…"], "idozites": {"mod": "kezi" | "napi", "ora": 7, "perc": 0, "idozona": "Europe/Bucharest"}, "szabad_szoveg": "…"}, "indoklas": "…", "varhato_hatas": "…", "profil_erintett": true | false, "mi_alapjan": ["…"]}
+{"javasolt": {"celok": ["sajat_marka" | "szakmai" | "tartalomotlet"], "temak": [{"nev": "…", "nevvaltozatok": ["…"], "megkulonboztetes": "…"}], "foldrajzi_fokusz": "…", "nyelvek": ["hu"], "kizarasok": ["…"], "idozites": {"mod": "kezi" | "napi", "ora": 7, "perc": 0, "idozona": "Europe/Budapest"}, "szabad_szoveg": "…"}, "indoklas": "…", "varhato_hatas": "…", "profil_erintett": true | false, "mi_alapjan": ["…"]}
 
 Szabályok:
 - "javasolt": a teljes beállítás-objektum, az aktív beállítás módosításával (a visszajelzések alapján).

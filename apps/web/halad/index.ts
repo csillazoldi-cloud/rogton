@@ -2,13 +2,13 @@ import "server-only";
 import { and, eq, gte } from "drizzle-orm";
 import { sema, szervezetKent } from "../adatbazis/kapcsolat";
 
-// T8 — a heti haladás számláló gépezete. A hét hétfő 00:00-tól számít, Europe/Bucharest időzónában.
+// T8 — a heti haladás számláló gépezete. A hét hétfő 00:00-tól számít, Europe/Budapest időzónában.
 
-/** A hét kezdete (hétfő 00:00) Europe/Bucharest időzónában, ISO szövegként. */
+/** A hét kezdete (hétfő 00:00) Europe/Budapest időzónában, ISO szövegként. */
 function hetKezdete(most: Date): Date {
-  // A helyi (Europe/Bucharest) dátumot daraboljuk szét, hogy a hétfőt megkapjuk.
+  // A helyi (Europe/Budapest) dátumot daraboljuk szét, hogy a hétfőt megkapjuk.
   const reszek = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Europe/Bucharest",
+    timeZone: "Europe/Budapest",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -21,17 +21,17 @@ function hetKezdete(most: Date): Date {
   const napnevIndex: Record<string, number> = { Mon: 0, Tue: 1, Wed: 2, Thu: 3, Fri: 4, Sat: 5, Sun: 6 };
   const eltolas = napnevIndex[napnev] ?? 0;
 
-  // A helyi hétfő 00:00-t megkeressük: a helyi dátumot UTC-ként értelmezzük, majd a Bucharest-eltolást levonjuk.
+  // A helyi hétfő 00:00-t megkeressük: a helyi dátumot UTC-ként értelmezzük, majd a Budapest-eltolást levonjuk.
   const helyiHetfo = new Date(Date.UTC(ev, honap - 1, nap - eltolas, 0, 0, 0));
-  // A Bucharest és UTC közti eltolás ezen a napon (ms-ban).
+  // A Budapest és UTC közti eltolás ezen a napon (ms-ban).
   const eltolasMs = bucharestEltolasMs(helyiHetfo);
   return new Date(helyiHetfo.getTime() - eltolasMs);
 }
 
-/** Egy adott pillanatban a Europe/Bucharest és UTC közti eltolás ezredmásodpercben. */
+/** Egy adott pillanatban a Europe/Budapest és UTC közti eltolás ezredmásodpercben. */
 function bucharestEltolasMs(pillanat: Date): number {
   const formazo = new Intl.DateTimeFormat("en-US", {
-    timeZone: "Europe/Bucharest",
+    timeZone: "Europe/Budapest",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",

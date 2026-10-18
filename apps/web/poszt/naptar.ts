@@ -1,5 +1,5 @@
 // R-18 3. kör · Naptár (Csilla 10-11; rajz: Claude Design „Naptár …” A/B, design/R18-arculatfrissites/IRANYOK.md Round 5) — a TISZTA
-// szabályok: a nap kulcsa (Europe/Bucharest), a hét, a gép által javasolt nap és a heti számláló. Se adatbázis, se React: próbával őrizve
+// szabályok: a nap kulcsa (Europe/Budapest), a hét, a gép által javasolt nap és a heti számláló. Se adatbázis, se React: próbával őrizve
 // (probak/r18-naptar.proba.ts). A tárolás a poszt_munka három új oszlopa (0166): tervezett_nap, javasolt_nap, kiteve — a poszt/tar.ts-ben.
 
 /** ÉÉÉÉ-HH-NN — egy naptári nap, időzóna nélkül. */
@@ -19,13 +19,13 @@ export type NaptarPoszt = {
   kiteve: string | null;
 };
 
-export const NAPTAR_IDOZONA = "Europe/Bucharest";
+export const NAPTAR_IDOZONA = "Europe/Budapest";
 /** A „Másik nap” választója: ma + a következő 13 nap (14 sor, a rajz napválasztója szerint). */
 export const VALASZTO_NAPOK = 14;
 
 const napFormazo = new Intl.DateTimeFormat("en-CA", { timeZone: NAPTAR_IDOZONA, year: "numeric", month: "2-digit", day: "2-digit" });
 
-/** A naptári nap Bukarest szerint. */
+/** A naptári nap Budapest szerint. */
 export function napKulcs(d: Date): Nap {
   return napFormazo.format(d);
 }

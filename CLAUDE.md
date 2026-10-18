@@ -23,7 +23,7 @@ not part of this repo. New work references a decision in `docs/decisions/` or ca
 - Module boundaries are law: `pnpm hatar` must stay green (the 2 known cycles in `apps/web/profil` ↔ `apps/web/vizual` are the only tolerated violations until fixed).
 - Tenant data is always separated: organisation context everywhere, row-level security.
 - All UI text comes from label keys (`felirat`), added through a NEW migration. An applied migration file is never edited.
-- Banned strings (old product, company, place and team names, private hosts and IPs) never reach the image, the DB labels or a served page.
+- Banned strings (the list in `tools/tiltott/minta.txt`: old product, company, place and team names, private hosts and IPs) never reach the image, the DB labels or a served page. `pnpm tiltott` is part of `ellenoriz`; `uzem/kirak.sh` runs the same guard on the built image, on the DB labels after the migrations and on the running site, and stops the deploy on any hit. Tolerated places are listed with a reason in `tools/tiltott/engedett.txt`.
 - Secrets live only in the host's `.env` / secret files, never in the repo, never printed.
 
 ## How we work
@@ -49,5 +49,5 @@ pre-filled; little text; phone first (390 px). Tools: `tools/tibor-proba`, `tool
 
 ## Checks before every push
 
-`pnpm tipus`, `pnpm hatar`, `pnpm tokenor`, `pnpm keretor`, the unit tests (`pnpm -r --if-present run proba`).
+`pnpm tipus`, `pnpm hatar`, `pnpm tokenor`, `pnpm keretor`, `pnpm epit` + `pnpm tiltott`, the unit tests (`pnpm -r --if-present run proba`).
 `pnpm ellenoriz` runs the chain.

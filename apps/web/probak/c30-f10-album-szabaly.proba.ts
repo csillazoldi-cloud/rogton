@@ -84,8 +84,9 @@ describe("a válogatás tartaléka és a gép válasza", () => {
     expect(valogatasErtelmez("nem JSON", 10)).toBeNull();
     expect(valogatasErtelmez(null, 10)).toBeNull();
   });
-  it("valogatasSorok: sorszám és Bukarest szerinti idő", () => {
-    expect(valogatasSorok([{ keszult: "2026-06-27T18:14:00Z" }, { keszult: null }])).toEqual(["1. fotó · 06. 27. 21:14", "2. fotó"]);
+  // G4 (Rögtön, 2026-10-18): az időzóna Europe/Budapest (nyáron UTC+2, a régi Bukarest UTC+3 helyett): 18:14Z = 20:14 helyi
+  it("valogatasSorok: sorszám és Budapest szerinti idő", () => {
+    expect(valogatasSorok([{ keszult: "2026-06-27T18:14:00Z" }, { keszult: null }])).toEqual(["1. fotó · 06. 27. 20:14", "2. fotó"]);
   });
   it("athelyez (D8c): Előrébb / Hátrébb egy hellyel; a szélén nincs mozgás", () => {
     expect(athelyez(["a", "b", "c"], 1, -1)).toEqual(["b", "a", "c"]);

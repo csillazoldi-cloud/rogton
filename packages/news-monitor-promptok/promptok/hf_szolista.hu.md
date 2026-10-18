@@ -1,4 +1,4 @@
-<!-- prompt: hírfigyelő szólista az előszűrőhöz · v1 · 2026-09-22 · Vilmos: „ne is nézzen olyan cikket, ami nem a témába vagy iránytűbe vág” -->
+<!-- prompt: hírfigyelő szólista az előszűrőhöz · v1 · 2026-09-22 · „ne is nézzen olyan cikket, ami nem a témába vagy iránytűbe vág” -->
 Egy hírfigyelő előszűrőjéhez készítesz szólistát. Ezzel a listával a PROGRAM, AI nélkül dönti el, hogy egy cikket
 a gép egyáltalán elolvasson-e: csak az a cikk megy tovább, amelyben szerepel a hely valamelyik alakja ÉS egy téma
 valamelyik szava, vagy a szervezet / egy figyelt személy neve. Ami nincs a listán, azt a program nem találja meg —
@@ -13,8 +13,8 @@ Válaszolj KIZÁRÓLAG egyetlen JSON-objektummal, magyarázat és kódjelölés 
 - "hely": a helyfeltétel. Ha a témák között van helynév (város, megye, régió), az; ha nincs, de a földrajzi fókusz
   helyet ad meg, az; ha egyik sincs: null. A "szavak" a hely minden alakja, amellyel egy cikkben előfordulhat:
   magyarul ÉS románul (ha van, németül is), hivatalos és köznapi névvel, ékezettel és ékezet nélkül, a melléknévvel,
-  a lakosok nevével és a megyével (pl. Marosvásárhely → „Marosvásárhely”, „marosvásárhelyi”, „Vásárhely”,
-  „Târgu Mureș”, „Tîrgu Mureș”, „Târgu-Mureș”, „Targu Mures”, „târgumureșean”, „Mureș”, „mureșean”, „Maros megye”,
+  a lakosok nevével és a megyével (pl. Debrecen → „Debrecen”, „debreceni”, „Cívisváros”,
+  „Hajdú-Bihar”, „hajdú-bihari”, „Hajdú-Bihar vármegye”,
   „Maros megyei”, „județul Mureș”, „Neumarkt”). Legfeljebb 30 alak.
 - "temak": minden NEM-helynév témához, és az Iránytű minden céljához és tolni-tételéhez egy tétel ("nev": a téma vagy
   a cél rövid neve). A "szavak" azok a szavak és SZÓTÖVEK, amelyek közül legalább egynek szerepelnie kell egy cikkben,

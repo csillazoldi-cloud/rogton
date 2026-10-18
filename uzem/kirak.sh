@@ -104,7 +104,10 @@ LEFUTOTT=$(grep -c '^lefutott: ' "$GMA/naplo/migral-$ID.log")
 echo "migrációk rendben ($LEFUTOTT új)"
 MINTA=$(docker run --rm --network none -v "$SRC/tools/tiltott:/tiltott:ro" --entrypoint node "gma-app:$ID" /tiltott/ellenoriz.mjs --sql-minta) || exit 5
 TALALAT=$(docker exec -i gma-db psql -U km_tulaj -d km -tA -v minta="$MINTA" <<'SQL'
-SELECT kulcs || ' [' || nyelv || ']' FROM felirat WHERE szoveg ~* :'minta' ORDER BY 1;
+SELECT 'felirat ' || kulcs || ' [' || nyelv || ']' FROM felirat WHERE szoveg ~* :'minta'
+UNION ALL SELECT 'kozos_felirat_verzio v' || verzio FROM kozos_felirat_verzio WHERE felulirasok::text ~* :'minta'
+UNION ALL SELECT 'szervezet_felirat_verzio ' || szervezet_id || ' v' || verzio FROM szervezet_felirat_verzio WHERE felulirasok::text ~* :'minta'
+ORDER BY 1;
 SQL
 ) || { echo "MEGÁLL: a feliratok ellenőrzése nem futott"; exit 5; }
 if [ -n "$TALALAT" ]; then echo "PIROS: tiltott szó az adatbázis feliratai között:"; echo "$TALALAT" | head -20; exit 5; fi
@@ -123,7 +126,8 @@ done
 szakasz "8. életjel: http://127.0.0.1:$PORT/api/egeszseg"
 VALASZ=000
 for _ in $(seq 1 45); do
-  VALASZ=$(curl -s -o /dev/null -w '%{http_code}' --max-time 5 "http://127.0.0.1:$PORT/api/egeszseg" || echo 000)
+  VALASZ=$(curl -s -o /dev/null -w '%{http_code}' --max-time 5 "http://127.0.0.1:$PORT/api/egeszseg" 2>/dev/null) || true
+  VALASZ=${VALASZ:-000}
   [ "$VALASZ" = "200" ] && break; sleep 2
 done
 FUTO=$(docker inspect -f '{{index .Config.Labels "rogton.valtozat"}}' "$(docker inspect -f '{{.Image}}' gma-app 2>/dev/null)" 2>/dev/null || true)
@@ -133,6 +137,10 @@ if [ "$VALASZ" != "200" ] || [ "$FUTO" != "$SHA" ]; then
   if [ "$LEFUTOTT" -gt 0 ]; then
     echo "NEM állok vissza: $LEFUTOTT migráció már lefutott, a régi kód nem biztos, hogy illik az új sémához. Kézi döntés kell."
     exit 7
+  fi
+  if ! docker image inspect gma-app:elozo >/dev/null 2>&1; then
+    echo "nincs előző kép, amire visszaállhatnék (első kirakás) — a hibát a fenti naplósorok mutatják"
+    exit 4
   fi
   for k in gma-app gma-kepgyar; do docker image inspect "$k:elozo" >/dev/null 2>&1 && docker tag "$k:elozo" "$k:aktiv"; done
   "${DC[@]}" up -d --no-build 2>&1 | tail -3

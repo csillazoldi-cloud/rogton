@@ -55,7 +55,8 @@ describe("H1 — a helynév-szabály mindkét posztíró promptban", () => {
     // R-18 8. kör (Kati 10-13): v9 (az első sor soha nem cím; a felhívás szándék) — a fejléc a v8, v7 és v6 leírását is megtartja
     expect(szoveg.split("\n")[0]).toMatch(/poszt-szoveg · v9 · 2026-10-14 .*· v8: 2026-10-11 .*· v6: v5 \+ helynevek/);
     expect(szoveg).toContain("Helynevek — a tartalomnyelv alakjában");
-    for (const par of ["Marosvásárhely · Târgu Mureș · Târgu Mureș", "Kolozsvár · Cluj-Napoca · Cluj-Napoca", "Bukarest · București · Bucharest"]) expect(szoveg).toContain(par);
+    // G4 (Rögtön, 2026-10-18): a régi város sora kikerült a helynév-táblából; a többi pár marad
+    for (const par of ["Kolozsvár · Cluj-Napoca · Cluj-Napoca", "Bukarest · București · Bucharest"]) expect(szoveg).toContain(par);
   });
   it("a két prompt mintái nem mondanak ellent egymásnak (minden poszt_szoveg-pár a fordító listájában is ott van)", () => {
     // a minta-lista: a „Minta (…):” sor UTÁNI rész a „- Cég-” pontig, „;”-vel tagolva, mindegyik „hu · ro · en”

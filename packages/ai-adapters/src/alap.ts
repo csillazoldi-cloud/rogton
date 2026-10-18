@@ -117,7 +117,7 @@ export const tesztSzolgaltato: Szolgaltato = {
         const tipusKulcsok = fesztival ? { szervezet_tipus: "fesztival", kategoria: "semleges", biztos: true }
           : /rendezvén/i.test(sz) ? { szervezet_tipus: "ceg", kategoria: kat, biztos: false }
           : { szervezet_tipus: "ceg", kategoria: kat, biztos: true };
-        szoveg = JSON.stringify({ ...tipusKulcsok, ...(fesztival ? { rendezveny: { hely: { hu: "[MINTA] Marosvásárhely", ro: "[MINTA] Târgu Mureș" } } } : {}), celkozonseg: "Lakástulajdonosok és kisebb üzletek vezetői, akik egyedi bútort keresnek.", cel: "A munkák bemutatása és több érdeklődő megkeresés.", hangnem_leiras: "Közvetlen, szakmai, érthető", hangnem_minta: "Minden bútorunk egyedi tervek alapján készül. Ha lakásba vagy üzletbe keresel tartós, jól használható darabot, szívesen segítünk a tervezésben is.", nyelvek: ["hu", "ro"] });
+        szoveg = JSON.stringify({ ...tipusKulcsok, ...(fesztival ? { rendezveny: { hely: { hu: "[MINTA] Debrecen", ro: "[MINTA] Debrețin" } } } : {}), celkozonseg: "Lakástulajdonosok és kisebb üzletek vezetői, akik egyedi bútort keresnek.", cel: "A munkák bemutatása és több érdeklődő megkeresés.", hangnem_leiras: "Közvetlen, szakmai, érthető", hangnem_minta: "Minden bútorunk egyedi tervek alapján készül. Ha lakásba vagy üzletbe keresel tartós, jól használható darabot, szívesen segítünk a tervezésben is.", nyelvek: ["hu", "ro"] });
         break;
       }
       case "hangnem_finomitas":
@@ -207,7 +207,7 @@ export const tesztSzolgaltato: Szolgaltato = {
             foldrajzi_fokusz: "",
             nyelvek: [],
             kizarasok: [],
-            idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Bucharest" },
+            idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Budapest" },
             szabad_szoveg: "",
           },
         });
@@ -275,7 +275,7 @@ export const tesztSzolgaltato: Szolgaltato = {
         // a lap így AI nélkül is végigpróbálható. Hogy minta, azt a teszt-csatlakozó neve mutatja (az ai_hivas sorban: szolgaltato = teszt).
         szoveg = JSON.stringify({
           zavar: { allapot: "zavar", hol: "Bolyai utca, Rózsák tere – Kossuth utca", nap: null, kezdet: "08:00", veg: "16:00", veg_kb: false, helyette: "Kerülő a Bernády téren át", frissites: "12:00" },
-          allitas: { mondat: "Harminc éve burkolunk Marosvásárhelyen." },
+          allitas: { mondat: "Harminc éve burkolunk Debrecenben." },
           adatsavok: { cim: "Mit mondanak az ügyfeleink?", savok: [{ nev: "Időben elkészült", szam: 96 }, { nev: "Ajánlana minket", szam: 92 }, { nev: "Tiszta munkaterület", szam: 88 }], forras: "Saját kérdőív, 64 ügyfél, 2026 nyara" },
         });
         break;
@@ -292,7 +292,7 @@ export const tesztSzolgaltato: Szolgaltato = {
         szoveg = JSON.stringify({ sorok: [
           { nev: "[MINTA] Díszburkolat, térkő lerakása", reszlet: "udvar, kocsibeálló, járda", ar: "85 lej/m²-től" },
           { nev: "[MINTA] Szegélyezés és vízelvezetés", reszlet: "", ar: "" },
-          { nev: "[MINTA] Ingyenes helyszíni felmérés", reszlet: "Marosvásárhely és 40 km-es körzete", ar: "" },
+          { nev: "[MINTA] Ingyenes helyszíni felmérés", reszlet: "Debrecen és 40 km-es körzete", ar: "" },
         ] });
         break;
       case "temak_terv":

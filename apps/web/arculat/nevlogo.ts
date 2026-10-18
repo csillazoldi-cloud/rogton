@@ -47,7 +47,7 @@ export class NevlogoHiba extends Error {
   }
 }
 
-const KEPGYAR = process.env["KEPGYAR_URL"] ?? "http://192.168.1.249:8601";
+const KEPGYAR = process.env["KEPGYAR_URL"] ?? "http://kepgyar:8601";
 
 /** A képgyártó hívása (30 mp: a képgyártó egyszerre egy munkát végez, a 12g képei előtte állhatnak). */
 export const kepgyarNevlogo: NevlogoKeszito = async (b) => {

@@ -103,7 +103,7 @@ export function Beallitasok({
       hour: "2-digit",
       minute: "2-digit",
       hour12: false,
-      timeZone: "Europe/Bucharest",
+      timeZone: "Europe/Budapest",
     });
   }, [nyelv]);
 
@@ -258,7 +258,7 @@ function rovidIdo(t: (kulcs: string, ertekek?: Record<string, string | number>) 
   if (perc < 60) return t("r18.beall.ido_perce", { n: perc });
   if (perc < 24 * 60) return t("r18.beall.ido_oraja", { n: Math.floor(perc / 60) });
   if (perc < 48 * 60) return t("r18.beall.ido_tegnap");
-  return new Intl.DateTimeFormat(nyelv, { month: "short", day: "numeric", timeZone: "Europe/Bucharest" }).format(d);
+  return new Intl.DateTimeFormat(nyelv, { month: "short", day: "numeric", timeZone: "Europe/Budapest" }).format(d);
 }
 
 function ErtesitesSorKomponens({
@@ -369,7 +369,7 @@ function AiKapcsoloDoboz({ adatpolitika }: { adatpolitika: AdatpolitikaNezet }) 
     router.refresh(); // a „Kikapcsolva {ido} · {ki}" sor az eseménynaplóból jön — a kiszolgáló adja újra
   }
   const mikor = adatpolitika.ai_kikapcsolva
-    ? new Intl.DateTimeFormat(nyelv, { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Europe/Bucharest" }).format(new Date(adatpolitika.ai_kikapcsolva.ido))
+    ? new Intl.DateTimeFormat(nyelv, { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Europe/Budapest" }).format(new Date(adatpolitika.ai_kikapcsolva.ido))
     : null;
   return (
     <div className="r18b-ai" data-allapot={be ? "be" : "ki"}>

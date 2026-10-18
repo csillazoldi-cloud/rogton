@@ -10,10 +10,11 @@
     "hatar": "node tools/hatar/node_modules/dependency-cruiser/bin/dependency-cruise.mjs --config .dependency-cruiser.cjs packages apps",
     "tipus": "pnpm -r --if-present run tipus",
     "epit": "pnpm -r --if-present run epit",
-    "ellenoriz": "pnpm hatar && pnpm tokenor && pnpm keretor && node tools/hatar/terkoz-szamlalo.mjs --ellenoriz && node tools/hatar/dockerfile-or.mjs && pnpm tipus && pnpm epit",
+    "ellenoriz": "pnpm hatar && pnpm tokenor && pnpm keretor && node tools/hatar/terkoz-szamlalo.mjs --ellenoriz && node tools/hatar/dockerfile-or.mjs && pnpm tipus && pnpm epit && pnpm tiltott",
     "tokenor": "node tools/hatar/tokenor.mjs",
     "keretor": "node tools/hatar/keretor.mjs",
-    "terkoz": "node tools/hatar/terkoz-szamlalo.mjs"
+    "terkoz": "node tools/hatar/terkoz-szamlalo.mjs",
+    "tiltott": "node tools/tiltott/ellenoriz.mjs"
   },
   "devDependencies": {
     "typescript": "7.0.2"

@@ -1,7 +1,7 @@
 {
   "$schema": "km-theme/2",
   "name": "R-18 Sötét mód (Éjszaka)",
-  "_megjegyzes": "R-18 arculatfrissítés: a termék sötét módja. Forrás: design/R18-arculatfrissites/tema-A.json (Csilla jóváhagyása, 2026-10-11). Egyetlen lila: #4b09d8. A modok.ts ebből számolja a [data-mod] blokkot; a felhasználó a fejléc váltójával választ.",
+  "_megjegyzes": "R-18 arculatfrissítés: a termék sötét módja. Forrás: design/R18-arculatfrissites/tema-A.json (a megrendelő jóváhagyása, 2026-10-11). Egyetlen lila: #4b09d8. A modok.ts ebből számolja a [data-mod] blokkot; a felhasználó a fejléc váltójával választ.",
   "tokens": {
     "--bg": "#0a0a0a",
     "--bg-elev": "#121212",

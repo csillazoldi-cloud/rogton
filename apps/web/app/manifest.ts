@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
 
-// R-18 3. kör (Csilla 10-11): a „kezdőképernyőre tétel” neve és ikonja — a termék neve és az a/t jel. A manifest nyelvfüggetlen fájl,
-// ezért a magyar név áll benne (a felület maga a választott nyelven fut). Funkció nem változik: csak a név és az ikon.
+// A „kezdőképernyőre tétel” neve és ikonja — a termék neve (G4: Rögtön) és a jele. A manifest nyelvfüggetlen fájl; a felület magyar.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Posztgyár",
-    short_name: "Posztgyár",
+    name: "Rögtön",
+    short_name: "Rögtön",
     start_url: "/kezdolap",
     display: "standalone",
     background_color: "#0a0a0a", // tokenőr: ok — a sötét mód háttere (tema-sotet.json --bg), a manifest nem olvas CSS-t

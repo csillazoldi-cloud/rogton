@@ -1,6 +1,6 @@
 "use client";
 // R-9 (8. lap): a Visszajelzések listája — szűrő-fülek, táblázat, állapot-állítás (PATCH), kép-felugró.
-// Minden felirat kulcsból; a dátum a megadott formázóval, Europe/Bucharest időzónában.
+// Minden felirat kulcsból; a dátum a megadott formázóval, Europe/Budapest időzónában.
 
 import { useCallback, useEffect, useState } from "react";
 import { useFeliratok } from "../../nyelv/kliens";
@@ -45,7 +45,7 @@ export function Lista({ rendszergazda }: { rendszergazda: boolean }) {
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "Europe/Bucharest",
+    timeZone: "Europe/Budapest",
   });
 
   const betolt = useCallback(async () => {

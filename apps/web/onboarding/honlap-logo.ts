@@ -24,7 +24,7 @@ export type LogoLetolto = (cim: string) => Promise<{ vegsoCim: string; bajtok: U
 export type SvgRaszterezo = (svg: Uint8Array) => Promise<Uint8Array>;
 export type HonlapLogoEszkozok = { letolt: LogoLetolto; raszter: SvgRaszterezo; tar: Pick<FajlTar, "lista" | "ment"> };
 
-const KEPGYAR = process.env["KEPGYAR_URL"] ?? "http://192.168.1.249:8601";
+const KEPGYAR = process.env["KEPGYAR_URL"] ?? "http://kepgyar:8601";
 const FEJ = 512;
 
 /** A képgyártó `POST /svg-png` hívása (20 mp: a képgyártó egyszerre egy munkát végez). */

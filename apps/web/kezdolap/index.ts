@@ -96,7 +96,7 @@ async function hirfigyeloCsempe(fiok: FiokNezet, szervezetId: string): Promise<H
   if (!a.ok) throw new Error(a.hiba);
 
   const futasok = await k.tar.futasok(szervezetId);
-  const idozona = aktiv.beallitas.idozites.idozona ?? "Europe/Bucharest";
+  const idozona = aktiv.beallitas.idozites.idozona ?? "Europe/Budapest";
 
   const utolso = a.utolsoSikeres;
   const legutobbi = futasok.length > 0

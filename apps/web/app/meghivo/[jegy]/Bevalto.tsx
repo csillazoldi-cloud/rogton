@@ -26,7 +26,7 @@ export function Bevalto({ nezet, jegy }: { nezet: BevaltoNezet; jegy: string }) 
 
   const datumFormaz = (iso: string | null) => {
     if (!iso) return "";
-    return new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeZone: "Europe/Bucharest" }).format(new Date(iso));
+    return new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeZone: "Europe/Budapest" }).format(new Date(iso));
   };
 
   async function elfogad() {

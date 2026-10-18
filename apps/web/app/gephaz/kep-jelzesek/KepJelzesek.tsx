@@ -7,7 +7,7 @@ import { SABLON_NEV, sablonNeve } from "../../../vizual/kozlemeny-szabaly";
 
 export function KepJelzesek({ sorok }: { sorok: KepJelzesSor[] }) {
   const { t, nyelv } = useFeliratok();
-  const ido = new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Bucharest" });
+  const ido = new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Budapest" });
   const szabalyNev = (id: string) => {
     const k = `vz.szabaly_${id}`;
     const n = t(k);

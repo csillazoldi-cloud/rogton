@@ -1,4 +1,4 @@
-// R-10 (2026-09-18, Vilmos): három, egy kattintással váltható színséma — Éjkék (a mostani), Világos, Sötét.
+// R-10 (2026-09-18, a terméktulajdonos): három, egy kattintással váltható színséma — Éjkék (a mostani), Világos, Sötét.
 // A séma = tokenkészlet (TemaFelulirasok), amit a meglévő téma-tár új verzióként alkalmaz. Kód a felületben nem
 // változik, csak tokenértékek. Az Éjkék értékeit NEM kézzel írjuk be: a tema-alap.json-ból olvassuk ki futásidőben
 // ugyanezekre a kulcsokra, így a mostani téma mindig visszaállítható.
@@ -148,7 +148,7 @@ export const SEMAK: readonly Sema[] = [
     kod: "ejkek",
     nev: { hu: "Éjkék", ro: "Albastru de noapte", en: "Night blue" },
     leiras: {
-      // 2026-09-21 (Vilmos, D2): a fényudvar kikerült (--aurora-opacity 0 a tema-alap.json-ban is).
+      // 2026-09-21 (a terméktulajdonos, D2): a fényudvar kikerült (--aurora-opacity 0 a tema-alap.json-ban is).
       hu: "Az alap: mély éjkék háttér, indigó gombok.",
       ro: "Cel de bază: fundal albastru-noapte, butoane indigo.",
       en: "The default: deep night-blue background, indigo buttons.",
@@ -177,7 +177,7 @@ export const SEMAK: readonly Sema[] = [
   },
 ];
 
-/** R-15: a Design által javasolt, még el nem döntött sémák — nem választhatók, amíg Vilmos nem dönt. */
+/** R-15: a Design által javasolt, még el nem döntött sémák — nem választhatók, amíg a terméktulajdonos nem dönt. */
 export const KESZULO_SEMAK: readonly Sema[] = [
   {
     kod: "vegyes",
@@ -197,7 +197,7 @@ export function semaKeres(kod: string): Sema | null {
 }
 
 // ---------------------------------------------------------------------------
-// 2026-09-21 (Vilmos, D1): sémaváltáskor a tulajdonos SAJÁT fő színe és betűmérete megmarad.
+// 2026-09-21 (a terméktulajdonos, D1): sémaváltáskor a tulajdonos SAJÁT fő színe és betűmérete megmarad.
 // A séma a háttereket, szövegszíneket, formát cseréli; a Megjelenés lapon választott fő szín és
 // betűméret a tulajdonosé.
 // ---------------------------------------------------------------------------

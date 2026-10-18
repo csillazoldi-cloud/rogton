@@ -9,7 +9,7 @@ import { profilBetolt } from "../profil";
 import { beragadtakElenged, haladasIr, hibara, indulaskorElenged, kovetkezoKivesz, lezar, sorbaTesz, type SorTetel } from "./sor";
 import { oraiTakaritas } from "../hitelesites/takaritas";
 import { albumHasznalatPosztokbol, albumKoltoztet } from "../album";
-import { ertesitesekTick, napiCsomagKeszit } from "../visszajelzes";
+import { napiCsomagKeszit } from "../visszajelzes";
 import { osszkepTorol } from "./osszkep";
 
 // A sor 15 perc után „beragadtnak” tekint egy tételt. A futás ennél EGY PERCCEL korábbi határidőt kap,
@@ -58,7 +58,7 @@ async function napiUtemezes(most: Date): Promise<void> {
 
 /** A mai nap kezdete a zónában (a napi futás ellenőrzéséhez). */
 function maKeZDete(most: Date, idozites: Idozites): Date {
-  const zona = idozites.idozona || "Europe/Bucharest";
+  const zona = idozites.idozona || "Europe/Budapest";
   const fmt = new Intl.DateTimeFormat("en-US", { timeZone: zona, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" });
   const r = fmt.formatToParts(most);
   const g = (t: string) => Number(r.find((x) => x.type === t)?.value ?? "0");
@@ -112,17 +112,17 @@ async function tick(): Promise<void> {
     }
   }
 
-  // Napi javítócsomag 05:00-kor Europe/Bucharest szerint (a doboz órája UTC lehet).
+  // Napi javítócsomag 05:00-kor Europe/Budapest szerint (a doboz órája UTC lehet).
   // A helyi 05:00 nyáron 02 UTC, télen 03 UTC — ezért a helyi órát nézzük.
   const helyiOra = new Intl.DateTimeFormat("en-GB", {
     hour: "2-digit",
     hour12: false,
-    timeZone: "Europe/Bucharest",
+    timeZone: "Europe/Budapest",
   }).format(most);
   if (helyiOra === "05" && most.getMinutes() === 0 && most.getSeconds() < 5 && most.getHours() !== utolsoCsomagOra) {
     utolsoCsomagOra = most.getHours();
     const tegnapKulcs = new Intl.DateTimeFormat("en-CA", {
-      timeZone: "Europe/Bucharest",
+      timeZone: "Europe/Budapest",
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
@@ -160,10 +160,8 @@ async function tick(): Promise<void> {
     }
   }
 
-  // c1 + c7: 02:00 hub-összesítő, 08:00 „Tegnap javítva” Telegram-üzenet — percenként egyszer nézi, naponta egyszer küld (soha nem dob)
-  if (most.getSeconds() < 5) {
-    await ertesitesekTick(most).catch((h) => console.warn("[visszajelzes] ertesitesek:", h));
-  }
+  // G4 (Rögtön): a visszajelzésekről NINCS kimenő értesítés (a régi hub-összesítő és Telegram-üzenet kikerült); a napi csomag
+  // helyben, az adatbázisban készül (napiCsomagKeszit, fent).
 
   // Napi ütemezés percenként egyszer (a perc első tickjén)
   if (most.getSeconds() < 5) {

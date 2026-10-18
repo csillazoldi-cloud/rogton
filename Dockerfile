@@ -41,6 +41,8 @@ COPY tsconfig.base.json ./
 COPY packages ./packages
 COPY apps/web ./apps/web
 RUN pnpm --filter @rogton/web run epit
+# G4: a forrástérképek (*.map) a forráskódot hordozzák megjegyzésekkel együtt — a futtató dobozba nem kellenek (tools/tiltott őrzi)
+RUN find apps/web/.next -name '*.map' -delete
 
 # 3. futtató doboz — nem root, csak az önálló csomag
 FROM ${NODE_KEP} AS futo

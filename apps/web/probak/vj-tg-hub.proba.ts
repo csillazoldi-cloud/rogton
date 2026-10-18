@@ -13,7 +13,10 @@ describe("vj.tg_hub", () => {
     for (const ny of ["ro", "en"]) expect(m).toContain(`('vj.tg_hub', '${ny}', `);
     expect(/https?:\/\//.test(m.split("INSERT")[1]!)).toBe(false);
   });
-  it("a web a reggeli üzenethez adja (a keret `hub` mezője)", () => {
-    expect(olvas("apps/web/visszajelzes/ertesites.ts")).toContain('hub: felirat(f, "vj.tg_hub", {})');
+  // G4 (Rögtön, 2026-10-18): a visszajelzésekről nincs kimenő értesítés (Telegram / hub) — a küldő (apps/web/visszajelzes/ertesites.ts)
+  // kikerült. A próba most azt őrzi, hogy NE is legyen visszacsempészve, és a futtató ne hívja.
+  it("nincs kimenő visszajelzés-értesítő (Telegram / hub), a futtató sem hívja", () => {
+    expect(() => olvas("apps/web/visszajelzes/ertesites.ts")).toThrow();
+    expect(olvas("apps/web/hirfigyelo/futtato.ts")).not.toMatch(/ertesitesekTick|api\.telegram\.org|HUB_FEEDBACK_URL/);
   });
 });

@@ -346,9 +346,9 @@ export async function ctaBeleir(k: PosztKeres, mostaniSzoveg: string, cta: strin
   return szovegetAtir(k, "felhivas");
 }
 
-/** A mai nap Bukarest szerint, ÉÉÉÉ-HH-NN. */
+/** A mai nap Budapest szerint, ÉÉÉÉ-HH-NN. */
 function maiNap(): string {
-  return new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Bucharest" }).format(new Date());
+  return new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Budapest" }).format(new Date());
 }
 
 /**

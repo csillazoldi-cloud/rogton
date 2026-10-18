@@ -17,9 +17,9 @@ export function Kezdolap({ nezet }: { nezet: KezdolapNezet }) {
   const { t, nyelv } = useFeliratok();
   const router = useRouter();
 
-  // Az időzóna KIMONDVA a munkatér figyelési beállításából (alap Europe/Bucharest): a kiszolgáló (UTC-s doboz) és a böngésző
+  // Az időzóna KIMONDVA a munkatér figyelési beállításából (alap Europe/Budapest): a kiszolgáló (UTC-s doboz) és a böngésző
   // különben más szöveget ad, és a React a kettő eltérésén elhasal (418-as hidratálási hiba — a teszten mérve 2026-09-12).
-  const zona = nezet.hirfigyelo?.idozona ?? "Europe/Bucharest";
+  const zona = nezet.hirfigyelo?.idozona ?? "Europe/Budapest";
   const szamFormaz = new Intl.NumberFormat(nyelv);
   const penzFormaz = new Intl.NumberFormat(nyelv, { style: "currency", currency: nezet.munkater.penznem, currencyDisplay: "narrowSymbol" });
   const datumIdoFormaz = new Intl.DateTimeFormat(nyelv, {

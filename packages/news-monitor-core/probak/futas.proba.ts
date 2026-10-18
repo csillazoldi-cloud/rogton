@@ -1,3 +1,5 @@
+// G4 (Rögtön, 2026-10-18): a fájl minden `idozona` értéke Europe/Bucharest → Europe/Budapest (a fork alap időzónája); ahol az eltolás
+// számít (UTC+3 → UTC+2 nyáron), az elvárt UTC-időpontot újraszámoltuk, az ok a tesztnél áll.
 import { describe, it, expect } from "vitest";
 import {
   indithato,
@@ -124,45 +126,48 @@ describe("E-19/6 futas — indithato, atmenetek, utolsoSikeres, kovetkezoFutas",
 
   describe("6.4 kovetkezoFutas — idozites szerint", () => {
     it("6.4.1 kezi → null", () => {
-      const idozites = { mod: "kezi" as const, ora: 7, perc: 0, idozona: "Europe/Bucharest" };
+      const idozites = { mod: "kezi" as const, ora: 7, perc: 0, idozona: "Europe/Budapest" };
       expect(kovetkezoFutas(idozites, MOST)).toBeNull();
     });
 
-    it("6.4.2 napi, most=10:00Z (13:00 helyi) → holnapi 04:00Z", () => {
-      // 2026-09-07 10:00Z = 13:00 EEST (UTC+3, nyári idő); 07:00 helyi = 04:00Z
-      const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Bucharest" };
+    // G4 (Rögtön, 2026-10-18): az időzóna Europe/Budapest (CEST, UTC+2 nyáron) a régi Europe/Bucharest (EEST, UTC+3) helyett —
+    // ugyanaz a szabály (07:00 helyi idő), egy órával későbbi UTC-időpont: 07:00 helyi = 05:00Z.
+    it("6.4.2 napi, most=10:00Z (12:00 helyi) → holnapi 05:00Z", () => {
+      // 2026-09-07 10:00Z = 12:00 CEST (UTC+2, nyári idő); 07:00 helyi = 05:00Z
+      const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Budapest" };
       const eredmeny = kovetkezoFutas(idozites, MOST);
-      expect(eredmeny).toEqual(new Date("2026-09-08T04:00:00Z"));
+      expect(eredmeny).toEqual(new Date("2026-09-08T05:00:00Z"));
     });
 
-    it("6.4.3 napi, most=03:00Z (06:00 helyi) → mai 04:00Z", () => {
-      const mostKorai = new Date("2026-09-07T03:00:00Z"); // 06:00 helyi
-      const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Bucharest" };
+    it("6.4.3 napi, most=03:00Z (05:00 helyi) → mai 05:00Z", () => {
+      const mostKorai = new Date("2026-09-07T03:00:00Z"); // 05:00 helyi
+      const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Budapest" };
       const eredmeny = kovetkezoFutas(idozites, mostKorai);
-      expect(eredmeny).toEqual(new Date("2026-09-07T04:00:00Z"));
+      expect(eredmeny).toEqual(new Date("2026-09-07T05:00:00Z"));
     });
   });
 });
 
 describe("E-22/3 esedekes — idozites es utolsoKezdet alapjan", () => {
   it("3.1 kezi → hamis", () => {
-    const idozites = { mod: "kezi" as const, ora: 7, perc: 0, idozona: "Europe/Bucharest" };
+    const idozites = { mod: "kezi" as const, ora: 7, perc: 0, idozona: "Europe/Budapest" };
     expect(esedekes(idozites, null, new Date("2026-09-07T05:00:00Z"))).toBe(false);
   });
 
-  it("3.2 napi 07:00 Bucharest, most 05:00Z (08:00 helyi), utolso null → igaz", () => {
-    const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Bucharest" };
-    expect(esedekes(idozites, null, new Date("2026-09-07T05:00:00Z"))).toBe(true);
+  // G4 (Rögtön): Europe/Budapest (UTC+2 nyáron) — a régi Bucharest-időpontok egy órával későbbre kerülnek, hogy a jelentésük ugyanaz maradjon
+  it("3.2 napi 07:00 Budapest, most 06:00Z (08:00 helyi), utolso null → igaz", () => {
+    const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Budapest" };
+    expect(esedekes(idozites, null, new Date("2026-09-07T06:00:00Z"))).toBe(true);
   });
 
-  it("3.3 utolso ma 04:10Z → hamis (már futott ma)", () => {
-    const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Bucharest" };
-    const utolso = new Date("2026-09-07T04:10:00Z");
-    expect(esedekes(idozites, utolso, new Date("2026-09-07T05:00:00Z"))).toBe(false);
+  it("3.3 utolso ma 05:10Z (07:10 helyi) → hamis (már futott ma)", () => {
+    const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Budapest" };
+    const utolso = new Date("2026-09-07T05:10:00Z");
+    expect(esedekes(idozites, utolso, new Date("2026-09-07T06:00:00Z"))).toBe(false);
   });
 
-  it("3.4 most 03:00Z (06:00 helyi, még nem múlt el) → hamis", () => {
-    const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Bucharest" };
+  it("3.4 most 03:00Z (05:00 helyi, még nem múlt el) → hamis", () => {
+    const idozites = { mod: "napi" as const, ora: 7, perc: 0, idozona: "Europe/Budapest" };
     expect(esedekes(idozites, null, new Date("2026-09-07T03:00:00Z"))).toBe(false);
   });
 });

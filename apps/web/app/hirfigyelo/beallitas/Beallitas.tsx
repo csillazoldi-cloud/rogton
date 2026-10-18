@@ -39,7 +39,7 @@ const URES_BEALLITAS: BeallitasTipus = {
   foldrajzi_fokusz: "",
   nyelvek: [],
   kizarasok: [],
-  idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Bucharest" },
+  idozites: { mod: "kezi", ora: 7, perc: 0, idozona: "Europe/Budapest" },
   szabad_szoveg: "",
 };
 

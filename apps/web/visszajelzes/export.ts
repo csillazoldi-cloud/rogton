@@ -14,7 +14,7 @@ function mappaAlap(): string {
 }
 
 function visszajelzesMappa(): string {
-  return join(mappaAlap(), "visszajelzes");
+  return join(/*turbopackIgnore: true*/ mappaAlap(), "visszajelzes"); // G4: futásidejű adatmappa, nem a projekt része
 }
 
 /** Atomi írás: ideiglenes név, majd rename. */

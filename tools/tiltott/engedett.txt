@@ -1,0 +1,5 @@
+# Allowlist for tools/tiltott — one entry per line, TAB-separated:  <where>	<pattern line from minta.txt>	<reason (≥ 15 chars)>
+# <where> is a path regex matched against the reported file path (repo-relative, or relative to the scanned root).
+# Keep this list SHORT: every line is a place where a banned word is knowingly tolerated.
+^apps/web/adatbazis/migraciok/0(0\d\d|1[0-7]\d|180)_[^/]+\.sql#megjegyzes$	*	SQL comment lines in the applied migrations 0000–0180: never edited (rule), never reach the DB or the image
+^apps/web/adatbazis/migraciok/0164_r18_oldalcim_termeknev\.sql$	*	CASE-based UPDATE of the old *.oldalcim suffix (never edited); every key it touched is rewritten by 0181 — the DB check proves the final state

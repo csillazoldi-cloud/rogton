@@ -128,7 +128,7 @@ function RendszergazdaGephaz({ nezet, logoterv = null }: { nezet: GephazNezet; l
   }
 
   // Az időzóna kimondva (a kiszolgáló UTC-s doboz, a böngésző nem) — különben hidratálási eltérés (418).
-  const ZONA = "Europe/Bucharest";
+  const ZONA = "Europe/Budapest";
 
   const penzFormat = (osszeg: { ertek: number; penznem: string }) =>
     new Intl.NumberFormat(nyelv, {

@@ -30,7 +30,7 @@ export { tartalomnyelv, jsonRobusztusan };
 
 /** Javaslatok a 2. lépéshez a piszkozat 1. lépése alapján (név, összefoglaló, célközönség-kérdés válasza, forrás). */
 function evMost(): number {
-  return Number(new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Bucharest", year: "numeric" }).format(new Date()));
+  return Number(new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Budapest", year: "numeric" }).format(new Date()));
 }
 
 export async function javaslatokatKeszit(szervezetId: string, piszkozat: OnboardingPiszkozat, felulet: string, fiokId?: string): Promise<JavaslatokValasz> {

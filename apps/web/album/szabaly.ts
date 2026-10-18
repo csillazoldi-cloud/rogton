@@ -136,9 +136,9 @@ export function valogatasErtelmez(nyers: unknown, db: number): { i: number; leir
   return ki.length ? ki : null;
 }
 
-/** A gépnek küldött sorok: „3. fotó · 21:14” (a készítés ideje Bukarest szerint, ha ismert). */
+/** A gépnek küldött sorok: „3. fotó · 21:14” (a készítés ideje Budapest szerint, ha ismert). */
 export function valogatasSorok(fotok: { keszult: string | null }[]): string[] {
-  const ora = new Intl.DateTimeFormat("hu-HU", { timeZone: "Europe/Bucharest", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+  const ora = new Intl.DateTimeFormat("hu-HU", { timeZone: "Europe/Budapest", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
   return fotok.map((f, k) => `${k + 1}. fotó${f.keszult ? ` · ${ora.format(new Date(f.keszult))}` : ""}`);
 }
 

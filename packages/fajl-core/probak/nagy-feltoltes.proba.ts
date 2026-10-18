@@ -23,31 +23,32 @@ function kornyezet(fajlbol = true): { k: Kornyezet; mentett: { meta: FajlMeta; u
 }
 const ktx = { fiok_id: "f", szervezet_id: "s", szerep: "szerkeszto" as const };
 
-describe("0.3.0 — 100 MB, célonkénti korlát", () => {
-  it("a korlátok: dokumentum/logó/kézikönyv/referencia 100 MB, betű és posztkép 10 MB", () => {
-    expect(MAX_MERET_BAJT).toBe(100 * MB);
+// G4 (Rögtön, 2026-10-18): az arculati fájl korlátja 95 MB (a Cloudflare peremének ~100 MB-os korlátja alatt) — a határpróbák 94 MB / 96 MB-ra kerültek, ugyanazzal a jelentéssel.
+describe("0.3.0 — 95 MB (G4), célonkénti korlát", () => {
+  it("a korlátok: dokumentum/logó/kézikönyv/referencia 95 MB, betű és posztkép 10 MB", () => {
+    expect(MAX_MERET_BAJT).toBe(95 * MB);
     expect(KEP_MAX_MERET_BAJT).toBe(10 * MB);
     expect(BETU_MAX_MERET_BAJT).toBe(10 * MB);
-    for (const c of ["dokumentum", "logo", "kezikonyv", "referencia"] as const) expect(celMaxMeret(c)).toBe(100 * MB);
+    for (const c of ["dokumentum", "logo", "kezikonyv", "referencia"] as const) expect(celMaxMeret(c)).toBe(95 * MB);
     expect(celMaxMeret("betu")).toBe(10 * MB);
     expect(celMaxMeret("kep")).toBe(10 * MB);
-    expect(celMaxMeret()).toBe(100 * MB);
+    expect(celMaxMeret()).toBe(95 * MB);
   });
-  it("99 MB PDF átmegy, 101 MB nem (TUL_NAGY); posztképnél 11 MB már TUL_NAGY", () => {
-    expect(fajlEllenoriz({ meret: 99 * MB, fej: pdf }, { cel: "dokumentum" }).ok).toBe(true);
-    expect(fajlEllenoriz({ meret: 101 * MB, fej: pdf }, { cel: "dokumentum" })).toEqual({ ok: false, hiba: "TUL_NAGY" });
+  it("94 MB PDF átmegy, 96 MB nem (TUL_NAGY); posztképnél 11 MB már TUL_NAGY", () => {
+    expect(fajlEllenoriz({ meret: 94 * MB, fej: pdf }, { cel: "dokumentum" }).ok).toBe(true);
+    expect(fajlEllenoriz({ meret: 96 * MB, fej: pdf }, { cel: "dokumentum" })).toEqual({ ok: false, hiba: "TUL_NAGY" });
     expect(fajlEllenoriz({ meret: 11 * MB, fej: new Uint8Array([0xff, 0xd8, 0xff, 0xe0]) }, { cel: "kep" })).toEqual({ ok: false, hiba: "TUL_NAGY" });
   });
   it("feltoltFajlbol: a fej szerinti típus, a tár mentFajlbol-ja kapja az ideiglenes utat; SVG tilos; jog nélkül nincs", async () => {
     const { k, mentett } = kornyezet();
-    const e = await feltoltFajlbol(k, ktx, { nev: "kezikonyv.pdf", cel: "kezikonyv", meret: 99 * MB, fej: pdf, ideiglenesUt: "/tmp/x.part" });
+    const e = await feltoltFajlbol(k, ktx, { nev: "kezikonyv.pdf", cel: "kezikonyv", meret: 94 * MB, fej: pdf, ideiglenesUt: "/tmp/x.part" });
     expect(e.ok).toBe(true);
     expect(mentett).toHaveLength(1);
     expect(mentett[0]!.ut).toBe("/tmp/x.part");
     expect(mentett[0]!.meta.tipus).toBe("pdf");
-    expect(mentett[0]!.meta.meret).toBe(99 * MB);
+    expect(mentett[0]!.meta.meret).toBe(94 * MB);
     expect(await feltoltFajlbol(k, ktx, { nev: "a.svg", cel: "dokumentum", meret: 100, fej: svg, ideiglenesUt: "/tmp/y" })).toEqual({ ok: false, hiba: "SVG_NEM_ENGEDETT" });
-    expect(await feltoltFajlbol(k, ktx, { nev: "n.pdf", cel: "dokumentum", meret: 101 * MB, fej: pdf, ideiglenesUt: "/tmp/z" })).toEqual({ ok: false, hiba: "TUL_NAGY" });
+    expect(await feltoltFajlbol(k, ktx, { nev: "n.pdf", cel: "dokumentum", meret: 96 * MB, fej: pdf, ideiglenesUt: "/tmp/z" })).toEqual({ ok: false, hiba: "TUL_NAGY" });
     expect((await feltoltFajlbol(k, { ...ktx, szerep: "nezo" }, { nev: "n.pdf", cel: "dokumentum", meret: 10, fej: pdf, ideiglenesUt: "/tmp/n" })).ok).toBe(false);
     expect(mentett).toHaveLength(1);
   });

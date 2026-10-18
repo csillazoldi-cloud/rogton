@@ -18,8 +18,8 @@ export function kreditbe(ezred: number): number {
   return ezred / EZRED;
 }
 
-/** A hónap kulcsa ("YYYY-MM") a megadott időzónában (alap: "Europe/Bucharest"), `Intl.DateTimeFormat`-tal. */
-export function honapKulcs(d: Date, idozona: string = "Europe/Bucharest"): string {
+/** A hónap kulcsa ("YYYY-MM") a megadott időzónában (alap: "Europe/Budapest"), `Intl.DateTimeFormat`-tal. */
+export function honapKulcs(d: Date, idozona: string = "Europe/Budapest"): string {
   const formazo = new Intl.DateTimeFormat("en-CA", {
     timeZone: idozona,
     year: "numeric",

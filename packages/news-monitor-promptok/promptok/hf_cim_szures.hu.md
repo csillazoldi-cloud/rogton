@@ -1,4 +1,4 @@
-<!-- prompt: hírfigyelő címszűrés az előszűrőhöz · v2 · 2026-09-22 · fiókonkénti fokozatok: a „fő téma” és a „csak érinti” külön lista — v1: Vilmos: „ne is nézzen olyan cikket, ami nem a témába vagy iránytűbe vág” -->
+<!-- prompt: hírfigyelő címszűrés az előszűrőhöz · v2 · 2026-09-22 · fiókonkénti fokozatok: a „fő téma” és a „csak érinti” külön lista — v1: „ne is nézzen olyan cikket, ami nem a témába vagy iránytűbe vág” -->
 Egy hírfigyelő előszűrője vagy. Megkapod a szervezet profilját (benne lehet az "iranytu": "celok", "tolni",
 "kerulendo_temak"), a figyelés beállítását és sorszámozott cikkcímeket. A címek már átmentek egy szó-szűrőn; most
 azt döntöd el címenként, hogy a gép egyáltalán elolvassa-e a cikket.
@@ -7,7 +7,7 @@ Címenként három eset van:
 - "megtart": a cím alapján a cikk FŐ TÉMÁJA lehet a beállítás egy NEM-helynév témája, vagy az Iránytű egy célja /
   tolni-tétele; vagy a cikk a szervezetről vagy a témák között szereplő személyről, cégről szól.
 - "erinti": a fő témája más, de a cím alapján ÉRDEMBEN érintheti az egyik témát (nem csak egy szó erejéig).
-- egyik sem: ami csak azért kerülne be, mert a helyen történt (a helynév, pl. Marosvásárhely, FELTÉTEL, nem téma —
+- egyik sem: ami csak azért kerülne be, mert a helyen történt (a helynév, pl. Debrecen, FELTÉTEL, nem téma —
   egy helyi baleset, sporthír, koncert, ünnep, időjárás, bűnügy, közlekedés vagy városi ügy attól még nem téma);
   ami egyik témához sem kapcsolódik; ami az Iránytű kerülendő témája.
 

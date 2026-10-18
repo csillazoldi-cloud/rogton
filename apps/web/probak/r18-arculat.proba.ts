@@ -33,7 +33,10 @@ describe("R-18 arculatfrissítés", () => {
 
   it("a saját betűfájlok mind megvannak (latin + latin-ext)", () => {
     for (const f of r18BetuFajlok()) expect(existsSync(gy(`apps/web/public/betuk/${f}`)), f).toBe(true);
-    for (const f of ["at-jel-szines.png", "at-jel-tinta.png", "aitmetica-szurke.png", "aitmetica-tinta.png"]) expect(existsSync(gy(`apps/web/public/r18/${f}`)), f).toBe(true);
+    // G4 (Rögtön, 2026-10-18): a régi halvány márkafelirat két PNG-je kikerült (a régi cégnevet hordozták, a fájlnevük is) — most az
+    // a próba, hogy NINCSENEK meg; az a/t jel két PNG-je G5-ig marad.
+    for (const f of ["at-jel-szines.png", "at-jel-tinta.png"]) expect(existsSync(gy(`apps/web/public/r18/${f}`)), f).toBe(true);
+    for (const f of ["aitmetica-szurke.png", "aitmetica-tinta.png"]) expect(existsSync(gy(`apps/web/public/r18/${f}`)), f).toBe(false);
   });
 
   it("a felső sáv: Profil menü, Cégeim csak egynél több cégnél, harang a régi Értesítések helyett, mód-váltó; semmi nem tűnt el", () => {

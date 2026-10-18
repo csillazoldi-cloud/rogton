@@ -47,7 +47,7 @@ export const AlapTokenek = z.object({
   "--sat-glass": szazalek(50, 300),
   // A nyitólap fotórétegei: mennyire látszik a fotó, és mennyire sűrű a rá kerülő sötét fátyol.
   "--foto-hero": szazalek(0, 100), "--foto-zaro": szazalek(0, 100), "--fatyol": szazalek(0, 100),
-  // R-8 (2026-09-15, Vilmos): meleg korall kiemelő (a gradiens vége, az AI-korong, a „fontos" jelzés), arany az „érdekes"-hez,
+  // R-8 (2026-09-15, a terméktulajdonos): meleg korall kiemelő (a gradiens vége, az AI-korong, a „fontos" jelzés), arany az „érdekes"-hez,
   // a fényudvar erőssége (0 = nincs), az AI-korong mérete.
   "--accent-warm": szin, "--accent-gold": szin,
   "--aurora-opacity": szazalek(0, 70),

@@ -3,7 +3,7 @@ import "server-only";
 // VZ-5b: a munkatér és a képgyártó (apps/kepgyar, a Gigabyte-on — V-6) összekötése.
 // A NAS-on futó alkalmazás a Gigabyte LAN-címén éri el. Időtúllépésnél és hibánál KEPGYAR_NEM_VALASZOL.
 
-const CIM = process.env["KEPGYAR_URL"] ?? "http://192.168.1.249:8601";
+const CIM = process.env["KEPGYAR_URL"] ?? "http://kepgyar:8601";
 
 export class KepgyarHiba extends Error {
   constructor(

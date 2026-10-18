@@ -444,7 +444,7 @@ export function ElsoBeallitas({ szervezetNev, kezdo, kezdoFrissitve, fiokNev }: 
     const darabok = nyers.split(",").map((x) => x.trim()).filter((x) => x.length > 0);
     if (darabok.length === 0) return;
     setHfTervezet((h) => {
-      const alap: HfTervezet = h ?? { celok: ["sajat_marka"], temak: [], foldrajzi_fokusz: "", nyelvek: [], kizarasok: [], idozites: { mod: "kezi", ora: 6, perc: 0, idozona: "Europe/Bucharest" }, szabad_szoveg: "" };
+      const alap: HfTervezet = h ?? { celok: ["sajat_marka"], temak: [], foldrajzi_fokusz: "", nyelvek: [], kizarasok: [], idozites: { mod: "kezi", ora: 6, perc: 0, idozona: "Europe/Budapest" }, szabad_szoveg: "" };
       const meglevo = new Set(alap.temak.map((x) => x.nev));
       const ujak = darabok.filter((x) => !meglevo.has(x)).map((nev) => ({ nev, nevvaltozatok: [], megkulonboztetes: "" }));
       return { ...alap, temak: [...alap.temak, ...ujak] };
@@ -518,7 +518,7 @@ export function ElsoBeallitas({ szervezetNev, kezdo, kezdoFrissitve, fiokNev }: 
     let vanBeallitas = false;
     if (jeloltTemaLista.length > 0) {
       const celok = tervezet && tervezet.celok.length > 0 ? tervezet.celok : ["sajat_marka"];
-      const idozites = tervezet?.idozites ?? { mod: "kezi" as const, ora: 6, perc: 0, idozona: "Europe/Bucharest" };
+      const idozites = tervezet?.idozites ?? { mod: "kezi" as const, ora: 6, perc: 0, idozona: "Europe/Budapest" };
       const r2 = await hivas("/api/hirfigyelo/beallitas", "PUT", {
         celok,
         temak: jeloltTemaLista,

@@ -19,10 +19,10 @@ export function crc32(b: Uint8Array): number {
   return (c ^ 0xffffffff) >>> 0;
 }
 
-/** DOS idő és dátum (a ZIP régi mezői; időzóna nélküli falióra — a hívó adja meg az órát, mi a bukaresti idő szerint számolunk). */
+/** DOS idő és dátum (a ZIP régi mezői; időzóna nélküli falióra — a hívó adja meg az órát, mi a budapesti idő szerint számolunk). */
 function dosIdo(d: Date): { ido: number; datum: number } {
   const r = Object.fromEntries(
-    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Bucharest", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Budapest", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })
       .formatToParts(d).map((p) => [p.type, p.value]),
   ) as Record<string, string>;
   const ev = Math.max(1980, Number(r.year));

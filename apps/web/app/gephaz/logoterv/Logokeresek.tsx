@@ -13,7 +13,7 @@ const ertesitesKulcs = (e: string) => (e === "kuldes" ? "r17.logokeres.ertesites
 export function Logokeresek({ kezdo }: { kezdo: LogotervSor[] }) {
   const { t, nyelv } = useFeliratok();
   const [sorok, setSorok] = useState(kezdo);
-  const ido = new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Bucharest" });
+  const ido = new Intl.DateTimeFormat(nyelv, { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Budapest" });
 
   async function allapotValt(id: string, allapot: string) {
     const v = await fetch(`/api/admin/logoterv/${id}`, { method: "PUT", credentials: "same-origin", headers: { "content-type": "application/json" }, body: JSON.stringify({ allapot }) }).catch(() => null);

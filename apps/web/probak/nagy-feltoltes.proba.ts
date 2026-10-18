@@ -97,13 +97,14 @@ describe("100 MB-os arculati fájl, lemezre írva (Csilla 2026-10-10)", () => {
     expect(Buffer.from(await l.arrayBuffer()).equals(Buffer.from(b))).toBe(true);
   });
 
-  it("99 MB PDF → 201 (kézikönyv), a letöltött méret egyezik, ideiglenes fájl nem marad", async () => {
-    const v = await feltolt(sutik, "Arculati kézikönyv, végleges ő ű.pdf", "kezikonyv", pdf(99 * MB));
+  // G4 (Rögtön, 2026-10-18): az arculati fájl korlátja 95 MB (a Cloudflare peremének ~100 MB-os korlátja alatt) — a határpróbák 94 MB / 96 MB-ra kerültek, ugyanazzal a jelentéssel.
+  it("94 MB PDF → 201 (kézikönyv), a letöltött méret egyezik, ideiglenes fájl nem marad", async () => {
+    const v = await feltolt(sutik, "Arculati kézikönyv, végleges ő ű.pdf", "kezikonyv", pdf(94 * MB));
     expect(v.statusz).toBe(201);
-    expect(v.torzs.fajl).toMatchObject({ tipus: "pdf", meret: 99 * MB });
+    expect(v.torzs.fajl).toMatchObject({ tipus: "pdf", meret: 94 * MB });
     const l = await fetch(`${PROBA_CIM}/api/arculat/fajl/${v.torzs.fajl!.id}`, { headers: { cookie: sutik } });
     expect(l.status).toBe(200);
-    expect((await l.arrayBuffer()).byteLength).toBe(99 * MB);
+    expect((await l.arrayBuffer()).byteLength).toBe(94 * MB);
     const m = ideiglenesek();
     if (m) expect(m).toEqual([]);
   }, 120_000);

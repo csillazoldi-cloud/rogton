@@ -29,7 +29,7 @@ export function MentesAllapot({ allapot, mentveEkkor, ujra }: { allapot: Allapot
   if (allapot === "folyik") szoveg = t("onboarding.mentes_folyik");
   else if (allapot === "kesz") {
     let ido = "";
-    try { ido = mentveEkkor ? new Intl.DateTimeFormat(nyelv, { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Bucharest" }).format(mentveEkkor) : ""; } catch { ido = ""; }
+    try { ido = mentveEkkor ? new Intl.DateTimeFormat(nyelv, { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Budapest" }).format(mentveEkkor) : ""; } catch { ido = ""; }
     szoveg = ido ? t("onboarding.mentve_ekkor", { t: ido }) : t("onboarding.mentes_kesz");
   } else szoveg = t("onboarding.mentes_hiba");
   return (

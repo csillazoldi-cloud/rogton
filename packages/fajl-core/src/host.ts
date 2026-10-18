@@ -71,7 +71,9 @@ export type FajlHibaKod = z.infer<typeof FajlHibaKod>;
 
 /** 0.3.0 (Csilla 2026-10-10): az arculati / szervezeti fájlok (logó, kézikönyv, referencia, dokumentum — PDF is) korlátja 100 MB
  *  (volt 10 MB). A befogadó a nagy fájlt NEM tarthatja memóriában: `feltoltFajlbol` + `FajlTar.mentFajlbol` (lemezről lemezre). */
-export const MAX_MERET_BAJT = 100 * 1024 * 1024; // 100 MB
+// G4 (Rögtön, 2026-10-18): 95 MB — a Cloudflare ingyenes peremének kéréskorlátja kb. 100 MB; e fölött a perem válaszolna egy üres
+// 413-mal, így a kód barátságos „túl nagy” üzenete soha nem érne el a felhasználóig. Az nginx 100 MB-ot enged ezen az úton (uzem/nginx.conf).
+export const MAX_MERET_BAJT = 95 * 1024 * 1024; // 95 MB
 /** 0.3.0: a posztképek (`kep` cél) korlátja marad 10 MB — azokat a befogadó memóriában dolgozza fel. */
 export const KEP_MAX_MERET_BAJT = 10 * 1024 * 1024;
 /** R-16 K5 (gepezet 8): egy saját betűfájl legfeljebb 10 MB (ugyanannyi, mint az általános korlát — külön néven, hogy ha az egyik

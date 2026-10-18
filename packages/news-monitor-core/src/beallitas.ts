@@ -15,7 +15,7 @@ export const Idozites = z.object({
   mod: z.enum(["kezi", "napi"]),
   ora: z.number().int().min(0).max(23).default(7),
   perc: z.number().int().min(0).max(59).default(0),
-  idozona: z.string().min(1).default("Europe/Bucharest"),
+  idozona: z.string().min(1).default("Europe/Budapest"),
 });
 export type Idozites = z.infer<typeof Idozites>;
 

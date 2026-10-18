@@ -117,7 +117,7 @@ describe("F6 live: the review proposal and the event", () => {
       const j = await keres<Record<string, unknown>>("/api/onboarding/javaslatok", { modszer: "POST", sutik: s });
       expect(j.statusz).toBe(200);
       expect([j.torzs["szervezet_tipus"], j.torzs["biztos"]]).toEqual(["fesztival", true]);
-      expect(j.torzs["rendezveny"]).toEqual({ mettol: "2026-06-25", meddig: "2026-06-28", hely: { hu: "[MINTA] Marosvásárhely", ro: "[MINTA] Târgu Mureș" } });
+      expect(j.torzs["rendezveny"]).toEqual({ mettol: "2026-06-25", meddig: "2026-06-28", hely: { hu: "[MINTA] Debrecen", ro: "[MINTA] Debrețin" } }); // G4: a teszt-AI mintahelye semleges (Debrecen) — a régi város nem maradhat a dobozban
       await keres("/api/onboarding/piszkozat", { modszer: "PUT", sutik: s, torzs: {
         bemutatkozas: { nev: "Zilele Târgumureșene 2026 — próba F6", osszefoglalo: o, osszefoglalo_forras: "ai", forras_tipus: "leiras", leiras: o, szervezet_tipus: "fesztival", kategoria: "semleges", tipus_biztos: true, rendezveny: j.torzs["rendezveny"] },
         kommunikacio: { celkozonseg: "családok", celkozonseg_forras: "ai", cel: "", cel_forras: "sajat", cel_kesobb: true, nyelvek: ["hu", "ro"], nyelvek_forras: "sajat", hangnem_leiras: "", hangnem_minta: "", hangnem_nyelv: "hu", hangnem_forras: "sajat" },

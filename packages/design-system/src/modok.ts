@@ -1,4 +1,4 @@
-// R-18 arculatfrissítés (2026-10-11, Csilla): a termék két módja — sötét („Éjszaka”, tema-sotet.json) és világos („Papír”,
+// R-18 arculatfrissítés (2026-10-11, a megrendelő): a termék két módja — sötét („Éjszaka”, tema-sotet.json) és világos („Papír”,
 // tema-vilagos.json). A felhasználó a fejléc váltójával választ; első látogatáskor a készülék beállítása dönt (prefers-color-scheme).
 // A választás a böngészőben marad (localStorage `km-mod`), szerverre nem kerül. A mód a <html data-mod="sotet|vilagos"> jelölésből
 // dolgozik: a lap feje (layout) a modCss() blokkjait teszi ki a hatásos (szervezeti) tokenkészlet UTÁN, magasabb specificitással,
@@ -51,7 +51,7 @@ export const MOD_SAJAT: Record<Mod, Record<string, string>> = {
     "--aur-2": "#4b09d8",
     "--aur-3": "#eb5928",
     "--halvany": "0.13",
-    // 2. kör (Csilla 10-11, „nem lüktet”): a légzés látható íve és sötétben erősebb lila — a réteg 0,55 × 1,6 ≈ 0,88
+    // 2. kör (a megrendelő 10-11, „nem lüktet”): a légzés látható íve és sötétben erősebb lila — a réteg 0,55 × 1,6 ≈ 0,88
     "--aurora-szorzo": "1.6",
     "--aur-min": "0.25",
     "--aur-max": "0.9",
@@ -89,19 +89,19 @@ export const MOD_SAJAT: Record<Mod, Record<string, string>> = {
   },
 };
 
-/** Mindkét módban azonos R-18 tokenek: az aitmetica.ro betűrendje (IRANYOK-round4.md), a fejléc méretei, a mozgás. */
+/** Mindkét módban azonos R-18 tokenek: az a referencia-oldal betűrendje (IRANYOK-round4.md), a fejléc méretei, a mozgás. */
 export const R18_KOZOS: Readonly<Record<string, string>> = {
   "--fs-ui": "13px", // JetBrains Mono 500: felső menü, menüsorok, gombok, cselekvő linkek
   "--fw-ui": "500",
   "--fs-gomb": "14px", // fő gomb
   "--fs-ui-kicsi": "11.5px", // telefonos csempék, számjelvény
   "--fs-cimke": "12px", // csoportcímek, „Készül a kép”
-  "--ls-h1": "-0.028em", // aitmetica.ro h1 88px/−2.46px
-  "--ls-h2": "-0.018em", // aitmetica.ro h2 44px/−0.79px
+  "--ls-h1": "-0.028em", // a referencia-oldal h1 88px/−2.46px
+  "--ls-h2": "-0.018em", // a referencia-oldal h2 44px/−0.79px
   "--jel-h": "22px", // az a/t jel magassága a felső sávban (asztal)
   "--jel-h-tel": "16px", // … telefonon
   "--cap-ratio": "0.734", // Inter Tight 700 nagybetű-magasság (mérve, IRANYOK-round4.md)
-  // Csilla 10-11: „POSZTGYÁR should be about 20% smaller than now” — a rajz mérete (jel / 0,734) × 0,8
+  // a megrendelő 10-11: „A TERMÉKNÉV should be about 20% smaller than now” — a rajz mérete (jel / 0,734) × 0,8
   "--nev-arany": "0.8",
   "--sav-h": "72px",
   "--sav-h-tel": "60px",

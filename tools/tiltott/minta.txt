@@ -1,0 +1,29 @@
+# Banned strings — one JavaScript regular expression per line, matched case-insensitively.
+# `\b` is an ASCII word boundary (the SQL form becomes `\y`). Lines starting with # are comments.
+# Old product / company / brand names
+aitmetica
+posztgy[aá]r
+mediapartizan
+transzmozaik
+\bspotlight\b
+# Old city and its other spellings
+marosv[aá]s[aá]rhely
+t[aâ]rgu[ -]?mure[sșş]
+\btirgu\b
+s[aâ]ntana de mure
+# Team names
+\bcsilla\b
+\bkati\b
+\bvilmos\b
+\bportik\b
+\btolgyes\b
+# Private network: Tailscale, LAN, the old hosts
+tailscale
+\b192\.168\.\d{1,3}\.\d{1,3}\b
+\b100\.(?:89|113)\.\d{1,3}\.\d{1,3}\b
+\bgigabyte\b
+# The old product name in its Romanian / English translations
+post ?factory
+fabrica de post[aă]ri
+# Villages next to the old city used in examples
+[aá]kosfalv

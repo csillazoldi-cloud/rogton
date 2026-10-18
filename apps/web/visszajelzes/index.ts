@@ -163,7 +163,7 @@ export type CsomagEredmeny =
   | { ok: true; csomag: JavitoCsomag | null }
   | { ok: false; hiba: "AI_KERET_KIMERULT" | "AI_NEM_ELERHETO" | "AI_ROSSZ_VALASZ" };
 
-/** Az adott nap (Europe/Bucharest) visszajelzései, amelyek még nincsenek csomagban. */
+/** Az adott nap (Europe/Budapest) visszajelzései, amelyek még nincsenek csomagban. */
 async function napiVisszajelzesek(nap: string): Promise<Visszajelzes[]> {
   const sorok = await db()
     .select({
@@ -189,7 +189,7 @@ async function napiVisszajelzesek(nap: string): Promise<Visszajelzes[]> {
     .where(
       and(
         isNull(sema.visszajelzes.csomagId),
-        sql`(${sema.visszajelzes.letrehozva} AT TIME ZONE 'Europe/Bucharest')::date = ${nap}::date`,
+        sql`(${sema.visszajelzes.letrehozva} AT TIME ZONE 'Europe/Budapest')::date = ${nap}::date`,
       ),
     )
     .orderBy(sema.visszajelzes.letrehozva);
@@ -216,7 +216,7 @@ async function napiVisszajelzesek(nap: string): Promise<Visszajelzes[]> {
 }
 
 /**
- * A napi javítócsomag elkészítése. A `nap` napján (Europe/Bucharest) keletkezett, még csomag nélküli
+ * A napi javítócsomag elkészítése. A `nap` napján (Europe/Budapest) keletkezett, még csomag nélküli
  * visszajelzésekből dolgozik. Ha nincs ilyen: `{ ok: true, csomag: null }`.
  * Ha aznapra már van csomag, ÚJ csomag készül a még csomag nélküli visszajelzésekből (több csomag egy napon lehet).
  */
@@ -349,8 +349,6 @@ export async function csomagTetelAllapot(
   return true;
 }
 
-// c1 + c7: a napi hub-összesítő és a reggeli Telegram-üzenet (a futtató hívja percenként).
-export { ertesitesekTick } from "./ertesites";
 
 /** c7 a Kezdőlapon (R-15 c5 2. kör, design/R15/rajz/R15-lapok-5.dc.html 03j/03j2; gepezet-5 6; kerdesek-5 16–17): a belépett ember
  *  SAJÁT, nem névtelen jelzései az AKTUÁLIS szervezetben, amelyek az elmúlt 24 órában lettek „kész”-ek (0154 `kesz_ido`), a legújabb elöl,

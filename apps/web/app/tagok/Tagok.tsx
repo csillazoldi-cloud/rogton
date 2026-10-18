@@ -32,7 +32,7 @@ type MeghivoEredmeny = {
   lejar: string;
 } | null;
 
-const ZONA = "Europe/Bucharest";
+const ZONA = "Europe/Budapest";
 
 const SZEREP_SORREND: Szerep[] = ["nezo", "szerkeszto", "tulajdonos"];
 

@@ -28,12 +28,12 @@ function penz(usd: number, nyelv: string): string {
   return new Intl.NumberFormat(nyelvKod(nyelv), { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(usd);
 }
 
-/** A jelszó-visszaállító link lejáratának óra:perc alakja, a felhasználó nyelvén, bukaresti időben. */
+/** A jelszó-visszaállító link lejáratának óra:perc alakja, a felhasználó nyelvén, budapesti időben. */
 function oraPerc(iso: string, nyelv: string): string {
   return new Intl.DateTimeFormat(nyelvKod(nyelv), {
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "Europe/Bucharest",
+    timeZone: "Europe/Budapest",
   }).format(new Date(iso));
 }
 

@@ -282,7 +282,7 @@ async function robotsEllenoriz(url: URL): Promise<void> {
   try {
     const valasz = await fetch(robotsUrl, {
       signal: vezerlo.signal,
-      headers: { "user-agent": "KommunikaciosMunkater/0.1 (+forrasfeldolgozas)" },
+      headers: { "user-agent": "Mozilla/5.0 (compatible; RogtonBot/1.0)" },
       redirect: "manual",
     });
     if (valasz.ok && valasz.body) {
@@ -307,7 +307,7 @@ async function robotsEllenoriz(url: URL): Promise<void> {
     const ertek = s.slice(kettospont + 1).trim();
     if (kulcs === "user-agent") {
       aktualisUa = ertek.toLowerCase();
-    } else if (kulcs === "disallow" && (aktualisUa === "*" || aktualisUa === "kommunikaciosmunkater")) {
+    } else if (kulcs === "disallow" && (aktualisUa === "*" || aktualisUa === "rogtonbot")) {
       if (ertek) tiltottUtak.push(ertek);
     }
   }
@@ -453,7 +453,7 @@ export async function nyersBajtok(
 
 type Cikk = { cim: string; url: string; megjelenes: string | null; szoveg: string; nyelv: string | null };
 
-const OLVASO_FEJLEC = { "user-agent": "KommunikaciosMunkater/0.1 (+forrasfeldolgozas)" };
+const OLVASO_FEJLEC = { "user-agent": "Mozilla/5.0 (compatible; RogtonBot/1.0)" };
 
 type Lekert<T = string> = { url: URL; contentType: string; teljes: T };
 type LekeresOpciok = { accept: string; idokorlatMs: number; maxBajt: number; maxAtiranyitas: number; engedettTipus?: RegExp; rosszTipus?: LetoltesHibaKod };

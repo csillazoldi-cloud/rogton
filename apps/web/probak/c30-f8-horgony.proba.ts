@@ -69,13 +69,16 @@ describe("F8 pure: the anchors for 25–28 June 2026", () => {
     expect(horgonyKulcs({ fajta: "koszono", nap: "2026-06-29", cel_nap: null })).toBe("program:koszono:2026-06-29");
   });
 
-  it("DST-safe: an event across the October change (25 Oct 2026, Bucharest) gets every day once; the day key is Bucharest's", () => {
+  // G4 (Rögtön, 2026-10-18): the zone is Europe/Budapest (UTC+2 in summer, was Bucharest UTC+3). Both zones change on the same
+  // EU dates (25 Oct 2026, 28 Mar 2027), so the day lists are unchanged; only the midnight probe moves one hour later (22:30Z).
+  it("DST-safe: an event across the October change (25 Oct 2026, Budapest) gets every day once; the day key is Budapest's", () => {
     const o = horgonyJavaslatok({ mettol: "2026-10-23", meddig: "2026-10-27" }, [], MIND);
     expect(napjai(o, "mai_program")).toEqual(["2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27"]);
     expect(napjai(o, "holnapi_program")).toEqual(["2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26"]);
     const m = horgonyJavaslatok({ mettol: "2027-03-27", meddig: "2027-03-29" }, [], MIND); // the March change (28 Mar 2027)
     expect(napjai(m, "album")).toEqual(["2027-03-28", "2027-03-29", "2027-03-30"]);
-    expect(napKulcs(new Date("2026-06-23T21:30:00Z"))).toBe("2026-06-24"); // 00:30 in Bucharest is already the 24th
+    expect(napKulcs(new Date("2026-06-23T22:30:00Z"))).toBe("2026-06-24"); // 00:30 in Budapest is already the 24th
+    expect(napKulcs(new Date("2026-06-23T21:30:00Z"))).toBe("2026-06-23"); // 23:30 in Budapest is still the 23rd
   });
 
   it("no dates or a backwards range → nothing; the topic plan's kinds limit the ideas (none marked → all seven)", () => {

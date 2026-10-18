@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "A vizuálgyártó képgyártója: a Gigabyte-on futó kis szolgáltatás, amely a receptből, az arculatból és a tartalomból képet készít (láthatatlan Chromium).",
+  "description": "A vizuálgyártó képgyártója: egy belső hálózaton futó kis szolgáltatás, amely a receptből, az arculatból és a tartalomból képet készít (láthatatlan Chromium).",
   "scripts": {
     "tipus": "tsc --noEmit -p tsconfig.json",
     "indit": "node src/szerver.ts",

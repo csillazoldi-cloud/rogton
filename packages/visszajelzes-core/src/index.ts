@@ -168,5 +168,3 @@ export function csomagOsszeall(
   };
 }
 
-// c1 + c7: a napi hub-összesítő és a reggeli „Tegnap javítva” üzenet tiszta része.
-export * from "./ertesites";

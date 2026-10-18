@@ -1,10 +1,10 @@
-// c14 (Csilla döntése 2026-10-08 15:05, docs/decisions/2026-10-08-c14-mintafoto.md): a „Kész munka” MINTAKÉPÉN
+// c14 (a megrendelő döntése 2026-10-08 15:05, docs/decisions/2026-10-08-c14-mintafoto.md): a „Kész munka” MINTAKÉPÉN
 // (POST /helyzet-minta — a Kezdőlap és a Hírek ajánlatának képe, a Képek kártyája, az Arculat „Így néz ki” képe) a sablon
 // fotóhelyén valódi példafotó áll a csíkos „fotó” hely helyett — a bíráló (Tibor-kapu 10-06 18:36) a csíkot feltöltő-helynek nézte.
-// c15 (Csilla döntése 2026-10-08 15:43–15:50, docs/decisions/2026-10-08-c15-iparagi-mintafoto.md): a fotó a cég SZAKMÁJÁHOZ illik.
+// c15 (a megrendelő döntése 2026-10-08 15:43–15:50, docs/decisions/2026-10-08-c15-iparagi-mintafoto.md): a fotó a cég SZAKMÁJÁHOZ illik.
 // A szakmát (8 zárt kategória) a példaszövegeket író meglévő AI-hívás választja (apps/web/vizual/peldak.ts), a web a kérés
 // `minta_kategoria` mezőjében küldi; ismeretlen / hiányzó kategória vagy hiányzó fájl → a semleges fotó.
-// A fotók: Magnific (Freepik), Csilla fizetős fiókjával letöltve 10-08 (fizetős licenc, forrásmegjelölés nem kell); ≤ 1600 px,
+// A fotók: Magnific (Freepik), a megrendelő fizetős fiókjával letöltve 10-08 (fizetős licenc, forrásmegjelölés nem kell); ≤ 1600 px,
 // JPEG 82, sRGB, metaadat nélkül (apps/kepgyar/minta/).
 // Csak a minta kapja: a kitöltő (POST /helyzet) képe változatlan — ott a csíkos hely a feltöltés helye. Ha a tartalom már hoz
 // fotót (vagy előtte–utána párt kér), semmi nem változik. A fotó ugyanazon az úton jut a képre, mint a feltöltött:
@@ -32,7 +32,7 @@ export const MINTA_FOTOK: Partial<Record<MintaKategoria, string>> = {
   muhely: "kesz-minta-muhely.jpg",
   kozlekedes: "kesz-minta-kozlekedes.jpg",
   kert: "kesz-minta-kert.jpg",
-  /** c30 F11 (10-17): a fesztivál fotója — színpad és közönség; Csilla adta, a licencet 10-17-én megerősítette (forrás: _c30-minta) */
+  /** c30 F11 (10-17): a fesztivál fotója — színpad és közönség; a megrendelő adta, a licencet 10-17-én megerősítette (forrás: _c30-minta) */
   rendezveny: "kesz-minta-rendezveny.jpg",
   /** a semleges (10-08): az iroda fotója — általános, nyugodt kép */
   semleges: "kesz-minta-iroda.jpg",
@@ -69,7 +69,7 @@ export function mintaFotoAdat(kategoria: unknown, mappa = MINTA_MAPPA, fotok = M
 }
 
 /**
- * A minta tartalma a példafotóval — a `kesz` és (R-15 c5 2. kör, Csilla 2026-10-10 18:08: a Képek lapon nincs csíkos minta) az `uj`
+ * A minta tartalma a példafotóval — a `kesz` és (R-15 c5 2. kör, a megrendelő 2026-10-10 18:08: a Képek lapon nincs csíkos minta) az `uj`
  * helyzetnél, csak ha nincs benne fotó és nem előtte–utána. A többi helyzet sablonján nincs fotóhely.
  * `tartalom`: a kérés nyers tartalma (a munkatér példaszövege) vagy hiányában az `alap` (a képgyártó általános mintája).
  * Minden más esetben a bejövő `tartalom` változatlanul megy tovább (undefined is: akkor a képgyártó a saját mintáját veszi).

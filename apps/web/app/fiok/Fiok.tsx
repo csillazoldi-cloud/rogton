@@ -286,6 +286,6 @@ export function Fiok({ kezdoProfil, szervezet, fiokId, fiokNev, fiokEmail, szerk
 function datum(iso: string, nyelv: string, alak: "rovid" | "nap"): string {
   try {
     // az időzóna kimondva: a kiszolgáló (UTC-s doboz) és a böngésző különben más szöveget ad → 418-as hidratálási hiba (a teszten mérve, F-2d)
-    return new Intl.DateTimeFormat(nyelv, alak === "rovid" ? { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Bucharest" } : { dateStyle: "long", timeZone: "Europe/Bucharest" }).format(new Date(iso));
+    return new Intl.DateTimeFormat(nyelv, alak === "rovid" ? { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Budapest" } : { dateStyle: "long", timeZone: "Europe/Budapest" }).format(new Date(iso));
   } catch { return iso; }
 }

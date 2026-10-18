@@ -34,7 +34,7 @@ interface OllamaValasz {
 
 async function hivEgyszer(keres: HivasKeres, jel: AbortSignal): Promise<Response> {
   const l = leirolap();
-  const cim = process.env["OLLAMA_URL"] ?? "http://192.168.1.188:11434";
+  const cim = process.env["OLLAMA_URL"] ?? "http://127.0.0.1:11434";
   const torzs: Record<string, unknown> = {
     model: l.modell,
     messages: [
@@ -147,7 +147,7 @@ export const ollamaSzolgaltato: Szolgaltato = {
 
 /** A Dell Ollama elérhetőségének ellenőrzése — a felület/ellenőrzés használja. */
 export async function ollamaElerheto(): Promise<{ ok: boolean; modellek: string[]; fut: string[] }> {
-  const cim = process.env["OLLAMA_URL"] ?? "http://192.168.1.188:11434";
+  const cim = process.env["OLLAMA_URL"] ?? "http://127.0.0.1:11434";
   try {
     const [tagsValasz, psValasz] = await Promise.all([
       idokorlattal(5000, undefined, (jel) => fetch(`${cim}/api/tags`, { signal: jel })),

@@ -62,7 +62,8 @@ describe("Fordítás: a gomb a HŰ fordítás promptját hívja", () => {
 
   it("a helynév-útmutató benne van, a nevek változatlanok maradnak", () => {
     const p = promptFajl(POSZT_PROMPTOK.forditas);
-    for (const hely of ["Marosvásárhely · Târgu Mureș", "Kolozsvár · Cluj-Napoca", "Sepsiszentgyörgy · Sfântu Gheorghe",
+    // G4 (Rögtön, 2026-10-18): a régi város sora kikerült a helynév-táblából (a fork nem viheti a nevét); a többi pár és a szabály marad
+    for (const hely of ["Kolozsvár · Cluj-Napoca", "Sepsiszentgyörgy · Sfântu Gheorghe",
       "Székelyudvarhely · Odorheiu Secuiesc", "Csíkszereda · Miercurea Ciuc", "Erdély · Transilvania · Transylvania",
       "Maros megye · județul Mureș · Mureș County"]) {
       expect(p).toContain(hely);

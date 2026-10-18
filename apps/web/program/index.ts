@@ -29,7 +29,7 @@ const BEMENET_MAX = 40_000;
 const LINK_TIPUS = /^\s*(application\/pdf|image\/(png|jpeg|webp)|application\/vnd\.openxmlformats-officedocument\.wordprocessingml\.document|application\/(zip|octet-stream))\s*(;|$)/i;
 
 function evMost(): number {
-  return Number(new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Bucharest", year: "numeric" }).format(new Date()));
+  return Number(new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Budapest", year: "numeric" }).format(new Date()));
 }
 
 async function kiegeszites(szervezetId: string, ev: number): Promise<{ szoveg: string; nyelv: string }> {

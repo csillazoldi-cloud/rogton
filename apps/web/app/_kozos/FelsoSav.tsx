@@ -20,7 +20,6 @@ import { KilepesGomb } from "../szervezet/uj/KilepesGomb";
 import { R15Javitva, type JavitottTetel } from "./R15Javitva";
 import { R15Ikon } from "./R15Ikon";
 import { ModValto } from "./ModValto";
-import { HalvanyLogo } from "./HalvanyLogo";
 import { Marka } from "./Marka";
 import { Visszajelzes, VISSZAJELZES_INDIT } from "./Visszajelzes"; // R-9: a Visszajelzés modul minden belépett lapon
 
@@ -397,7 +396,6 @@ export function FelsoSav({ adat, aktiv, javitott = [] }: { adat: FelsoSavAdat; a
     </header>
     {/* R-18: a halvány aitmetica felirat a lap alján, a Visszajelzés gomb közelében (díszítés) — a sávon KÍVÜL, hogy a tartalom
         mögé kerüljön (a sáv saját rétege a tartalom fölött van) */}
-    <HalvanyLogo />
     </>
   );
 }

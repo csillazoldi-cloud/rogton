@@ -12,7 +12,7 @@ import { db, sema, szervezetKent } from "../adatbazis/kapcsolat";
 // A meta a Postgresben (`arculat_fajl`, `szervezetKent` alatt), a bájtok a lemezen:
 //   <FAJL_MAPPA>/<szervezet_id>/<id>.<KITERJESZTES[tipus]>
 //   c30 F9 (D7): az albumfotók (`cel = "album"`) KÜLÖN mappában: <ALBUM_MAPPA>/<szervezet_id>/<id>.<kit> — 30 nap, mentés nélkül
-//   (a `nas/mentes.sh` csak a FAJL_MAPPA-t tarolja; az album mappa a NAS-on `./adatok/album`, mellette, nem alatta).
+//   (a mentés csak a FAJL_MAPPA-t tárolja; az album mappa a gépen `adatok/album`, mellette, nem alatta).
 // Az `id` és a `szervezet_id` uuid — a nevet NEM használjuk útvonalként.
 
 function mappaAlap(): string {
@@ -21,13 +21,15 @@ function mappaAlap(): string {
 
 /** c30 F9: az albumfotók mappája (a dobozban `/adatok/album`, a compose adja). A 30 napos elköltöztetés (album/koltoztet.ts) is ezt
  *  használja. Ha nincs megadva (fejlesztői gép, ill. a kapu próbakörnyezete, amíg a robot saját kapuja a régi): a FAJL_MAPPA `_album`
- *  almappája — az írható (a fájlok csatolt mappája), és a próba ugyanígy számolja ki. A `nas/mentes.sh` ezt is kihagyja (`--exclude`). */
+ *  almappája — az írható (a fájlok csatolt mappája), és a próba ugyanígy számolja ki. A mentés ezt is kihagyja. */
 export function albumMappa(): string {
   return process.env.ALBUM_MAPPA || join(mappaAlap(), "_album");
 }
 
 function ut(szervezet_id: string, id: string, tipus: FajlTipus, cel?: FajlCel): string {
-  return join(cel === "album" ? albumMappa() : mappaAlap(), szervezet_id, `${id}.${KITERJESZTES[tipus]}`);
+  // G4: a futásidejű adatmappa NEM a projekt része — a turbopackIgnore nélkül a nyomkövető az egész apps/web-et (a forrást és a
+  // próbákat is) bevitte az önálló csomagba
+  return join(/*turbopackIgnore: true*/ cel === "album" ? albumMappa() : mappaAlap(), szervezet_id, `${id}.${KITERJESZTES[tipus]}`);
 }
 
 function sorbol(sor: {
@@ -122,7 +124,7 @@ export const fajlTar: FajlTar = {
     const m = await this.meta(szervezet_id, id);
     if (!m) return null;
     try {
-      const bajtok = await readFile(ut(szervezet_id, id, m.tipus, m.cel));
+      const bajtok = await readFile(/*turbopackIgnore: true*/ ut(szervezet_id, id, m.tipus, m.cel));
       return new Uint8Array(bajtok);
     } catch {
       // Ha a fájl hiányzik a lemezről, null.
@@ -140,7 +142,7 @@ export const fajlTar: FajlTar = {
     } catch {
       return null;
     }
-    return Readable.toWeb(createReadStream(hely)) as ReadableStream<Uint8Array>;
+    return Readable.toWeb(createReadStream(/*turbopackIgnore: true*/ hely)) as ReadableStream<Uint8Array>;
   },
 
   async lista(szervezet_id, cel) {

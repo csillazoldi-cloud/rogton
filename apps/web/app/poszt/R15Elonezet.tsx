@@ -64,7 +64,7 @@ export function R15Elonezet({ felulet, szoveg, cim = "", ceg, kep, kepHelye, onR
     // R-17 C2 (17-08bl): egyszerű honlap-cikk — a honlap sávja (a cég honlapja, ha ismert), a kép helye (fekvő), a cím, a dátum és a cég,
     // az első bekezdések (a második halványabban). A menü-szavak helyén díszítő sávok (gépezet nincs mögöttük).
     let datum = "";
-    try { datum = new Intl.DateTimeFormat(nyelv, { dateStyle: "long", timeZone: "Europe/Bucharest" }).format(new Date()); } catch { /* üres marad */ }
+    try { datum = new Intl.DateTimeFormat(nyelv, { dateStyle: "long", timeZone: "Europe/Budapest" }).format(new Date()); } catch { /* üres marad */ }
     const bekezdesek = latszo.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean).slice(0, 2);
     kartya = (
       <div className="r15e-cikk">

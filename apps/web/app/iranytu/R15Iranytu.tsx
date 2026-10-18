@@ -28,12 +28,12 @@ function maiNap(): string {
 
 function datumRovid(iso: string, nyelv: string): string {
   if (!iso) return "";
-  try { return new Intl.DateTimeFormat(nyelv, { month: "short", day: "numeric", timeZone: "Europe/Bucharest" }).format(new Date(`${iso}T12:00:00Z`)); } catch { return iso; }
+  try { return new Intl.DateTimeFormat(nyelv, { month: "short", day: "numeric", timeZone: "Europe/Budapest" }).format(new Date(`${iso}T12:00:00Z`)); } catch { return iso; }
 }
 
 function datumNap(iso: string | null, nyelv: string): string {
   if (!iso) return "";
-  try { return new Intl.DateTimeFormat(nyelv, { month: "short", day: "numeric", timeZone: "Europe/Bucharest" }).format(new Date(iso)); } catch { return iso.slice(0, 10); }
+  try { return new Intl.DateTimeFormat(nyelv, { month: "short", day: "numeric", timeZone: "Europe/Budapest" }).format(new Date(iso)); } catch { return iso.slice(0, 10); }
 }
 
 const URES: IranytuSema = { celok: [], vizio: "", vizio_forras: "", ertekek: [], idoszakok: [], tolni: [], tiltott_szavak: [], kerulendo_temak: [] };

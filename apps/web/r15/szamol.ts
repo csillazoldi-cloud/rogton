@@ -106,12 +106,12 @@ export function halad(posztKeszDb: number, kepDb: number, varoDb: number): R15Ha
   return { poszt_kesz: posztKeszDb, kep_letoltve: kepDb, varo: varoDb, arany };
 }
 
-/** A naptári nap kulcsa Europe/Bucharest szerint (ÉÉÉÉ-HH-NN). */
+/** A naptári nap kulcsa Europe/Budapest szerint (ÉÉÉÉ-HH-NN). */
 function napKulcs(d: Date): string {
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Bucharest", year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Budapest", year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
 }
 
-/** gepezet 9 — hány naptári napja volt (0 = ma, 1 = tegnap), Europe/Bucharest szerint; null → soha. */
+/** gepezet 9 — hány naptári napja volt (0 = ma, 1 = tegnap), Europe/Budapest szerint; null → soha. */
 export function napjaVolt(ido: string | Date | null | undefined, most = new Date()): number | null {
   if (!ido) return null;
   const d = typeof ido === "string" ? new Date(ido) : ido;

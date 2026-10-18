@@ -1,5 +1,5 @@
 {
-  "onboarding.oldalcim": "Bemutatkozás — Posztgyár",
+  "onboarding.oldalcim": "Bemutatkozás — Rögtön",
   "onboarding.mentes_kesz": "Piszkozat mentve",
   "onboarding.mentes_folyik": "Mentés…",
   "onboarding.mentes_hiba": "Nem sikerült menteni — újrapróbáljuk",
@@ -20,7 +20,7 @@
   "onboarding1.weboldal_pl": "pl. mintamuhely.hu",
   "onboarding1.weboldal_sugo": "A megadott oldal szövegét dolgozzuk fel — ez nem a teljes webhely feltérképezése.",
   "onboarding1.leiras": "Mivel foglalkozol, kiknek, és mi különböztet meg?",
-  "onboarding1.leiras_pl": "Néhány mondat elég. Pl. Kézműves pékség Marosvásárhelyen, családoknak és irodáknak…",
+  "onboarding1.leiras_pl": "Néhány mondat elég. Pl. Kézműves pékség Debrecenben, családoknak és irodáknak…",
   "onboarding1.dokumentum": "+ Dokumentum csatolása (opcionális — pl. bemutatkozó anyag)",
   "onboarding1.arculat_cim": "Vizuális arculat",
   "onboarding1.arculat_opcionalis": "opcionális",

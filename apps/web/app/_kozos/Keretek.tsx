@@ -3,7 +3,6 @@ import { useState, type ReactNode } from "react";
 import { useFeliratok } from "../../nyelv/kliens";
 import { Nyelvvalaszto } from "./Nyelvvalaszto";
 import { Visszajelzes } from "./Visszajelzes";
-import { HalvanyLogo } from "./HalvanyLogo";
 import { Marka } from "./Marka";
 import { ModValto } from "./ModValto";
 import "./fiok.css";
@@ -53,7 +52,6 @@ export function FiokOldal({ fejlecJobb, children, r15 = false }: { fejlecJobb: R
           munkamenet nélkül a beküldés névtelen (0148, api/visszajelzes) */}
       <Visszajelzes />
       {/* R-18: a halvány aitmetica felirat a belépés előtti lapokon is (díszítés, a gomb közelében) */}
-      <HalvanyLogo />
     </div>
   );
 }

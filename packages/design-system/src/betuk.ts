@@ -1,4 +1,4 @@
-// R-18 (IRANYOK-round4.md, Csilla 10-11): az aitmetica.ro betűi SAJÁT kiszolgálásról — Inter Tight 600/700 (címek), Inter 400/500/600
+// R-18 (IRANYOK-round4.md, a megrendelő 10-11): az a referencia-oldal betűi SAJÁT kiszolgálásról — Inter Tight 600/700 (címek), Inter 400/500/600
 // (szöveg), JetBrains Mono 400/500 (menü, gombok, cselekvő linkek, címkék). Latin + latin-ext, hogy az ő ű ă ș ț is ebből a betűből
 // jöjjön. Futás közben semmi nem megy a Google Fontshoz. A fájlok: apps/web/public/betuk/ (fontsource 5.3.0, SIL OFL 1.1 — a licenc ott).
 // A tartományok a Google Fonts latin / latin-ext felosztása (ugyanaz, mint a rajz @font-face soraiban).

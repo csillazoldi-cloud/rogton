@@ -5,10 +5,10 @@ import { csomagok, napiCsomagKeszit } from "../../../../visszajelzes";
 
 export const dynamic = "force-dynamic";
 
-/** A mai nap kulcsa Europe/Bucharest szerint (YYYY-MM-DD). */
-function maiNapBukarest(): string {
+/** A mai nap kulcsa Europe/Budapest szerint (YYYY-MM-DD). */
+function maiNapBudapest(): string {
   const fmt = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Europe/Bucharest",
+    timeZone: "Europe/Budapest",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -37,7 +37,7 @@ export async function POST(keres: Request): Promise<Response> {
     const kapuValasz = await kapu(keres, "rendszergazda");
     if (kapuValasz instanceof Response) return kapuValasz;
 
-    let nap = maiNapBukarest();
+    let nap = maiNapBudapest();
     try {
       const torzs = (await keres.json()) as { nap?: unknown } | null;
       if (torzs && typeof torzs.nap === "string" && /^\d{4}-\d{2}-\d{2}$/.test(torzs.nap)) nap = torzs.nap;

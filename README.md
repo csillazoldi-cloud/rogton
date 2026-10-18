@@ -15,6 +15,7 @@ This repository is a frozen, self-contained fork. Hungarian-only interface; cont
 | `packages/*` | the modules (contracts, design system, cores, adapters) |
 | `uzem/` | operations: compose project `gma`, nginx, deploy script, systemd units, DB init + migration runner |
 | `tools/hatar` | the boundary, token, frame and Dockerfile guards (`pnpm hatar / tokenor / keretor`) |
+| `tools/tiltott` | the banned-string guard (`pnpm tiltott`; also `--kep`, `--db`, `--bejar` modes used by the deploy) |
 | `tools/tibor-proba`, `tools/tibor-biro` | screen-simplicity checks |
 | `docs/` | module rules and decisions |
 
@@ -22,7 +23,7 @@ This repository is a frozen, self-contained fork. Hungarian-only interface; cont
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm ellenoriz        # hatar, tokenor, keretor, terkoz, dockerfile-or, tipus, epit
+pnpm ellenoriz        # hatar, tokenor, keretor, terkoz, dockerfile-or, tipus, epit, tiltott
 pnpm -r --if-present run proba
 ```
 
