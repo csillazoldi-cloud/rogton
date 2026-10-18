@@ -12,7 +12,7 @@
 import { and, eq, gte, lt, sql } from "drizzle-orm";
 import { db, sema } from "../adatbazis/kapcsolat";
 
-export type KiserletFajta = "belepes" | "regisztracio" | "jelszo_visszaallitas" | "visszajelzes";
+export type KiserletFajta = "belepes" | "regisztracio" | "jelszo_visszaallitas" | "visszajelzes" | "kapu";
 
 /** Egy korlát: hány kísérlet fér bele ennyi percbe. */
 type Korlat = { darab: number; ablakPerc: number };
@@ -40,6 +40,9 @@ export const KORLATOK: Record<KiserletFajta, { fiok?: Korlat; cim: Korlat; csakS
   // (a sikeres is), cím szerint — itt nincs fiók, amire számolni lehetne. 10 / óra egy címről: egy tesztelő ennyit nem ír egy óra alatt
   // a belépőlapról, egy szemetelőnek viszont használhatatlanul lassú (és a méretkorlát miatt soronként legfeljebb ~0,4 MB).
   visszajelzes: { cim: { darab: 10, ablakPerc: 60 }, csakSikertelen: false },
+  // G9 (Csilla, 2026-10-18): az oldal kapuja (proxy.ts) — 5 rossz jelszó / 15 perc címenként, utána 429. Itt nincs fiók, csak cím;
+  // a jelszó közös, ezért a cím szerinti számláló az egyetlen (a Cloudflare WAF-szabálya csak tartalék).
+  kapu: { cim: { darab: 5, ablakPerc: 15 }, csakSikertelen: true },
 };
 
 /** A kísérletnapló megőrzési ideje. Ennél régebbi sorokat a takarítás eldob. */

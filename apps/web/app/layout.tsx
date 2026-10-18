@@ -11,6 +11,7 @@ import { semaFelismer } from "@rogton/design-system";
 import { MOD_FEJ_SZKRIPT } from "./_kozos/mod";
 import { VisszajelzesKapcsolo } from "./_kozos/VisszajelzesKapcsolo";
 import { visszajelzesGombBe } from "./_kozos/visszajelzes-gomb";
+import { KAPU_KIVUL_FEJLEC, kapuFeliratai } from "../oldalkapu/szabaly";
 import "./alap.css";
 import "./r18.css";
 
@@ -28,6 +29,9 @@ export const metadata = {
   },
 };
 export const dynamic = "force-dynamic";
+
+/** G9: a kapu lapja mindig tinta hátterű (sötét mód), a böngészőben tárolt választástól függetlenül — és azt nem is írja át. */
+const KAPU_MOD_SZKRIPT = `document.documentElement.setAttribute("data-mod","sotet")`;
 
 // A tokenkészlet a HATÁSOS témából, a feliratok a HATÁSOS feliratokból jönnek (E-13/E-16, D-09): közös alap + a belépett ember szervezetének alkalmazott felülírásai;
 // belépés előtt (regisztráció, belépés) a közös alap. A feliratok a kért nyelven (R-09, R-14).
@@ -61,20 +65,27 @@ async function hatasosNyelvVagyBongeszo(token: string | undefined, acceptLanguag
 
 export default async function Keret({ children }: { children: ReactNode }) {
   const [sutik, fejlecek] = await Promise.all([cookies(), headers()]);
+  // G9: a kapun KÍVÜL (a kapu lapja, a szabad fájlok — a proxy.ts jelöli, a böngészőtől jövő jelölést eldobja) nincs fiók-keresés,
+  // és csak a kapu.* feliratok kerülnek a lapra: a termék többi szövege jelszó nélkül nem látszik. A mód mindig sötét.
+  const kapunKivul = fejlecek.get(KAPU_KIVUL_FEJLEC) === "1";
+  const munkamenet = kapunKivul ? undefined : sutik.get(MUNKAMENET_SUTI)?.value;
   const sutiNyelv = sutik.get(NYELV_SUTI)?.value;
-  const szervezetId = await szervezetAzonosito(sutik.get(MUNKAMENET_SUTI)?.value);
+  const szervezetId = await szervezetAzonosito(munkamenet);
   // V1: a süti mindig nyer, ha van. Ha nincs, belépett fióknál a hatásos nyelv (fiók választása,
   // különben a munkatér első tartalomnyelve) az elsőbbség, és csak utána az Accept-Language.
   const nyelv = sutiNyelv
     ? nyelvKeresbol(sutiNyelv, fejlecek.get("accept-language"))
-    : await hatasosNyelvVagyBongeszo(sutik.get(MUNKAMENET_SUTI)?.value, fejlecek.get("accept-language"));
-  const [tokenek, f] = await Promise.all([hatasosTema(szervezetId), feliratok(nyelv, szervezetId)]);
+    : await hatasosNyelvVagyBongeszo(munkamenet, fejlecek.get("accept-language"));
+  const [tokenek, mindenFelirat] = await Promise.all([hatasosTema(szervezetId), feliratok(nyelv, szervezetId)]);
+  const f = kapunKivul ? kapuFeliratai(mindenFelirat) : mindenFelirat;
   return (
     // R-18: a <html data-mod> jelölést a fej szkriptje teszi ki festés előtt (a böngésző választása / a készülék módja) —
     // a kiszolgáló ezt nem ismeri, ezért a jelölés eltérése nem hidratálási hiba (suppressHydrationWarning).
     <html lang={nyelv} data-sema={semaFelismer(tokenek as unknown as Partial<Record<string, string>>) ?? "sajat"} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: MOD_FEJ_SZKRIPT }} />
+        {/* G9: a kapun kívül a mód mindig sötét — a tárolt választás után fut, és azt nem írja át */}
+        {kapunKivul ? <script dangerouslySetInnerHTML={{ __html: KAPU_MOD_SZKRIPT }} /> : null}
         {/* G5: a Saira, a Saira Condensed és a JetBrains Mono saját kiszolgálásról (public/betuk) — a leggyakoribb három előre töltve */}
         <link rel="preload" href="/betuk/saira-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/betuk/saira-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />

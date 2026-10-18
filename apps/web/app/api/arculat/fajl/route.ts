@@ -7,11 +7,15 @@ import { eldob, ideiglenesTorol, korlatosBeolvas, torzsFajlba } from "../../../.
 import { elemzesFejlecbol, hianyzoNyelvre, type BetuElemzes } from "@rogton/arculat-core";
 import { betuVizsgal } from "../../../../arculat/betu";
 import { profilTar } from "../../../../profil/tar";
+import { kapuUtvonalon } from "../../../../oldalkapu/utvonal";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(keres: Request): Promise<Response> {
   try {
+    // G9: ezt az utat a proxy.ts kihagyja (a törzs memóriába másolása miatt) — az oldal kapuja itt, a törzs olvasása előtt
+    const kapuValasz = await kapuUtvonalon(keres);
+    if (kapuValasz) return kapuValasz;
     const ktx = await kapu(keres, "szerkeszto");
     if (ktx instanceof Response) return ktx;
 
@@ -100,6 +104,8 @@ export async function POST(keres: Request): Promise<Response> {
 
 export async function GET(keres: Request): Promise<Response> {
   try {
+    const kapuValasz = await kapuUtvonalon(keres); // G9: lásd a POST-ot
+    if (kapuValasz) return kapuValasz;
     const ktx = await kapu(keres, "tag");
     if (ktx instanceof Response) return ktx;
 

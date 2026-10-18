@@ -1,5 +1,35 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G9 — the site gate („kapu”): one shared password instead of Cloudflare Access (branch g9-kapu, ON TOP of g8-uzem)
+
+- Decision doc `docs/decisions/2026-10-18-g9-kapu.md`. `apps/web/proxy.ts` (Next 16 proxy = old middleware, Node runtime) runs
+  on everything but `/_next/static`. Rules `apps/web/oldalkapu/szabaly.ts` (pure), tickets `apps/web/oldalkapu/jegy.ts`, page
+  `apps/web/app/kapu/` (plain HTML form, works without JS), migration `0185_g9_kapu.sql` (table `kapu_jegy` + 6 `kapu.*` labels ×3).
+- `KAPU_JELSZO` set → no valid `rogton_kapu` cookie = gate page on any page URL (200, URL kept, back there after the password),
+  `401 {"hiba":"kapu"}` on API and on any non-GET. Free: `/kapu`, `/api/egeszseg`, `/manifest.webmanifest`, `/favicon.ico`,
+  `/r18/ikon/*`, `/_next/static/*`, `/betuk/*`. Outside the gate the root layout gets `x-rogton-kapun-kivul: 1` from the proxy
+  (a client-sent one is always dropped): no account lookup, only `kapu.*` labels in the page, dark mode forced.
+- Cookie = random 32-byte ticket; DB keeps its SHA-256 + the password's HMAC → `TRUNCATE kapu_jegy` logs everyone out; a new
+  `KAPU_JELSZO` invalidates all cookies. 60 s per-process memory of verified tickets. HttpOnly, Secure, SameSite=Lax, 30 days.
+- Rate limit: `belepesi_kiserlet` kind `kapu`, 5 wrong / 15 min per address → 429, checked before the password. Wrong → 401.
+  Next does not carry a rewrite's status, so the proxy fetches `/kapu?h=…` from its own process (`127.0.0.1:$PORT`, override
+  `KAPU_BELSO_CIM`) and returns it with 401/429; fallback 303.
+- Gate off (empty password): open only without `CF-Connecting-IP` (= from the box itself / dev); through Cloudflare → „A belépés
+  most nem elérhető.” / 503. The first version also checked the address and broke ~50 tests that send their own X-Forwarded-For.
+- Measured traps (fixed): (1) Next copies the request body into memory before the proxy (`proxyClientMaxBodySize`, default
+  10 MB) and passes it on TRUNCATED above that — the 94 MB upload broke. Now `experimental.proxyClientMaxBodySize: "12mb"`
+  (= nginx's normal limit) and the matcher skips exactly `/api/arculat/fajl`, whose POST/GET ask the gate themselves before
+  reading the body (`oldalkapu/utvonal.ts`, same answers). Measured: 30 MB through the gate server with the cookie → 201, size
+  OK; without → 401 kapu. (2) After a proxy rewrite Next runs the proxy AGAIN on the new path — rewriting `/kapu` to `/kapu`
+  looped (request hung 10 s); `/kapu` GET is now always "outside". (3) `NextResponse` rejects a relative Location
+  („Invalid URL”) — redirects are built on `nextUrl.origin`, Next sends them relative. (4) The gate page needs `fiok.css` for
+  the field.
+- Kirak.sh crawl guard (8b) now sees only the gate page + static bundles when the gate is on (the labels are still checked by
+  the DB guard, the code by the image guard) — accepted, noted.
+- Batches 23–25 + Cloudflare clicks (delete the two Access apps AFTER Batch 24; WAF rate-limit rule) in `uzem/README.md`;
+  Runbook: log everyone out, change the password, count devices.
+- NOT VERIFIED: see `plan-out/EPITES-NAPLO-G9.md`.
+
 ## 2026-10-18 G8 — operations: nightly backup, Mac pull, restore drill, heartbeat, Runbook (branch g8-uzem, files only)
 
 - `uzem/mentes.sh` (gyorsadmin, host): `pg_dump -Fc` in gma-db (read back with `pg_restore -l` before encryption) + `fajlok`/`album`

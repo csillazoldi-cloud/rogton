@@ -58,8 +58,16 @@ new token (it invalidates the old one) → copy the token into `~/saas/vault/rog
 Batch 13, and `ssh -n gma 'cd ~/gma && docker compose -p gma --env-file .env -f forras/$(cut -c1-12 allapot/kint)/uzem/docker-compose.yml up -d --no-build --force-recreate tunnel'`.
 Check: `ssh -n gma 'sleep 15; docker logs --tail 20 gma-tunnel 2>&1 | grep -c "Registered tunnel connection"'` ≥ 1.
 
-**Add an Access e-mail:** Cloudflare → Zero Trust → Access → Applications → `Rögtön admin` → Policies → `Engedélyezett` → Include →
-Emails → add the address → Save. Nothing on the box changes. Then add the same person in the app (Fiókok) — Access only opens the door.
+**Add an Access e-mail** (only until G9's gate replaces Access): Cloudflare → Zero Trust → Access → Applications → `Rögtön admin` →
+Policies → `Engedélyezett` → Include → Emails → add the address → Save. Nothing on the box changes. Then add the same person in the
+app (Fiókok) — Access only opens the door. **After G9:** give the person the gate password (`~/saas/vault/rogton-kapu-jelszo`) instead.
+
+**Gate (G9) — log every device out:** `ssh -n gma 'docker exec gma-db psql -U km_tulaj -d km -c "TRUNCATE kapu_jegy"'` — every phone and
+browser sees the gate again within a minute (the password stays the same). **Change the gate password** (someone should lose
+access): delete `~/saas/vault/rogton-kapu-jelszo`, run Batch 23 again, then
+`ssh -n gma 'cd ~/gma && docker compose -p gma --env-file .env -f forras/$(cut -c1-12 allapot/kint)/uzem/docker-compose.yml up -d --no-build app'`
+— the old cookies stop working at once (they were issued under the old password). How many devices are in:
+`ssh -n gma 'docker exec gma-db psql -U km_tulaj -d km -tAc "SELECT count(*) FROM kapu_jegy WHERE lejar > now()"'`.
 
 **Restore a backup** (a decision, not routine — first run the drill on the chosen file, Batch 20 line 3, and see ZÖLD). The live
 database is renamed, never dropped; the old file folders are renamed, never deleted.
@@ -330,3 +338,47 @@ ssh -n gma 'curl -s -D - -o /dev/null 127.0.0.1:8410/api/belso/cim | grep -i "^c
 Output must show: `1`, the merged G8 commit and `ki`, and `content-type: application/json; charset=utf-8`. Then open the site on the
 phone: no floating button bottom right, no „Visszajelzés” row in the ☰ menu. (If `printenv` prints nothing, the G8 deploy is not
 live yet — wait for it; the compose default is `ki` anyway.)
+
+## G9 — the site gate (one shared password) instead of Cloudflare Access
+
+Reasons and behaviour: `docs/decisions/2026-10-18-g9-kapu.md`. Order matters: **password into the `.env` first (Batch 23), then
+merge `g9-kapu`** (after `g8-uzem`) — so the very first G9 deploy already has its password. (Without one, the gate fails CLOSED
+towards Cloudflare: „A belépés most nem elérhető.” for everyone outside the box. Nothing breaks, but nobody gets in.) Access stays
+on until Batch 24 has measured the gate live; only then remove it (Cloudflare steps below).
+
+**Batch 23 — MAC** (the gate password: made on the Mac, kept in the vault, pushed into the box's `.env` through stdin — never on a
+command line, never printed):
+```bash
+[ -f ~/saas/vault/rogton-kapu-jelszo ] || (umask 077; openssl rand -base64 18 | tr -d '\n' > ~/saas/vault/rogton-kapu-jelszo); chmod 600 ~/saas/vault/rogton-kapu-jelszo
+ssh gma 'J=$(cat); sed -i "/^KAPU_JELSZO=/d" ~/gma/.env; printf "KAPU_JELSZO=%s\n" "$J" >> ~/gma/.env; grep -c "^KAPU_JELSZO=." ~/gma/.env; stat -c %a ~/gma/.env' < ~/saas/vault/rogton-kapu-jelszo
+```
+Output must show: `1` and `600`. Now merge `g9-kapu` into `main` (after `g8-uzem`); the timer deploys it within minutes and the new
+`gma-app` reads the password at start — no separate `up -d` needed. (If G9 is ALREADY live when you run this batch, add:
+`ssh -n gma 'cd ~/gma && docker compose -p gma --env-file .env -f forras/$(cut -c1-12 allapot/kint)/uzem/docker-compose.yml up -d --no-build app'`.)
+
+**Batch 24 — MAC** (measure the gate on the box, through nginx, pretending to be Cloudflare with a `cf-connecting-ip` header from the documentation range — Access is still on outside):
+```bash
+ssh -n gma 'git -C ~/admin log --oneline -1; docker exec gma-app sh -c "test -n \"\$KAPU_JELSZO\" && echo kapu-be"; curl -s -o /dev/null -w "%{http_code}\n" -H "cf-connecting-ip: 203.0.113.7" 127.0.0.1:8410/api/program/lista'
+ssh -n gma 'curl -s 127.0.0.1:8410/belepes | grep -o "action=\"/kapu\"\|name=\"jelszo\"" | sort -u; curl -s -o /dev/null -w "egeszseg %{http_code} " 127.0.0.1:8410/api/egeszseg; curl -s -o /dev/null -w "manifest %{http_code}\n" 127.0.0.1:8410/manifest.webmanifest'
+ssh -n gma 'for i in 1 2 3 4 5 6; do curl -s -o /dev/null -w "%{http_code} " -H "cf-connecting-ip: 203.0.113.250" -d "jelszo=rossz-$i" 127.0.0.1:8410/kapu; done; echo'
+```
+Output must show: the merged G9 commit, `kapu-be`, `401`; `action="/kapu"` and `name="jelszo"`, `egeszseg 200 manifest 200`;
+`401 401 401 401 401 429`. (The tests go through nginx on the box with a documentation address, so your own address is never
+rate-limited by them. Run line 3 only once per 15 minutes — a second run shows six `429`s.) Then open https://admin.gyorsmedia.hu on the phone: Access PIN first (still on), then the gate page →
+type the password from the vault → the app's own login page.
+
+**Cloudflare — after Batch 24 is green (clicks, nothing on the box):**
+1. Zero Trust → Access controls → Applications → „Rögtön admin” → Delete; „Rögtön ikonok” → Delete (the bypass app is not needed).
+2. Security → WAF → Rate limiting rules → Create rule (Free plan: 1 rule) → name `kapu` → custom expression
+   `(http.host eq "admin.gyorsmedia.hu" and http.request.uri.path eq "/kapu" and http.request.method eq "POST")` → 10 requests per
+   10 seconds, counted by IP → Action Block, duration 1 minute → Deploy. (Backstop only; the app's own limit is the real one.)
+3. Keep the tunnel, the redirect, SSL and the cache rule as they are.
+
+**Batch 25 — MAC** (after the Access apps are gone: the gate is the first thing a stranger sees, with no Access redirect):
+```bash
+curl -s -o /dev/null -w "%{http_code} %{redirect_url}\n" https://admin.gyorsmedia.hu/belepes
+curl -s https://admin.gyorsmedia.hu/belepes | grep -c 'action="/kapu"'
+curl -s -w " %{http_code}\n" https://admin.gyorsmedia.hu/api/program/lista
+curl -s -o /dev/null -w "%{http_code}\n" https://admin.gyorsmedia.hu/api/egeszseg
+```
+Output must show: `200 ` (no `cloudflareaccess.com` redirect), `1`, `{"hiba":"kapu"} 401`, `200`.

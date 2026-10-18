@@ -1,0 +1,23 @@
+/* G9 — a kapu lapja: tinta háttér (a gyökér-keret a kapun kívül sötét módot tesz ki), középre tett keskeny oszlop, Saira (a betű
+   a tokenekből), neon fő gomb tinta szöveggel (a sötét mód --fo-gomb-* tokenjei). Telefon először: 390 px-en a gomb teljes széles,
+   a hüvelykujj alatt; semmi nem lóg ki. Csak tokenek (tokenőr). */
+.kp-lap { min-height: 100dvh; display: flex; align-items: center; }
+.kp-oszlop {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(var(--urlap-max) / 2); /* ~340 px: egy mező és egy gomb */
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ter-10);
+}
+.kp-cim { margin: var(--ter-0); display: flex; justify-content: center; }
+.kp-marka.r18-marka { --jel-h: calc(var(--jel-h-tel) * 2); } /* a telefonos sávjel kétszerese, minden szélességen (a .r18-marka telefonos szabályánál erősebb) */
+.kp-urlap { display: flex; flex-direction: column; gap: var(--ter-8); }
+.kp-urlap .km-cimke { color: var(--text-mut); }
+.kp-gomb { width: 100%; }
+.kp-sor { margin: var(--ter-0); text-align: center; font-size: var(--fs-base); color: var(--text-mut); }
+@media (max-width: 640px) {
+  .kp-lap { align-items: flex-start; }
+  .kp-oszlop { padding-top: var(--ter-13); gap: var(--ter-9); }
+}

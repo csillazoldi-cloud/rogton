@@ -104,6 +104,9 @@ services:
       NYILVANOS_CIM: ${NYILVANOS_CIM:?a .env fájlból}
       # G8: the floating „Visszajelzés” button — off unless the .env says exactly `be` (Csilla, 2026-10-18)
       VISSZAJELZES_GOMB: ${VISSZAJELZES_GOMB:-ki}
+      # G9: the site gate — ONE shared password in front of everything (docs/decisions/2026-10-18-g9-kapu.md). Empty = gate off,
+      # which towards Cloudflare means CLOSED („most nem elérhető”); only requests from the box itself get through then.
+      KAPU_JELSZO: ${KAPU_JELSZO:-}
     volumes:
       - ${GMA_GYOKER}/adatok/fajlok:/adatok/fajlok
       - ${GMA_GYOKER}/adatok/album:/adatok/album

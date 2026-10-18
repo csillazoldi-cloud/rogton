@@ -808,7 +808,8 @@ export const belepesiKiserlet = pgTable(
   {
     id: uuid("id").primaryKey().defaultRandom(),
     // 0148: „visszajelzes” = a névtelen (belépés előtti) visszajelzés-beküldés számlálója (hitelesites/korlat.ts)
-    fajta: text("fajta", { enum: ["belepes", "regisztracio", "jelszo_visszaallitas", "visszajelzes"] }).notNull(),
+    // G9 (0185): „kapu” = az oldal kapujának jelszó-próbái (proxy.ts) — címenként számolva, e-mail nélkül
+    fajta: text("fajta", { enum: ["belepes", "regisztracio", "jelszo_visszaallitas", "visszajelzes", "kapu"] }).notNull(),
     /** A megcélzott e-mail kisbetűsen, ha volt a kérésben. A fiók létezését ez NEM árulja el. */
     email: text("email"),
     /** A kérő címe, ahogy a kiszolgáló látta; ismeretlen esetén "ismeretlen". */
@@ -821,6 +822,21 @@ export const belepesiKiserlet = pgTable(
     index("belepesi_kiserlet_cim_ido_idx").on(t.cim, t.ido),
     index("belepesi_kiserlet_ido_idx").on(t.ido),
   ],
+);
+
+/** G9 (0185): az oldal kapujának jegyei — a rogton_kapu süti értékének SHA-256 lenyomata (id) és a kiadáskor érvényes jelszó
+ *  lenyomata. Host-szintű, nincs sorszintű védelem (mint a belepesi_kiserlet). Részletek: oldalkapu/jegy.ts. */
+export const kapuJegy = pgTable(
+  "kapu_jegy",
+  {
+    id: text("id").primaryKey(),
+    jelszoLenyomat: text("jelszo_lenyomat").notNull(),
+    letrehozva: timestamp("letrehozva", { withTimezone: true }).notNull().defaultNow(),
+    lejar: timestamp("lejar", { withTimezone: true }).notNull(),
+    utolsoHasznalat: timestamp("utolso_hasznalat", { withTimezone: true }).notNull().defaultNow(),
+    ipHash: text("ip_hash").notNull(),
+  },
+  (t) => [index("kapu_jegy_lejar_idx").on(t.lejar)],
 );
 
 /** Egyszer használatos, lejáró jelszó-visszaállító jegy. A jegyet magát SEHOL nem tároljuk, csak a lenyomatát. */
