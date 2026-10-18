@@ -131,10 +131,15 @@ const FELIRAT_SQL = (minta) => `
   UNION ALL SELECT 'kozos_felirat_verzio v' || verzio, felulirasok::text FROM kozos_felirat_verzio WHERE felulirasok::text ~* ${minta}
   UNION ALL SELECT 'szervezet_felirat_verzio ' || szervezet_id || ' v' || verzio, felulirasok::text FROM szervezet_felirat_verzio WHERE felulirasok::text ~* ${minta}
   ORDER BY 1`;
+/** G6b: aktív (nem felfüggesztett) fiók .example címmel — éles adatbázisban nincs helye (a kirak.sh ugyanezt kérdezi). */
+const AKTIV_PELDA_FIOK_SQL = "SELECT email FROM fiok WHERE email ~* '[.]example$' AND felfuggesztve IS NULL ORDER BY 1";
 function adatbazis(url) {
   const lit = `'${sqlMinta().replace(/'/g, "''")}'`;
   const ki = execFileSync("psql", [url, "-X", "-tA", "-F", "\t", "-v", "ON_ERROR_STOP=1", "-c", FELIRAT_SQL(lit)], { encoding: "utf8" });
   for (const sor of ki.split("\n").filter(Boolean)) { const [hely, ...t] = sor.split("\t"); vizsgal(`db:${hely}`, t.join("\t")); }
+  // G6b: éles adatbázisban nem lehet AKTÍV (nem felfüggesztett) .example fiók — a mintafiókok (0184) felfüggesztve maradnak
+  const fiokok = execFileSync("psql", [url, "-X", "-tA", "-v", "ON_ERROR_STOP=1", "-c", AKTIV_PELDA_FIOK_SQL], { encoding: "utf8" });
+  for (const email of fiokok.split("\n").filter(Boolean)) talalatok.push({ hely: `db:fiok ${email}`, minta: "aktív .example fiók", reszlet: email });
 }
 
 // ---- bejárás ------------------------------------------------------------------------------------------------------------------
@@ -180,7 +185,7 @@ async function bejaras(alap, fiok) {
 if (van("--sql-minta")) { process.stdout.write(sqlMinta()); process.exit(0); }
 let mit;
 if (arg("--kep")) { kep(arg("--kep")); mit = `kép (${arg("--kep")}): ${fajlDb} szövegfájl`; }
-else if (arg("--db")) { adatbazis(arg("--db")); mit = "adatbázis feliratai"; }
+else if (arg("--db")) { adatbazis(arg("--db")); mit = "adatbázis feliratai és fiókjai"; }
 else if (arg("--bejar")) { const n = await bejaras(arg("--bejar"), arg("--fiok")); mit = `bejárás (${arg("--bejar")}): ${n} cím${arg("--fiok") ? ", belépve is" : ", kijelentkezve"}`; }
 else { tarhely(); mit = `tárhely: ${fajlDb} szövegfájl + ${readdirSync(join(GYOKER, "apps/web/adatbazis/migraciok")).length} migráció`; }
 

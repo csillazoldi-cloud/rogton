@@ -1,5 +1,24 @@
 # HANDOFF — Rögtön (newest on top)
 
+## 2026-10-18 G6b — kirak.sh hand-over, egress-restart self-heal, seed accounts retired (branch g6b-javitasok, files only)
+
+- Live defect 1 (deploy ran the OLD kirak.sh): after step 2 the script `cmp -s`-es itself with `$SRC/uzem/kirak.sh` and, if
+  different, `exec`s it once (`KIRAK_UJ=1`: no re-lock — fd 9 survives exec; `KIRAK_NAPLOZVA=1`: no second tee). The new script
+  restarts from the header (step 2 is repeated, idempotent). ~/admin is a DETACHED checkout: manual moves are
+  `git -C ~/admin fetch origin main && git -C ~/admin checkout --detach <sha>`; it still only moves after a fully green deploy.
+  The FIRST G6b deploy still runs the G6 script (it has no hand-over); from then on every deploy runs its own kirak.sh.
+- Live defect 2 (egress restarted in place → app in a dead namespace, 502): `halo_or` now also restarts gma-app when
+  gma-egress `State.StartedAt` > gma-app's, and when egress is `healthy` but `/api/egeszseg` ≠ 200 three times (5 s apart).
+  A broken app (e.g. DB down) is therefore restarted every tick (2 min) — harmless, visible in the log.
+- Live defect 3 (seed accounts active in prod): `0184_g6b_mintafiokok_kivonva.sql` sets `fiok.felfuggesztve` (E-50 convention;
+  login refused, sessions dead) and `rendszergazda=false` on the 3 seed ids (+ email pattern), `ai_engedelyezve=false` on the 2
+  seed orgs. No DELETE (rows stay: RLS tests and `takaritas` use the ids). Measured: no "oldest account becomes admin" code
+  exists; the flag is only set for `RENDSZERGAZDA_EMAIL` when no admin exists — that count now ignores suspended admins.
+- Guards: `tools/tiltott/ellenoriz.mjs --db` and kirak.sh step 6 flag any active `*.example` account (kirak: exit 5).
+- Tests: `g6b-mintafiokok.proba.ts` (7). Full web suite: fail/skip list identical to G5c/G6 (16 known failures). Fake-docker
+  dry run (7 runs: old→G6b, hand-over, self-heal a/b/c, unhealthy-egress no-op): `plan-out/kirak-szaraz-futas-g6b.log`.
+- NOT VERIFIED: hand-over and restart against the real Docker on the Gigabyte; live DB contents (who is admin) — batches 15–16.
+
 ## 2026-10-18 G6 + G7 — WARP egress, network fence, Cloudflare Tunnel (branch g6-g7, files only)
 
 - `gma-egress` = `caomingjun/warp:2026.7.1377.0-2.12.0` (free consumer WARP); `gma-app` has `network_mode: service:egress` (no

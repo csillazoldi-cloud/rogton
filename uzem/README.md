@@ -6,7 +6,7 @@ One compose project `gma` under its own Linux user `gyorsadmin`. Nothing here to
 | What | Where |
 |---|---|
 | user | `gyorsadmin` (docker group, linger; no sudo) |
-| deploy-script checkout | `~/admin` (moved to the live commit after each deploy) |
+| deploy-script checkout | `~/admin` — a DETACHED checkout, moved to the live commit after each successful deploy. By hand: `git -C ~/admin fetch origin main && git -C ~/admin checkout --detach <sha>` (`git pull` fails on a detached HEAD). A deploy whose commit changes `kirak.sh` hands over to the new script by itself (G6b). |
 | data root `GMA_GYOKER` | `~/gma` — `adatok/{postgres,fajlok,album}`, `mentes/` (pre-migration dumps), `uzem-aktiv/` (live config), `forras/<sha12>/` (sources, last 5), `naplo/`, `allapot/`, `_torolni/` |
 | secrets | `~/gma/.env` (mode 600) — template `uzem/.env.pelda` |
 | containers | `gma-db`, `gma-egress` (WARP, G6), `gma-app` (in gma-egress's network namespace), `gma-kepgyar`, `gma-web`, `gma-tunnel` (cloudflared, G7, profile `tunnel`) |
@@ -180,3 +180,19 @@ Output must show: only Cloudflare addresses (104.x / 172.6x.x — never the offi
 
 Last check by hand: on your phone (mobile data) open `gyorsmedia.hu/admin/saas` → PIN mail → the Rögtön login → log in → open
 `https://admin.gyorsmedia.hu/api/belso/cim`: „ahogy_latjuk” must be your phone's public address, not a 172.x address.
+
+## G6b batches — after merging `g6b-javitasok`
+
+**Batch 15 — MAC** (the deploy that brings G6b — watch the hand-over, the seed accounts and the self-heal):
+```bash
+ssh -n gma 'grep -E "kirakás:|átadom neki|lefutott: 0184|fiókok:|kint van|kimenő forgalom|PIROS|MEGÁLL" ~/gma/naplo/kirak-$(date +%Y%m).log | tail -8'
+ssh -n gma "docker exec gma-db psql -U km_tulaj -d km -tAc \"SELECT email, felfuggesztve IS NOT NULL, rendszergazda FROM fiok WHERE email LIKE '%.example' OR rendszergazda ORDER BY 1\""
+```
+Output must show: `a kirak.sh ebben a változatban más — átadom neki`, `lefutott: 0184_g6b_mintafiokok_kivonva`, `fiókok: nincs aktív .example fiók`, `kint van`, `kimenő forgalom: WARP (on)`; the three `@teszt-…example` rows with `t | f` (suspended, not admin) and your own address with `rendszergazda` = `t` (if it is not, log out and back in once: the first-admin rule now ignores suspended admins).
+
+**Batch 16 — MAC** (the restart case that stayed 502 before G6b):
+```bash
+ssh -n gma 'docker restart gma-egress >/dev/null; sleep 5; curl -s -o /dev/null -w "kozvetlenul utana %{http_code}\n" 127.0.0.1:8410/belepes'
+ssh -n gma 'sleep 170; curl -s -o /dev/null -w "3 perc mulva %{http_code}\n" 127.0.0.1:8410/belepes; grep -E "újraindult a gma-app után|nem válaszol" ~/gma/naplo/kirak-$(date +%Y%m).log | tail -1'
+```
+Output must show: `kozvetlenul utana 502` (accepted — the app's namespace died with the restart), then `3 perc mulva 200` and the log line `gma-egress újraindult a gma-app után … — gma-app újraindítása`.

@@ -26,6 +26,12 @@
 # and then the app is re-created right after it. Every timer tick (even with nothing new) also checks that gma-app still sits in
 # the CURRENT gma-egress namespace, and re-creates gma-app if not (e.g. after the egress container restarted on its own).
 #
+# G6b — which kirak.sh runs: the timer starts ~/admin/uzem/kirak.sh, and ~/admin is a DETACHED checkout that moves to the live
+# commit only after a fully successful deploy (manual steps there: `git fetch origin main && git checkout --detach <sha>`; `git pull`
+# fails on a detached HEAD). So right after step 2 this script compares itself with the kirak.sh of the commit being deployed
+# and, if they differ, re-executes that one (once — KIRAK_UJ). A failed deploy leaves ~/admin where it was; the next tick hands
+# over again.
+#
 # Exit codes: 0 live (or nothing new) · 2 lock / fetch / environment · 3 build · 5 guard red (image or DB) · 6 crawl guard red
 #             4 unhealthy, rolled back · 7 unhealthy after migrations, NOT rolled back · 8 backup or migration failed
 #             10 live, but the egress is not on WARP (outbound fetches fail closed until it is)
@@ -49,8 +55,11 @@ mkdir -p "$GMA/naplo" "$GMA/allapot" "$GMA/forras" "$GMA/_torolni" || exit 2
 NAPLO="$GMA/naplo/kirak-$(date +%Y%m).log"
 
 # one deploy at a time; a second timer tick waits up to 10 s, then gives up quietly
-exec 9>"$GMA/allapot/zar"
-flock -w 10 9 || { echo "$(date -Is) egy másik kirakás fut — kihagyom" >> "$NAPLO"; exit 0; }
+# (after a hand-over — KIRAK_UJ — the lock is still held through the inherited fd 9; re-opening the file would deadlock against it)
+if [ -z "${KIRAK_UJ:-}" ]; then
+  exec 9>"$GMA/allapot/zar"
+  flock -w 10 9 || { echo "$(date -Is) egy másik kirakás fut — kihagyom" >> "$NAPLO"; exit 0; }
+fi
 
 [ -f "$ENVF" ] || { echo "MEGÁLL: nincs $ENVF (minta: uzem/.env.pelda)"; exit 2; }
 [ "$(stat -c %a "$ENVF")" = "600" ] || { echo "MEGÁLL: a $ENVF jogosultsága nem 600"; exit 2; }
@@ -59,10 +68,13 @@ SHA=$(git -C "$REPO" rev-parse "origin/$AG") || exit 2
 ID=${SHA:0:12}
 KINT=$(cat "$GMA/allapot/kint" 2>/dev/null || true)
 
-# G6 self-heal (every tick): gma-app must share the namespace of the CURRENT gma-egress container. If egress was re-created or
-# restarted, the app keeps a dead namespace (no network at all — fails closed, but the site is down): re-create the app.
+# G6 self-heal (every tick): gma-app lives in the network namespace of gma-egress. Three ways it can be left in a dead namespace
+# (no network at all — fails closed, but the site answers 502):
+#   a) egress was RE-CREATED (new container id)        → the app is re-created (it must join the new namespace);
+#   b) egress was RESTARTED (same id, new namespace)   → G6b: egress started later than the app → `docker restart gma-app`;
+#   c) anything else: egress is healthy, but the site's health endpoint is not 200 three times in a row → `docker restart gma-app`.
 halo_or() {
-  local kint_dc="$GMA/forras/${KINT:0:12}/uzem/docker-compose.yml" egress app_mod
+  local kint_dc="$GMA/forras/${KINT:0:12}/uzem/docker-compose.yml" egress app_mod e_indult a_indult e_egeszseg kod i
   [ -n "$KINT" ] && [ -f "$kint_dc" ] || return 0
   egress=$(docker inspect -f '{{.Id}}' gma-egress 2>/dev/null) || return 0
   app_mod=$(docker inspect -f '{{.HostConfig.NetworkMode}}' gma-app 2>/dev/null) || return 0
@@ -70,14 +82,33 @@ halo_or() {
   if [ "$app_mod" != "container:$egress" ] || [ "$(docker inspect -f '{{.State.Running}}' gma-app 2>/dev/null)" != "true" ]; then
     echo "$(date -Is) gma-app nincs a mostani gma-egress hálózatában — újraalkotom" >> "$NAPLO"
     docker compose -p gma --env-file "$ENVF" -f "$kint_dc" up -d --no-build --force-recreate app >> "$NAPLO" 2>&1 || true
+    return 0
   fi
+  # b) both timestamps are RFC 3339 in UTC from the same daemon, so a string comparison orders them
+  e_indult=$(docker inspect -f '{{.State.StartedAt}}' gma-egress 2>/dev/null || true)
+  a_indult=$(docker inspect -f '{{.State.StartedAt}}' gma-app 2>/dev/null || true)
+  if [ -n "$e_indult" ] && [ -n "$a_indult" ] && [[ "$e_indult" > "$a_indult" ]]; then
+    echo "$(date -Is) gma-egress újraindult a gma-app után ($e_indult > $a_indult) — gma-app újraindítása" >> "$NAPLO"
+    docker restart gma-app >> "$NAPLO" 2>&1 || true
+    return 0
+  fi
+  # c) the site itself, only when egress reports healthy (otherwise the app is not the problem)
+  e_egeszseg=$(docker inspect -f '{{.State.Health.Status}}' gma-egress 2>/dev/null || true)
+  [ "$e_egeszseg" = "healthy" ] || return 0
+  for i in 1 2 3; do
+    kod=$(curl -s -o /dev/null -w '%{http_code}' --max-time 5 "http://127.0.0.1:8410/api/egeszseg" 2>/dev/null) || true
+    [ "$kod" = "200" ] && return 0
+    [ "$i" -lt 3 ] && sleep 5
+  done
+  echo "$(date -Is) a lap nem válaszol (${kod:-000}), az egress egészséges — gma-app újraindítása" >> "$NAPLO"
+  docker restart gma-app >> "$NAPLO" 2>&1 || true
 }
 halo_or
 
 if [ "$SHA" = "$KINT" ] && [ $KENYSZER -eq 0 ] && [ $PROBA -eq 0 ]; then exit 0; fi
 
-# from here on everything goes to the log as well
-exec > >(tee -a "$NAPLO") 2>&1
+# from here on everything goes to the log as well (unless an older kirak.sh already does that and handed over to us)
+[ -n "${KIRAK_NAPLOZVA:-}" ] || exec > >(tee -a "$NAPLO") 2>&1
 szakasz() { echo; echo "=== $(date '+%F %T') $* ==="; }
 DC=(docker compose -p gma --env-file "$ENVF" -f "$GMA/forras/$ID/uzem/docker-compose.yml")
 szakasz "kirakás: $ID (kint eddig: ${KINT:0:12})"
@@ -88,6 +119,13 @@ SRC="$GMA/forras/$ID"
 if [ ! -f "$SRC/VALTOZAT" ]; then
   mkdir -p "$SRC" && git -C "$REPO" archive --format=tar "$SHA" | tar -x -C "$SRC" || { echo "MEGÁLL: git archive"; exit 2; }
   echo "$SHA" > "$SRC/VALTOZAT"
+fi
+# G6b: the timer runs the kirak.sh of the LIVE checkout (~/admin). If this commit brings a different kirak.sh, hand over to it now,
+# so a deploy always runs with the deploy script of the commit it deploys. KIRAK_UJ guards against a loop; KIRAK_NAPLOZVA tells the
+# new script that the output is already being logged (no second tee).
+if [ -z "${KIRAK_UJ:-}" ] && ! cmp -s "${BASH_SOURCE[0]}" "$SRC/uzem/kirak.sh"; then
+  echo "a kirak.sh ebben a változatban más — átadom neki: $SRC/uzem/kirak.sh"
+  exec env KIRAK_UJ=1 KIRAK_NAPLOZVA=1 REPO="$REPO" GMA_GYOKER="$GMA" bash "$SRC/uzem/kirak.sh" "$@"
 fi
 
 # --- 3. build ------------------------------------------------------------------------------------------------------------------
@@ -143,6 +181,11 @@ SQL
 ) || { echo "MEGÁLL: a feliratok ellenőrzése nem futott"; exit 5; }
 if [ -n "$TALALAT" ]; then echo "PIROS: tiltott szó az adatbázis feliratai között:"; echo "$TALALAT" | head -20; exit 5; fi
 echo "feliratok: 0 találat"
+# G6b: éles adatbázisban nincs AKTÍV .example fiók (a mintafiókokat a 0184 felfüggeszti; egy próbafiók sem maradhat élőben)
+PELDA=$(docker exec gma-db psql -U km_tulaj -d km -tAc "SELECT email FROM fiok WHERE email ~* '[.]example\$' AND felfuggesztve IS NULL") \
+  || { echo "MEGÁLL: a fiókok ellenőrzése nem futott"; exit 5; }
+if [ -n "$PELDA" ]; then echo "PIROS: aktív .example fiók az éles adatbázisban:"; echo "$PELDA" | head -10; exit 5; fi
+echo "fiókok: nincs aktív .example fiók"
 
 # --- 7. switch -------------------------------------------------------------------------------------------------------------------
 szakasz "7. váltás: :aktiv → :elozo, :$ID → :aktiv"

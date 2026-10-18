@@ -1,7 +1,7 @@
 import { randomBytes, createHash, randomUUID } from "node:crypto";
 import { esemenyKornyezet, feljegyezHatterben } from "../esemeny";
 import { hash, verify } from "@node-rs/argon2";
-import { and, count, eq, gt } from "drizzle-orm";
+import { and, count, eq, gt, isNull } from "drizzle-orm";
 import { z } from "zod";
 import {
   BelepesKeres,
@@ -110,7 +110,9 @@ export async function belep(be: unknown): Promise<Eredmeny<{ token: string; leja
   // rendszergazda ad, vagy SQL. Minden ilyen jelölés naplóba kerül.
   const rendszergazdaEmail = process.env["RENDSZERGAZDA_EMAIL"]?.trim().toLowerCase();
   if (rendszergazdaEmail && rendszergazdaEmail === fiokSor.email && !fiokSor.rendszergazda) {
-    const [vanMar] = await db().select({ db: count() }).from(sema.fiok).where(eq(sema.fiok.rendszergazda, true));
+    // G6b (Rögtön): csak az AKTÍV (nem felfüggesztett) rendszergazda számít — egy kivont mintafiók (0184) vagy egy felfüggesztett
+    // régi rendszergazda nem akadályozhatja, hogy a gép gazdája (RENDSZERGAZDA_EMAIL) megkapja a jelölést.
+    const [vanMar] = await db().select({ db: count() }).from(sema.fiok).where(and(eq(sema.fiok.rendszergazda, true), isNull(sema.fiok.felfuggesztve)));
     if (Number(vanMar?.db ?? 0) === 0) {
       await db().update(sema.fiok).set({ rendszergazda: true }).where(eq(sema.fiok.id, fiokSor.id));
       console.warn("RENDSZERGAZDA JELOLES: az elso rendszergazda beallitva a RENDSZERGAZDA_EMAIL alapjan, fiok:", fiokSor.id);
